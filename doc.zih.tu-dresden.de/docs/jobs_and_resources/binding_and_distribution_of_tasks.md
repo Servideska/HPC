@@ -76,8 +76,10 @@ node and odd on each second socket of each node.
 
 ### Core Bound
 
-Note: With this command the tasks will be bound to a core for the entire runtime of your
-application.
+!!! note
+
+    With this command the tasks will be bound to a core for the entire runtime of your
+    application.
 
 #### Distribution: block:block
 
