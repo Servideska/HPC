@@ -32,22 +32,24 @@ and `--distribution` for different job types.
 
 ## OpenMP Strategies
 
-The illustration below shows the default binding of a pure OpenMP-job on a single node with 16 CPUs
+The illustration below shows the default binding of a pure OpenMP job on a single node with 16 CPUs
 on which 16 threads are allocated.
-
-```Bash
-#!/bin/bash
-#SBATCH --nodes=1
-#SBATCH --tasks-per-node=1
-#SBATCH --cpus-per-task=16
-
-export OMP_NUM_THREADS=16
-
-srun --ntasks 1 --cpus-per-task $OMP_NUM_THREADS ./application
-```
 
 ![OpenMP](misc/openmp.png)
 {: align=center}
+
+!!! example "Default binding and default distribution"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --nodes=1
+    #SBATCH --tasks-per-node=1
+    #SBATCH --cpus-per-task=16
+
+    export OMP_NUM_THREADS=16
+
+    srun --ntasks 1 --cpus-per-task $OMP_NUM_THREADS ./application
+    ```
 
 ## MPI Strategies
 
