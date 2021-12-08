@@ -2,7 +2,7 @@
 
 Storage systems differ in terms of capacity, streaming bandwidth, IOPS rate, etc. Price and
 efficiency don't allow to have it all in one. That is why fast parallel filesystems at ZIH have
-restrictions with regards to **age of files** and [quota](quotas.md). The mechanism of workspaces
+restrictions with regards to **age of files** and [quota](permanent.md#quotas). The mechanism of workspaces
 enables users to better manage their HPC data.
 
 The concept of workspaces is common and used at a large number of HPC centers.
