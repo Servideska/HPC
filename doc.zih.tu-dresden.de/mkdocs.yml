@@ -79,7 +79,6 @@ nav:
       - BeeGFS: data_lifecycle/beegfs.md
       - Warm Archive: data_lifecycle/warm_archive.md
       - Intermediate Archive: data_lifecycle/intermediate_archive.md
-      - Quotas: data_lifecycle/quotas.md
     - Workspaces: data_lifecycle/workspaces.md
     - Preservation of Research Data: data_lifecycle/preservation_research_data.md
     - Structuring Experiments: data_lifecycle/experiments.md
@@ -101,7 +100,6 @@ nav:
       - Binding And Distribution Of Tasks: jobs_and_resources/binding_and_distribution_of_tasks.md
   - Support:
     - How to Ask for Support: support/support.md
-    - News Archive: support/news_archive.md
   - Archive of the Old Wiki:
     - Overview: archive/overview.md
     - Bio Informatics: archive/bioinformatics.md
