@@ -158,46 +158,25 @@ example below:
 You can run Jupyter notebooks with Spark on the ZIH systems in a similar way as described on the
 [JupyterHub](../access/jupyterhub.md) page.
 
-### Preparation
-
-If you want to run Spark in Jupyter notebooks, you have to prepare it first. This is comparable
-to [normal Python virtual environments](../software/python_virtual_environments.md#python-virtual-environment).
-You start with an allocation:
-
-```console
-marie@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2500 --time=01:00:00 bash -l
-```
-
-When a node is allocated, install the required packages:
-
-```console
-marie@compute$ cd $HOME
-marie@compute$ mkdir jupyter-kernel
-marie@compute$ module load Python
-marie@compute$ virtualenv --system-site-packages jupyter-kernel/env  #Create virtual environment
-[...]
-marie@compute$ source jupyter-kernel/env/bin/activate    #Activate virtual environment.
-(env) marie@compute$ pip install ipykernel
-[...]
-(env) marie@compute$ python -m ipykernel install --user --name haswell-py3.7-spark --display-name="haswell-py3.7-spark"
-Installed kernelspec haswell-py3.7-spark in [...]
-
-(env) marie@compute$ pip install findspark
-(env) marie@compute$ deactivate
-```
-
-You are now ready to spawn a notebook with Spark.
 
 ### Spawning a Notebook
 
-Assuming that you have prepared everything as described above, you can go to
-[https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
-In the tab "Advanced", go to the field "Preload modules" and select one of the Spark modules. When
-your Jupyter instance is started, check whether the kernel that you created in the preparation
-phase (see above) is shown in the top right corner of the notebook. If it is not already selected,
-select the kernel `haswell-py3.7-spark`. Then, you can set up Spark. Since the setup in the
-notebook requires more steps than in an interactive session, we have created an example notebook
-that you can use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.ipynb)
+Go to [https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
+In the tab "Advanced", go to the field "Preload modules" and select the following Spark module:
+
+```
+Spark/3.0.1-Hadoop-2.7-Java-1.8-Python-3.7.4-GCCcore-8.3.0
+```
+
+When your Jupyter instance is started, you can set up Spark. Since the setup in the notebook 
+requires more steps than in an interactive session, we have created an example notebook that you can
+use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.ipynb)
+
+!!! warning
+
+    This notebook only works with the Spark module mentioned above. When using other Spark modules,
+    it is possible that you have to do additional or other steps in order to make Spark running.
+
 
 !!! note
 
