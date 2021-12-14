@@ -242,7 +242,6 @@ You can run Jupyter notebooks with Spark on the ZIH systems in a similar way as 
 [JupyterHub](../access/jupyterhub.md) page. Interaction of Flink with JupyterHub is currently
 under examination and will be posted here upon availability.
 
-
 ### Spawning a Notebook
 
 Go to [https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
@@ -252,7 +251,7 @@ In the tab "Advanced", go to the field "Preload modules" and select the followin
 Spark/3.0.1-Hadoop-2.7-Java-1.8-Python-3.7.4-GCCcore-8.3.0
 ```
 
-When your Jupyter instance is started, you can set up Spark. Since the setup in the notebook 
+When your Jupyter instance is started, you can set up Spark. Since the setup in the notebook
 requires more steps than in an interactive session, we have created an example notebook that you can
 use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.ipynb)
 
@@ -260,7 +259,6 @@ use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.
 
     This notebook only works with the Spark module mentioned above. When using other Spark modules,
     it is possible that you have to do additional or other steps in order to make Spark running.
-
 
 !!! note
 

@@ -1,7 +1,7 @@
 # Apache Flink
 
 [Apache Flink](https://flink.apache.org/) is a framework for processing and integrating Big Data.
-It offers a similar API as [Apache Spark](big_data_frameworks_spark.md), but is more appropriate
+It offers a similar API as [Apache Spark](big_data_frameworks.md), but is more appropriate
 for data stream processing. You can check module versions and availability with the command:
 
 ```console
@@ -158,12 +158,10 @@ example below:
     [workspaces](../data_lifecycle/workspaces.md) for your study and work projects**. For this
     reason, you have to use advanced options of Jupyterhub and put "/" in "Workspace scope" field.
 
-    
 ## Jupyter Notebook
 
 You can run Jupyter notebooks with Flink on the ZIH systems in a similar way as described on the
 [JupyterHub](../access/jupyterhub.md) page.
-
 
 ### Spawning a Notebook
 
@@ -173,8 +171,8 @@ In the tab "Advanced", go to the field "Preload modules" and select the followin
 ```
 Flink/1.12.3-Java-1.8.0_161-OpenJDK-Python-3.7.4-GCCcore-8.3.0
 ```
-    
-When your Jupyter instance is started, you can set up Flink. Since the setup in the notebook 
+
+When your Jupyter instance is started, you can set up Flink. Since the setup in the notebook
 requires more steps than in an interactive session, we have created an example notebook that you can
 use as a starting point for convenience: [FlinkExample.ipynb](misc/FlinkExample.ipynb)
 
@@ -182,7 +180,7 @@ use as a starting point for convenience: [FlinkExample.ipynb](misc/FlinkExample.
 
     This notebook only works with the Flink module mentioned above. When using other Flink modules,
     it is possible that you have to do additional or other steps in order to make Flink running.
-    
+
 !!! note
 
     You could work with simple examples in your home directory, but, according to the
@@ -190,7 +188,6 @@ use as a starting point for convenience: [FlinkExample.ipynb](misc/FlinkExample.
     [workspaces](../data_lifecycle/workspaces.md) for your study and work projects**. For this
     reason, you have to use advanced options of Jupyterhub and put "/" in "Workspace scope" field.
 
-    
 ## FAQ
 
 Q: Command `source framework-configure.sh hadoop
