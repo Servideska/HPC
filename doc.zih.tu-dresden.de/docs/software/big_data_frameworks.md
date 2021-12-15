@@ -237,7 +237,7 @@ example below:
 
 ## Jupyter Notebook
 
-You can run Jupyter notebooks with Spark and Flink on the ZIH systems in a similar way as described 
+You can run Jupyter notebooks with Spark and Flink on the ZIH systems in a similar way as described
 on the [JupyterHub](../access/jupyterhub.md) page.
 
 ### Spawning a Notebook
@@ -255,11 +255,10 @@ module:
     Flink/1.12.3-Java-1.8.0_161-OpenJDK-Python-3.7.4-GCCcore-8.3.0
     ```
 
-
 When your Jupyter instance is started, you can set up Spark/Flink. Since the setup in the notebook
 requires more steps than in an interactive session, we have created example notebooks that you can
-use as a starting point for convenience: 
-[SparkExample.ipynb](misc/SparkExample.ipynb), 
+use as a starting point for convenience:
+[SparkExample.ipynb](misc/SparkExample.ipynb),
 [FlinkExample.ipynb](misc/FlinkExample.ipynb)
 
 !!! warning
