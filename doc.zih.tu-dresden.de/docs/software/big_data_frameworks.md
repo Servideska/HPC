@@ -257,14 +257,13 @@ module:
 
 When your Jupyter instance is started, you can set up Spark/Flink. Since the setup in the notebook
 requires more steps than in an interactive session, we have created example notebooks that you can
-use as a starting point for convenience:
-[SparkExample.ipynb](misc/SparkExample.ipynb),
+use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.ipynb),
 [FlinkExample.ipynb](misc/FlinkExample.ipynb)
 
 !!! warning
 
-    The notebooks only work with the Spark or Flink module mentioned above. When using other 
-    Spark/Flink modules, it is possible that you have to do additional or other steps in order to 
+    The notebooks only work with the Spark or Flink module mentioned above. When using other
+    Spark/Flink modules, it is possible that you have to do additional or other steps in order to
     make Spark/Flink running.
 
 !!! note
