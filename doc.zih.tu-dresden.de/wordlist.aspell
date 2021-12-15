@@ -81,6 +81,7 @@ filesystem
 filesystems
 flink
 Flink
+FlinkExample
 FMA
 foreach
 Fortran
@@ -137,6 +138,7 @@ init
 inode
 IOPS
 IPs
+ipynb
 ISA
 Itanium
 jobqueue
@@ -304,6 +306,7 @@ Slurm
 SLURMCluster
 SMP
 SMT
+SparkExample
 squeue
 srun
 ssd
