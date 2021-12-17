@@ -39,4 +39,4 @@ Postanschrift: Archivstraße 1, 01097 Dresden
 E-Mail: <info.behindertenbeauftragter@sk.sachsen.de>  
 Telefon: +49 351 564-12161  
 Fax: +49 351 564-12169  
-Webseite: [https://www.inklusion.sachsen.de](https://www.inklusion.sachsen.de)
+Webseite: [https://www.sk.sachsen.de/landesinklusionsbeauftragter.html](https://www.sk.sachsen.de/landesinklusionsbeauftragter.html)
