@@ -83,6 +83,7 @@ nav:
     - Workspaces: data_lifecycle/workspaces.md
     - Preservation of Research Data: data_lifecycle/preservation_research_data.md
     - Structuring Experiments: data_lifecycle/experiments.md
+    - Sharing Data: data_lifecycle/data_sharing.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
