@@ -262,20 +262,27 @@ There might be cases where root privileges are needed for installation.
 	The central update cycle for software on the ZIH HPC system occurs approximately every six months.
 
 ## Running a Job
-###### Interactive vs Batch Job Running 
-Now you will need to choose between running a job [interactively](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#interactive-jobs)(real time execution) or choosing to submit a [batch job](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#batch-jobs)(later, scheduled execution). For beginners, we highly advise to run the job interactively.
+
+Since all computational resources are shared with other users, in order to allocate them you need
+to interact with the so-called scheduler or a batch system. On the ZIH system it is [Slurm](https://slurm.schedmd.com/quickstart.html).
+It is possible to run a job [interactively](../jobs_and_resources/slurm.md#interactive-jobs)
+(real time execution) or to submit a [batch job](../jobs_and_resources/slurm.md#batch-jobs) 
+(scheduled execution). For beginners, we highly advise to run the job interactively.
 
 To do so, use the `srun` command:
 
-```console
-marie$local$ srun [options] <command>
+```bash
+marie@login$ srun [options] <executable> [arguments]
 ```
-Here, some of the options can be the partition you would like to work on, `partition`, the number of tasks `ntasks`, number of CPUs per task `cpus-per-task`, the amount of time you would like to keep this interactive session open `time`, memory per CPU `mem-per-cpu` and others. See [here](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#interactive-jobs) for more info. 
+
+Here, among the other options it is possible to define a partition you would like to work on
+(`--partition`), the number of tasks (`--ntasks`), number of CPUs per task (`--cpus-per-task`),
+the amount of time you would like to keep this interactive session open (`--time`), memory per 
+CPU (`--mem-per-cpu`) and many others. See [Slurm documentation](../jobs_and_resources/slurm.md#interactive-jobs)
+for more details. 
 
 ```console
-marie$local$ srun --pty --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 bash -l
+marie@login$ srun --partition=haswell --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 --pty bash -l
 ```
-You can also choose to work on a specific [partition](https://doc.zih.tu-dresden.de/jobs_and_resources/hardware_overview/)
 
-
-Now, you can start interactive work with e.g. 4 cores
+The `srun` call will allocate 4 cores for an interactive job.
