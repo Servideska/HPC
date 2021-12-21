@@ -55,7 +55,7 @@ ZIH systems comprises different sets of nodes with different amount of installed
 where your job may be run. To achieve the shortest possible waiting time for your jobs, you should
 be aware of the limits shown in the following table.
 
-??? hint "Partitions and memory limits"
+???+ hint "Partitions and memory limits"
 
     | Partition          | Nodes                                    | # Nodes | Cores per Node  | MB per Core | MB per Node | GPUs per Node     |
     |:-------------------|:-----------------------------------------|:--------|:----------------|:------------|:------------|:------------------|
