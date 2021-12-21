@@ -1,9 +1,11 @@
+# Getting Started
+
 This page is intended to provide the most important parts of starting to work on the ZIH High Performance Computing (HPC) system.
 Especially to new users, this page is a map of the compendium as it provides an overview about the most relevant topics and it will direct to the corredponding detailed articles within the compendium. 
 
 When you are new to HPC, start with the introductory article about HPC at [https://hpc-wiki.info/hpc/Getting_Started](https://hpc-wiki.info/hpc/Getting_Started).
 
-# Before You Start
+## Before You Start
 
 The ZIH HPC system is a linux system (same as most HPC systems), some basic linux knowledge is therefore needed at certain points. 
 Users who are [new to linux can find here](https://hpc-wiki.info/hpc/Shell) a collection of the most important linux commands needed on the ZIH HPC system.
@@ -13,7 +15,7 @@ To work on the ZIH HPC system and to follow the instructions on this page as wel
 
 Throughout this example we use `marie@login` as an indication of working on the ZIH HPC command line and `marie@local` as working on your own local machine's command line. 
 
-# Application for login and resources
+## Application for login and resources
 
 To use the ZIH HPC system, an ZIH HPC login is needed, which is different from the ZIH login (which members of the TU Dresden have), but has the same credentials. 
 
@@ -30,20 +32,29 @@ An HPC project on the ZIH HPC system includes:
 * project members (at least admin and manager)
 * resource quotas for compute time (CPU/GPU hours) and storage
 
-# Accessing the ZIH HPC system
+One important aspect for HPC projects is a collaborative working style (research groups, student groups for teaching purposes). Thus, granting appropriate file permissions and creating a unified and consistent software environment for multiple users is essential.
+This aspect is considered for all the following recommendations.
+
+HPC projects can be broken down into two core parts:
+
+1. [link] Data: input data, source code, scripts, ouptut data, calculation results, logfiles
+2. [link] Software  
+
+
+## Accessing the ZIH HPC system
 
 There are different ways to access the ZIH HPC system. Depending on the user's needs and previous knowledge, these are the different possiblities: 
 
-1. JupyterHub: browser based approach, easiest way for beginners (more info [here](https://doc.zih.tu-dresden.de/access/jupyterhub/)) 
-2. ssh connection (command line/terminal/console): "classical" approach,  command line knowledge neccesary (more info [here](https://doc.zih.tu-dresden.de/access/ssh_login/))
-3. Desktop Visualisation, Graphical User Interfaces (GUIs) and similar: e.g. Ansys, Vampir.
+* JupyterHub: browser based approach, easiest way for beginners (more info [here](https://doc.zih.tu-dresden.de/access/jupyterhub/)) 
+* ssh connection (command line/terminal/console): "classical" approach,  command line knowledge neccesary (more info [here](https://doc.zih.tu-dresden.de/access/ssh_login/))
+* Desktop Visualisation, Graphical User Interfaces (GUIs) and similar: e.g. Ansys, Vampir.
 
 	??? hint "Availability of different software"
 		
 		The most easiest way to find information about software on the ZIH system (e.g. Ansys, LS-DYNA, Abaqus) is available, just use the search field in the [compendium](https://doc.zih.tu-dresden.de/).
 
 
-## 1.  JupyterHub
+### JupyterHub
 Access JupyterHub here [https://taurus.hrsk.tu-dresden.de/jupyter](). 
 Start by clicking on the `Start my server` button and you will see two Spawner Options, `Simple` and `Advanced`. 
 
@@ -66,7 +77,7 @@ See [here](../../access/jupyterhub/) for more information.
 More information on JupyterHub can be found [here](../../access/jupyterhub/).
 
 
-## 2. ssh Connection (Command Line)
+### SSH Connection (Command Line)
 
 ??? hint "Windows users"
 
@@ -80,43 +91,12 @@ marie$local$ ssh marie@taurus.hrsk.tu-dresden.de
 
 We suggest creating an SSH key pair by following the [instructions here](../../access/ssh_login/#before-your-first-connection).
 
-
----
-###### Interactive vs Batch Job Running 
-Now you will need to choose between running a job [interactively](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#interactive-jobs)(real time execution) or choosing to submit a [batch job](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#batch-jobs)(later, scheduled execution). For beginners, we highly advise to run the job interactively.
-
-To do so, use the `srun` command:
-
-```console
-marie$local$ srun [options] <command>
-```
-Here, some of the options can be the partition you would like to work on, `partition`, the number of tasks `ntasks`, number of CPUs per task `cpus-per-task`, the amount of time you would like to keep this interactive session open `time`, memory per CPU `mem-per-cpu` and others. See [here](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#interactive-jobs) for more info. 
-
-```console
-marie$local$ srun --pty --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 bash -l
-```
-You can also choose to work on a specific [partition](https://doc.zih.tu-dresden.de/jobs_and_resources/hardware_overview/)
-
-
-Now, you can start interactive work with e.g. 4 cores
-
-## 3. Graphical Applications and GUIs
+### Graphical Applications and GUIs
 
 See [here](https://doc.zih.tu-dresden.de/software/virtual_desktops/) for more details.
 
-# Running a Job: Structure of HPC projects
 
-When starting a project, please have in mind some basics of research data mangagment to easier publish and archive a project according to the [FAIR principles](https://www.go-fair.org/fair-principles/).
-
-One important aspect for HPC projects is a collaborative working style (research groups, student groups for teaching purposes). Thus, granting appropriate file permissions and creating a unified and consistent software environment for multiple users is essential.
-This aspect is considered for all the following recommendations.
-
-HPC projects can be broken down into two core parts:
-
-1. Data: input data, source code, scripts, ouptut data, calculation results, logfiles
-2. Software  
-
-## 1. Data: Management and Transfer
+## Data Management and Data Transfer
 
 There are different areas for storing your data on the ZIH HPC system, called [Filesystems](https://doc.zih.tu-dresden.de/data_lifecycle/file_systems/). You will need to create a [workspace](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/) for your data (see example below) on one of these Filesystems. Otherwise your data will be automatically stored on your `/home/` directory which has limited capacity.
 
@@ -214,7 +194,8 @@ For more information on how to move files of different sizes from the local mach
 	If you are planning to move terabytes or even more from an outside machine into the ZIH system, please contact the ZIH HPC support in advance.
 
 
-## 2. Software: environment
+
+## Software Environment
 
 Now that you have your data on the ZIH HPC system or know where you will store the results data, you would like to start running your job. 
 
@@ -280,3 +261,21 @@ There might be cases where root privileges are needed for installation.
 	the Python (and other) package ecosystem is very heterogeneous and dynamic, with, often, daily updates. 
 	The central update cycle for software on the ZIH HPC system occurs approximately every six months.
 
+## Running a Job
+###### Interactive vs Batch Job Running 
+Now you will need to choose between running a job [interactively](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#interactive-jobs)(real time execution) or choosing to submit a [batch job](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#batch-jobs)(later, scheduled execution). For beginners, we highly advise to run the job interactively.
+
+To do so, use the `srun` command:
+
+```console
+marie$local$ srun [options] <command>
+```
+Here, some of the options can be the partition you would like to work on, `partition`, the number of tasks `ntasks`, number of CPUs per task `cpus-per-task`, the amount of time you would like to keep this interactive session open `time`, memory per CPU `mem-per-cpu` and others. See [here](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#interactive-jobs) for more info. 
+
+```console
+marie$local$ srun --pty --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 bash -l
+```
+You can also choose to work on a specific [partition](https://doc.zih.tu-dresden.de/jobs_and_resources/hardware_overview/)
+
+
+Now, you can start interactive work with e.g. 4 cores
