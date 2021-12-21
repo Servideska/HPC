@@ -1,15 +1,17 @@
 This page is intended to provide the most important parts of starting to work on the ZIH High Performance Computing (HPC) system.
+Especially to new users, this page is a map of the compendium as it provides an overview about the most relevant topics and it will direct to the corredponding detailed articles within the compendium. 
+
 When you are new to HPC, start with the introductory article about HPC at [https://hpc-wiki.info/hpc/Getting_Started](https://hpc-wiki.info/hpc/Getting_Started).
 
 # Before You Start
 
 The ZIH HPC system is a linux system (same as most HPC systems), some basic linux knowledge is therefore needed at certain points. 
-Users who are [new to linux can find here](../link/to/page_with_most_important_commands) a collection of the most important linux commands needed on the ZIH HPC system.
+Users who are [new to linux can find here](https://hpc-wiki.info/hpc/Shell) a collection of the most important linux commands needed on the ZIH HPC system.
 
-To work on the ZIH HPC system and to follow the iinstructions on this page as well as other Compendium pages, it is important to be familiar with the [basic terminology](https://hpc-wiki.info/hpc/HPC-Dictionary) such as 
+To work on the ZIH HPC system and to follow the instructions on this page as well as other Compendium pages, it is important to be familiar with the [basic terminology](https://hpc-wiki.info/hpc/HPC-Dictionary) such as 
 [ssh](https://hpc-wiki.info/hpc/SSH), [cluster](https://hpc-wiki.info/hpc/HPC-Dictionary#Cluster), [login node](https://hpc-wiki.info/hpc/HPC-Dictionary#Login_Node), [compute node](https://hpc-wiki.info/hpc/HPC-Dictionary#Backend_Node), [local and shared file system](https://hpc-wiki.info/hpc/HPC-Dictionary#File_System), [command line (cli) or shell](https://hpc-wiki.info/hpc/Shell).
 
-Thrughout this example we use `marie@login` as an indication of working on the ZIH HPC command line and `marie@local` as working on your own local machine's command line. 
+Throughout this example we use `marie@login` as an indication of working on the ZIH HPC command line and `marie@local` as working on your own local machine's command line. 
 
 # Application for login and resources
 
@@ -18,9 +20,10 @@ To use the ZIH HPC system, an ZIH HPC login is needed, which is different from t
 To work on the ZIH HPC system, there are two possibilities: 
 
 * create a [new project](https://doc.zih.tu-dresden.de/application/project_request_form/)
-* join an existing project: e.g. new researchers in an existing project, teaching purposes. The details will be provided to you by the project admin. 
+* join an existing project: e.g. new researchers in an existing project, students in projects for teaching purposes. The details will be provided to you by the project admin. 
 
-This is because the system is structured by these HPC projects. An HPC project on the ZIH HPC system includes:
+The ZIH HPC system is structured by so-called HPC projects. 
+An HPC project on the ZIH HPC system includes:
 
 * project directory
 * project group
@@ -31,55 +34,43 @@ This is because the system is structured by these HPC projects. An HPC project o
 
 There are different ways to access the ZIH HPC system. Depending on the user's needs and previous knowledge, these are the different possiblities: 
 
-1. JupyterHub (**recommended**): browser based approach, easiest way for beginners (more info [here](https://doc.zih.tu-dresden.de/access/jupyterhub/)) 
+1. JupyterHub: browser based approach, easiest way for beginners (more info [here](https://doc.zih.tu-dresden.de/access/jupyterhub/)) 
 2. ssh connection (command line/terminal/console): "classical" approach,  command line knowledge neccesary (more info [here](https://doc.zih.tu-dresden.de/access/ssh_login/))
-3. Desktop Visualisaiton, Graphical User Interfaces (GUIs) and similar: e.g. Ansys, Vampir.
+3. Desktop Visualisation, Graphical User Interfaces (GUIs) and similar: e.g. Ansys, Vampir.
+
+	??? hint "Availability of different software"
+		
+	The most easiest way to find information about software on the ZIH system (e.g. Ansys, LS-DYNA, Abaqus) is available, just use the search field in the [compendium](https://doc.zih.tu-dresden.de/).
+
 
 ## 1.  JupyterHub
-Access JupyterHub here [https://taurus.hrsk.tu-dresden.de/jupyter](). Start by clicking on the `Start my server` button and you will see two Spawner Options, `Simple` and `Advanced`. More information [here](https://doc.zih.tu-dresden.de/access/jupyterhub/).
+Access JupyterHub here [https://taurus.hrsk.tu-dresden.de/jupyter](). 
+Start by clicking on the `Start my server` button and you will see two Spawner Options, `Simple` and `Advanced`. 
 
-#### Simple
-The `Simple` view offers a limited selection of parameters to choose from. It is aimed towards simple projects and beginner users. For a simple start, the parameters are pre-chosen, therefore you can just click `Spawn`:
-![Simple form](doc.zih.tu-dresden.de/docs/access/misc/simple_form.png)
- You will be working in your `/home/` directory as opposed to a specific workspace (see *Data: Management and Transfer* section below for more details). You will see:
+The `Simple` view offers a limited selection of parameters to choose from. 
+It is aimed towards simple projects and beginner users. 
+For a simple start, choose according to the gray fields in the image, then click `Spawn`:
+![Simple form](misc/jupyterhub-simple.png)
+You will be working in your `/home/` directory as opposed to a specific workspace (see *Data: Management and Transfer* section below for more details). 
+You will see:
+![Spawning](misc/jupyterhub-spawning.png)
+
+Once it loads, you will see the possibility between opening a `Notebook`, `Console` or `Other`. 
+See [here](https://doc.zih.tu-dresden.de/access/jupyterhub/) for more information. 
  
- <div align="center">
-`Your server is starting up. 
- You will be redirected automatically when it's ready for you.`
-</div>
-
-
-Once it loads, you will see the possibility between opening a `Notebook`, `Console` or `Other`. See [here](https://doc.zih.tu-dresden.de/access/jupyterhub/) for more information. 
+!!! warning "Stopping session on JupyterHub"
+	
+Once you are done with your work on the ZIH HPC system, explicitely stop the session by logging out by clicking `File` -> `Log Out`.
+Alternatively, choose `File` -> `Hub control panel` -> `Stop server`.
  
- Once you are done with your work on the ZIH HPC system for the day, stop the session by logging out through by clicking `File` and then `Log Out`.
- 
-#### Advanced
-If you are more advanced and would like to have more choice in the parameters, see `Advanced` view. Here you can choose the partition you want to work on, preload modules (see section *2. Software: Environment* below), select which workspace (see *Data: Management and Transfer* section below) you will be working in, etc.:
-![Advanced form](doc.zih.tu-dresden.de/docs/access/misc/advanced_form.png)
+More information on JupyterHub can be found [here](https://doc.zih.tu-dresden.de/access/jupyterhub/).
 
-Once you are done with your work for the day, stop the session by logging out through by clicking `File` and then `Log Out`.
 
-## 2. ssh Connection (Command  Line)
-
+## 2. ssh Connection (Command Line)
 
 ##### [Before 1<sup>st</sup> connection](https://doc.zih.tu-dresden.de/access/ssh_login/)
-We suggest creating an SSH key pair on your local machine. Open the command line and type in the following (`marie` is you in this schenario):
+We suggest creating an SSH key pair by following the [instructions here](https://doc.zih.tu-dresden.de/access/ssh_login/#before-your-first-connection).
 
-```console
-marie@local$ makdir -p ~/.ssh  
-marie@local$ ssh-keygen -t ed25519 -f ~7.ssh/id_ed25519
-Generating passphrase (empty for no passphrase):
-Enter same passphrase again:
-[...]
-```
-Type in a passphrase for the protection of your key. The passphrase should be **non-empty**. Copy the public key to the ZIH system and replace `marie` with your ZIH login: 
-
-```console
-marie@local$ ssh-copy-id -i ~/.ssh/id_ed25519.pub marie@taurus.hrsk.tu-dresden.de
-The authenticity of host 'taurus.hrsk.tu-dresden.de (141.30.73.104)' can't be established.
-RSA key fingerprint is SHA256:HjpVeymTpk0rqoc8Yvyc8d9KXQ/p2K0R8TJ27aFnIL8.
-Are you sure you want to continue connecting (yes/no)?
-```
 ##### First and Subsequent Connections
 ```console
 marie$local$ ssh marie@taurus.hrsk.tu-dresden.de
