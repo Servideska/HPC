@@ -101,6 +101,8 @@ nav:
   - Support:
     - How to Ask for Support: support/support.md
     - News Archive: support/news_archive.md
+  - Training:
+    - Getting Started: training/getting_started.md
   - Archive of the Old Wiki:
     - Overview: archive/overview.md
     - Bio Informatics: archive/bioinformatics.md

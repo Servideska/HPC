@@ -40,7 +40,7 @@ There are different ways to access the ZIH HPC system. Depending on the user's n
 
 	??? hint "Availability of different software"
 		
-	The most easiest way to find information about software on the ZIH system (e.g. Ansys, LS-DYNA, Abaqus) is available, just use the search field in the [compendium](https://doc.zih.tu-dresden.de/).
+		The most easiest way to find information about software on the ZIH system (e.g. Ansys, LS-DYNA, Abaqus) is available, just use the search field in the [compendium](https://doc.zih.tu-dresden.de/).
 
 
 ## 1.  JupyterHub
@@ -55,26 +55,31 @@ You will be working in your `/home/` directory as opposed to a specific workspac
 You will see:
 ![Spawning](misc/jupyterhub-spawning.png)
 
-Once it loads, you will see the possibility between opening a `Notebook`, `Console` or `Other`. 
-See [here](https://doc.zih.tu-dresden.de/access/jupyterhub/) for more information. 
+After successful loading, you will see the possibility between opening a `Notebook`, `Console` or `Other`. 
+See [here](../../access/jupyterhub/) for more information. 
  
-!!! warning "Stopping session on JupyterHub"
-	
-Once you are done with your work on the ZIH HPC system, explicitely stop the session by logging out by clicking `File` -> `Log Out`.
-Alternatively, choose `File` -> `Hub control panel` -> `Stop server`.
+!!! caution "Stopping session on JupyterHub"	
+
+    Once you are done with your work on the ZIH HPC system, explicitely stop the session by logging out by clicking `File` -> `Log Out`.
+    Alternatively, choose `File` -> `Hub control panel` -> `Stop server`.
  
-More information on JupyterHub can be found [here](https://doc.zih.tu-dresden.de/access/jupyterhub/).
+More information on JupyterHub can be found [here](../../access/jupyterhub/).
 
 
 ## 2. ssh Connection (Command Line)
 
-##### [Before 1<sup>st</sup> connection](https://doc.zih.tu-dresden.de/access/ssh_login/)
-We suggest creating an SSH key pair by following the [instructions here](https://doc.zih.tu-dresden.de/access/ssh_login/#before-your-first-connection).
+??? hint "Windows users"
+
+	Windows users need an ssh-client as e.g. MobaXterm, see the instructions [here](../../access/ssh_login/#connecting-from-windows).
+
 
 ##### First and Subsequent Connections
 ```console
 marie$local$ ssh marie@taurus.hrsk.tu-dresden.de
 ```
+
+We suggest creating an SSH key pair by following the [instructions here](../../access/ssh_login/#before-your-first-connection).
+
 
 ---
 ###### Interactive vs Batch Job Running 
