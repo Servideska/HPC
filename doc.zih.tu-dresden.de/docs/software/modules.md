@@ -179,6 +179,55 @@ module (with version) as the parameter.
     ----------------------------------------------------------------------------------------------------------------------------------------------------------
     ```
 
+In some cases a desired software is available as an extension of a module.
+
+??? example
+    ```console  hl_lines="9"
+    marie@login$ module spider tensorboard
+
+    --------------------------------------------------------------------------------------------------------------------------------
+    tensorboard:
+    --------------------------------------------------------------------------------------------------------------------------------
+    Versions:
+        tensorboard/2.4.1 (E)
+
+    Names marked by a trailing (E) are extensions provided by another module.
+
+
+    --------------------------------------------------------------------------------------------------------------------------------
+    For detailed information about a specific "tensorboard" package (including how to load the modules) use the module's full name.
+    Note that names that have a trailing (E) are extensions provided by other modules.
+    For example:
+
+    $ module spider tensorboard/2.4.1
+    --------------------------------------------------------------------------------------------------------------------------------
+
+
+
+    marie@login$  module spider tensorboard/2.4.1
+
+    --------------------------------------------------------------------------------------------------------------------------------
+    tensorboard: tensorboard/2.4.1 (E)
+    --------------------------------------------------------------------------------------------------------------------------------
+    This extension is provided by the following modules. To access the extension you must load one of the following modules. Note that any module names in parentheses show the module location in the software hierarchy.
+
+        TensorFlow/2.4.1 (modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5)
+        TensorFlow/2.4.1-fosscuda-2019b-Python-3.7.4 (modenv/ml)
+        TensorFlow/2.4.1-foss-2020b (modenv/scs5)
+
+    Names marked by a trailing (E) are extensions provided by another module.
+    marie@login$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5
+
+    The following have been reloaded with a version change:
+        1) modenv/scs5 => modenv/hiera
+
+    Module GCC/10.2.0, CUDA/11.1.1, OpenMPI/4.0.5 and 15 dependencies loaded.
+    marie@login$ module load TensorFlow/2.4.1
+    Module TensorFlow/2.4.1 and 34 dependencies loaded.
+    marie@login$ tensorboard --version
+    2.4.1
+    ```
+
 ## Per-Architecture Builds
 
 Since we have a heterogeneous cluster, we do individual builds of some of the software for each
