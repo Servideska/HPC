@@ -302,7 +302,8 @@ For additional information refer to the detailed documentation on [modules](../s
 
 !!! hint "Special hints on different software"
 	
-  	Special hints on different software can be found for [Python](), [R](), ...
+  	Special hints on different software can be found for [Python](../software/data_analytics_with_python.md),
+    [R](../software/data_analytics_with_r.md), [Mathematica/MatLab](../software/mathematics.md), ...
 
 !!! hint "Hint on Python packages"
 
@@ -316,7 +317,8 @@ For additional information refer to the detailed documentation on [modules](../s
 ## Running a Job
 
 Since all computational resources are shared with other users, in order to allocate them you need
-to interact with the so-called scheduler or a batch system. On the ZIH system it is [Slurm](https://slurm.schedmd.com/quickstart.html).
+to interact with the so-called scheduler or a batch system. On the ZIH system it is 
+[Slurm](https://slurm.schedmd.com/quickstart.html).
 It is possible to run a job [interactively](../jobs_and_resources/slurm.md#interactive-jobs)
 (real time execution) or to submit a [batch job](../jobs_and_resources/slurm.md#batch-jobs) 
 (scheduled execution). For beginners, we highly advise to run the job interactively.
