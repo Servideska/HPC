@@ -43,15 +43,22 @@ HPC projects can be broken down into two core parts:
 
 ## Accessing the ZIH HPC system
 
+!!! caution "Accessability of the ZIH HPC system"
+	
+	The ZIH HPC system can be accessed only within the data net of the TU Dresden.
+	Access from outside is possible by establishing a VPN connection (find [VPN connection details for OpenVPN here](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4)).
+
 There are different ways to access the ZIH HPC system. Depending on the user's needs and previous knowledge, these are the different possiblities: 
 
 * JupyterHub: browser based approach, easiest way for beginners (more info [here](https://doc.zih.tu-dresden.de/access/jupyterhub/)) 
 * ssh connection (command line/terminal/console): "classical" approach,  command line knowledge neccesary (more info [here](https://doc.zih.tu-dresden.de/access/ssh_login/))
-* Desktop Visualisation, Graphical User Interfaces (GUIs) and similar: e.g. Ansys, Vampir.
+* Desktop Visualisation, Graphical User Interfaces (GUIs) and similar: e.g. commercial software as Ansys, LS-DYNA.
 
-	??? hint "Availability of different software"
+	!!! hint "Desktop visiualisation for commercial software"
 		
-		The most easiest way to find information about software on the ZIH system (e.g. Ansys, LS-DYNA, Abaqus) is available, just use the search field in the [compendium](https://doc.zih.tu-dresden.de/).
+		In the following the desktop visualisation is not demonstrated. 		
+		To find information about available commercial software on the ZIH system (e.g. Ansys, LS-DYNA, Abaqus) just use the search field in the [compendium](https://doc.zih.tu-dresden.de/).
+
 
 
 ### JupyterHub
@@ -62,6 +69,7 @@ The `Simple` view offers a limited selection of parameters to choose from.
 It is aimed towards simple projects and beginner users. 
 For a simple start, choose according to the gray fields in the image, then click `Spawn`:
 ![Simple form](misc/jupyterhub-simple.png)
+
 You will be working in your `/home/` directory as opposed to a specific workspace (see *Data: Management and Transfer* section below for more details). 
 You will see:
 ![Spawning](misc/jupyterhub-spawning.png)
@@ -79,94 +87,79 @@ More information on JupyterHub can be found [here](../../access/jupyterhub/).
 
 ### SSH Connection (Command Line)
 
-??? hint "Windows users"
+The more "classical" way to work with HPC is based on the command line. 
+Linux users simply need to open a terminal/shell and type
+```console
+marie@local$ ssh marie@taurus.hrsk.tu-dresden.de
+```
+
+After typing your password you end up with something like in the following image.
+
+![Successful ssh login](misc/ssh-success-login.png)
+
+!!! hint "Windows users"
 
 	Windows users need an ssh-client as e.g. MobaXterm, see the instructions [here](../../access/ssh_login/#connecting-from-windows).
 
+??? hint "Using ssh key pair"
 
-##### First and Subsequent Connections
-```console
-marie$local$ ssh marie@taurus.hrsk.tu-dresden.de
-```
-
-We suggest creating an SSH key pair by following the [instructions here](../../access/ssh_login/#before-your-first-connection).
-
-### Graphical Applications and GUIs
-
-See [here](https://doc.zih.tu-dresden.de/software/virtual_desktops/) for more details.
-
+	We suggest creating an ssh key pair by following the [instructions here](../../access/ssh_login/#before-your-first-connection).
+	Using an ssh key pair is benefical for security reasons, although it is not necessary to work with the ZIH HPC system. 
 
 ## Data Management and Data Transfer
 
-There are different areas for storing your data on the ZIH HPC system, called [Filesystems](https://doc.zih.tu-dresden.de/data_lifecycle/file_systems/). You will need to create a [workspace](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/) for your data (see example below) on one of these Filesystems. Otherwise your data will be automatically stored on your `/home/` directory which has limited capacity.
+There are different areas for storing your data on the ZIH HPC system, called [Filesystems](https://doc.zih.tu-dresden.de/data_lifecycle/file_systems/). 
+You will need to create a [workspace](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/) for your data (see example below) on one of these Filesystems. 
 
-Every filesystem has its own properties (available space/capacity, storage time limit, permission rights). Therefore, choose the one that fits your project best. To start we recommend **Lustre - scratch**:
+Every filesystem has its own properties (available space/capacity, storage time limit, permission rights). Therefore, choose the one that fits your project best. 
+To start we recommend the filesystem **Lustre - scratch**:
 
-----
-**Example: Creating a Workspace on Scratch**
+??? example "Creating a Workspace on Scratch Filesystem"
+	The following command creates a workspace 
 
-```console
-marie@login$ ws_allocate -F scratch -r 7 -m marie.testuser@tu-dresden.de test-workspace 90
-Info: creating workspace.
-/scratch/ws/marie-test-workspace
-remaining extensions  : 10
-remaining time in days: 90
-```
+	* command: `ws_allocate` 
+	* on the scratch filesystem: `-F scratch`
+	* with the name: `test-workspace` 
+	* a life time of `90` days
+	* an email is sent to marie.testuser@tu-dresden.de 7 days before expiration: `-r 7 -m marie.testuser@tu-dresden.de`
 
-As you can see, this takes the form:
+	```console
+	marie@login$ ws_allocate -F scratch -r 7 -m marie.testuser@tu-dresden.de test-workspace 90
+	Info: creating workspace.
+	/scratch/ws/marie-test-workspace
+	remaining extensions  : 10
+	remaining time in days: 90
+	```
+	You can refer to this workspace using the path `/scratch/ws/marie-test-workspace`.
 
-```console
-marie@login$ ws_allocate -F filesystem [options] workspace_name duration
+Find more [information on workspaces in the compendium](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/).
 
-Options:
-  -h [ --help]               produce help message
-  -V [ --version ]           show version
-  -d [ --duration ] arg (=1) duration in days
-  -n [ --name ] arg          workspace name
-  -F [ --filesystem ] arg    filesystem
-  -r [ --reminder ] arg      reminder to be sent n days before expiration
-  -m [ --mailaddress ] arg   mailaddress to send reminder to (works only with tu-dresden.de mails)
-  -x [ --extension ]         extend workspace
-  -u [ --username ] arg      username
-  -g [ --group ]             group workspace
-  -c [ --comment ] arg       comment
-```
+Transferring data to, from and within the ZIH HPC system depends on the data volume. 
+We distinguish small data (up to 100 MB) and medium and large data volume (above 100 MB).
 
-----
-
-
-See [workspaces](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/) for more details.
-
-Transferring data to, from and within the ZIH HPC system is realized by the following approaches, depending on the data volume: 
-
-##### 1. Small data volume (only a few megabytes): Using `scp`, `wget`, or `cp` in the commandline of your local machine 
-
-__*Example on how to move files from local macine to the ZIH HPC system*__
-
-1. Linux
-```console
-marie$local$ scp /home/marie/Documents/example1.R marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/
-Password:
-example1.R                                                     100%  312    32.2KB/s   00:00`` 
-```
-
-As you can see, this takes the form:
-```console
-marie$local$ scp File_directory_on_local_machine/file_name HPC_user_name@taurusexport.hrsk.tu-dresden.de:/your_workspace_directory/
-Password:
-example1.R                                                     100%  312    32.2KB/s   00:00`` 
-```
-
-__*Example on how to move files to the local macine from the ZIH HPC system*__
-
-```console
-marie$local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/results home/marie/Documents/
-```
-
-2.  More so for Linux-based systems, *SSHFS* (a command-line tool for safely mounting a remote folder from a server to a local machine) can be used to mount user home, project home or workspace within the local folder structure. Data can be transferred directly with drag and drop in your local file explorer. Moreover, this approach makes it possible to edit files with your common editors and tools on the local machine.
+??? example "Copy a file between local machine and the ZIH HPC system (small data)"
+	For transferring a small data volume (up to 100 MB) use `scp` on the commandline.
+	
+	* Copy the file `example1.R` **from your local machine to a workspace** on the ZIH system.
+		```console
+		marie@local$ scp /home/marie/Documents/example1.R marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/
+		Password:
+		example1.R                                                     100%  312    32.2KB/s   00:00`` 
+		```
+	* Copy the file `results.csv` **from a workspace on the ZIH system to your local machine**.
+		```console
+		marie$local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/marie-test-workspace/results.csv home/marie/Documents/
+		```
+	
+	Find [here more details on the scp command](http://bropages.org/scp).
 
 
-3.  Windows users can apply the step-by=step procedure as indicated [here] (../../data_transfer/export_nodes/#access-from-windows).
+2. More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote folder from a server to a local machine) can be used to mount user home, project home or workspaces within the local folder structure. 
+Data can be transferred directly with drag and drop in your local file explorer. 
+Moreover, this approach makes it possible to edit files with your common editors and tools on the local machine.
+
+
+3. Windows users can apply the step-by-step procedure as indicated [here] (../../data_transfer/export_nodes/#access-from-windows).
 
 
 ##### Medium and high data volume (hundreds of megabytes up to gigabytes and beyond): using data mover `dtcp`, `dtls`, `dtmv`, `dtrm`, `dtrsync`, `dttar`, and `dtwget` (details [can be found here](../data_transfer/datamover.md))
@@ -182,14 +175,14 @@ marie@login$ dtcp -r /scratch/ws/0/your_workspace/ /projects/p_marie/.
 
 For more information on how to move files of different sizes from the local machine to the ZIH HPC system, within the ZIH HPC system, how to archive them, what to avoid and other information, see [here](https://hpc-wiki.zih.tu-dresden.de/data_transfer/datamover/). 
 
-!!! caution "Permission rights are crucial in a collaborative setting"
+??? caution "Permission rights are crucial in a collaborative setting"
 
 	By default workspaces are accessible only for the user who created the workspace.
 	Files created by a user in the project directory have read-only access for other group members by default.
 	Therefore, the correct file permissions must be configured (using `chmod` and `chgrp`) for all files in the project home and the workspaces that should be fully accessible (read, write, execute) to your collaborator group.
 	A first overview on users and permissions in linux can be found [here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
 
-!!! note
+!!! caution 
 
 	If you are planning to move terabytes or even more from an outside machine into the ZIH system, please contact the ZIH HPC support in advance.
 
@@ -198,8 +191,6 @@ For more information on how to move files of different sizes from the local mach
 ## Software Environment
 
 Now that you have your data on the ZIH HPC system or know where you will store the results data, you would like to start running your job. 
-
-
 
 
 For this you will be using some form of Software. There are different options to work with software on the ZIH HPC system: **modules**, **JupyterHub** and **containers** (more info [here](https://hpc-wiki.zih.tu-dresden.de/software/overview/).  
