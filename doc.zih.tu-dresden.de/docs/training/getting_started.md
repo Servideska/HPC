@@ -197,13 +197,13 @@ For more information on how to move files of different sizes from the local mach
 
 ## Software Environment
 
-Now that you have your data on the ZIH HPC system or know where you will store the results data, you would like to start running your job. 
+The [software](../software/overview.md) on ZIH system is not installed system-wide, but is provided
+within the so-called [modules](../software/modules.md). In order to use specific software you need
+to "load" the respective module.
 
-
-
-
-For this you will be using some form of Software. There are different options to work with software on the ZIH HPC system: **modules**, **JupyterHub** and **containers** (more info [here](https://hpc-wiki.zih.tu-dresden.de/software/overview/).  
-Please note that different partitions might have available different versions of the same software. 
+!!! note
+    
+    Different partitions might have available different versions of the same software. 
 
 **Examples**
 For checking available modules: 
