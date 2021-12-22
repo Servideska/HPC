@@ -205,61 +205,113 @@ to "load" the respective module.
     
     Different partitions might have available different versions of the same software. 
 
-**Examples**
-For checking available modules: 
-* over all module environments (here we ): 
-```console 
-marie@login$ module spider python 
-python:
-----------------------------------------------------------------------------
-     Versions:
-        python/3.3.0
-		...
-        python/3.4.3-scipy
-        python/3.6-anaconda4.4.0
-     Other possible modules matches:
-        Biopython  Boost.Python  GitPython  IPython  Python  PythonAnaconda  ...
+Use `module spider <software>` command to check all available versions of the software.
 
-----------------------------------------------------------------------------
+```console 
+marie@login$ module spider Python 
+--------------------------------------------------------------------------------------------------------------------------------
+  Python:
+--------------------------------------------------------------------------------------------------------------------------------
+    Description:
+      Python is a programming language that lets you work more quickly and integrate your systems more effectively.
+
+     Versions:
+        Python/2.7.14-foss-2018a
+        Python/2.7.14-GCCcore-6.4.0-bare
+        Python/2.7.14-gsolf-2018a
+        [...]
+        Python/3.8.2-GCCcore-9.3.0
+        Python/3.8.2
+        Python/3.8.6-GCCcore-10.2.0
+        Python/3.8.6
+        Python/3.9.5-bare
+        Python/3.9.5
+     Other possible modules matches:
+        Biopython  Boost.Python  GitPython  IPython  PythonAnaconda  flatbuffers-python  netcdf4-python  protobuf-python  python
+
+--------------------------------------------------------------------------------------------------------------------------------
   To find other possible module matches execute:
 
-      $ module -r spider '.*python.*'
+      $ module -r spider '.*Python.*'
 
-----------------------------------------------------------------------------
-  For detailed information about a specific "python" package (including how to load the modules) use the module's full name.
+--------------------------------------------------------------------------------------------------------------------------------
+  For detailed information about a specific "Python" package (including how to load the modules) use the module's full name.
   Note that names that have a trailing (E) are extensions provided by other modules.
   For example:
 
-     $ module spider python/3.6-anaconda4.4.0
-----------------------------------------------------------------------------
+     $ module spider Python/3.9.5
+--------------------------------------------------------------------------------------------------------------------------------
 ```
-Here we see the list of verions of Python that are available. To load a specific version (in the example below we choose `python/3.3.0`), check what modules you need to load before loading it:
+
+Here we see the list of versions of Python that are available.
+To get information on a specific module, use `module spider <software>/<version>` call.
+
+```console  hl_lines="9 10 11"
+marie@login$ module spider Python/3.9.5
+--------------------------------------------------------------------------------------------------------------------------------
+  Python: Python/3.9.5
+--------------------------------------------------------------------------------------------------------------------------------
+    Description:
+      Python is a programming language that lets you work more quickly and integrate your systems more effectively.
+
+
+    You will need to load all module(s) on any one of the lines below before the "Python/3.9.5" module is available to load.
+
+      modenv/hiera  GCCcore/10.3.0
+
+    This module provides the following extensions:
+
+      alabaster/0.7.12 (E), appdirs/1.4.4 (E), asn1crypto/1.4.0 (E), atomicwrites/1.4.0 (E), attrs/21.2.0 (E), Babel/2.9.1 (E), bcrypt/3.2.0 (E), bitstring/3.1.7 (E), blist/1.3.6 (E), CacheControl/0.12.6 (E), cachy/0.3.0 (E), certifi/2020.12.5 (E), cffi/1.14.5 (E), chardet/4.0.0 (E), cleo/0.8.1 (E), click/7.1.2 (E), clikit/0.6.2 (E), colorama/
+      [...]
+
+    Help:
+      Description
+      ===========
+      Python is a programming language that lets you work more quickly and integrate your systems
+       more effectively.
+
+
+      More information
+      ================
+       - Homepage: https://python.org/
+
+
+      Included extensions
+      ===================
+      alabaster-0.7.12, appdirs-1.4.4, asn1crypto-1.4.0, atomicwrites-1.4.0,
+      attrs-21.2.0, Babel-2.9.1, bcrypt-3.2.0, bitstring-3.1.7, blist-1.3.6,
+      [...]
+```
+
+In some cases it is required to load additional modules before loading a desired software.
+It is indicated with the highlighted lines in the example above.
+
 ```console 
-marie@login$ module spider python/3.3.0 #check
-marie@login$ module load modenv/classic #load preprequisites
-marie@login$ module load python/3.3.0 #load version of interest
+marie@login$ module load modenv/hiera  GCCcore/10.3.0  # load prerequisites
+
+The following have been reloaded with a version change:
+  1) modenv/scs5 => modenv/hiera
+
+Module GCCcore/10.3.0 loaded.
+
+marie@login$ module load Python/3.9.5   # load desired version of software
+Module Python/3.9.5 and 11 dependencies loaded.
 ```
 
-* within module environment only: 
-```console 
-module avail python 
-```
+For additional information refer to the detailed documentation on [modules](../software/modules.md)
 
-If there are not all needed sofware packages available in the module system it is possible to install most packages by the user (see [here](https://doc.zih.tu-dresden.de/software/custom_easy_build_environment/) for more details. 
-Depending on the software there might be different possiblities. 
-
-There might be cases where root privileges are needed for installation. 
-
-??? hint "Special hints on different software"
+!!! hint "Special hints on different software"
 	
-	Special hints on different software can be found for [Python](), [R](), ...
+  	Special hints on different software can be found for [Python](), [R](), ...
 
-??? hint "Hint on Python packages"
+!!! hint "Hint on Python packages"
 
-	The usage of virtual environments and, therefore, the usage of workspaces is recommended, especially for Python.
-	Please check out the module system, even for specific Python packages, e.g. tqdm, torchvision, tensorboard, etc. to get a better idea of what is available to you.
-	the Python (and other) package ecosystem is very heterogeneous and dynamic, with, often, daily updates. 
-	The central update cycle for software on the ZIH HPC system occurs approximately every six months.
+  	The usage of virtual environments and, therefore, the usage of workspaces is recommended,
+    especially for Python. Please check out the module system, even for specific Python packages,
+    e.g. `tqdm`, `torchvision`, `tensorboard`, etc. to get a better idea of what is available 
+    to you. The Python (and other) package ecosystem is very heterogeneous and dynamic, with,
+    often, daily updates. The central update cycle for software on the ZIH HPC system occurs
+    approximately every six months.
 
 ## Running a Job
 
