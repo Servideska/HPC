@@ -26,7 +26,7 @@ instrumentation. In addition to the access methods of phase one, users
 will also be able to access the measurements through a C API to get the
 full temporal and spatial resolution, as outlined below:
 
--   ** Blade:**1 kSa/s for the whole node, includes both sockets, DRAM,
+-   **Blade:** 1 kSa/s for the whole node, includes both sockets, DRAM,
     SSD, and other on-board consumers. Since the system is directly
     water cooled, no cooling components are included in the blade
     consumption.
@@ -61,7 +61,7 @@ measurements, and 5 % for voltage regulator (CPU, DDR) measurements.
 ## Command Line Interface
 
 The HDEEM infrastructure can be controlled through command line tools
-that are made available by loading the **hdeem** module. They are
+that are made available by loading the module `hdeem`. They are
 commonly used on the node under test to start, stop, and query the
 measurement device.
 
@@ -89,61 +89,70 @@ that are part of the current job.
 
 For 1 Sa/s Blade values (Dataheap):
 
--   [Score-P](ScoreP): use the module **`scorep-dataheap`**
--   [VampirTrace](VampirTrace): use the module
-    **vampirtrace-plugins/power-1.1**
+-   [Score-P](scorep.md): use the module `scorep-dataheap`
+-   [VampirTrace](../archive/vampirtrace.md): use the module
+    `vampirtrace-plugins/power-1.1`
 
 For 1000 Sa/s (Blade) and 100 Sa/s (CPU{0,1}, DDR{AB,CD,EF,GH}):
 
--   [Score-P](ScoreP): use the module **\<span
-    class="WYSIWYG_TT">scorep-hdeem\</span>**\<br />Note: %ENDCOLOR%This
-    module requires a recent version of "scorep/sync-...". Please use
-    the latest that fits your compiler & MPI version.**\<br />**
--   [VampirTrace](VampirTrace): not supported
+-   [Score-P](scorep.md): use the module `scorep-hdeem`
+
+!!! note
+    This module requires a recent version of `scorep/sync-...`.
+    Please use the latest that fits your compiler & MPI version.
+
+-   [VampirTrace](../archive/vampirtrace.md): not supported
 
 By default, the modules are set up to record the power data for the
 nodes they are used on. For further information on how to change this
 behavior, please use module show on the respective module.
 
-    # Example usage with gcc
-    % module load scorep/trunk-2016-03-17-gcc-xmpi-cuda7.5
-    % module load scorep-dataheap
-    % scorep gcc application.c -o application
-    % srun ./application
+??? hint "Example usage with `gcc`"
+    ```console
+    marie@login$ module load modenv/classic
+    marie@login$ module load scorep/trunk-2016-03-17-gcc-xmpi-cuda7.5
+    marie@login$ module load scorep-dataheap
+    marie@login$ scorep gcc application.c -o application
+    marie@login$ srun ./application
+    ```
 
 Once the application is finished, a trace will be available that allows
 you to correlate application functions with the component power
-consumption of the parallel application. Note: For energy measurements,
-only tracing is supported in Score-P/VampirTrace. The modules therefore
-disables profiling and enables tracing, please use [Vampir](Vampir) to
-view the trace.
+consumption of the parallel application.
 
-\<img alt="demoHdeem_high_low_vampir_3.png" height="262"
-src="%ATTACHURL%/demoHdeem_high_low_vampir_3.png" width="695" />
+!!! note
+    For energy measurements, only tracing is supported in Score-P/VampirTrace.
+    The modules therefore disables profiling and enables tracing,
+    please use [Vampir](vampir.md) to view the trace.
 
-%RED%Note<span class="twiki-macro ENDCOLOR"></span>: the power
-measurement modules **`scorep-dataheap`** and **`scorep-hdeem`** are
-dynamic and only need to be loaded during execution. However,
-**`scorep-hdeem`** does require the application to be linked with a
-certain version of Score-P.
+![Energy measurements in Vampir](misc/energy_measurements-vampir.png)
+{: align="center"}
 
-By default,** `scorep-dataheap`**records all sensors that are available.
+
+!!! note
+    The power measurement modules `scorep-dataheap` and `scorep-hdeem` are
+    dynamic and only need to be loaded during execution.
+    However, `scorep-hdeem` does require the application to be linked with
+    a certain version of Score-P.
+
+By default, `scorep-dataheap` records all sensors that are available.
 Currently this is the total node consumption and for Phase II the CPUs.
-**`scorep-hdeem`** also records all available sensors (node, 2x CPU, 4x
+`scorep-hdeem` also records all available sensors (node, 2x CPU, 4x
 DDR) by default. You can change the selected sensors by setting the
-environment variables:
+following environment variables:
 
-    # For HDEEM
-    % export SCOREP_METRIC_HDEEM_PLUGIN=Blade,CPU*
-    # For Dataheap
-    % export SCOREP_METRIC_DATAHEAP_PLUGIN=localhost/watts
+??? hint "For HDEEM"
+    `export SCOREP_METRIC_HDEEM_PLUGIN=Blade,CPU*`
+    
+??? hint "For Dataheap"
+    `export SCOREP_METRIC_DATAHEAP_PLUGIN=localhost/watts`
 
 For more information on how to use Score-P, please refer to the
-[respective documentation](ScoreP).
+[respective documentation](scorep.md).
 
 ## Access Using Slurm Tools
 
-[Slurm](Slurm) maintains its own database of job information, including
+[Slurm](../jobs_and_resources/slurm.md) maintains its own database of job information, including
 energy data. There are two main ways of accessing this data, which are
 described below.
 
@@ -154,21 +163,21 @@ consumed by a job and its job steps. The Slurm tool `sacct` allows users
 to query post-mortem energy data for any past job or job step by adding
 the field `ConsumedEnergy` to the `--format` parameter:
 
-    $&gt; sacct --format="jobid,jobname,ntasks,submit,start,end,ConsumedEnergy,nodelist,state" -j 3967027
-           JobID    JobName   NTasks              Submit               Start                 End ConsumedEnergy        NodeList      State 
-    ------------ ---------- -------- ------------------- ------------------- ------------------- -------------- --------------- ---------- 
-    3967027            bash          2014-01-07T12:25:42 2014-01-07T12:25:52 2014-01-07T12:41:20                    taurusi1159  COMPLETED 
-    3967027.0         sleep        1 2014-01-07T12:26:07 2014-01-07T12:26:07 2014-01-07T12:26:18              0     taurusi1159  COMPLETED 
-    3967027.1         sleep        1 2014-01-07T12:29:06 2014-01-07T12:29:06 2014-01-07T12:29:16          1.67K     taurusi1159  COMPLETED 
-    3967027.2         sleep        1 2014-01-07T12:33:25 2014-01-07T12:33:25 2014-01-07T12:33:36          1.84K     taurusi1159  COMPLETED 
-    3967027.3         sleep        1 2014-01-07T12:34:06 2014-01-07T12:34:06 2014-01-07T12:34:11          1.09K     taurusi1159  COMPLETED 
-    3967027.4         sleep        1 2014-01-07T12:38:03 2014-01-07T12:38:03 2014-01-07T12:39:44         18.93K     taurusi1159  COMPLETED  
+```console
+marie@login$ sacct --format="jobid,jobname,ntasks,submit,start,end,ConsumedEnergy,nodelist,state" -j 3967027
+       JobID    JobName   NTasks              Submit               Start                 End ConsumedEnergy        NodeList      State 
+------------ ---------- -------- ------------------- ------------------- ------------------- -------------- --------------- ---------- 
+3967027            bash          2014-01-07T12:25:42 2014-01-07T12:25:52 2014-01-07T12:41:20                    taurusi1159  COMPLETED 
+3967027.0         sleep        1 2014-01-07T12:26:07 2014-01-07T12:26:07 2014-01-07T12:26:18              0     taurusi1159  COMPLETED 
+3967027.1         sleep        1 2014-01-07T12:29:06 2014-01-07T12:29:06 2014-01-07T12:29:16          1.67K     taurusi1159  COMPLETED 
+3967027.2         sleep        1 2014-01-07T12:33:25 2014-01-07T12:33:25 2014-01-07T12:33:36          1.84K     taurusi1159  COMPLETED 
+3967027.3         sleep        1 2014-01-07T12:34:06 2014-01-07T12:34:06 2014-01-07T12:34:11          1.09K     taurusi1159  COMPLETED 
+3967027.4         sleep        1 2014-01-07T12:38:03 2014-01-07T12:38:03 2014-01-07T12:39:44         18.93K     taurusi1159  COMPLETED  
+```
 
 The job consisted of 5 job steps, each executing a sleep of a different
 length. Note that the ConsumedEnergy metric is only applicable to
 exclusive jobs.
-
-### 
 
 ### Slurm Energy Profiling
 
@@ -183,60 +192,45 @@ the data fields in the file can be found
 general, the data files contain samples of the current **power**
 consumption on a per-second basis:
 
-    $&gt; srun -p sandy --acctg-freq=2,energy=1 --profile=energy  sleep 10 
-    srun: job 3967674 queued and waiting for resources
-    srun: job 3967674 has been allocated resources
-    $&gt; h5dump /scratch/profiling/jschuch/3967674_0_taurusi1073.h5
-    [...]
-                   DATASET "Energy_0000000002 Data" {
-                      DATATYPE  H5T_COMPOUND {
-                         H5T_STRING {
-                            STRSIZE 24;
-                            STRPAD H5T_STR_NULLTERM;
-                            CSET H5T_CSET_ASCII;
-                            CTYPE H5T_C_S1;
-                         } "Date_Time";
-                         H5T_STD_U64LE "Time";
-                         H5T_STD_U64LE "Power";
-                         H5T_STD_U64LE "CPU_Frequency";
-                      }
-                      DATASPACE  SIMPLE { ( 1 ) / ( 1 ) }
-                      DATA {
-                      (0): {
-                            "",
-                            1389097545,  # timestamp
-                            174,         # power value
-                            1
-                         }
-                      }
-                   }
-
-## 
+```console
+marie@login$ srun -p haswell --acctg-freq=2,energy=1 --profile=energy sleep 10 
+srun: job 22759768 queued and waiting for resources
+srun: job 22759768 has been allocated resources
+marie@login$ h5dump /scratch/profiling/marie/22759768_0_taurusi6587.h5
+[...]
+      DATASET "Energy" {
+         DATATYPE  H5T_COMPOUND {
+            H5T_STD_U64LE "ElapsedTime";
+            H5T_STD_U64LE "EpochTime";
+            H5T_STD_U64LE "NodePower";
+            H5T_STD_U64LE "BMCTimestamp";
+         }
+         DATASPACE  SIMPLE { ( 11 ) / ( H5S_UNLIMITED ) }
+         DATA {
+         (0): {
+               0,
+               1640240373,
+               88,
+               1640240373145285
+            },
+[...]
+``` 
 
 ## Using the HDEEM C API
 
-Note: Please specify -p haswell --exclusive along with your job request
-if you wish to use hdeem.
+!!! note 
+    Please specify `-p haswell --exclusive` along with your job request
+    if you wish to use hdeem.
 
-Please download the offical documentation at \<font face="Calibri"
-size="2"> [\<font
-color="#0563C1">\<u>http://www.bull.com/download-hdeem-library-reference-guide\</u>\</font>](http://www.bull.com/download-hdeem-library-reference-guide)\</font>
+Please download the offical documentation at [https://tu-dresden.de/zih/forschung/ressourcen/dateien/projekte/hdeem/HDEEM-Library-Reference-Guide.pdf?lang=de](https://tu-dresden.de/zih/forschung/ressourcen/dateien/projekte/hdeem/HDEEM-Library-Reference-Guide.pdf?lang=de).
 
-The HDEEM headers and sample code are made available via the hdeem
-module. To find the location of the hdeem installation use
+The HDEEM header and sample code are locally installed on the nodes.
 
-    % module show hdeem
-    ------------------------------------------------------------------- 
-    /sw/modules/taurus/libraries/hdeem/2.1.9ms: 
+??? hint "HDEEM header location"
+    `/usr/include/hdeem.h`
 
-    conflict         hdeem  
-    module-whatis    Load hdeem version 2.1.9ms  
-    prepend-path     PATH /sw/taurus/libraries/hdeem/2.1.9ms/include  
-    setenv           HDEEM_ROOT /sw/taurus/libraries/hdeem/2.1.9ms 
-    -------------------------------------------------------------------
-
-You can find an example of how to use the API under
-\<span>$HDEEM_ROOT/sample.\</span>
+??? hint "HDEEM sample location"
+    `/usr/share/hdeem/sample/`
 
 ## Access Using the Dataheap Infrastructure
 
@@ -258,8 +252,9 @@ of `nodename/watts`, e.g., `taurusi1073/watts`. Further metrics might
 already be available or might be added in the future for which
 information is available upon request.
 
-**Note**: The dataheap infrastructure can only be accessed from inside
-the university campus network.
+!!! note
+    The dataheap infrastructure can only be accessed from inside
+    the university campus network.
 
 ### Using the Python Interface
 
@@ -267,44 +262,45 @@ The module `dataheap/1.0` provides a Python module that can be used to
 query the data in the Dataheap for personalized data analysis. The
 following is an example of how to use the interface:
 
-    import time
-    import os
-    from dhRequest import dhClient
+```python
+import time
+import os
+from dhRequest import dhClient
 
-    # Connect to the dataheap manager
-    dhc = dhClient()
-    dhc.connect(os.environ['DATAHEAP_MANAGER_ADDR'], int(os.environ['DATAHEAP_MANAGER_PORT']))
+# Connect to the dataheap manager
+dhc = dhClient()
+dhc.connect(os.environ['DATAHEAP_MANAGER_ADDR'], int(os.environ['DATAHEAP_MANAGER_PORT']))
 
-    # take timestamps
-    tbegin = dhc.getTimeStamp() 
-    # workload
-    os.system("srun -n 6 a.out")
-    tend   = dhc.getTimeStamp()
+# take timestamps
+tbegin = dhc.getTimeStamp() 
+# workload
+os.system("srun -n 6 a.out")
+tend   = dhc.getTimeStamp()
 
-    # wait for the data to get to the
-    # dataheap
-    time.sleep(5)
+# wait for the data to get to the
+# dataheap
+time.sleep(5)
 
-    # replace this with name of the node the job ran on
-    # Note: use multiple requests if the job used multiple nodes
-    countername = "taurusi1159/watts"
+# replace this with name of the node the job ran on
+# Note: use multiple requests if the job used multiple nodes
+countername = "taurusi1159/watts"
 
-    # query the dataheap
-    integral = dhc.storageRequest("INTEGRAL(%d,%d,\"%s\", 0)"%(tbegin, tend, countername))
-    # Remember: timestamps are stored in millisecond UNIX timestamps
-    energy   = integral/1000
+# query the dataheap
+integral = dhc.storageRequest("INTEGRAL(%d,%d,\"%s\", 0)"%(tbegin, tend, countername))
+# Remember: timestamps are stored in millisecond UNIX timestamps
+energy   = integral/1000
 
-    print energy
+print energy
 
-    timeline = dhc.storageRequest("TIMELINE(%d,%d,\"%s\", 0)"%(tbegin, tend, countername))
+timeline = dhc.storageRequest("TIMELINE(%d,%d,\"%s\", 0)"%(tbegin, tend, countername))
 
-    # output a list of all timestamp/power-value pairs
-    print timeline
+# output a list of all timestamp/power-value pairs
+print timeline
+```
 
 ## More information and Citing
 
-More information can be found in the paper \<a
-href="<http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7016382>"
-title="HDEEM Paper E2SC 2014">HDEEM: high definition energy efficiency
-monitoring\</a> by Hackenberg et al. Please cite this paper if you are
+More information can be found in the paper 
+[HDEEM: high definition energy efficiency monitoring](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7016382)
+by Daniel Hackenberg et al. Please cite this paper if you are
 using HDEEM for your scientific work.
