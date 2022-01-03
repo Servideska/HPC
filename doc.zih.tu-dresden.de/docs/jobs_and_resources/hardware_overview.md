@@ -1,6 +1,6 @@
-# ZIH Systems
+# HPC Resources
 
-ZIH systems comprises the *High Performance Computing and Storage Complex* and its
+HPC resources in ZIH systems comprises the *High Performance Computing and Storage Complex* and its
 extension *High Performance Computing – Data Analytics*. In total it offers scientists
 about 60,000 CPU cores and a peak performance of more than 1.5 quadrillion floating point
 operations per second. The architecture specifically tailored to data-intensive computing, Big Data

@@ -1,4 +1,4 @@
-# Long-term Preservation for Research Data
+# Preservation for Research Data
 
 ## Why should research data be preserved?
 

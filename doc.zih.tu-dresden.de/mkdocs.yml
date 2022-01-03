@@ -2,21 +2,21 @@ nav:
   - Home: index.md
   - Application for Login and Resources:
     - Overview: application/overview.md
-    - Terms: application/terms_of_use.md
+    - Terms of Use: application/terms_of_use.md
     - Request for Resources: application/request_for_resources.md
     - Project Request Form: application/project_request_form.md
     - Project Management: application/project_management.md
   - Access to ZIH Systems:
     - Overview: access/overview.md
     - Connecting with SSH: access/ssh_login.md
-    - Desktop Visualization: access/desktop_cloud_visualization.md
+    - Desktop Cloud Visualization (DCV): access/desktop_cloud_visualization.md
     - Graphical Applications with WebVNC: access/graphical_applications_with_webvnc.md
     - JupyterHub:
       - JupyterHub: access/jupyterhub.md
       - JupyterHub for Teaching: access/jupyterhub_for_teaching.md
     - Key Fingerprints: access/key_fingerprints.md  
     - Security Restrictions: access/security_restrictions.md
-  - Transfer of Data:
+  - Data Transfer:
     - Overview: data_transfer/overview.md
     - Datamover: data_transfer/datamover.md
     - Export Nodes: data_transfer/export_nodes.md
@@ -24,8 +24,8 @@ nav:
     - Overview: software/overview.md
     - Environment:
       - Modules: software/modules.md
-      - Private Modulefiles: software/private_modules.md
-      - Custom EasyBuild Modules: software/custom_easy_build_environment.md
+      - Private Modules: software/private_modules.md
+      - EasyBuild Modules: software/custom_easy_build_environment.md
       - Python Virtual Environments: software/python_virtual_environments.md
       - ZSH: software/zsh.md
     - Containers:
@@ -35,9 +35,9 @@ nav:
       - Virtual Machines: software/virtual_machines.md
       - NGC Containers: software/ngc_containers.md
     - Applications:
-      - Licenses: software/licenses.md
+      - External Licenses: software/licenses.md
       - Computational Fluid Dynamics (CFD): software/cfd.md
-      - Mathematics: software/mathematics.md
+      - Mathematics Applications: software/mathematics.md
       - Nanoscale Simulations: software/nanoscale_simulations.md
       - FEM Software: software/fem_software.md
     - Visualization: software/visualization.md
@@ -62,7 +62,7 @@ nav:
       - Building Software: software/building_software.md
       - Compilers: software/compilers.md
       - GPU Programming: software/gpu_programming.md
-      - Libraries: software/math_libraries.md
+      - Mathematics Libraries: software/math_libraries.md
       - Debugging: software/debuggers.md
       - MPI Error Detection: software/mpi_usage_error_detection.md
       - Score-P: software/scorep.md
@@ -75,9 +75,9 @@ nav:
     - Overview: data_lifecycle/overview.md
     - Filesystems:
       - Overview: data_lifecycle/file_systems.md
-      - Permanent File Systems: data_lifecycle/permanent.md
-      - Lustre: data_lifecycle/lustre.md
-      - BeeGFS: data_lifecycle/beegfs.md
+      - Permanent Filesystems: data_lifecycle/permanent.md
+      - Lustre Filesystems: data_lifecycle/lustre.md
+      - BeeGFS Filesystems: data_lifecycle/beegfs.md
       - Warm Archive: data_lifecycle/warm_archive.md
       - Intermediate Archive: data_lifecycle/intermediate_archive.md
     - Workspaces: data_lifecycle/workspaces.md
@@ -87,7 +87,7 @@ nav:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
       - Overview: jobs_and_resources/hardware_overview.md
-      - AMD Rome Nodes: jobs_and_resources/rome_nodes.md
+      - Island 7 - AMD Rome Nodes: jobs_and_resources/rome_nodes.md
       - IBM Power9 Nodes: jobs_and_resources/power9.md
       - NVMe Storage: jobs_and_resources/nvme_storage.md
       - Alpha Centauri: jobs_and_resources/alpha_centauri.md
@@ -126,7 +126,7 @@ nav:
     - VampirTrace: archive/vampirtrace.md
     - Windows Batchjobs: archive/windows_batch.md
   - Contribute:
-    - How-To: contrib/howto_contribute.md
+    - How-To Contribute: contrib/howto_contribute.md
     - Content Rules: contrib/content_rules.md
     - Browser-based Editing: contrib/contribute_browser.md
     - Work Locally Using Containers: contrib/contribute_container.md

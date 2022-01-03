@@ -1,4 +1,4 @@
-# Partitions, Memory and Run Time Limits
+# Partitions and Limits
 
 There is no such thing as free lunch at ZIH systems. Since, compute nodes are operated in multi-user
 node by default, jobs of several users can run at the same time at the very same node sharing

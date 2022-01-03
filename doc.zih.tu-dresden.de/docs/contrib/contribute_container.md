@@ -1,4 +1,4 @@
-# Contributing Using a Local Clone and a Docker Container
+# Work Locally Using Containers
 
 ## Git Procedure
 

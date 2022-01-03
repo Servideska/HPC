@@ -1,4 +1,4 @@
-# R for Data Analytics
+# Data Analytics with R
 
 [R](https://www.r-project.org/about.html) is a programming language and environment for statistical
 computing and graphics. It provides a wide variety of statistical (linear and nonlinear modeling,

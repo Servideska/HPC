@@ -1,4 +1,4 @@
-# Project and User Private Modules
+# Private Modules
 
 Private module files allow you to load your own installed software packages into your environment
 and to handle different versions without getting into conflicts. Private modules can be setup for a

@@ -1,4 +1,4 @@
-# Contribution Guide for Browser-based Editing
+# Browser-based Editing
 
 In the following, it is outlined how to contribute to the
 [HPC documentation](https://doc.zih.tu-dresden.de/) of

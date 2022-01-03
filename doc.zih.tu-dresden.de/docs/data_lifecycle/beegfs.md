@@ -1,4 +1,4 @@
-# BeeGFS
+# BeeGFS Filesystems
 
 Commands to work with the BeeGFS filesystem.
 
