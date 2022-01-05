@@ -164,9 +164,12 @@ theme:
   features:
     - navigation.instant
     
-# extends base css
+# extends base css/js
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
 
 markdown_extensions:
     - admonition
