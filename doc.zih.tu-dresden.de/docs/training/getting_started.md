@@ -97,6 +97,10 @@ After typing your password you end up with something like in the following image
 
 ![Successful ssh login](misc/ssh-success-login.png)
 
+You have now accessed one of the login nodes. 
+This is the starting point for many tasks as e.g. running programs or data management. 
+
+
 !!! hint "Windows users"
 
 	Windows users need an ssh-client as e.g. MobaXterm, see the instructions [here](../../access/ssh_login/#connecting-from-windows).
@@ -111,8 +115,9 @@ After typing your password you end up with something like in the following image
 There are different areas for storing your data on the ZIH HPC system, called [Filesystems](https://doc.zih.tu-dresden.de/data_lifecycle/file_systems/). 
 You will need to create a [workspace](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/) for your data (see example below) on one of these Filesystems. 
 
-Every filesystem has its own properties (available space/capacity, storage time limit, permission rights). Therefore, choose the one that fits your project best. 
-To start we recommend the filesystem **Lustre - scratch**:
+Every filesystem has its own properties (available space/capacity, storage time limit, permission rights). 
+Therefore, choose the one that fits your project best. 
+To start we recommend the filesystem **scratch**:
 
 ??? example "Creating a Workspace on Scratch Filesystem"
 	The following command creates a workspace 
@@ -134,11 +139,40 @@ To start we recommend the filesystem **Lustre - scratch**:
 
 Find more [information on workspaces in the compendium](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/).
 
-Transferring data to, from and within the ZIH HPC system depends on the data volume. 
+!!! hint "Distinction: Transferring data from/to vs. within the ZIH system"
+	Please note the different settings for transferring data, that might require different approaches:
+
+	* transfer from or to the ZIH system
+	* transfer within the ZIH system
+		
+
+Transferring data within the ZIH system depends on the data volume. 
 We distinguish small data (up to 100 MB) and medium and large data volume (above 100 MB).
 
-??? example "Copy a file between local machine and the ZIH HPC system (small data)"
-	For transferring a small data volume (up to 100 MB) use `scp` on the commandline.
+??? example "Copy file(s) within ZIH system (small data)"
+	For transferring a small data volume (up to 100 MB) use the standard linux command `cp` on the commandline.
+	
+	* Copy the file `example1.R` **from your local machine to a workspace** on the ZIH system.
+		```console
+		marie@login$ cp /home/marie/example1.R /scratch/ws/marie-test-workspace
+		```
+	
+	Find [here more examples for the cp command](http://bropages.org/cp).
+
+??? example "Copy file(s) within ZIH system (large data)"
+	For transferring a large data volume (more than 100 MB) use the datamover by applying e.g. `dtcp`, `dtmv` or `dtwget`.
+	
+	* Copy the directory `/warm_archive/ws/large-dataset` within the ZIH system.
+		```console
+		marie@login$ dtcp -r /warm_archive/ws/large-dataset /scratch/ws/marie-test-workspace/data
+		```
+	More [details on the datamover can be found here](../data_transfer/datamover.md).
+
+Transferring data from/to the ZIH system.
+
+??? example "Copy a file between local machine and ZIH HPC system (both directions)"
+	For transferring all data volume use `scp` on the commandline.
+	
 	
 	* Copy the file `example1.R` **from your local machine to a workspace** on the ZIH system.
 		```console
@@ -146,23 +180,25 @@ We distinguish small data (up to 100 MB) and medium and large data volume (above
 		Password:
 		example1.R                                                     100%  312    32.2KB/s   00:00`` 
 		```
+		
+		Note that the target path contains `taurusexport.hrsk.tu-dresden.de` which is one of the so called export nodes that allow for data transfer from/to outside the ZIH system.
+
 	* Copy the file `results.csv` **from a workspace on the ZIH system to your local machine**.
 		```console
-		marie$local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/marie-test-workspace/results.csv home/marie/Documents/
+		marie@local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/marie-test-workspace/results.csv home/marie/Documents/
 		```
 	
-	Find [here more details on the scp command](http://bropages.org/scp).
-
+	Find [here more examples for the scp command](http://bropages.org/scp).
+##### Medium and high data volume (hundreds of megabytes up to gigabytes and beyond): using data mover `dtcp`, `dtls`, `dtmv`, `dtrm`, `dtrsync`, `dttar`, and `dtwget` (details [can be found here](../data_transfer/datamover.md))
 
 2. More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote folder from a server to a local machine) can be used to mount user home, project home or workspaces within the local folder structure. 
 Data can be transferred directly with drag and drop in your local file explorer. 
 Moreover, this approach makes it possible to edit files with your common editors and tools on the local machine.
 
 
-3. Windows users can apply the step-by-step procedure as indicated [here] (../../data_transfer/export_nodes/#access-from-windows).
+3. Windows users can apply the [step-by-step procedure as indicated here](../../data_transfer/export_nodes/#access-from-windows).
 
 
-##### Medium and high data volume (hundreds of megabytes up to gigabytes and beyond): using data mover `dtcp`, `dtls`, `dtmv`, `dtrm`, `dtrsync`, `dttar`, and `dtwget` (details [can be found here](../data_transfer/datamover.md))
 
 __* Example on how to move data within the ZIH HPC system *__
 On the ZIH HPC command line, moving data from `/scratch/ws/0/your_workspace` to some other location (in this example we choose the `/projects` filesystem):
