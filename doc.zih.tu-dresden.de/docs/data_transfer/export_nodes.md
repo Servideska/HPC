@@ -133,6 +133,12 @@ the local machine.
 
 ## Access From Windows
 
+### Commandline
+
+Windows 10 (1809 and higher) comes with a [built-in OpenSSH support](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview) including the above described [scp](#SCP) and [sftp](#SFTP).
+
+### GUI - Using WinSCP
+
 First you have to install [WinSCP](http://winscp.net/eng/download.php).
 
 Then you have to execute the WinSCP application and configure some
