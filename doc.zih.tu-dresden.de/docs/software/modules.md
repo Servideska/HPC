@@ -156,7 +156,7 @@ The command `module spider <modname>` allows searching for a specific software a
 environments. It will also display information on how to load a particular module when giving a precise
 module (with version) as the parameter.
 
-??? example
+??? example "Spider command"
 
     ```console
     marie@login$ module spider p7zip
@@ -181,7 +181,7 @@ module (with version) as the parameter.
 
 In some cases a desired software is available as an extension of a module.
 
-??? example
+??? example "Extension module"
     ```console  hl_lines="9"
     marie@login$ module spider tensorboard
 
@@ -192,18 +192,12 @@ In some cases a desired software is available as an extension of a module.
         tensorboard/2.4.1 (E)
 
     Names marked by a trailing (E) are extensions provided by another module.
+    [...]
+    ```
 
+    You retrieve further information using the `spider` command.
 
-    --------------------------------------------------------------------------------------------------------------------------------
-    For detailed information about a specific "tensorboard" package (including how to load the modules) use the module's full name.
-    Note that names that have a trailing (E) are extensions provided by other modules.
-    For example:
-
-    $ module spider tensorboard/2.4.1
-    --------------------------------------------------------------------------------------------------------------------------------
-
-
-
+    ```console
     marie@login$  module spider tensorboard/2.4.1
 
     --------------------------------------------------------------------------------------------------------------------------------
@@ -216,6 +210,11 @@ In some cases a desired software is available as an extension of a module.
         TensorFlow/2.4.1-foss-2020b (modenv/scs5)
 
     Names marked by a trailing (E) are extensions provided by another module.
+    ```
+
+    Finaly, you can load the dependencies and `tensorboard/2.4.1` and check the version.
+
+    ```console
     marie@login$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5
 
     The following have been reloaded with a version change:
