@@ -148,7 +148,11 @@ We recommend one of the following applications:
 
   * [MobaXTerm](https://mobaxterm.mobatek.net): [ZIH documentation](misc/basic_usage_of_MobaXterm.pdf)
   * [PuTTY](https://www.putty.org): [ZIH documentation](misc/basic_usage_of_PuTTY.pdf)
-  * OpenSSH Server: [docs](https://docs.microsoft.com/de-de/windows-server/administration/openssh/openssh_install_firstuse)
+  * For Windows 10 (1809 and higher):
+    * [Windows Terminal](https://www.microsoft.com/store/productId/9N0DX20HK701)
+    * Together with the built-in [OpenSSH Client](https://docs.microsoft.com/de-de/windows-server/administration/openssh/openssh_overview)
+
+## SSH Key Fingerprints
 
 The page [key fingerprints](key_fingerprints.md) holds the up-to-date fingerprints for the login
 nodes. Make sure they match.
