@@ -133,7 +133,7 @@ the local machine.
 
 ## Access From Windows
 
-### Command-line
+### Command Line
 
 Windows 10 (1809 and higher) comes with a
 [built-in OpenSSH support](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview)
