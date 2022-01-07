@@ -4,7 +4,16 @@
 
     Ink is better than the best memory.
 
-In principle, there are three possible ways how to contribute to this documentation.
+This documentation is written in markdown and translated into static html pages using
+[mkdocs](https://www.mkdocs.org/). There is a single configuration file holding the pages structure
+as well as specification of the theme and extensions. This file is `mkdocs.yaml`.
+
+All essential files (markdown pages, graphics, configuration, theme, etc.) are managed within a git
+repository which makes it quite easy to contribute to this documentation. In principle, there are
+three possible ways how to contribute to this documentation. These ways are outlined below.
+
+Please refer to the [content guide lines page](content_guide_lines.md) regarding markdown syntax
+and writing style.
 
 ## Contribute via Issue
 
