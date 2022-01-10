@@ -61,7 +61,7 @@
       {% endif %}
 
       <!-- Expand active pages -->
-      <label class="md-nav__link" for="{{ path }}" tabindex="0">
+      <label class="md-nav__link" for="{{ path }}" tabindex="0" aria-haspopup="true">
         {{ nav_item.title }}
         <span class="md-nav__icon md-icon"></span>
       </label>
@@ -73,8 +73,12 @@
           <span class="md-nav__icon md-icon"></span>
           {{ nav_item.title }}
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-
+        <ul 
+          class="md-nav__list"
+          data-md-scrollfix 
+          aria-hidden="true" 
+          aria-expanded="false"
+        >
           <!-- Render nested item list -->
           {% for nav_item in nav_item.children %}
             {{ render(nav_item, path ~ "_" ~ loop.index, level + 1) }}
