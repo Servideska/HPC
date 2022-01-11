@@ -1,7 +1,7 @@
 # JupyterHub
 
 With our JupyterHub service we offer you a quick and easy way to work with Jupyter notebooks on ZIH
-systems. This page covers starting and stopping JuperterHub sessions, error handling and customizing
+systems. This page covers starting and stopping JupyterHub sessions, error handling and customizing
 the environment.
 
 We also provide a comprehensive documentation on how to use
@@ -21,7 +21,8 @@ cannot give extensive support in every case.
 
 !!! note
     This service is only available for users with an active HPC project.
-    See [here](../access/overview.md) how to apply for an HPC project.
+    See [Application for Login and Resources](../application/overview.md), if you need to apply for
+    an HPC project.
 
 JupyterHub is available at
 [https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
@@ -41,7 +42,7 @@ settings. You can:
 
 - modify batch system parameters to your needs ([more about batch system Slurm](../jobs_and_resources/slurm.md))
 - assign your session to a project or reservation
-- load modules from the [module system](../software/runtime_environment.md)
+- load modules from the [module system](../software/modules.md)
 - choose a different standard environment (in preparation for future
   software updates or testing additional features)
 
@@ -100,7 +101,7 @@ running the code. We currently offer one for Python, C++, MATLAB and R.
 
 ## Stop a Session
 
-It is good practise to stop your session once your work is done. This releases resources for other
+It is good practice to stop your session once your work is done. This releases resources for other
 users and your quota is less charged. If you just log out or close the window, your server continues
 running and **will not stop** until the Slurm job runtime hits the limit (usually 8 hours).
 
@@ -137,8 +138,8 @@ This message appears instantly if your batch system parameters are not valid.
 Please check those settings against the available hardware.
 Useful pages for valid batch system parameters:
 
-- [Slurm batch system (Taurus)](../jobs_and_resources/system_taurus.md#batch-system)
 - [General information how to use Slurm](../jobs_and_resources/slurm.md)
+- [Partitions and limits](../jobs_and_resources/partitions_and_limits.md)
 
 ### Error Message in JupyterLab
 
@@ -147,8 +148,8 @@ Useful pages for valid batch system parameters:
 
 If the connection to your notebook server unexpectedly breaks, you will get this error message.
 Sometimes your notebook server might hit a batch system or hardware limit and gets killed. Then
-usually the logfile of the corresponding batch job might contain useful information. These logfiles
-are located in your `home` directory and have the name `jupyter-session-<jobid>.log`.
+usually the log file of the corresponding batch job might contain useful information. These log
+files are located in your `home` directory and have the name `jupyter-session-<jobid>.log`.
 
 ## Advanced Tips
 
@@ -189,7 +190,7 @@ Here is a short list of some included software:
 
 \* generic = all partitions except ml
 
-\*\* R is loaded from the [module system](../software/runtime_environment.md)
+\*\* R is loaded from the [module system](../software/modules.md)
 
 ### Creating and Using a Custom Environment
 
@@ -309,4 +310,4 @@ You can switch kernels of existing notebooks in the kernel menu:
 You have now the option to preload modules from the [module system](../software/modules.md).
 Select multiple modules that will be preloaded before your notebook server starts. The list of
 available modules depends on the module environment you want to start the session in (`scs5` or
-`ml`).  The right module environment will be chosen by your selected partition.
+`ml`). The right module environment will be chosen by your selected partition.

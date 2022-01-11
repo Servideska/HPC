@@ -12,7 +12,7 @@ so called dotfiles in your home directory, e.g., `~/.bashrc` or `~/.bash_profile
 ## Software Environment
 
 There are different options to work with software on ZIH systems: [modules](#modules),
-[JupyterNotebook](#jupyternotebook) and [containers](#containers). Brief descriptions and related
+[Jupyter Notebook](#jupyternotebook) and [containers](#containers). Brief descriptions and related
 links on these options are provided below.
 
 !!! note
@@ -21,19 +21,9 @@ links on these options are provided below.
     * `scs5` environment for the x86 architecture based compute resources
     * and `ml` environment for the Machine Learning partition based on the Power9 architecture.
 
-According to [What software do I need]**todo link**, first of all, check the [Software module
-list]**todo link**.
-
-<!--Work with the software on ZIH systems could be started only after allocating the resources by [batch-->
-<!--systems]**todo link**.-->
-
-<!--After logging in, you are on one of the login nodes. They are not meant for work, but only for the-->
-<!--login process and short tests. Allocating resources will be done by batch system-->
-<!--[SLURM](../jobs_and_resources/slurm.md).-->
-
 ## Modules
 
-Usage of software on HPC systems, e.g., frameworks, compilers, loader and libraries, is
+Usage of software on ZIH systems, e.g., frameworks, compilers, loader and libraries, is
 almost always managed by a **modules system**. Thus, it is crucial to be familiar with the
 [modules concept and its commands](modules.md).  A module is a user interface that provides
 utilities for the dynamic modification of a user's environment without manual modifications.
@@ -47,8 +37,8 @@ The [Jupyter Notebook](https://jupyter.org/) is an open-source web application t
 documents containing live code, equations, visualizations, and narrative text. There is a
 [JupyterHub](../access/jupyterhub.md) service on ZIH systems, where you can simply run your Jupyter
 notebook on compute nodes using [modules](#modules), preloaded or custom virtual environments.
-Moreover, you can run a [manually created remote jupyter server](deep_learning.md) for more specific
-cases.
+Moreover, you can run a [manually created remote Jupyter server](../archive/install_jupyter.md)
+for more specific cases.
 
 ## Containers
 
