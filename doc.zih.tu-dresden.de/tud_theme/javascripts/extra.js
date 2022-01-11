@@ -1,14 +1,10 @@
 // keyboard navigation
-// allow to expand navigation items with nested items by specified keys
+// allow to expand navigation items with nested items by
 let nav_links = document.querySelectorAll('.md-nav__link');
 
 Array.from(nav_links).forEach(label => {
     label.addEventListener('keydown', e => {
-      // 13 === Enter
-      // 32 === Spacebar
-      // 37 === ArrowLeft
-      // 39 === ArrowRight
-      if (e.keyCode === 13 || e.keyCode === 32 || e.keyCode ===37 || e.keyCode === 39) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowLeft'|| e.key === 'ArrowRight') {
         e.preventDefault();
         label.click();
       };
