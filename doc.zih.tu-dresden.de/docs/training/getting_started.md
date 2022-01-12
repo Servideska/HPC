@@ -140,24 +140,25 @@ To start we recommend the filesystem **scratch**:
 Find more [information on workspaces in the compendium](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/).
 
 !!! hint "Distinction: Transferring data from/to vs. within the ZIH system"
-	Please note the different settings for transferring data, that might require different approaches:
+	Please note the different settings for transferring data, that require different approaches:
 
-	* transfer from or to the ZIH system
-	* transfer within the ZIH system
+	* transfer within the ZIH system (datamover nodes)
+	* transfer from or to the ZIH system (export nodes)
 		
 
-Transferring data within the ZIH system depends on the data volume. 
+The approach for transferring data within the ZIH system depends on the data volume. 
 We distinguish small data (up to 100 MB) and medium and large data volume (above 100 MB).
 
 ??? example "Copy file(s) within ZIH system (small data)"
 	For transferring a small data volume (up to 100 MB) use the standard linux command `cp` on the commandline.
 	
-	* Copy the file `example1.R` **from your local machine to a workspace** on the ZIH system.
+	* Copy the file `example1.R` **from your home directory on the ZIH system to a workspace** on the ZIH system.
 		```console
 		marie@login$ cp /home/marie/example1.R /scratch/ws/marie-test-workspace
 		```
 	
 	Find [here more examples for the cp command](http://bropages.org/cp).
+	Moving files is done analagously by using the command `mv`.
 
 ??? example "Copy file(s) within ZIH system (large data)"
 	For transferring a large data volume (more than 100 MB) use the datamover by applying e.g. `dtcp`, `dtmv` or `dtwget`.
@@ -168,11 +169,10 @@ We distinguish small data (up to 100 MB) and medium and large data volume (above
 		```
 	More [details on the datamover can be found here](../data_transfer/datamover.md).
 
-Transferring data from/to the ZIH system.
+Transferring data between outside and the ZIH system is utilizing the so called export nodes, see the following example.
 
 ??? example "Copy a file between local machine and ZIH HPC system (both directions)"
-	For transferring all data volume use `scp` on the commandline.
-	
+	For transferring all data volume use `scp` on the commandline.	
 	
 	* Copy the file `example1.R` **from your local machine to a workspace** on the ZIH system.
 		```console
@@ -189,39 +189,45 @@ Transferring data from/to the ZIH system.
 		```
 	
 	Find [here more examples for the scp command](http://bropages.org/scp).
-##### Medium and high data volume (hundreds of megabytes up to gigabytes and beyond): using data mover `dtcp`, `dtls`, `dtmv`, `dtrm`, `dtrsync`, `dttar`, and `dtwget` (details [can be found here](../data_transfer/datamover.md))
+	Furthermore, checkout the other possiblities in the [compendium for working with the export nodes](../data_transfer/export_nodes.md).
 
-2. More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote folder from a server to a local machine) can be used to mount user home, project home or workspaces within the local folder structure. 
-Data can be transferred directly with drag and drop in your local file explorer. 
-Moreover, this approach makes it possible to edit files with your common editors and tools on the local machine.
-
-
-3. Windows users can apply the [step-by-step procedure as indicated here](../../data_transfer/export_nodes/#access-from-windows).
-
-
-
-__* Example on how to move data within the ZIH HPC system *__
-On the ZIH HPC command line, moving data from `/scratch/ws/0/your_workspace` to some other location (in this example we choose the `/projects` filesystem):
-
-```console
-marie@login$ dtcp -r /scratch/ws/0/your_workspace/ /projects/p_marie/.
-```
-
------
-
-For more information on how to move files of different sizes from the local machine to the ZIH HPC system, within the ZIH HPC system, how to archive them, what to avoid and other information, see [here](https://hpc-wiki.zih.tu-dresden.de/data_transfer/datamover/). 
-
-??? caution "Permission rights are crucial in a collaborative setting"
-
-	By default workspaces are accessible only for the user who created the workspace.
-	Files created by a user in the project directory have read-only access for other group members by default.
-	Therefore, the correct file permissions must be configured (using `chmod` and `chgrp`) for all files in the project home and the workspaces that should be fully accessible (read, write, execute) to your collaborator group.
-	A first overview on users and permissions in linux can be found [here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
 
 !!! caution 
 
 	If you are planning to move terabytes or even more from an outside machine into the ZIH system, please contact the ZIH HPC support in advance.
 
+!!! caution "Permission rights are crucial in a collaborative setting"
+
+	Whenever working within a collaborative setting, take care of the file permissions.
+	Esp. after creating and transferring data, file permission configuration might be necessary. 	
+	A first overview on users and permissions in linux can be found [here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
+
+	**By default, workspaces are accessible only for the user who created the workspace.**
+	Files created by a user in the project directory have read-only access for other group members by default.
+	Therefore, the correct file permissions must be configured (using `chmod` and `chgrp`) for all files in the project home and the workspaces that should be fully accessible (read, write, execute) to your collaborator group.
+
+??? example "Checking and changing file permissions"
+		
+	The following example checks for file permissions (`ls -l`) of the file dataset.csv and adds permissions for write access for the group (`chmod g+w`).
+	```console
+	marie@login$ ls -la /scratch/ws/0/marie-training-data/dataset.csv # list file permissions
+		-rw-r--r-- 1 nhr066 p_nhr_mlhpc 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
+	
+	marie@login$ chmod g+w /scratch/ws/0/marie-training-data/dataset.csv # add write permissions
+
+	marie@login$ ls -la /scratch/ws/0/marie-training-data/dataset.csv # list file permissions again
+		-rw-rw-r-- 1 nhr066 p_nhr_mlhpc 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
+	```
+	[More details on `chmod` can be found here.](http://bropages.org/chmod)
+		
+
+??? hint "GUI-based data management"
+
+	1. Transferring data and managing file permissions for smaller amounts of data can be handled by ssh clients.
+	**Windows users** can apply the [step-by-step procedure as indicated here](../../data_transfer/export_nodes/#access-from-windows).
+	1. More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote folder from a server to a local machine) can be used to mount user home, project home or workspaces within the local folder structure. 
+	Data can be transferred directly with drag and drop in your local file explorer. 
+	Moreover, this approach makes it possible to edit files with your common editors and tools on the local machine.
 
 
 ## Software Environment
