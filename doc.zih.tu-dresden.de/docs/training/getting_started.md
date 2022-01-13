@@ -103,7 +103,7 @@ This is the starting point for many tasks as e.g. running programs or data manag
 
 !!! hint "Windows users"
 
-	Windows users need an ssh-client as e.g. MobaXterm, see the instructions [here](../../access/ssh_login/#connecting-from-windows).
+	Windows users need an ssh-client as e.g. [MobaXterm, see the instructions here](../../access/ssh_login/#connecting-from-windows).
 
 ??? hint "Using ssh key pair"
 
@@ -117,9 +117,9 @@ You will need to create a [workspace](https://doc.zih.tu-dresden.de/data_lifecyc
 
 Every filesystem has its own properties (available space/capacity, storage time limit, permission rights). 
 Therefore, choose the one that fits your project best. 
-To start we recommend the filesystem **scratch**:
+To start we recommend the filesystem **scratch**.
 
-??? example "Creating a Workspace on Scratch Filesystem"
+!!! example "Creating a Workspace on Scratch Filesystem"
 	The following command creates a workspace 
 
 	* command: `ws_allocate` 
@@ -343,20 +343,21 @@ For additional information refer to the detailed documentation on [modules](../s
 !!! hint "Hint on Python packages"
 
   	The usage of virtual environments and, therefore, the usage of workspaces is recommended,
-    especially for Python. Please check out the module system, even for specific Python packages,
-    e.g. `tqdm`, `torchvision`, `tensorboard`, etc. to get a better idea of what is available 
-    to you. The Python (and other) package ecosystem is very heterogeneous and dynamic, with,
-    often, daily updates. The central update cycle for software on the ZIH HPC system occurs
-    approximately every six months.
+    especially for Python. 
+	Please check out the module system, even for specific Python packages, e.g. `tqdm`, `torchvision`, `tensorboard`, etc. to get a better idea of what is available. 
+	The Python (and other) package ecosystem is very heterogeneous and dynamic, daily updates. 
+	The central update cycle for software on the ZIH HPC system occurs approximately every six months.
 
-## Running a Job
+## Running a Program/Job
 
-Since all computational resources are shared with other users, in order to allocate them you need
-to interact with the so-called scheduler or a batch system. On the ZIH system it is 
-[Slurm](https://slurm.schedmd.com/quickstart.html).
+Running programs on an HPC machine is called **running jobs**.
+Since all computational resources are shared with other users, these resources need to be allocated.
+For managing these allocations a so-called job scheduler or a batch system is used. 
+On the ZIH system the used job scheduler is [Slurm](https://slurm.schedmd.com/quickstart.html).
 It is possible to run a job [interactively](../jobs_and_resources/slurm.md#interactive-jobs)
 (real time execution) or to submit a [batch job](../jobs_and_resources/slurm.md#batch-jobs) 
-(scheduled execution). For beginners, we highly advise to run the job interactively.
+(scheduled execution). 
+For beginners, we highly advise to run the job interactively.
 
 To do so, use the `srun` command:
 
