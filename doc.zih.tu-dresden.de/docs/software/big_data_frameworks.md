@@ -1,4 +1,4 @@
-# Big Data Frameworks
+# Big Data Analytics
 
 [Apache Spark](https://spark.apache.org/), [Apache Flink](https://flink.apache.org/)
 and [Apache Hadoop](https://hadoop.apache.org/) are frameworks for processing and integrating
@@ -32,14 +32,13 @@ The steps are:
 
 Apache Spark can be used in [interactive](#interactive-jobs) and [batch](#batch-jobs) jobs as well
 as via [Jupyter notebooks](#jupyter-notebook). All three ways are outlined in the following.
-The usage of Flink with Jupyter notebooks is currently under examination.
 
 ## Interactive Jobs
 
 ### Default Configuration
 
-The Spark module is available in both `scs5` and `ml` environments.
-Thus, Spark can be executed using different CPU architectures, e.g., Haswell and Power9.
+The Spark and Flink modules are available in both `scs5` and `ml` environments.
+Thus, Spark and Flink can be executed using different CPU architectures, e.g., Haswell and Power9.
 
 Let us assume that two nodes should be used for the computation. Use a `srun` command similar to
 the following to start an interactive session using the partition haswell. The following code
@@ -61,8 +60,9 @@ Once you have the shell, load desired Big Data framework using the command
     marie@compute$ module load Flink
     ```
 
-Before the application can be started, the Spark cluster needs to be set up. To do this, configure
-Spark first using configuration template at `$SPARK_HOME/conf`:
+Before the application can be started, the cluster with the allocated nodes needs to be set up. To
+do this, configure the cluster first using the configuration template at `$SPARK_HOME/conf` for
+Spark or `$FLINK_ROOT_DIR/conf` for Flink:
 
 === "Spark"
     ```console
@@ -74,7 +74,7 @@ Spark first using configuration template at `$SPARK_HOME/conf`:
     ```
 
 This places the configuration in a directory called `cluster-conf-<JOB_ID>` in your `home`
-directory, where `<JOB_ID>` stands for the id of the Slurm job. After that, you can start Spark in
+directory, where `<JOB_ID>` stands for the id of the Slurm job. After that, you can start in
 the usual way:
 
 === "Spark"
@@ -86,7 +86,7 @@ the usual way:
     marie@compute$ start-cluster.sh
     ```
 
-The Spark processes should now be set up and you can start your application, e. g.:
+The necessary background processes should now be set up and you can start your application, e. g.:
 
 === "Spark"
     ```console
@@ -237,50 +237,34 @@ example below:
 
 ## Jupyter Notebook
 
-You can run Jupyter notebooks with Spark on the ZIH systems in a similar way as described on the
-[JupyterHub](../access/jupyterhub.md) page. Interaction of Flink with JupyterHub is currently
-under examination and will be posted here upon availability.
-
-### Preparation
-
-If you want to run Spark in Jupyter notebooks, you have to prepare it first. This is comparable
-to [normal Python virtual environments](../software/python_virtual_environments.md#python-virtual-environment).
-You start with an allocation:
-
-```console
-marie@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2500 --time=01:00:00 bash -l
-```
-
-When a node is allocated, install the required packages:
-
-```console
-marie@compute$ cd $HOME
-marie@compute$ mkdir jupyter-kernel
-marie@compute$ module load Python
-marie@compute$ virtualenv --system-site-packages jupyter-kernel/env  #Create virtual environment
-[...]
-marie@compute$ source jupyter-kernel/env/bin/activate    #Activate virtual environment.
-(env) marie@compute$ pip install ipykernel
-[...]
-(env) marie@compute$ python -m ipykernel install --user --name haswell-py3.7-spark --display-name="haswell-py3.7-spark"
-Installed kernelspec haswell-py3.7-spark in [...]
-
-(env) marie@compute$ pip install findspark
-(env) marie@compute$ deactivate
-```
-
-You are now ready to spawn a notebook with Spark.
+You can run Jupyter notebooks with Spark and Flink on the ZIH systems in a similar way as described
+on the [JupyterHub](../access/jupyterhub.md) page.
 
 ### Spawning a Notebook
 
-Assuming that you have prepared everything as described above, you can go to
-[https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
-In the tab "Advanced", go to the field "Preload modules" and select one of the Spark modules. When
-your Jupyter instance is started, check whether the kernel that you created in the preparation
-phase (see above) is shown in the top right corner of the notebook. If it is not already selected,
-select the kernel `haswell-py3.7-spark`. Then, you can set up Spark. Since the setup in the
-notebook requires more steps than in an interactive session, we have created an example notebook
-that you can use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.ipynb)
+Go to [https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
+In the tab "Advanced", go to the field "Preload modules" and select the following Spark or Flink
+module:
+
+=== "Spark"
+    ```
+    Spark/3.0.1-Hadoop-2.7-Java-1.8-Python-3.7.4-GCCcore-8.3.0
+    ```
+=== "Flink"
+    ```
+    Flink/1.12.3-Java-1.8.0_161-OpenJDK-Python-3.7.4-GCCcore-8.3.0
+    ```
+
+When your Jupyter instance is started, you can set up Spark/Flink. Since the setup in the notebook
+requires more steps than in an interactive session, we have created example notebooks that you can
+use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.ipynb),
+[FlinkExample.ipynb](misc/FlinkExample.ipynb)
+
+!!! warning
+
+    The notebooks only work with the Spark or Flink module mentioned above. When using other
+    Spark/Flink modules, it is possible that you have to do additional or other steps in order to
+    make Spark/Flink running.
 
 !!! note
 

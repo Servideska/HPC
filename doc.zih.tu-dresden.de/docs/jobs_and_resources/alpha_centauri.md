@@ -5,7 +5,8 @@ It has 34 nodes, each with:
 
 * 8 x NVIDIA A100-SXM4 (40 GB RAM)
 * 2 x AMD EPYC CPU 7352 (24 cores) @ 2.3 GHz with multi-threading enabled
-* 1 TB RAM 3.5 TB `/tmp` local NVMe device
+* 1 TB RAM
+* 3.5 TB `/tmp` local NVMe device
 * Hostnames: `taurusi[8001-8034]`
 * Slurm partition `alpha` for batch jobs and `alpha-interactive` for interactive jobs
 
@@ -64,7 +65,8 @@ True
 
 ### Python Virtual Environments
 
-Virtual environments allow users to install additional python packages and create an isolated
+[Virtual environments](../software/python_virtual_environments.md) allow users to install
+additional python packages and create an isolated
 runtime environment. We recommend using `virtualenv` for this purpose.
 
 ```console

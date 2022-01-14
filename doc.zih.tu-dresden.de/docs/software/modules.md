@@ -156,7 +156,7 @@ The command `module spider <modname>` allows searching for a specific software a
 environments. It will also display information on how to load a particular module when giving a precise
 module (with version) as the parameter.
 
-??? example
+??? example "Spider command"
 
     ```console
     marie@login$ module spider p7zip
@@ -177,6 +177,54 @@ module (with version) as the parameter.
       Zum Beispiel:
         $ module spider p7zip/17.03
     ----------------------------------------------------------------------------------------------------------------------------------------------------------
+    ```
+
+In some cases a desired software is available as an extension of a module.
+
+??? example "Extension module"
+    ```console  hl_lines="9"
+    marie@login$ module spider tensorboard
+
+    --------------------------------------------------------------------------------------------------------------------------------
+    tensorboard:
+    --------------------------------------------------------------------------------------------------------------------------------
+    Versions:
+        tensorboard/2.4.1 (E)
+
+    Names marked by a trailing (E) are extensions provided by another module.
+    [...]
+    ```
+
+    You retrieve further information using the `spider` command.
+
+    ```console
+    marie@login$  module spider tensorboard/2.4.1
+
+    --------------------------------------------------------------------------------------------------------------------------------
+    tensorboard: tensorboard/2.4.1 (E)
+    --------------------------------------------------------------------------------------------------------------------------------
+    This extension is provided by the following modules. To access the extension you must load one of the following modules. Note that any module names in parentheses show the module location in the software hierarchy.
+
+        TensorFlow/2.4.1 (modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5)
+        TensorFlow/2.4.1-fosscuda-2019b-Python-3.7.4 (modenv/ml)
+        TensorFlow/2.4.1-foss-2020b (modenv/scs5)
+
+    Names marked by a trailing (E) are extensions provided by another module.
+    ```
+
+    Finaly, you can load the dependencies and `tensorboard/2.4.1` and check the version.
+
+    ```console
+    marie@login$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5
+
+    The following have been reloaded with a version change:
+        1) modenv/scs5 => modenv/hiera
+
+    Module GCC/10.2.0, CUDA/11.1.1, OpenMPI/4.0.5 and 15 dependencies loaded.
+    marie@login$ module load TensorFlow/2.4.1
+    Module TensorFlow/2.4.1 and 34 dependencies loaded.
+    marie@login$ tensorboard --version
+    2.4.1
     ```
 
 ## Per-Architecture Builds
@@ -206,7 +254,8 @@ Note that this will not work for meta-modules that do not have an installation d
 
 ## Advanced Usage
 
-For writing your own Modulefiles please have a look at the [Guide for writing project and private Modulefiles](private_modules.md).
+For writing your own module files please have a look at the
+[Guide for writing project and private module files](private_modules.md).
 
 ## Troubleshooting
 
