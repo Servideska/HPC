@@ -1,0 +1,118 @@
+---
+title: Tutorial 1. Return Executing Time
+output:
+  html_document: default
+  pdf_document: default
+---
+This is a tutorial on different possibilities for calculation of program's executing time.
+
+Suppose, you have a $n \times m$-matrix and you calculate the sum of each column (variable).
+
+First, clear the memory and create a matrix:
+```{r}
+rm(list = ls())
+n <- 500
+m <- 10^4
+my.df <- matrix(rnorm(n * m), nrow = n)
+```
+### 1. `proc.time{base}` and `system.time{base}` 
+Get the time by `proc.time{base}` before and after executing your program, then return the difference
+```{r}
+start.time <- proc.time()
+s <- NULL
+for (i in 1:m) {
+  s <- c(s, sum(my.df[, i]))
+}
+(run.time <- proc.time() - start.time)
+```
+`system.time{base}` does it for you
+```{r}
+system.time({
+  s <- NULL
+  for (i in 1:m) {
+    s <- c(s, sum(my.df[, i]))
+  }
+})
+```
+Let save the calculations into a function, just to simplify the code below
+```{r}
+sum.func = function(data) {
+  s <- NULL
+  for (i in 1:ncol(data)) {
+    s <- c(s, sum(data[, i]))
+  }
+  s
+}
+system.time({
+  sum.func(my.df)
+})
+```
+The returned time is not exact. Let repeat this procedure three times
+```{r}
+for (j in 1:3) {
+  print(system.time(sum.func(my.df)))
+}
+```
+You see, every executing time is a bit different. Intuitively, you calculate their mean. The `microbenchmark{microbenchmark}` does it for you.
+
+### 2. `microbenchmark{microbenchmark}`
+```{r}
+library(microbenchmark)
+microbenchmark(sum.func(my.df), times = 3)
+```
+Now, let's compare the executing time for different codes _(other word??)_. Input a code in `{...}` is possible
+```{r}
+library(microbenchmark)
+microbenchmark(
+  sum.func(my.df), 
+  time.for = {
+    s <- NULL
+    for (i in 1:ncol(my.df)) {
+      s <- c(s, sum(my.df[, i]))
+    }
+  },
+  times = 3
+)
+```
+
+### 3. `benchmark{rbenchmark}`
+The `benchmark{rbenchmark}` is similar, maybe better output possibilities
+```{r}
+library(rbenchmark)
+benchmark(sum.func(my.df), replications = 3)
+```
+Note, it gives you the sum of calculation time, not the mean. You can easily calculate the mean using `within{base}`. 
+You can also specify the output
+```{r}
+within(
+  benchmark(
+    sum.func(my.df), 
+    columns = c("test", "replications", "user.self", "sys.self", "elapsed"), 
+    replications = 3
+  ),
+  {elapsed.mean = elapsed / replications}
+)
+```
+Similar to `microbenchmark{microbenchmark}`, compare different codes
+```{r}
+within(
+  benchmark(
+    sum.func = sum.func(my.df), 
+    sum.for = {
+      s <- NULL
+      for (i in 1:ncol(my.df)) {
+        s <- c(s, sum(my.df[, i]))
+      }
+    },
+    columns = c("test", "relative", "replications", "user.self", "sys.self", "elapsed"), 
+    replications = 3
+  ),
+  {elapsed.mean = elapsed / replications}
+)
+
+```
+
+The column "relative" shows the relation between the fastest code and others.
+The executing times are same, since the two functions/codes do the same.
+
+**To summarize**: There are several functions to calculation the execution time. The functions `microbenchmark{microbenchmark}` or `benchmark{rbenchmark}` are more accurate and can compare several codes.
