@@ -200,11 +200,13 @@ Transferring data between outside and the ZIH system is utilizing the so called 
 
 	Whenever working within a collaborative setting, take care of the file permissions.
 	Esp. after creating and transferring data, file permission configuration might be necessary. 	
-	A first overview on users and permissions in linux can be found [here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
 
 	**By default, workspaces are accessible only for the user who created the workspace.**
 	Files created by a user in the project directory have read-only access for other group members by default.
 	Therefore, the correct file permissions must be configured (using `chmod` and `chgrp`) for all files in the project home and the workspaces that should be fully accessible (read, write, execute) to your collaborator group.
+
+	A first [overview on users and permissions in linux can be found here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
+
 
 ??? example "Checking and changing file permissions"
 		
@@ -252,12 +254,7 @@ marie@login$ module spider Python
 
      Versions:
         Python/2.7.14-foss-2018a
-        Python/2.7.14-GCCcore-6.4.0-bare
-        Python/2.7.14-gsolf-2018a
         [...]
-        Python/3.8.2-GCCcore-9.3.0
-        Python/3.8.2
-        Python/3.8.6-GCCcore-10.2.0
         Python/3.8.6
         Python/3.9.5-bare
         Python/3.9.5
@@ -335,12 +332,12 @@ Module Python/3.9.5 and 11 dependencies loaded.
 
 For additional information refer to the detailed documentation on [modules](../software/modules.md)
 
-!!! hint "Special hints on different software"
+??? hint "Special hints on different software"
 	
   	Special hints on different software can be found for [Python](../software/data_analytics_with_python.md),
     [R](../software/data_analytics_with_r.md), [Mathematica/MatLab](../software/mathematics.md), ...
 
-!!! hint "Hint on Python packages"
+??? hint "Hint on Python packages"
 
   	The usage of virtual environments and, therefore, the usage of workspaces is recommended,
     especially for Python. 
