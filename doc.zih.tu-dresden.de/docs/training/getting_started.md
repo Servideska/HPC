@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started 1
 
 This page is intended to provide the most important parts of starting to work on the ZIH High Performance Computing (HPC) system.
 Especially to new users, this page is a map of the compendium as it provides an overview about the most relevant topics and it will direct to the corredponding detailed articles within the compendium. 
