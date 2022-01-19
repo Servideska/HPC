@@ -1,0 +1,352 @@
+---
+title: Tutorial 3. `foreach` package
+output:
+  html_document: default
+  pdf_document: default
+---
+Important:
+- explain difference between makecluster, makePSOCKcluster, makeFORKcluster -> tutorial 4
+- difference between registerDoParallel, registerDoSnow, registerDoMC -> tutorial 5 -> student
+- difference clusterCall, clusterEvalQ -> this tutorial 3
+
+
+Aim of this tutorial is to show how to rewrite a `for`-loop to `foreach`-loop. We will consider a toy example. \
+
+**Example** (example 2 in Tutorial 2): Fit a linear regression to a data set (for example iris data) and collect the estimated coefficients (first column of `summary(lm(...))$coef`) and their p-values (forth column). Repeat this procedure B times for bootstrapped data.
+
+**IO: maybe this example is not needed -> think**
+
+First, clean the memory
+
+```{r}
+rm(list = ls())
+```
+
+The `for`-loop is
+
+```{r}
+B <- 10
+n <- 100
+lm.coef.for <- NULL
+lm.pval.for <- NULL
+set.seed(1234)
+for (i in 1:B) {
+  j <- sample(1:nrow(iris), n, replace = TRUE)
+  lm.res.for <- summary(lm(Sepal.Length ~ ., data = iris[j, ]))$coef
+  lm.coef.for <- rbind(lm.coef.for, lm.res.for[, 1])
+  lm.pval.for <- rbind(lm.pval.for, lm.res.for[, 4])
+}
+head(lm.coef.for, 2)
+```
+
+### 1. Using `foreach{foreach}`
+
+`foreach` can be seen as a parallelized version of `for`-loop. However, there are some differences in use. 
+First, it is a function, not a loop.
+The results are returned as a list by default, but this can be changed by defining the argument `.combine` (often used `.combine = c` for output as vector, `.combine = rbind` for a matrix, or can be any other operator, e.g. `.combine = +`. More details [below](link)).
+The following example returns the vector with squared values between 1 and 100.
+```{r}
+library(foreach)
+res.do = foreach (i = 1:100, .combine = c) %do% {
+  i^2
+}
+head(res.do)
+```
+
+The binary operator `%do%` will execute the expression sequentially. Replace it with `%dopar%` to execute the expression in parallel.
+
+Notice, before running the `foreach` in parallel, you have to create and register a *parallel backend* in advance, which will be responsible for spreading tasks and gathering results. For this purpose there are the packages: 
+
+- `doMC` - uses multicore, is fork-based, which is not supported on Windows
+- `doSNOW` - can socket or MPI based
+- `doParallel` - is newer version and combines `multicore` and `snow`. 
+- `doMPI` - is MPI-based, spreads across multiple machines, is more advanced and needs additional installations.
+
+The examples of this tutorial use `doParallel`. However, we recommend `MPI` on the cluster. The really great point is that changing the parallel backend from `doParallel` to `doMPI` does not require much changes in your code. About it [below](link).
+
+There are two communication mechanisms while paralellization, *sock* and *fork*, MPI.
+
+* For the fork, each parallel thread is a complete duplication of the master environment, including libraries, objects, variables. There is no communication while running, so it runs fast. However, the fork doesn’t work on the Windows system.
+
+* For the socket, each thread runs separately without sharing objects or variables, which can only be passed from the master process explicitly. So all additional libraries, variables have to be provided aditionally. More about it [here](link). As a result, it runs slower due to communication. And, the socket works on all operating systems. 
+
+**Below is an example showing the performance difference between the fork and the socket. A self-defined filter function runs in parallel and exacts three rows out of 336,776 that are meeting criteria. As shown, the fork runs 40% faster than the socket.**
+
+The *parallel backend* creates copies of your R script (called master or parent code) and sends them to workers (called child). For this purpose use the functions `makePSOCKcluster`. Alternatively, you can use the function `makeFORKcluster`, however, the fork clustering is not available on Windows. **For more details about socket and fork**. 
+Stop the parallelization by `stopCluster` before exiting R.  Otherwise the cluster remains running and need to be shut down manually.
+
+
+Now, the same code as above but in parallel
+```{r}
+#library(foreach)
+library(doParallel)
+
+nCores <- 3     # define number of cores to be used
+# or 
+# numCores <- detectCores() - 1          # leave one core out, important on Windows 
+cl <- makePSOCKcluster(nCores)          # create a set of copies 
+registerDoParallel(cl)
+res.dopar = foreach (i = 1:100, .combine = c) %dopar% {
+  i^2
+}
+stopCluster(cl)             # stop the paralellization
+head(res.dopar)
+```
+
+Now bootsprap linear regression for iris data (toy example) in parallel
+```{r}
+#library(foreach)
+#library(doParallel)
+
+B <- 10
+n <- 100
+nCores <- 3     # or numCores <- detectCores() - 1          # leave one out
+cl <- makePSOCKcluster(nCores)
+registerDoParallel(cl)
+set.seed(1234)
+
+lm.res.foreach <- foreach (i = 1:B, .combine = rbind) %dopar% {
+  j <- sample(1:nrow(iris), n, replace = TRUE)
+  res <- summary(lm(Sepal.Length ~ ., data = iris[j, ]))$coef
+  c(res[, 1], res[, 4])
+}
+stopCluster(cl)
+lm.coef.foreach <- lm.res.foreach[, 1:(ncol(lm.res.foreach)/2)]
+lm.pval.foreach <- lm.res.foreach[, -(1:(ncol(lm.res.foreach)/2))]
+head(lm.coef.foreach, 2)
+```
+Compare the executing time
+```{r}
+#library(foreach)
+#library(doParallel)
+library(rbenchmark)
+B <- 10000
+n <- 100
+within(
+  benchmark(
+    lm.for = {
+      lm.coef.for <- NULL
+      lm.pval.for <- NULL
+      set.seed(1234)
+      for (i in 1:B) {
+        j <- sample(1:nrow(iris), n, replace = TRUE)
+        lm.res.for <- summary(lm(Sepal.Length ~ ., data = iris[j, ]))$coef
+        lm.coef.for <- rbind(lm.coef.for, lm.res.for[, 1])
+        lm.pval.for <- rbind(lm.pval.for, lm.res.for[, 4])
+      }
+    },
+    lm.foreach = {
+      cl <- makePSOCKcluster(3)
+      registerDoParallel(cl)
+      set.seed(1234)
+      lm.res.foreach <- foreach (i = 1:B, .combine = rbind) %dopar% {
+        j <- sample(1:nrow(iris), n, replace = TRUE)
+        res <- summary(lm(Sepal.Length ~ ., data = iris[j, ]))$coef
+        c(res[, 1], res[, 4])
+      }
+      stopCluster(cl)
+    },
+    columns = c("relative", "test", "replications", "user.self", "sys.self", "elapsed"), 
+    order = "relative",
+    replications = 3
+  ),
+  {elapsed.mean = elapsed / replications}
+)
+
+```
+Notice, the ratio between the executing times depends on the calculations inside, consequently on `B` too, since the registration and closing of a *parallel backend* is also time consuming.
+
+### 2. More details on `foreach` and its useful arguments.
+
+Later the operator `%do%` is used to make the script nicer (avoiding `makeCluster` and `stopCluster`), as we do not discuss the parallelization.
+
+#### (a) `.combine`
+
+As mentioned above, the results are returned as a list by default, but this can be changed by defining the argument `.combine`. It can be set `.combine = c` for output as vector, `.combine = rbind` for a matrix, or can be any other operator, e.g. `.combine = +`, or even your own function. Here are some examples
+
+```{r}
+foreach (i = 1:5, .combine = c) %do% {
+  c(i, i^2)
+}
+
+foreach (i = 1:5, .combine = rbind) %do% {
+  c(i, i^2)
+}
+
+foreach (i = 1:5, .combine = '+') %do% {
+  c(i, i^2)
+}
+
+my.comb = function(old, new) {
+  cbind(old, c(new, new^2, new^3))
+}
+foreach (i = 1:5, .combine = my.comb) %do% {
+  i
+}
+```
+
+#### (b) Multiple and nested indices
+
+Iteration with multiple indices in one loop will iterate once and simultaneously. If their length are different, the iteration will be done over the shortest one
+
+```{r}
+foreach (i = 1:3, j = (1:6)*10, .combine = c) %do% {
+  i + j
+}
+```
+
+To nest iterations use `%:%` (choose combiners carefully!)
+
+```{r}
+foreach (i = 1:3, .combine = rbind) %:%
+  foreach (j = (1:6)*10, .combine = c) %do% {
+  i + j
+}
+```
+
+#### (c) `.errorhandling`
+
+The `foreach` proposes to decide how an error to be handle. There are three possibilities `.errorhandling = c('stop', 'remove', 'pass')` if an error occurs (`'stop'` by default)
+
+```{r}
+#foreach (i = list(1, 2, 'a', 4), .combine = c) %do% {
+#  i^2
+#}
+foreach (i = list(1, 2, '3', 4), .combine = rbind, .errorhandling = 'remove') %do% {
+  i^2
+}
+foreach (i = list(1, 2, '3', 4), .combine = c, .errorhandling = 'pass') %do% {
+  i^2
+}
+```
+**IO: I cannot execute the first loop because of the error, which I explain**
+The output with `.errorhandling = 'pass'` is not nice. However, their is a better way of handlinng errors
+```{r}
+my.comb = function(old, new) {
+  if (class(new) == "try-error") new = NA
+  c(old, new)
+}
+foreach (i = list(1, 2, '3', 4), .combine = my.comb) %do% {
+  try(i^2)
+}
+```
+
+#### (d) `.packages`
+
+Often additional packages are needed. 
+The library `doParallel` is .... That means if you paralellize the tasks between cores (workers) you have to load all packages on each worker. 
+
+**Example**: Optimize a function $x + a \sin x, x \in [0, \pi]$ for different values of $a$. The 
+
+```{r}
+my.func = function(x, a = 1) x + a * exp (x)
+y = seq(0, pi, .001)
+plot(y, my.func(x = y, a = 5), type = "l")
+plot(y, sin(y))
+```
+
+If you paralellize the tasks between cores (workers) you have to load all packages you use on each worker. For example,
+
+`registerDoParallel(cl)` by `...???...`
+
+clusterCall calls a function fun with identical arguments ... on each node.
+
+clusterEvalQ evaluates a literal expression on each cluster node. It is a parallel version of evalq, and is a convenience function invoking clusterCall.
+
+clusterExport assigns the values on the master R process of the variables named in varlist to variables of the same names in the global environment (aka ‘workspace’) of each node. The environment on the master from which variables are exported defaults to the global environment.
+
+parLapply, parSapply, and parApply are parallel versions of lapply, sapply and apply. Chunks of computation are statically allocated to nodes using clusterApply. By default, the number of chunks is the same as the number of nodes. parLapplyLB, parSapplyLB are load-balancing versions, intended for use when applying FUN to different elements of X takes quite variable amounts of time, and either the function is deterministic or reproducible results are not required. Chunks of computation are allocated dynamically to nodes using clusterApplyLB. From R 3.5.0, the default number of chunks is twice the number of nodes. Before R 3.5.0, the (fixed) number of chunks was the same as the number of nodes. As for clusterApplyLB, with load balancing the node that executes a particular job is non-deterministic and simulations that assign RNG streams to nodes will not be reproducible.
+
+
+
+```{r}
+#  clusterEvalQ(gCluster, source("functions_MLboot.r"))
+#clusterExport
+#hello
+```
+
+
+Alternatively you can put the argument `.packages` equal to the character vector of these packages. 
+
+Alternatively you can specify them after you the line 
+
+
+
+```{r}
+#hello
+```
+
+.export	
+character vector of variables to export. This can be useful when accessing a variable that isn't defined in the current environment. The default value in NULL.
+
+
+### Going from `doParallel` to `doMPI`
+
+Just replace several lines with functions. First, the example from above
+```{r}
+#library(foreach)
+library(doParallel)
+
+nCores <- 3     # define number of cores to be used
+# or 
+# numCores <- detectCores() - 1          # leave one core out, important on Windows 
+cl <- makePSOCKcluster(nCores)          # create a set of copies 
+registerDoParallel(cl)
+res.dopar = foreach (i = 1:100, .combine = c) %dopar% {
+  i^2
+}
+stopCluster(cl)             # stop the paralellization
+head(res.dopar)
+```
+The changed example
+```{r}
+#library(foreach)
+library(doMPI)
+
+cl <- startMPIcluster(verose = TRUE, logdir = "log")          # create a set of copies 
+registerDoMPI(cl)
+res.dopar = foreach (i = 1:100, .combine = c) %dopar% {
+  i^2
+}
+stopCluster(cl)             # stop the paralellization
+mpi.quit()
+head(res.dopar)
+```
+The arguments in `startMPIcluster` are not necessary but helpful by debugging. You can specify the number of workers (cores) `startMPIcluster(count = 3)`. However, there is no need if you run you program in console vie `slurm`. In this case the `doMPI` will learn number of workers from `slurm` (more about `slurm` [here](link))
+
+### `set.seed()`
+
+*I am not sure, to go into details on set.seed() and parallel??*
+
+The defined seed is not given to the workers. Compare the results
+```{r}
+cl <- makePSOCKcluster(3)          # create a set of copies 
+registerDoParallel(cl)
+set.seed(123)
+res.1 = foreach (i = 0:2, .combine = c) %dopar% {
+  rnorm(1)
+}
+res.2 = foreach (i = 0:2, .combine = c) %dopar% {
+  set.seed(123)
+  rnorm(1)
+}
+res.3 = foreach (i = 0:2, .combine = c) %dopar% {
+  set.seed(123 + i)
+  rnorm(1)
+}
+stopCluster(cl)             # stop the paralellization
+rbind(res.1, res.2, res.3)
+```
+In first loop the workers have their own seed, in the second loop the seed is equal 123 every time, and in the third one the seed is defined to be 123, 124 and 125 respectively.
+
+```{r}
+#hello
+```
+
+Packages: 
+snow
+multicore uses forking
+snow and multicore are similar and different in some sence therefor parallel was created
+foreach is overall them to clean the situation
+Rmpi - accros multiple machines, interface to mpi for advanced parallel programming  
+

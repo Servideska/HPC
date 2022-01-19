@@ -1,0 +1,163 @@
+---
+title: Tutorial 2. Replace loops with `apply{base}`-family functions
+output:
+  html_document: default
+  pdf_document: default
+---
+Aim of this tutorial is to show how a code can be rewritten to use `apply{base}`-family functions and their benefits. We will consider two toy examples. \
+
+**Example 1** (example from Tutorial 1): Calculate the sums of each column (variable) of an $n \times m$-matrix
+
+**Example 2**: Fit a linear regression to a data set (for example iris data) and collect the estimated coefficients (first column of `summary(lm(...))$coef`) and their p-values (forth column). Repeat this procedure `B` times for bootstrapped data.
+
+First, clean the memory
+```{r}
+rm(list = ls())
+```
+
+### 1. `apply{base}`
+The function `apply` applies the given function to an at least 2-dimensional array by rows (if 1) or columns (if 2), or further dimensions. Let's consider example 1.
+Create a matrix and save the calculations in a function and calculate the sums
+```{r}
+n <- 500
+m <- 10^4
+set.seed(1234)
+my.df <- matrix(rnorm(n * m), nrow = n)
+head(apply(my.df, 1, sum))    # for each row
+head(apply(my.df, 2, sum))    # for each column
+```
+Now, compare the executing time of the `for`-loop and `lapply`. 
+Let's include `colSums` as well
+```{r}
+library(rbenchmark)
+within(
+  benchmark(
+    sum.loop = {
+      s <- NULL
+      for (i in 1:ncol(my.df)) {
+        s <- c(s, sum(my.df[, i]))
+      }
+    }, 
+    sum.apply = apply(my.df, 2, sum),
+    sum.colSums = colSums(my.df),
+    columns = c("relative", "test", "replications", "user.self", "sys.self", "elapsed"), 
+    order = "relative",
+    replications = 10
+  ),
+  {elapsed.mean = elapsed / replications}
+)
+```
+Sure, `colSums` is the fastest. \
+Notice, `apply` is about 2.5 times faster than the `for`-loop.
+
+### 2. `lapply{base}`
+`lapply` is similar to `apply`, main difference is that the input is considered as a list or vector (one dimension) and the output is a list, too.\
+Let's consider the toy example 2. Fit a linear regression to the iris data
+```{r}
+my.lm <- lm(Sepal.Length ~ ., data = iris)
+summary(my.lm)$coef
+summary(my.lm)$r.squared       # goodness-of-fit
+```
+Run a bootstrap: draw a random sample of size `n` from iris data, fit the linear regression, and collect the estimated coefficients (first column) and their p-values (forth column). Repeat this procedure `B` times. The `for`-loop is
+```{r}
+B <- 10
+n = 100
+lm.coef.for <- NULL
+lm.pval.for <- NULL
+set.seed(1234)
+for (i in 1:B) {
+  j <- sample(1:nrow(iris), n, replace = TRUE)
+  lm.res.for <- summary(lm(Sepal.Length ~ ., data = iris[j, ]))$coef
+  lm.coef.for <- rbind(lm.coef.for, lm.res.for[, 1])
+  lm.pval.for <- rbind(lm.pval.for, lm.res.for[, 4])
+}
+head(lm.coef.for, 2)
+```
+The same calculations can be done using `lapply`.
+Create a function, which bootstraps a data set, fits a linear regression, and returns the information on coefficients
+```{r}
+my.lm <- function(data, formula, n = 100, i){
+  j <- sample(1:nrow(data), n, replace = TRUE)
+  res <- summary(lm(formula, data = data[j, ]))$coef
+}
+```
+We include the index `i` only because it will be needed in the next step (somolar to a loop-index)\
+```{r}
+set.seed(1234)
+lm.res.lapply <- lapply(1:B, my.lm, data = iris, formula = 'Sepal.Length ~ .', n = n)
+```
+Note, it returns a list with matrices.
+If you prefer results in a matrix form (one matrix with the estimated coefficients (first columns) and a second matrix with their p-values (forth columns)), you can use `lapply` again to separate the estimators and the p-values, and then use `do.call` to convert them into matrices (since `unlist` will make a long vector)
+```{r}
+lm.coef.lapply <- do.call(rbind, lapply(lm.res.lapply, "[", , 1))
+lm.pval.lapply <- do.call(rbind, lapply(lm.res.lapply, "[", , 4))
+head(lm.coef.lapply, 2)
+```
+<!-- #The results of the loop and apply are different, since each bootstrap is random. -->
+Now, it is time to compare the executing time of the `for`-loop and `lapply` 
+```{r}
+library(rbenchmark)
+B <- 1000
+n = 100
+within(
+  benchmark(
+    lm.for = {
+      lm.coef.for <- NULL
+      lm.pval.for <- NULL
+      set.seed(1234)
+      for (i in 1:B) {
+        j <- sample(1:nrow(iris), n, replace = TRUE)
+        lm.res.for <- summary(lm(Sepal.Length ~ ., data = iris[j, ]))$coef
+        lm.coef.for <- rbind(lm.coef.for, lm.res.for[, 1])
+        lm.pval.for <- rbind(lm.pval.for, lm.res.for[, 4])
+      }
+    },
+    lm.lapply = {
+      set.seed(1234)
+      lm.res.lapply <- lapply(1:B, my.lm, data = iris, formula = 'Sepal.Length ~ .', n = n)
+      lm.coef.lapply <- do.call(rbind, lapply(lm.res.lapply, "[", , 1))
+      lm.pval.lapply <- do.call(rbind, lapply(lm.res.lapply, "[", , 4))
+    },
+    columns = c("relative", "test", "replications", "user.self", "sys.self", "elapsed"), 
+    order = "relative",
+    replications = 10
+  ),
+  {elapsed.mean = elapsed / replications}
+)
+```
+Notice, the ratio between execution time of `for`-loop and `lapply` depends on B and n. For large B and n the ration is close to 1.
+
+### 3. `mclpapply{parallel}`
+`mclpapply` is the parallelized between multiple cores function `lpapply`. The number of used cores is an argument
+```{r}
+library(parallel)
+#numCores <- detectCores() - 1          # leave one out
+nCores <- 3
+set.seed(1234)
+lm.res.lapply <- mclapply(1:B, my.lm, data = iris, formula = 'Sepal.Length ~ .', n = n, mc.cores = nCores)
+```
+Compare the execution time of `mclapply` and `lapply`
+```{r}
+#library(rbenchmark)
+B <- 1000
+n = 100
+within(
+  benchmark(
+    lm.lapply = {
+      lapply(1:B, my.lm, data = iris, formula = 'Sepal.Length ~ .', n = n)
+    },
+    lm.mclapply = {
+      mclapply(1:B, my.lm, data = iris, formula = 'Sepal.Length ~ .', n = n, mc.cores = nCores)
+    },
+    columns = c("relative", "test", "replications", "user.self", "sys.self", "elapsed"), 
+    order = "relative",
+    replications = 10
+  ),
+  {elapsed.mean = elapsed / replications}
+)
+```
+The `mclapply` is up to `nCores= 3` times faster than `lapply`. 
+In general, ratio increases with `nCores` and `B`, and never exceeds `nCores`.
+
+**Note:!!!!** The required memory increases with the increasing number of cores. For example, three cores cause four versions of the data in the memory. The performance can be affected if the amount of required memory exceeds the physical amount available. 
+
