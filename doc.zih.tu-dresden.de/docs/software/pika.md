@@ -1,4 +1,4 @@
-# PIKA
+# Job performance overview with PIKA
 
 PIKA is a hardware performance monitoring stack to identify inefficient HPC jobs. Users of ZIH
 systems have the possibility to visualize and analyze the efficiency of their jobs via the

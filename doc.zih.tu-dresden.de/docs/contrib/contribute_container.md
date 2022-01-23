@@ -1,4 +1,4 @@
-# Work Locally Using Containers
+# Contribute via Local Clone
 
 ## Git Procedure
 

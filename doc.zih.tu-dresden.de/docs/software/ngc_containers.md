@@ -1,4 +1,4 @@
-# NGC Containers
+# GPU-accelerated Containers for Deep Learning (NGC Containers)
 
 A [container](containers.md) is an executable and portable unit of software.
 On ZIH systems, [Singularity](https://sylabs.io/) is used as a standard container solution.
