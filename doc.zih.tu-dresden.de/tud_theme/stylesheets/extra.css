@@ -13,10 +13,23 @@
 }
 :root {
     --md-text-font-family: 'Open Sans Regular', sans-serif;
+    /* TUD CD colors */
+    /* primary colors */
     --md-primary-fg-color:        rgb(0, 37, 87);
     --md-primary-fg-color--light: rgb(39, 66, 117);
     --md-footer-bg-color:         rgb(0, 37, 87);
+    
+    --tud-blue-20:                rgb(191, 201, 215);
+    --tud-blue-10:                rgb(207, 214, 225);
+    --ms-blue:                    rgb(233, 237, 242);
+    /* secondary colors */
     --tud-grey-100:               rgb(51, 51, 51);
+    --tud-grey-95:                rgb(102, 102, 102);
+    --tud-grey-90:                rgb(153, 153, 153);
+    --tud-grey-80:                rgb(199, 199, 199);
+    --grey-75:                    rgb(222, 222, 222);
+    --tud-grey-70:                rgb(245, 245, 245);
+    /* interaction color */
     --tud-red-90:                 rgb(221, 29, 29);
 
 }
@@ -73,6 +86,9 @@ strong {
 
 .md-typeset code {
     word-break: normal;
+    #background-color: var(--grey-75);
+    #background-color: var(--tud-blue-10);
+    background-color: var(--ms-blue);
 }
 
 .md-typeset .admonition,
