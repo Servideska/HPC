@@ -59,7 +59,8 @@ be aware of the limits shown in the following table.
 
     | Partition          | Nodes                                    | # Nodes | Cores per Node  | MB per Core | MB per Node | GPUs per Node     |
     |:-------------------|:-----------------------------------------|:--------|:----------------|:------------|:------------|:------------------|
-    | `haswell64`        | `taurusi[4037-4104,5001-5612,6001-6612]` | `1292`  | `24`            | `2541`       | `61000`    | `-`               |
+    | `interactive`      | `taurusi[6605-6612]`                     | `8`     | `24`            | `2541`       | `61000`    | `-`               |
+    | `haswell64`        | `taurusi[4037-4104,5001-5612,6001-6604]` | `1284`  | `24`            | `2541`       | `61000`    | `-`               |
     | `haswell64ht`      | `taurusi[4018-4036]`                     | `18`    | `24 (HT: 48)`   | `1270`       | `61000`    | `-`               |
     | `haswell128`       | `taurusi[4105-4188]`                     | `84`    | `24`            | `5250`       | `126000`   | `-`               |
     | `haswell256`       | `taurusi[4189-4232]`                     | `44`    | `24`            | `10583`      | `254000`   | `-`               |
@@ -77,3 +78,4 @@ be aware of the limits shown in the following table.
     The ML nodes have 4way-SMT, so for every physical core allocated (,e.g., with
     `SLURM_HINT=nomultithread`), you will always get 4*1443 MB because the memory of the other
     threads is allocated implicitly, too.
+    Some of the partitions have a counterpart for interactive jobs. These partitions have a `-interactive` suffix and are not listed here.
