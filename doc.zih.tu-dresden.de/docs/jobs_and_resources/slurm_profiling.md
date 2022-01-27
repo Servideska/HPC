@@ -61,8 +61,7 @@ More information about profiling with Slurm:
 - [Slurm Profiling](http://slurm.schedmd.com/hdf5_profile_user_guide.html)
 - [`sh5util`](http://slurm.schedmd.com/sh5util.html)
 
-
-====== Memory Consumption of a Job ======
+## Memory Consumption of a Job
 
 If you are only interested in the maximal memory consumption of your job, you
 don't need profiling at all. This information can be retrieved from within 
