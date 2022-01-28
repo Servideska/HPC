@@ -63,9 +63,8 @@ More information about profiling with Slurm:
 
 ## Memory Consumption of a Job
 
-If you are only interested in the maximal memory consumption of your job, you
-don't need profiling at all. This information can be retrieved from within 
-[batch files](slurm.md#batch_jobs) as follows:
+If you are only interested in the maximal memory consumption of your job, you don't need profiling
+at all. This information can be retrieved from within [job files](slurm.md#batch-jobs) as follows:
 
 ```bash
 #!/bin/bash
@@ -81,7 +80,7 @@ srun a.exe
 srun max_mem.sh
 ```
 
-The script max_mem.sh is:
+The script `max_mem.sh` is:
 
 ```bash
 #!/bin/bash
@@ -90,6 +89,9 @@ echo -n "$(hostname): "
 cat /sys/fs/cgroup/memory/slurm/uid_${SLURM_JOB_UID}/job_${SLURM_JOB_ID}/memory.max_usage_in_bytes
 ```
 
-**Remarks**:
-  * Make sure that `max_mem.sh` is executable (e.g., `chmod +x max_mem.sh`) and add the path to this script if it is not within the same directory.
-  * The `srun` command is necessary to gather the max. memory from all nodes within this job. Otherwise, you would only get the data from one node. 
+!!! note
+
+  * Make sure that the script `max_mem.sh` is executable (e.g., `chmod +x max_mem.sh`) and add the
+    path to this script if it is not within the same directory.
+  * The `srun` command is necessary to gather the max. memory from all nodes within this job.
+    Otherwise, you would only get the data from one node.
