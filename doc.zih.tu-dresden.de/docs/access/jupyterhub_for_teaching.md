@@ -9,14 +9,11 @@ teaching.
 
 Please be aware of the following notes:
 
-- ZIH systems operate at a lower availability level than your usual Enterprise
-Cloud VM. There can always be downtimes, e.g. of the filesystems or the batch
-system.
-- Scheduled downtimes are announced by email. Please plan your courses
-accordingly.
-- Access to HPC resources is handled through projects. See your course as a
-project. Projects need to be registered beforehand (more info on the page
-[Access](../application/overview.md)).
+- ZIH systems operate at a lower availability level than your usual Enterprise Cloud VM. There can
+  always be downtimes, e.g. of the filesystems or the batch system.
+- Scheduled downtimes are announced by email. Please plan your courses accordingly.
+- Access to HPC resources is handled through projects. See your course as a project. Projects need
+  to be registered beforehand (more info on the page [Access](../application/overview.md)).
 - Don't forget to [add your users](../application/project_management.md#manage-project-members-dis-enable)
   (e.g. students or tutors) to your project.
 - It might be a good idea to [request a reservation](../jobs_and_resources/overview.md#exclusive-reservation-of-hardware)
