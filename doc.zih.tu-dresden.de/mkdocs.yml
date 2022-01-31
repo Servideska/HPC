@@ -14,6 +14,7 @@ nav:
     - JupyterHub:
       - JupyterHub: access/jupyterhub.md
       - JupyterHub for Teaching: access/jupyterhub_for_teaching.md
+      - Jupyter Teaching Example: access/jupyter_teaching_example.md
     - Key Fingerprints: access/key_fingerprints.md  
     - Security Restrictions: access/security_restrictions.md
   - Transfer of Data:
@@ -27,6 +28,7 @@ nav:
       - Private Modulefiles: software/private_modules.md
       - Custom EasyBuild Modules: software/custom_easy_build_environment.md
       - Python Virtual Environments: software/python_virtual_environments.md
+      - ZSH: software/zsh.md
     - Containers:
       - Singularity: software/containers.md
       - Singularity Recipes and Hints: software/singularity_recipe_hints.md
@@ -69,7 +71,6 @@ nav:
       - PAPI Library: software/papi.md
       - Pika: software/pika.md
       - Perf Tools: software/perf_tools.md
-      - Score-P: software/scorep.md
       - Vampir: software/vampir.md
   - Data Life Cycle Management:
     - Overview: data_lifecycle/overview.md
@@ -80,7 +81,6 @@ nav:
       - BeeGFS: data_lifecycle/beegfs.md
       - Warm Archive: data_lifecycle/warm_archive.md
       - Intermediate Archive: data_lifecycle/intermediate_archive.md
-      - Quotas: data_lifecycle/quotas.md
     - Workspaces: data_lifecycle/workspaces.md
     - Preservation of Research Data: data_lifecycle/preservation_research_data.md
     - Structuring Experiments: data_lifecycle/experiments.md
@@ -102,7 +102,6 @@ nav:
       - Binding And Distribution Of Tasks: jobs_and_resources/binding_and_distribution_of_tasks.md
   - Support:
     - How to Ask for Support: support/support.md
-    - News Archive: support/news_archive.md
   - Archive of the Old Wiki:
     - Overview: archive/overview.md
     - Bio Informatics: archive/bioinformatics.md
