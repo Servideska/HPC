@@ -40,6 +40,9 @@ i	\<todo\>	<!--.*todo.*-->
 Replace variations of \"Coming soon\" with real content.
 
 i	\(\<coming soon\>\|This .* under construction\|posted here\)
+Add table column headers.
+
+i	^[ |]*|$
 Avoid spaces at end of lines.
 doc.zih.tu-dresden.de/docs/accessibility.md
 i	[[:space:]]$
