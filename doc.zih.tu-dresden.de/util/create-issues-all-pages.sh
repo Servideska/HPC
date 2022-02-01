@@ -10,7 +10,8 @@ files=$(git ls-tree --full-tree -r --name-only HEAD $basedir/ | grep '\.md$' | g
 
 description=""
 for f in $files; do
-  description="$description- [ ] $f\n"
+description="$description- [ ] $f
+"
 done
 echo "SCHEDULED_PAGE_CHECK_PAT=${SCHEDULED_PAGE_CHECK_PAT+x}"
 echo "CI_PROJECT_ID=$CI_PROJECT_ID"
