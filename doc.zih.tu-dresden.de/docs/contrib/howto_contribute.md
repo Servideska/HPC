@@ -31,7 +31,7 @@ to the documentation, you are good to go. GitLab offers a rich and versatile web
 with repositories. To start fixing typos and edit source files, please find more information on
 [Contributing via web browser](contribute_browser.md).
 
-## Contribute Using Git Locally
+## Contribute via Local Clone
 
 For experienced Git users, we provide a Docker container that includes all checks of the CI engine
 used in the back-end. Using them should ensure that merge requests will not be blocked
