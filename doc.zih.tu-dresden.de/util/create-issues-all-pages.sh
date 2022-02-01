@@ -12,5 +12,6 @@ description=""
 for f in $files; do
   description="$description- [ ] $f\n"
 done
+echo "CI_JOB_TOKEN=${CI_JOB_TOKEN+x}"
 
 curl --verbose --request POST --form "token=$CI_JOB_TOKEN" --form 'title="Regular check of all pages"' --form "description=\"$description\"" --form "labels=Bot" https://gitlab.hrz.tu-chemnitz.de/api/v4/projects/8840/issues
