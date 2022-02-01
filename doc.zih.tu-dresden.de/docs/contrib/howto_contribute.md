@@ -38,3 +38,9 @@ used in the back-end. Using them should ensure that merge requests will not be b
 due to automatic checking.
 The page on [Contributing via local clone](contribute_container.md) provides you with the details
 about how to setup and use your local clone.
+
+## Content rules
+
+To ensure quality and to make it easier for readers to understand all content, we follow some
+[content rules](content_rules.md). If you follow these rules, you can be sure, that reviews of
+your changes take less time and your improvements appear faster on the official web site.
