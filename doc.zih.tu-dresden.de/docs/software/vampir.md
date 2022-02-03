@@ -150,7 +150,6 @@ marie@local$ ssh -L 30000:taurusi1253:30055 taurus
     The previous SSH command requires that you have already set up your [SSH configuration
     ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
-
 Now, the port 30000 on your desktop is connected to the VampirServer port 30055 at the compute node
 `taurusi1253` of the ZIH system. Finally, start your local Vampir client and establish a remote
 connection to `localhost`, port 30000 as described in the manual.
