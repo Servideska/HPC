@@ -361,7 +361,7 @@ In order to look into the results, there are the following basic approaches.
     saved at `projects/<name_of_optimization_run>/{2d-scatterplots,parallel-plot}`.
 
     !!! important "SSH command"
-    
+
         The previous SSH command requires that you have already set up your [SSH configuration
         ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
