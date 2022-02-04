@@ -183,8 +183,13 @@ The SSH tunnel has to be created from the user's localhost. The following exampl
 forward SSH tunnel to localhost on port 22222 (or what ever port is preferred):
 
 ```console
-marie@local$ ssh -L 22222:172.24.140.229:11111 <zihlogin>@taurus.hrsk.tu-dresden.de
+marie@local$ ssh -L 22222:172.24.140.229:11111 taurus
 ```
+
+!!! important "SSH command"
+
+    The previous SSH command requires that you have already set up your [SSH configuration
+    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 The final step is to start ParaView locally on your own machine and add the connection
 
@@ -234,10 +239,13 @@ it into thinking your provided GL rendering version is higher than what it actua
 
 ??? example
 
+    The following lines requires that you have already set up your [SSH configuration
+    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
+
     ```console
     # 1st, connect to ZIH systems using X forwarding (-X).
     # It is a good idea to also enable compression for such connections (-C):
-    marie@local$ ssh -XC taurus.hrsk.tu-dresden.de
+    marie@local$ ssh -XC taurus
 
     # 2nd, load the ParaView module and override the GL version (if necessary):
     marie@login$ module Paraview/5.7.0

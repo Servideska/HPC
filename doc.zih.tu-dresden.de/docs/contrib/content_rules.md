@@ -145,11 +145,11 @@ templates should give a general idea of invocation and thus, do not contain any 
 
 ````markdown
 ```bash
-marie@local$ ssh -NL <local port>:<compute node>:<remote port> <zih login>@tauruslogin.hrsk.tu-dresden.de
+marie@local$ ssh -NL <local port>:<compute node>:<remote port> taurus
 ```
 
 ```console
-marie@local$ ssh -NL 5901:172.24.146.46:5901 marie@tauruslogin.hrsk.tu-dresden.de
+marie@local$ ssh -NL 5901:172.24.146.46:5901 taurus
 ```
 ````
 
