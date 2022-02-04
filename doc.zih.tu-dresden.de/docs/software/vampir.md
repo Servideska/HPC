@@ -8,9 +8,9 @@ graphical displays, including state diagrams, statistics, and timelines, can be 
 to obtain a better understanding of their parallel program inner working and to subsequently
 optimize it. Vampir allows to focus on appropriate levels of detail, which allows the detection and
 explanation of various performance bottlenecks such as load imbalances and communication
-deficiencies. Follow this
-[link](http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/forschung/projekte/vampir)
-for further information.
+deficiencies. [ZIH's Vampir overview page
+](http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/forschung/projekte/vampir) gives
+further information.
 
 [Score-P](scorep.md) is the primary code instrumentation and run-time measurement framework for
 Vampir and supports various instrumentation methods, including instrumentation at source level and
