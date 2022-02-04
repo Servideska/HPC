@@ -70,16 +70,10 @@ To identify the mount points of the different filesystems on the data transfer m
 
 ## Transferring Files Between ZIH Systems and Group Drive
 
-1. Create `~/.ssh` directory on `login1.zih.tu-dresden.de` nodes.
-
-   ``` console
-   marie@login$ ssh login1.zih.tu-dresden.de mkdir --parents --mode=700 ~/.ssh
-   ```
-
 1. Copy your private SSH key from ZIH system to `login1.zih.tu-dresden.de`.
 
    ``` console
-   marie@login$ cat ~/.ssh/id_rsa.pub | ssh login1.zih.tu-dresden.de tee --append ~/.ssh/authorized_keys
+   marie@login$ ssh-copy-id -i ~/.ssh/id_rsa.pub login1.zih.tu-dresden.de
    ```
 
 1. Now you can access your group drive with the Datamover commands.
