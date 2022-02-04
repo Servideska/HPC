@@ -356,7 +356,7 @@ In order to look into the results, there are the following basic approaches.
     After creating a 2D scatter plot or a parallel plot, OmniOpt will try to display the
     corresponding file (`html`, `png`) directly on the ZIH system. Therefore, it is necessary to
     login via ssh with the option `-X` (X11 forwarding), e.g., `ssh -X taurus`.
-    Nevertheless, because of latency using x11 forwarding, it is recommended to download the created
+    Nevertheless, because of latency using X11 forwarding, it is recommended to download the created
     files and explore them on the local machine (esp. for the parallel plot). The created files are
     saved at `projects/<name_of_optimization_run>/{2d-scatterplots,parallel-plot}`.
 
