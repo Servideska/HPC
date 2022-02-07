@@ -6,6 +6,7 @@ nav:
     - Request for Resources: application/request_for_resources.md
     - Project Request Form: application/project_request_form.md
     - Project Management: application/project_management.md
+    - Acknowledgement: application/acknowledgement.md
   - Access to ZIH Systems:
     - Overview: access/overview.md
     - Connecting with SSH: access/ssh_login.md
