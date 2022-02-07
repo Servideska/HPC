@@ -67,3 +67,33 @@ To identify the mount points of the different filesystems on the data transfer m
     The [warm archive](../data_lifecycle/warm_archive.md) and the `projects` filesystem are not
     writable from within batch jobs.
     However, you can store the data in the `warm_archive` using the datamover.
+
+## Transferring Files Between ZIH Systems and Group Drive
+
+1. Copy your private SSH key from ZIH system to `login1.zih.tu-dresden.de`.
+
+   ``` console
+   marie@login$ ssh-copy-id -i ~/.ssh/id_rsa.pub login1.zih.tu-dresden.de
+   ```
+
+1. Now you can access your group drive with the Datamover commands.
+!!! example "Export the name of your group drive."
+
+   ``` console
+   marie@login$ export GROUP_DRIVE_NAME=???
+   ```
+
+!!! note
+    Please replace `???` with the name of your group drive.
+
+!!! example "Copying data from your group drive to `/beegfs/global0` filesystem."
+
+    ``` console
+    marie@login$ dtrsync -av dgw.zih.tu-dresden.de:/glw/${GROUP_DRIVE_NAME}/inputfile /beegfs/global0/ws/marie-workdata/.
+    ```
+
+!!! example "Copying data from `/beegfs/global0` filesystem to your group drive."
+
+    ``` console
+    marie@login$ dtrsync -av /beegfs/global0/ws/marie-workdata/resultfile dgw.zih.tu-dresden.de:/glw/${GROUP_DRIVE_NAME}/.
+    ```
