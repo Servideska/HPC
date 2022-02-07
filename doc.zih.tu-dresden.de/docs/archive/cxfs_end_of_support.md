@@ -18,7 +18,7 @@ Files worth keeping can be moved
 * to the new [Intermediate Archive](../data_lifecycle/intermediate_archive.md) (max storage
     duration: 3 years) - see
     [MigrationHints](#migration-from-cxfs-to-the-intermediate-archive) below,
-* or to the [Log-term Archive](../data_lifecycle/longterm_preservation.md) (tagged with
+* or to the [Long-term Archive](../data_lifecycle/longterm_preservation.md) (tagged with
     metadata).
 
 To run the filesystem without support comes with the risk of losing data. So, please store away
