@@ -9,8 +9,9 @@ document might seem very long describing complex steps, contributing is quite ea
 
 Please follow this standard Git procedure for working with a local clone:
 
-1. Request access to the project or fork the project on
+1. Fork the project on
 [https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium)
+or request access to the project.
 1. Change to a local (unencrypted) filesystem. (We have seen problems running the container on an
 ecryptfs filesystem. So you might want to use e.g. `/tmp` as the start directory.)
 1. Create a new directory, e.g. with `mkdir hpc-wiki`
