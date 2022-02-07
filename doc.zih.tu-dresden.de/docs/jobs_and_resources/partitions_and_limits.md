@@ -10,11 +10,11 @@ smaller jobs. Thus, restrictions w.r.t. [memory](#memory-limits) and
 
     There is a time limit set for processes on login nodes. If you run applications
     outside of a compute job, it will be stopped automatically after 5 minutes with
-    
+
     ```
     CPU time limit exceeded
     ```
-    
+
     Please start a job using a [batch system](slurm.md).
 
 ## Runtime Limits
