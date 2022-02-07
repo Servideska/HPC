@@ -6,6 +6,18 @@ resources, like memory (but not CPU). On the other hand, a higher throughput can
 smaller jobs. Thus, restrictions w.r.t. [memory](#memory-limits) and
 [runtime limits](#runtime-limits) have to be respected when submitting jobs.
 
+!!! warning "Runtime limits on login nodes"
+
+    There is a time limit set for processes on login nodes. If you run applications
+    outside of a compute job, it will be stopped automatically after 5 minutes with
+    
+    ```
+    CPU time limit exceeded
+    ```
+    
+    Please start a job using a [batch system](slurm.md).
+
+
 ## Runtime Limits
 
 !!! note "Runtime limits are enforced."
