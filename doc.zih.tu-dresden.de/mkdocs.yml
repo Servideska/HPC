@@ -68,7 +68,7 @@ nav:
       - Score-P: software/scorep.md
       - lo2s: software/lo2s.md
       - PAPI Library: software/papi.md
-      - Job performance overview with PIKA: software/pika.md
+      - PIKA: software/pika.md
       - Perf Tools: software/perf_tools.md
       - Vampir: software/vampir.md
   - Data Life Cycle Management:
