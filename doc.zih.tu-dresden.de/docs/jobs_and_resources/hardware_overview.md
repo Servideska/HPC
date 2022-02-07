@@ -20,6 +20,7 @@ users and the ZIH.
   - IPs: 141.30.73.82/83
 - Direct access to these nodes is granted via IP whitelisting (contact
   hpcsupport@zih.tu-dresden.de) - otherwise use TU Dresden VPN.
+- Run time limitation: any process will timeout after 5 minutes.
 
 ## AMD Rome CPUs + NVIDIA A100
 
