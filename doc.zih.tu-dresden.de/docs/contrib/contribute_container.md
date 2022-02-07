@@ -75,7 +75,7 @@ Here is a suggestion of a workflow which might be suitable for you.
 The command(s) to start the dockerized web server is this:
 
 ```bash
-wiki "mkdocs build && mkdocs serve -a 0.0.0.0:8000"
+wiki "mkdocs serve -a 0.0.0.0:8000"
 ```
 
 You can view the documentation via `http://localhost:8000` in your browser, now.
