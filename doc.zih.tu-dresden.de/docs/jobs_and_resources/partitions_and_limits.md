@@ -66,16 +66,18 @@ be aware of the limits shown in the following table.
     | `haswell256`       | `taurusi[4189-4232]`                     | `44`    | `24`            | `10583`      | `254000`   | `-`               |
     | `broadwell`        | `taurusi[4233-4264]`                     | `32`    | `28`            | `2214`       | `62000`    | `-`               |
     | `smp2`             | `taurussmp[3-7]`                         | `5`     | `56`            | `36500`      | `2044000`  | `-`               |
-    | `gpu2`             | `taurusi[2045-2103]`                     | `59`    | `24`            | `2583`       | `62000`    | `4 (2 dual GPUs)` |
+    | `gpu2`**           | `taurusi[2045-2103]`                     | `59`    | `24`            | `2583`       | `62000`    | `4 (2 dual GPUs)` |
     | `hpdlf`            | `taurusa[3-16]`                          | `14`    | `12`            | `7916`       | `95000`    | `3`               |
-    | `ml`               | `taurusml[1-32]`                         | `32`    | `44 (HT: 176)`  | `1443*`      | `254000`   | `6`               |
-    | `romeo`            | `taurusi[7001-7192]`                     | `192`   | `128 (HT: 256)` | `1972*`      | `505000`   | `-`               |
+    | `ml`**             | `taurusml[1-32]`                         | `32`    | `44 (HT: 176)`  | `1443*`      | `254000`   | `6`               |
+    | `romeo`**          | `taurusi[7001-7192]`                     | `192`   | `128 (HT: 256)` | `1972*`      | `505000`   | `-`               |
     | `julia`            | `taurussmp8`                             | `1`     | `896`           | `27343*`     | `49000000` | `-`               |
-    | `alpha`            | `taurusi[8001-8034]`                     | `34`    | `48 (HT: 96)`   | `10312*`     | `990000`   | `8`               |
+    | `alpha`**          | `taurusi[8001-8034]`                     | `34`    | `48 (HT: 96)`   | `10312*`     | `990000`   | `8`               |
 
 !!! note
 
-    The ML nodes have 4way-SMT, so for every physical core allocated (,e.g., with
-    `SLURM_HINT=nomultithread`), you will always get 4*1443 MB because the memory of the other
+    The ML nodes have 4way-SMT, so for every physical core allocated (e.g., with
+    `SLURM_HINT=nomultithread`), you will always get 4*1443 MB, because the memory of the other
     threads is allocated implicitly, too.
-    Some of the partitions have a counterpart for interactive jobs. These partitions have a `-interactive` suffix and are not listed here.
+    Some of the partitions, denoted with a double asterisk, have a counterpart for interactive 
+    jobs. These partitions have a `-interactive` suffix (e.g. `ml-interactive`) and have the same
+    configuration.
