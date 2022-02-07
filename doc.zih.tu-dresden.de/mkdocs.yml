@@ -170,12 +170,16 @@ theme:
 
   logo: assets/images/TUD_Logo_weiss_57.png
   second_logo: assets/images/zih_weiss.png
-
-# extends base css
-
+  features:
+    - navigation.instant
+    
+# extends base css/js
 extra_css:
 
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
 
 markdown_extensions:
     - admonition
@@ -190,8 +194,11 @@ markdown_extensions:
         alternate_style: true
 
 extra:
-  homepage: https://tu-dresden.de
+  tud_homepage: https://tu-dresden.de
+  tud_name: "TU Dresden"
+  # second logo
   zih_homepage: https://tu-dresden.de/zih
+  zih_name: "center for information services and high performance computing (ZIH)"
   hpcsupport_mail: hpcsupport@zih.tu-dresden.de
 
   # links in footer
