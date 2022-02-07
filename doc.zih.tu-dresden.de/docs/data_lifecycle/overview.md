@@ -46,7 +46,7 @@ filesystems.
 
 Keep in mind that every workspace has a storage duration. Thus, be careful with the expire date
 otherwise it could vanish. The core data of your project should be [backed up](#backup) and the most
-important data should be [archived](preservation_research_data.md).
+important data should be [archived (long-term preservation)](longterm_preservation.md).
 
 ### Backup
 
@@ -105,7 +105,7 @@ expected? (software and version)
 ### Metadata
 
 Another important aspect is the Metadata. It is sufficient to use
-[Metadata](preservation_research_data.md#what-are-meta-data) for your HPC project. Metadata
+[Metadata](longterm_preservation.md#what-are-meta-data) for your HPC project. Metadata
 standards, i.e.,
 [Dublin core](http://dublincore.org/resources/metadata-basics/),
 [OME](https://www.openmicroscopy.org/),
