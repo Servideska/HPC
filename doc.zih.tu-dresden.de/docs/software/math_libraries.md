@@ -1,4 +1,4 @@
-# Math Libraries
+# Mathematics Libraries
 
 Many software heavily relies on math libraries, e.g., for linear algebra or FFTW calculations.
 Writing portable and fast math functions is a really challenging task. You can try it for fun, but you
