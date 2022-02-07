@@ -21,6 +21,10 @@ users and the ZIH.
 - Direct access to these nodes is granted via IP whitelisting (contact
   hpcsupport@zih.tu-dresden.de) - otherwise use TU Dresden VPN.
 
+!!! warning "Run time limit"
+
+    Any process on login nodes is stopped after 5 minutes.
+
 ## AMD Rome CPUs + NVIDIA A100
 
 - 32 nodes, each with
