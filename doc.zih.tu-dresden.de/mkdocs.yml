@@ -31,7 +31,7 @@ nav:
     - Containers:
       - Singularity: software/containers.md
       - Singularity Recipes and Hints: software/singularity_recipe_hints.md
-      - Virtual Machines Tools: software/virtual_machines_tools.md
+      - Singularity for Power9: software/singularity_power9.md
       - Virtual Machines: software/virtual_machines.md
       - GPU-accelerated Containers for Deep Learning (NGC Containers): software/ngc_containers.md
     - Applications:
