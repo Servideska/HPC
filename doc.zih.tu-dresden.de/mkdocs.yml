@@ -25,7 +25,7 @@ nav:
     - Environment:
       - Modules: software/modules.md
       - Private Modules: software/private_modules.md
-      - EasyBuild Modules: software/custom_easy_build_environment.md
+      - EasyBuild: software/custom_easy_build_environment.md
       - Python Virtual Environments: software/python_virtual_environments.md
       - ZSH: software/zsh.md
     - Containers:
@@ -81,7 +81,7 @@ nav:
       - Warm Archive: data_lifecycle/warm_archive.md
       - Intermediate Archive: data_lifecycle/intermediate_archive.md
     - Workspaces: data_lifecycle/workspaces.md
-    - Preservation of Research Data: data_lifecycle/preservation_research_data.md
+    - Long-Term Preservation: data_lifecycle/longterm_preservation.md
     - Structuring Experiments: data_lifecycle/experiments.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md
