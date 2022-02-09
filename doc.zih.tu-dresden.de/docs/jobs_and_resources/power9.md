@@ -1,4 +1,4 @@
-# IBM Power9 Nodes for Machine Learning
+# IBM Power9 Nodes
 
 For machine learning, we have 32 IBM AC922 nodes installed with this
 configuration:

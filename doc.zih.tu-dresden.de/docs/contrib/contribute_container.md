@@ -1,4 +1,4 @@
-# Contributing Using a Local Clone and a Docker Container
+# Contribute via Local Clone
 
 In the following, it is outlined how to contribute to the
 [HPC documentation](https://doc.zih.tu-dresden.de/) of

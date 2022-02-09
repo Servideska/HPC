@@ -1,4 +1,4 @@
-# Export Nodes: Transfer Data to/from ZIH's Filesystems
+# Export Nodes - Data Transfer to/from ZIH Systems
 
 To copy large data to/from ZIH systems, the so-called **export nodes** should be used. While it is
 possible to transfer small files directly via the login nodes, they are not intended to be used that
@@ -19,8 +19,8 @@ There are at least three tools to exchange data between your local workstation a
 are explained in the following section in more detail.
 
 !!! important
-    The following explanations require that you have already set up your [SSH configuration
-    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
+    The following explanations require that you have already set up your
+    [SSH configuration](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 ### SCP
 

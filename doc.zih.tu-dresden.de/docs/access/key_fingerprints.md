@@ -1,4 +1,4 @@
-# SSH Key Fingerprints
+# Key Fingerprints
 
 !!! hint
 

@@ -1,4 +1,4 @@
-# Use of External Licenses
+# External Licenses
 
 It is possible (please [contact the support team](../support/support.md) first) for users to install
 their own software and use their own license servers, e.g.  FlexLM. The outbound IP addresses from
