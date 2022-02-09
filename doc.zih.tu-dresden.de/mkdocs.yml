@@ -83,7 +83,6 @@ nav:
       - Intermediate Archive: data_lifecycle/intermediate_archive.md
     - Workspaces: data_lifecycle/workspaces.md
     - Long-Term Preservation: data_lifecycle/longterm_preservation.md
-    - Structuring Experiments: data_lifecycle/experiments.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
