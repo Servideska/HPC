@@ -1,4 +1,8 @@
-# Large Shared-Memory Node - HPE Superdome Flex
+# HPE Superdome Flex
+
+The HPE Superdome Flex is a large shared memory node. It is especially well suited for data
+intensive application scenarios, for example to process extremely large data sets completely in main
+memory or in very fast NVMe memory.
 
 - Hostname: `taurussmp8`
 - Access to all shared filesystems
@@ -19,8 +23,8 @@ full capacity can be set up.
 
 ## Hints for Usage
 
-- granularity should be a socket (28 cores)
-- can be used for OpenMP applications with large memory demands
+- Granularity should be a socket (28 cores)
+- Can be used for OpenMP applications with large memory demands
 - To use OpenMPI it is necessary to export the following environment
   variables, so that OpenMPI uses shared memory instead of Infiniband
   for message transport. `export OMPI_MCA_pml=ob1;   export  OMPI_MCA_mtl=^mxm`
