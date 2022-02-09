@@ -15,7 +15,7 @@ Documentation on former systems for future reference can be found on the followi
 
 | Year | System |
 |------|--------|
-| 1968 | Zeiss-Rechenautomat Nr. 1 (ZRA1) Rechenleistung: 150 bis 200 Instructions/s, 4096 Speicherplätze zu je 48 Bit (Magnettrommel) |
+| 1968 | Zeiss-Rechenautomat Nr. 1 (ZRA1) Performance: 150 to 200 instructions/s, 4096 storage cells with 48 bit each (magnetic drum) |
 | 1970 | Inbetriebnahme großer Einzelrechner, gekoppelte Einzelrechner und Terminals folgen (BESM, ESER) |
 | 1976 | Rechnernetz DELTA und graphische Arbeitsplätze |
 | 1981 | Einsatz der ersten Mikrorechner; experimentelle Erprobung lokaler Netze (LAN) |
