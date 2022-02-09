@@ -81,3 +81,6 @@ be aware of the limits shown in the following table.
     Some of the partitions, denoted with a double asterisk, have a counterpart for interactive
     jobs. These partitions have a `-interactive` suffix (e.g. `ml-interactive`) and have the same
     configuration.
+    There is also a meta partition `haswell`, which contain partition `haswell64`, `haswell128`, `haswell256` and `smp2`and this is also the default partition.
+    If you specify no partition or partition `haswell` a Slurm plugin will choose the partition which fits to your memory requirements.
+    There are some other partitions, which are not specified in the table above, but that partitions you shouldn't choose directly.
