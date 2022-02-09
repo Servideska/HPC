@@ -72,7 +72,7 @@ The current SGI Altix is based on the dual core Intel Itanium 2
 processor (code name "Montecito"). One core has the following basic
 properties:
 
-|                                     |                            |
+| Component                           | Count                      |
 |-------------------------------------|----------------------------|
 | clock rate                          | 1.6 GHz                    |
 | integer units                       | 6                          |
