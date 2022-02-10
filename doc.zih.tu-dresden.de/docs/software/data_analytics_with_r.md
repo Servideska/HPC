@@ -1,4 +1,4 @@
-# R for Data Analytics
+# Data Analytics with R
 
 [R](https://www.r-project.org/about.html) is a programming language and environment for statistical
 computing and graphics. It provides a wide variety of statistical (linear and nonlinear modeling,
@@ -63,7 +63,8 @@ marie@compute$ R -e 'install.packages("ggplot2")'
 ## Deep Learning with R
 
 The deep learning frameworks perform extremely fast when run on accelerators such as GPU.
-Therefore, using nodes with built-in GPUs, e.g., partitions [ml](../jobs_and_resources/power9.md)
+Therefore, using nodes with built-in GPUs, e.g., partitions
+[ml](../jobs_and_resources/hardware_overview.md)
 and [alpha](../jobs_and_resources/alpha_centauri.md), is beneficial for the examples here.
 
 ### R Interface to TensorFlow

@@ -1,6 +1,6 @@
-# Alpha Centauri - Multi-GPU Sub-Cluster
+# Alpha Centauri
 
-The sub-cluster "Alpha Centauri" had been installed for AI-related computations (ScaDS.AI).
+The multi-GPU sub-cluster "Alpha Centauri" had been installed for AI-related computations (ScaDS.AI).
 It has 34 nodes, each with:
 
 * 8 x NVIDIA A100-SXM4 (40 GB RAM)

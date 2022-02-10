@@ -1,4 +1,4 @@
-# Correctness Checking and Usage Error Detection for MPI Parallel Applications
+# MPI Error Detection
 
 MPI as the de-facto standard for parallel applications of the message passing paradigm offers
 more than one hundred different API calls with complex restrictions. As a result, developing

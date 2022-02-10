@@ -1,6 +1,6 @@
-# Partitions, Memory and Run Time Limits
+# Partitions and Limits
 
-There is no such thing as free lunch at ZIH systems. Since, compute nodes are operated in multi-user
+There is no such thing as free lunch at ZIH systems. Since compute nodes are operated in multi-user
 node by default, jobs of several users can run at the same time at the very same node sharing
 resources, like memory (but not CPU). On the other hand, a higher throughput can be achieved by
 smaller jobs. Thus, restrictions w.r.t. [memory](#memory-limits) and
@@ -8,10 +8,21 @@ smaller jobs. Thus, restrictions w.r.t. [memory](#memory-limits) and
 
 ## Runtime Limits
 
+!!! warning "Runtime limits on login nodes"
+
+    There is a time limit set for processes on login nodes. If you run applications outside of a
+    compute job, it will be stopped automatically after 5 minutes with
+
+    ```
+    CPU time limit exceeded
+    ```
+
+    Please start a job using the [batch system](slurm.md).
+
 !!! note "Runtime limits are enforced."
 
-    This means, a job will be canceled as soon as it exceeds its requested limit. Currently, the
-    maximum run time is 7 days.
+    A job is canceled as soon as it exceeds its requested limit. Currently, the maximum run time is
+    7 days.
 
 Shorter jobs come with multiple advantages:
 
@@ -43,8 +54,7 @@ not capable of checkpoint/restart can be adapted. Please refer to the section
 
 !!! note "Memory limits are enforced."
 
-    This means that jobs which exceed their per-node memory limit will be killed automatically by
-    the batch system.
+    Jobs which exceed their per-node memory limit are killed automatically by the batch system.
 
 Memory requirements for your job can be specified via the `sbatch/srun` parameters:
 

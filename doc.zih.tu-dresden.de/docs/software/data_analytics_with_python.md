@@ -1,4 +1,4 @@
-# Python for Data Analytics
+# Data Analytics with Python
 
 Python is a high-level interpreted language widely used in research and science. Using ZIH system
 allows you to work with Python quicker and more effective. Here, a general introduction to working
