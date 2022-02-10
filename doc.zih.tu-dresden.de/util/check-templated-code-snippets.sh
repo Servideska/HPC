@@ -36,7 +36,7 @@ if [ $# -eq 1 ]; then
   esac
 elif [ $# -eq 0 ]; then
   echo "Search in git-changed files."
-  files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep .md`
+  files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep .md || true`
 else
   usage
 fi
