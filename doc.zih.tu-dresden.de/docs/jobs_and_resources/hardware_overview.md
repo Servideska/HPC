@@ -1,6 +1,6 @@
-# ZIH Systems
+# HPC Resources
 
-ZIH systems comprises the *High Performance Computing and Storage Complex* and its
+HPC resources in ZIH systems comprises the *High Performance Computing and Storage Complex* and its
 extension *High Performance Computing – Data Analytics*. In total it offers scientists
 about 60,000 CPU cores and a peak performance of more than 1.5 quadrillion floating point
 operations per second. The architecture specifically tailored to data-intensive computing, Big Data
@@ -20,6 +20,10 @@ users and the ZIH.
   - IPs: 141.30.73.82/83
 - Direct access to these nodes is granted via IP whitelisting (contact
   hpcsupport@zih.tu-dresden.de) - otherwise use TU Dresden VPN.
+
+!!! warning "Run time limit"
+
+    Any process on login nodes is stopped after 5 minutes.
 
 ## AMD Rome CPUs + NVIDIA A100
 

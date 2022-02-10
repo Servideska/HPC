@@ -1,4 +1,6 @@
-# Introduction
+# Perf Tools
+
+## Introduction
 
 `perf` consists of two parts: the kernel space implementation and the userland tools. This wiki
 entry focusses on the latter. These tools are installed on ZIH systems, and others and provides

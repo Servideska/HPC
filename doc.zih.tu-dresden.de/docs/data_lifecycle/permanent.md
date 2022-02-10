@@ -93,4 +93,4 @@ In case a quota is above its limits:
     - For later use (weeks...months) at the ZIH systems, build and zip tar
       archives with meaningful names or IDs and store them, e.g., in a workspace in the
       [warm archive](warm_archive.md) or an [archive](intermediate_archive.md)
-    - Refer to the hints for [long term preservation for research data](preservation_research_data.md)
+    - Refer to the hints for [long-term preservation of research data](longterm_preservation.md)

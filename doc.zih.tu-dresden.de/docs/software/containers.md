@@ -1,4 +1,4 @@
-# Use of Containers
+# Singularity
 
 [Containerization](https://www.ibm.com/cloud/learn/containerization) encapsulating or packaging up
 software code and all its dependencies to run uniformly and consistently on any infrastructure. On
@@ -15,11 +15,11 @@ systems cannot be granted root permissions. A solution is a Virtual Machine (VM)
 `ml` which allows users to gain root permissions in an isolated environment. There are two main
 options on how to work with Virtual Machines on ZIH systems:
 
-1. [VM tools](virtual_machines_tools.md): Automated algorithms for using virtual machines;
+1. [VM tools](singularity_power9.md): Automated algorithms for using virtual machines;
 1. [Manual method](virtual_machines.md): It requires more operations but gives you more flexibility
    and reliability.
 
-## Singularity
+## Usage of Singularity
 
 If you wish to containerize your workflow and/or applications, you can use Singularity containers on
 ZIH systems. As opposed to Docker, this solution is much more suited to being used in an HPC
@@ -101,7 +101,7 @@ You can create a new custom container on your workstation, if you have root righ
 
     You cannot create containers for the partition `ml`, as it bases on Power9 micro-architecture
     which is different to the x86 architecture in common computers/laptops. For that you can use
-    the [VM Tools](virtual_machines_tools.md).
+    the [VM Tools](singularity_power9.md).
 
 Creating a container is done by writing a **definition file** and passing it to
 

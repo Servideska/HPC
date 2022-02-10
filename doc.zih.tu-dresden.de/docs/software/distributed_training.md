@@ -177,8 +177,8 @@ It is recommended to use
 [DistributedDataParallel](https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html),
 instead of this class, to do multi-GPU training, even if there is only a single node.
 See: Use `nn.parallel.DistributedDataParallel` instead of multiprocessing or `nn.DataParallel`.
-Check the [page](https://pytorch.org/docs/stable/notes/cuda.html#cuda-nn-ddp-instead) and
-[Distributed Data Parallel](https://pytorch.org/docs/stable/notes/ddp.html#ddp).
+Check the [PyTorch CUDA page](https://pytorch.org/docs/stable/notes/cuda.html#cuda-nn-ddp-instead)
+and [Distributed Data Parallel](https://pytorch.org/docs/stable/notes/ddp.html#ddp).
 
 ??? example "Parallel Model"
 
