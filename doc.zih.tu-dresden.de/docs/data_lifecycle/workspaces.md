@@ -284,7 +284,7 @@ marie@login$ qinfo quota /warm_archive/ws/
 Note that the workspaces reside under the mountpoint `/warm_archive/ws/` and not `/warm_archive`
 anymore.
 
-## F.A.Q
+## FAQ
 
 **Q**: I am getting the error `Error: could not create workspace directory!`
 
