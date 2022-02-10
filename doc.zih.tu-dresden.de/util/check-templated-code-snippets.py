@@ -12,7 +12,7 @@ lines = []
 NORMAL_MODE = 0
 CODE_MODE = 1
 readMode = NORMAL_MODE
-pattern = re.compile("<[^<>']*>")
+pattern = re.compile(r"<[^<>']*>")
 with open(fileName) as f:
     lineNumber = 1
     for line in f:
@@ -21,7 +21,7 @@ with open(fileName) as f:
             readMode = CODE_MODE if readMode == NORMAL_MODE else NORMAL_MODE
         strippedLine = line.strip()
         # We want tuples with lineNumber, the line itself, whether it is a code line, whether it contains a template (e. g. <FILENAME>) and the line again with all templats replaced by '\\S'
-        lines.append((lineNumber, strippedLine, readMode, pattern.search(strippedLine) != None, pattern.sub("\\S*", escapeSomeSigns(strippedLine))))
+        lines.append((lineNumber, strippedLine, readMode, pattern.search(strippedLine) != None, pattern.sub(r"\\S*", escapeSomeSigns(strippedLine))))
         lineNumber += 1
 # those tuples with the CODE_MODE as field 2 represent code lines
 codeLines = list(filter(lambda line: line[2] == CODE_MODE, lines))
