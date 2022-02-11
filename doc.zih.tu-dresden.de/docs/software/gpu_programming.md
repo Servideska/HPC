@@ -31,11 +31,11 @@ The `nvc` compiler (NOT the `nvcc` compiler, which is used for CUDA) is availabl
 
 #### Using OpenACC with PGI compilers
 
-* Load the latest version via `module load PGI` or search for available versions with `module search PGI`;
+* Load the latest version via `module load PGI` or search for available versions with `module search PGI`
 * For compilation, please add the compiler flag `-acc` to enable OpenACC interpreting by the
-  compiler;
-* `-Minfo` tells you what the compiler is actually doing to your code;
-* If you only want to use the created binary at ZIH resources, please also add `-ta=nvidia:keple`;
+  compiler
+* `-Minfo` tells you what the compiler is actually doing to your code
+* If you only want to use the created binary at ZIH resources, please also add `-ta=nvidia:keple`
 * You may find further information on the PGI compiler in the [user guide](https://docs.nvidia.com/hpc-sdk/pgi-compilers/20.4/x86/pgi-user-guide/index.htm) and in the [reference guide](https://docs.nvidia.com/hpc-sdk/pgi-compilers/20.4/x86/pgi-ref-guide/index.htm), which includes descriptions of available [command line options](https://docs.nvidia.com/hpc-sdk/pgi-compilers/20.4/x86/pgi-ref-guide/index.htm#cmdln-options-ref)
 
 #### Using OpenACC with NVIDIA HPC compilers
@@ -47,6 +47,32 @@ The `nvc` compiler (NOT the `nvcc` compiler, which is used for CUDA) is availabl
 * To create optimized code for either the V100 or A100, use `-gpu=cc70` or `-gpu=cc80`, respectively
 * Further information on this compiler is provided in the [user guide](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/index.html) and the [reference guide](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-ref-guide/index.html), which includes descriptions of available [command line options](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-ref-guide/index.html#cmdln-options-ref) 
 * Information specific the use of OpenACC with the NVIDIA HPC compiler is compiled in a [guide](https://docs.nvidia.com/hpc-sdk/compilers/openacc-gs/index.html)
+
+### OpenMP target offloading
+
+[OpenMP](https://www.openmp.org/) supports target offloading as of version 4.0. 
+A dedicated set of compiler directives can be used to annotate code-sections that are intended for execution on the GPU (i.e., target offloading).
+Not all compilers with OpenMP support target offloading, refer to the [official list](https://www.openmp.org/resources/openmp-compilers-tools/) for details. 
+Furthermore, some compilers, such as GCC, have basic support for target offloading, but do not enable these features by default and/or achieve poor performance.
+
+On Taurus, two compilers with good performance can be used: the NVIDIA HPC compiler and the IBM XL compiler
+
+#### Using OpenMP target offloading with NVIDIA HPC compilers
+
+* Load the module environments and the NVIDIA HPC SDK as described in the OpenACC section
+* Use the `-mp=gpu` flag to enable OpenMP with offloading
+* `-Minfo` tells you what the compiler is actually doing to your code
+* The same compiler options as linked above are available for OpenMP, including the `-gpu=ccXY` flag as mentioned above.
+* OpenMP-secific advice may be found in the [respective section in the user guide](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/#openmp-use)
+
+#### Using OpenMP target offloading with the IBM XL compilers
+
+The IBM XL compilers (`xlc` for C, `xlc++` for C++ and `xlf` for Fortran (with sub-version for different versions of Fortran)) are only available on the `ml` nodes with NVIDIA Tesla V100 GPUs.
+They are available by default when switching to `modenv/ml`.
+
+* The `-qsmp -qoffload` combination of flags enables OpenMP target offloading support
+* Optimizations specific to the V100 GPUs can be enabled by using the [`-qtgtarch=sm_70`](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1?topic=descriptions-qtgtarch) flag. 
+* IBM provides [documentation](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1) for the compiler with a [list of supported OpenMP directives](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1?topic=reference-pragma-directives-openmp-parallelization) and information on [target-offloading specifics](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1?topic=gpus-programming-openmp-device-constructs)
 
 ### HMPP
 
