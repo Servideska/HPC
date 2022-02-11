@@ -47,7 +47,7 @@ The following sections show some examples depending on the parallelization type 
 Compiling serial code is the default behavior of the wrappers. Simply replace the compiler by
 VampirTrace's wrapper:
 
-|                      |                               |
+|                      | Compile Command               |
 |----------------------|-------------------------------|
 | original             | `ifort a.f90 b.f90 -o myprog` |
 | with instrumentation | `vtf90 a.f90 b.f90 -o myprog` |
@@ -59,7 +59,7 @@ This will instrument user functions (if supported by compiler) and link the Vamp
 If your MPI implementation uses MPI compilers (this is the case on [Deimos](system_deimos.md)), you
 need to tell VampirTrace's wrapper to use this compiler instead of the serial one:
 
-|                      |                                      |
+|                      | Compile Command                      |
 |----------------------|--------------------------------------|
 | original             | `mpicc hello.c -o hello`             |
 | with instrumentation | `vtcc -vt:cc mpicc hello.c -o hello` |
@@ -68,7 +68,7 @@ MPI implementations without own compilers (as on the [Altix](system_altix.md) re
 link the MPI library manually. In this case, you simply replace the compiler by VampirTrace's
 compiler wrapper:
 
-|                      |                               |
+|                      | Compile Command               |
 |----------------------|-------------------------------|
 | original             | `icc hello.c -o hello -lmpi`  |
 | with instrumentation | `vtcc hello.c -o hello -lmpi` |
@@ -81,7 +81,7 @@ option `-vt:inst manual` to disable automatic instrumentation of user functions.
 When VampirTrace detects OpenMP flags on the command line, OPARI is invoked for automatic source
 code instrumentation of OpenMP events:
 
-|                      |                            |
+|                      | Compile Command            |
 |----------------------|----------------------------|
 | original             | `ifort -openmp pi.f -o pi` |
 | with instrumentation | `vtf77 -openmp pi.f -o pi` |
@@ -90,7 +90,7 @@ code instrumentation of OpenMP events:
 
 With a combination of the above mentioned approaches, hybrid applications can be instrumented:
 
-|                      |                                                     |
+|                      | Compile Command                                     |
 |----------------------|-----------------------------------------------------|
 | original             | `mpif90 -openmp hybrid.F90 -o hybrid`               |
 | with instrumentation | `vtf90 -vt:f90 mpif90 -openmp hybrid.F90 -o hybrid` |

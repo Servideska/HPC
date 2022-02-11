@@ -287,7 +287,7 @@ This command will give you detailed job information.
 
 ### Job Status States
 
-|                  |     |                |
+| State            | Short | Description                |
 |------------------|-----|----------------|
 | Canceled         | CA  | The job has been canceled as by the `llcancel` command. |
 | Completed        | C   | The job has completed.                                  |
