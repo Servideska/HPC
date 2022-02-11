@@ -79,7 +79,8 @@ information about managing research data.
 
 ## I want to store my research data at ZIH. How can I do that?
 
-You can use teh following services for long-term preservation of research data:
- - [long term archive](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih)
- - [opara](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-2)
+You can use the following services for long-term preservation of research data:
+
+ - [Long-term archive](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih)
+ - [Long-term Archiving and Publication with OpARA (Open Access Repository and Archive)](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-2)
  - [intermediate archive](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-1)
