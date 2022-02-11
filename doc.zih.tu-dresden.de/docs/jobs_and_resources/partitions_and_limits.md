@@ -83,4 +83,4 @@ be aware of the limits shown in the following table.
     configuration.
     There is also a meta partition `haswell`, which contain partition `haswell64`, `haswell128`, `haswell256` and `smp2`and this is also the default partition.
     If you specify no partition or partition `haswell` a Slurm plugin will choose the partition which fits to your memory requirements.
-    There are some other partitions, which are not specified in the table above, but that partitions you shouldn't choose directly.
+    There are some other partitions, which are not specified in the table above, but those partitions should not be used directly.
