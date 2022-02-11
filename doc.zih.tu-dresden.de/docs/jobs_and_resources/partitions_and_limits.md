@@ -75,9 +75,10 @@ be aware of the limits shown in the following table.
 
 !!! note
 
-    The ML nodes have 4way-SMT, so for every physical core allocated (e.g., with
-    `SLURM_HINT=nomultithread`), you will always get 4*1443 MB, because the memory of the other
-    threads is allocated implicitly, too.
+    Some nodes have multithreading (SMT) enabled, so for every physical core allocated
+    (e.g., with `SLURM_HINT=nomultithread`), you will always get `MB per Core`*`number of threads`,
+    because the memory of the other threads is allocated implicitly, too.
+    Those nodes are marked with an asterisk.
     Some of the partitions, denoted with a double asterisk, have a counterpart for interactive
     jobs. These partitions have a `-interactive` suffix (e.g. `ml-interactive`) and have the same
     configuration.
