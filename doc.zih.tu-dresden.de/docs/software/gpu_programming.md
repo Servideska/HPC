@@ -74,9 +74,6 @@ They are available by default when switching to `modenv/ml`.
 * Optimizations specific to the V100 GPUs can be enabled by using the [`-qtgtarch=sm_70`](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1?topic=descriptions-qtgtarch) flag. 
 * IBM provides [documentation](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1) for the compiler with a [list of supported OpenMP directives](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1?topic=reference-pragma-directives-openmp-parallelization) and information on [target-offloading specifics](https://www.ibm.com/docs/en/xl-c-and-cpp-linux/16.1.1?topic=gpus-programming-openmp-device-constructs)
 
-### HMPP
-
-HMPP is available from the CAPS compilers.
 
 ## Native GPU Programming
 
