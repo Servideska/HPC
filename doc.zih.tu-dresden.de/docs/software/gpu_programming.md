@@ -94,3 +94,4 @@ TODO:
 * -Xcompiler flag
 * --gres=gpu:1 flag
 * profiler (nsight systems & compute, nvprof für k80)
+* follow contribution guidelines
