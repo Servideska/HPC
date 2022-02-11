@@ -79,6 +79,7 @@ information about managing research data.
 
 ## I want to store my research data at ZIH. How can I do that?
 
-Long-term preservation of research data is under construction at ZIH and in a testing phase.
-Nevertheless you can already use the archiving service. If you would like to become a test
-user, please write an E-Mail to [Dr. Klaus Köhler](mailto:klaus.koehler@tu-dresden.de).
+You can use teh following services for long-term preservation of research data:
+ - [long term archive](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih)
+ - [opara](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-2)
+ - [intermediate archive](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-1)
