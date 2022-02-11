@@ -55,7 +55,7 @@ A dedicated set of compiler directives can be used to annotate code-sections tha
 Not all compilers with OpenMP support target offloading, refer to the [official list](https://www.openmp.org/resources/openmp-compilers-tools/) for details. 
 Furthermore, some compilers, such as GCC, have basic support for target offloading, but do not enable these features by default and/or achieve poor performance.
 
-On Taurus, two compilers with good performance can be used: the NVIDIA HPC compiler and the IBM XL compiler
+On Taurus, two compilers with good performance can be used: the NVIDIA HPC compiler and the IBM XL compiler.
 
 #### Using OpenMP target offloading with NVIDIA HPC compilers
 
@@ -79,10 +79,18 @@ They are available by default when switching to `modenv/ml`.
 
 ### CUDA
 
-Native [CUDA](http://www.nvidia.com/cuda) programs can sometimes offer a better performance. Please
-use the following slides as an introduction:
+Native [CUDA](http://www.nvidia.com/cuda) programs can sometimes offer a better performance.
+NVIDIA provides some [introductory material and links](https://developer.nvidia.com/how-to-cuda-c-cpp). 
+An introduction is [provided as well](https://developer.nvidia.com/blog/even-easier-introduction-cuda/).
+The [toolkit documentation page](https://docs.nvidia.com/cuda/index.html) links to the [programming guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html) and the [best practice guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html).
+Optimization guides for supported NVIDIA architectures are available, including for [Kepler (k80)](https://docs.nvidia.com/cuda/kepler-tuning-guide/index.html), [Volta (V100)](https://docs.nvidia.com/cuda/volta-tuning-guide/index.html) and [Ampere (A100)](https://docs.nvidia.com/cuda/ampere-tuning-guide/index.html).
 
-* Introduction to CUDA;
-* Advanced Tuning for NVIDIA Kepler GPUs.
+In order to compile an application with CUDA use the `nvcc` compiler command, which is described in detail in its [documentation](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html). 
+This compiler is available via several `CUDA` packages, a default version can be loaded via `module load CUDA`.
+Additionally, the `NVHPC` modules provide CUDA tools as well.
 
-In order to compile an application with CUDA use the `nvcc` compiler command.
+TODO:
+* Optimization flags 
+* -Xcompiler flag
+* --gres=gpu:1 flag
+* profiler (nsight systems & compute, nvprof für k80)
