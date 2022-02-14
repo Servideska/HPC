@@ -4,31 +4,6 @@ The Intel Haswell nodes of ZIH system are equipped with power instrumentation th
 recording and accounting of power dissipation and energy consumption data. The data is made
 available through several different interfaces, which are described below.
 
-## System Description
-
-<!--The Taurus system is split into two phases. While both phases are-->
-<!--equipped with energy-instrumented nodes, the instrumentation-->
-<!--significantly differs in the number of instrumented nodes and their-->
-<!--spatial and temporal granularity.-->
-
-All of the 1456 Haswell DLC nodes are equipped with power instrumentation. In addition
-to the aaccess methods of phase one, users will also be able to access the measurements through a
-[C API](#using-the-hdeem-c-api) to get the full temporal and spatial resolution, as outlined below:
-
-- ** Blade:**1 kSa/s for the whole node, includes both sockets, DRAM,
-  SSD, and other on-board consumers. Since the system is directly
-  water cooled, no cooling components are included in the blade
-  consumption.
-- **Voltage regulators (VR):** 100 Sa/s for each of the six VR
-  measurement points, one for each socket and four for eight DRAM
-  lanes (two lanes bundled).
-
-The GPU blades of each Phase as well as the Phase I Westmere partition
-also have 1 Sa/s power instrumentation but have a lower accuracy.
-
-<!--HDEEM is now generally available on all nodes in the "haswell"-->
-<!--partition.-->
-
 ## Summary of Measurement Interfaces
 
 | Interface                                  | Sensors         | Rate                            |
@@ -44,7 +19,20 @@ also have 1 Sa/s power instrumentation but have a lower accuracy.
     Please specify `--partition=haswell --exclusive` along with your job request if you wish to use
     HDEEM.
 
-## Accuracy
+### Accuracy, Temporal and Spatial Resolution
+
+In addition to the above mentioned interfaces, you can access the measurements through a
+[C API](#using-the-hdeem-c-api) to get the full temporal and spatial resolution:
+
+- ** Blade:**1 kSa/s for the whole node, includes both sockets, DRAM,
+  SSD, and other on-board consumers. Since the system is directly
+  water cooled, no cooling components are included in the blade
+  consumption.
+- **Voltage regulators (VR):** 100 Sa/s for each of the six VR
+  measurement points, one for each socket and four for eight DRAM
+  lanes (two lanes bundled).
+
+The GPU blades also have 1 Sa/s power instrumentation but have a lower accuracy.
 
 HDEEM measurements have an accuracy of 2 % for Blade (node) measurements, and 5 % for voltage
 regulator (CPU, DDR) measurements.
@@ -171,7 +159,8 @@ Possible profiling options are `All`, `Energy`, `Task`, `Lustre`, and `Network`.
 profiling information is stored in an hdf5 file that can be inspected using available hdf5 tools,
 e.g., `h5dump`. The files are stored under `/scratch/profiling/` for each job, job step, and node. A
 description of the data fields in the file can be found
-[here](http://slurm.schedmd.com/hdf5_profile_user_guide.html#HDF5). In general, the data files
+[in the official documentation](http://slurm.schedmd.com/hdf5_profile_user_guide.html#HDF5).
+In general, the data files
 contain samples of the current **power** consumption on a per-second basis:
 
 ```console
