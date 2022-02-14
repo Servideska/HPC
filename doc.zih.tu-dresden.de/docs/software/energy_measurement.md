@@ -73,7 +73,7 @@ For 1 Sa/s Blade values (Dataheap):
 For 1000 Sa/s (Blade) and 100 Sa/s (CPU{0,1}, DDR{AB,CD,EF,GH}):
 
 - [Score-P](scorep.md): use the module `scorep-hdeem`. This
-  module requires a recent version of "scorep/sync-...". Please use
+  module requires a recent version of `scorep/sync-...`. Please use
   the latest that fits your compiler and MPI version.
 
 By default, the modules are set up to record the power data for the nodes they are used on. For
