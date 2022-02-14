@@ -3,7 +3,7 @@
 Bull's new cluster software is called SCS 5 (*Super Computing Suite*).
 Here are the major changes from the user's perspective:
 
-| software                        | old    | new      |
+| Software                        | Old    | New      |
 |:--------------------------------|:-------|:---------|
 | Red Hat Enterprise Linux (RHEL) | 6.x    | 7.x      |
 | Linux kernel                    | 2.26   | 3.10     |
@@ -35,11 +35,11 @@ ml av
 There is a special module that is always loaded (sticky) called
 **modenv**. It determines the module environment you can see.
 
-|                |                                                 |         |
-|----------------|-------------------------------------------------|---------|
-| modenv/scs5    | SCS5 software                                   | default |
-| modenv/ml      | software for data analytics (partition ml)      |         |
-| modenv/classic | Manually built pre-SCS5 (AE4.0) software        | hidden  |
+| Module Environemnt | Description                                 | Status  |
+|--------------------|---------------------------------------------|---------|
+| `modenv/scs5`      | SCS5 software                               | default |
+| `modenv/ml`        | Software for data analytics (partition ml)  |         |
+| `modenv/classic`   | Manually built pre-SCS5 (AE4.0) software    | hidden  |
 
 The old modules (pre-SCS5) are still available after loading the
 corresponding **modenv** version (**classic**), however, due to changes
@@ -90,31 +90,28 @@ than you will be used to, coming from modenv/classic. A full toolchain, like "in
 
 For instance, the "intel" toolchain has the following structure:
 
-|              |            |
+| Toolchain    | `intel`    |
 |--------------|------------|
-| toolchain    | intel      |
-| compilers    | icc, ifort |
-| mpi library  | impi       |
-| math library | imkl       |
+| Compilers    | icc, ifort |
+| Mpi library  | impi       |
+| Math. library | imkl       |
 
 On the other hand, the "foss" toolchain looks like this:
 
-|                |                     |
+| Toolchain      | `foss`              |
 |----------------|---------------------|
-| toolchain      | foss                |
-| compilers      | GCC (gcc, gfortran) |
-| mpi library    | OpenMPI             |
-| math libraries | OpenBLAS, FFTW      |
+| Compilers      | GCC (gcc, gfortran) |
+| Mpi library    | OpenMPI             |
+| Math. libraries | OpenBLAS, FFTW      |
 
 If you want to combine the Intel compilers and MKL with OpenMPI, you'd have to use the "iomkl"
 toolchain:
 
-|              |            |
+| Toolchain    | `iomkl`    |
 |--------------|------------|
-| toolchain    | iomkl      |
-| compilers    | icc, ifort |
-| mpi library  | OpenMPI    |
-| math library | imkl       |
+| Compilers    | icc, ifort |
+| Mpi library  | OpenMPI    |
+| Math library | imkl       |
 
 There are also subtoolchains that skip a layer or two, e.g. "iccifort" only consists of the
 respective compilers, same as "GCC". Then there is "iompi" that includes Intel compilers+OpenMPI but
@@ -145,7 +142,7 @@ Since "intel" is only a toolchain module now, it does not include the entire Par
 anymore. Tools like the Intel Advisor, Inspector, Trace Analyzer or VTune Amplifier are available as
 separate modules now:
 
-| product               | module    |
+| Product               | Module    |
 |:----------------------|:----------|
 | Intel Advisor         | Advisor   |
 | Intel Inspector       | Inspector |
