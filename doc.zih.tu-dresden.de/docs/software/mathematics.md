@@ -22,9 +22,14 @@ font manager.
 You need to copy the fonts from ZIH systems to your local system and expand the font path
 
 ```console
-marie@local$ scp -r taurus.hrsk.tu-dresden.de:/sw/global/applications/mathematica/10.0/SystemFiles/Fonts/Type1/ ~/.fonts
+marie@local$ scp -r taurusexport:/sw/global/applications/mathematica/10.0/SystemFiles/Fonts/Type1/ ~/.fonts
 marie@local$ xset fp+ ~/.fonts/Type1
 ```
+
+!!! important "SCP command"
+
+    The previous SCP command requires that you have already set up your [SSH configuration
+    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 #### Windows Workstation
 

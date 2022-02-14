@@ -1,4 +1,4 @@
-# Singularity on Partition `ml`
+# Singularity for Power 9 Architecture
 
 !!! note "Root privileges"
 
@@ -35,7 +35,7 @@ in which case you'd need to change that when moving to ZIH systems.
 
 ## Build a Singularity Container in a Job
 
-To build a Singularity container for the power9-architecture on ZIH systems simply run:
+To build a Singularity container for the Power9 architecture on ZIH systems simply run:
 
 ```console
 marie@login$ buildSingularityImage --arch=power9 myContainer.sif myDefinition.def
@@ -105,7 +105,7 @@ needs to be re-generated on every script run.
 ## Start a Job in a VM
 
 Especially when developing a Singularity definition file, it might be useful to get a shell directly
-on a VM. To do so on the power9-architecture, simply run:
+on a VM. To do so on the Power9 architecture, simply run:
 
 ```console
 startInVM --arch=power9

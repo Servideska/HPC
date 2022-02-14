@@ -130,6 +130,14 @@ marie@login$ ws_extend -F scratch my-workspace 40
 
 it will now expire in 40 days **not** 130 days.
 
+### Send Reminder for Workspace Expiry Date
+
+Send a calendar invitation by Email to ensure that the expiration date of a workspace is not forgotten
+
+```console
+ws_send_ical -F scratch my-workspace -m marie.testuser@tu-dresden.de
+```
+
 ### Deletion of a Workspace
 
 To delete a workspace use the `ws_release` command. It is mandatory to specify the name of the
@@ -276,7 +284,7 @@ marie@login$ qinfo quota /warm_archive/ws/
 Note that the workspaces reside under the mountpoint `/warm_archive/ws/` and not `/warm_archive`
 anymore.
 
-## F.A.Q
+## FAQ
 
 **Q**: I am getting the error `Error: could not create workspace directory!`
 

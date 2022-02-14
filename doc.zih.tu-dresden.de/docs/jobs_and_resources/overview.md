@@ -12,7 +12,7 @@ specialized for different application scenarios.
 
 When log in to ZIH systems, you are placed on a login node where you can
 [manage data life cycle](../data_lifecycle/overview.md),
-[setup experiments](../data_lifecycle/experiments.md),
+setup experiments,
 execute short tests and compile moderate projects. The login nodes cannot be used for real
 experiments and computations. Long and extensive computational work and experiments have to be
 encapsulated into so called **jobs** and scheduled to the compute nodes.

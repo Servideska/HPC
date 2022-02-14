@@ -32,5 +32,5 @@ For the transfer of larger amounts of data into and within the system, the
 [export nodes and datamover](../data_transfer/overview.md) should be used.
 Data is stored in the [workspaces](../data_lifecycle/workspaces.md).
 Software modules or virtual environments can also be installed in workspaces to enable
-collaborative work even within larger groups. General recommendations for setting up workflows
-can be found in the [experiments](../data_lifecycle/experiments.md) section.
+collaborative work even within larger groups.
+<!--General recommendations for setting up workflows can be found in the experiments section.-->

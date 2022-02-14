@@ -1,4 +1,4 @@
-# PowerAI Documentation Links
+# Machine Learning with PowerAI
 
 There are different documentation sources for users to learn more about
 the PowerAI Framework for Machine Learning. In the following the links

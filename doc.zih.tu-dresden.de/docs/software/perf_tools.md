@@ -1,4 +1,6 @@
-# Introduction
+# Perf Tools
+
+## Introduction
 
 `perf` consists of two parts: the kernel space implementation and the userland tools. This wiki
 entry focusses on the latter. These tools are installed on ZIH systems, and others and provides
@@ -9,12 +11,11 @@ support for sampling applications and reading performance counters.
 Admins can change the behaviour of the perf tools kernel part via the
 following interfaces
 
-|                                             |                                                                                                                                   |
-|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | File Name                                   | Description                                                                                                                       |
-| `/proc/sys/kernel/perf_event_max_sample_rate` | describes the maximal sample rate for perf record and native access. This is used to limit the performance influence of sampling. |
-| `/proc/sys/kernel/perf_event_mlock_kb`        | defines the number of pages that can be used for sampling via perf record or the native interface                                 |
-| `/proc/sys/kernel/perf_event_paranoid`        | defines access rights:                                                                                                            |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `/proc/sys/kernel/perf_event_max_sample_rate` | Describes the maximal sample rate for perf record and native access. This is used to limit the performance influence of sampling. |
+| `/proc/sys/kernel/perf_event_mlock_kb`        | Defines the number of pages that can be used for sampling via perf record or the native interface                                 |
+| `/proc/sys/kernel/perf_event_paranoid`        | Defines access rights:                                                                                                            |
 |                                             | -1 - Not paranoid at all                                                                                                          |
 |                                             | 0 - Disallow raw tracepoint access for unpriv                                                                                     |
 |                                             | 1 - Disallow cpu events for unpriv                                                                                                |
