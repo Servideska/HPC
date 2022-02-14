@@ -17,6 +17,7 @@ Each node uses a different [module environment](modules.md/#module-environments)
 For general information on how to use Slurm, read the respective [page in this compendium](../jobs_and_resources/slurm.md).
 When allocating resources on a GPU-node, you must specify the number of requested GPUs, like
 this:
+
 ```bash
 #!/bin/bash                           # Batch script starts with shebang line
 
@@ -36,7 +37,9 @@ module load <modules>                 # and load necessary modules
 srun ./application [options]          # Execute parallel application with srun
 
 ```
+
 Alternatively, you can work on the GPU partitions interactively:
+
 ```bash
 marie@login$ srun --partition=<partition>-interactive --gres=gpu:<N> --pty bash
 marie@<compute>$ module purge; modenv switch modenv/<env> 
@@ -150,8 +153,20 @@ detail in its [documentation](https://docs.nvidia.com/cuda/cuda-compiler-driver-
 This compiler is available via several `CUDA` packages, a default version can be loaded via `module load CUDA`.
 Additionally, the `NVHPC` modules provide CUDA tools as well.
 
+#### Usage of the CUDA compiler
+
+The simple invocation `nvcc <code.cu>` will compile a valid CUDA program. 
+`nvcc` differentiates between the device and the host code, which will be compiled in seperate phases.
+Therefore, compiler options can be defined specifically for the device as well as for the host code.
+The following flags may be useful:
+
+* `--generate-code` (`-gencode`): generate optimized code for a target GPU (caution: these binaries
+cannot be used with GPUs of other generations). 
+    * For Kepler (K80): `--generate-code arch=compute_37,code=sm_37`, 
+    * For Volta (V100): `--generate-code arch=compute_70,code=sm_70`, 
+    * For Ampere (A100): `--generate-code arch=compute_80,code=sm_80`
+* `-Xcompiler`: pass flags to the host compiler. E.g., generate OpenMP-parallel host code: `-Xcompiler -fopenmp`. The `-Xcompiler` flag has to be invoked for each host-flag
+
 TODO:
-* Optimization flags 
-* -Xcompiler flag
+
 * profiler (nsight systems & compute, nvprof für k80)
-* follow contribution guidelines
