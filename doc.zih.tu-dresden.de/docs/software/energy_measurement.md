@@ -101,11 +101,15 @@ further information on how to change this behavior, please use module show on th
   ```
 
 Once the application is finished, a trace will be available that allows you to correlate application
-functions with the component power consumption of the parallel application. Note: For energy
-measurements, only tracing is supported in Score-P/VampirTrace. The modules therefore disables
-profiling and enables tracing, please use [Vampir](vampir.md) to view the trace.
+functions with the component power consumption of the parallel application.
 
-![demoHdeem_high_low_vampir_3](misc/demoHdeem_high_low_vampir_3.png)
+!!! note
+
+    For energy measurements, only tracing is supported in Score-P/VampirTrace.
+    The modules therefore disables profiling and enables tracing,
+    please use [Vampir](vampir.md) to view the trace.
+
+![Energy measurements in Vampir](misc/energy_measurements-vampir.png)
 {: align="center"}
 
 !!! note
@@ -119,15 +123,20 @@ node consumption and the CPUs. `scorep-hdeem` also records all available sensors
 (node, 2x CPU, 4x DDR) by default. You can change the selected sensors by setting the environment
 variables:
 
-```bash
-# For HDEEM
-export SCOREP_METRIC_HDEEM_PLUGIN=Blade,CPU*
-# For Dataheap
-export SCOREP_METRIC_DATAHEAP_PLUGIN=localhost/watts
-```
+!!! note
 
-For more information on how to use Score-P, please refer to the
-[respective documentation](scorep.md).
+    The power measurement modules `scorep-dataheap` and `scorep-hdeem` are
+    dynamic and only need to be loaded during execution.
+    However, `scorep-hdeem` does require the application to be linked with
+    a certain version of Score-P.
+
+??? hint "For HDEEM"
+    `export SCOREP_METRIC_HDEEM_PLUGIN=Blade,CPU*`
+
+??? hint "For Dataheap"
+    `export SCOREP_METRIC_DATAHEAP_PLUGIN=localhost/watts`
+
+For more information on how to use Score-P, please refer to the [respective documentation](scorep.md).
 
 ## Access Using Slurm Tools
 
@@ -202,23 +211,15 @@ Please specify `--partition=haswell --exclusive` along with your job request if 
 Please download the offical documentation at
 [http://www.bull.com/download-hdeem-library-reference-guide](http://www.bull.com/download-hdeem-library-reference-guide).
 
-The HDEEM headers and sample code are made available via the HDEEM module. To find the location of
-the HDEEM installation use
+The HDEEM header and sample code are locally installed on the nodes.
 
-```console
-marie@haswell $ module show hdeem
--------------------------------------------------------------------
-/sw/modules/taurus/libraries/hdeem/2.1.9ms:
+??? hint "HDEEM header location"
 
-conflict         hdeem
-module-whatis    Load hdeem version 2.1.9ms
-prepend-path     PATH /sw/taurus/libraries/hdeem/2.1.9ms/include
-setenv           HDEEM_ROOT /sw/taurus/libraries/hdeem/2.1.9ms
-[...]
--------------------------------------------------------------------
-```
+    `/usr/include/hdeem.h`
 
-You can find an example of how to use the API under `${HDEEM_ROOT}/sample`.
+??? hint "HDEEM sample location"
+
+    `/usr/share/hdeem/sample/`
 
 ## Access Using the Dataheap Infrastructure
 
@@ -283,5 +284,5 @@ print timeline
 ## Further Information and Citing
 
 More information can be found in the paper
-[HDEEM Paper E2SC 2014">HDEEM: high definition energy efficiency monitoring](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7016382)
-by Hackenberg et al. Please cite this paper if you are using HDEEM for your scientific work.
+[HDEEM: high definition energy efficiency monitoring](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7016382)
+by Daniel Hackenberg et al. Please cite this paper if you are using HDEEM for your scientific work.
