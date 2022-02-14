@@ -210,66 +210,6 @@ The HDEEM header and sample code are locally installed on the nodes.
 
     `/usr/share/hdeem/sample/`
 
-## Access Using the Dataheap Infrastructure
-
-In addition to the energy accounting data that is stored by Slurm, this information is also written
-into our local data storage and analysis infrastructure called
-[Dataheap](http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/forschung/projekte/dataheap/).
-From there, the data can be used in various ways, such as including it into application performance
-trace data or querying through a Python interface.
-
-The Dataheap infrastructure is designed to store various types of time-based samples from different
-data sources. In the case of the energy measurements on, the data is stored as a timeline of
-power values which allows the reconstruction of the power and energy consumption over time. The
-timestamps are stored as UNIX timestamps with a millisecond granularity. The data is stored for each
-node in the form of `nodename/watts`, e.g., `taurusi1073/watts`. Further metrics might already be
-available or might be added in the future for which information is available upon request.
-
-!!! note
-
-    The dataheap infrastructure can only be accessed from inside the TU campus network.
-
-### Using the Python Interface
-
-The module `dataheap/1.0` provides a Python module that can be used to query the data in the
-Dataheap for personalized data analysis. The following is an example of how to use the interface:
-
-```python
-import time
-import os
-from dhRequest import dhClient
-
-# Connect to the dataheap manager
-dhc = dhClient()
-dhc.connect(os.environ['DATAHEAP_MANAGER_ADDR'], int(os.environ['DATAHEAP_MANAGER_PORT']))
-
-# take timestamps
-tbegin = dhc.getTimeStamp()
-# workload
-os.system("srun -n 6 a.out")
-tend   = dhc.getTimeStamp()
-
-# wait for the data to get to the
-# dataheap
-time.sleep(5)
-
-# replace this with name of the node the job ran on
-# Note: use multiple requests if the job used multiple nodes
-countername = "taurusi1159/watts"
-
-# query the dataheap
-integral = dhc.storageRequest("INTEGRAL(%d,%d,\"%s\", 0)"%(tbegin, tend, countername))
-# Remember: timestamps are stored in millisecond UNIX timestamps
-energy   = integral/1000
-
-print energy
-
-timeline = dhc.storageRequest("TIMELINE(%d,%d,\"%s\", 0)"%(tbegin, tend, countername))
-
-# output a list of all timestamp/power-value pairs
-print timeline
-```
-
 ## Further Information and Citing
 
 More information can be found in the paper
