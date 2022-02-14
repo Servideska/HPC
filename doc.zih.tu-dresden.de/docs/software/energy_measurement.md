@@ -219,7 +219,7 @@ From there, the data can be used in various ways, such as including it into appl
 trace data or querying through a Python interface.
 
 The Dataheap infrastructure is designed to store various types of time-based samples from different
-data sources. In the case of the energy measurements on Taurus, the data is stored as a timeline of
+data sources. In the case of the energy measurements on, the data is stored as a timeline of
 power values which allows the reconstruction of the power and energy consumption over time. The
 timestamps are stored as UNIX timestamps with a millisecond granularity. The data is stored for each
 node in the form of `nodename/watts`, e.g., `taurusi1073/watts`. Further metrics might already be
