@@ -11,8 +11,8 @@ available through several different interfaces, which are described below.
 | Dataheap (C, Python, VampirTrace, Score-P) | Blade, (CPU)    | 1 Sa/s                          |
 | HDEEM\* (C, Score-P)                       | Blade, CPU, DDR | 1 kSa/s (Blade), 100 Sa/s (VRs) |
 | HDEEM Command Line Interface               | Blade, CPU, DDR | 1 kSa/s (Blade), 100 Sa/s (VR)  |
-| Slurm Accounting (sacct)                   | Blade           | Per Job Energy                  |
-| Slurm Profiling (hdf5)                     | Blade           | Up to 1 Sa/s                    |
+| Slurm Accounting (`sacct`)                   | Blade           | Per Job Energy                  |
+| Slurm Profiling (HDF5)                     | Blade           | Up to 1 Sa/s                    |
 
 !!! note
 
@@ -40,7 +40,7 @@ regulator (CPU, DDR) measurements.
 ## Command Line Interface
 
 The HDEEM infrastructure can be controlled through command line tools that are made available by
-loading the **hdeem** module. They are commonly used on the node under test to start, stop, and
+loading the `hdeem` module. They are commonly used on the node under test to start, stop, and
 query the measurement device.
 
 - `startHdeem`: Start a measurement. After the command succeeds, the
@@ -156,7 +156,7 @@ This example job consisted of 5 job steps, each executing a sleep of a different
 
 The `srun` tool offers several options for profiling job steps by adding the `--profile` parameter.
 Possible profiling options are `All`, `Energy`, `Task`, `Lustre`, and `Network`. In all cases, the
-profiling information is stored in an hdf5 file that can be inspected using available hdf5 tools,
+profiling information is stored in an HDF5 file that can be inspected using available HDF5 tools,
 e.g., `h5dump`. The files are stored under `/scratch/profiling/` for each job, job step, and node. A
 description of the data fields in the file can be found
 [in the official documentation](http://slurm.schedmd.com/hdf5_profile_user_guide.html#HDF5).
@@ -197,7 +197,7 @@ marie@login $ h5dump /scratch/profiling/marie/3967674_0_taurusi1073.h5
 
 Please specify `--partition=haswell --exclusive` along with your job request if you wish to use HDEEM.
 
-Please download the offical documentation at
+Please download the official documentation at
 [http://www.bull.com/download-hdeem-library-reference-guide](http://www.bull.com/download-hdeem-library-reference-guide).
 
 The HDEEM header and sample code are locally installed on the nodes.
