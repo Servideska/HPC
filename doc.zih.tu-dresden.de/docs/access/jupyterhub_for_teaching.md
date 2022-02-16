@@ -191,7 +191,7 @@ Set up your shared Python virtual environment for JupyterHub:
     ```
 
 Now, users have to install the kernel in order to use the shared Python virtual
-environment in JupyerHub:
+environment in JupyterHub:
 === "virtualenv"
 
     ```console
