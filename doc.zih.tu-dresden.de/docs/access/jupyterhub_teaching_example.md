@@ -22,7 +22,7 @@ or built in advance. We will focus on the custom environment approach here.
 
 - A public git repository with the notebook files (`ipynb`) and all other starting files required
   by participants. One option to host the repository is the [GitLab of TU Chemnitz](https://gitlab.hrz.tu-chemnitz.de/).
-- A [HPC project](https://hpcprojekte.zih.tu-dresden.de/managers/) for teaching,
+- A [HPC project](../application/project_management.md) for teaching,
   with students as registered participants
 - For the tutor, a shell access to the HPC resources and project folder.
 
