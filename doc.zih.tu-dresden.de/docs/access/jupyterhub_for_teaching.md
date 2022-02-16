@@ -211,11 +211,9 @@ environment in JupyerHub:
 
 After spawning the Notebook, you can select the kernel with the created Python
 virtual environment.
-Note that you can also write the installation of the kernel (above steps) in a
-script file as described in [JupyterHub Teaching Example](jupyterhub_teaching_example.md)
 
 !!! hint
     You can also execute the commands for installing the kernel from the Jupyter
     as described in 
-    [JupyterHub Teaching Example](jupyterhub_teaching_example.md). Then users do
+    [JupyterHub Teaching Example](jupyter_teaching_example.md). Then users do
     not have to use the command line interface after the preparation.
