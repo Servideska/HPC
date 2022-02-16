@@ -91,7 +91,7 @@ files by navigating to the corresponding path and clicking on them.
 Above the table on the right side is the button `New` which lets you create new
 notebooks, files, directories or terminals.
 
-![Jupyter notebook example matplotlib](misc/jupyter_notebook_example_matplotlib.png)
+![Jupyter notebook example Matplotlib](misc/jupyter_notebook_example_matplotlib.png)
 {: align="center"}
 
 ## Jupyter Notebooks in General
@@ -209,8 +209,8 @@ Here is a short list of some included software:
 | PyTorch    | 1.3.1     | 1.3.1  |
 | TensorFlow | 2.1.1     | 2.1.1  |
 | Keras      | 2.3.1     | 2.3.1  |
-| numpy      | 1.17.5    | 1.17.4 |
-| matplotlib | 3.3.1     | 3.0.3  |
+| NumPy      | 1.17.5    | 1.17.4 |
+| Matplotlib | 3.3.1     | 3.0.3  |
 
 \* generic = all partitions except ml
 

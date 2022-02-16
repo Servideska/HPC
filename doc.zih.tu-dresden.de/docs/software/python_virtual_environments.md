@@ -66,7 +66,7 @@ the environment as follows:
 (env) marie@compute$ deactivate    #Leave the virtual environment
 ```
 
-### Persistency of Python Virtual Environment  
+### Persistency of Python Virtual Environment
 
 To persist a virtualenv, you can store the names and versions of installed
 packages in a file. Then you can restore this virtualenv by installing the

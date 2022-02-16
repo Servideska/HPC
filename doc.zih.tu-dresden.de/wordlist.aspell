@@ -86,9 +86,11 @@ ImageNet
 Infiniband
 Instrumenter
 Itanium
+IPython
 Jupyter
 JupyterHub
 JupyterLab
+Jupytext
 KNL
 Keras
 Kunststofftechnik
@@ -105,6 +107,7 @@ MNIST
 MathKernel
 MathWorks
 Mathematica
+Matplotlib
 Memcheck
 MiB
 Microarchitecture
@@ -149,6 +152,7 @@ PMI
 PSOCK
 Pandarallel
 Perf
+Persistency
 PiB
 Pika
 PowerAI
@@ -215,6 +219,7 @@ VampirTrace's
 VirtualGL
 WebVNC
 WinSCP
+WML
 Workdir
 XArray
 XGBoost
@@ -290,11 +295,13 @@ ifort
 img
 init
 inode
+ipython
 ipynb
 jobqueue
 jpg
 jss
 jupyter
+kernelspec
 lapply
 linter
 lmod
@@ -338,6 +345,7 @@ pipelining
 png
 ppc
 pre
+preload
 preloaded
 preloading
 prepend
@@ -365,6 +373,7 @@ scancel
 scontrol
 scp
 scs
+spawner
 spython
 squeue
 srun
@@ -386,6 +395,7 @@ transferability
 undistinguishable
 unencrypted
 uplink
+urlpath
 userspace
 vectorization
 venv

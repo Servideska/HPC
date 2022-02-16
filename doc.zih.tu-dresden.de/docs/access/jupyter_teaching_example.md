@@ -171,5 +171,5 @@ Your browser does not support the video tag.
 
     - Students must be advised to _not_ click "Start My Server" or edit the form,
     if the server does not start automatically.
-    
+
     - If the server does not start automatically, click (or copy & paste) the spawn link again.
