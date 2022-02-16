@@ -76,7 +76,8 @@ packages from this file. Use the `pip freeze` command for storing:
 (env) marie@compute$ pip freeze > requirements.txt    #Store the currently installed packages
 ```
 
-In order to recreate python virtual environment, use the `pip install` command to install the packages from the file:
+In order to recreate python virtual environment, use the `pip install` command to install the
+packages from the file:
 
 ```console
 marie@compute$ module load Python    #Load default Python
