@@ -140,7 +140,7 @@ and files via `chmod`.
 
 Set up your shared Python virtual environment for JupyterHub:
 === "virtualenv"
-    ```bash
+    ```console
     marie@compute$ module load Python #Load default Python
     [...]
     marie@compute$ ws_allocate -F scratch python_virtual_environment_teaching 1
@@ -163,7 +163,7 @@ Set up your shared Python virtual environment for JupyterHub:
 
     ```
 === "conda"
-    ```bash
+    ```console
     marie@compute$ module load Anaconda3 #Load Anaconda
     [...]
     marie@compute$ ws_allocate -F scratch conda_virtual_environment_teaching 1
@@ -186,7 +186,7 @@ Set up your shared Python virtual environment for JupyterHub:
 Now, users have to install the kernel in order to use the shared Python virtual
 environment in JupyerHub:
 === "virtualenv"
-    ```bash
+    ```console
     marie@compute$ module load Python #Load default Python
     [...]
     marie@compute$ source /scratch/ws/1/python_virtual_environment_teaching/env/bin/activate #Activate virtual environment. Example output: (envtest) bash-4.2$
@@ -196,7 +196,7 @@ environment in JupyerHub:
 
     ```
 === "conda"
-    ```bash
+    ```console
     marie@compute$ module load Anaconda3 #Load Anaconda
     [...]
     marie@compute$ conda activate /scratch/ws/1/conda_virtual_environment_teaching
@@ -207,4 +207,11 @@ environment in JupyerHub:
     ```
 
 After spawning the Notebook, you can select the kernel with the created Python
-virtual environment.
+virtual environment. 
+Note that you can also write the installation of the kernel (above steps) in a script file as 
+described in [JupyterHub Teaching Example](jupyterhub_teaching_example.md)
+
+!!! hint
+    You can also execute the commands for installing the kernel from the Jupyter as described in 
+    [JupyterHub Teaching Example](jupyterhub_teaching_example.md). Then users do not have to use the
+    command line interface after the preparation.

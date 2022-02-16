@@ -95,9 +95,23 @@ directories or terminals.
 ## Jupyter Notebooks in General
 
 In JupyterHub you can create scripts in notebooks. Notebooks are programs which are split into
-multiple logical code blocks.  In between those code blocks you can insert text blocks for
+multiple logical code blocks. In between those code blocks you can insert text blocks for
 documentation and each block can be executed individually. Each notebook is paired with a kernel
 running the code. We currently offer one for Python, C++, MATLAB and R.
+
+### Version Control of Jupyter Notebooks with Git
+
+Since Jupyter notebooks are files containing multiple blocks for input code, documentation, 
+output and further information, it is difficult to use them with Git. Version tracking of 
+the `.ipynb` notebook files can be improved with the [Jupytext plugin](https://jupytext.readthedocs.io/en/latest/).
+Jupytext will provide Markdown (`.md`) and Python (`.py`) conversions of notebooks on the fly,
+next to `.ipynb`. Tracking these files will then provide a cleaner git history. A further 
+advantage is that Python notebook versions can be imported, allowing to split larger notebooks 
+into smaller ones, based on chained imports.
+
+!!! note
+    The Jupytext plugin is not installed on the ZIH system at the moment. Therefore `ipynb` 
+    files need to be made available in a repository for shared usage within the ZIH system.
 
 ## Stop a Session
 
