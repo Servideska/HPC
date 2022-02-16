@@ -53,7 +53,7 @@ Info: creating workspace.
 [...]
 marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env  #Create virtual environment
 [...]
-marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (envtest) bash-4.2$
+marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env) bash-4.2$
 ```
 
 Now you can work in this isolated environment, without interfering with other tasks running on the
@@ -63,6 +63,27 @@ the virtual environment. You can deactivate the environment as follows:
 ```console
 (env) marie@compute$ deactivate    #Leave the virtual environment
 ```
+
+### Persistency of Python Virtual Environment  
+
+To persist a virtualenv, you can store the names and versions of installed packages in a
+file. Then you can restore this virtualenv by installing the packages from this file. 
+Use the `pip freeze` command for storing:
+
+```console
+(env) marie@compute$ pip freeze > requirements.txt    #Store the currently installed packages
+``` 
+
+Use the `pip install` command installing the packages from the file:
+
+```console
+marie@compute$ module load Python    #Load default Python
+[...]
+marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env_post  #Create virtual environment
+[...]
+marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env_post) bash-4.2$
+(env_post) marie@compute$ pip install -r requirements.txt    #Install packages from the created requirements.txt file
+``` 
 
 ## Conda Virtual Environment
 
@@ -122,3 +143,50 @@ are in the virtual environment. You can deactivate the conda environment as foll
     0.10.0+cu102
     (my-torch-env) marie@alpha$ deactivate
     ```
+
+### Persistency of Conda Virtual Environment    
+
+To persist a conda virtual environment, you can define an ***environments.yml*** file.
+Have a look a the [conda docs](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment.yml#create-env-file-manually)
+for a description of the syntax. See an example for the ***environments.yml*** file below.
+
+??? example
+    ```yml
+    name: workshop_env
+    channels:
+    - conda-forge
+    - defaults
+    dependencies:
+    - python>=3.7
+    - pip
+    - colorcet
+    - 'geoviews-core=1.8.1'
+    - 'ipywidgets=7.6.*'
+    - geopandas
+    - hvplot
+    - pyepsg
+    - python-dotenv
+    - 'shapely=1.7.1'
+    - pip:
+        - python-hll
+    ```
+
+After specifying the `name`, the conda 
+[channel priority](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html) is defined. 
+In the example above, packages will be first installed from the `conda-forge` channel, and if not found, 
+from the `default` Anaconda channel.
+
+Below, dependencies can be specified. Optionally, <abbr title="Pinning is a process that 
+allows you to remain on a stable release while grabbing packages from a more recent version.">
+pinning</abbr> can be used to delimit the packages installed to compatible package versions.
+
+Finally, packages not available on conda can be specified (indented) below `- pip:`
+
+Recreate the conda virtual environment with the packages from the created **environment.yml** file:
+
+```console
+marie@compute$ mkdir workshop_env    #Create directory for environment
+marie@compute$ module load Anaconda3    #Load Anaconda
+marie@compute$ conda config --set channel_priority strict
+marie@compute$ conda env create --prefix workshop_env --file environment.yml    #Create conda env in directory with packages from environment.yml file
+```
