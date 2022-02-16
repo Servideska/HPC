@@ -214,6 +214,6 @@ virtual environment.
 
 !!! hint
     You can also execute the commands for installing the kernel from the Jupyter
-    as described in 
+    as described in
     [JupyterHub Teaching Example](jupyter_teaching_example.md). Then users do
     not have to use the command line interface after the preparation.
