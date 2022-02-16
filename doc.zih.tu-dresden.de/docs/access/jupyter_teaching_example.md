@@ -75,11 +75,13 @@ Now, you can re-create the environment and the whole course from the git reposit
 To test the activation of the environment use:
 
 === "virtualenv"
+
     ```console
     marie@compute$ source /scratch/ws/1/python_virtual_environment_teaching/env/bin/activate #Activate virtual environment. Example output: (envtest) bash-4.2$
 
     ```
 === "conda"
+
     ```console
     marie@compute$ conda activate /scratch/ws/1/conda_virtual_environment_teaching
 
