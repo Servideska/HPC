@@ -142,7 +142,9 @@ and files via `chmod`.
 (considering the Python version of your virtual environment).
 
 Set up your shared Python virtual environment for JupyterHub:
+
 === "virtualenv"
+
     ```console
     marie@compute$ module load Python #Load default Python
     [...]
@@ -150,7 +152,7 @@ Set up your shared Python virtual environment for JupyterHub:
     Info: creating workspace.
     /scratch/ws/1/python_virtual_environment_teaching
     [...]
-    marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment_teaching/env  #Create virtual environment
+    marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment_teaching/env #Create virtual environment
     [...]
     marie@compute$ source /scratch/ws/1/python_virtual_environment_teaching/env/bin/activate    #Activate virtual environment. Example output: (envtest) bash-4.2$
     marie@compute$ pip install ipykernel
@@ -165,7 +167,9 @@ Set up your shared Python virtual environment for JupyterHub:
     marie@compute$ chmod g+rx /scratch/ws/1/python_virtual_environment_teaching -R #Make the environment accesible for others
 
     ```
+
 === "conda"
+
     ```console
     marie@compute$ module load Anaconda3 #Load Anaconda
     [...]
@@ -189,6 +193,7 @@ Set up your shared Python virtual environment for JupyterHub:
 Now, users have to install the kernel in order to use the shared Python virtual
 environment in JupyerHub:
 === "virtualenv"
+
     ```console
     marie@compute$ module load Python #Load default Python
     [...]
@@ -198,7 +203,9 @@ environment in JupyerHub:
     marie@compute$ deactivate
 
     ```
+
 === "conda"
+
     ```console
     marie@compute$ module load Anaconda3 #Load Anaconda
     [...]
@@ -214,6 +221,5 @@ virtual environment.
 
 !!! hint
     You can also execute the commands for installing the kernel from the Jupyter
-    as described in
-    [JupyterHub Teaching Example](jupyter_teaching_example.md). Then users do
-    not have to use the command line interface after the preparation.
+    as described in [JupyterHub Teaching Example](jupyter_teaching_example.md). Then users do not
+    have to use the command line interface after the preparation.
