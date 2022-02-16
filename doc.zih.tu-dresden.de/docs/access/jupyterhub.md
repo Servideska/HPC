@@ -115,6 +115,8 @@ to split larger notebooks into smaller ones, based on chained imports.
 
 !!! note
     The Jupytext plugin is not installed on the ZIH system at the moment.
+    Currently it can be [installed](https://jupytext.readthedocs.io/en/latest/install.html)
+    by the users with `--user` parameter.
     Therefore `ipynb` files need to be made available in a repository for shared
     usage within the ZIH system.
 
