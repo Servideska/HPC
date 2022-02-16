@@ -1,7 +1,7 @@
 # JupyterHub for Teaching
 
-On this page, we want to introduce to you some useful features if you want to use JupyterHub for
-teaching.
+On this page, we want to introduce to you some useful features if you want to
+use JupyterHub for teaching.
 
 !!! note
 
@@ -9,21 +9,24 @@ teaching.
 
 Please be aware of the following notes:
 
-- ZIH systems operate at a lower availability level than your usual Enterprise Cloud VM. There can
-  always be downtimes, e.g. of the filesystems or the batch system.
-- Scheduled downtimes are announced by email. Please plan your courses accordingly.
-- Access to HPC resources is handled through projects. See your course as a project. Projects need
-  to be registered beforehand (more info on the page [Access](../application/overview.md)).
+- ZIH systems operate at a lower availability level than your usual Enterprise
+Cloud VM. There can always be downtimes, e.g. of the filesystems or the batch
+system.
+- Scheduled downtimes are announced by email. Please plan your courses
+accordingly.
+- Access to HPC resources is handled through projects. See your course as a
+project. Projects need to be registered beforehand (more info on the page
+[Access](../application/overview.md)).
 - Don't forget to [add your users](../application/project_management.md#manage-project-members-dis-enable)
   (e.g. students or tutors) to your project.
 - It might be a good idea to [request a reservation](../jobs_and_resources/overview.md#exclusive-reservation-of-hardware)
-  of part of the compute resources for your project/course to avoid unnecessary waiting times in
-  the batch system queue.
+  of part of the compute resources for your project/course to avoid unnecessary
+  waiting times in the batch system queue.
 
 ## Clone a Repository With a Link
 
-This feature bases on [nbgitpuller](https://github.com/jupyterhub/nbgitpuller). Further information
-can be found in the [external documentation about nbgitpuller](https://jupyterhub.github.io/nbgitpuller/).
+This feature bases on [nbgitpuller](https://github.com/jupyterhub/nbgitpuller).
+Further information can be found in the [external documentation about nbgitpuller](https://jupyterhub.github.io/nbgitpuller/).
 
 This extension for Jupyter notebooks can clone every public git repository into
 the users work directory. It's offering a quick way to distribute notebooks and
@@ -207,11 +210,12 @@ environment in JupyerHub:
     ```
 
 After spawning the Notebook, you can select the kernel with the created Python
-virtual environment. 
-Note that you can also write the installation of the kernel (above steps) in a script file as 
-described in [JupyterHub Teaching Example](jupyterhub_teaching_example.md)
+virtual environment.
+Note that you can also write the installation of the kernel (above steps) in a
+script file as described in [JupyterHub Teaching Example](jupyterhub_teaching_example.md)
 
 !!! hint
-    You can also execute the commands for installing the kernel from the Jupyter as described in 
-    [JupyterHub Teaching Example](jupyterhub_teaching_example.md). Then users do not have to use the
-    command line interface after the preparation.
+    You can also execute the commands for installing the kernel from the Jupyter
+    as described in 
+    [JupyterHub Teaching Example](jupyterhub_teaching_example.md). Then users do
+    not have to use the command line interface after the preparation.
