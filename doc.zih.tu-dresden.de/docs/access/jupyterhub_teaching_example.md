@@ -1,4 +1,4 @@
-# JupyterLab Teaching Example
+# JupyterHub Teaching Example
 
 Setting up a Jupyter Lab Course involves additional steps, beyond JupyterHub, such as creating
 course specific environments and allowing participants to link and activate these environments during
