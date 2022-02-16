@@ -14,7 +14,8 @@ through the [ZIH JupyterHub](../access/jupyterhub.md) and work through them duri
 - These notebooks are typically prepared for specific dependencies (Python packages)
 that need to be activated by participants in the course, when opening the notebooks.
 
-- These environments can either be chosen based on the pre-configured ZIH conda environments,
+- These environments can either be chosen based on the pre-configured 
+ZIH virtualenv/conda environments,
 or built in advance. We will focus on the custom environment approach here.
 
 ## Prerequisites
