@@ -149,7 +149,7 @@ can deactivate the conda environment as follows:
     (my-torch-env) marie@alpha$ deactivate
     ```
 
-### Persistency of Conda Virtual Environment
+### Persistence of Conda Virtual Environment
 
 To persist a conda virtual environment, you can define an `environments.yml`
 file. Have a look a the [conda docs](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment.yml#create-env-file-manually)
