@@ -33,7 +33,7 @@ ZIH.
 
 ### 1. Creating a custom Python environment
 
-Prepare a a Python virtual environment (`virtualenv`) or conda virtual environment as described in
+Prepare a Python virtual environment (`virtualenv`) or conda virtual environment as described in
 [Python virtual environments](../software/python_virtual_environments.md). Note, for preparing a
 custom environment for a Jupyter Lab course, all participants will need to have read-access to this
 environment. This is best done by storing the environment in either a [workspace](../data_lifecycle/workspaces.md)
