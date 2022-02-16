@@ -165,7 +165,46 @@ cannot be used with GPUs of other generations).
     * For Kepler (K80): `--generate-code arch=compute_37,code=sm_37`, 
     * For Volta (V100): `--generate-code arch=compute_70,code=sm_70`, 
     * For Ampere (A100): `--generate-code arch=compute_80,code=sm_80`
-* `-Xcompiler`: pass flags to the host compiler. E.g., generate OpenMP-parallel host code: `-Xcompiler -fopenmp`. The `-Xcompiler` flag has to be invoked for each host-flag
+* `-Xcompiler`: pass flags to the host compiler. E.g., generate OpenMP-parallel host code: 
+`-Xcompiler -fopenmp`. 
+The `-Xcompiler` flag has to be invoked for each host-flag
+
+## Performance Analysis
+
+Consult NVIDIA's [Best Practices Guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html)
+and the [performance guidelines](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#performance-guidelines)
+for possible steps to take for the performance analysis and optimization.
+
+Multiple tools can be used for the performance analysis.
+
+### NVIDIA Nsight Systems
+
+Use [NVIDIA Nsight Systems](https://developer.nvidia.com/nsight-systems) for a system-wide
+sampling of your code.
+Refer to the [documentation](https://docs.nvidia.com/nsight-systems/UserGuide/index.html)
+for details.
+With this, you can identify parts of your code that take a long time to run and are suitable
+optimization-candidates.
+We recommend a two-step process:
+1. Use the command-line version to sample your code and create a report file for later analysis:
+```bash
+marie@<compute>$ nsys profile [--stats=true] ./your-application
+```
+The `--stats=true` flag is optional and will create a summary on the command line.
+Depending on your needs, this analysis may be sufficient to aid with the optimizations.
+2. The graphical user interface version can be used for a thorough analysis of your previously
+generated report file. For an optimal user experience, we recommend a local installation 
+of NVIDIA Nsight Systems. In this case, you can [transfer the report file to your local system](../data_transfer/export_nodes.md).
+Alternatively, you can use [X11-forwarding](../access/ssh_login.md).
+
+### NVIDIA Nsight Compute
+
+Nsight Compute is used for the analysis of individual GPU-kernels. We recommend those kernels
+as optimization targets that require a large portion of you run time, according to Nsight Systems.
+Nsight Compute is particularly useful for CUDA code, as you have much greater control over your
+code compared to the directive based approaches.
+
+### NVPROF
 
 TODO:
 
