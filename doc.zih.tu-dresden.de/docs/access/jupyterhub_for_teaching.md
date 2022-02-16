@@ -65,7 +65,7 @@ The spawn form now offers a quick start mode by passing URL parameters.
 
 !!! example
 
-    The following link would create a jupyter notebook session on the 
+    The following link would create a jupyter notebook session on the
     `interactive` partition with the `test` environment being loaded:
 
     ```
