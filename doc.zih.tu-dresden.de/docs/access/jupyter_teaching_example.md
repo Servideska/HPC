@@ -27,20 +27,25 @@ or built in advance. We will focus on the custom environment approach here.
 
 ## Preparation on the Lecturer's Side
 
-The following part describes several steps for the preparation of a course with the JupyterHub at ZIH.
+The following part describes several steps for the preparation of a course with the JupyterHub at
+ZIH.
 
-### 1. Creating a custom Python environment ###
+### 1. Creating a custom Python environment
 
-Prepare a a Python virtual environment (`virtualenv`) or conda virtual environment as described in [Python virtual environments](../software/python_virtual_environments.md).
-Note, for preparing a custom environment for a Jupyter Lab course, all participants will need to have read-access to this environment.
-This is best done by storing the environment in either a [workspace](../data_lifecycle/workspaces.md) with a limited lifetime or
-in a projects folder (e.g. `/projects/p_lv_jupyter_course/`) without a limited lifetime.
+Prepare a a Python virtual environment (`virtualenv`) or conda virtual environment as described in
+[Python virtual environments](../software/python_virtual_environments.md). Note, for preparing a
+custom environment for a Jupyter Lab course, all participants will need to have read-access to this
+environment. This is best done by storing the environment in either a [workspace](../data_lifecycle/workspaces.md)
+with a limited lifetime or in a projects folder (e.g. `/projects/p_lv_jupyter_course/`) without a
+limited lifetime.
 
-### 2. Clone the repository and store environment setup ###
+### 2. Clone the repository and store environment setup
 
-First prepare the `requirements.txt` or the `environment.yml` to persist the environment as described in [Python virtual environments](../software/python_virtual_environments.md).
+First prepare the `requirements.txt` or the `environment.yml` to persist the environment as
+described in [Python virtual environments](../software/python_virtual_environments.md).
 
-Then clone the repository of your course to your home directory or into a directory in the projects folder and add the file to the repository.
+Then clone the repository of your course to your home directory or into a directory in the projects
+folder and add the file to the repository.
 
 === "virtualenv"
     ```console
@@ -80,10 +85,10 @@ To test the activation of the environment use:
 
     ```
 
-### 3. Prepare an activation file ###
+### 3. Prepare an activation file
 
-Create a file to install the `ipykernel` to the user-folder, linking the central `workshop_env` to the ZIH JupyterLab.
-An `activate_workshop_env.sh` should have the following content:
+Create a file to install the `ipykernel` to the user-folder, linking the central `workshop_env` to
+the ZIH JupyterLab. An `activate_workshop_env.sh` should have the following content:
 
 ```console
 /projects/jupyterlab_course/workshop_env/bin/python -m ipykernel install --user --name workshop_env --display-name="workshop_env"
@@ -92,7 +97,7 @@ An `activate_workshop_env.sh` should have the following content:
 !!! note
     The file for installing the kernel should also be added to the git repository.
 
-### 4. Prepare the spawn link ###
+### 4. Prepare the spawn link
 
 Have a look at the instructions to prepare
 [a custom spawn link in combination with the git-pull feature](jupyterhub_for_teaching.md#combination-of-quickstart-and-git-pull-feature).
@@ -102,8 +107,8 @@ Have a look at the instructions to prepare
 ### Preparing activation of the custom environment in notebooks
 
 When students open the notebooks (e.g. through a Spawn Link that pulls the Git files
-and notebooks from our repository), the Python environment must be activated first by installing a Jupyter kernel.
-This can be done inside the first notebook using a shell command (`.sh`).
+and notebooks from our repository), the Python environment must be activated first by installing a
+Jupyter kernel. This can be done inside the first notebook using a shell command (`.sh`).
 
 Therefore the students will need to run the `activation_workshop_env.sh` file, which can be done
 in the first cell of the first notebook (e.g. inside `01_intro.ipynb`).
@@ -119,14 +124,16 @@ When students run this file, the following output signals a successful setup.
 ![Installed kernelspec](misc/kernelspec.png)
 {: align="center"}
 
-Afterwards, the `workshop_env` Jupyter kernel can be selected in the top-right corner of Jupyter Lab.
+Afterwards, the `workshop_env` Jupyter kernel can be selected in the top-right corner of Jupyter
+Lab.
 
 !!! note
     A few seconds may be needed until the environment becomes available in the list.
 
 ## Test spawn link and environment activation
 
-During testing, it may be necessary to reset the workspace to the initial state. There are two steps involved
+During testing, it may be necessary to reset the workspace to the initial state. There are two steps
+involved:
 
 First, remove the cloned git repository in user home folder.
 
