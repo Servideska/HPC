@@ -31,14 +31,14 @@ The following part describes several steps for the preparation of a course with 
 
 ### 1. Creating a custom Python environment ###
 
-Prepare a a Python virtual environment (`virtualenv`) or conda virtual environment as described in [Python virtual environments](../software/python_virtual_environments).
+Prepare a a Python virtual environment (`virtualenv`) or conda virtual environment as described in [Python virtual environments](../../software/python_virtual_environments).
 Note, for preparing a custom environment for a Jupyter Lab course, all participants will need to have read-access to this environment.
 This is best done by storing the environment in either a [workspace](../data_lifecycle/workspaces.md) with a limited lifetime or
 in a projects folder (e.g. `/projects/p_lv_jupyter_course/`) without a limited lifetime.
 
 ### 2. Clone the repository and store environment setup ###
 
-First prepare the `requirements.txt` or the `environment.yml` to persist the environment as described in [Python virtual environments](../software/python_virtual_environments).
+First prepare the `requirements.txt` or the `environment.yml` to persist the environment as described in [Python virtual environments](../../software/python_virtual_environments).
 
 Then clone the repository of your course to your home directory or into a directory in the projects folder and add the file to the repository.
 
@@ -95,7 +95,7 @@ An `activate_workshop_env.sh` should have the following content:
 ### 4. Prepare the spawn link ###
 
 Have a look at the instructions to prepare
-[a custom spawn link in combination with the git-pull feature](../jupyterhub_for_teaching/#combination-of-quickstart-and-git-pull-feature).
+[a custom spawn link in combination with the git-pull feature](../jupyterhub_for_teaching#combination-of-quickstart-and-git-pull-feature).
 
 ## Usage on the Student's Side
 
