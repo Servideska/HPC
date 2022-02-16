@@ -14,14 +14,15 @@ through the [ZIH JupyterHub](../access/jupyterhub.md) and work through them duri
 - These notebooks are typically prepared for specific dependencies (Python packages)
 that need to be activated by participants in the course, when opening the notebooks.
 
-- These environments can either be chosen based on the pre-configured ZIH conda environments,
+- These environments can either be chosen based on the pre-configured 
+ZIH virtualenv/conda environments,
 or built in advance. We will focus on the custom environment approach here.
 
 ## Prerequisites
 
 - A public git repository with the notebook files (`ipynb`) and all other starting files required
   by participants. One option to host the repository is the [GitLab of TU Chemnitz](https://gitlab.hrz.tu-chemnitz.de/).
-- A [HPC project](https://hpcprojekte.zih.tu-dresden.de/managers/) for teaching,
+- A [HPC project](../application/project_management.md) for teaching,
   with students as registered participants
 - For the tutor, a shell access to the HPC resources and project folder.
 
@@ -32,7 +33,7 @@ ZIH.
 
 ### 1. Creating a custom Python environment
 
-Prepare a a Python virtual environment (`virtualenv`) or conda virtual environment as described in
+Prepare a Python virtual environment (`virtualenv`) or conda virtual environment as described in
 [Python virtual environments](../software/python_virtual_environments.md). Note, for preparing a
 custom environment for a Jupyter Lab course, all participants will need to have read-access to this
 environment. This is best done by storing the environment in either a [workspace](../data_lifecycle/workspaces.md)
