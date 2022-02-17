@@ -80,7 +80,7 @@ several views:
 
 ### Classic Jupyter Notebook
 
-Initially, your `home` directory is listed. You can open existing notebooks or
+Initially, your home directory is listed. You can open existing notebooks or
 files by navigating to the corresponding path and clicking on them.
 
 ![Jupyter notebook file browser](misc/jupyter_notebook_file_browser.png)
