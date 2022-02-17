@@ -242,7 +242,7 @@ Create a virtual environment in your home directory. You can decide between
 Python virtualenv or conda environment.
 
 !!! note
-    Please keep in mind that Python venv is the preferred way to create a Python
+    Please keep in mind that Python virtualenv is the preferred way to create a Python
     virtual environment.
 
 #### Python Virtualenv
