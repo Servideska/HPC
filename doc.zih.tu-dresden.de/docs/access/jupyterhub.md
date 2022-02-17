@@ -249,22 +249,25 @@ Python virtualenv or conda environment.
 
 ```console
 marie@compute$ module load Python/3.8.6-GCCcore-10.2.0
+Module Python/3.8.6-GCCcore-10.2.0 and 11 dependencies loaded.
 marie@compute$ mkdir user-kernel # please use workspaces!
 marie@compute$ cd user-kernel
 marie@compute$ virtualenv --system-site-packages my-kernel
-Using base prefix '/sw/installed/Python/3.6.6-fosscuda-2018b'
-New python executable in .../user-kernel/my-kernel/bin/python
-Installing setuptools, pip, wheel...done.
+created virtual environment CPython3.8.6.final.0-64 in 5985ms
+  creator CPython3Posix(dest=[...]/my-kernel, clear=False, global=True)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=[...])
+    added seed packages: pip==20.2.3, setuptools==50.3.0, wheel==0.35.1
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
 marie@compute$ source my-kernel/bin/activate
-marie@compute$ pip install ipykernel
+(my-kernel) marie@compute$ pip install ipykernel
 Collecting ipykernel
 [...]
-Successfully installed ... ipykernel-5.1.0 ipython-7.5.0 ...
-marie@compute$ pip install --upgrade pip
-marie@compute$ python -m ipykernel install --user --name my-kernel --display-name="my kernel"
+Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
+(my-kernel) marie@compute$ pip install --upgrade pip
+(my-kernel) marie@compute$ python -m ipykernel install --user --name my-kernel --display-name="my kernel"
 Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
-marie@compute$ pip install [...] # now install additional packages for your notebooks
-marie@compute$ deactivate
+(my-kernel) marie@compute$ pip install [...] # now install additional packages for your notebooks
+(my-kernel) marie@compute$ deactivate
 ```
 
 #### Conda Environment
@@ -285,7 +288,7 @@ registration:
 
 ```console
 marie@compute$ mkdir user-kernel # please use workspaces!
-marie@compute$ conda create --prefix $HOME/user-kernel/my-kernel python=3.6
+marie@compute$ conda create --prefix $HOME/user-kernel/my-kernel python=3.8.6
 Collecting package metadata: done
 Solving environment: done
 [...]
