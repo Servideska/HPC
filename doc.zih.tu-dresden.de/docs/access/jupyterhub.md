@@ -226,19 +226,17 @@ later on with the kernel. In the examples below, we use the name
 "my-kernel" for our user kernel. We recommend to prefix your kernels
 with keywords like `haswell`, `ml`, `romeo`, `venv`, `conda`. This way, you
 can later recognize easier how you built the kernel and on which hardware it
-will work.
+will work. Depending on that hardware, allocate resources:
 
-**Intel nodes** (e.g. partition `haswell`, `gpu2`):
-
-```console
-maria@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2541 --time=08:00:00 bash -l
-```
-
-**Power nodes** (partition `ml`):
-
-```console
-maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 --time=08:00:00 bash -l
-```
+=== "x86 nodes (e.g. partition `haswell`, `gpu2`)"
+    ```console
+    maria@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2541 --time=08:00:00 bash -l
+    ```
+=== "PowerPC nodes (partition `ml`)"
+    ```console
+    maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 \
+     --time=08:00:00 bash -l
+    ```
 
 Create a virtual environment in your home directory. You can decide between
 Python virtualenv or conda environment.
@@ -271,28 +269,27 @@ marie@compute$ deactivate
 
 #### Conda Environment
 
-Load the needed module for Intel nodes
+Load the needed module depending on partition architecture:
 
-```console
-marie@compute$ module load Anaconda3
-```
-
-... or for IBM nodes (partition `ml`):
-
-```console
-marie@ml$ module load PythonAnaconda
-```
+=== "x86 nodes (e.g. partition `haswell`, `gpu2`)"
+    ```console
+    marie@compute$ module load Anaconda3
+    ```
+=== "PowerPC nodes (partition `ml`)"
+    ```console
+    marie@ml$ module load PythonAnaconda
+    ```
 
 Continue with environment creation, package installation and kernel
 registration:
 
 ```console
 marie@compute$ mkdir user-kernel # please use workspaces!
-marie@compute$ conda create --prefix /home/<USER>/user-kernel/my-kernel python=3.6
+marie@compute$ conda create --prefix $HOME/user-kernel/my-kernel python=3.6
 Collecting package metadata: done
 Solving environment: done
 [...]
-marie@compute$ conda activate /home/<USER>/user-kernel/my-kernel
+marie@compute$ conda activate $HOME/user-kernel/my-kernel
 marie@compute$ conda install ipykernel
 Collecting package metadata: done
 Solving environment: done
