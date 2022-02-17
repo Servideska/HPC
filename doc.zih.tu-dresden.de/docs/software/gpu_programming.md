@@ -61,7 +61,7 @@ Please use the following information as a start on OpenACC:
 #### Introduction
 
 OpenACC can be used with the PGI and NVIDIA HPC compilers. The NVIDIA HPC compiler, as part 
-of the [NVIDIA HPC SDK](https://docs.nvidia.com/hpc-sdk/index.html), supercedes the PGI compiler. 
+of the [NVIDIA HPC SDK](https://docs.nvidia.com/hpc-sdk/index.html), supersedes the PGI compiler. 
 
 Various versions of the PGI compiler are available on the [NVIDIA Tesla K80 GPUs nodes](../jobs_and_resources/hardware_overview.md/#island-2-phase-2-intel-haswell-cpus-nvidia-k80-gpus) (partition `gpu2`). 
 
@@ -118,7 +118,7 @@ Two compilers with good performance can be used: the NVIDIA HPC compiler and the
 * `-Minfo` tells you what the compiler is actually doing to your code
 * The same compiler options as mentioned [above](#using-openacc-with-nvidia-hpc-compilers) are available for OpenMP, 
 including the `-gpu=ccXY` flag as mentioned above.
-* OpenMP-secific advice may be found in the [respective section in the user guide](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/#openmp-use)
+* OpenMP-specific advice may be found in the [respective section in the user guide](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/#openmp-use)
 
 #### Using OpenMP target offloading with the IBM XL compilers
 
@@ -156,8 +156,9 @@ Additionally, the `NVHPC` modules provide CUDA tools as well.
 #### Usage of the CUDA compiler
 
 The simple invocation `nvcc <code.cu>` will compile a valid CUDA program. 
-`nvcc` differentiates between the device and the host code, which will be compiled in seperate phases.
+`nvcc` differentiates between the device and the host code, which will be compiled in separate phases.
 Therefore, compiler options can be defined specifically for the device as well as for the host code.
+By default, the GCC is used as the host compiler.
 The following flags may be useful:
 
 * `--generate-code` (`-gencode`): generate optimized code for a target GPU (caution: these binaries
@@ -198,8 +199,8 @@ marie@<compute>$ nvprof ./application [options]
 
 For a more in-depth analysis, we recommend you use the command line tool first to generate a report 
 file, which you can later analyze in the Visual Profiler.
-In order to collect a set of general metrices for the analysis in the Visual Profiler, use the 
-`--analysis-metrics` flag to collect metrices and `--export-profile` to generate a report
+In order to collect a set of general metrics for the analysis in the Visual Profiler, use the 
+`--analysis-metrics` flag to collect metrics and `--export-profile` to generate a report
 file, like this:
 
 ```bash
@@ -222,7 +223,7 @@ marie@<compute>$ nvprof --query-events
 ```
 
 to get a list of available events. 
-Analyze one or more events by using specifying one or more events, seperated by comma:
+Analyze one or more events by using specifying one or more events, separated by comma:
 
 ```bash
 marie@<compute> nvprof --events <event_1>[,<event_2>[,...]] ./application [options]
@@ -277,7 +278,7 @@ for a list of available command line options.
 ### NVIDIA Nsight Compute
 
 Nsight Compute is used for the analysis of individual GPU-kernels. 
-It supports GPUs from the Volta architecture onwards (on the ZIH system: V100 and A100).
+It supports GPUs from the Volta architecture onward (on the ZIH system: V100 and A100).
 Therefore, you cannot use Nsight Compute on the partition `gpu2`.
 If you are familiar with nvprof, you may want to consult the 
 [Nvprof Transition Guide](https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html#nvprof-guide),
