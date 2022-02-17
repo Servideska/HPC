@@ -1,6 +1,6 @@
 # JupyterHub
 
-With our JupyterHub service we offer you a quick and easy way to work with
+With our JupyterHub service, we offer you a quick and easy way to work with
 Jupyter notebooks on ZIH systems. This page covers starting and stopping
 JupyterHub sessions, error handling and customizing the environment.
 
@@ -38,8 +38,7 @@ offers you the most important settings to start quickly.
 ![Simple form](misc/simple_form.png)
 {: align="center"}
 
-For advanced users we have an extended form where you can change many
-settings. You can:
+For advanced users, we have an extended form where you can change many settings. You can:
 
 - modify batch system parameters to your needs ([more about batch system Slurm](../jobs_and_resources/slurm.md))
 - assign your session to a project or reservation
@@ -61,8 +60,7 @@ presets in text files.
 
 ## Applications
 
-You can choose between JupyterLab or classic Jupyter notebooks as outlined in
-the following.
+You can choose between JupyterLab or classic Jupyter notebooks as outlined in the following.
 
 ### JupyterLab
 
@@ -82,13 +80,13 @@ several views:
 
 ### Classic Jupyter Notebook
 
-Initially your `home` directory is listed. You can open existing notebooks or
+Initially, your home directory is listed. You can open existing notebooks or
 files by navigating to the corresponding path and clicking on them.
 
 ![Jupyter notebook file browser](misc/jupyter_notebook_file_browser.png)
 {: align="center"}
 
-Above the table on the right side is the button `New` which lets you create new
+Above the table on the right side, there is the button `New` which lets you create new
 notebooks, files, directories or terminals.
 
 ![Jupyter notebook example Matplotlib](misc/jupyter_notebook_example_matplotlib.png)
@@ -96,11 +94,10 @@ notebooks, files, directories or terminals.
 
 ## Jupyter Notebooks in General
 
-In JupyterHub you can create scripts in notebooks. Notebooks are programs which
-are split into multiple logical code blocks. In between those code blocks you
-can insert text blocks for documentation and each block can be executed
-individually. Each notebook is paired with a kernel running the code. We
-currently offer one for Python, C++, MATLAB and R.
+In JupyterHub, you can create scripts in notebooks. Notebooks are programs which are split into
+multiple logical code blocks. Each block can be executed individually. In between those code
+blocks, you can insert text blocks for documentation. Each notebook is paired with a kernel running
+the code. We currently offer one for Python, C++, MATLAB and R.
 
 ### Version Control of Jupyter Notebooks with Git
 
@@ -109,15 +106,15 @@ documentation, output and further information, it is difficult to use them with
 Git. Version tracking of the `.ipynb` notebook files can be improved with the
 [Jupytext plugin](https://jupytext.readthedocs.io/en/latest/). Jupytext will
 provide Markdown (`.md`) and Python (`.py`) conversions of notebooks on the fly,
-next to `.ipynb`. Tracking these files will then provide a cleaner git history.
+next to `.ipynb`. Tracking these files will then provide a cleaner Git history.
 A further advantage is that Python notebook versions can be imported, allowing
 to split larger notebooks into smaller ones, based on chained imports.
 
 !!! note
     The Jupytext plugin is not installed on the ZIH system at the moment.
-    Currently it can be [installed](https://jupytext.readthedocs.io/en/latest/install.html)
-    by the users with `--user` parameter.
-    Therefore `ipynb` files need to be made available in a repository for shared
+    Currently, it can be [installed](https://jupytext.readthedocs.io/en/latest/install.html)
+    by the users with parameter `--user`.
+    Therefore, `ipynb` files need to be made available in a repository for shared
     usage within the ZIH system.
 
 ## Stop a Session
@@ -127,37 +124,34 @@ resources for other users and your quota is less charged. If you just log out or
 close the window, your server continues running and **will not stop** until the
 Slurm job runtime hits the limit (usually 8 hours).
 
-At first you have to open the JupyterHub control panel.
+At first, you have to open the JupyterHub control panel.
 
 **JupyterLab**: Open the file menu and then click on `Logout`. You can
-also click on `Hub Control Panel` which opens the control panel in a new
-tab instead.
+also click on `Hub Control Panel`, which opens the control panel in a new tab instead.
 
 ![JupyterLab logout](misc/jupyterlab_logout.png)
 {: align="center"}
 
-**Classic Jupyter notebook**: Click on the control panel button on the top right
-of your screen.
+**Classic Jupyter notebook**: Click on the control panel button on the top right of your screen.
 
 ![Jupyter notebook control panel button](misc/jupyter_notebook_control_panel_button.png)
 {: align="center"}
 
-Now you are back on the JupyterHub page and you can stop your server by clicking
-on
+Now, you are back on the JupyterHub page and you can stop your server by clicking on
 ![Stop my server](misc/stop_my_server.png)
 {: align="center"}
 
 ## Error Handling
 
 We want to explain some errors that you might face sooner or later.
-If you need help open a ticket at [HPC support](mailto:hpcsupport@zih.tu-dresden.de).
+If you need help, open a ticket at [HPC support](mailto:hpcsupport@zih.tu-dresden.de).
 
 ### Error at Session Start
 
 ![Error batch job submission failed](misc/error_batch_job_submission_failed.png)
 {: align="center"}
 
-This message appears instantly if your batch system parameters are not valid.
+This message appears instantly, if your batch system parameters are not valid.
 Please check those settings against the available hardware.
 Useful pages for valid batch system parameters:
 
@@ -171,9 +165,9 @@ Useful pages for valid batch system parameters:
 
 If the connection to your notebook server unexpectedly breaks, you will get this
 error message. Sometimes your notebook server might hit a batch system or
-hardware limit and gets killed. Then usually the log file of the corresponding
-batch job might contain useful information. These log files are located in your
-`home` directory and have the name `jupyter-session-<jobid>.log`.
+hardware limit and gets killed. Then, the log file of the corresponding
+batch job usually contains useful information. These log files are located in your
+home directory and have the name `jupyter-session-<jobid>.log`.
 
 ## Advanced Tips
 
@@ -198,7 +192,7 @@ There are three standard environments:
 - python-env-python3.8.6
 
 **Python-env-python3.8.6** virtual environment can be used for all x86
-partitions(`gpu2`, `alpha`, etc). It gives the opportunity to create a user
+partitions (`gpu2`, `alpha`, etc). It gives the opportunity to create a user
 kernel with the help of a Python environment.
 
 Here is a short list of some included software:
@@ -228,77 +222,77 @@ Here is a short list of some included software:
 
 We currently have two different architectures at ZIH systems.
 Build your kernel environment on the **same architecture** that you want to use
-later on with the kernel. In the examples below we use the name
+later on with the kernel. In the examples below, we use the name
 "my-kernel" for our user kernel. We recommend to prefix your kernels
-with keywords like `haswell`, `ml`, `romeo`, `venv`, `conda`. This way you
+with keywords like `haswell`, `ml`, `romeo`, `venv`, `conda`. This way, you
 can later recognize easier how you built the kernel and on which hardware it
-will work.
+will work. Depending on that hardware, allocate resources:
 
-**Intel nodes** (e.g. partition `haswell`, `gpu2`):
+=== "x86 nodes (e.g. partition `haswell`, `gpu2`)"
+    ```console
+    maria@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2541 --time=08:00:00 bash -l
+    ```
+=== "PowerPC nodes (partition `ml`)"
+    ```console
+    maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 \
+     --time=08:00:00 bash -l
+    ```
 
-```console
-maria@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2541 --time=08:00:00 bash -l
-```
-
-**Power nodes** (partition `ml`):
-
-```console
-maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 --time=08:00:00 bash -l
-```
-
-Create a virtual environment in your `home` directory. You can decide between
+Create a virtual environment in your home directory. You can decide between
 Python virtualenv or conda environment.
 
 !!! note
-    Please take in mind that Python venv is the preferred way to create a Python
+    Please keep in mind that Python virtualenv is the preferred way to create a Python
     virtual environment.
 
 #### Python Virtualenv
 
 ```console
 marie@compute$ module load Python/3.8.6-GCCcore-10.2.0
+Module Python/3.8.6-GCCcore-10.2.0 and 11 dependencies loaded.
 marie@compute$ mkdir user-kernel # please use workspaces!
 marie@compute$ cd user-kernel
 marie@compute$ virtualenv --system-site-packages my-kernel
-Using base prefix '/sw/installed/Python/3.6.6-fosscuda-2018b'
-New python executable in .../user-kernel/my-kernel/bin/python
-Installing setuptools, pip, wheel...done.
+created virtual environment CPython3.8.6.final.0-64 in 5985ms
+  creator CPython3Posix(dest=[...]/my-kernel, clear=False, global=True)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=[...])
+    added seed packages: pip==20.2.3, setuptools==50.3.0, wheel==0.35.1
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
 marie@compute$ source my-kernel/bin/activate
-marie@compute$ pip install ipykernel
+(my-kernel) marie@compute$ pip install ipykernel
 Collecting ipykernel
 [...]
-Successfully installed ... ipykernel-5.1.0 ipython-7.5.0 ...
-marie@compute$ pip install --upgrade pip
-marie@compute$ python -m ipykernel install --user --name my-kernel --display-name="my kernel"
+Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
+(my-kernel) marie@compute$ pip install --upgrade pip
+(my-kernel) marie@compute$ python -m ipykernel install --user --name my-kernel --display-name="my kernel"
 Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
-marie@compute$ pip install [...] # now install additional packages for your notebooks
-marie@compute$ deactivate
+(my-kernel) marie@compute$ pip install [...] # now install additional packages for your notebooks
+(my-kernel) marie@compute$ deactivate
 ```
 
 #### Conda Environment
 
-Load the needed module for Intel nodes
+Load the needed module depending on partition architecture:
 
-```console
-marie@compute$ module load Anaconda3
-```
-
-... or for IBM nodes (partition `ml`):
-
-```console
-marie@ml$ module load PythonAnaconda
-```
+=== "x86 nodes (e.g. partition `haswell`, `gpu2`)"
+    ```console
+    marie@compute$ module load Anaconda3
+    ```
+=== "PowerPC nodes (partition `ml`)"
+    ```console
+    marie@ml$ module load PythonAnaconda
+    ```
 
 Continue with environment creation, package installation and kernel
 registration:
 
 ```console
 marie@compute$ mkdir user-kernel # please use workspaces!
-marie@compute$ conda create --prefix /home/<USER>/user-kernel/my-kernel python=3.6
+marie@compute$ conda create --prefix $HOME/user-kernel/my-kernel python=3.8.6
 Collecting package metadata: done
 Solving environment: done
 [...]
-marie@compute$ conda activate /home/<USER>/user-kernel/my-kernel
+marie@compute$ conda activate $HOME/user-kernel/my-kernel
 marie@compute$ conda install ipykernel
 Collecting package metadata: done
 Solving environment: done
