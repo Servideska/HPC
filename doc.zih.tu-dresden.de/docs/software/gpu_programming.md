@@ -2,21 +2,21 @@
 
 ## Available GPUs
 
-The full hardware specifications of the compute nodes may be found in the 
+The full hardware specifications of the GPU-compute nodes may be found in the 
 [HPC Resources](../jobs_and_resources/hardware_overview.md/#hpc-resources) page.
 Each node uses a different [module environment](modules.md/#module-environments): 
 * [NVIDIA Tesla K80 GPUs nodes](../jobs_and_resources/hardware_overview.md/#island-2-phase-2-intel-haswell-cpus-nvidia-k80-gpus) 
-(partition `gpu2`) use the default `scs5` module environment (`module switch modenv/scs5`). 
+(partition `gpu2`): use the default `scs5` module environment (`module switch modenv/scs5`). 
 * [NVIDIA Tesla V100 nodes](../jobs_and_resources/hardware_overview.md/#ibm-power9-nodes-for-machine-learning) 
-(partition `ml`) use the `ml` module environment (`modenv switch modenv/ml`)
+(partition `ml`): use the `ml` module environment (`modenv switch modenv/ml`)
 * [NVIDIA A100 nodes](../jobs_and_resources/hardware_overview.md/#amd-rome-cpus-nvidia-a100) 
-(partition `alpha`) use the `hiera` module environment (`module switch modenv/hiera`)
+(partition `alpha`): use the `hiera` module environment (`module switch modenv/hiera`)
 
 ## Using GPUs with Slurm
 
 For general information on how to use Slurm, read the respective [page in this compendium](../jobs_and_resources/slurm.md).
-When allocating resources on a GPU-node, you must specify the number of requested GPUs, like
-this:
+When allocating resources on a GPU-node, you must specify the number of requested GPUs 
+by using the `--gres=gpu:<N>` option, like this:
 
 ```bash
 #!/bin/bash                           # Batch script starts with shebang line
@@ -85,8 +85,7 @@ which includes descriptions of available [command line options](https://docs.nvi
 
 * Switch into the correct module environment for your selected compute nodes 
 (see [list of available GPUs](#available-gpus))
-* Load the `NVHPC` module for the correct module environment. DE
-
+* Load the `NVHPC` module for the correct module environment.
 Either load the default (`module load NVHPC`) or search for a specific version.
 * Use the correct compiler for your code: `nvc` for C, `nvc++` for C++ and `nvfortran` for Fortran
 * Use the `-acc` and `-Minfo` flag as with the PGI compiler
@@ -108,15 +107,16 @@ for details.
 Furthermore, some compilers, such as GCC, have basic support for target offloading, 
 but do not enable these features by default and/or achieve poor performance.
 
-On the ZIH system, two compilers with good performance can be used: the NVIDIA HPC compiler 
-and the IBM XL compiler.
+On the ZIH system, compilers with OpenMP target offloading support are provided on the
+partitions `ml` and `alpha`.
+Two compilers with good performance can be used: the NVIDIA HPC compiler and the IBM XL compiler.
 
 #### Using OpenMP target offloading with NVIDIA HPC compilers
 
 * Load the module environments and the NVIDIA HPC SDK as described in the [OpenACC](#using-openacc-with-nvidia-hpc-compilers) section
 * Use the `-mp=gpu` flag to enable OpenMP with offloading
 * `-Minfo` tells you what the compiler is actually doing to your code
-* The same compiler options as linked above are available for OpenMP, 
+* The same compiler options as mentioned [above](#using-openacc-with-nvidia-hpc-compilers) are available for OpenMP, 
 including the `-gpu=ccXY` flag as mentioned above.
 * OpenMP-secific advice may be found in the [respective section in the user guide](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/#openmp-use)
 
@@ -144,7 +144,7 @@ The [toolkit documentation page](https://docs.nvidia.com/cuda/index.html) links 
 [programming guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html) and the 
 [best practice guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html).
 Optimization guides for supported NVIDIA architectures are available, including for 
-[Kepler (k80)](https://docs.nvidia.com/cuda/kepler-tuning-guide/index.html), 
+[Kepler (K80)](https://docs.nvidia.com/cuda/kepler-tuning-guide/index.html), 
 [Volta (V100)](https://docs.nvidia.com/cuda/volta-tuning-guide/index.html) and 
 [Ampere (A100)](https://docs.nvidia.com/cuda/ampere-tuning-guide/index.html).
 
@@ -176,6 +176,75 @@ and the [performance guidelines](https://docs.nvidia.com/cuda/cuda-c-programming
 for possible steps to take for the performance analysis and optimization.
 
 Multiple tools can be used for the performance analysis.
+For the analysis of applications on the older K80 GPUs, we recommend two 
+[profiler tools](https://docs.nvidia.com/cuda/profiler-users-guide/index.html): 
+the NVIDIA [nvprof](https://docs.nvidia.com/cuda/profiler-users-guide/index.html#nvprof-overview) 
+command line profiler and the NVIDIA [Visual Profiler](https://docs.nvidia.com/cuda/profiler-users-guide/index.html#visual)
+as the accompanying graphical profiler.
+These tools will be deprecated in future CUDA releases but are still available in CUDA <= 11.
+On the newer GPUs (V100 and A100), we recommend the use of of the newer 
+NVIDIA Nsight tools, [Nsight Systems](https://developer.nvidia.com/nsight-systems) for 
+a system wide sampling and tracing and [Nsight Compute](https://developer.nvidia.com/nsight-compute)
+for a detailed analysis of individual kernels.
+
+### NVIDIA nvprof & Visual Profiler
+
+The nvprof command line and the Visual Profiler are available once a CUDA module has been loaded.
+For a simple analysis, you can call `nvprof` without any options, like such:
+
+```bash
+marie@<compute>$ nvprof ./application [options]
+```
+
+For a more in-depth analysis, we recommend you use the command line tool first to generate a report 
+file, which you can later analyze in the Visual Profiler.
+In order to collect a set of general metrices for the analysis in the Visual Profiler, use the 
+`--analysis-metrics` flag to collect metrices and `--export-profile` to generate a report
+file, like this:
+
+```bash
+marie@<compute>$ nvprof --analysis-metrics --export-profile  <output>.nvvp ./application [options]
+```
+
+[Transfer the report file to your local system](../data_transfer/export_nodes.md) and analyze it in 
+the Visual Profiler (`nvvp`) locally. 
+This will give the smoothest user experience.
+Alternatively, you can use [X11-forwarding](../access/ssh_login.md).
+Refer to the [documentation](https://docs.nvidia.com/cuda/profiler-users-guide/index.html#visual-views)
+for details about the individual features and views of the Visual Profiler.
+
+Besides these generic analysis methods, you can profile specific aspects of your GPU kernels.
+`nvprof` can profile specific events.
+For this, use
+
+```bash
+marie@<compute>$ nvprof --query-events
+```
+
+to get a list of available events. 
+Analyze one or more events by using specifying one or more events, seperated by comma:
+
+```bash
+marie@<compute> nvprof --events <event_1>[,<event_2>[,...]] ./application [options]
+```
+
+Additionally, you can analyze specific metrics. 
+Similar to the profiling of events, you can get a list of available metrics:
+
+```bash
+marie@<compute>$ nvprof --query-metrics
+```
+
+One or more metrics can be profiled at the same time:
+
+```bash
+marie@<compute> nvprof --metrics <metric_1>[,<metric_2>[,...]] ./application [options]
+```
+
+If you want to limit the profiler's scope to one or more kernels, you can use the 
+`--kernels <kernel_1>[,<kernel_2>]` flag.
+For further command line options, refer to the 
+[documentation](https://docs.nvidia.com/cuda/profiler-users-guide/index.html#nvprof-command-line-options).
 
 ### NVIDIA Nsight Systems
 
@@ -185,27 +254,77 @@ Refer to the [documentation](https://docs.nvidia.com/nsight-systems/UserGuide/in
 for details.
 With this, you can identify parts of your code that take a long time to run and are suitable
 optimization-candidates.
-We recommend a two-step process:
-1. Use the command-line version to sample your code and create a report file for later analysis:
+
+Use the command-line version to sample your code and create a report file for later analysis:
+
 ```bash
-marie@<compute>$ nsys profile [--stats=true] ./your-application
+marie@<compute>$ nsys profile [--stats=true] ./application [options]
 ```
+
 The `--stats=true` flag is optional and will create a summary on the command line.
-Depending on your needs, this analysis may be sufficient to aid with the optimizations.
-2. The graphical user interface version can be used for a thorough analysis of your previously
+Depending on your needs, this analysis may be sufficient to identify optimizations targets.
+
+The graphical user interface version can be used for a thorough analysis of your previously
 generated report file. For an optimal user experience, we recommend a local installation 
 of NVIDIA Nsight Systems. In this case, you can [transfer the report file to your local system](../data_transfer/export_nodes.md).
 Alternatively, you can use [X11-forwarding](../access/ssh_login.md).
+The graphical user interface is usually available as `nsys-ui`.
+
+Furthermore, you can use the command line interface for further analyses. 
+Refer to the [documentation](https://docs.nvidia.com/nsight-systems/UserGuide/index.html#cli-options)
+for a list of available command line options.
 
 ### NVIDIA Nsight Compute
 
-Nsight Compute is used for the analysis of individual GPU-kernels. We recommend those kernels
-as optimization targets that require a large portion of you run time, according to Nsight Systems.
+Nsight Compute is used for the analysis of individual GPU-kernels. 
+It supports GPUs from the Volta architecture onwards (on the ZIH system: V100 and A100).
+Therefore, you cannot use Nsight Compute on the partition `gpu2`.
+If you are familiar with nvprof, you may want to consult the 
+[Nvprof Transition Guide](https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html#nvprof-guide),
+as Nsight Compute uses a new scheme for metrics.
+We recommend those kernels as optimization targets that require a large portion of you run time, according to Nsight Systems.
 Nsight Compute is particularly useful for CUDA code, as you have much greater control over your
 code compared to the directive based approaches.
 
-### NVPROF
+Nsight Compute comes in a [command line](https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html)
+and a [graphical version](https://docs.nvidia.com/nsight-compute/NsightCompute/index.html).
+Refer to the [Kernel Profiling Guide](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html)
+to get an overview of the functionality of these tools.
 
-TODO:
+You can call the command line version (`ncu`) without further options to get a broad overview of
+your kernel's performance:
 
-* profiler (nsight systems & compute, nvprof für k80)
+```bash
+marie@<compute>$ ncu ./application [options]
+```
+
+As with the other profiling tools, the Nsight Compute profiler can generate report files like this:
+
+```bash
+marie@<compute>$ ncu --export <report> ./application [options]
+```
+
+The report file will automatically get the file ending `.ncu-rep`, you do not need to specify this manually.
+
+This report file can be analyzed in the graphical user interface profiler.
+Again, we recommend you generate a report file on a compute node and 
+[transfer the report file to your local system](../data_transfer/export_nodes.md).
+Alternatively, you can use [X11-forwarding](../access/ssh_login.md).
+The graphical user interface is usually available as `ncu-ui` or `nv-nsight-cu`.
+
+Similar to the `nvprof` profiler, you can analyze specific metrics.
+NVIDIA provides a 
+[Metrics Guide](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-guide).
+Use `--query-metrics` to get a list of available metrics, listing them by base name.
+Individual metrics can be collected by using 
+
+```bash
+marie@<compute> ncu --metrics <metric_1>[,<metric_2>,...] ./application [options]
+```
+
+Collection of events is no longer possible with Nsight Compute. 
+Instead, many nvprof events can be 
+[measured with metrics](https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html#nvprof-event-comparison).
+
+You can collect metrics for individual kernels by specifying the `--kernel-name` flag.
+
