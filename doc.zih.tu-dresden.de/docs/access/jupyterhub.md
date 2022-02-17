@@ -1,8 +1,8 @@
 # JupyterHub
 
-With our JupyterHub service we offer you a quick and easy way to work with Jupyter notebooks on ZIH
-systems. This page covers starting and stopping JupyterHub sessions, error handling and customizing
-the environment.
+With our JupyterHub service we offer you a quick and easy way to work with
+Jupyter notebooks on ZIH systems. This page covers starting and stopping
+JupyterHub sessions, error handling and customizing the environment.
 
 We also provide a comprehensive documentation on how to use
 [JupyterHub for Teaching (git-pull feature, quickstart links, direct links to notebook files)](jupyterhub_for_teaching.md).
@@ -13,16 +13,17 @@ We also provide a comprehensive documentation on how to use
 
     The JupyterHub service is provided *as-is*, use at your own discretion.
 
-Please understand that JupyterHub is a complex software system of which we are not the developers
-and don't have any downstream support contracts for, so we merely offer an installation of it but
-cannot give extensive support in every case.
+Please understand that JupyterHub is a complex software system of which we are
+not the developers and don't have any downstream support contracts for, so we
+merely offer an installation of it but cannot give extensive support in every
+case.
 
 ## Access
 
 !!! note
     This service is only available for users with an active HPC project.
-    See [Application for Login and Resources](../application/overview.md), if you need to apply for
-    an HPC project.
+    See [Application for Login and Resources](../application/overview.md), if
+    you need to apply for an HPC project.
 
 JupyterHub is available at
 [https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
@@ -60,7 +61,8 @@ presets in text files.
 
 ## Applications
 
-You can choose between JupyterLab or classic Jupyter notebooks as outlined in the following.
+You can choose between JupyterLab or classic Jupyter notebooks as outlined in
+the following.
 
 ### JupyterLab
 
@@ -80,30 +82,50 @@ several views:
 
 ### Classic Jupyter Notebook
 
-Initially your `home` directory is listed. You can open existing notebooks or files by navigating to
-the corresponding path and clicking on them.
+Initially your `home` directory is listed. You can open existing notebooks or
+files by navigating to the corresponding path and clicking on them.
 
 ![Jupyter notebook file browser](misc/jupyter_notebook_file_browser.png)
 {: align="center"}
 
-Above the table on the right side is the button `New` which lets you create new notebooks, files,
-directories or terminals.
+Above the table on the right side is the button `New` which lets you create new
+notebooks, files, directories or terminals.
 
-![Jupyter notebook example matplotlib](misc/jupyter_notebook_example_matplotlib.png)
+![Jupyter notebook example Matplotlib](misc/jupyter_notebook_example_matplotlib.png)
 {: align="center"}
 
 ## Jupyter Notebooks in General
 
-In JupyterHub you can create scripts in notebooks. Notebooks are programs which are split into
-multiple logical code blocks.  In between those code blocks you can insert text blocks for
-documentation and each block can be executed individually. Each notebook is paired with a kernel
-running the code. We currently offer one for Python, C++, MATLAB and R.
+In JupyterHub you can create scripts in notebooks. Notebooks are programs which
+are split into multiple logical code blocks. In between those code blocks you
+can insert text blocks for documentation and each block can be executed
+individually. Each notebook is paired with a kernel running the code. We
+currently offer one for Python, C++, MATLAB and R.
+
+### Version Control of Jupyter Notebooks with Git
+
+Since Jupyter notebooks are files containing multiple blocks for input code,
+documentation, output and further information, it is difficult to use them with
+Git. Version tracking of the `.ipynb` notebook files can be improved with the
+[Jupytext plugin](https://jupytext.readthedocs.io/en/latest/). Jupytext will
+provide Markdown (`.md`) and Python (`.py`) conversions of notebooks on the fly,
+next to `.ipynb`. Tracking these files will then provide a cleaner git history.
+A further advantage is that Python notebook versions can be imported, allowing
+to split larger notebooks into smaller ones, based on chained imports.
+
+!!! note
+    The Jupytext plugin is not installed on the ZIH system at the moment.
+    Currently it can be [installed](https://jupytext.readthedocs.io/en/latest/install.html)
+    by the users with `--user` parameter.
+    Therefore `ipynb` files need to be made available in a repository for shared
+    usage within the ZIH system.
 
 ## Stop a Session
 
-It is good practice to stop your session once your work is done. This releases resources for other
-users and your quota is less charged. If you just log out or close the window, your server continues
-running and **will not stop** until the Slurm job runtime hits the limit (usually 8 hours).
+It is good practice to stop your session once your work is done. This releases
+resources for other users and your quota is less charged. If you just log out or
+close the window, your server continues running and **will not stop** until the
+Slurm job runtime hits the limit (usually 8 hours).
 
 At first you have to open the JupyterHub control panel.
 
@@ -120,7 +142,8 @@ of your screen.
 ![Jupyter notebook control panel button](misc/jupyter_notebook_control_panel_button.png)
 {: align="center"}
 
-Now you are back on the JupyterHub page and you can stop your server by clicking on
+Now you are back on the JupyterHub page and you can stop your server by clicking
+on
 ![Stop my server](misc/stop_my_server.png)
 {: align="center"}
 
@@ -146,10 +169,11 @@ Useful pages for valid batch system parameters:
 ![JupyterLab error directory not found](misc/jupyterlab_error_directory_not_found.png)
 {: align="center"}
 
-If the connection to your notebook server unexpectedly breaks, you will get this error message.
-Sometimes your notebook server might hit a batch system or hardware limit and gets killed. Then
-usually the log file of the corresponding batch job might contain useful information. These log
-files are located in your `home` directory and have the name `jupyter-session-<jobid>.log`.
+If the connection to your notebook server unexpectedly breaks, you will get this
+error message. Sometimes your notebook server might hit a batch system or
+hardware limit and gets killed. Then usually the log file of the corresponding
+batch job might contain useful information. These log files are located in your
+`home` directory and have the name `jupyter-session-<jobid>.log`.
 
 ## Advanced Tips
 
@@ -163,8 +187,9 @@ exact standard environment through the spawner form:
 ![Environment package list](misc/environment_package_list.png)
 {: align="center"}
 
-This list shows all packages of the currently selected conda environment. This depends on your
-settings for partition (CPU architecture) and standard environment.
+This list shows all packages of the currently selected conda environment. This
+depends on your settings for partition (CPU architecture) and standard
+environment.
 
 There are three standard environments:
 
@@ -172,8 +197,9 @@ There are three standard environments:
 - test
 - python-env-python3.8.6
 
-**Python-env-python3.8.6** virtual environment can be used for all x86 partitions(`gpu2`, `alpha`,
-etc). It gives the opportunity to create a user kernel with the help of a Python environment.
+**Python-env-python3.8.6** virtual environment can be used for all x86
+partitions(`gpu2`, `alpha`, etc). It gives the opportunity to create a user
+kernel with the help of a Python environment.
 
 Here is a short list of some included software:
 
@@ -185,8 +211,8 @@ Here is a short list of some included software:
 | PyTorch    | 1.3.1     | 1.3.1  |
 | TensorFlow | 2.1.1     | 2.1.1  |
 | Keras      | 2.3.1     | 2.3.1  |
-| numpy      | 1.17.5    | 1.17.4 |
-| matplotlib | 3.3.1     | 3.0.3  |
+| NumPy      | 1.17.5    | 1.17.4 |
+| Matplotlib | 3.3.1     | 3.0.3  |
 
 \* generic = all partitions except ml
 
@@ -196,16 +222,17 @@ Here is a short list of some included software:
 
 !!! info
 
-    Interactive code interpreters which are used by Jupyter notebooks are called *kernels*. Creating
-    and using your own kernel has the benefit that you can install your own preferred Python
-    packages and use them in your notebooks.
+    Interactive code interpreters which are used by Jupyter notebooks are called
+    *kernels*. Creating and using your own kernel has the benefit that you can
+    install your own preferred Python packages and use them in your notebooks.
 
 We currently have two different architectures at ZIH systems.
 Build your kernel environment on the **same architecture** that you want to use
 later on with the kernel. In the examples below we use the name
 "my-kernel" for our user kernel. We recommend to prefix your kernels
 with keywords like `haswell`, `ml`, `romeo`, `venv`, `conda`. This way you
-can later recognize easier how you built the kernel and on which hardware it will work.
+can later recognize easier how you built the kernel and on which hardware it
+will work.
 
 **Intel nodes** (e.g. partition `haswell`, `gpu2`):
 
@@ -219,11 +246,12 @@ maria@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2541 --time=0
 maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 --time=08:00:00 bash -l
 ```
 
-Create a virtual environment in your `home` directory. You can decide between Python virtualenvs or
-conda environments.
+Create a virtual environment in your `home` directory. You can decide between
+Python virtualenv or conda environment.
 
 !!! note
-    Please take in mind that Python venv is the preferred way to create a Python virtual environment.
+    Please take in mind that Python venv is the preferred way to create a Python
+    virtual environment.
 
 #### Python Virtualenv
 
@@ -261,7 +289,8 @@ marie@compute$ module load Anaconda3
 marie@ml$ module load PythonAnaconda
 ```
 
-Continue with environment creation, package installation and kernel registration:
+Continue with environment creation, package installation and kernel
+registration:
 
 ```console
 marie@compute$ mkdir user-kernel # please use workspaces!
@@ -303,11 +332,13 @@ You can switch kernels of existing notebooks in the kernel menu:
 {: align="center"}
 
 !!! note
-    Both python venv and conda virtual environments will be mention in the same list.
+    Both python venv and conda virtual environments will be mention in the same
+    list.
 
 ### Loading Modules
 
 You have now the option to preload modules from the [module system](../software/modules.md).
-Select multiple modules that will be preloaded before your notebook server starts. The list of
-available modules depends on the module environment you want to start the session in (`scs5` or
-`ml`). The right module environment will be chosen by your selected partition.
+Select multiple modules that will be preloaded before your notebook server
+starts. The list of available modules depends on the module environment you want
+to start the session in (`scs5` or `ml`). The right module environment will be
+chosen by your selected partition.
