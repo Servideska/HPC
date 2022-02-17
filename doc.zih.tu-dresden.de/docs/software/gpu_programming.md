@@ -19,27 +19,65 @@ For general information on how to use Slurm, read the respective [page in this c
 When allocating resources on a GPU-node, you must specify the number of requested GPUs by using the
 `--gres=gpu:<N>` option, like this:
 
-```bash
-#!/bin/bash                           # Batch script starts with shebang line
+=== "partition `gpu2`"
+    ```bash
+    #!/bin/bash                           # Batch script starts with shebang line
 
-#SBATCH --ntasks=1                    # All #SBATCH lines have to follow uninterrupted
-#SBATCH --time=01:00:00               # after the shebang line
-#SBATCH --account=<KTR>               # Comments start with # and do not count as interruptions
-#SBATCH --job-name=fancyExp
-#SBATCH --output=simulation-%j.out
-#SBATCH --error=simulation-%j.err
-#SBATCH --partition=<gpu-partition>   # specify the GPU-partition (gpu2, ml, alpha)
-#SBATCH --gres=gpu:1                  # request GPU(s) from Slurm
+    #SBATCH --ntasks=1                    # All #SBATCH lines have to follow uninterrupted
+    #SBATCH --time=01:00:00               # after the shebang line
+    #SBATCH --account=<KTR>               # Comments start with # and do not count as interruptions
+    #SBATCH --job-name=fancyExp
+    #SBATCH --output=simulation-%j.out
+    #SBATCH --error=simulation-%j.err
+    #SBATCH --partition=gpu2
+    #SBATCH --gres=gpu:1                  # request GPU(s) from Slurm
 
-module purge                          # Set up environment, e.g., clean modules environment
-module switch modenv/<env>            # switch to module environment for GPU-partition
-module load <modules>                 # and load necessary modules
+    module purge                          # Set up environment, e.g., clean modules environment
+    module switch modenv/scs5             # switch module environment
+    module load <modules>                 # and load necessary modules
 
-srun ./application [options]          # Execute parallel application with srun
+    srun ./application [options]          # Execute parallel application with srun
+    ```
+=== "partition `ml`"
+    ```bash
+    #!/bin/bash                           # Batch script starts with shebang line
 
-```
+    #SBATCH --ntasks=1                    # All #SBATCH lines have to follow uninterrupted
+    #SBATCH --time=01:00:00               # after the shebang line
+    #SBATCH --account=<KTR>               # Comments start with # and do not count as interruptions
+    #SBATCH --job-name=fancyExp
+    #SBATCH --output=simulation-%j.out
+    #SBATCH --error=simulation-%j.err
+    #SBATCH --partition=ml
+    #SBATCH --gres=gpu:1                  # request GPU(s) from Slurm
 
-Alternatively, you can work on the GPU partitions interactively:
+    module purge                          # Set up environment, e.g., clean modules environment
+    module switch modenv/ml               # switch module environment
+    module load <modules>                 # and load necessary modules
+
+    srun ./application [options]          # Execute parallel application with srun
+    ```
+=== "partition `alpha`"
+    ```bash
+    #!/bin/bash                           # Batch script starts with shebang line
+
+    #SBATCH --ntasks=1                    # All #SBATCH lines have to follow uninterrupted
+    #SBATCH --time=01:00:00               # after the shebang line
+    #SBATCH --account=<KTR>               # Comments start with # and do not count as interruptions
+    #SBATCH --job-name=fancyExp
+    #SBATCH --output=simulation-%j.out
+    #SBATCH --error=simulation-%j.err
+    #SBATCH --partition=alpha
+    #SBATCH --gres=gpu:1                  # request GPU(s) from Slurm
+
+    module purge                          # Set up environment, e.g., clean modules environment
+    module switch modenv/hiera            # switch module environment
+    module load <modules>                 # and load necessary modules
+
+    srun ./application [options]          # Execute parallel application with srun
+    ```
+
+Alternatively, you can work on the partitions interactively:
 
 ```bash
 marie@login$ srun --partition=<partition>-interactive --gres=gpu:<N> --pty bash
@@ -65,7 +103,7 @@ OpenACC can be used with the PGI and NVIDIA HPC compilers. The NVIDIA HPC compil
 [NVIDIA HPC SDK](https://docs.nvidia.com/hpc-sdk/index.html), supersedes the PGI compiler.
 
 Various versions of the PGI compiler are available on the
-[NVIDIA Tesla K80 GPUs nodes](../jobs_and_resources/hardware_overview.md/island-2-phase-2-intel-haswell-cpus-nvidia-k80-gpus)
+[NVIDIA Tesla K80 GPUs nodes](../jobs_and_resources/hardware_overview.md#island-2-phase-2-intel-haswell-cpus-nvidia-k80-gpus)
 (partition `gpu2`).
 
 The `nvc` compiler (NOT the `nvcc` compiler, which is used for CUDA) is available for the NVIDIA
