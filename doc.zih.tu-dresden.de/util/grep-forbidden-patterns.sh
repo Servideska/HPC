@@ -46,6 +46,9 @@ i	^[ |]*|$
 Avoid spaces at end of lines.
 doc.zih.tu-dresden.de/docs/accessibility.md
 i	[[:space:]]$
+Avoid \`home\`. Use home without backticks instead.
+
+i	\`home\`
 Internal links should not contain \"/#\".
 
 i	(.*/#.*)	(http
