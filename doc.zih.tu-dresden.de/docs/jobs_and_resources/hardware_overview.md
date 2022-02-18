@@ -117,15 +117,3 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
     ![Node topology](misc/smp2.png)
     {: align=center}
 
-## Island 2 Phase 1 - Intel Sandybridge CPUs + NVIDIA K20x GPUs
-
-- 44 nodes, each with 2x Intel(R) Xeon(R) CPU E5-2450 (8 cores) @
-  2.10GHz, Multithreading Disabled, 48 GB RAM (3 GB per core), 128 GB
-  SSD local disk, 2x NVIDIA Tesla K20x (6 GB GDDR RAM) GPUs
-- Hostname: `taurusi2[001-044]`
-- Slurm partition `gpu1`
-
-??? hint "Node topology"
-
-    ![Node topology](misc/i2000.png)
-    {: align=center}
