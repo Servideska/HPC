@@ -14,7 +14,7 @@ users and the ZIH.
   - each with 2x Intel(R) Xeon(R) CPU E5-2680 v3 each with 12 cores
     @ 2.50GHz, Multithreading Disabled, 64 GB RAM, 128 GB SSD local disk
   - IPs: 141.30.73.\[102-105\]
-- Transfer-Nodes (`taurusexport3/4.hrsk.tu-dresden.de`, DNS Alias
+- Transfer-Nodes (`taurusexport[3-4].hrsk.tu-dresden.de`, DNS Alias
   `taurusexport.hrsk.tu-dresden.de`)
   - 2 Servers without interactive login, only available via file transfer protocols (`rsync`, `ftp`)
   - IPs: 141.30.73.82/83
@@ -71,8 +71,8 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
 
 - 1456 nodes, each with 2x Intel(R) Xeon(R) CPU E5-2680 v3 (12 cores)
   @ 2.50GHz, Multithreading disabled, 128 GB SSD local disk
-- Hostname: `taurusi4[001-232]`, `taurusi5[001-612]`,
-  `taurusi6[001-612]`
+- Hostname: `taurusi[4001-4232]`, `taurusi[5001-5612]`,
+  `taurusi[6001-6612]`
 - Varying amounts of main memory (selected automatically by the batch
   system for you according to your job requirements)
   - 1328 nodes with 2.67 GB RAM per core (64 GB total):
@@ -101,7 +101,7 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
 * 64 nodes, each with 2x Intel(R) Xeon(R) CPU E5-E5-2680 v3 (12 cores)
   @ 2.50GHz, Multithreading Disabled, 64 GB RAM (2.67 GB per core),
   128 GB SSD local disk, 4x NVIDIA Tesla K80 (12 GB GDDR RAM) GPUs
-* Hostname: `taurusi2[045-108]`
+* Hostname: `taurusi[2045-2108]`
 * Slurm Partition `gpu2`
 * Node topology, same as [island 4 - 6](#island-4-to-6-intel-haswell-cpus)
 
