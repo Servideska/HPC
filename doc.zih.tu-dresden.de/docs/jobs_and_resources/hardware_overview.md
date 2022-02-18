@@ -102,7 +102,7 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
   @ 2.50GHz, Multithreading Disabled, 64 GB RAM (2.67 GB per core),
   128 GB SSD local disk, 4x NVIDIA Tesla K80 (12 GB GDDR RAM) GPUs
 * Hostname: `taurusi2[045-108]`
-* Slurm Partition `gpu`
+* Slurm Partition `gpu2`
 * Node topology, same as [island 4 - 6](#island-4-to-6-intel-haswell-cpus)
 
 ## SMP Nodes - up to 2 TB RAM
