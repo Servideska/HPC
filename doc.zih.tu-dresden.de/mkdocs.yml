@@ -15,6 +15,7 @@ nav:
     - JupyterHub:
       - JupyterHub: access/jupyterhub.md
       - JupyterHub for Teaching: access/jupyterhub_for_teaching.md
+      - JupyterHub Teaching Example: access/jupyterhub_teaching_example.md
     - Key Fingerprints: access/key_fingerprints.md  
     - Security Restrictions: access/security_restrictions.md
   - Data Transfer:
