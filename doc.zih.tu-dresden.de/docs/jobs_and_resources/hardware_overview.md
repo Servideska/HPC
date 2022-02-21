@@ -116,4 +116,3 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
 
     ![Node topology](misc/smp2.png)
     {: align=center}
-
