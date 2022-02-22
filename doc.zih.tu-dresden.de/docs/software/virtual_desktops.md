@@ -75,7 +75,7 @@ find your WebVNC desktop the way you left it.
 
 !!! note
 
-    This does not work if you click on the "Logout"-Button in your
+    This does not work if you click on the button `Logout` in your
     virtual desktop. Instead this will just close your DCV session or cause
     a black screen in your WebVNC window without a possibility to recover a
     virtual desktop in the same Jupyter session. The solution for now would
