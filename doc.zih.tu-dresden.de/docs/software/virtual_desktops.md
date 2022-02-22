@@ -1,6 +1,6 @@
 # Virtual Desktops
 
-Use WebVNC or NICE DCV to run GUI applications on HPC resources.
+Use WebVNC or DCV to run GUI applications on HPC resources.
 
 |                | WebVNC                                            | DCV                               |
 |----------------|-------------------------------------------------------|--------------------------------------------|
@@ -9,11 +9,11 @@ Use WebVNC or NICE DCV to run GUI applications on HPC resources.
 
 ## Launch a Virtual Desktop
 
-| Step | **WebVNC**   | **DCV**              |
+| Step | WebVNC   | DCV              |
 |------|--------------|----------------------|
 | 1    | Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](../access/jupyterhub.md) instance. |
 | 2    | Click on the "advanced" tab and choose a preset: |
-| 3    | Optional: Fine tune your session with the available SLURM job parameters or assign a certain project or reservation. Then save your settings in a new preset for future use. |  |
+| 3    | Optional: Fine tune your session with the available Slurm job parameters or assign a certain project or reservation. Then save your settings in a new preset for future use. |  |
 | 4    | Click on `Spawn`. JupyterHub starts now a SLURM job for you. If everything is ready the JupyterLab interface will appear to you. |  |
 | 5    | Click on `WebVNC` to start a virtual desktop.  | Click on `DCV` to start a virtual desktop. |
 |      | The virtual desktop starts in a new tab or window.  |  |
@@ -39,12 +39,12 @@ parameters.
 |              | WebVNC     | DCV   |
 |--------------|------------|------------|
 | Examples     | [WebVNC](https://taurus.hrsk.tu-dresden.de/jupyter/hub/spawn#/>\~(partition\~'interactive\~cpuspertask\~'2\~mempercpu\~'2583)) | [DCV](https://taurus.hrsk.tu-dresden.de/jupyter/hub/spawn#/>\~(partition\~'dcv\~cpuspertask\~'6\~gres\~'gpu\*3a1\~mempercpu\~'2583)) |
-| Description  | `interactive` partition, 2 CPUs with 2583 MB RAM per core, no GPU | `dcv` partition, 6 CPUs with 2583 MB RAM per core, 1 GPU |
+| Description  | partition `interactive`, 2 CPUs with 2583 MB RAM per core, no GPU | partition `dcv`, 6 CPUs with 2583 MB RAM per core, 1 GPU |
 | Link creator | Use the spawn form to set your preferred options. The browser URL will be updated with the corresponding parameters. | |
 
 If you close the browser tabs or windows or log out from your local
 machine, you are able to open the virtual desktop later again - as long
-as the session runs. But please remember that a SLURM job is running in
+as the session runs. But please remember that a Slurm job is running in
 the background which has a certain time limit.
 
 ## Reconnecting to a Session
