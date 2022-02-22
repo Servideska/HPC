@@ -21,8 +21,10 @@ Use WebVNC or NICE DCV to run GUI applications on HPC resources.
 ### Demonstration
 
 <video controls="" width="320" style="border: 1px solid black">
-<source src="https://doc.zih.tu-dresden.de/software/misc/start-virtual-desktop-dcv.mp4" type="video/mp4" />
-<source src="https://doc.zih.tu-dresden.de/software/misc/start-virtual-desktop-dcv.webm" type="video/webm" />
+<source src="https://doc.zih.tu-dresden.de/software/misc/start-virtual-desktop-dcv.mp4"
+        type="video/mp4" />
+<source src="https://doc.zih.tu-dresden.de/software/misc/start-virtual-desktop-dcv.webm"
+        type="video/webm" />
 </video>
 
 <!--Hier steht ein Video.-->
@@ -65,8 +67,10 @@ find your WebVNC desktop the way you left it.
 ### Demonstration
 
 <video controls="" width="320" style="border: 1px solid black">
-<source src="https://doc.zih.tu-dresden.de/software/misc/terminate-virtual-desktop-dcv.mp4" type="video/mp4" />
-<source src="https://doc.zih.tu-dresden.de/software/misc/terminate-virtual-desktop-dcv.webm" type="video/webm" />
+<source src="https://doc.zih.tu-dresden.de/software/misc/terminate-virtual-desktop-dcv.mp4"
+        type="video/mp4" />
+<source src="https://doc.zih.tu-dresden.de/software/misc/terminate-virtual-desktop-dcv.webm"
+        type="video/webm" />
 </video>
 
 **Remark:** This does not work if you click on the "Logout"-Btn in your
