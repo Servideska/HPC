@@ -11,7 +11,7 @@ Use WebVNC or NICE DCV to run GUI applications on HPC resources.
 
 | Step | **WebVNC**   | **DCV**              |
 |------|--------------|----------------------|
-| 1    | Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](JupyterHub) instance. |
+| 1    | Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](../access/jupyterhub.md) instance. |
 | 2    | Click on the "advanced" tab and choose a preset: |
 | 3    | Optional: Finetune your session with the available SLURM job parameters or assign a certain project or reservation. Then save your settings in a new preset for future use. |  |
 | 4    | Click on "Spawn". JupyterHub starts now a SLURM job for you. If everything is ready the JupyterLab interface will appear to you. |  |
