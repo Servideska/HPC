@@ -9,7 +9,6 @@ Use WebVNC or NICE DCV to run GUI applications on HPC resources.
 
 ## Launch a Virtual Desktop
 
-
 | Step | **WebVNC**   | **DCV**              |
 |------|--------------|----------------------|
 | 1    | Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](JupyterHub) instance. |
