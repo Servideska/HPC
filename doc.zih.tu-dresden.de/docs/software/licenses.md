@@ -24,7 +24,7 @@ by environment variable or file.
 
 Most programs, that work with the FlexLM license manager,
 can be instructed to look for another license server,
-by overwriting the environment variable "LM_LICENSE_SERVER".
+by overwriting the environment variable "LM_LICENSE_FILE".
 Do note that not all proprietary software looks for that environment variable.
 
 !!! example "Changing the license server"
