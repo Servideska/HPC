@@ -13,19 +13,29 @@ The command `setfacl` is used manage access rights for workspaces. To view the
 current access rights, use the command `getfacl`.  The following commands are
 used to grant a user access to the workspace.
 
-```shell console
-# Grant a user full access to the workspace folder
-setfacl --modify=u:<username>:rwx /path/to/workspace
+!!! example "Grant a user full access to the workspace folder"
 
-# Inherit these same rights to all newly created files and folders
-setfacl --modify=d:u:<username>:rwx /path/to/workspace
+    ```console
+    marie@login$ setfacl --modify=u:<username>:rwx /path/to/workspace
+    ```
 
-# Grant a project full access to the workspace folder
-setfacl --modify=g:<projectname>:rwx /path/to/workspace
+!!! example "Inherit these same rights to all newly created files and folders"
 
-# Inherit these same rights to all newly created files and folders
-setfacl --modify=d:g:<projectname>:rwx /path/to/workspace
-```
+    ```console
+    marie@loginsetfacl --modify=d:u:<username>:rwx /path/to/workspace
+    ```
+
+!!! example "Grant a project full access to the workspace folder"
+
+    ```console
+    marie@login$ setfacl --modify=g:<projectname>:rwx /path/to/workspace
+    ```
+
+!!! example "Inherit these same rights to all newly created files and folders"
+
+    ```console
+    marie@login$ setfacl --modify=d:g:<projectname>:rwx /path/to/workspace
+    ```
 
 If you already have files inside your workspace, remember to use the `-R` or
 `--recursive` options to apply these ACL changes to all files.
