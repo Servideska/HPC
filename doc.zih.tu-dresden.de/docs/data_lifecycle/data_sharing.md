@@ -3,7 +3,7 @@
 TODO: Introduction
 Have a look at https://docs.nersc.gov/getting-started/#data-sharing
 
-##  Managing ACLs
+## Managing ACLs
 
 The command `setfacl` is used manage access rights for workspaces. To view the
 current access rights, use the command `getfacl`.  The following commands are
