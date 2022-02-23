@@ -1,4 +1,4 @@
-personal_ws-1.1 en 203
+personal_ws-1.1 en 406
 Abaqus
 Addon
 Addons
@@ -67,6 +67,7 @@ Dockerfile
 Dockerfiles
 DockerHub
 dockerized
+DOI
 dotfile
 dotfiles
 downtime
@@ -224,18 +225,24 @@ NGC
 nodelist
 NODELIST
 NRINGS
+Nsight
 ntasks
 NUM
 NUMA
 NUMAlink
 NumPy
 Nutzungsbedingungen
+nvcc
 Nvidia
+NVIDIA
 NVLINK
 NVMe
+nvprof
+Nvprof
 NWChem
 OME
 OmniOpt
+OpARA
 OPARI
 OpenACC
 OpenBLAS
@@ -246,6 +253,7 @@ openmpi
 OpenMPI
 OpenSSH
 Opteron
+OST
 OTF
 overfitting
 pandarallel
@@ -276,6 +284,9 @@ preloaded
 preloading
 prepend
 preprocessing
+profiler
+Profiler
+profiler's
 PSOCK
 Pthread
 Pthreads
@@ -323,6 +334,7 @@ SciPy
 scontrol
 scp
 scs
+SDK
 SFTP
 SGEMM
 SGI
@@ -339,6 +351,8 @@ spython
 squeue
 srun
 ssd
+ssh
+SSH
 SSHFS
 STAR
 stderr
