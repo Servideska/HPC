@@ -22,7 +22,7 @@ used to grant a user access to the workspace.
 !!! example "Inherit these same rights to all newly created files and folders"
 
     ```console
-    marie@loginsetfacl --modify=d:u:<username>:rwx /path/to/workspace
+    marie@login$ setfacl --modify=d:u:<username>:rwx /path/to/workspace
     ```
 
 !!! example "Grant a project full access to the workspace folder"
