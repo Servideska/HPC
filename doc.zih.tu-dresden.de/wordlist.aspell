@@ -374,6 +374,7 @@ virtualenv
 VirtualGL
 VMs
 VMSize
+VNC
 VPN
 WebVNC
 WinSCP
