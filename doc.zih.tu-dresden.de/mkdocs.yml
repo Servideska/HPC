@@ -193,6 +193,9 @@ markdown_extensions:
     - pymdownx.tabbed:
         alternate_style: True
 
+          #plugins:
+          #  - mkdocs-video
+
 extra:
   tud_homepage: https://tu-dresden.de
   tud_name: "TU Dresden"
