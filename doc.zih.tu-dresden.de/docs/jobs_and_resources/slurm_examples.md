@@ -355,7 +355,8 @@ file) that will be executed one after each other with different CPU numbers:
 
 ## Array-Job with Afterok-Dependency and Datamover Usage
 
-First you have to start your Datamover job, which for example transfers your input data from one workspace to another. 
+First you have to start your Datamover job, which for example transfers your input data from one
+workspace to another.
 
 ```console
 marie@login: export DATAMOVER_JOB=$(dtcp /scratch/ws/1/marie-source/input.txt /beegfs/ws/1/marie-target/. | awk '{print $4}')
