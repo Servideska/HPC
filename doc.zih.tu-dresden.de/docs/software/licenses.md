@@ -45,5 +45,5 @@ it can be similarly specified like this:
     Example:
 
     ```console
-    export LM_LICENSE_SERVER=$HOME/mylicense.dat
+    export LM_LICENSE_FILE=$HOME/mylicense.dat
     ```
