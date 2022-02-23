@@ -2,21 +2,21 @@
 
 Use WebVNC or DCV to run GUI applications on HPC resources.
 
-|                | WebVNC                                            | DCV                               |
+|                | WebVNC                                                | DCV                                        |
 |----------------|-------------------------------------------------------|--------------------------------------------|
 | **use case**   | all GUI applications that do **not need** OpenGL      | only GUI applications that **need** OpenGL |
 | **partitions** | all\* (except partitions with GPUs (gpu2, hpdlf, ml)  | dcv                                        |
 
 ## Launch a Virtual Desktop
 
-| Step | WebVNC   | DCV              |
-|------|--------------|----------------------|
-| 1    | Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](../access/jupyterhub.md) instance. | |
-| 2    | Click on the "advanced" tab and choose a preset: | |
-| 3    | Optional: Fine tune your session with the available Slurm job parameters or assign a certain project or reservation. Then save your settings in a new preset for future use. |  |
-| 4    | Click on `Spawn`. JupyterHub starts now a Slurm job for you. If everything is ready the JupyterLab interface will appear to you. |  |
+| Step | WebVNC         | DCV                    |
+|------|:--------------:|:----------------------:|
+| 1  <td colspan=2 align="center"> Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](../access/jupyterhub.md) instance.
+| 2  <td colspan=2 align="center"> Click on the "advanced" tab and choose a preset:
+| 3  <td colspan=2 align="center"> Optional: Fine tune your session with the available Slurm job parameters or assign a certain project or reservation. Then save your settings in a new preset for future use.
+| 4  <td colspan=2 align="center"> Click on `Spawn`. JupyterHub starts now a Slurm job for you. If everything is ready the JupyterLab interface will appear to you.
 | 5    | Click on `WebVNC` to start a virtual desktop. | Click on `DCV` to start a virtual desktop. |
-|      | The virtual desktop starts in a new tab or window. |  |
+| 6  <td colspan=2 align="center"> The virtual desktop starts in a new tab or window.
 
 ### Demonstration
 
@@ -36,11 +36,11 @@ Use WebVNC or DCV to run GUI applications on HPC resources.
 JupyterHub can start a job automatically if the URL contains certain
 parameters.
 
-|              | WebVNC     | DCV   |
-|--------------|------------|------------|
+|              | WebVNC       | DCV          |
+|--------------|:------------:|:------------:|
 | Examples     | [WebVNC](https://taurus.hrsk.tu-dresden.de/jupyter/hub/spawn#/>\~(partition\~'interactive\~cpuspertask\~'2\~mempercpu\~'2583)) | [DCV](https://taurus.hrsk.tu-dresden.de/jupyter/hub/spawn#/>\~(partition\~'dcv\~cpuspertask\~'6\~gres\~'gpu\*3a1\~mempercpu\~'2583)) |
 | Description  | partition `interactive`, 2 CPUs with 2583 MB RAM per core, no GPU | partition `dcv`, 6 CPUs with 2583 MB RAM per core, 1 GPU |
-| Link creator | Use the spawn form to set your preferred options. The browser URL will be updated with the corresponding parameters. | |
+| Link creator <td colspan=2 align="center"> Use the spawn form to set your preferred options. The browser URL will be updated with the corresponding parameters.
 
 If you close the browser tabs or windows or log out from your local
 machine, you are able to open the virtual desktop later again - as long
