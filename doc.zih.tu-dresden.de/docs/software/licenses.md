@@ -29,7 +29,7 @@ Do note that not all proprietary software looks for that environment variable.
 
 !!! example "Changing the license server"
     ```console
-    marie@compute$ export LM_LICENSE_SERVER=12345@example.com
+    marie@compute$ export LM_LICENSE_FILE=12345@example.com
     ```
     Here "12345" is the port on which the license server is listening,
     while "example.com" is the network addresss of the license server.
