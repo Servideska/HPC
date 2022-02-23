@@ -355,7 +355,11 @@ file) that will be executed one after each other with different CPU numbers:
 
 ## Array-Job with Afterok-Dependency and Datamover Usage
 
-First you have to start your Datamover job, which for example transfers your input data from one
+In this example scenario, imagine you need to move data, before starting the main job.
+For this you may use a data transfer job and tell Slurm to start the main job immediately after
+data transfer job successfully finish.
+
+First you have to start your data transfer job, which for example transfers your input data from one
 workspace to another.
 
 ```console
