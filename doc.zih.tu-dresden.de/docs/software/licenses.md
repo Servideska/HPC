@@ -38,6 +38,12 @@ Some licensed software comes with a license file,
 it can be similarly specified like this:
 
 !!! example "Changing license"
+    ```bash
+    export LM_LICENSE_SERVER=<SOME_PATH>
+    ```
+
+    Example:
+
     ```console
-    export LM_LICENSE_SERVER=/path/to/my/license/file.dat
+    export LM_LICENSE_SERVER=$HOME/mylicense.dat
     ```
