@@ -11,12 +11,12 @@ Use WebVNC or DCV to run GUI applications on HPC resources.
 
 | Step | WebVNC   | DCV              |
 |------|--------------|----------------------|
-| 1    | Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](../access/jupyterhub.md) instance. |
-| 2    | Click on the "advanced" tab and choose a preset: |
+| 1    | Navigate to [https://taurus.hrsk.tu-dresden.de](https://taurus.hrsk.tu-dresden.de). There is our [JupyterHub](../access/jupyterhub.md) instance. | |
+| 2    | Click on the "advanced" tab and choose a preset: | |
 | 3    | Optional: Fine tune your session with the available Slurm job parameters or assign a certain project or reservation. Then save your settings in a new preset for future use. |  |
-| 4    | Click on `Spawn`. JupyterHub starts now a SLURM job for you. If everything is ready the JupyterLab interface will appear to you. |  |
-| 5    | Click on `WebVNC` to start a virtual desktop.  | Click on `DCV` to start a virtual desktop. |
-|      | The virtual desktop starts in a new tab or window.  |  |
+| 4    | Click on `Spawn`. JupyterHub starts now a Slurm job for you. If everything is ready the JupyterLab interface will appear to you. |  |
+| 5    | Click on `WebVNC` to start a virtual desktop. | Click on `DCV` to start a virtual desktop. |
+|      | The virtual desktop starts in a new tab or window. |  |
 
 ### Demonstration
 
