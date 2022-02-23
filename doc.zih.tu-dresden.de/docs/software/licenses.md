@@ -39,7 +39,7 @@ it can be similarly specified like this:
 
 !!! example "Changing license"
     ```bash
-    export LM_LICENSE_SERVER=<SOME_PATH>
+    export LM_LICENSE_FILE=<SOME_PATH>
     ```
 
     Example:
