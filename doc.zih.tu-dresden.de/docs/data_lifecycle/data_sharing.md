@@ -1,7 +1,6 @@
 # Sharing Data
 
-TODO: Introduction
-Have a look at https://docs.nersc.gov/getting-started/#data-sharing
+This chapter should provide you some commands to share your data with other user or projects.
 
 ## Managing ACLs
 
@@ -15,6 +14,12 @@ setfacl --modify=u:<username>:rwx /path/to/workspace
 
 # Inherit these same rights to all newly created files and folders
 setfacl --modify=d:u:<username>:rwx /path/to/workspace
+
+# Grant a project full access to the workspace folder
+setfacl --modify=g:<projectname>:rwx /path/to/workspace
+
+# Inherit these same rights to all newly created files and folders
+setfacl --modify=d:g:<projectname>:rwx /path/to/workspace
 ```
 
 If you already have files inside your workspace, remember to use the `-R` or
