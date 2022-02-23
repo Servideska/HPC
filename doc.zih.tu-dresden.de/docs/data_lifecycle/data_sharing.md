@@ -4,6 +4,11 @@ This chapter should provide you some commands to share your data with other user
 
 ## Managing ACLs
 
+!!! note
+
+    At the moment `setfacl` is only working on our Lustre file systems, which means the workspaces
+    `scratch` and `ssd`. 
+
 The command `setfacl` is used manage access rights for workspaces. To view the
 current access rights, use the command `getfacl`.  The following commands are
 used to grant a user access to the workspace.
