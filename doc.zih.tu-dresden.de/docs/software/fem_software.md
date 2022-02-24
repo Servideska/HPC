@@ -162,7 +162,7 @@ parameter (for batch mode), `-F` for your project file, and can then either add 
 ### Running Workbench in Parallel
 
 Unfortunately, the number of CPU cores you wish to use cannot simply be given as a command line
-parameter to your `runwb2` call. Instead, you have to enter it into an XML file in your `home`
+parameter to your `runwb2` call. Instead, you have to enter it into an XML file in your home
 directory. This setting will then be **used for all** your `runwb2` jobs. While it is also possible
 to edit this setting via the Mechanical GUI, experience shows that this can be problematic via
 X11-forwarding and we only managed to use the GUI properly via [DCV](virtual_desktops.md), so we

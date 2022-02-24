@@ -166,7 +166,7 @@ processes.
 
 If the default port 11111 is already in use, an alternative port can be specified via `-sp=port`.
 *Once the resources are allocated, the pvserver is started in parallel and connection information
-are outputed.*
+are output.*
 
 This contains the node name which your job and server runs on. However, since the node names of the
 cluster are not present in the public domain name system (only cluster-internally), you cannot just
@@ -211,7 +211,7 @@ filesystems.
 
 #### Caveats
 
-Connecting to the compute nodes will only work when you are **inside the TUD campus network**,
+Connecting to the compute nodes will only work when you are **inside the TU Dresden campus network**,
 because otherwise, the private networks 172.24.\* will not be routed. That's why you either need to
 use [VPN](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn),
 or, when coming via the ZIH login gateway (`login1.zih.tu-dresden.de`), use an SSH tunnel. For the

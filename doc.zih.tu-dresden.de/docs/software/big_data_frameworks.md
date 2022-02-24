@@ -73,8 +73,8 @@ Spark or `$FLINK_ROOT_DIR/conf` for Flink:
     marie@compute$ source framework-configure.sh flink $FLINK_ROOT_DIR/conf
     ```
 
-This places the configuration in a directory called `cluster-conf-<JOB_ID>` in your `home`
-directory, where `<JOB_ID>` stands for the id of the Slurm job. After that, you can start in
+This places the configuration in a directory called `cluster-conf-<JOB_ID>` in your home directory,
+where `<JOB_ID>` stands for the id of the Slurm job. After that, you can start in
 the usual way:
 
 === "Spark"
@@ -275,15 +275,12 @@ use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.
 
 ## FAQ
 
-Q: Command `source framework-configure.sh hadoop
-$HADOOP_ROOT_DIR/etc/hadoop` gives the output:
+Q: Command `source framework-configure.sh hadoop $HADOOP_ROOT_DIR/etc/hadoop` gives the output:
 `bash: framework-configure.sh: No such file or directory`. How can this be resolved?
 
-A: Please try to re-submit or re-run the job and if that doesn't help
-re-login to the ZIH system.
+A: Please try to re-submit or re-run the job and if that doesn't help re-login to the ZIH system.
 
-Q: There are a lot of errors and warnings during the set up of the
-session
+Q: There are a lot of errors and warnings during the set up of the session
 
 A: Please check the work capability on a simple example as shown in this documentation.
 
