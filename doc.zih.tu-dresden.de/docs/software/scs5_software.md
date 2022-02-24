@@ -35,7 +35,7 @@ ml av
 There is a special module that is always loaded (sticky) called
 **modenv**. It determines the module environment you can see.
 
-| Module Environemnt | Description                                 | Status  |
+| Module Environment | Description                                 | Status  |
 |--------------------|---------------------------------------------|---------|
 | `modenv/scs5`      | SCS5 software                               | default |
 | `modenv/ml`        | Software for data analytics (partition ml)  |         |
@@ -93,7 +93,7 @@ For instance, the "intel" toolchain has the following structure:
 | Toolchain    | `intel`    |
 |--------------|------------|
 | Compilers    | icc, ifort |
-| Mpi library  | impi       |
+| MPI library  | impi       |
 | Math. library | imkl       |
 
 On the other hand, the "foss" toolchain looks like this:
@@ -101,7 +101,7 @@ On the other hand, the "foss" toolchain looks like this:
 | Toolchain      | `foss`              |
 |----------------|---------------------|
 | Compilers      | GCC (gcc, gfortran) |
-| Mpi library    | OpenMPI             |
+| MPI library    | OpenMPI             |
 | Math. libraries | OpenBLAS, FFTW      |
 
 If you want to combine the Intel compilers and MKL with OpenMPI, you'd have to use the "iomkl"
@@ -110,7 +110,7 @@ toolchain:
 | Toolchain    | `iomkl`    |
 |--------------|------------|
 | Compilers    | icc, ifort |
-| Mpi library  | OpenMPI    |
+| MPI library  | OpenMPI    |
 | Math library | imkl       |
 
 There are also subtoolchains that skip a layer or two, e.g. "iccifort" only consists of the

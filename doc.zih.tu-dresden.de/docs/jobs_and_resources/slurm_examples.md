@@ -363,13 +363,13 @@ First you have to start your data transfer job, which for example transfers your
 workspace to another.
 
 ```console
-marie@login: export DATAMOVER_JOB=$(dtcp /scratch/ws/1/marie-source/input.txt /beegfs/ws/1/marie-target/. | awk '{print $4}')
+marie@login$ export DATAMOVER_JOB=$(dtcp /scratch/ws/1/marie-source/input.txt /beegfs/ws/1/marie-target/. | awk '{print $4}')
 ```
 
 Now you can refer to the job id of the Datamover jobs from your work load jobs.
 
 ```console
-marie@login: srun --dependency afterok:${DATAMOVER_JOB} ls /beegfs/ws/1/marie-target
+marie@login$ srun --dependency afterok:${DATAMOVER_JOB} ls /beegfs/ws/1/marie-target
 srun: job 23872871 queued and waiting for resources
 srun: job 23872871 has been allocated resources
 input.txt

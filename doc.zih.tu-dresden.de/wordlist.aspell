@@ -1,4 +1,4 @@
-personal_ws-1.1 en 406
+personal_ws-1.1 en 423
 Abaqus
 Addon
 Addons
@@ -54,6 +54,9 @@ Dataheap
 datamover
 DataParallel
 dataset
+datasets
+Dataset
+Datasets
 DCV
 ddl
 DDP
@@ -200,9 +203,10 @@ modenv
 modenvs
 modulefile
 Montecito
+mortem
+Mortem
 mountpoint
 mpi
-Mpi
 mpicc
 mpiCC
 mpicxx
@@ -314,6 +318,7 @@ romeo
 RSA
 RSS
 RStudio
+rsync
 Rsync
 runnable
 runtime
@@ -335,11 +340,13 @@ scontrol
 scp
 scs
 SDK
+sftp
 SFTP
 SGEMM
 SGI
 SHA
 SHMEM
+situ
 SLES
 Slurm
 SLURMCluster
