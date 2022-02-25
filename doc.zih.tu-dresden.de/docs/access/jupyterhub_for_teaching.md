@@ -35,9 +35,18 @@ other material to your students.
 ![Git pull progress screen](misc/gitpull_progress.png)
 {: align="center"}
 
-A shareable link for this feature looks like this:
+To create a shareable link, we recommend to use [URL encoding](https://en.wikipedia.org/wiki/Percent-encoding)
+instead plain text for the link in order to avoid defect links. The
+[nbgitpuller link generator](https://jupyterhub.github.io/nbgitpuller/link?hub=https://taurus.hrsk.tu-dresden.de/jupyter/)
+supports you in generating valid links for sharing.
 
-<https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https://github.com/jdwittenauer/ipython-notebooks&urlpath=/tree/ipython-notebooks/notebooks/language/Intro.ipynb>
+??? example
+    A shareable link for this feature looks like this:
+    <https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fjdwittenauer%2Fipython-notebooks&urlpath=tree%2Fipython-notebooks%2Fnotebooks%2Flanguage%2FIntro.ipynb>
+
+!!! warning
+    For illustration purposes, we use plain text links in the following parts. In practice, we
+    highly recommend to use URL encoded links instead.
 
 ![URL with git-pull parameters](misc/url-git-pull.png)
 {: align="center"}
@@ -54,10 +63,6 @@ The following parameters are available:
 |`branch`  | branch in the repository to pull from default: `master`|
 |`urlpath` | URL to redirect the user to a certain file, [more info about parameter urlpath](https://jupyterhub.github.io/nbgitpuller/topic/url-options.html#urlpath)|
 |`depth`   | clone only a certain amount of latest commits not recommended|
-
-This [link
-generator](https://jupyterhub.github.io/nbgitpuller/link?hub=https://taurus.hrsk.tu-dresden.de/jupyter/)
-might help creating those links
 
 ## Spawn Options Pass-through with URL Parameters
 
