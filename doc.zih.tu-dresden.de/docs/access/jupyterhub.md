@@ -158,6 +158,11 @@ Useful pages for valid batch system parameters:
 - [General information how to use Slurm](../jobs_and_resources/slurm.md)
 - [Partitions and limits](../jobs_and_resources/partitions_and_limits.md)
 
+!!! hint
+    This message might also appear for other slurm related problems, e.g. quota issues.
+    That might be the case when the error appears for you but not for others while using the same
+    system parameters. In this case, please ask for support via [hpcsupport@zih.tu-dresden.de](mailto:hpcsupport@zih.tu-dresden.de)
+
 ### Error Message in JupyterLab
 
 ![JupyterLab error directory not found](misc/jupyterlab_error_directory_not_found.png)
