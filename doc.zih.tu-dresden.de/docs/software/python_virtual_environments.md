@@ -190,8 +190,7 @@ below.
     - 'shapely=1.7.1'
     - pip:
         - python-hll
-
-```
+    ```
 
 After specifying the `name`, the conda [channel priority](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html)
 is defined. In the example above, packages will be first installed from the
