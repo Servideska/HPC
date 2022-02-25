@@ -101,9 +101,9 @@ address bar contains the encoded parameters starting with `#/`.
 
 You can combine both features in a single link:
 
-    ```
-    https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https://github.com/jdwittenauer/ipython-notebooks&urlpath=/tree/ipython-notebooks/notebooks/language/Intro.ipynb#/~(partition~'interactive~environment~'test)
-    ```
+```
+https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https://github.com/jdwittenauer/ipython-notebooks&urlpath=/tree/ipython-notebooks/notebooks/language/Intro.ipynb#/~(partition~'interactive~environment~'test)
+```
 
 ![URL with quickstart parameters](misc/url-quick-start.png)
 {: align="center"}
@@ -141,7 +141,10 @@ and files via `chmod`.
 - Modules can also be loaded in the Jupyter spawner via preload modules
 (considering the Python version of your virtual environment).
 
-Set up your shared Python virtual environment for JupyterHub:
+Set up your shared Python virtual environment for JupyterHub.
+!!! hint
+    For working with conda virtual environments, it may be necessary to configure your shell via
+    `conda init` as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
 
 === "virtualenv"
 
