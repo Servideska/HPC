@@ -105,13 +105,14 @@ multiple events, please check which events can be measured concurrently using th
     The PAPI tools must be run on the compute node, using an interactive shell or job.
 
 !!! example "Example: Determine the events on the partition `romeo` from a login node"
+    Let us assume, that you are in project `p_marie`. Then, use the following commands:
 
     ```console
     marie@login$ module load PAPI
-    marie@login$ salloc -A <project> --partition=romeo
+    marie@login$ salloc --account=p_marie --partition=romeo
     [...]
-    marie@login$ srun papi_avail
-    marie@login$ srun papi_native_avail
+    marie@compute$ srun papi_avail
+    marie@compute$ srun papi_native_avail
     [...]
     # Exit with Ctrl+D
     ```
@@ -120,12 +121,13 @@ Instrument your application with either the high-level or low-level API. Load th
 compile your application against the  PAPI library.
 
 !!! example
+    Assuming that you are in project `p_marie`, use the following commands:
 
     ```console
     marie@login$ module load PAPI
     marie@login$ gcc app.c -o app -lpapi
-    marie@login$ salloc -A <project> --partition=romeo
-    marie@login$ srun ./app
+    marie@login$ salloc --account=p_marie --partition=romeo
+    marie@compute$ srun ./app
     [...]
     # Exit with Ctrl+D
     ```

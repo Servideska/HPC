@@ -12,7 +12,8 @@ lines = []
 NORMAL_MODE = 0
 CODE_MODE = 1
 readMode = NORMAL_MODE
-pattern = re.compile(r"<[^<>']*>")
+#We need to avoid matches for "#include <iostream>", "<Ctrl+D>", "<-" (typically in R) and "<594>" (VampirServer)
+pattern = re.compile(r"(?<!#include )<(?!Ctrl\+)[^0-9 -][^<>']*>")
 with open(fileName) as f:
     lineNumber = 1
     for line in f:
