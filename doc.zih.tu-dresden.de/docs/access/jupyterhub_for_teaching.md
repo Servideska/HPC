@@ -42,7 +42,9 @@ supports you in generating valid links for sharing.
 
 ??? example
     A shareable link for this feature looks like this:
-    <https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fjdwittenauer%2Fipython-notebooks&urlpath=tree%2Fipython-notebooks%2Fnotebooks%2Flanguage%2FIntro.ipynb>
+    ```
+    https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fjdwittenauer%2Fipython-notebooks&urlpath=tree%2Fipython-notebooks%2Fnotebooks%2Flanguage%2FIntro.ipynb
+    ```
 
 !!! warning
     For illustration purposes, we use plain text links in the following parts. In practice, we
@@ -118,8 +120,7 @@ https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https:
 With the following link you will be redirected to a certain file in your
 home directory.
 
-[https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb]
-(<https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb>)
+[https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb](https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb)
 
 The file needs to exist, otherwise a 404 error will be thrown.
 
