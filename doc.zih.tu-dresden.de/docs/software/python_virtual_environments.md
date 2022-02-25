@@ -100,7 +100,7 @@ take effect after closing and re-opening your shell.
     ```console
     marie@compute$ module load Anaconda3    #load Anaconda module
     Module Anaconda3/2019.03 loaded.
-    marie@alpha$ conda init    #configure shell
+    marie@compute$ conda init    #configure shell
     [...]
     modified      /home/marie/.bashrc
     ```
