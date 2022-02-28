@@ -36,7 +36,7 @@ other material to your students.
 {: align="center"}
 
 To create a shareable link, we recommend to use [URL encoding](https://en.wikipedia.org/wiki/Percent-encoding)
-instead plain text for the link in order to avoid defect links. The
+instead of plain text for the link in order to avoid defective links. The
 [nbgitpuller link generator](https://jupyterhub.github.io/nbgitpuller/link?hub=https://taurus.hrsk.tu-dresden.de/jupyter/)
 supports you in generating valid links for sharing.
 
