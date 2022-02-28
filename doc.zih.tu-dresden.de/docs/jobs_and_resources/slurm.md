@@ -6,6 +6,28 @@ setup experiments, and
 edit and prepare jobs. The login nodes are not suited for computational work! From the login nodes,
 you can interact with the batch system, e.g., submit and monitor your jobs.
 
+A typical workflow would look like this:
+
+```mermaid
+sequenceDiagram
+    user ->>+ login node: run programm
+    login node ->> login node: kill after 5 min
+    login node ->>- user: Killed!
+    user ->> login node: salloc [...]
+    login node ->> Slurm: Request resources
+    Slurm ->> user: resources
+    user ->>+ allocated resources: srun [options] [command]
+    allocated resources ->> allocated resources: run command (on allocated nodes)
+    allocated resources ->>- user: program finished
+    user ->>+ allocated resources: srun [options] [further_command]
+    allocated resources ->> allocated resources: run further command
+    allocated resources ->>- user: program finished
+    user ->>+ allocated resources: srun [options] [further_command]
+    allocated resources ->> allocated resources: run further command
+    Slurm ->> allocated resources: Job limit reached/exceeded
+    allocated resources ->>- user: Job limit reached
+```
+
 ??? note "Batch System"
 
     The batch system is the central organ of every HPC system users interact with its compute

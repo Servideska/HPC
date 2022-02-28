@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-c"]
 # Base #
 ########
 
-RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0
+RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0 mkdocs-mermaid2-plugin>=0.5.2
 
 ##########
 # Linter #
