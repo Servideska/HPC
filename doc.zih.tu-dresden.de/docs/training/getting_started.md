@@ -43,10 +43,8 @@ HPC projects can be broken down into two core parts:
 
 ## Accessing the ZIH HPC system
 
-!!! caution "Accessability of the ZIH HPC system"
-	
-	The ZIH HPC system can be accessed only within the data net of the TU Dresden.
-	Access from outside is possible by establishing a VPN connection (find [VPN connection details for OpenVPN here](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4)).
+The ZIH HPC system can be accessed only within the data net of the TU Dresden.
+Access from outside is possible by establishing a VPN connection (find [VPN connection details for OpenVPN here](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4)).	
 
 There are different ways to access the ZIH HPC system. Depending on the user's needs and previous knowledge, these are the different possiblities: 
 
