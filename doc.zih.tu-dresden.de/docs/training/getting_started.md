@@ -1,23 +1,31 @@
 # Getting Started
 
+<!-- This content will not appear in the rendered Markdown -->
+
 This page is intended to provide the most important parts of starting to work on the ZIH High Performance Computing (HPC) system.
 Especially to new users, this page is a map of the compendium as it provides an overview about the most relevant topics and it will direct to the corredponding detailed articles within the compendium. 
 
-When you are new to HPC, start with the introductory article about HPC at [https://hpc-wiki.info/hpc/Getting_Started](https://hpc-wiki.info/hpc/Getting_Started).
+Summarizing, you need to know how to
+* apply for ZIH HPC login
+* access to/disconect from ZIH HPC
+* manage your files: import, export, move, allocate
+* run your program.
+
+If you are new to HPC, we recomend you to visit the introductory article about HPC at [https://hpc-wiki.info/hpc/Getting_Started](https://hpc-wiki.info/hpc/Getting_Started).
 
 ## Before You Start
 
-The ZIH HPC system is a linux system (same as most HPC systems), some basic linux knowledge is therefore needed at certain points. 
-Users who are [new to linux can find here](https://hpc-wiki.info/hpc/Shell) a collection of the most important linux commands needed on the ZIH HPC system.
+The ZIH HPC system is a linux system (as most HPC systems), some basic linux knowledge is therefore needed at certain points. 
+You can find [here](https://hpc-wiki.info/hpc/Shell) a collection of the most important linux commands needed on the HPC system.
 
 To work on the ZIH HPC system and to follow the instructions on this page as well as other Compendium pages, it is important to be familiar with the [basic terminology](https://hpc-wiki.info/hpc/HPC-Dictionary) such as 
 [ssh](https://hpc-wiki.info/hpc/SSH), [cluster](https://hpc-wiki.info/hpc/HPC-Dictionary#Cluster), [login node](https://hpc-wiki.info/hpc/HPC-Dictionary#Login_Node), [compute node](https://hpc-wiki.info/hpc/HPC-Dictionary#Backend_Node), [local and shared file system](https://hpc-wiki.info/hpc/HPC-Dictionary#File_System), [command line (cli) or shell](https://hpc-wiki.info/hpc/Shell).
 
-Throughout this example we use `marie@login` as an indication of working on the ZIH HPC command line and `marie@local` as working on your own local machine's command line. 
+Throughout the compendium `marie@login` is used as an indication of working on the ZIH HPC command line and `marie@local` as working on your local machine's command line. To repeat these commands you have to replace `marie` with your ZIH HPC name.
 
 ## Application for login and resources
 
-To use the ZIH HPC system, an ZIH HPC login is needed, which is different from the ZIH login (which members of the TU Dresden have), but has the same credentials. 
+To use the ZIH HPC system, an ZIH HPC login is needed, which is different from the ZIH login (which members of the TU Dresden have), but has the same credentials.
 
 To work on the ZIH HPC system, there are two possibilities: 
 
@@ -35,79 +43,77 @@ An HPC project on the ZIH HPC system includes:
 One important aspect for HPC projects is a collaborative working style (research groups, student groups for teaching purposes). Thus, granting appropriate file permissions and creating a unified and consistent software environment for multiple users is essential.
 This aspect is considered for all the following recommendations.
 
-HPC projects can be broken down into two core parts:
-
-1. [link] Data: input data, source code, scripts, ouptut data, calculation results, logfiles
-2. [link] Software  
-
-
 ## Accessing the ZIH HPC system
 
-!!! caution "Accessability of the ZIH HPC system"
-	
-	The ZIH HPC system can be accessed only within the data net of the TU Dresden.
-	Access from outside is possible by establishing a VPN connection (find [VPN connection details for OpenVPN here](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4)).
+!!! caution
 
-There are different ways to access the ZIH HPC system. Depending on the user's needs and previous knowledge, these are the different possiblities: 
+	The ZIH HPC system can be accessed only within the TUD campus networks.
+	Access from outside is possible by establishing a [VPN connection] (https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4).
 
-* JupyterHub: browser based approach, easiest way for beginners (more info [here](https://doc.zih.tu-dresden.de/access/jupyterhub/)) 
-* ssh connection (command line/terminal/console): "classical" approach,  command line knowledge neccesary (more info [here](https://doc.zih.tu-dresden.de/access/ssh_login/))
-* Desktop Visualisation, Graphical User Interfaces (GUIs) and similar: e.g. commercial software as Ansys, LS-DYNA.
+There are different ways to access the ZIH HPC system, depending on the user's needs and previous knowledge 
 
-	!!! hint "Desktop visiualisation for commercial software"
-		
-		In the following the desktop visualisation is not demonstrated. 		
-		To find information about available commercial software on the ZIH system (e.g. Ansys, LS-DYNA, Abaqus) just use the search field in the [compendium](https://doc.zih.tu-dresden.de/).
+* [JupyterHub](https://doc.zih.tu-dresden.de/access/jupyterhub/): browser based connection, easiest way for beginners
+* [ssh connection](https://doc.zih.tu-dresden.de/access/ssh_login/) (command line/terminal/console): "classical" connection, command line knowledge are required 
+* [Desktop Visualisation](https://doc.zih.tu-dresden.de/access/desktop_cloud_visualization/), [Graphical User Interfaces (GUIs)](https://doc.zih.tu-dresden.de/access/graphical_applications_with_webvnc/) and similar: e.g. commercial software as Ansys, LS-DYNA (are not demonstrated here).
 
-
+<!-- IO: a bit confusing to me: Graphical Applications with WebVNC is goes using ssh and JupiterHub; Desktop Cloud Visualization (DCV) goes using JupiterHub as well. -->
 
 ### JupyterHub
+
 Access JupyterHub here [https://taurus.hrsk.tu-dresden.de/jupyter](). 
 Start by clicking on the `Start my server` button and you will see two Spawner Options, `Simple` and `Advanced`. 
 
-The `Simple` view offers a limited selection of parameters to choose from. 
-It is aimed towards simple projects and beginner users. 
-For a simple start, choose according to the gray fields in the image, then click `Spawn`:
-![Simple form](misc/jupyterhub-simple.png)
+The `Simple` view offers a limited selection of parameters to choose from. The `Advanced` veiw give more opportunities.
+While a simple start, choose according to the gray fields in the image, then click `Spawn`
+
+<!-- ![Simple form](misc/jupyterhub-simple-2022-03.png) -->
+
+<img src="misc/jupyterhub-simple-2022-03.png" width="40%"/>
 
 You will be working in your `/home/` directory as opposed to a specific workspace (see *Data: Management and Transfer* section below for more details). 
 You will see:
-![Spawning](misc/jupyterhub-spawning.png)
+![Spawning](misc/jupyterhub-spawning-2022-03.png)
 
 After successful loading, you will see the possibility between opening a `Notebook`, `Console` or `Other`. 
-See [here](../../access/jupyterhub/) for more information. 
  
-!!! caution "Stopping session on JupyterHub"	
+!!! caution "Stopping session on JupyterHub". 
+	
+	Once you are done with your work on the ZIH HPC system, explicitely stop the session by logging out by clicking `File` -> `Log Out`-> `Stop My Server`.
+	Alternatively, choose `File` -> `Hub control panel` -> `Stop My Server`.
+ 
+<!-- `Stop My Server` twice?!!-->
 
-    Once you are done with your work on the ZIH HPC system, explicitely stop the session by logging out by clicking `File` -> `Log Out`.
-    Alternatively, choose `File` -> `Hub control panel` -> `Stop server`.
- 
 More information on JupyterHub can be found [here](../../access/jupyterhub/).
-
 
 ### SSH Connection (Command Line)
 
-The more "classical" way to work with HPC is based on the command line. 
-Linux users simply need to open a terminal/shell and type
+The more "classical" way to work with HPC is based on the command line.
+
+#### **Linux users**
+
+Open a terminal/shell (`Ctrl+Alt+T`) and type in
+
 ```console
 marie@local$ ssh marie@taurus.hrsk.tu-dresden.de
 ```
-
-After typing your password you end up with something like in the following image.
+After typing your password, you end up with something like in the following image.
 
 ![Successful ssh login](misc/ssh-success-login.png)
 
-You have now accessed one of the login nodes. 
+#### **Windows users** 
+
+Start [Window Terinal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab) (Windows 10 or higher). In older versions of Windows install and set up [MobaXTerm](https://doc.zih.tu-dresden.de/access/misc/basic_usage_of_MobaXterm.pdf) or [PuTTY](https://doc.zih.tu-dresden.de/access/misc/basic_usage_of_PuTTY.pdf).
+
+#### **Mac Users**
+
+...??
+
+Now, you (both **Linux** and **Windows** users) have accessed one of the login nodes. 
 This is the starting point for many tasks as e.g. running programs or data management. 
 
+!!! hint "Using ssh key pair"
 
-!!! hint "Windows users"
-
-	Windows users need an ssh-client as e.g. [MobaXterm, see the instructions here](../../access/ssh_login/#connecting-from-windows).
-
-??? hint "Using ssh key pair"
-
-	We suggest creating an ssh key pair by following the [instructions here](../../access/ssh_login/#before-your-first-connection).
+	We recommend to creat an ssh key pair by following the [instructions here](../../access/ssh_login/#before-your-first-connection).
 	Using an ssh key pair is benefical for security reasons, although it is not necessary to work with the ZIH HPC system. 
 
 ## Data Management and Data Transfer
@@ -115,11 +121,12 @@ This is the starting point for many tasks as e.g. running programs or data manag
 There are different areas for storing your data on the ZIH HPC system, called [Filesystems](https://doc.zih.tu-dresden.de/data_lifecycle/file_systems/). 
 You will need to create a [workspace](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/) for your data (see example below) on one of these Filesystems. 
 
-Every filesystem has its own properties (available space/capacity, storage time limit, permission rights). 
+The filesystems have different properties (available space, storage time limit, permission rights).
 Therefore, choose the one that fits your project best. 
 To start we recommend the filesystem **scratch**.
 
 !!! example "Creating a Workspace on Scratch Filesystem"
+
 	The following command creates a workspace 
 
 	* command: `ws_allocate` 
@@ -135,32 +142,33 @@ To start we recommend the filesystem **scratch**.
 	remaining extensions  : 10
 	remaining time in days: 90
 	```
-	You can refer to this workspace using the path `/scratch/ws/marie-test-workspace`.
+	The path to this workspace is `/scratch/ws/marie-test-workspace`.
 
 Find more [information on workspaces in the compendium](https://doc.zih.tu-dresden.de/data_lifecycle/workspaces/).
 
 !!! hint "Distinction: Transferring data from/to vs. within the ZIH system"
 	Please note the different settings for transferring data, that require different approaches:
 
-	* transfer within the ZIH system (datamover nodes)
-	* transfer from or to the ZIH system (export nodes)
-		
+	* transfer to or from the ZIH system (export nodes)
+	* transfer within the ZIH system (datamover nodes)		
 
 The approach for transferring data within the ZIH system depends on the data volume. 
-We distinguish small data (up to 100 MB) and medium and large data volume (above 100 MB).
+We distinguish small data (up to 100 MB) and medium/large data volume (above 100 MB).
 
 ??? example "Copy file(s) within ZIH system (small data)"
+
 	For transferring a small data volume (up to 100 MB) use the standard linux command `cp` on the commandline.
 	
 	* Copy the file `example1.R` **from your home directory on the ZIH system to a workspace** on the ZIH system.
 		```console
 		marie@login$ cp /home/marie/example1.R /scratch/ws/marie-test-workspace
 		```
-	
 	Find [here more examples for the cp command](http://bropages.org/cp).
 	Moving files is done analagously by using the command `mv`.
 
+
 ??? example "Copy file(s) within ZIH system (large data)"
+	
 	For transferring a large data volume (more than 100 MB) use the datamover by applying e.g. `dtcp`, `dtmv` or `dtwget`.
 	
 	* Copy the directory `/warm_archive/ws/large-dataset` within the ZIH system.
@@ -241,6 +249,7 @@ to "load" the respective module.
 !!! note
     
     Different partitions might have available different versions of the same software. 
+<!-- is it? why?-->
 
 Use `module spider <software>` command to check all available versions of the software.
 
@@ -330,7 +339,7 @@ marie@login$ module load Python/3.9.5   # load desired version of software
 Module Python/3.9.5 and 11 dependencies loaded.
 ```
 
-For additional information refer to the detailed documentation on [modules](../software/modules.md)
+For additional information refer to the detailed documentation on [modules](../software/modules.md).
 
 ??? hint "Special hints on different software"
 	
@@ -373,3 +382,5 @@ marie@login$ srun --partition=haswell --ntasks=1 --cpus-per-task=4 --time=1:00:0
 ```
 
 The `srun` call will allocate 4 cores for an interactive job.
+
+<!-- maybe run next a concrete job? -->
