@@ -67,7 +67,7 @@ To avoid a lot of retyping, use the following in your shell:
 
 ```bash
 alias wikiscript="docker run --name=hpc-compendium --rm -w /docs --mount src=$PWD,target=/docs,type=bind hpc-compendium"
-alias wiki="docker run --name=hpc-compendium -p 8000:8000 --rm -w /docs --mount src=$PWD/doc.zih.tu-dresden.de,target=/docs,type=bind hpc-compendium bash -c"
+alias wiki="docker run --name=hpc-compendium -p 8000:8000 --rm -w /docs --mount src=$PWD/doc.zih.tu-dresden.de,target=/docs,type=bind hpc-compendium"
 ```
 
 ## Working with the Docker Container
@@ -79,7 +79,7 @@ Here is a suggestion of a workflow which might be suitable for you.
 The command(s) to start the dockerized web server is this:
 
 ```bash
-wiki "mkdocs serve -a 0.0.0.0:8000"
+wiki mkdocs serve -a 0.0.0.0:8000
 ```
 
 You can view the documentation via `http://localhost:8000` in your browser, now.
@@ -140,7 +140,7 @@ Read on if you want to run a specific check.
 If you want to check whether the markdown files are formatted properly, use the following command:
 
 ```bash
-wiki 'markdownlint docs'
+wiki markdownlint docs
 ```
 
 #### Spell Checker
