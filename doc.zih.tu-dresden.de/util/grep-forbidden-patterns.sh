@@ -83,7 +83,7 @@ function checkFile(){
     fi
     IFS=$'\t' read -r flags pattern exceptionPatterns
     while IFS=$'\t' read -r -a exceptionPatternsArray; do
-      if [ $silent = false ]; then
+      if [ $verbose = true ]; then
         echo "  Pattern: $pattern$skipping"
       fi
       if [ -z "$skipping" ]; then
@@ -106,23 +106,27 @@ function checkFile(){
 }
 
 function usage () {
-  echo "$0 [options]"
-  echo "Search forbidden patterns in markdown files."
-  echo ""
-  echo "Options:"
-  echo "  -a     Search in all markdown files (default: git-changed files)" 
-  echo "  -f     Search in a specific markdown file" 
-  echo "  -s     Silent mode"
-  echo "  -h     Show help message"
-  echo "  -c     Show git matches in color"
+cat <<EOF
+$0 [options]
+Search forbidden patterns in markdown files.
+
+Options:
+  -a    Search in all markdown files (default: git-changed files)
+  -f    Search in a specific markdown file
+  -s    Silent mode
+  -h    Show help message
+  -c    Show git matches in color
+  -v    verbose mode
+EOF
 }
 
 # Options
 all_files=false
 silent=false
+verbose=false
 file=""
 color=""
-while getopts ":ahsf:c" option; do
+while getopts ":ahsf:cv" option; do
  case $option in
    a)
      all_files=true
@@ -136,6 +140,9 @@ while getopts ":ahsf:c" option; do
      ;;
    c)
      color=" --color=always "
+     ;;
+   v)
+     verbose=true
      ;;
    h)
      usage
@@ -159,7 +166,9 @@ else
   files=`git diff --name-only "$(git merge-base HEAD "$branch")"`
 fi
 
+if [ $verbose = true ]; then
 echo "... $files ..."
+fi
 cnt=0
 if [[ ! -z $file ]]; then
   checkFile $file
