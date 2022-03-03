@@ -215,3 +215,7 @@ extra:
       name: "Data Protection Declaration / Datenschutzerklärung"
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
+
+plugins:
+  - search
+  - table
