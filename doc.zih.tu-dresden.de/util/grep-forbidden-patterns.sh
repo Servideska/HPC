@@ -83,6 +83,7 @@ function checkFile(){
     fi
     IFS=$'\t' read -r flags pattern exceptionPatterns
     while IFS=$'\t' read -r -a exceptionPatternsArray; do
+      #Prevent patterns from being printed when the script is invoked with default arguments.
       if [ $verbose = true ]; then
         echo "  Pattern: $pattern$skipping"
       fi
@@ -96,6 +97,7 @@ function checkFile(){
         if grep -n $grepflag $color "$pattern" "$f" | grepExceptions "${exceptionPatternsArray[@]}" ; then
           number_of_matches=`grep -n $grepflag $color "$pattern" "$f" | grepExceptions "${exceptionPatternsArray[@]}" | wc -l`
           ((cnt=cnt+$number_of_matches))
+          #prevent messages when silent=true, only files, pattern matches and the summary are printed
           if [ $silent = false ]; then
             echo "    $message"
           fi
@@ -122,7 +124,9 @@ EOF
 
 # Options
 all_files=false
+#if silent=true: avoid printing of messages
 silent=false
+#if verbose=true: print files first and the pattern that is checked
 verbose=false
 file=""
 color=""
@@ -166,6 +170,7 @@ else
   files=`git diff --name-only "$(git merge-base HEAD "$branch")"`
 fi
 
+#Prevent files from being printed when the script is invoked with default arguments.
 if [ $verbose = true ]; then
 echo "... $files ..."
 fi
