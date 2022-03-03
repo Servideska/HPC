@@ -46,6 +46,9 @@ i	^[ |]*|$
 Avoid spaces at end of lines.
 doc.zih.tu-dresden.de/docs/accessibility.md
 i	[[:space:]]$
+When referencing projects, please use p_marie for consistency.
+
+i	\<p_	p_marie
 Avoid \`home\`. Use home without backticks instead.
 
 i	\`home\`
