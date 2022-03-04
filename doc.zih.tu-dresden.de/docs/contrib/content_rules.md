@@ -105,6 +105,7 @@ We follow this rules regarding prompts:
 | `alpha` partition      | `marie@alpha$`   |
 | `romeo` partition      | `marie@romeo$`   |
 | `julia` partition      | `marie@julia$`   |
+| `dcv` partition        | `marie@dcv$`     |
 | Localhost              | `marie@local$`   |
 
 *Remarks:*
