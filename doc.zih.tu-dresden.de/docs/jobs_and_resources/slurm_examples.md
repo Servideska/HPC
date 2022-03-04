@@ -7,12 +7,12 @@ depend on the type of parallelization and architecture.
 
 ### OpenMP Jobs
 
-An SMP-parallel job can only run within a node, so it is necessary to include the options `-N 1` and
-`-n 1`. The maximum number of processors for an SMP-parallel program is 896 and 56 on partition
-`taurussmp8` and  `smp2`, respectively.  Please refer to the
+An SMP-parallel job can only run within a node, so it is necessary to include the options `--node=1`
+and `--ntasks=1`. The maximum number of processors for an SMP-parallel program is 896 and 56 on
+partition `taurussmp8` and  `smp2`, respectively.  Please refer to the
 [partitions section](partitions_and_limits.md#memory-limits) for up-to-date information. Using the
 option `--cpus-per-task=<N>` Slurm will start one task and you will have `N` CPUs available for your
-job.  An example job file would look like:
+job. An example job file would look like:
 
 !!! example "Job file for OpenMP application"
 
@@ -22,9 +22,9 @@ job.  An example job file would look like:
     #SBATCH --tasks-per-node=1
     #SBATCH --cpus-per-task=8
     #SBATCH --time=08:00:00
-    #SBATCH -J Science1
+    #SBATCH --job-name=Science1
     #SBATCH --mail-type=end
-    #SBATCH --mail-user=your.name@tu-dresden.de
+    #SBATCH --mail-user=<your.email>@tu-dresden.de
 
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     ./path/to/binary
@@ -48,9 +48,9 @@ For MPI-parallel jobs one typically allocates one core per task that has to be s
     #!/bin/bash
     #SBATCH --ntasks=864
     #SBATCH --time=08:00:00
-    #SBATCH -J Science1
+    #SBATCH --job-name=Science1
     #SBATCH --mail-type=end
-    #SBATCH --mail-user=your.name@tu-dresden.de
+    #SBATCH --mail-user=<your.email>@tu-dresden.de
 
     srun ./path/to/binary
     ```
@@ -70,9 +70,9 @@ below.
     #SBATCH --ntasks=4
     #SBATCH --cpus-per-task=1
     #SBATCH --time=01:00:00
-    #SBATCH -J PseudoParallelJobs
+    #SBATCH --job-name=PseudoParallelJobs
     #SBATCH --mail-type=end
-    #SBATCH --mail-user=your.name@tu-dresden.de
+    #SBATCH --mail-user=<your.email>@tu-dresden.de
 
     # The following sleep command was reported to fix warnings/errors with srun by users (feel free to uncomment).
     #sleep 5
@@ -109,7 +109,7 @@ for `sbatch/srun` in this case is `--gres=gpu:[NUM_PER_NODE]` (where `NUM_PER_NO
     #SBATCH --cpus-per-task=6      # use 6 threads per task
     #SBATCH --gres=gpu:1           # use 1 GPU per node (i.e. use one GPU per task)
     #SBATCH --time=01:00:00        # run for 1 hour
-    #SBATCH -A Project1            # account CPU time to Project1
+    #SBATCH --account=p_marie      # account CPU time to project p_marie
 
     srun ./your/cuda/application   # start you application (probably requires MPI to use both nodes)
     ```
@@ -247,7 +247,7 @@ two you might want to use. Since we use cgroups for separation of jobs, your job
 use more resources than requested.*
 
 If you just want to use all available cores in a node, you have to specify how Slurm should organize
-them, like with `-p haswell -c 24` or `-p haswell --ntasks-per-node=24`.
+them, like with `--partition=haswell --cpus-per-tasks=24` or `--partition=haswell --ntasks-per-node=24`.
 
 Here is a short example to ensure that a benchmark is not spoiled by other jobs, even if it doesn't
 use up all resources in the nodes:
@@ -256,13 +256,13 @@ use up all resources in the nodes:
 
     ```Bash
     #!/bin/bash
-    #SBATCH -p haswell
+    #SBATCH --partition=haswell
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=2
     #SBATCH --cpus-per-task=8
     #SBATCH --exclusive    # ensure that nobody spoils my measurement on 2 x 2 x 8 cores
     #SBATCH --time=00:10:00
-    #SBATCH -J Benchmark
+    #SBATCH --job-name=Benchmark
     #SBATCH --mail-user=your.name@tu-dresden.de
 
     srun ./my_benchmark
@@ -299,11 +299,11 @@ name specific to the job:
     ```Bash
     #!/bin/bash
     #SBATCH --array 0-9
-    #SBATCH -o arraytest-%A_%a.out
-    #SBATCH -e arraytest-%A_%a.err
+    #SBATCH --output=arraytest-%A_%a.out
+    #SBATCH --error=arraytest-%A_%a.err
     #SBATCH --ntasks=864
     #SBATCH --time=08:00:00
-    #SBATCH -J Science1
+    #SBATCH --job-name=Science1
     #SBATCH --mail-type=end
     #SBATCH --mail-user=your.name@tu-dresden.de
 

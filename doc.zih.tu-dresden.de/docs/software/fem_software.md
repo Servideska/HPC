@@ -59,7 +59,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     #SBATCH --job-name=yyyy         # give a name, what ever you want
     #SBATCH --mail-type=END,FAIL    # send email when the job finished or failed
     #SBATCH --mail-user=<name>@mailbox.tu-dresden.de  # set your email
-    #SBATCH -A p_xxxxxxx            # charge compute time to your project
+    #SBATCH --account=p_marie       # charge compute time to project p_marie
 
 
     # Abaqus has its own MPI
@@ -75,7 +75,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     ```
     4. Control the status of the job
     ```
-    marie@login squeue -u your_login     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
+    marie@login squeue --me     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
     ```
 
 ## Ansys
@@ -114,7 +114,7 @@ If more time is needed, a CPU has to be allocated like this (see
 
 ```console
 marie@login$ module load ANSYS/<version>
-marie@login$ srun -t 00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
+marie@login$ srun --time=00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
 [...]
 marie@login$ runwb2
 ```
@@ -208,7 +208,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun -n 1 -c 4 --mem-per-cpu=2500 -t 8:00 comsol -np 4 server
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 comsol -np 4 server
     ```
 
 ??? example "Interactive Job"
@@ -218,7 +218,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun -n 1 -c 4 --mem-per-cpu=2500 -t 8:00 --pty --x11=first comsol -np 4
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 --pty --x11=first comsol -np 4
     ```
 
     Please make sure, that the option *Preferences* --> Graphics --> *Renedering* is set to *software
