@@ -64,7 +64,7 @@ of MPI applications, you have to add the parameters `--ib --rm` and put it betwe
 application call, e.g.:
 
 ```bash
-srun dmtcp_launch --ib --rm ./my-mpi-application
+marie@login$ srun dmtcp_launch --ib --rm ./my-mpi-application
 ```
 
 !!! note

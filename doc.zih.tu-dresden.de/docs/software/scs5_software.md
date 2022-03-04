@@ -49,7 +49,7 @@ still work under SCS5. That's why those modenv versions are hidden.
 Example:
 
 ```Bash
-$ ml modenv/classic ansys/19.0
+marie@login$ ml modenv/classic ansys/19.0
 
 The following have been reloaded with a version change:
   1) modenv/scs5 => modenv/classic
