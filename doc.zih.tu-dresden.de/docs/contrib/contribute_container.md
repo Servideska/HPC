@@ -31,13 +31,15 @@ Add the original repository as a so-called remote:
     1. `git pull origin preview`
     1. `git pull upstream-zih preview` (only required when you forked the project)
 1. Create a new feature branch for you to work in. Ideally, name it like the file you want to
-modify or the issue you want to work on, e.g.: `git checkout -b issue-174`. (If you are uncertain
-about the name of a file, please look into `mkdocs.yaml`.)
+modify or the issue you want to work on, e.g.:
+`git checkout -b 174-check-contribution-documentation` for issue 174 with title "Check contribution
+documentation". (If you are uncertain about the name of a file, please look into `mkdocs.yaml`.)
 1. Improve the documentation with your preferred editor, i.e. add new files and correct mistakes.
 1. Use `git add <FILE>` to select your improvements for the next commit.
 1. Commit the changes with `git commit -m "<DESCRIPTION>"`. The description should be a meaningful
 description of your changes. If you work on an issue, please also add "Closes 174" (for issue 174).
-1. Push the local changes to the GitLab server, e.g. with `git push origin issue-174`.
+1. Push the local changes to the GitLab server, e.g. with
+`git push origin 174-check-contribution-documentation`.
 1. As an output you get a link to create a merge request against the preview branch.
 1. When the merge request is created, a continuous integration (CI) pipeline automatically checks
 your contributions.
@@ -57,6 +59,7 @@ Building a container could be done with the following steps:
 
 ```bash
 cd hpc-wiki
+doc.zih.tu-dresden.de/util/download-newest-mermaid.js.sh
 docker build -t hpc-compendium .
 ```
 
@@ -64,7 +67,7 @@ To avoid a lot of retyping, use the following in your shell:
 
 ```bash
 alias wikiscript="docker run --name=hpc-compendium --rm -w /docs --mount src=$PWD,target=/docs,type=bind hpc-compendium"
-alias wiki="docker run --name=hpc-compendium -p 8000:8000 --rm -w /docs --mount src=$PWD/doc.zih.tu-dresden.de,target=/docs,type=bind hpc-compendium bash -c"
+alias wiki="docker run --name=hpc-compendium -p 8000:8000 --rm -w /docs --mount src=$PWD/doc.zih.tu-dresden.de,target=/docs,type=bind hpc-compendium"
 ```
 
 ## Working with the Docker Container
@@ -76,7 +79,7 @@ Here is a suggestion of a workflow which might be suitable for you.
 The command(s) to start the dockerized web server is this:
 
 ```bash
-wiki "mkdocs serve -a 0.0.0.0:8000"
+wiki mkdocs serve -a 0.0.0.0:8000
 ```
 
 You can view the documentation via `http://localhost:8000` in your browser, now.
@@ -137,7 +140,7 @@ Read on if you want to run a specific check.
 If you want to check whether the markdown files are formatted properly, use the following command:
 
 ```bash
-wiki 'markdownlint docs'
+wiki markdownlint docs
 ```
 
 #### Spell Checker
