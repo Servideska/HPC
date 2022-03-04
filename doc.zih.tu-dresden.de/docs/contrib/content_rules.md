@@ -105,6 +105,7 @@ We follow this rules regarding prompts:
 | `alpha` partition      | `marie@alpha$`   |
 | `romeo` partition      | `marie@romeo$`   |
 | `julia` partition      | `marie@julia$`   |
+| `dcv` partition        | `marie@dcv$`     |
 | Localhost              | `marie@local$`   |
 
 *Remarks:*
@@ -197,9 +198,9 @@ Line numbers can be added via
 ```bash linenums="1"
 #!/bin/bash
 
-#SBATCH -N 1
-#SBATCH -n 23
-#SBATCH -t 02:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=23
+#SBATCH --time=02:10:00
 
 srun a.out
 ```
@@ -215,9 +216,9 @@ Specific Lines can be highlighted by using
 ```bash hl_lines="2 3"
 #!/bin/bash
 
-#SBATCH -N 1
-#SBATCH -n 23
-#SBATCH -t 02:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=23
+#SBATCH --time=02:10:00
 
 srun a.out
 ```

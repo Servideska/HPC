@@ -3,3 +3,4 @@
 *node_modules
 **venv/
 doc.zih.tu-dresden.de/public/
+*mermaid.min.js

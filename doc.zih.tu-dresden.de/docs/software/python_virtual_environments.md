@@ -139,7 +139,7 @@ can deactivate the conda environment as follows:
     This is an example on partition Alpha. The example creates a virtual environment, and installs
     the package `torchvision` with pip.
     ```console
-    marie@login$ srun --partition=alpha-interactive -N=1 --gres=gpu:1 --time=01:00:00 --pty bash
+    marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
     marie@alpha$ mkdir python-environments                               # please use workspaces
     marie@alpha$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5 PyTorch
     Module GCC/10.2.0, CUDA/11.1.1, OpenMPI/4.0.5, PyTorch/1.9.0 and 54 dependencies loaded.
