@@ -381,7 +381,7 @@ storage, software. The system administrators can describe the set of properties 
 as user to specify the requirements. These features should be thought of as changing over time
 (e.g., a filesystem get stuck on a certain node).
 
-A feature can be used with the Slurm option `-C, --constrain=<ARG>` like
+A feature can be used with the Slurm option `-C, --constraint=<ARG>` like
 `srun --constraint=fs_lustre_scratch2 ...` with `srun` or `sbatch`. Combinations like
 `--constraint="fs_beegfs_global0`are allowed. For a detailed description of the possible
 constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com/srun.html).
