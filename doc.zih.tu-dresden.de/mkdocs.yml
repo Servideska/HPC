@@ -218,4 +218,4 @@ extra:
 
 plugins:
   - search
-  - table
+  - markdown-caption
