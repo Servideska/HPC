@@ -109,7 +109,7 @@ for `sbatch/srun` in this case is `--gres=gpu:[NUM_PER_NODE]` (where `NUM_PER_NO
     #SBATCH --cpus-per-task=6      # use 6 threads per task
     #SBATCH --gres=gpu:1           # use 1 GPU per node (i.e. use one GPU per task)
     #SBATCH --time=01:00:00        # run for 1 hour
-    #SBATCH --account=Project1            # account CPU time to Project1
+    #SBATCH --account=p_marie      # account CPU time to project p_marie
 
     srun ./your/cuda/application   # start you application (probably requires MPI to use both nodes)
     ```
