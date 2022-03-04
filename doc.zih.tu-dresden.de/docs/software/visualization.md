@@ -39,7 +39,7 @@ parallel, if it was built using MPI.
 
 The resources for the MPI processes have to be allocated via the
 [batch system](../jobs_and_resources/slurm.md) option `--cpus-per-task=<NUM>` (not `--ntasks=<NUM>`,
-as it would be usually for MPI processes). It might be valuable in terms of runtime to bind/pin the
+as it would be usual for MPI processes). It might be valuable in terms of runtime to bind/pin the
 MPI processes to hardware.  A convenient option is `-bind-to core`. All other options can be
 obtained by
 
