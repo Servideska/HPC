@@ -22,7 +22,7 @@ errors.
 | Licenses at ZIH    | Free           | 1024 (max. number of processes/threads) |
 | Official documentation | [GDB website](https://www.gnu.org/software/gdb/) | [Arm DDT website](https://developer.arm.com/tools-and-software/server-and-hpc/debug-and-profile/arm-forge/arm-ddt) |
 
-## General Advices
+## General Advice
 
 - You need to compile your code with the flag `-g` to enable
   debugging. This tells the compiler to include information about

@@ -46,12 +46,18 @@ i	^[ |]*|$
 Avoid spaces at end of lines.
 doc.zih.tu-dresden.de/docs/accessibility.md
 i	[[:space:]]$
+When referencing projects, please use p_marie for consistency.
+
+i	\<p_	p_marie
+Avoid \`home\`. Use home without backticks instead.
+
+i	\`home\`
 Internal links should not contain \"/#\".
 
 i	(.*/#.*)	(http
 When referencing partitions, put keyword \"partition\" in front of partition name, e. g. \"partition ml\", not \"ml partition\".
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md
-i	\(alpha\|ml\|haswell\|romeo\|gpu\|smp\|julia\|hpdlf\|scs5\|dcv\)-\?\(interactive\)\?[^a-z]*partition
+i	\(alpha\|ml\|haswell\|romeo\|gpu\|smp\|julia\|hpdlf\|scs5\|dcv\)-\?\(interactive\)\?[^a-z|]*partition
 Give hints in the link text. Words such as \"here\" or \"this link\" are meaningless.
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md
 i	\[\s\?\(documentation\|here\|more info\|\(this \)\?\(link\|page\|subsection\)\|slides\?\|manpage\)\s\?\]
@@ -80,7 +86,8 @@ function checkFile(){
     fi
     IFS=$'\t' read -r flags pattern exceptionPatterns
     while IFS=$'\t' read -r -a exceptionPatternsArray; do
-      if [ $silent = false ]; then
+      #Prevent patterns from being printed when the script is invoked with default arguments.
+      if [ $verbose = true ]; then
         echo "  Pattern: $pattern$skipping"
       fi
       if [ -z "$skipping" ]; then
@@ -93,6 +100,7 @@ function checkFile(){
         if grep -n $grepflag $color "$pattern" "$f" | grepExceptions "${exceptionPatternsArray[@]}" ; then
           number_of_matches=`grep -n $grepflag $color "$pattern" "$f" | grepExceptions "${exceptionPatternsArray[@]}" | wc -l`
           ((cnt=cnt+$number_of_matches))
+          #prevent messages when silent=true, only files, pattern matches and the summary are printed
           if [ $silent = false ]; then
             echo "    $message"
           fi
@@ -103,23 +111,29 @@ function checkFile(){
 }
 
 function usage () {
-  echo "$0 [options]"
-  echo "Search forbidden patterns in markdown files."
-  echo ""
-  echo "Options:"
-  echo "  -a     Search in all markdown files (default: git-changed files)" 
-  echo "  -f     Search in a specific markdown file" 
-  echo "  -s     Silent mode"
-  echo "  -h     Show help message"
-  echo "  -c     Show git matches in color"
+cat <<EOF
+$0 [options]
+Search forbidden patterns in markdown files.
+
+Options:
+  -a    Search in all markdown files (default: git-changed files)
+  -f    Search in a specific markdown file
+  -s    Silent mode
+  -h    Show help message
+  -c    Show git matches in color
+  -v    verbose mode
+EOF
 }
 
 # Options
 all_files=false
+#if silent=true: avoid printing of messages
 silent=false
+#if verbose=true: print files first and the pattern that is checked
+verbose=false
 file=""
 color=""
-while getopts ":ahsf:c" option; do
+while getopts ":ahsf:cv" option; do
  case $option in
    a)
      all_files=true
@@ -133,6 +147,9 @@ while getopts ":ahsf:c" option; do
      ;;
    c)
      color=" --color=always "
+     ;;
+   v)
+     verbose=true
      ;;
    h)
      usage
@@ -156,7 +173,10 @@ else
   files=`git diff --name-only "$(git merge-base HEAD "$branch")"`
 fi
 
+#Prevent files from being printed when the script is invoked with default arguments.
+if [ $verbose = true ]; then
 echo "... $files ..."
+fi
 cnt=0
 if [[ ! -z $file ]]; then
   checkFile $file
