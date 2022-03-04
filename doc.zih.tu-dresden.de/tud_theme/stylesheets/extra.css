@@ -110,7 +110,8 @@ strong {
 
 .md-typeset .admonition,
 .md-typeset details,
-.md-typeset code {
+.md-typeset code,
+.highlighttable .linenos {
     font-size: 0.8rem;
 }
 
