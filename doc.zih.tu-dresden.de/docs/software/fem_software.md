@@ -59,7 +59,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     #SBATCH --job-name=yyyy         # give a name, what ever you want
     #SBATCH --mail-type=END,FAIL    # send email when the job finished or failed
     #SBATCH --mail-user=<name>@mailbox.tu-dresden.de  # set your email
-    #SBATCH --account=p_xxxxxxx            # charge compute time to your project
+    #SBATCH --account=p_marie       # charge compute time to project p_marie
 
 
     # Abaqus has its own MPI
