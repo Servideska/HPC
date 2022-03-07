@@ -20,9 +20,9 @@ remove it and accept the new one after comparing its fingerprint with those list
 
 ## Using Software Modules
 
-Starting with SCS5, we only provide
-[Lmod](../software/modules.md#lmod-an-alternative-module-implementation) as the
-environment module tool of choice.
+Starting with SCS5, we do not support [C environment modules](http://modules.sourceforge.net/)
+anymore. We only provide [Lmod](http://lmod.readthedocs.io/en/latest/index.html) as the environment
+module tool of choice. Refer to the [module page](modules.md) for further information on modules.
 
 As usual, you can get a list of the available software modules via:
 
