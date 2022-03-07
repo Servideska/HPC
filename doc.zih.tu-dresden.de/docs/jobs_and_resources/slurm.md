@@ -283,10 +283,15 @@ provide a comprehensive collection of job examples.
 
 ### Job and Slurm Monitoring
 
-On the command line, use `squeue` to watch the scheduling queue. This command will tell the reason,
-why a job is not running (job status in the last column of the output). More information about job
-parameters can also be determined with `scontrol -d show job <jobid>`. The following table holds
-detailed descriptions of the possible job states:
+On the command line, use `squeue` to watch the scheduling queue.
+
+!!! tip "Show your jobs"
+
+    Invoke `squeue --me` to list only your jobs.
+
+The command `squeue` will tell the reason, why a job is not running (job status in the last column
+of the output). More information about job parameters can also be determined with `scontrol -d show
+job <jobid>`. The following table holds detailed descriptions of the possible job states:
 
 ??? tip "Reason Table"
 
