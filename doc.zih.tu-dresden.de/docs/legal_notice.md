@@ -30,4 +30,4 @@ E-Mail: zih@tu-dresden.de
 This documentation and the repository have two licenses:
 
 * All documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-* All software components are licensed under [MIT license](https://opensource.org/licenses/MIT).
+* All software components are licensed under [MIT license](license_mit.txt).
