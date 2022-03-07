@@ -32,5 +32,3 @@ We offer a rich and colorful bouquet of courses from classical *HPC introduction
 *Performance Analysis* and *Machine Learning* trainings. Please refer to the page
 [Training Offers](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-training)
 for a detailed overview of the courses and the respective dates at ZIH.
-
-
