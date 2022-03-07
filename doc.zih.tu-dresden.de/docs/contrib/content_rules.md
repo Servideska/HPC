@@ -1,6 +1,22 @@
 # Content Rules
 
-**Remark:** Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
+## Responsibility And License
+
+This documentation and the repository have two licenses (cf. [Legal Notice](../legal_notice.md)):
+
+* All documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+* All software components are licensed under [MIT license](../license_mit.txt).
+
+These licenses will also apply to your contributions.
+
+!!! note
+
+    Each user is fully and solely responsible for the content he/she creates and has to ensure that
+    he/she has the right to create it under the laws which apply.
+
+If you are in doubt, please contact us either via
+[GitLab Issue](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues)
+or via [ticket](mailto:hpcsupport@zih.tu-dresden.de).
 
 ## New Page and Pages Structure
 
@@ -50,6 +66,7 @@ should be highlighted, etc. Code examples, longer than half screen height should
 
 ## Writing Style
 
+* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
 * Capitalize headings, e.g. *Exclusive Reservation of Hardware*
 * Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
   descriptive than [this subsection](#code-blocks-and-syntax-highlighting)

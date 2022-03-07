@@ -4,7 +4,21 @@
 
     Ink is better than the best memory.
 
-In principle, there are three possible ways how to contribute to this documentation.
+Even though we try to cover all aspects of working with the ZIH systems and keep the documentation
+up to date, you might miss something. In principle, there are three possible ways how you can
+contribute to this documentation as outlined below.
+
+## Content Rules
+
+To ensure a high-quality and consistent documentation and to make it easier for readers to
+understand all content, we set some [content rules](content_rules.md). Please follow this rules when
+contributing! Furthermore, reviewing your changes take less time and your improvements appear faster on
+the official documentation.
+
+!!! note
+
+    Each user is fully and solely responsible for the content he/she creates and has to ensure that
+    he/she has the right to create it under the laws which apply.
 
 ## Contribute via Issue
 
@@ -38,9 +52,3 @@ used in the back-end. Using them should ensure that merge requests will not be b
 due to automatic checking.
 The page on [Contributing via local clone](contribute_container.md) provides you with the details
 about how to setup and use your local clone.
-
-## Content Rules
-
-To ensure quality and to make it easier for readers to understand all content, we follow some
-[content rules](content_rules.md). If you follow these rules, you can be sure, that reviews of
-your changes take less time and your improvements appear faster on the official web site.
