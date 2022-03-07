@@ -1,7 +1,7 @@
 # Perf Tools
 
 The Linux `perf` command provides support for sampling applications and reading performance
-counters.  `perf` consists of two parts: the kernel space implementation and the userland tools.
+counters. `perf` consists of two parts: the kernel space implementation and the userland tools.
 This compendium page focusses on the latter.
 
 For detailed information, please refer to the [perf
