@@ -12,8 +12,8 @@ contribute to this documentation as outlined below.
 
 To ensure a high-quality and consistent documentation and to make it easier for readers to
 understand all content, we set some [content rules](content_rules.md). Please follow this rules when
-contributing! Furthermore, reviewing your changes take less time and your improvements appear faster on
-the official documentation.
+contributing! Furthermore, reviewing your changes take less time and your improvements appear faster
+on the official documentation.
 
 !!! note
 
