@@ -39,7 +39,7 @@ due to automatic checking.
 The page on [Contributing via local clone](contribute_container.md) provides you with the details
 about how to setup and use your local clone.
 
-## Content rules
+## Content Rules
 
 To ensure quality and to make it easier for readers to understand all content, we follow some
 [content rules](content_rules.md). If you follow these rules, you can be sure, that reviews of
