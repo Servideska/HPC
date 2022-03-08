@@ -80,7 +80,7 @@ prepend_path( "LIBRARY_PATH", pathJoin(root, "lib"))
 setenv(       "<SOME_ENV>",        "<value>")
 ```
 
-There most important functions to adjust the environment are listed and described in the following
+The most important functions to adjust the environment are listed and described in the following
 table.
 
 | Function | Description |
