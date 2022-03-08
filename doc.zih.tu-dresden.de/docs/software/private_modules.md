@@ -124,9 +124,9 @@ An automated backup system provides security for the home directories on the clu
 basis. This is the reason why we urge users to store (large) temporary data (like checkpoint files)
 on the `/scratch` filesystem or at local scratch disks.
 
-This is also why, we have set `ulimit -c 0` as a default setting to prevent users from filling the
-`/home` directories with the dump of crashed programs. In particular, `ulimit -c 0` sets the core
-file size (blocks) to 0, which disables creation of core dumps in case an application crashes.
+This is also why we have set `ulimit -c 0` as a default setting to prevent users from filling the
+home directories with dumps of crashed programs. In particular, `ulimit -c 0` sets the core file
+size (blocks) to 0, which disables creation of core dumps in case an application crashes.
 
 !!! note "Enable core files for debugging"
 
