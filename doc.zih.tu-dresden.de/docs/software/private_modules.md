@@ -120,7 +120,7 @@ as usual.
 
 ## Caveats
 
-An automated backup system provides security for the `/home` directories on the cluster on a daily
+An automated backup system provides security for the home directories on the cluster on a daily
 basis. This is the reason why we urge users to store (large) temporary data (like checkpoint files)
 on the `/scratch` filesystem or at local scratch disks.
 
