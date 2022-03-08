@@ -97,11 +97,11 @@ For detailed information please visit the
 [ZIH intermediate archive documentation](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-1).
 
 (*) The usage of the HRSK-project-related archive is preferable to the login-related archive, as
-this enables assigning access rights and responsiblity across multiple researchers, due to the
+this enables assigning access rights and responsibility across multiple researchers, due to the
 common staff turnover in research.
 
 The use of the intermediate archive usually is limited by the end of the corresponding
-HRSK/reseach project. Afterwards data is required to be removed, tidied up and submitted to a
+HRSK/research project. Afterwards data is required to be removed, tidied up and submitted to a
 long-term repository (see next section).
 
 The intermediate archive is the preferred service when you keep large, mostly unused data volumes
@@ -114,7 +114,7 @@ anymore, then repositories as described in the next section may be the more appr
 ### Archiving data beyond the project lifetime, for 10 years and above
 
 According to good scientific practice (see:
-[DFG guildelines, #17](https://www.dfg.de/download/pdf/foerderung/rechtliche_rahmenbedingungen/gute_wissenschaftliche_praxis/kodex_gwp.pdf))
+[DFG guidelines, #17](https://www.dfg.de/download/pdf/foerderung/rechtliche_rahmenbedingungen/gute_wissenschaftliche_praxis/kodex_gwp.pdf))
 and
 [TU Dresden research data guidelines](https://tu-dresden.de/tu-dresden/qualitaetsmanagement/ressourcen/dateien/wisprax/Leitlinien-fuer-den-Umgang-mit-Forschungsdaten-an-der-TU-Dresden.pdf),
 relevant research data needs to be archived for at least for 10 years. The
@@ -122,7 +122,7 @@ relevant research data needs to be archived for at least for 10 years. The
 joint research data repository service for saxon universities to address this requirement.
 
 Data can be uploaded and, to comply to the demands of long-term understanding of data, additional
-metadata and description must be added. Large datasets may be optionally imported beforehands. In
+metadata and description must be added. Large datasets may be optionally imported beforehand. In
 this case, please contact the
 [TU Dresden Service Desk](mailto:servicedesk@tu-dresden.de?subject=OpARA:%20Data%20Import).
 Optionally, data can also be **published** by OpARA. To ensure data quality, data submission undergo
