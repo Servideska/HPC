@@ -118,15 +118,15 @@ According to good scientific practice (see:
 and
 [TU Dresden research data guidelines](https://tu-dresden.de/tu-dresden/qualitaetsmanagement/ressourcen/dateien/wisprax/Leitlinien-fuer-den-Umgang-mit-Forschungsdaten-an-der-TU-Dresden.pdf),
 relevant research data needs to be archived for at least for 10 years. The
-[OpARA service](https://opara.zih.tu-dresden.de) (Open Access Repository and Archive) is the
+[OpARA service](https://opara.zih.tu-dresden.de/xmlui/) (Open Access Repository and Archive) is the
 joint research data repository service for saxon universities to address this requirement.
 
 Data can be uploaded and, to comply to the demands of long-term understanding of data, additional
 metadata and description must be added. Large datasets may be optionally imported beforehand. In
 this case, please contact the
 [TU Dresden Service Desk](mailto:servicedesk@tu-dresden.de?subject=OpARA:%20Data%20Import).
-Optionally, data can also be **published** by OpARA. To ensure data quality, data submission undergo
-a review process.
+Optionally, data can also be **published** by OpARA. To ensure data quality, data submissions
+undergo a review process.
 
 Beyond OpARA, it is also recommended to use discipline-specific data repositories for data
 publications. Usually those are well known in a scientific community, and offer better fitting
