@@ -67,7 +67,6 @@ here.
 ![picture 6: Project Description][2]
 {: align="center"}
 
-
 ## Sixth Step: Summary
 
 Check your entries and confirm the terms of use.
