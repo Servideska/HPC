@@ -22,7 +22,6 @@ to
 
 ## Access
 
-
 [Entry point to the project management system](https://hpcprojekte.zih.tu-dresden.de/managers)
 The project leaders of an ongoing project and their accredited admins
 are allowed to login to the system. In general each of these persons
@@ -61,7 +60,6 @@ show the employee and the statistics about the project.
 {: align="center"}
 
 ### Manage Project Members (dis-/enable)
-
 
 The project members can be managed under the tab 'employee' in the project details. This page gives
 an overview of all ZIH logins that are a member of a project and its status. If a project member
