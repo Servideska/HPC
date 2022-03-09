@@ -21,8 +21,8 @@ access to HPC you can use
 
 ### get access with a valid ZIH login
 
-If a project already exists and a user with a valid ZIH login wants 
-to use HPC resources, it is enough to add the user via the [manager view][3]. 
+If a project already exists and a user with a valid ZIH login wants
+to use HPC resources, it is enough to add the user via the [manager view][3].
 The manager view can be used by project managers and project administrators.
 
 ## Acknowledgment in Publications
