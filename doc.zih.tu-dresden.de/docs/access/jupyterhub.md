@@ -144,7 +144,8 @@ Now, you are back on the JupyterHub page and you can stop your server by clickin
 ## Error Handling
 
 We want to explain some errors that you might face sooner or later.
-If you need help, open a ticket at [HPC support](mailto:hpcsupport@zih.tu-dresden.de).
+If you need help, open a ticket and ask for support as described in
+[How to Ask for Support](../support/support.md).
 
 ### Error at Session Start
 
@@ -157,6 +158,12 @@ Useful pages for valid batch system parameters:
 
 - [General information how to use Slurm](../jobs_and_resources/slurm.md)
 - [Partitions and limits](../jobs_and_resources/partitions_and_limits.md)
+
+!!! hint
+    This message might also appear for other Slurm related problems, e.g. quota issues.
+    That might be the case when the error appears for you but not for others while using the same
+    system parameters. In this case, please ask for support as described in
+    [How to Ask for Support](../support/support.md).
 
 ### Error Message in JupyterLab
 
