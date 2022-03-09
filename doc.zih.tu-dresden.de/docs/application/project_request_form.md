@@ -65,7 +65,7 @@ normal HPC projects a detailed project description is additionally required, whi
 here.
 
 ![picture 6: Project Description][2]
-{: align="center"} 
+{: align="center"}
 
 
 ## Sixth Step: Summary
