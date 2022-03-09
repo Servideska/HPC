@@ -14,7 +14,7 @@ check the following page: [https://tu-dresden.de/zih/hochleistungsrechnen/zugang
 
 ##get access without an existing ZIH-Login
 
-To use the resources you need a valid [IDM-Login][2]. To got an IDM-Login and the acces to HPC you can use
+To use the resources you need a valid [IDM-Login][2]. To got an IDM-Login and the access to HPC you can use
 [this Form][4].
 
 ### get access with a valid ZIH login
