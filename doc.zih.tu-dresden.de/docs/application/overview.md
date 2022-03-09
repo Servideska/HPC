@@ -25,27 +25,29 @@ The manager view can be used by project managers and project administrators.
 
 ## Acknowledgment in Publications
 
-To provide you with modern and powerful HPC systems in future as well, 
-we have to show that these systems help to advance research. 
+To provide you with modern and powerful HPC systems in future as well,
+we have to show that these systems help to advance research.
 For that purpose we rely on your help.
-In most cases, the results of your computations are used for 
+In most cases, the results of your computations are used for
 presentations and publications, especially in peer-reviewed
-magazines, journals, and conference proceedings. 
-We kindly ask you to mention the HPC resource usage in the acknowledgment 
-section of all publications that are based on granted HPC resources of the TU Dresden. 
+magazines, journals, and conference proceedings.
+We kindly ask you to mention the HPC resource usage in the acknowledgment
+section of all publications that are based on granted HPC resources of the TU Dresden.
 
 Examples:
 
-- The authors gratefully acknowledge the GWK support for funding 
-  this project by providing computing time through the Center 
+- The authors gratefully acknowledge the GWK support for funding
+  this project by providing computing time through the Center
   for Information Services and HPC (ZIH) at TU Dresden.
 
-- The authors are grateful to the Center for Information Services 
-  and High Performance Computing [Zentrum fuer Informationsdienste 
-  und Hochleistungsrechnen (ZIH)] at TU Dresden for providing 
+- The authors are grateful to the Center for Information Services
+  and High Performance Computing [Zentrum fuer Informationsdienste
+  und Hochleistungsrechnen (ZIH)] at TU Dresden for providing
   its facilities for high throughput calculations.
 
-Please send us references of appeared publications, so that we can refer to them in the context of follow-up applications for the procurement of infrastructure!
+Please send us references of appeared publications, so that
+we can refer to them in the context of follow-up applications
+for the procurement of infrastructure!
 
 [1]: https://tu-dresden.de/zih/hochleistungsrechnen/zugang
 [2]: https://tu-dresden.de/zih/dienste/service-katalog/zugangsvoraussetzung
