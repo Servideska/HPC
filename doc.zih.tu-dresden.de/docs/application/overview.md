@@ -41,7 +41,7 @@ Examples:
   for Information Services and HPC (ZIH) at TU Dresden.
 
 - The authors are grateful to the Center for Information Services 
-  and High Performance Computing [Zentrum für Informationsdienste 
+  and High Performance Computing [Zentrum fuer Informationsdienste 
   und Hochleistungsrechnen (ZIH)] at TU Dresden for providing 
   its facilities for high throughput calculations.
 
