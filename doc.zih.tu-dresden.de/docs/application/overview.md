@@ -5,18 +5,17 @@ The HPC project manager should hold a professorship (university) or head a resea
 also apply for a "Schnupperaccount" (trial account) for one year to find out if the machine is
 useful for your application.
 
-An other able use case is to request resources for a courses.
+Another possible use case is to request resources for a course.
 
-To learn more about applying for a project or a course,
-check the following page:
+To learn more about applying for a project or a course, check the following page:
 [https://tu-dresden.de/zih/hochleistungsrechnen/zugang][1]
 
 ## HPC-Login
 
 ### Get Access without an existing ZIH Login
 
-To use the resources, you need a [valid ZIH login][2]. To get a ZIH login and the
-access to HPC, please use the [HPC login application form][3].
+To use the resources, you need a [valid ZIH login][2]. To get a ZIH login and the access to HPC,
+please use the [HPC login application form][3].
 
 ### Get Access with a valid ZIH Login
 
@@ -27,8 +26,8 @@ administrator of a HPC project needs to add you as a member of this project via 
 
 ## Acknowledgment in Publications
 
-We kindly ask you to mention the HPC resource usage in the acknowledgment
-section of all publications that are based on granted HPC resources of the TU Dresden.
+We kindly ask you to mention the HPC resource usage in the acknowledgment section of all
+publications that are based on granted HPC resources of the TU Dresden.
 
 !!! info "Acknowledgment Examples"
     We provide some [acknowledgment examples](acknowledgement.md) that show you how to do that.
