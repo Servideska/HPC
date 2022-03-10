@@ -84,7 +84,7 @@ The link leads to a page where you can sign in to a project by accepting the ter
 also an valid ZIH-Login. After this step it can take 1-1,5 h to transfer the login to all cluster
 nodes.
 
-![Add Member>](misc/add_member.png "Add Member")
+![Add Member](misc/add_member.png "Add Member")
 {: align="center"}
 
 ### Statistic
@@ -93,5 +93,5 @@ The statistic is located under the tab 'Statistic' in the project details. The d
 once a day an shows used CPU-time and used disk space of an project. Following projects shows also
 the data of the predecessor.
 
-![Add Member>](misc/add_member.png "Add Member")
+![Project Statistic](misc/stats.png "Project Statistic")
 {: align="center"}
