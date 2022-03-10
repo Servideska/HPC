@@ -31,16 +31,15 @@ happen that a project leader of a foreign organization do not have a ZIH
 login. For this purpose, it is possible to set a local password:
 "[Missing Password](https://hpcprojekte.zih.tu-dresden.de/managers/members/missingPassword)".
 
-![Login Screen>](misc/external_login.png "Login Screen")
+![Login Screen](misc/external_login.png "Login Screen")
 {: align="center"}
-
 
 On the 'Missing Password' page, it is possible to reset the passwords of a 'non-ZIH-login'. For this
 you write your login, which usually corresponds to your email address, in the field and click on
 'reset. Within 10 minutes the system sends a signed e-mail from <hpcprojekte@zih.tu-dresden.de> to
 the registered e-mail address. this e-mail contains a link to reset the password.
 
-![Password Reset>](misc/password.png "Password Reset")
+![Password Reset](misc/password.png "Password Reset")
 {: align="center"}
 
 ## Projects
@@ -51,13 +50,13 @@ have the option to view the details of a project or make a following project req
 only possible if a project has been approved and is active or was. In the upper right area you will
 find a red button to log out from the system.
 
-![Project Overview>](misc/overview.png "Project Overview")
+![Project Overview](misc/overview.png "Project Overview")
 {: align="center"}
 
 The project details provide information about the requested and allocated resources. The other tabs
 show the employee and the statistics about the project.
 
-![Project Details>](misc/project_details.png "Project Details")
+![Project Details](misc/project_details.png "Project Details")
 {: align="center"}
 
 ### Manage Project Members (dis-/enable)
@@ -78,14 +77,14 @@ and has a time delay of 5 minutes. An user can add or reactivate itself, with it
 project via the link on the end of the page. To prevent misuse this link is valid for 2 weeks and
 will then be renewed automatically.
 
-![Project Members>](misc/members.png "Project Members")
+![Project Members](misc/members.png "Project Members")
 {: align="center"}
 
 The link leads to a page where you can sign in to a project by accepting the term of use. You need
 also an valid ZIH-Login. After this step it can take 1-1,5 h to transfer the login to all cluster
 nodes.
 
-![Add Member>](misc/add_member.png "Add Member")
+![Add Member](misc/add_member.png "Add Member")
 {: align="center"}
 
 ### Statistic

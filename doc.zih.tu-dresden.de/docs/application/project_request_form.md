@@ -2,7 +2,7 @@
 
 ## First Step: Requester
 
-![picture 1: Login Screen >](misc/request_step1_b.png "Login Screen")
+![Picture 1: Login Screen](misc/request_step1_b.png "Login Screen")
 {: align="center"}
 
 The first step is asking for the personal information of the requester.
@@ -12,7 +12,7 @@ If not, you have to fill in the whole information.
 
 ## Second Step: Project Details
 
-![picture 3: Project Details >][1]
+![Picture 2: Project Details][1]
 {: align="center"}
 
 This Step is asking for general project Details.
@@ -33,7 +33,7 @@ Any project have:
 
 ## Third step: Hardware
 
-![picture 4: Hardware](misc/request_step3_machines.png "Hardware")
+![Picture 3: Hardware](misc/request_step3_machines.png "Hardware")
 {: align="center"}
 
 This step inquire the required hardware. The
@@ -51,7 +51,7 @@ the scratch is available.
 
 ## Fourth Step: Software
 
-![Picture 5: Software >](misc/request_step4_software.png "Software")
+![Picture 4: Software](misc/request_step4_software.png "Software")
 {: align="center"}
 
 Any information you will give us in this step, helps us to make a rough estimate, if you are able
@@ -59,7 +59,7 @@ to realize your project. For example, some software requires its own licenses.
 
 ## Fifth Step: Project Description
 
-![picture 6: Project Description >][2]
+![Picture 5: Project Description][2]
 {: align="center"}
 
 Please enter a short project description here. This is especially important for trial accounts and
@@ -68,7 +68,7 @@ can upload here.
 
 ## Sixth Step: Summary
 
-![picture 6: summary >](misc/request_step6.png "Summary")
+![Picture 6: Summary](misc/request_step6.png "Summary")
 {: align="center"}
 
 Check your entries and confirm the terms of use.
