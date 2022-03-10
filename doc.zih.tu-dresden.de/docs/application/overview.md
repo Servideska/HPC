@@ -16,13 +16,14 @@ check the following page:
 ### Get Access without an existing ZIH Login
 
 To use the resources, you need a [valid ZIH login][2]. To get a ZIH login and the
-access to HPC, please use the [HPC login application form][4]
+access to HPC, please use the [HPC login application form][3].
 
 ### Get Access with a valid ZIH Login
 
 When you have a valid ZIH login, there are two possibilities for you: Either the manager or
 administrator of a HPC project needs to add you as a member of this project via the
-[manager view][3], or you have to [apply for a project](project_request_form.md).
+[manager view](project_management.md#manage-project-members-dis-enable), or you have to
+[apply for a project](project_request_form.md).
 
 ## Acknowledgment in Publications
 
@@ -34,5 +35,4 @@ section of all publications that are based on granted HPC resources of the TU Dr
 
 [1]: https://tu-dresden.de/zih/hochleistungsrechnen/zugang
 [2]: https://tu-dresden.de/zih/dienste/service-katalog/zugangsvoraussetzung
-[3]: https://doc.zih.tu-dresden.de/application/project_management/#manage-project-members-dis-enable
-[4]: https://selfservice.zih.tu-dresden.de/l/index.php/hpclogin
+[3]: https://selfservice.zih.tu-dresden.de/l/index.php/hpclogin
