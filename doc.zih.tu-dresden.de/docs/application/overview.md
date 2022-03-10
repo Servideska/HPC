@@ -18,7 +18,7 @@ check the following page:
 To use the resources, you need a [valid ZIH login][2]. To get a ZIH login and the
 access to HPC, please use the [HPC login application form][4]
 
-### get access with a valid ZIH login
+### Get Access with a valid ZIH Login
 
 When you have a valid ZIH login, there are two possibilities for you: Either the manager or
 administrator of a HPC project needs to add you as a member of this project via the
