@@ -13,7 +13,7 @@ check the following page:
 
 ## HPC-Login
 
-### get access without an existing ZIH-Login
+### Get Access without an existing ZIH Login
 
 To use the resources, you need a [valid ZIH login][2]. To get a ZIH login and the
 access to HPC, please use the [HPC login application form][4]
