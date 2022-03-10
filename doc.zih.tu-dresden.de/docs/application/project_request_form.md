@@ -1,5 +1,8 @@
 # Project Request Form
 
+This page describes the steps to fill the form on
+[https://selfservice.zih.tu-dresden.de/index.php/hpcprojekte](https://selfservice.zih.tu-dresden.de/index.php/hpcprojekte).
+
 ## First Step: Requester
 
 The first step is asking for the personal information of the requester.
