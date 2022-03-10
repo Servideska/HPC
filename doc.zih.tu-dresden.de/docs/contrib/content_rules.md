@@ -266,3 +266,7 @@ The syntax to insert a graphic or attachment into a page is
 
 The attribute `align` is optional. By default, graphics are left aligned. **Note:** It is crucial to
 have `{: align="center"}` on a new line.
+
+It is possible to add captions for tables and figures using `{: summary="This is a table caption"}`.
+The `summary` and `align` parameters can be combined as well:
+`{: summary="This is a table caption" align="top"}`.
