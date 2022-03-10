@@ -22,7 +22,7 @@ access to HPC, please use the [HPC login application form][4]
 
 When you have a valid ZIH login, there are two possibilities for you: Either the manager or
 administrator of a HPC project needs to add you as a member of this project via the
-[manager view][3], or you have to [apply for a project](project_request_form.md). 
+[manager view][3], or you have to [apply for a project](project_request_form.md).
 
 ## Acknowledgment in Publications
 
