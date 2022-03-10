@@ -62,10 +62,9 @@ to realize your project. For example, some software requires its own licenses.
 ![picture 6: Project Description >][2]
 {: align="center"}
 
-Please enter a short project description here. This is especially important for trial accounts and courses. For
-normal HPC projects a detailed project description is additionally required, which you can upload
-here.
-
+Please enter a short project description here. This is especially important for trial accounts and
+courses. For normal HPC projects a detailed project description is additionally required, which you
+can upload here.
 
 ## Sixth Step: Summary
 
