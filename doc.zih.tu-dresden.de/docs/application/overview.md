@@ -15,7 +15,7 @@ check the following page:
 
 ### get access without an existing ZIH-Login
 
-To use the resources you need a valid [IDM-Login][2]. To got an IDM-Login and the
+To use the resources, you need a [valid ZIH login][2]. To get a ZIH login and the
 access to HPC you can use
 [this Form][4].
 
