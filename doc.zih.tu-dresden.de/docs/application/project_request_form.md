@@ -1,7 +1,7 @@
 # Project Request Form
 
 This page describes the steps to fill the form on
-[https://selfservice.zih.tu-dresden.de/index.php/hpcprojekte](https://selfservice.zih.tu-dresden.de/index.php/hpcprojekte).
+[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/).
 
 ## First Step: Requester
 
