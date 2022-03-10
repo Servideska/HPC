@@ -16,8 +16,7 @@ check the following page:
 ### get access without an existing ZIH-Login
 
 To use the resources, you need a [valid ZIH login][2]. To get a ZIH login and the
-access to HPC you can use
-[this Form][4].
+access to HPC, please use the [HPC login application form][4]
 
 ### get access with a valid ZIH login
 
