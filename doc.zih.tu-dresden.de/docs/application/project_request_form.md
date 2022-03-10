@@ -26,7 +26,7 @@ Any project have:
     * The approval is for a maximum of one year. Be careful: a duration from "May, 2013" till
       "May 2014" has 13 month.
 * a selected science, according to the DFG:
-  http://www.dfg.de/dfg_profil/gremien/fachkollegien/faecher/index.jsp
+  [http://www.dfg.de/dfg_profil/gremien/fachkollegien/faecher/index.jsp](http://www.dfg.de/dfg_profil/gremien/fachkollegien/faecher/index.jsp)
 * a sponsorship a kind of request a project leader/manager The leader of this project should hold a
   professorship (university) or is the head of the research group.
     * If you are this person, leave this fields free.
