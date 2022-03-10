@@ -30,7 +30,7 @@ administrator of a HPC project needs to add you as a member of this project via 
 We kindly ask you to mention the HPC resource usage in the acknowledgment
 section of all publications that are based on granted HPC resources of the TU Dresden.
 
-how this can be done you can look up on [this page][4]
+how this can be done you can look up on [this page][5]
 
 [1]: https://tu-dresden.de/zih/hochleistungsrechnen/zugang
 [2]: https://tu-dresden.de/zih/dienste/service-katalog/zugangsvoraussetzung
