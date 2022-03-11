@@ -7,7 +7,7 @@ basedir=`dirname "$scriptpath"`
 basedir=`dirname "$basedir"`
 wordlistfile=$(realpath $basedir/wordlist.aspell)
 branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
-files_to_skip=(doc.zih.tu-dresden.de/docs/accessibility.md doc.zih.tu-dresden.de/docs/data_protection_declaration.md data_protection_declaration.md)
+files_to_skip=(doc.zih.tu-dresden.de/docs/accessibility.md doc.zih.tu-dresden.de/docs/data_protection_declaration.md doc.zih.tu-dresden.de/docs/legal_notice.md)
 aspellmode=
 if aspell dump modes | grep -q markdown; then
   aspellmode="--mode=markdown"
