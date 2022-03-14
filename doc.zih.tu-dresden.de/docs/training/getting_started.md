@@ -2,26 +2,25 @@
 
 <!-- This content will not appear in the rendered Markdown -->
 
-This page is intended to provide the most important parts of starting to work on the ZIH High Performance Computing (HPC) system.
-Especially to new users, this page is a map of the compendium as it provides an overview about the most relevant topics and it will direct to the corredponding detailed articles within the compendium. 
+This page is intended to provide the most important parts of starting to work on the ZIH High Performance Computing (HPC) system, especially oriented on new HPC users. This page is a map of the compendium as it provides an overview about the most relevant topics and it will direct to the corredponding detailed articles within the compendium. 
 
-Summarizing, you need to know how to
+Summarizing, the main steps to know are how to
 * apply for ZIH HPC login
 * access to/disconect from ZIH HPC
 * manage your files: import, export, move, allocate
 * run your program.
 
-If you are new to HPC, we recomend you to visit the introductory article about HPC at [https://hpc-wiki.info/hpc/Getting_Started](https://hpc-wiki.info/hpc/Getting_Started).
+## Before you read
 
-## Before You Start
-
-The ZIH HPC system is a linux system (as most HPC systems), some basic linux knowledge is therefore needed at certain points. 
+The ZIH HPC system is a linux system (as most HPC systems). Some basic linux knowledge is therefore needed at certain points. 
 You can find [here](https://hpc-wiki.info/hpc/Shell) a collection of the most important linux commands needed on the HPC system.
 
 To work on the ZIH HPC system and to follow the instructions on this page as well as other Compendium pages, it is important to be familiar with the [basic terminology](https://hpc-wiki.info/hpc/HPC-Dictionary) such as 
 [ssh](https://hpc-wiki.info/hpc/SSH), [cluster](https://hpc-wiki.info/hpc/HPC-Dictionary#Cluster), [login node](https://hpc-wiki.info/hpc/HPC-Dictionary#Login_Node), [compute node](https://hpc-wiki.info/hpc/HPC-Dictionary#Backend_Node), [local and shared file system](https://hpc-wiki.info/hpc/HPC-Dictionary#File_System), [command line (cli) or shell](https://hpc-wiki.info/hpc/Shell).
 
 Throughout the compendium `marie@login` is used as an indication of working on the ZIH HPC command line and `marie@local` as working on your local machine's command line. To repeat these commands you have to replace `marie` with your ZIH HPC name.
+
+For more knowledge, we also recommend you to visit the introductory article about HPC at [https://hpc-wiki.info/hpc/Getting_Started](https://hpc-wiki.info/hpc/Getting_Started).
 
 ## Application for login and resources
 
