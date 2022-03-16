@@ -345,3 +345,15 @@ Hello from: 0
 
     Do not forget to specify the total number of tasks `--ntasks` and the number of tasks per node
     `--ntasks-per-node` which must match the number of GPUs per node.
+
+## Distributed Training with GPU-accelerated Containers (NGC containers)
+
+Distribute training can be done also by using [NGC containers](ngc_containers.md).
+NGC containers are GPU-optimized containers for deep learning, machine learning, visualization.
+[NGC](https://developer.nvidia.com/ai-hpc-containers), a registry of highly GPU-optimized software, has been enabling scientists and researchers by providing regularly updated and validated containers of HPC and AI applications. 
+
+NGC Containers make it easy to get started with distributed training without installing additional packages. The NGC catalog contains TensorFlow, PyTorch, MXNet and majority of most popular ML software.
+
+[Tensorflow NGC containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow) already provide OpenMPI, NCCL and Horovod. [Pytorch NGC containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) include OpenMPI and NCCL.
+
+
