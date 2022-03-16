@@ -8,9 +8,9 @@ graphical displays, including state diagrams, statistics, and timelines, can be 
 to obtain a better understanding of their parallel program inner working and to subsequently
 optimize it. Vampir allows to focus on appropriate levels of detail, which allows the detection and
 explanation of various performance bottlenecks such as load imbalances and communication
-deficiencies. Follow this
-[link](http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/forschung/projekte/vampir)
-for further information.
+deficiencies. [ZIH's Vampir overview page
+](http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/forschung/projekte/vampir) gives
+further information.
 
 [Score-P](scorep.md) is the primary code instrumentation and run-time measurement framework for
 Vampir and supports various instrumentation methods, including instrumentation at source level and
@@ -33,7 +33,7 @@ For members of TU Dresden the Vampir tool is also available as
 [download](http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/forschung/projekte/vampir/vampir_download_tu)
 for installation on your personal computer.
 
-Make sure, that compressed display forwarding (e.g., `ssh -YC taurus.hrsk.tu-dresden.de`) is
+Make sure, that compressed display forwarding (e.g., `ssh -YC taurus`) is
 enabled. Start the GUI by typing
 
 ```console
@@ -142,12 +142,17 @@ marie@login$ vampirserver list
 Open a second console on your local computer and establish an SSH tunnel to the compute node with:
 
 ```console
-marie@local$ ssh -L 30000:taurusi1253:30055 taurus.hrsk.tu-dresden.de
+marie@local$ ssh -L 30000:taurusi1253:30055 taurus
 ```
 
+!!! important "SSH command"
+
+    The previous SSH command requires that you have already set up your [SSH configuration
+    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
+
 Now, the port 30000 on your desktop is connected to the VampirServer port 30055 at the compute node
-taurusi1253 of Taurus. Finally, start your local Vampir client and establish a remote connection to
-`localhost`, port 30000 as described in the manual.
+`taurusi1253` of the ZIH system. Finally, start your local Vampir client and establish a remote
+connection to `localhost`, port 30000 as described in the manual.
 
 ```console
 marie@local$ vampir

@@ -1,20 +1,20 @@
-# Performance Analysis of HPC Applications with PIKA
+# PIKA
 
 PIKA is a hardware performance monitoring stack to identify inefficient HPC jobs. Users of ZIH
 systems have the possibility to visualize and analyze the efficiency of their jobs via the
-[PIKA web interface](https://selfservice.zih.tu-dresden.de/l/index.php/hpcportal/jobmonitoring/z../jobs_and_resources).
+[PIKA web interface](https://selfservice.zih.tu-dresden.de/l/index.php/hpcportal/jobmonitoring/zih/jobs).
 
 !!! hint
 
     To understand this small guide, it is recommended to open the
-    [web interface](https://selfservice.zih.tu-dresden.de/l/index.php/hpcportal/jobmonitoring/z../jobs_and_resources)
+    [web interface](https://selfservice.zih.tu-dresden.de/l/index.php/hpcportal/jobmonitoring/zih/jobs)
     in a separate window. Furthermore, at least one real HPC job should have been submitted.
 
 ## Overview
 
 PIKA consists of several components and tools. It uses the collection daemon collectd, InfluxDB to
 store time-series data and MariaDB to store job metadata. Furthermore, it provides a powerful
-[web interface](https://selfservice.zih.tu-dresden.de/l/index.php/hpcportal/jobmonitoring/z../jobs_and_resources)
+[web interface](https://selfservice.zih.tu-dresden.de/l/index.php/hpcportal/jobmonitoring/zih/jobs)
 for the visualization and analysis of job performance data.
 
 ## Table View and Job Search
@@ -90,7 +90,7 @@ reason for further investigation, since not all HUs are equally utilized.
 
 To identify imbalances between HUs over time, the visualization modes *Best* and *Lowest* are a
 first indicator how much the HUs differ in terms of resource usage. The timelines *Best* and
-*Lowest* show the recoded performance data of the best/lowest average HU over time.
+*Lowest* show the recorded performance data of the best/lowest average HU over time.
 
 ## Footprint Visualization
 
@@ -111,7 +111,7 @@ investigating their correlation.
 ## Hints
 
 If users wish to perform their own measurement of performance counters using performance tools other
-than PIKA, it is recommended to disable PIKA monitoring. This can be done using the following slurm
+than PIKA, it is recommended to disable PIKA monitoring. This can be done using the following Slurm
 flags in the job script:
 
 ```Bash

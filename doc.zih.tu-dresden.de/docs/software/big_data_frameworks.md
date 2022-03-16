@@ -1,0 +1,290 @@
+# Big Data Analytics
+
+[Apache Spark](https://spark.apache.org/), [Apache Flink](https://flink.apache.org/)
+and [Apache Hadoop](https://hadoop.apache.org/) are frameworks for processing and integrating
+Big Data. These frameworks are also offered as software [modules](modules.md) in both `ml` and
+`scs5` software environments. You can check module versions and availability with the command
+
+=== "Spark"
+    ```console
+    marie@login$ module avail Spark
+    ```
+=== "Flink"
+    ```console
+    marie@login$ module avail Flink
+    ```
+
+**Prerequisites:** To work with the frameworks, you need [access](../access/ssh_login.md) to ZIH
+systems and basic knowledge about data analysis and the batch system
+[Slurm](../jobs_and_resources/slurm.md).
+
+The usage of Big Data frameworks is different from other modules due to their master-worker
+approach. That means, before an application can be started, one has to do additional steps.
+In the following, we assume that a Spark application should be started and give alternative
+commands for Flink where applicable.
+
+The steps are:
+
+1. Load the Spark software module
+1. Configure the Spark cluster
+1. Start a Spark cluster
+1. Start the Spark application
+
+Apache Spark can be used in [interactive](#interactive-jobs) and [batch](#batch-jobs) jobs as well
+as via [Jupyter notebooks](#jupyter-notebook). All three ways are outlined in the following.
+
+## Interactive Jobs
+
+### Default Configuration
+
+The Spark and Flink modules are available in both `scs5` and `ml` environments.
+Thus, Spark and Flink can be executed using different CPU architectures, e.g., Haswell and Power9.
+
+Let us assume that two nodes should be used for the computation. Use a `srun` command similar to
+the following to start an interactive session using the partition haswell. The following code
+snippet shows a job submission to haswell nodes with an allocation of two nodes with 60000 MB main
+memory exclusively for one hour:
+
+```console
+marie@login$ srun --partition=haswell --nodes=2 --mem=60000M --exclusive --time=01:00:00 --pty bash -l
+```
+
+Once you have the shell, load desired Big Data framework using the command
+
+=== "Spark"
+    ```console
+    marie@compute$ module load Spark
+    ```
+=== "Flink"
+    ```console
+    marie@compute$ module load Flink
+    ```
+
+Before the application can be started, the cluster with the allocated nodes needs to be set up. To
+do this, configure the cluster first using the configuration template at `$SPARK_HOME/conf` for
+Spark or `$FLINK_ROOT_DIR/conf` for Flink:
+
+=== "Spark"
+    ```console
+    marie@compute$ source framework-configure.sh spark $SPARK_HOME/conf
+    ```
+=== "Flink"
+    ```console
+    marie@compute$ source framework-configure.sh flink $FLINK_ROOT_DIR/conf
+    ```
+
+This places the configuration in a directory called `cluster-conf-<JOB_ID>` in your home directory,
+where `<JOB_ID>` stands for the id of the Slurm job. After that, you can start in
+the usual way:
+
+=== "Spark"
+    ```console
+    marie@compute$ start-all.sh
+    ```
+=== "Flink"
+    ```console
+    marie@compute$ start-cluster.sh
+    ```
+
+The necessary background processes should now be set up and you can start your application, e. g.:
+
+=== "Spark"
+    ```console
+    marie@compute$ spark-submit --class org.apache.spark.examples.SparkPi \
+    $SPARK_HOME/examples/jars/spark-examples_2.12-3.0.1.jar 1000
+    ```
+=== "Flink"
+    ```console
+    marie@compute$ flink run $FLINK_ROOT_DIR/examples/batch/KMeans.jar
+    ```
+
+!!! warning
+
+    Do not delete the directory `cluster-conf-<JOB_ID>` while the job is still
+    running. This leads to errors.
+
+### Custom Configuration
+
+The script `framework-configure.sh` is used to derive a configuration from a template. It takes two
+parameters:
+
+- The framework to set up (parameter `spark` for Spark, `flink` for Flink, and `hadoop` for Hadoop)
+- A configuration template
+
+Thus, you can modify the configuration by replacing the default configuration template with a
+customized one. This way, your custom configuration template is reusable for different jobs. You
+can start with a copy of the default configuration ahead of your interactive session:
+
+=== "Spark"
+    ```console
+    marie@login$ cp -r $SPARK_HOME/conf my-config-template
+    ```
+=== "Flink"
+    ```console
+    marie@login$ cp -r $FLINK_ROOT_DIR/conf my-config-template
+    ```
+
+After you have changed `my-config-template`, you can use your new template in an interactive job
+with:
+
+=== "Spark"
+    ```console
+    marie@compute$ source framework-configure.sh spark my-config-template
+    ```
+=== "Flink"
+    ```console
+    marie@compute$ source framework-configure.sh flink my-config-template
+    ```
+
+### Using Hadoop Distributed Filesystem (HDFS)
+
+If you want to use Spark and HDFS together (or in general more than one framework), a scheme
+similar to the following can be used:
+
+=== "Spark"
+    ```console
+    marie@compute$ module load Hadoop
+    marie@compute$ module load Spark
+    marie@compute$ source framework-configure.sh hadoop $HADOOP_ROOT_DIR/etc/hadoop
+    marie@compute$ source framework-configure.sh spark $SPARK_HOME/conf
+    marie@compute$ start-dfs.sh
+    marie@compute$ start-all.sh
+    ```
+=== "Flink"
+    ```console
+    marie@compute$ module load Hadoop
+    marie@compute$ module load Flink
+    marie@compute$ source framework-configure.sh hadoop $HADOOP_ROOT_DIR/etc/hadoop
+    marie@compute$ source framework-configure.sh flink $FLINK_ROOT_DIR/conf
+    marie@compute$ start-dfs.sh
+    marie@compute$ start-cluster.sh
+    ```
+
+## Batch Jobs
+
+Using `srun` directly on the shell blocks the shell and launches an interactive job. Apart from
+short test runs, it is **recommended to launch your jobs in the background using batch jobs**. For
+that, you can conveniently put the parameters directly into the job file and submit it via
+`sbatch [options] <job file>`.
+
+Please use a [batch job](../jobs_and_resources/slurm.md) with a configuration, similar to the
+example below:
+
+??? example "example-starting-script.sbatch"
+    === "Spark"
+        ```bash
+        #!/bin/bash -l
+        #SBATCH --time=01:00:00
+        #SBATCH --partition=haswell
+        #SBATCH --nodes=2
+        #SBATCH --exclusive
+        #SBATCH --mem=60000M
+        #SBATCH --job-name="example-spark"
+
+        module load Spark/3.0.1-Hadoop-2.7-Java-1.8-Python-3.7.4-GCCcore-8.3.0
+
+        function myExitHandler () {
+            stop-all.sh
+        }
+
+        #configuration
+        . framework-configure.sh spark $SPARK_HOME/conf
+
+        #register cleanup hook in case something goes wrong
+        trap myExitHandler EXIT
+
+        start-all.sh
+
+        spark-submit --class org.apache.spark.examples.SparkPi $SPARK_HOME/examples/jars/spark-examples_2.12-3.0.1.jar 1000
+
+        stop-all.sh
+
+        exit 0
+        ```
+    === "Flink"
+        ```bash
+        #!/bin/bash -l
+        #SBATCH --time=01:00:00
+        #SBATCH --partition=haswell
+        #SBATCH --nodes=2
+        #SBATCH --exclusive
+        #SBATCH --mem=60000M
+        #SBATCH --job-name="example-flink"
+
+        module load Flink/1.12.3-Java-1.8.0_161-OpenJDK-Python-3.7.4-GCCcore-8.3.0
+
+        function myExitHandler () {
+            stop-cluster.sh
+        }
+
+        #configuration
+        . framework-configure.sh flink $FLINK_ROOT_DIR/conf
+
+        #register cleanup hook in case something goes wrong
+        trap myExitHandler EXIT
+
+        #start the cluster
+        start-cluster.sh
+
+        #run your application
+        flink run $FLINK_ROOT_DIR/examples/batch/KMeans.jar
+
+        #stop the cluster
+        stop-cluster.sh
+
+        exit 0
+        ```
+
+## Jupyter Notebook
+
+You can run Jupyter notebooks with Spark and Flink on the ZIH systems in a similar way as described
+on the [JupyterHub](../access/jupyterhub.md) page.
+
+### Spawning a Notebook
+
+Go to [https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
+In the tab "Advanced", go to the field "Preload modules" and select the following Spark or Flink
+module:
+
+=== "Spark"
+    ```
+    Spark/3.0.1-Hadoop-2.7-Java-1.8-Python-3.7.4-GCCcore-8.3.0
+    ```
+=== "Flink"
+    ```
+    Flink/1.12.3-Java-1.8.0_161-OpenJDK-Python-3.7.4-GCCcore-8.3.0
+    ```
+
+When your Jupyter instance is started, you can set up Spark/Flink. Since the setup in the notebook
+requires more steps than in an interactive session, we have created example notebooks that you can
+use as a starting point for convenience: [SparkExample.ipynb](misc/SparkExample.ipynb),
+[FlinkExample.ipynb](misc/FlinkExample.ipynb)
+
+!!! warning
+
+    The notebooks only work with the Spark or Flink module mentioned above. When using other
+    Spark/Flink modules, it is possible that you have to do additional or other steps in order to
+    make Spark/Flink running.
+
+!!! note
+
+    You could work with simple examples in your home directory, but, according to the
+    [storage concept](../data_lifecycle/overview.md), **please use
+    [workspaces](../data_lifecycle/workspaces.md) for your study and work projects**. For this
+    reason, you have to use advanced options of Jupyterhub and put "/" in "Workspace scope" field.
+
+## FAQ
+
+Q: Command `source framework-configure.sh hadoop $HADOOP_ROOT_DIR/etc/hadoop` gives the output:
+`bash: framework-configure.sh: No such file or directory`. How can this be resolved?
+
+A: Please try to re-submit or re-run the job and if that doesn't help re-login to the ZIH system.
+
+Q: There are a lot of errors and warnings during the set up of the session
+
+A: Please check the work capability on a simple example as shown in this documentation.
+
+!!! help
+
+    If you have questions or need advice, please use the contact form on
+    [https://scads.ai/contact/](https://scads.ai/contact/) or contact the HPC support.

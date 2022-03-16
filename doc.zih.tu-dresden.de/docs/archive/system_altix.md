@@ -22,9 +22,9 @@ The jobs for these partitions (except Neptun) are scheduled by the [Platform LSF
 batch system running on `mars.hrsk.tu-dresden.de`. The actual placement of a submitted job may
 depend on factors like memory size, number of processors, time limit.
 
-### File Systems
+### Filesystems
 
-All partitions share the same CXFS file systems `/work` and `/fastfs`.
+All partitions share the same CXFS filesystems `/work` and `/fastfs`.
 
 ### ccNUMA Architecture
 
@@ -72,16 +72,16 @@ The current SGI Altix is based on the dual core Intel Itanium 2
 processor (code name "Montecito"). One core has the following basic
 properties:
 
-|                                     |                            |
+| Component                           | Count                      |
 |-------------------------------------|----------------------------|
-| clock rate                          | 1.6 GHz                    |
-| integer units                       | 6                          |
-| floating point units (multiply-add) | 2                          |
-| peak performance                    | 6.4 GFLOPS                 |
+| Clock rate                          | 1.6 GHz                    |
+| Integer units                       | 6                          |
+| Floating point units (multiply-add) | 2                          |
+| Peak performance                    | 6.4 GFLOPS                 |
 | L1 cache                            | 2 x 16 kB, 1 clock latency |
 | L2 cache                            | 256 kB, 5 clock latency    |
 | L3 cache                            | 9 MB, 12 clock latency     |
-| front side bus                      | 128 bit x 200 MHz          |
+| Front side bus                      | 128 bit x 200 MHz          |
 
 The theoretical peak performance of all Altix partitions is hence about 13.1 TFLOPS.
 
@@ -123,8 +123,8 @@ nodes with dedicated resources for the user's job. Normally a job can be submitt
 
 #### LSF
 
-The batch system on Atlas is LSF. For general information on LSF, please follow
-[this link](platform_lsf.md).
+The batch system on Atlas is LSF, see also the
+[general information on LSF](platform_lsf.md).
 
 #### Submission of Parallel Jobs
 

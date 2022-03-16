@@ -1,4 +1,4 @@
-# Nanoscale Modeling Tools
+# Nanoscale Simulations
 
 ## ABINIT
 
@@ -81,8 +81,8 @@ For runs with [Slurm](../jobs_and_resources/slurm.md), please use a script like 
 
 ```Bash
 #!/bin/bash
-#SBATCH -t 120
-#SBATCH -n 8
+#SBATCH --time=120
+#SBATCH --ntasks=8
 #SBATCH --ntasks-per-node=2
 ## you have to make sure that an even number of tasks runs on each node !!
 #SBATCH --mem-per-cpu=1900
@@ -230,7 +230,7 @@ Module ORCA/4.2.1-gompi-2019b and 11 dependencies loaded.
 
 ## Siesta
 
-[Siesta](https://www.uam.es/siesta) (Spanish Initiative for Electronic Simulations with
+[Siesta](https://siesta-project.org/siesta) (Spanish Initiative for Electronic Simulations with
 Thousands of Atoms) is both a method and its computer program implementation,
 to perform electronic structure calculations and ab initio
 molecular dynamics simulations of molecules and solids.

@@ -13,18 +13,22 @@ Issues concerning this documentation can reported via the GitLab
 Please check for any already existing issue before submitting your issue in order to avoid duplicate
 issues.
 
-Contributions from user-side are highly welcome. Please refer to
-the detailed [documentation](contrib/howto_contribute.md) to get started.
+Contributions from user-side are highly welcome. Please find out more in our [guidelines how to contribute](contrib/howto_contribute.md).
 
-**Reminder:** Non-documentation issues and requests need to be send as ticket to
-[hpcsupport@zih.tu-dresden.de](mailto:hpcsupport@zih.tu-dresden.de).
+!!! tip "Reminder"
 
----
-
----
+    Non-documentation issues and requests need to be send as ticket to
+    [hpcsupport@zih.tu-dresden.de](mailto:hpcsupport@zih.tu-dresden.de).
 
 ## News
 
-**2021-10-05** Offline-maintenance (black building test)
+**2022-01-13** [Supercomputing extension for TU Dresden](https://tu-dresden.de/zih/die-einrichtung/news/supercomputing-cluster-2022)
 
-**2021-09-29** Introduction to HPC at ZIH ([slides](misc/HPC-Introduction.pdf))
+**2021-09-29** Introduction to HPC at ZIH ([HPC introduction slides](misc/HPC-Introduction.pdf))
+
+## Training and Courses
+
+We offer a rich and colorful bouquet of courses from classical *HPC introduction* to various
+*Performance Analysis* and *Machine Learning* trainings. Please refer to the page
+[Training Offers](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-training)
+for a detailed overview of the courses and the respective dates at ZIH.

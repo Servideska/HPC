@@ -20,8 +20,8 @@ To collect performance events, PAPI provides two APIs, the *high-level* and *low
 
 The high-level API provides the ability to record performance events inside instrumented regions of
 serial, multi-processing (MPI, SHMEM) and thread (OpenMP, Pthreads) parallel applications. It is
-designed for simplicity, not flexibility. For more details click
-[here](https://bitbucket.org/icl/papi/wiki/PAPI-HL.md).
+designed for simplicity, not flexibility. More details can be found in the
+[PAPI wiki High-Level API description](https://bitbucket.org/icl/papi/wiki/PAPI-HL.md).
 
 The following code example shows the use of the high-level API by marking a code section.
 
@@ -86,32 +86,33 @@ more output files in JSON format.
 
 ### Low-Level API
 
-The low-level API manages hardware events in user-defined groups
-called Event Sets. It is meant for experienced application programmers and tool developers wanting
-fine-grained measurement and control of the PAPI interface. It provides access to both PAPI preset
-and native events, and supports all installed components. For more details on the low-level API,
-click [here](https://bitbucket.org/icl/papi/wiki/PAPI-LL.md).
+The low-level API manages hardware events in user-defined groups called Event Sets. It is meant for
+experienced application programmers and tool developers wanting fine-grained measurement and
+control of the PAPI interface. It provides access to both PAPI preset and native events, and
+supports all installed components. The PAPI wiki contains also a page with more details on the
+[low-level API](https://bitbucket.org/icl/papi/wiki/PAPI-LL.md).
 
 ## Usage on ZIH Systems
 
 Before you start a PAPI measurement, check which events are available on the desired architecture.
-For this purpose PAPI offers the tools `papi_avail` and `papi_native_avail`. If you want to measure
+For this purpose, PAPI offers the tools `papi_avail` and `papi_native_avail`. If you want to measure
 multiple events, please check which events can be measured concurrently using the tool
-`papi_event_chooser`. For more details on the PAPI tools click
-[here](https://bitbucket.org/icl/papi/wiki/PAPI-Overview.md#markdown-header-papi-utilities).
+`papi_event_chooser`. The PAPI wiki contains more details on
+[the PAPI tools](https://bitbucket.org/icl/papi/wiki/PAPI-Overview.md#markdown-header-papi-utilities).
 
 !!! hint
 
     The PAPI tools must be run on the compute node, using an interactive shell or job.
 
 !!! example "Example: Determine the events on the partition `romeo` from a login node"
+    Let us assume, that you are in project `p_marie`. Then, use the following commands:
 
     ```console
     marie@login$ module load PAPI
-    marie@login$ salloc -A <project> --partition=romeo
+    marie@login$ salloc --account=p_marie --partition=romeo
     [...]
-    marie@login$ srun papi_avail
-    marie@login$ srun papi_native_avail
+    marie@compute$ srun papi_avail
+    marie@compute$ srun papi_native_avail
     [...]
     # Exit with Ctrl+D
     ```
@@ -120,12 +121,13 @@ Instrument your application with either the high-level or low-level API. Load th
 compile your application against the  PAPI library.
 
 !!! example
+    Assuming that you are in project `p_marie`, use the following commands:
 
     ```console
     marie@login$ module load PAPI
     marie@login$ gcc app.c -o app -lpapi
-    marie@login$ salloc -A <project> --partition=romeo
-    marie@login$ srun ./app
+    marie@login$ salloc --account=p_marie --partition=romeo
+    marie@compute$ srun ./app
     [...]
     # Exit with Ctrl+D
     ```
@@ -133,8 +135,7 @@ compile your application against the  PAPI library.
 !!! hint
 
     The PAPI modules on ZIH systems are only installed with the default `perf_event` component. If you
-    want to measure, e.g., GPU events, you have to install your own PAPI. Instructions on how to
-    download and install PAPI can be found
-    [here](https://bitbucket.org/icl/papi/wiki/Downloading-and-Installing-PAPI.md). To install PAPI
-    with additional components, you have to specify them during configure, for details click
-    [here](https://bitbucket.org/icl/papi/wiki/PAPI-Overview.md#markdown-header-components).
+    want to measure, e.g., GPU events, you have to install your own PAPI. Please see the
+    [external instructions on how to download and install PAPI](https://bitbucket.org/icl/papi/wiki/Downloading-and-Installing-PAPI.md).
+    To install PAPI with additional components, you have to specify them during configure as
+    described for the [Installation of Components](https://bitbucket.org/icl/papi/wiki/PAPI-Overview.md#markdown-header-components).

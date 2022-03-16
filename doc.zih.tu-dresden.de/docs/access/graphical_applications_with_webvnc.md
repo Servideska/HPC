@@ -38,7 +38,7 @@ marie@login$ srun --pty --partition=interactive --mem-per-cpu=2500 --cpus-per-ta
 [...]
 ```
 
-Of course, you can adjust the batch job parameters to your liking. Note that the default timelimit
+Of course, you can adjust the batch job parameters to your liking. Note that the default time limit
 in partition `interactive` is only 30 minutes, so you should specify a longer one with `--time` (or `-t`).
 
 The script will automatically generate a self-signed SSL certificate and place it in your home
@@ -60,14 +60,19 @@ Direct access to the compute nodes is not allowed. Therefore, you have to create
 laptop or workstation to the specific compute node and port as follows.
 
 ```bash
-marie@local$ ssh -NL <local port>:<compute node>:<remote port> <zih login>@tauruslogin.hrsk.tu-dresden.de
+marie@local$ ssh -NL <local port>:<compute node>:<remote port> taurus
 ```
 
 e.g.
 
 ```console
-marie@local$ ssh -NL 5901:172.24.146.46:5901 marie@tauruslogin.hrsk.tu-dresden.de
+marie@local$ ssh -NL 5901:172.24.146.46:5901 taurus
 ```
+
+!!! important "SSH command"
+
+    The previous SSH command requires that you have already set up your [SSH configuration
+    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 ### Step 3
 

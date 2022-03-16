@@ -1,4 +1,4 @@
-# Use of Containers
+# Singularity
 
 [Containerization](https://www.ibm.com/cloud/learn/containerization) encapsulating or packaging up
 software code and all its dependencies to run uniformly and consistently on any infrastructure. On
@@ -12,14 +12,14 @@ Singularity. Information about the use of Singularity on ZIH systems can be foun
 In some cases using Singularity requires a Linux machine with root privileges (e.g. using the
 partition `ml`), the same architecture and a compatible kernel. For many reasons, users on ZIH
 systems cannot be granted root permissions. A solution is a Virtual Machine (VM) on the partition
-`ml` which allows users to gain root permissions in an isolated environment.  There are two main
+`ml` which allows users to gain root permissions in an isolated environment. There are two main
 options on how to work with Virtual Machines on ZIH systems:
 
-1. [VM tools](virtual_machines_tools.md): Automative algorithms for using virtual machines;
+1. [VM tools](singularity_power9.md): Automated algorithms for using virtual machines;
 1. [Manual method](virtual_machines.md): It requires more operations but gives you more flexibility
    and reliability.
 
-## Singularity
+## Usage of Singularity
 
 If you wish to containerize your workflow and/or applications, you can use Singularity containers on
 ZIH systems. As opposed to Docker, this solution is much more suited to being used in an HPC
@@ -31,11 +31,11 @@ environment.
     creating a new container requires root privileges.
 
 However, new containers can be created on your local workstation and moved to ZIH systems for
-execution. Follow the instructions for [locally install Singularity](#local-installation) and
-[container creation](#container-creation).  Moreover, existing Docker container can easily be
-converted, which is documented [here](#importing-a-docker-container).
+execution. Follow the instructions for [locally installing Singularity](#local-installation) and
+[container creation](#container-creation). Moreover, existing Docker container can easily be
+converted, see [Import a docker container](#importing-a-docker-container).
 
-If you are already familar with Singularity, you might be more intressted in our [singularity
+If you are already familiar with Singularity, you might be more interested in our [singularity
 recipes and hints](singularity_recipe_hints.md).
 
 ### Local Installation
@@ -101,7 +101,7 @@ You can create a new custom container on your workstation, if you have root righ
 
     You cannot create containers for the partition `ml`, as it bases on Power9 micro-architecture
     which is different to the x86 architecture in common computers/laptops. For that you can use
-    the [VM Tools](virtual_machines_tools.md).
+    the [VM Tools](singularity_power9.md).
 
 Creating a container is done by writing a **definition file** and passing it to
 

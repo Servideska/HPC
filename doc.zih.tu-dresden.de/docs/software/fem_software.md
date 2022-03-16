@@ -11,7 +11,7 @@
     marie@login$ module load ANSYS/<version>
     ```
 
-    The section [runtime environment](runtime_environment.md) provides a comprehensive overview
+    The section [runtime environment](modules.md) provides a comprehensive overview
     on the module system and relevant commands.
 
 ## Abaqus
@@ -26,7 +26,7 @@ etc.
 Eike Dohmen (from Inst. f. Leichtbau und Kunststofftechnik) sent us the description of his
 Abaqus calculations. Please try to adapt your calculations in that way. Eike is normally a
 Windows user and his description contains also some hints for basic Unix commands:
-[Abaqus-Slurm.pdf (only in German)](misc/ABAQUS-SLURM.pdf).
+[Abaqus-Slurm.pdf (only in German)](misc/abaqus-slurm.pdf).
 
 ### General
 
@@ -59,7 +59,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     #SBATCH --job-name=yyyy         # give a name, what ever you want
     #SBATCH --mail-type=END,FAIL    # send email when the job finished or failed
     #SBATCH --mail-user=<name>@mailbox.tu-dresden.de  # set your email
-    #SBATCH -A p_xxxxxxx            # charge compute time to your project
+    #SBATCH --account=p_marie       # charge compute time to project p_marie
 
 
     # Abaqus has its own MPI
@@ -75,7 +75,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     ```
     4. Control the status of the job
     ```
-    marie@login squeue -u your_login     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
+    marie@login squeue --me     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
     ```
 
 ## Ansys
@@ -114,7 +114,7 @@ If more time is needed, a CPU has to be allocated like this (see
 
 ```console
 marie@login$ module load ANSYS/<version>
-marie@login$ srun -t 00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
+marie@login$ srun --time=00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
 [...]
 marie@login$ runwb2
 ```
@@ -162,7 +162,7 @@ parameter (for batch mode), `-F` for your project file, and can then either add 
 ### Running Workbench in Parallel
 
 Unfortunately, the number of CPU cores you wish to use cannot simply be given as a command line
-parameter to your `runwb2` call. Instead, you have to enter it into an XML file in your `home`
+parameter to your `runwb2` call. Instead, you have to enter it into an XML file in your home
 directory. This setting will then be **used for all** your `runwb2` jobs. While it is also possible
 to edit this setting via the Mechanical GUI, experience shows that this can be problematic via
 X11-forwarding and we only managed to use the GUI properly via [DCV](virtual_desktops.md), so we
@@ -176,7 +176,7 @@ under:
 
 `<MaxNumberProcessors>2</MaxNumberProcessors>`
 
-that you can simply change to something like 16 oder 24. For now, you should stay within single-node
+that you can simply change to something like 16 or 24. For now, you should stay within single-node
 boundaries, because multi-node calculations require additional parameters. The number you choose
 should match your used `--cpus-per-task` parameter in your job file.
 
@@ -208,7 +208,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun -n 1 -c 4 --mem-per-cpu=2500 -t 8:00 comsol -np 4 server
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 comsol -np 4 server
     ```
 
 ??? example "Interactive Job"
@@ -218,7 +218,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun -n 1 -c 4 --mem-per-cpu=2500 -t 8:00 --pty --x11=first comsol -np 4
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 --pty --x11=first comsol -np 4
     ```
 
     Please make sure, that the option *Preferences* --> Graphics --> *Renedering* is set to *software

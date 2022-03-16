@@ -3,7 +3,7 @@
 !!! warning
 
     This documentation page is outdated.
-    The up-to date documentation on BeeGFS can be found [here](../data_lifecycle/beegfs.md).
+    Please see the [new BeeGFS page](../data_lifecycle/beegfs.md).
 
 **Prerequisites:** To work with TensorFlow you obviously need a [login](../application/overview.md) to
 the ZIH systems and basic knowledge about Linux, mounting, and batch system Slurm.
@@ -105,7 +105,7 @@ Show contents of the previously created file, for example,
 cat .beegfs_11054579
 ```
 
-Note: don't forget to go over to your `home` directory where the file located
+Note: don't forget to go over to your home directory where the file located
 
 Example output:
 

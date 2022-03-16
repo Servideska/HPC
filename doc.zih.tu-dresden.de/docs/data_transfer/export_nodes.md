@@ -1,4 +1,4 @@
-# Export Nodes: Transfer Data to/from ZIH's Filesystems
+# Export Nodes - Data Transfer to/from ZIH Systems
 
 To copy large data to/from ZIH systems, the so-called **export nodes** should be used. While it is
 possible to transfer small files directly via the login nodes, they are not intended to be used that
@@ -9,10 +9,18 @@ that you cannot log in via SSH to the export nodes, but only use `scp`, `rsync` 
 The export nodes are reachable under the hostname `taurusexport.hrsk.tu-dresden.de` (or
 `taurusexport3.hrsk.tu-dresden.de` and `taurusexport4.hrsk.tu-dresden.de`).
 
+Please keep in mind that there are different
+[filesystems](../data_lifecycle/file_systems.md#recommendations-for-filesystem-usage). Choose the
+one that matches your needs.
+
 ## Access From Linux
 
-There are at least three tool to exchange data between your local workstation and ZIH systems. All
-are explained in the following abstract in more detail.
+There are at least three tools to exchange data between your local workstation and ZIH systems. They
+are explained in the following section in more detail.
+
+!!! important
+    The following explanations require that you have already set up your
+    [SSH configuration](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 ### SCP
 
@@ -22,20 +30,34 @@ in a directory, the option `-r` has to be specified.
 
 ??? example "Example: Copy a file from your workstation to ZIH systems"
 
-    ```console
-    marie@local$ scp <file> <zih-user>@taurusexport.hrsk.tu-dresden.de:<target-location>
+    ```bash
+    marie@local$ scp <file> taurusexport:<target-location>
 
     # Add -r to copy whole directory
-    marie@local$ scp -r <directory> <zih-user>@taurusexport.hrsk.tu-dresden.de:<target-location>
+    marie@local$ scp -r <directory> taurusexport:<target-location>
+    ```
+
+    For example, if you want to copy your data file `mydata.csv` to the directory `input` in your
+    home directory, you would use the following:
+
+    ```console
+    marie@local$ scp mydata.csv taurusexport:input/
     ```
 
 ??? example "Example: Copy a file from ZIH systems to your workstation"
 
-    ```console
-    marie@login$ scp <zih-user>@taurusexport.hrsk.tu-dresden.de:<file> <target-location>
+    ```bash
+    marie@local$ scp taurusexport:<file> <target-location>
 
     # Add -r to copy whole directory
-    marie@login$ scp -r <zih-user>@taurusexport.hrsk.tu-dresden.de:<directory> <target-location>
+    marie@local$ scp -r taurusexport:<directory> <target-location>
+    ```
+
+    For example, if you have a directory named `output` in your home directory on ZIH systems and
+    you want to copy it to the directory `/tmp` on your workstation, you would use the following:
+
+    ```console
+    marie@local$ scp -r taurusexport:output /tmp
     ```
 
 ### SFTP
@@ -48,7 +70,7 @@ use compression to increase performance.
 
 ```console
 # Enter virtual command line
-marie@local$ sftp <zih-user>@taurusexport.hrsk.tu-dresden.de
+marie@local$ sftp taurusexport
 # Exit virtual command line
 sftp> exit
 # or
@@ -63,7 +85,7 @@ from this virtual command line, then you have to prefix the command with the let
 ??? example "Example: Copy a file from your workstation to ZIH systems"
 
     ```console
-    marie@local$ sftp <zih-user>@taurusexport.hrsk.tu-dresden.de
+    marie@local$ sftp taurusexport
     # Copy file
     sftp> put <file>
     # Copy directory
@@ -73,7 +95,7 @@ from this virtual command line, then you have to prefix the command with the let
 ??? example "Example: Copy a file from ZIH systems to your local workstation"
 
     ```console
-    marie@local$ sftp <zih-user>@taurusexport.hrsk.tu-dresden.de
+    marie@local$ sftp taurusexport
     # Copy file
     sftp> get <file>
     # Copy directory
@@ -95,21 +117,29 @@ the local machine.
 
     ```console
     # Copy file
-    marie@local$ rsync <file> <zih-user>@taurusexport.hrsk.tu-dresden.de:<target-location>
+    marie@local$ rsync <file> taurusexport:<target-location>
     # Copy directory
-    marie@local$ rsync -r <directory> <zih-user>@taurusexport.hrsk.tu-dresden.de:<target-location>
+    marie@local$ rsync -r <directory> taurusexport:<target-location>
     ```
 
 ??? example "Example: Copy a file from ZIH systems to your local workstation"
 
     ```console
     # Copy file
-    marie@local$ rsync <zih-user>@taurusexport.hrsk.tu-dresden.de:<file> <target-location>
+    marie@local$ rsync taurusexport:<file> <target-location>
     # Copy directory
-    marie@local$ rsync -r <zih-user>@taurusexport.hrsk.tu-dresden.de:<directory> <target-location>
+    marie@local$ rsync -r taurusexport:<directory> <target-location>
     ```
 
 ## Access From Windows
+
+### Command Line
+
+Windows 10 (1809 and higher) comes with a
+[built-in OpenSSH support](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview)
+including the above described [SCP](#SCP) and [SFTP](#SFTP).
+
+### GUI - Using WinSCP
 
 First you have to install [WinSCP](http://winscp.net/eng/download.php).
 
