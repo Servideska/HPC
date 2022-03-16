@@ -71,10 +71,12 @@ Dockerfiles
 DockerHub
 dockerized
 DOI
+don'ts
 dotfile
 dotfiles
 downtime
 downtimes
+DYNA
 EasyBlocks
 EasyBuild
 EasyConfig
@@ -187,6 +189,7 @@ Mathematica
 MathKernel
 MathWorks
 matlab
+MatLab
 Matplotlib
 MEGWARE
 mem

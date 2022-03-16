@@ -9,15 +9,15 @@ The topics covered include:
 
 * Applying for the ZIH HPC login: things to know about obtaining access to the ZIH HPC
 * Accessing the ZIH HPC system: the list of options and corresponding instructions
-* Handling Data: the do's and don'ts of importing, transfering, managing data of your project
+* Handling Data: the do's and don'ts of importing, transferring, managing data of your project
 * Accessing software: understanding ZIH HPC software options for your software needs
 * Running a job: linking all of the above together to successfully setup and execute your code/program
 
 ## Introductory Instructions
 
-The ZIH HPC system is a linux system (as most HPC systems). Some basic linux knowledge is
+The ZIH HPC system is a Linux system (as most HPC systems). Some basic Linux knowledge is
 therefore needed. In preparation, explore the [collection](https://hpc-wiki.info/hpc/Shell)
-of the most important linux commands needed on the HPC system.
+of the most important Linux commands needed on the HPC system.
 
 To work on the ZIH HPC system and to follow the instructions on this page as well as other
 Compendium pages, it is important to be familiar with the
@@ -26,9 +26,9 @@ Compendium pages, it is important to be familiar with the
 [login node](https://hpc-wiki.info/hpc/HPC-Dictionary#Login_Node),
 [compute node](https://hpc-wiki.info/hpc/HPC-Dictionary#Backend_Node),
 [local and shared filesystem](https://hpc-wiki.info/hpc/HPC-Dictionary#File_System),
-[command line (cli) or shell](https://hpc-wiki.info/hpc/Shell).
+[command line (CLI) or shell](https://hpc-wiki.info/hpc/Shell).
 
-If you are new to HPC, we recomend visiting the introductory article about HPC at
+If you are new to HPC, we recommend visiting the introductory article about HPC at
 [https://hpc-wiki.info/hpc/Getting_Started](https://hpc-wiki.info/hpc/Getting_Started).
 
 Throughout the compendium `marie@login` is used as an indication of working on the ZIH HPC command
@@ -68,7 +68,7 @@ depending on the user's needs and previous knowledge:
 * [JupyterHub](../access/jupyterhub.md): browser based connection, easiest way for beginners
 * [ssh connection](../access/ssh_login.md) (command line/terminal/console): "classical" connection,
 command line knowledge is required
-* [Desktop Visualisation](../access/desktop_cloud_visualization.md),
+* [Desktop Visualization](../access/desktop_cloud_visualization.md),
   [Graphical User Interfaces (GUIs)](../access/graphical_applications_with_webvnc.md) and similar:
   e.g. commercial software such as Ansys, LS-DYNA (are not covered here).
 
@@ -89,7 +89,7 @@ Note that you will now be working in your home directory as opposed to a specifi
 (see [Data Management and Data Transfer](#data-management-and-data-transfer) section below for more details).
 
 !!! caution "Stopping session on JupyterHub"
-    Once you are done with your work on the ZIH HPC system, explicitely stop the session by logging
+    Once you are done with your work on the ZIH HPC system, explicitly stop the session by logging
     out by clicking `File` -> `Log Out`-> `Stop My Server`.
     Alternatively, choose `File` -> `Hub control panel` -> `Stop My Server`.
 
@@ -173,7 +173,7 @@ a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
 
 ???+ example "a) Small Data (up to 100 MB)"
 
-    Use the standard linux command `cp` on the commandline.
+    Use the standard Linux command `cp` on the command line.
 
     * Copy the file `example1.R` **from your ZIH home directory to a workspace**:
 
@@ -199,7 +199,7 @@ a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
 2. Export nodes are used for transfer of data between outside and inside the ZIH HPC system.
 
 ??? example "Copy a file between local machine and the ZIH HPC system (both directions)"
-    For transferring all data volume, use `scp` on the commandline.
+    For transferring all data volume, use `scp` on the command line.
 
     * Copy the file `example1.R` **from your local machine to a workspace** on the ZIH system:
 
@@ -237,7 +237,7 @@ a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
     by default. Therefore, the correct file permissions must be configured (using `chmod`
     and `chgrp`) for all files in the project home and the workspaces that should be fully
     accessible (read, write, execute) to your collaborator group.
-    A first [overview on users and permissions in linux can be found here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
+    A first [overview on users and permissions in Linux can be found here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
 
 ??? example "Checking and changing file permissions"
 
