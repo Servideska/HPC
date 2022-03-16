@@ -1,7 +1,5 @@
 # Getting Started
 
-<!-- This content will not appear in the rendered Markdown -->
-
 This page is intended to provide the key information on starting to work on the ZIH High Performance Computing (HPC) system and is of particular importance to new users. 
 It is a map of the compendium as it provides an overview of the most relevant topics and directs to the corresponding detailed articles within the compendium. 
 
@@ -66,9 +64,8 @@ There are different ways to access the ZIH HPC system (which are described in mo
 
 3. The `Simple` view offers a minimal selection of parameters to choose from. The `Advanced` view gives more opportunities. To get started, choose the `Simple` view, follow the image below for choice of parameters and then click `Spawn`
 
-<!-- ![Simple form](misc/jupyterhub-simple-2022-03.png) -->
-
-<img src="misc/jupyterhub-simple-2022-03.png" width="40%"/>
+![Simple form](misc/jupyterhub-simple-2022-03.png)
+{: align="center"}
 
 4. You will see:
 ![Spawning](misc/jupyterhub-spawning-2022-03.png)
@@ -83,7 +80,7 @@ There are different ways to access the ZIH HPC system (which are described in mo
  
 <!-- `Stop My Server` twice?!!-->
 
-Explore the [JupyterHub](../../access/jupyterhub.md) page for more information.
+Explore the [JupyterHub](../access/jupyterhub.md) page for more information.
 
 ### SSH Connection (Command Line)
 
@@ -92,7 +89,7 @@ This is the starting point for many tasks such as running programs and data mana
 
 !!! hint "Using ssh key pair"
 
-	We recommend to creat an ssh key pair by following the [instructions here](../../access/ssh_login.md#before-your-first-connection).
+	We recommend to creat an ssh key pair by following the [instructions here](../access/ssh_login.md#before-your-first-connection).
 	Using an ssh key pair is benefical for security reasons, although it is not necessary to work with the ZIH HPC system. 
 
 
@@ -114,7 +111,7 @@ marie@local$ ssh marie@taurus.hrsk.tu-dresden.de
 
 1. Follow the Linux/Mac Users section above.
 
-For more information, see the [Windows compendium page](../../access/ssh_login.md#connecting-from-windows).
+For more information, see the [Windows compendium page](../access/ssh_login.md#connecting-from-windows).
 
 ## Data Management and Data Transfer
 
@@ -232,7 +229,7 @@ Find more [information on workspaces in the compendium](../data_lifecycle/worksp
 ??? hint "GUI-based data management"
 
 	1. Transferring data and managing file permissions for smaller amounts of data can be handled by ssh clients.
-	**Windows users** can apply the [step-by-step procedure as indicated here](../../data_transfer/export_nodes.md#access-from-windows).
+	**Windows users** can apply the [step-by-step procedure as indicated here](../data_transfer/export_nodes.md#access-from-windows).
 	2. More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote folder from a server to a local machine) can be used to mount user home, project home or workspaces within the local folder structure. 
 	Data can be transferred directly with drag and drop in your local file explorer. 
 	Moreover, this approach makes it possible to edit files with your common editors and tools on the local machine.
