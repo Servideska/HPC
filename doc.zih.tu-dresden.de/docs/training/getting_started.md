@@ -25,7 +25,7 @@ Compendium pages, it is important to be familiar with the
 [ssh](https://hpc-wiki.info/hpc/SSH), [cluster](https://hpc-wiki.info/hpc/HPC-Dictionary#Cluster),
 [login node](https://hpc-wiki.info/hpc/HPC-Dictionary#Login_Node),
 [compute node](https://hpc-wiki.info/hpc/HPC-Dictionary#Backend_Node),
-[local and shared file system](https://hpc-wiki.info/hpc/HPC-Dictionary#File_System),
+[local and shared filesystem](https://hpc-wiki.info/hpc/HPC-Dictionary#File_System),
 [command line (cli) or shell](https://hpc-wiki.info/hpc/Shell).
 
 If you are new to HPC, we recomend visiting the introductory article about HPC at
@@ -145,7 +145,7 @@ To start we recommend the Lustre filesystem **scratch**.
     * on the scratch filesystem: `-F scratch`
     * with the name: `test-workspace`
     * a life time of `90` days
-    * an email is sent to `marie.testuser@tu-dresden.de` 7 days before expiration: 
+    * an email is sent to `marie.testuser@tu-dresden.de` 7 days before expiration:
       `-r 7 -m marie.testuser@tu-dresden.de`
 
     ```console
@@ -167,7 +167,7 @@ Find more [information on workspaces in the compendium](../data_lifecycle/worksp
 
     1. transfer within the ZIH system
     1. transfer to or from the ZIH system
-  
+
 1. The approach for transferring data within the ZIH system depends on the data volume:
 a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
 
@@ -206,9 +206,9 @@ a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
     ```console
     marie@local$ scp /home/marie/Documents/example1.R marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/
     Password:
-    example1.R                                                     100%  312    32.2KB/s   00:00`` 
+    example1.R                                                     100%  312    32.2KB/s   00:00``
     ```
-  
+
     Note that the target path contains `taurusexport.hrsk.tu-dresden.de`, which is one of the
     so called export nodes that allow for data transfer from/to the outside.
 
@@ -230,32 +230,32 @@ a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
 !!! caution "Permission rights are crucial in a collaborative setting"
 
     Whenever working within a collaborative setting, take care of the file permissions.
-    Esp. after creating and transferring data, file permission configuration might be necessary.  
+    Esp. after creating and transferring data, file permission configuration might be necessary.
 
     **By default, workspaces are accessible only for the user who created the workspace.**
     Files created by a user in the project directory have read-only access for other group members
-    by default. Therefore, the correct file permissions must be configured (using `chmod` 
+    by default. Therefore, the correct file permissions must be configured (using `chmod`
     and `chgrp`) for all files in the project home and the workspaces that should be fully
     accessible (read, write, execute) to your collaborator group.
     A first [overview on users and permissions in linux can be found here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
 
 ??? example "Checking and changing file permissions"
-  
+
     The following example checks for file permissions (`ls -l`) of the file dataset.csv and adds
     permissions for write access for the group (`chmod g+w`).
 
     ```console
     marie@login$ ls -la /scratch/ws/0/marie-training-data/dataset.csv # list file permissions
-    -rw-r--r-- 1 nhr066 p_nhr_mlhpc 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
- 
+    -rw-r--r-- 1 marie p_marie 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
+
     marie@login$ chmod g+w /scratch/ws/0/marie-training-data/dataset.csv # add write permissions
 
     marie@login$ ls -la /scratch/ws/0/marie-training-data/dataset.csv # list file permissions again
-    -rw-rw-r-- 1 nhr066 p_nhr_mlhpc 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
+    -rw-rw-r-- 1 marie p_marie 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
     ```
 
     [More details on `chmod` can be found here](http://bropages.org/chmod).
-  
+
 ??? hint "GUI-based data management"
 
     1. Transferring data and managing file permissions for smaller amounts of data can be handled by ssh clients.
@@ -281,7 +281,7 @@ software you need to "load" the respective module.
 1. Use `module spider <software>` command to check all available versions of the software.
 
 ```console
-marie@login$ module spider Python 
+marie@login$ module spider Python
 --------------------------------------------------------------------------------------------------------------------------------
   Python:
 --------------------------------------------------------------------------------------------------------------------------------
@@ -382,7 +382,7 @@ For additional information refer to the detailed documentation on [modules](../s
     especially for Python. Please check out the module system, even for specific Python packages,
     e.g. `tqdm`, `torchvision`, `tensorboard`, etc. to get a better idea of what is available.
     The Python (and other) package ecosystem is very heterogeneous and dynamic, daily updates.
-    The central update cycle for software on the ZIH HPC system occurs approximately every six 
+    The central update cycle for software on the ZIH HPC system occurs approximately every six
     months.
 
 ## Running a Program/Job
@@ -411,7 +411,7 @@ See [Slurm documentation](../jobs_and_resources/slurm.md#interactive-jobs) for m
 marie@login$ srun --partition=haswell --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 --pty bash -l #allocate 4 cores for the interactive job
 marie@login$ module load Python #load necessary packages
 marie@login$ cd /scratch/ws/0/marie-test-workspace/ #go to your created workspace
-marie@login$ python test.py #execute your file 
+marie@login$ python test.py #execute your file
 Hello, World!
 ```
 
