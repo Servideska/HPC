@@ -103,7 +103,7 @@ This is the starting point for many tasks such as running programs and data mana
 
 !!! hint "Using ssh key pair"
 
-    We recommend to creat an ssh key pair by following the
+    We recommend to create an ssh key pair by following the
     [instructions here](../access/ssh_login.md#before-your-first-connection).
     Using an ssh key pair is benefical for security reasons, although it is not necessary to work
     with the ZIH HPC system.
@@ -279,7 +279,6 @@ software you need to "load" the respective module.
     See [software](../software/overview.md) for more details.
 
 1. Use `module spider <software>` command to check all available versions of the software.
-
 ```console
 marie@login$ module spider Python
 --------------------------------------------------------------------------------------------------------------------------------
@@ -310,11 +309,9 @@ marie@login$ module spider Python
      $ module spider Python/3.9.5
 --------------------------------------------------------------------------------------------------------------------------------
 ```
-
 We now see the list of versions of Python that are available.
 
-2. To get information on a specific module, use `module spider <software>/<version>` call.
-
+1. To get information on a specific module, use `module spider <software>/<version>` call.
 ```console  hl_lines="9 10 11"
 marie@login$ module spider Python/3.9.5
 --------------------------------------------------------------------------------------------------------------------------------
@@ -351,12 +348,10 @@ marie@login$ module spider Python/3.9.5
       attrs-21.2.0, Babel-2.9.1, bcrypt-3.2.0, bitstring-3.1.7, blist-1.3.6,
       [...]
 ```
-
 In some cases it is required to load additional modules before loading the desired software.
 In the example above, these are `modenv/hiera` and `GCCcore/10.3.0`.
 
-3. Load prerequisites and the desired software:
-
+1. Load prerequisites and the desired software:
 ```console
 marie@login$ module load modenv/hiera  GCCcore/10.3.0  # load prerequisites
 
@@ -373,7 +368,7 @@ For additional information refer to the detailed documentation on [modules](../s
 
 ??? hint "Special hints on different software"
 
-   Special hints on different software can be found [here for Python](../software/data_analytics_with_python.md),
+    Special hints on different software can be found [here for Python](../software/data_analytics_with_python.md),
     [R](../software/data_analytics_with_r.md), [Mathematica/MatLab](../software/mathematics.md), ...
 
 ??? hint "Hint on Python packages"
