@@ -7,7 +7,7 @@ This documentation and the repository have two licenses (cf. [Legal Notice](../l
 * All documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 * All software components are licensed under [MIT license](../license_mit.txt).
 
-These licenses will also apply to your contributions.
+These licenses also apply to your contributions.
 
 !!! note
 
