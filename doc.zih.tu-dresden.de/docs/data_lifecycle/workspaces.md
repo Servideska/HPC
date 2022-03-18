@@ -184,7 +184,7 @@ well as a workspace that already contains data.
 ## Linking Workspaces in HOME
 
 It might be valuable to have links to personal workspaces within a certain directory, e.g., your
-`home` directory. The command `ws_register DIR` will create and manage links to all personal
+home directory. The command `ws_register DIR` will create and manage links to all personal
 workspaces within in the directory `DIR`. Calling this command will do the following:
 
 - The directory `DIR` will be created if necessary.

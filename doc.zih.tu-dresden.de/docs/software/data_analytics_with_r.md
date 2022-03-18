@@ -269,8 +269,8 @@ since both are running multicore jobs on a **single** node. Below is an example:
 #SBATCH --tasks-per-node=1
 #SBATCH --cpus-per-task=16
 #SBATCH --time=00:10:00
-#SBATCH -o test_Rmpi.out
-#SBATCH -e test_Rmpi.err
+#SBATCH --output=test_Rmpi.out
+#SBATCH --error=test_Rmpi.err
 
 module purge
 module load modenv/scs5
