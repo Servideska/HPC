@@ -23,7 +23,7 @@ There are the commands `dtinfo`, `dtqueue`, `dtq`, and `dtcancel` to manage your
 and jobs.
 
 * `dtinfo` shows information about the nodes of the data transfer machine (like `sinfo`).
-* `dtqueue` and `dtq` show all your data transfer jobs (like `squeue -u $USER`).
+* `dtqueue` and `dtq` show all your data transfer jobs (like `squeue --me`).
 * `dtcancel` signals data transfer jobs (like `scancel`).
 
 To identify the mount points of the different filesystems on the data transfer machine, use

@@ -60,6 +60,10 @@ marie@compute$ ./Anaconda3-2019.03-Linux-x86_64.sh
 
 (during installation you have to confirm the license agreement)
 
+!!! hint
+    For working with conda virtual environments, it may be necessary to configure your shell via
+    `conda init` as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
+
 Next step will install the anaconda environment into the home
 directory (`/home/userxx/anaconda3`). Create a new anaconda environment with the name `jnb`.
 

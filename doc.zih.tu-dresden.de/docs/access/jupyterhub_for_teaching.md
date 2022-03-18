@@ -35,9 +35,20 @@ other material to your students.
 ![Git pull progress screen](misc/gitpull_progress.png)
 {: align="center"}
 
-A shareable link for this feature looks like this:
+To create a shareable link, we recommend to use [URL encoding](https://en.wikipedia.org/wiki/Percent-encoding)
+instead of plain text for the link in order to avoid defective links. The
+[nbgitpuller link generator](https://jupyterhub.github.io/nbgitpuller/link?hub=https://taurus.hrsk.tu-dresden.de/jupyter/)
+supports you in generating valid links for sharing.
 
-<https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https://github.com/jdwittenauer/ipython-notebooks&urlpath=/tree/ipython-notebooks/notebooks/language/Intro.ipynb>
+??? example
+    A shareable link for this feature looks like this:
+    ```
+    https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fjdwittenauer%2Fipython-notebooks&urlpath=tree%2Fipython-notebooks%2Fnotebooks%2Flanguage%2FIntro.ipynb
+    ```
+
+!!! warning
+    For illustration purposes, we use plain text links in the following parts. In practice, we
+    highly recommend to use URL encoded links instead.
 
 ![URL with git-pull parameters](misc/url-git-pull.png)
 {: align="center"}
@@ -54,10 +65,6 @@ The following parameters are available:
 |`branch`  | branch in the repository to pull from default: `master`|
 |`urlpath` | URL to redirect the user to a certain file, [more info about parameter urlpath](https://jupyterhub.github.io/nbgitpuller/topic/url-options.html#urlpath)|
 |`depth`   | clone only a certain amount of latest commits not recommended|
-
-This [link
-generator](https://jupyterhub.github.io/nbgitpuller/link?hub=https://taurus.hrsk.tu-dresden.de/jupyter/)
-might help creating those links
 
 ## Spawn Options Pass-through with URL Parameters
 
@@ -101,9 +108,9 @@ address bar contains the encoded parameters starting with `#/`.
 
 You can combine both features in a single link:
 
-    ```
-    https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https://github.com/jdwittenauer/ipython-notebooks&urlpath=/tree/ipython-notebooks/notebooks/language/Intro.ipynb#/~(partition~'interactive~environment~'test)
-    ```
+```
+https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https://github.com/jdwittenauer/ipython-notebooks&urlpath=/tree/ipython-notebooks/notebooks/language/Intro.ipynb#/~(partition~'interactive~environment~'test)
+```
 
 ![URL with quickstart parameters](misc/url-quick-start.png)
 {: align="center"}
@@ -113,8 +120,7 @@ You can combine both features in a single link:
 With the following link you will be redirected to a certain file in your
 home directory.
 
-[https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb]
-(<https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb>)
+[https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb](https://taurus.hrsk.tu-dresden.de/jupyter/user-redirect/notebooks/demo.ipynb)
 
 The file needs to exist, otherwise a 404 error will be thrown.
 
@@ -141,7 +147,10 @@ and files via `chmod`.
 - Modules can also be loaded in the Jupyter spawner via preload modules
 (considering the Python version of your virtual environment).
 
-Set up your shared Python virtual environment for JupyterHub:
+Set up your shared Python virtual environment for JupyterHub.
+!!! hint
+    For working with conda virtual environments, it may be necessary to configure your shell via
+    `conda init` as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
 
 === "virtualenv"
 

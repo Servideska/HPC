@@ -48,7 +48,7 @@ not capable of checkpoint/restart can be adapted. Please refer to the section
 [Checkpoint/Restart](../jobs_and_resources/checkpoint_restart.md) for further documentation.
 
 ![Partitions](misc/part.png)
-{: align="center"}
+{: align="center" summary="Partitions image"}
 
 ## Memory Limits
 
@@ -82,6 +82,7 @@ be aware of the limits shown in the following table.
     | `romeo`**          | `taurusi[7001-7192]`                     | `192`   | `128 (HT: 256)` | `1972*`      | `505000`   | `-`               |
     | `julia`            | `taurussmp8`                             | `1`     | `896`           | `27343`     | `49000000` | `-`               |
     | `alpha`**          | `taurusi[8001-8034]`                     | `34`    | `48 (HT: 96)`   | `10312*`     | `990000`   | `8`               |
+    {: summary="Partitions and limits table" align="bottom"}
 
 !!! note
 

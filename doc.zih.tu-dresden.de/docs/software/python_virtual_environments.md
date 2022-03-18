@@ -90,6 +90,21 @@ marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate 
 
 ## Conda Virtual Environment
 
+**Prerequisite:** Before working with conda, your shell needs to be configured
+initially. Therefore login to the ZIH system, load the Anaconda module and run
+`conda init`. For more information use `conda init --help`. Note that changes
+take effect after closing and re-opening your shell.
+
+??? example
+
+    ```console
+    marie@compute$ module load Anaconda3    #load Anaconda module
+    Module Anaconda3/2019.03 loaded.
+    marie@compute$ conda init    #configure shell
+    [...]
+    modified      /home/marie/.bashrc
+    ```
+
 This example shows how to start working with **conda** and virtual environment
 (with using module system). At first, we use an interactive job and create a
 directory for the conda virtual environment:
@@ -124,7 +139,7 @@ can deactivate the conda environment as follows:
     This is an example on partition Alpha. The example creates a virtual environment, and installs
     the package `torchvision` with pip.
     ```console
-    marie@login$ srun --partition=alpha-interactive -N=1 --gres=gpu:1 --time=01:00:00 --pty bash
+    marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
     marie@alpha$ mkdir python-environments                               # please use workspaces
     marie@alpha$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5 PyTorch
     Module GCC/10.2.0, CUDA/11.1.1, OpenMPI/4.0.5, PyTorch/1.9.0 and 54 dependencies loaded.
@@ -175,8 +190,7 @@ below.
     - 'shapely=1.7.1'
     - pip:
         - python-hll
-
-```
+    ```
 
 After specifying the `name`, the conda [channel priority](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html)
 is defined. In the example above, packages will be first installed from the
