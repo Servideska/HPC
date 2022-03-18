@@ -16,7 +16,7 @@ These licenses also apply to your contributions.
 
 If you are in doubt, please contact us either via
 [GitLab Issue](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues)
-or via [ticket](mailto:hpcsupport@zih.tu-dresden.de).
+or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 
 ## New Page and Pages Structure
 
