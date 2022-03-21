@@ -1,4 +1,4 @@
-personal_ws-1.1 en 427
+personal_ws-1.1 en 429
 Abaqus
 Addon
 Addons
@@ -119,6 +119,7 @@ GPUs
 gres
 GROMACS
 GUIs
+Hackenberg
 hadoop
 haswell
 HBM
@@ -409,6 +410,7 @@ VMs
 VMSize
 VNC
 VPN
+VRs
 WebVNC
 WinSCP
 WML
