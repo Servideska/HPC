@@ -88,7 +88,9 @@ instructions from the official documentation to install Singularity.
 There are two possibilities:
 
 1. Create a new container on your local workstation (where you have the necessary privileges), and
-   then copy the container file to ZIH systems for execution.
+   then copy the container file to ZIH systems for execution. Therefore you also have to install
+   [Singularity](https://sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps)
+   on your local workstation.
 1. You can, however, import an existing container from, e.g., Docker.
 
 Both methods are outlined in the following.
