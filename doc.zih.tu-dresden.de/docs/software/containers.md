@@ -106,7 +106,7 @@ You can create a new custom container on your workstation, if you have root righ
 Creating a container is done by writing a **definition file** and passing it to
 
 ```console
-marie@local$ singularity build myContainer.sif <myDefinition.def>
+marie@login$ singularity build myContainer.sif <myDefinition.def>
 ```
 
 A definition file contains a bootstrap
