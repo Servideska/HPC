@@ -74,8 +74,8 @@ Below are some examples:
 
 ## Where can I get more information about management of research data?
 
-Please visit the wiki [forschungsdaten.org](https://www.forschungsdaten.org/en/) to learn more about all
-of the different aspects of research data management.
+Please visit the wiki [forschungsdaten.org](https://www.forschungsdaten.org/en/) to learn more about
+all of the different aspects of research data management.
 
 For questions or individual consultations regarding research data management in general or any of
 its certain aspects, you can contact the
