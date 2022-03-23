@@ -74,7 +74,7 @@ Below are some examples:
 
 ## Where can I get more information about management of research data?
 
-Please visit [forschungsdaten.org](https://www.forschungsdaten.org/en/) to learn more about all
+Please visit the wiki [forschungsdaten.org](https://www.forschungsdaten.org/en/) to learn more about all
 of the different aspects of research data management.
 
 For questions or individual consultations regarding research data management in general or any of
@@ -91,17 +91,21 @@ require some data preparation (e.g. packaging), but serve different use cases:
 ### Storing very infrequently used data during the course of the project
 
 The intermediate archive is a tape storage easily accessible as a directory
-(/archive/<HRSK-project\>/ or /archive/<login\>/ (*)) using the taurusexport nodes and
-[datamover tools](https://doc.zih.tu-dresden.de/data_transfer/datamover/) to move your data to.
+(`/archive/<HRSK-project>/` or `/archive/<login>/`) using the
+[export nodes](../data_transfer/export_nodes.md)
+and
+[Datamover tools](https://doc.zih.tu-dresden.de/data_transfer/datamover/) to move your data to.
 For detailed information please visit the
 [ZIH intermediate archive documentation](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-1).
 
-(*) The usage of the HRSK-project-related archive is preferable to the login-related archive, as
-this enables assigning access rights and responsibility across multiple researchers, due to the
-common staff turnover in research.
+!!! note
+
+    The usage of the HRSK-project-related archive is preferable to the login-related archive, as
+    this enables assigning access rights and responsibility across multiple researchers, due to the
+    common staff turnover in research.
 
 The use of the intermediate archive usually is limited by the end of the corresponding
-HRSK/research project. Afterwards data is required to be removed, tidied up and submitted to a
+research project. Afterwards data is required to be removed, tidied up and submitted to a
 long-term repository (see next section).
 
 The intermediate archive is the preferred service when you keep large, mostly unused data volumes
@@ -113,13 +117,13 @@ anymore, then repositories as described in the next section may be the more appr
 
 ### Archiving data beyond the project lifetime, for 10 years and above
 
-According to good scientific practice (see:
+According to good scientific practice (cf.
 [DFG guidelines, #17](https://www.dfg.de/download/pdf/foerderung/rechtliche_rahmenbedingungen/gute_wissenschaftliche_praxis/kodex_gwp.pdf))
 and
 [TU Dresden research data guidelines](https://tu-dresden.de/tu-dresden/qualitaetsmanagement/ressourcen/dateien/wisprax/Leitlinien-fuer-den-Umgang-mit-Forschungsdaten-an-der-TU-Dresden.pdf),
-relevant research data needs to be archived for at least for 10 years. The
+relevant research data needs to be archived at least for 10 years. The
 [OpARA service](https://opara.zih.tu-dresden.de/xmlui/) (Open Access Repository and Archive) is the
-joint research data repository service for saxon universities to address this requirement.
+joint research data repository service for Saxon universities to address this requirement.
 
 Data can be uploaded and, to comply to the demands of long-term understanding of data, additional
 metadata and description must be added. Large datasets may be optionally imported beforehand. In
