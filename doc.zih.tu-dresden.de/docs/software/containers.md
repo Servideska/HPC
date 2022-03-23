@@ -175,20 +175,20 @@ recommended. The steps are:
 
 ```console
 # Start a docker registry
-$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
+marie@local$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 # Push local docker container to it
-$ docker tag alpine localhost:5000/alpine
-$ docker push localhost:5000/alpine
+marie@local$ docker tag alpine localhost:5000/alpine
+marie@local$ docker push localhost:5000/alpine
 
 # Create def file for singularity like this...
-$ cat example.def
+marie@local$ cat example.def
 Bootstrap: docker
 Registry: <a href="http://localhost:5000" rel="nofollow" target="_blank">http://localhost:5000</a>
 From: alpine
 
 # Build singularity container
-$ singularity build --nohttps alpine.sif example.def
+marie@local$ singularity build --nohttps alpine.sif example.def
 ```
 
 #### Start from a Dockerfile
@@ -325,20 +325,20 @@ singularity build my-container.sif example.def
 Then you can run your application via
 
 ```console
-singularity run my-container.sif first_arg 2nd_arg
+marie@login$ singularity run my-container.sif first_arg 2nd_arg
 ```
 
 Alternatively you can execute the container directly which is equivalent:
 
 ```console
-./my-container.sif first_arg 2nd_arg
+marie@login$ ./my-container.sif first_arg 2nd_arg
 ```
 
 With this you can even masquerade an application with a singularity container as if it was an actual
 program by naming the container just like the binary:
 
 ```console
-mv my-container.sif myCoolAp
+marie@login$ mv my-container.sif myCoolAp
 ```
 
 ### Use-Cases
