@@ -106,7 +106,7 @@ You can create a new custom container on your workstation, if you have root righ
 Creating a container is done by writing a **definition file** and passing it to
 
 ```console
-marie@login$ singularity build myContainer.sif <myDefinition.def>
+marie@local$ singularity build myContainer.sif <myDefinition.def>
 ```
 
 A definition file contains a bootstrap
@@ -167,7 +167,7 @@ https://github.com/singularityware/singularity/tree/master/examples.
 You can import an image directly from the Docker repository (Docker Hub):
 
 ```console
-marie@local$ singularity build my-container.sif docker://ubuntu:latest
+marie@login$ singularity build my-container.sif docker://ubuntu:latest
 ```
 
 Creating a singularity container directly from a local docker image is possible but not
