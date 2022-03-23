@@ -286,7 +286,7 @@ While the `shell` command can be useful for tests and setup, you can also launch
 inside the container directly using "exec":
 
 ```console
-marie@login$ singularity exec my-container.img /opt/myapplication/bin/run_myapp
+marie@login$ singularity exec my-container.sif /opt/myapplication/bin/run_myapp
 ```
 
 This can be useful if you wish to create a wrapper script that transparently calls a containerized
@@ -301,7 +301,7 @@ if [ "z$X" = "z" ] ; then
   exit 1
 fi
 
-singularity exec /scratch/p_myproject/my-container.sif /opt/myapplication/run_myapp "$@"
+singularity exec /projects/p_marie/my-container.sif /opt/myapplication/run_myapp "$@"
 ```
 
 The better approach is to use `singularity run`, which executes whatever was set in the `%runscript`
