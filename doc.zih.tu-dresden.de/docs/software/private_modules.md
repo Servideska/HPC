@@ -27,12 +27,12 @@ marie@compute$ cd privatemodules/<sw_name>
 ```
 
 Project private module files for software that can be used by all members of your group should be
-located in your global projects directory, e.g., `/projects/p_marie/privatemodules`. Thus, create
+located in your global projects directory, e.g., `/projects/p_number_crunch/privatemodules`. Thus, create
 this directory:
 
 ```console
-marie@compute$ mkdir --verbose --parents /projects/p_marie/privatemodules/<sw_name>
-marie@compute$ cd /projects/p_marie/privatemodules/<sw_name>
+marie@compute$ mkdir --verbose --parents /projects/p_number_crunch/privatemodules/<sw_name>
+marie@compute$ cd /projects/p_number_crunch/privatemodules/<sw_name>
 ```
 
 !!! note
@@ -110,7 +110,7 @@ marie@login$ module use $HOME/privatemodules
 for your private module files and
 
 ```console
-marie@login$ module use /projects/p_marie/privatemodules
+marie@login$ module use /projects/p_number_crunch/privatemodules
 ```
 
 for group private module files, respectively.
