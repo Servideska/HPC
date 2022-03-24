@@ -105,10 +105,11 @@ You can create a new custom container on your workstation, if you have root righ
     which is different to the x86 architecture in common computers/laptops. For that you can use
     the [VM Tools](singularity_power9.md).
 
-Creating a container is done by writing a **definition file** and passing it to
+Creating a container is done by writing a definition file, such as `myDefinition.def`, and passing
+it to `singularity` via
 
 ```console
-marie@local$ singularity build myContainer.sif <myDefinition.def>
+marie@local$ singularity build myContainer.sif myDefinition.def
 ```
 
 A definition file contains a bootstrap
