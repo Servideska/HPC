@@ -37,7 +37,7 @@ To identify the mount points of the different filesystems on the data transfer m
 |                    | `/warm_archive/ws`   | `/warm_archive/ws`                 |
 |                    | `/home`              | `/home`                            |
 |                    | `/projects`          | `/projects`                        |
-| **Archive**        |                      | `/archive`                         |
+| **Archive**        |                      | `/archiv`                         |
 | **Group storage**  |                      | `/grp/<group storage>`             |
 
 ## Usage of Datamover
