@@ -138,7 +138,7 @@ site_name: ZIH HPC Compendium
 site_description: ZIH HPC Compendium
 site_author: ZIH Team
 site_dir: public
-site_url: https://doc.zih.tu-dresden.de/
+site_url: https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium
 
 # uncomment next 3 lines if link to repo should not be displayed in the navbar
 
@@ -200,6 +200,26 @@ markdown_extensions:
 
           #  - mkdocs-video
 
+plugins:
+  - search
+  # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
+  - htmlproofer:
+      # True by default
+      # Toggle via env. var. ENABLED_HTMLPROOFER=false
+      enabled: !ENV [ENABLED_HTMLPROOFER, True]
+      # Check URLs before serving. Build fails in case of bad URLs.
+      raise_error: True
+      # Ignore errors
+      #raise_error_excludes:
+      #  504: ['https://www.mkdocs.org/']
+      # Toggle validating external URLs
+      validate_external_urls: False
+      # Validate the entire rendered template, slow!
+      validate_rendered_template: True
+
+# Enable cross-page anchor validation
+use_directory_urls: False
+
 extra:
   tud_homepage: https://tu-dresden.de
   tud_name: "TU Dresden"
@@ -219,7 +239,3 @@ extra:
       name: "Data Protection Declaration / Datenschutzerklärung"
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
-
-plugins:
-  - search
-  - markdown-caption

@@ -33,7 +33,7 @@ environment.
 However, new containers can be created on your local workstation and moved to ZIH systems for
 execution. Follow the instructions for [locally installing Singularity](#local-installation) and
 [container creation](#container-creation). Moreover, existing Docker container can easily be
-converted, see [Import a docker container](#importing-a-docker-container).
+converted, see [Import a docker container](#import-a-docker-container).
 
 If you are already familiar with Singularity, you might be more interested in our [singularity
 recipes and hints](singularity_recipe_hints.md).
