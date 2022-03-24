@@ -63,7 +63,7 @@ To use it, first add a `dmtcp_launch` before your application call in your batch
 of MPI applications, you have to add the parameters `--ib --rm` and put it between `srun` and your
 application call, e.g.:
 
-???+ my_batchfile.sh
+???+ my_script.sbatch
 
     ```bash
     [...]
