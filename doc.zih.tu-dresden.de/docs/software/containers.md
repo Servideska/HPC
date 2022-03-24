@@ -302,7 +302,7 @@ if [ "z$X" = "z" ] ; then
   exit 1
 fi
 
-singularity exec /projects/p_marie/my-container.sif /opt/myapplication/run_myapp "$@"
+singularity exec /projects/p_number_crunch/my-container.sif /opt/myapplication/run_myapp "$@"
 ```
 
 The better approach is to use `singularity run`, which executes whatever was set in the `%runscript`
