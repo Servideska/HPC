@@ -41,6 +41,7 @@ marie@login$ dtrsync -av /archiv/<project or user>/<directory> /<directory>
 marie@login$ dtcp -r /archiv/marie/results /scratch/marie/ # or
 marie@login$ dtrsync -av /archiv/marie/results /scratch/marie/results
 ```
+
 !!! note "Listing files in archive"
 
     The intermediate archive is not mounted on the login nodes, but only on the [export nodes](../data_transfer/export_nodes.md).
