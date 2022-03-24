@@ -134,7 +134,7 @@ We follow this rules regarding prompts:
   an example invocation, perhaps with output, should be given with the normal `console` code block.
   See also [Code Block description below](#code-blocks-and-syntax-highlighting).
 * Using some magic, the prompt as well as the output is identified and will not be copied!
-* Stick to the [generic user name](#data-privacy-and-generic-user-name) `marie`.
+* Stick to the [generic user name](#data-privacy-and-generic-names) `marie`.
 
 ### Code Blocks and Syntax Highlighting
 
@@ -245,16 +245,17 @@ _Result_:
 
 ![lines](misc/highlight_lines.png)
 
-### Data Privacy and Generic User Name
+### Data Privacy and Generic Names
 
-Where possible, replace login, project name and other private data with clearly arbitrary placeholders.
-E.g., use the generic login `marie` and the corresponding project name `p_marie`.
+Where possible, replace login, project name and other private data with clearly arbitrary
+placeholders.  In particular, use the generic login `marie` and the project title `p_number_crunch`
+as placeholders.
 
 ```console
 marie@login$ ls -l
-drwxr-xr-x   3 marie p_marie      4096 Jan 24  2020 code
-drwxr-xr-x   3 marie p_marie      4096 Feb 12  2020 data
--rw-rw----   1 marie p_marie      4096 Jan 24  2020 readme.md
+drwxr-xr-x   3 marie p_number_crunch      4096 Jan 24  2020 code
+drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
+-rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
 ## Mark Omissions

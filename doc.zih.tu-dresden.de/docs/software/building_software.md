@@ -17,16 +17,16 @@ For instance, when using CMake and keeping your source in `/projects`, you could
 
 ```console
 # save path to your source directory:
-marie@login$ export SRCDIR=/projects/p_marie/mysource
+marie@login$ export SRCDIR=/projects/p_number_crunch/mysource
 
 # create a build directory in /scratch:
-marie@login$ mkdir /scratch/p_marie/mysoftware_build
+marie@login$ mkdir /scratch/p_number_crunch/mysoftware_build
 
 # change to build directory within /scratch:
-marie@login$ cd /scratch/p_marie/mysoftware_build
+marie@login$ cd /scratch/p_number_crunch/mysoftware_build
 
 # create Makefiles:
-marie@login$ cmake -DCMAKE_INSTALL_PREFIX=/projects/p_marie/mysoftware $SRCDIR
+marie@login$ cmake -DCMAKE_INSTALL_PREFIX=/projects/p_number_crunch/mysoftware $SRCDIR
 
 # build in a job:
 marie@login$ srun --mem-per-cpu=1500 --cpus-per-task=12 --pty make -j 12

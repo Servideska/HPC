@@ -45,7 +45,7 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! example "Copying data from `/beegfs/global0` to `/projects` filesystem."
 
     ``` console
-    marie@login$ dtcp -r /beegfs/global0/ws/marie-workdata/results /projects/p_marie/.
+    marie@login$ dtcp -r /beegfs/global0/ws/marie-workdata/results /projects/p_number_crunch/.
     ```
 
 !!! example "Moving data from `/beegfs/global0` to `/warm_archive` filesystem."
@@ -57,7 +57,7 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! example "Archive data from `/beegfs/global0` to `/archiv` filesystem."
 
     ``` console
-    marie@login$ dttar -czf /archiv/p_marie/results.tgz /beegfs/global0/ws/marie-workdata/results
+    marie@login$ dttar -czf /archiv/p_number_crunch/results.tgz /beegfs/global0/ws/marie-workdata/results
     ```
 
 !!! warning
