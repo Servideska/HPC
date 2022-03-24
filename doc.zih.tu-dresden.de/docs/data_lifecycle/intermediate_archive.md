@@ -42,3 +42,12 @@ marie@login$ dtrsync -av /archiv/<project or user>/<directory> /<directory>
 marie@login$ dtcp -r /scratch/rotscher/results /archiv/rotscher/ # or
 marie@login$ dtrsync -av /scratch/rotscher/results /archiv/rotscher/results
 ```
+
+!!! note "Listing files in archive"
+
+    The intermediate archive is not mounted on the login nodes, but only on the [export nodes](../data_transfer/export_nodes.md).
+
+    In order to list the user's files in the archive use the `dtls` command
+    ```console
+    marie@login$ dtls /archiv/$USER/
+    ```
