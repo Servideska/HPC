@@ -83,7 +83,7 @@ Then just substitute your usual `sbatch` call with `dmtcp_sbatch` and be sure to
 and `-i` parameters (don't forget you need to have loaded the `dmtcp` module).
 
 ```console
-marie@login$ dmtcp_sbatch --time 2-00:00:00 --interval 28000,800 my_batchfile.sh
+marie@login$ dmtcp_sbatch --time 2-00:00:00 --interval 28000,800 my_script.sbatch
 ```
 
 With `-t, --time` you set the total runtime of your calculations. This will be replaced in the batch
