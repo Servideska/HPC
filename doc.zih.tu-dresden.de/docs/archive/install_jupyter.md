@@ -148,7 +148,7 @@ c.NotebookApp.allow_remote_access = True
 #SBATCH --time=02:30:00
 #SBATCH --mem=4000M
 #SBATCH -J "jupyter-notebook" # job-name
-#SBATCH -A p_marie
+#SBATCH -A p_number_crunch
 
 unset XDG_RUNTIME_DIR   # might be required when interactive instead of sbatch to avoid 'Permission denied error'
 srun jupyter notebook
