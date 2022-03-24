@@ -27,6 +27,9 @@ For storing and restoring your data in/from the "Intermediate Archive" you can u
 ```console
 marie@login$ dtcp -r /<directory> /archiv/<project or user>/<directory> # or
 marie@login$ dtrsync -av /<directory> /archiv/<project or user>/<directory>
+# example:
+marie@login$ dtcp -r /scratch/marie/results /archiv/marie/ # or
+marie@login$ dtrsync -av /scratch/marie/results /archiv/marie/results
 ```
 
 ### Restore Data
@@ -34,14 +37,11 @@ marie@login$ dtrsync -av /<directory> /archiv/<project or user>/<directory>
 ```console
 marie@login$ dtcp -r /archiv/<project or user>/<directory> /<directory> # or
 marie@login$ dtrsync -av /archiv/<project or user>/<directory> /<directory>
+# example:
+marie@login$ dtcp -r /archiv/marie/results /scratch/marie/ # or
+marie@login$ dtrsync -av /archiv/marie/results /scratch/marie/results
 ```
 
-### Examples
-
-```console
-marie@login$ dtcp -r /scratch/marie/results /archiv/marie/ # or
-marie@login$ dtrsync -av /scratch/marie/results /archiv/marie/results
-```
 
 !!! note "Listing files in archive"
 
