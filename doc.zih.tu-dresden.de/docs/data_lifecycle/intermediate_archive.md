@@ -20,7 +20,7 @@ Some more information:
 ## Access the Intermediate Archive
 
 For storing and restoring your data in/from the "Intermediate Archive" you can use the tool
-[Datamover](../data_transfer/datamover.md). To use the DataMover you have to login to ZIH systems.
+[Datamover](../data_transfer/datamover.md). To use the Datamover you have to login to ZIH systems.
 
 ### Store Data
 
