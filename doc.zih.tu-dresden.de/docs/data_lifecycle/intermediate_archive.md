@@ -39,8 +39,8 @@ marie@login$ dtrsync -av /archiv/<project or user>/<directory> /<directory>
 ### Examples
 
 ```console
-marie@login$ dtcp -r /scratch/rotscher/results /archiv/rotscher/ # or
-marie@login$ dtrsync -av /scratch/rotscher/results /archiv/rotscher/results
+marie@login$ dtcp -r /scratch/marie/results /archiv/marie/ # or
+marie@login$ dtrsync -av /scratch/marie/results /archiv/marie/results
 ```
 
 !!! note "Listing files in archive"
