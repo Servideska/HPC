@@ -202,6 +202,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - markdown-caption
   # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
   - htmlproofer:
       # True by default
