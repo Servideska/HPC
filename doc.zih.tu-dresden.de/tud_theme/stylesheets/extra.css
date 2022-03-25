@@ -192,7 +192,21 @@ p {
 	margin: 0.2em;
 }
 /* main */
-
+/* style external links as found on https://stackoverflow.com/questions/5379752/css-style-external-links */
+.md-content a[href]:not(:where(
+  /* exclude hash only links */
+  [href^="#"],
+  /* exclude relative but not double slash only links */
+  [href^="/"]:not([href^="//"]),
+  /* exclude page itself */
+  [href*="//doc.zih.tu-dresden.de"],
+  /* exclude buttons */
+  .md-content__button,
+  /* exclude icons */
+  .md-icon
+)):before {
+  content: '\2197 ';
+}
 /* footer */
 .md-footer * {
     justify-content: flex-start;
