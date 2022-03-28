@@ -155,7 +155,7 @@ The following HPC related software is installed on all nodes:
 There are many different datasets designed for research purposes. If you would like to download some
 of them, keep in mind that many machine learning libraries have direct access to public datasets
 without downloading it, e.g. [TensorFlow Datasets](https://www.tensorflow.org/datasets). If you
-still need to download some datasets use [datamover](../data_transfer/datamover.md) machine.
+still need to download some datasets use [Datamover](../data_transfer/datamover.md) machine.
 
 ### The ImageNet Dataset
 
