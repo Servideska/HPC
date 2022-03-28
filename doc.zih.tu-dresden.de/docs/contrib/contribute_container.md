@@ -42,11 +42,37 @@ description of your changes. If you work on an issue, please also add "Closes 17
 `git push origin 174-check-contribution-documentation`.
 1. As an output you get a link to create a merge request against the preview branch.
 1. When the merge request is created, a continuous integration (CI) pipeline automatically checks
-your contributions.
+your contributions. If you forked the repository, these automatic checks are not available, but you
+can [run checks locally](#run-the-proposed-checks-inside-container).
 
-When you contribute, please follow our [content rules](content_rules.md) to make incorporating your
-changes easy. We also check these rules via continuous integration checks and/or reviews.
-You can find the details and commands to preview your changes and apply checks in the next sections.
+!!! tip
+
+    When you contribute, please follow our [content rules](content_rules.md) to make incorporating
+    your changes easy. We also check these rules via continuous integration checks and/or reviews.
+    You can find the details and commands to [preview your changes](#start-the-local-web-server) and
+    [apply checks](#run-the-proposed-checks-inside-container).
+
+## Merging of Forked Repositories
+
+When you have forked the repository as mentioned above, the process for merging is a bit different
+from internal merge requests. Because branches of forks are not automatically checked by CI,
+someone with at least developer access needs to do some more steps to incorporate the changes of
+your MR:
+
+1. She informs you about the start of merging process.
+1. She needs to review your changes to make sure that your changes are specific and don't introduce
+problems, such as changes in the Dockerfile or any script could.
+1. She needs to create a branch in our repository. Let's call this "internal MR branch".
+1. She needs to change the target branch of your MR from "preview" to "internal MR branch".
+1. She needs to merge it.
+1. She needs to open another MR from "internal MR branch" to "preview" to check whether the changes
+pass the CI checks.
+1. She needs to fix things that were found by CI.
+1. She informs you about the MR or asks for your support while fixing the CI.
+
+When you follow our [content rules](content_rules.md) and
+[run checks locally](#run-the-proposed-checks-inside-container), you are making this process
+faster.
 
 ## Tools to Ensure Quality
 

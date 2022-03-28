@@ -14,9 +14,9 @@ copy data to/from ZIH systems. Please follow the link to the documentation on
 
 ## Data Transfer Inside ZIH Systems: Datamover
 
-The recommended way for data transfer inside ZIH Systems is the **datamover**. It is a special
+The recommended way for data transfer inside ZIH Systems is the **Datamover**. It is a special
 data transfer machine that provides the best transfer speed. To load, move, copy etc. files from one
 filesystem to another filesystem, you have to use commands prefixed with `dt`: `dtcp`, `dtwget`,
 `dtmv`, `dtrm`, `dtrsync`, `dttar`, `dtls`. These commands submit a job to the data transfer
 machines that execute the selected command.  Please refer to the detailed documentation regarding the
-[datamover](datamover.md).
+[Datamover](datamover.md).

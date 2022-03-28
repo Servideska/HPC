@@ -1,7 +1,7 @@
 # Datamover - Data Transfer Inside ZIH Systems
 
-With the **datamover**, we provide a special data transfer machine for transferring data with best
-transfer speed between the filesystems of ZIH systems. The datamover machine is not accessible
+With the **Datamover**, we provide a special data transfer machine for transferring data with best
+transfer speed between the filesystems of ZIH systems. The Datamover machine is not accessible
 through SSH as it is dedicated to data transfers. To move or copy files from one filesystem to
 another filesystem, you have to use the following commands:
 
@@ -37,7 +37,7 @@ To identify the mount points of the different filesystems on the data transfer m
 |                    | `/warm_archive/ws`   | `/warm_archive/ws`                 |
 |                    | `/home`              | `/home`                            |
 |                    | `/projects`          | `/projects`                        |
-| **Archive**        |                      | `/archive`                         |
+| **Archive**        |                      | `/archiv`                         |
 | **Group storage**  |                      | `/grp/<group storage>`             |
 
 ## Usage of Datamover
@@ -45,7 +45,7 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! example "Copying data from `/beegfs/global0` to `/projects` filesystem."
 
     ``` console
-    marie@login$ dtcp -r /beegfs/global0/ws/marie-workdata/results /projects/p_marie/.
+    marie@login$ dtcp -r /beegfs/global0/ws/marie-workdata/results /projects/p_number_crunch/.
     ```
 
 !!! example "Moving data from `/beegfs/global0` to `/warm_archive` filesystem."
@@ -57,7 +57,7 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! example "Archive data from `/beegfs/global0` to `/archiv` filesystem."
 
     ``` console
-    marie@login$ dttar -czf /archiv/p_marie/results.tgz /beegfs/global0/ws/marie-workdata/results
+    marie@login$ dttar -czf /archiv/p_number_crunch/results.tgz /beegfs/global0/ws/marie-workdata/results
     ```
 
 !!! warning
@@ -66,7 +66,7 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! note
     The [warm archive](../data_lifecycle/warm_archive.md) and the `projects` filesystem are not
     writable from within batch jobs.
-    However, you can store the data in the `warm_archive` using the datamover.
+    However, you can store the data in the `warm_archive` using the Datamover.
 
 ## Transferring Files Between ZIH Systems and Group Drive
 
