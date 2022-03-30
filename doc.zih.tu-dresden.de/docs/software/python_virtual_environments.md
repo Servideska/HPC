@@ -66,6 +66,37 @@ the environment as follows:
 (env) marie@compute$ deactivate    #Leave the virtual environment
 ```
 
+??? example
+
+    This is an example on partition Alpha. The example creates a conda virtual environment, and
+    installs the package `torchvision` with conda.
+    ```console
+    marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
+    marie@alpha$ ws_allocate -F scratch my_python_virtualenv 100    # use a workspace for the environment
+    marie@alpha$ cd /scratch/ws/1/marie-my_python_virtualenv
+    marie@alpha$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5 PyTorch/1.9.0
+    Module GCC/10.2.0, CUDA/11.1.1, OpenMPI/4.0.5, PyTorch/1.9.0 and 54 dependencies loaded.
+    marie@alpha$ which python
+    /sw/installed/Python/3.8.6-GCCcore-10.2.0/bin/python
+    marie@alpha$ pip list
+    [...]
+    marie@alpha$ virtualenv --system-site-packages my-torch-env
+    created virtual environment CPython3.8.6.final.0-64 in 42960ms
+    creator CPython3Posix(dest=[...]/my-torch-env, clear=False, global=True)
+    seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=~/.local/share/virtualenv)
+        added seed packages: pip==21.1.3, setuptools==57.2.0, wheel==0.36.2
+    activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+    marie@alpha$ source my-torch-env/bin/activate
+    (my-torch-env) marie@alpha$ pip install torchvision==0.10.0
+    [...]
+    Installing collected packages: torchvision==0.10.0
+    Successfully installed torchvision-0.10.0
+    [...]
+    (my-torch-env) marie@alpha$ python -c "import torchvision; print(torchvision.__version__)"
+    0.10.0+cu102
+    (my-torch-env) marie@alpha$ deactivate
+    ```
+
 ### Persistence of Python Virtual Environment
 
 To persist a virtualenv, you can store the names and versions of installed
@@ -136,29 +167,26 @@ can deactivate the conda environment as follows:
 
 ??? example
 
-    This is an example on partition Alpha. The example creates a virtual environment, and installs
-    the package `torchvision` with pip.
+    This is an example on partition Alpha. The example creates a conda virtual environment, and
+    installs the package `torchvision` with conda.
     ```console
     marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
-    marie@alpha$ mkdir python-environments                               # please use workspaces
-    marie@alpha$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5 PyTorch
-    Module GCC/10.2.0, CUDA/11.1.1, OpenMPI/4.0.5, PyTorch/1.9.0 and 54 dependencies loaded.
-    marie@alpha$ which python
-    /sw/installed/Python/3.8.6-GCCcore-10.2.0/bin/python
-    marie@alpha$ pip list
+    marie@alpha$ ws_allocate -F scratch my_conda_virtualenv 100    # use a workspace for the environment
+    marie@alpha$ cd /scratch/ws/1/marie-my_conda_virtualenv
+    marie@alpha$ module load Anaconda3
+    Module Anaconda3/2021.11 loaded.
+    marie@alpha$ conda create --prefix my-torch-env python=3.8
+    Collecting package metadata (current_repodata.json): done
+    Solving environment: done
     [...]
-    marie@alpha$ virtualenv --system-site-packages python-environments/my-torch-env
-    created virtual environment CPython3.8.6.final.0-64 in 42960ms
-    creator CPython3Posix(dest=~/python-environments/my-torch-env, clear=False, global=True)
-    seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=~/.local/share/virtualenv)
-        added seed packages: pip==21.1.3, setuptools==57.2.0, wheel==0.36.2
-    activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-    marie@alpha$ source python-environments/my-torch-env/bin/activate
-    (my-torch-env) marie@alpha$ pip install torchvision
+    Proceed ([y]/n)? y
     [...]
-    Installing collected packages: torchvision
-    Successfully installed torchvision-0.10.0
+    marie@alpha$ conda activate my-torch-env
+    (my-torch-env) marie@alpha$ conda install -c pytorch torchvision
+    Collecting package metadata (current_repodata.json): done
     [...]
+    Preparing transaction: done
+    Verifying transaction: done
     (my-torch-env) marie@alpha$ python -c "import torchvision; print(torchvision.__version__)"
     0.10.0+cu102
     (my-torch-env) marie@alpha$ deactivate
