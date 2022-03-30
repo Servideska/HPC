@@ -57,10 +57,9 @@ This aspect is considered for all the following recommendations.
 
 ## Accessing the ZIH HPC system
 
-!!! caution
 
-    The ZIH HPC system can be accessed only within the TUD campus networks.
-    Access from outside is possible by establishing a [VPN connection](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4).
+The ZIH HPC system can be accessed only within the TUD campus networks.
+Access from outside is possible by establishing a [VPN connection](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4).
 
 There are different ways to access the ZIH HPC system (which are described in more detail below),
 depending on the user's needs and previous knowledge:
@@ -71,6 +70,8 @@ command line knowledge is required
 * [Desktop Visualization](../access/desktop_cloud_visualization.md),
   [Graphical User Interfaces (GUIs)](../access/graphical_applications_with_webvnc.md) and similar:
   e.g. commercial software such as Ansys, LS-DYNA (are not covered here).
+
+Next, the access are described step by step.
 
 ### JupyterHub
 
@@ -108,7 +109,9 @@ This is the starting point for many tasks such as running programs and data mana
     Using an ssh key pair is benefical for security reasons, although it is not necessary to work
     with the ZIH HPC system.
 
-=== "Linux/Mac users"
+=== "Windows 10 and heigher/Mac/Linux users"
+
+If you are a Windows user, you need to install Windows Terminal first (more information [here](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)).
 
     1. Open a terminal/shell/console (`Ctrl+Alt+T`) and type in
     ```console
@@ -118,35 +121,29 @@ This is the starting point for many tasks such as running programs and data mana
     1. After typing in your password, you end up seeing something like the following image.
     ![Successful ssh login](misc/ssh-success-login.png)
 
-=== "Windows users"
+=== "Users of any version of Windows"
 
-    1. Start [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
-    (Windows 10 or higher). In older versions of Windows install and set up MobaXTerm or PuTTY.
-
-    1. Follow the Linux/Mac users tab.
-
-    For more information, see the [Windows compendium page](../access/ssh_login.md#connecting-from-windows).
+    Install and set up [MobaXTerm](../access/ssh_login_mobaxterm) or [PuTTY](../access/ssh_login_putty).
+    
+For more information explore the [access compendium page](../access/ssh_login.md).
 
 ## Data Management and Data Transfer
 
+First, it shown how to create a workspace, then how to transfer data within and to/from the ZIH HPC system. Also take care of the file permissions while collaboration.
+
+### Create a Workspace
+
 There are different areas for storing your data on the ZIH HPC system, called [Filesystems](../data_lifecycle/file_systems.md).
-You will need to create a [workspace](../data_lifecycle/workspaces.md) for your data (see example
+You need to create a [workspace](../data_lifecycle/workspaces.md) for your data (see example
 below) on one of these Filesystems.
 
 The filesystems have different [properties](../data_lifecycle/file_systems.md) (available space,
 storage time limit, permission rights). Therefore, choose the one that fits your project best.
 To start we recommend the Lustre filesystem **scratch**.
 
-!!! example "Creating a Workspace on Lustre Scratch Filesystem"
+!!! example "Creating a workspace on Lustre Scratch filesystem"
 
     The following command creates a workspace
-
-    * command: `ws_allocate`
-    * on the scratch filesystem: `-F scratch`
-    * with the name: `test-workspace`
-    * a life time of `90` days
-    * an email is sent to `marie.testuser@tu-dresden.de` 7 days before expiration:
-      `-r 7 -m marie.testuser@tu-dresden.de`
 
     ```console
     marie@login$ ws_allocate -F scratch -r 7 -m marie.testuser@tu-dresden.de test-workspace 90
@@ -155,64 +152,62 @@ To start we recommend the Lustre filesystem **scratch**.
     remaining extensions  : 10
     remaining time in days: 90
     ```
+    To explain:
+    * `ws_allocate` - command to allocate   
+    * `-F scratch` - on the scratch filesystem 
+    * `test-workspace` - workspace's name 
+    * a life time of `90` days
+    * `-r 7 -m marie.testuser@tu-dresden.de` - send a reminder to `marie.testuser@tu-dresden.de` 7 days before expiration
 
-    The path to this workspace is `/scratch/ws/marie-test-workspace`. You will need it when
-    transferring data or running jobs.
+    The path to this workspace is `/scratch/ws/marie-test-workspace`. You will need it when transferring data or running jobs.
 
 Find more [information on workspaces in the compendium](../data_lifecycle/workspaces.md).
 
-!!! hint "Distinction: Transferring data from/to vs. within the ZIH system"
+### Transferring data **within** the ZIH HPC system 
 
-    Please note the different settings for transferring data, that require different approaches:
+The approach depends on the data volume: up to 100 MB or above.
 
-    1. transfer within the ZIH system
-    1. transfer to or from the ZIH system
+???+ example "`cp`/`mv` for small data (up to 100 MB)"
 
-1. The approach for transferring data within the ZIH system depends on the data volume:
-a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
-
-???+ example "a) Small Data (up to 100 MB)"
-
-    Use the standard Linux command `cp` on the command line.
-
-    * Copy the file `example1.R` **from your ZIH home directory to a workspace**:
+    Use command `cp` to copy the file `example.R` from your ZIH home directory to a workspace:
 
      ```console
-     marie@login$ cp /home/marie/example1.R /scratch/ws/marie-test-workspace
+     marie@login$ cp /home/marie/example.R /scratch/ws/marie-test-workspace
      ```
+    
+    Analagously use command `mv` to move a file.
 
-    Find [here more examples for the cp command](http://bropages.org/cp).
-    Moving files is done analagously by using the command `mv`.
+    Find [here more examples for the `cp` command](http://bropages.org/cp).
+    
+???+ example "`dtcp`/`dtmv` for medium/large data (above 100 MB)"
 
-???+ example "b) Medium/Large Data (above 100 MB)"
+    Use command `dtcp` to copy the directory `/warm_archive/ws/large-dataset` from one Filesystem location to another:
 
-    Use the datamover commands e.g. `dtcp`, `dtmv` or `dtwget`.
-
-    * Copying the directory `/warm_archive/ws/large-dataset` from one Filesystem location to another:
-
-    ```console
-    marie@login$ dtcp -r /warm_archive/ws/large-dataset /scratch/ws/marie-test-workspace/data
-    ```
+      ```console
+      marie@login$ dtcp -r /warm_archive/ws/large-dataset /scratch/ws/marie-test-workspace/data
+      ```
+    Analagously use command `dtmv` to move a file.
 
     More [details on the datamover can be found here](../data_transfer/datamover.md).
 
-2. Export nodes are used for transfer of data between outside and inside the ZIH HPC system.
+### Transferring data **to/from** the ZIH HPC system
 
-??? example "Copy a file between local machine and the ZIH HPC system (both directions)"
-    For transferring all data volume, use `scp` on the command line.
+???+ example "`scp` for transferring data from/to the ZIH HPC system"
 
-    * Copy the file `example1.R` **from your local machine to a workspace** on the ZIH system:
+    Copy the file `example.R` from your local machine to a workspace on the ZIH system:
 
     ```console
-    marie@local$ scp /home/marie/Documents/example1.R marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/
-    Password:
-    example1.R                                                     100%  312    32.2KB/s   00:00``
-    ```
+      marie@local$ scp /home/marie/Documents/example.R marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/
+      Password:
+      example.R                                                     100%  312    32.2KB/s   00:00``
+      ```
 
-    Note that the target path contains `taurusexport.hrsk.tu-dresden.de`, which is one of the
-    so called export nodes that allow for data transfer from/to the outside.
+    Note, the target path contains `taurusexport.hrsk.tu-dresden.de`, which is one of the
+    so called export nodes that allows for data transfer from/to the outside.
 
-    * Copy the file `results.csv` **from a workspace on the ZIH system to your local machine**:
+???+ example "`scp` to transfer data from the ZIH HPC system to local machine"
+
+    Copy the file `results.csv` from a workspace on the ZIH HPC system to your local machine:
 
     ```console
     marie@local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/marie-test-workspace/results.csv home/marie/Documents/
@@ -222,22 +217,22 @@ a) *small data (up to 100 MB)* and b) *medium/large data (above 100 MB)*
     Furthermore, checkout other possibilities on the compendium for working with the
     [export nodes](../data_transfer/export_nodes.md).
 
-!!! caution
+!!! caution "Terabytes of data"
 
     If you are planning to move terabytes or even more from an outside machine into the ZIH system,
-    please contact the ZIH HPC support in advance.
+    please contact the ZIH HPC support (hpcsupport@zih.tu-dresden.de) in advance.
 
-!!! caution "Permission rights are crucial in a collaborative setting"
+### Permission rights are crucial in a collaborative setting
 
-    Whenever working within a collaborative setting, take care of the file permissions.
-    Esp. after creating and transferring data, file permission configuration might be necessary.
+Whenever working within a collaborative setting, take care of the file permissions.
+Esp. after creating and transferring data, file permission configuration might be necessary.
 
-    **By default, workspaces are accessible only for the user who created the workspace.**
-    Files created by a user in the project directory have read-only access for other group members
-    by default. Therefore, the correct file permissions must be configured (using `chmod`
-    and `chgrp`) for all files in the project home and the workspaces that should be fully
-    accessible (read, write, execute) to your collaborator group.
-    A first [overview on users and permissions in Linux can be found here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
+**By default, workspaces are accessible only for the user who created the workspace.**
+Files created by a user in the project directory have read-only access for other group members
+by default. Therefore, the correct file permissions must be configured (using `chmod`
+and `chgrp`) for all files in the project home and the workspaces that should be fully
+accessible (read, write, execute) to your collaborator group.
+A first [overview on users and permissions in Linux can be found here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
 
 ??? example "Checking and changing file permissions"
 
