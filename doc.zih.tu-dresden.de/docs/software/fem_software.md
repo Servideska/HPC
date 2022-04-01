@@ -208,7 +208,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 comsol -np 4 server
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=08:00:00 comsol -np 4 server
     ```
 
 ??? example "Interactive Job"
@@ -218,7 +218,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 --pty --x11=first comsol -np 4
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=08:00:00 --pty --x11=first comsol -np 4
     ```
 
     Please make sure, that the option *Preferences* --> Graphics --> *Renedering* is set to *software
