@@ -1,96 +1,75 @@
-# Connecting with SSH
+# Connecting from Windows with PuTTY
 
-## Connecting from Windows with PuTTY
+PuTTY is a free and open-source terminal emulator, serial console and network file transfer application, supports several network protocols, including SCP, SSH. Visit its homepage for more information (https://www.putty.org)
 
-Homepage: https://www.putty.org
-
-### 1. Download and install PuTTY
+## Download and install
 
 To download go https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
-Picture putty_download.png
+![Spawning](misc/putty1_download.png)
 
-Pick the installer suiting best your current system and run it afterwards. Follow the instructions
-and finish the process. You should be able to see the following interface after starting the PuTTYapplication.
+Pick the installer suiting best your current system and run it afterwards. Follow the instructions.
+ 
+## Quickstart a new ssh-seccion
 
-Picture putty_config
+1. Start PuTTY and insert the `Host Name` (taurus.hrsk.tu-dresden.de) and change the `Port` (22) if needed.
 
-### 2. Start a new ssh-seccion
+![Spawning](misc/putty2_quickstart.png)
 
-2.1 Quick start
+2. Click "Open" to start a new session. A Terminal will open up as new window. This action will do
+basicly the same as using the command `ssh taurus.hrsk.tu-dresden.de:22` in Terminal.
 
-1) Open PuTTY and insert the IP or hostname into the specified textbox and change the port as
-needed.
+![Spawning](misc/putty3_login.png)
 
-Picture putty_quickstart
+3. After inserting your user name ("marie" in this example) and your password, it will log you in. You can start working on HPC.
 
-2) Click "Open" to start your new session. A Terminal will open up as new window. This action will do
-basicly the same as using the command `ssh taurus.hrsk.tu-dresden.de:22` on a linux system.
+## Configured start a new ssh-seccion 
 
-Picture putty_login
+You can preconfigure some values. It will save your time during your  conections in the future.
 
-3) After inserting your ZIH-Login and password it will log you into the targeted system.
+1. Define the connection target. To do so, start PuTTY, define the hostname (taurus.hrsk.tu-dresden.de) and the port (22).
 
-2.2 Configured session
+![Spawning](misc/putty2_quickstart.png)
 
-You can preconfigure some values to save time while the login in the future
+2. Set your user name. For that choose the tab `Connection` &rarr; `Data` in the navigation tree on the left. 
+Insert your user name into the textbox `Auto-login username`. 
+The application will basicly perform the same action as the command `ssh marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
-Step 1 - Define the connection target
+![Spawning](misc/putty4_username.png)
 
-We start again by defining the hostname or IP and the port we want to connect to. But this time
-we wont just open the session right away.
+3. Set a SSH-key (optional and recommended for security reason). 
 
-Picture putty_config1
+    **Note**: For being able to use a ssh-key to login to HPC, you have to register the key on the system before! 
 
-Step 2 - Set an username
-
-Use the tree-navigation on the left side to navigate to `Connection`->`Data`. There you will find a
-textbox, which allows to set an `Auto-login username`. After entering your username the
-application will basicly perform the same action as the command `ssh user@taurus.hrsk.tudresden.de:22` on a linux system.
-
-Picture_putty_config2
-
-Step 3 - Set a SSH-key
-
-**Note**: For being able to use a ssh-key to lo into a system, you have to register the key on the
-system before! Simply add the public-key to `~/.ssh/authorized_keys` and use the following
-format.
+    Add the public-key to `~/.ssh/authorized_keys` and use the following format.
 
 
-```console
-# <key-type> <public key> <comment>
-ssh-ed25519 <public key> myuser@mylocalhost
-```
-To configure the ssh-key to use, naviagte to `Connection-SSH-Auth`. You will see a Textbox for `Private key file for authentifikation`. Insert the path to your local key-file or brows it using the `Browse...` Button. This will do the same as the command `ssh -i .ssh/id_red25519 user@taurus.hrsk.tudresden.de:22` on a linux system.
+    ```console
+    # <key-type> <public key> <comment>
+    ssh-ed25519 <public key> myuser@mylocalhost
+    ```
+    To configure the ssh-key to use, naviagte to `Connection` &rarr; `SSH` &rarr; `Auth` in the tree left. 
+    You will see a textbox for `Private key file for authentifikation`. 
+    Insert the path to your local key-file or brows it using the button `Browse...`. 
+    This will do the same as the command `ssh -i .ssh/id_red25519 marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
-Picture purry_config3
+![Spawning](misc/putty5_key.png)
 
-Step 4 - Enable X-Forwarding (optional)
+4. Enable X-forwarding (optional). To do so, navigate to `Connection` &rarr; `SSH` &rarr; `X11` in the tree left. Put the tick in the checkbox for `Enable X11 forwarding`.
 
-To enable X-forwarding navigate to `Connection`->`SSH`->`X11`. You will find a checkbox for `Enable X11 forwarding`. Simply put the tick in the checkbox and continue.
+![Spawning](misc/putty6_x11.png)
 
-Picture putty_x11
+1. Save your configurations. Go back to the `Session` in the tree left. Insert a name into the textbox `Saved Sessions` and click
+the button `Save`. Afterwards you will see the name in the listbox below.
 
-Step 5 - Store your configuration
+![Spawning](misc/putty7_save.png)
 
-To store your current built configuration go back to the `session`-tab. There you can set a custom
-name to store your configuration as. Insert this name into the `Saved Sessions`-Textbox. The Click
-the `Save`-Button.
+    Now, you can start a configured session by doubleclicking its name inside the listbox.
 
-Picture putty_save
+    You can change your saved configurations by selecting its name inside the listbox and clicking the button `Load`. 
+    Make your changes and save it again under the same name. 
+    This will overwrite the old configuration permanetly.
 
-Afterwards you will see the configuration in the Listbox below.
+    You can delete a saved configurations by clicking the button `Delete`. This will remove the configured session permanetly.
 
-**Note**: You can start a configured session by doubleclicking its name inside the listbox.
-
-**Note**: You can alter your saved configurations by selecting its name inside the listbox and clicking
-the `Load`-Button. To save the changes you have to save it again under the same name. This will
-overwrite the old configuration permanetly.
-
-**Note**: To deleted a configuration you have to select the session inside the listbox and click the
-`Delete`-Button. This will remove the configured session permanetly.
-
-## SSH Key Fingerprints
-
-The page [key fingerprints](key_fingerprints.md) holds the up-to-date fingerprints for the login
-nodes. Make sure they match.
+**Have Fun!**
