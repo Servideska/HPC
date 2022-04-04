@@ -65,8 +65,8 @@ proThe developerms, such as changes in the Dockerfile or any script could.
 1. The developer needs to create a branch in our repository. Let's call this "internal MR branch".
 1. The developer needs to change the target branch of your MR from "preview" to "internal MR branch".
 1. The developer needs to merge it.
-1. The developer needs to open another MR from "internal MR branch" to "preview" to check whether the changes
-pasThe developerhe CI checks.
+1. The developer needs to open another MR from "internal MR branch" to "preview" to check whether
+   the changes pasThe developerhe CI checks.
 1. The developer needs to fix things that were found by CI.
 1. The developer informs you about the MR or asks for your support while fixing the CI.
 
