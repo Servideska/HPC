@@ -64,12 +64,12 @@ the button `Save`. Afterwards you will see the name in the listbox below.
 
 ![Spawning](misc/putty7_save.png)
 
-    Now, you can start a configured session by doubleclicking its name inside the listbox.
+Now, you can start a configured session by doubleclicking its name inside the listbox.
 
-    You can change your saved configurations by selecting its name inside the listbox and clicking the button `Load`. 
-    Make your changes and save it again under the same name. 
-    This will overwrite the old configuration permanetly.
+You can change your saved configurations by selecting its name inside the listbox and clicking the button `Load`. 
+Make your changes and save it again under the same name. 
+This will overwrite the old configuration permanetly.
 
-    You can delete a saved configurations by clicking the button `Delete`. This will remove the configured session permanetly.
+You can delete a saved configurations by clicking the button `Delete`. This will remove the configured session permanetly.
 
 **Have Fun!**
