@@ -562,10 +562,3 @@ To learn more about the MATLAB Parallel Computing Toolbox, check out these resou
     Tutorials](http://www.mathworks.com/products/parallel-computing/tutorials.html)
 * [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 * [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
-
-## Octave
-
-GNU [Octave](https://www.gnu.org/software/octave/index) is a high-level language, primarily intended
-for numerical computations. It provides a convenient command line interface for solving linear and
-nonlinear problems numerically, and for performing other numerical experiments using a language that
-is mostly compatible with MATLAB. It may also be used as a batch-oriented language.
