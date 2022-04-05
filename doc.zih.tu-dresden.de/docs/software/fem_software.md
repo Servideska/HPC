@@ -8,7 +8,9 @@
     ```console
     marie@login$ module avail ANSYS
     [...]
-    marie@login$ module load ANSYS/<version>
+    marie@login$ # module load ANSYS/<version>
+    marie@login$ # e.g.
+    marie@login$ module load ANSYS/2020R2
     ```
 
     The section [runtime environment](modules.md) provides a comprehensive overview
@@ -105,7 +107,9 @@ all data via `-C`.
 
 ```console
 # SSH connection established using -CX
-marie@login$ module load ANSYS/<version>
+marie@login$ # module load ANSYS/<version>
+marie@login$ # e.g.
+marie@login$ module load ANSYS/2020R2
 marie@login$ runwb2
 ```
 
@@ -113,7 +117,9 @@ If more time is needed, a CPU has to be allocated like this (see
 [batch systems Slurm](../jobs_and_resources/slurm.md) for further information):
 
 ```console
-marie@login$ module load ANSYS/<version>
+marie@login$ # module load ANSYS/<version>
+marie@login$ # e.g.
+marie@login$ module load ANSYS/2020R2
 marie@login$ srun --time=00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
 [...]
 marie@login$ runwb2
@@ -153,7 +159,9 @@ parameter (for batch mode), `-F` for your project file, and can then either add 
 
     unset SLURM_GTIDS              # Odd, but necessary!
 
-    module load ANSYS/<version>
+    # module load ANSYS/<version>
+    # e.g.
+    module load ANSYS ANSYS/2020R2
 
     runwb2 -B -F Workbench_Taurus.wbpj -E 'Project.Update' -E 'Save(Overwrite=True)'
     #or, if you wish to use a workbench replay file, replace the -E parameters with: -R mysteps.wbjn
@@ -208,7 +216,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 comsol -np 4 server
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=08:00:00 comsol -np 4 server
     ```
 
 ??? example "Interactive Job"
@@ -218,7 +226,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=8:00 --pty --x11=first comsol -np 4
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=08:00:00 --pty --x11=first comsol -np 4
     ```
 
     Please make sure, that the option *Preferences* --> Graphics --> *Renedering* is set to *software
@@ -264,10 +272,10 @@ You need a job file (aka. batch script) to run the MPI version.
     srun mpp-dyna i=neon_refined01_30ms.k memory=120000000
     ```
 
-    Submit the job file to the batch system via
+    Submit the job file named `job.sh` to the batch system via
 
     ```console
-    marie@login$ sbatch <filename>
+    marie@login$ sbatch job.sh
     ```
 
     Please refer to the section [Slurm](../jobs_and_resources/slurm.md) for further details and
