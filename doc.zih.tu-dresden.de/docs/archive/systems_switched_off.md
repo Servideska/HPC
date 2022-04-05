@@ -32,7 +32,7 @@ Documentation on former systems for future reference can be found on the followi
 | 2008 | Microsoft HPC-System |
 | 2010 | IBM-Cluster iDataPlex |
 | 2012 | GPU-Cluster <br/>  HPC-Cluster Atlas: 50 TFlop/s Peak, 13 TB RAM |
-| 2012/13| SGI UV 2000: 10,6 TFLop/s Peak, 8 TB RAM |
+| 2012/13| SGI UV 2000: 10,6 TFlop/s Peak, 8 TB RAM |
 | 2013 | HPC-Cluster Taurus (HRSK-II): 135 TFlop/s Peak, 18 TB RAM |
 | 2015 | HRSK-II Extension: 1,64 PFlop/s und 139 TB RAM |
 | 2017/18| HPC-DA (HRSK-II Extension) |
