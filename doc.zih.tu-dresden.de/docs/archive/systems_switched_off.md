@@ -26,7 +26,7 @@ Documentation on former systems for future reference can be found on the followi
 | 1997 | SGI Origin2000 (21,8 GFlop/s, 56 CPUs, 17 GB RAM, 350 GB disk capacity)|
 | 1998 | Cray T3E (38,4 GFlop/s, 64 CPUs, 8 GB RAM, 100 GB disk capacity)|
 | 2001/02 | SGI Origin3800 (51,2 + 102,4 GFlop/s, 64 + 128 CPUs, 64 + 64 GB RAM, 790 GB disk capacity)|
-| 2004 | Italium-Cluster Castillo|
+| 2004 | Itanium-Cluster Castillo|
 | 2005/06 | Hochleistungsrechner/Speicherkomplex: <br/> SGI Altix 4700: 13 TFlop/s, 6,5 TB RAM  <br/> PC-Farm: 13 TFlop/s, 5,5 TB RAM  <br/> SAN capacity: 136 TB  <br/> Tape archive: 1 PB, 2500 tapes |
 | 2007 | Setup PC-SAN <br/> NEC SX6: 72 GFlop/s |
 | 2008 | Microsoft HPC-System |
