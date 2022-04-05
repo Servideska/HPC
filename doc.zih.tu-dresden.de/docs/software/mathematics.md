@@ -370,9 +370,9 @@ Once you are done with the pool, delete it.
 
 #### Independent Batch Job
 
-Use the batch command to submit asynchronous jobs to the HPC system. The `batch` command will return a
-job object which is used to access the output of the submitted job. See the MATLAB documentation for
-more help on `batch`.
+Use the batch command to submit asynchronous jobs to the HPC system. The `batch` command will return
+a job object which is used to access the output of the submitted job. See the MATLAB documentation
+for more help on `batch`.
 
 ```matlabsession
 >> % Get a handle to the cluster
@@ -468,7 +468,7 @@ Pool.
 >> % Fetch the results after a finished state is retrieved
 >> job.fetchOutputs{:}
 ans =
-	8.8872
+  8.8872
 ```
 
 The job ran in 8.89 seconds using four workers. Note that these jobs will always request N+1 CPU
@@ -494,7 +494,7 @@ you will keep track of the job ID.
     >> % Get the job ID
     >> id = job.ID
     id =
-    	4
+      4
     >> % Clear job from workspace (as though you quit MATLAB)
     >> clear job
     ```
@@ -523,7 +523,7 @@ The job now runs in 4.73 seconds using eight workers. Run code with different nu
 determine the ideal number to use. Alternatively, to retrieve job results via a graphical user
 interface, use the Job Monitor (Parallel > Monitor Jobs).
 
-![](misc/matlab_monitor_jobs.png)
+![Job monitor](misc/matlab_monitor_jobs.png)
 {: summary="Retrieve job results via GUI using the Job Monitor." align="center"}
 
 #### Debugging
