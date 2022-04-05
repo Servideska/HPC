@@ -174,9 +174,12 @@ wikiscript doc.zih.tu-dresden.de/util/check-no-floating.sh doc.zih.tu-dresden.de
 
 #### Link Checker
 
-No one likes dead links. Therefore, we check the internal and external links within the markdown
-source files. To check a single file, e.g.
-`doc.zih.tu-dresden.de/docs/software/big_data_frameworks.md`, use:
+!!! quote "Unknown programmer"
+
+    No one likes dead links.
+
+Therefore, we check the internal and external links within the markdown source files. To check a
+single file, e.g.  `doc.zih.tu-dresden.de/docs/software/big_data_frameworks.md`, use:
 
 ```bash
 wikiscript doc.zih.tu-dresden.de/util/check-links.sh docs/software/big_data_frameworks.md
