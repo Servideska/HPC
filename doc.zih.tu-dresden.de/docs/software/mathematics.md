@@ -105,7 +105,7 @@ marie@compute$ matlab
 ```
 
 With following command you can see a list of installed software - also
-the different versions of matlab.
+the different versions of MATLAB.
 
 ```console
 marie@login$ module avail
@@ -123,7 +123,7 @@ Or use:
 marie@login$ module load MATLAB
 ```
 
-(then you will get the most recent Matlab version.
+(then you will get the most recent MATLAB version.
 [Refer to the modules section for details.](../software/modules.md#modules))
 
 ### Interactive
@@ -135,7 +135,7 @@ with command
 marie@login$ srun --pty --x11=first bash
 ```
 
-- now you can call "matlab" (you have 8h time to work with the matlab-GUI)
+- now you can call "matlab" (you have 8h time to work with the MATLAB-GUI)
 
 ### Non-interactive
 
@@ -247,7 +247,7 @@ The MATLAB support package for ZIH Systems can be found as follows:
     * [tud.nonshared.R2021b.tar.gz](misc/tud.nonshared.R2021b.tar.gz)
     * [tud.nonshared.R2022a.tar.gz](misc/tud.nonshared.R2022a.tar.gz)
 
-Download the appropriate archive file and start MATLAB. The archive file should be untarred/unzipped
+Download the appropriate archive file and start MATLAB. The archive file should be extracted
 in the location returned by calling
 
 ```matlabsession
@@ -278,7 +278,7 @@ submit to the local machine.
 #### Configuring Jobs
 
 Prior to submitting the job, you can specify various parameters to pass to your jobs, such as queue,
-e-mail, walltime, etc. *Only MemPerCpu and QueueName are required*.
+e-mail, walltime, etc. *Only `MemPerCpu` and `QueueName` are required*.
 
 ```matlabsession
 >> % Get a handle to the cluster
@@ -289,7 +289,7 @@ e-mail, walltime, etc. *Only MemPerCpu and QueueName are required*.
 >> % Specify memory to use, per core (default: 2gb)
 >> c.AdditionalProperties.MemPerCpu = '4gb';
 
->> % Specify the wall time (e.g., 5 hours)
+>> % Specify the walltime (e.g., 5 hours)
 >> c.AdditionalProperties.WallTime = '05:00:00';
 
 [OPTIONAL]
@@ -568,4 +568,4 @@ To learn more about the MATLAB Parallel Computing Toolbox, check out these resou
 GNU [Octave](https://www.gnu.org/software/octave/index) is a high-level language, primarily intended
 for numerical computations. It provides a convenient command line interface for solving linear and
 nonlinear problems numerically, and for performing other numerical experiments using a language that
-is mostly compatible with Matlab. It may also be used as a batch-oriented language.
+is mostly compatible with MATLAB. It may also be used as a batch-oriented language.
