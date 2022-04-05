@@ -231,7 +231,7 @@ MATLAB.
 
 ```console
 marie@login$ module load MATLAB
-marie@login$ configCluster.sh  # todo Execute?
+marie@login$ configCluster.sh
 ```
 
 Jobs will now default to the HPC system rather than submit to the local machine.
@@ -406,7 +406,7 @@ Once you have identified the job you want, you can retrieve the results as done 
 
 `fetchOutputs` is used to retrieve function output arguments; if calling `batch` with a script, use
 `load` instead. Data that has been written to files on the cluster needs be retrieved directly
-from the file system (e.g. via ftp). To view results of a previously completed job:
+from the filesystem (e.g. via ftp). To view results of a previously completed job:
 
 ```matlabsession
 >> % Get a handle to the job with ID 2
