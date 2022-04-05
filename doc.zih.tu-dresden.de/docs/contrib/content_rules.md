@@ -57,12 +57,23 @@ actively used, especially for longer code examples, warnings, tips, important in
 should be highlighted, etc. Code examples, longer than half screen height should collapsed
 (and indented):
 
-??? example
+??? "Collapsed example"
     ```Bash
     [...]
     # very long example here
     [...]
     ```
+
+### Brief How-To on Markdown
+
+| Purpose | Markdown | Rendered HTML |
+|---|---|---|
+| Bold text | `**Bold Text**`  | **Bold Text**  |
+| Italic text | `*Italic Text*`   | *Italic Text*  |
+| Headings | `# Level 1`, `## Level 2`, `### Level 3`, ...   |  |
+| External link | `[website of TU Dresden](https://tu-dresden.de)` | [website of TU Dresden](https://tu-dresden.de) |
+| Internal link | `[Slurm page](../jobs_and_resources/slurm.md)` | [Slurm page](../jobs_and_resources/slurm.md)|
+| Internal link to section | `[section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs)` | [section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs) |
 
 ## Writing Style
 
