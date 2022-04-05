@@ -59,16 +59,16 @@ from internal merge requests. Because branches of forks are not automatically ch
 someone with at least developer access needs to do some more steps to incorporate the changes of
 your MR:
 
-1. She informs you about the start of merging process.
-1. She needs to review your changes to make sure that your changes are specific and don't introduce
+1. The developer informs you about the start of merging process.
+1. The developer needs to review your changes to make sure that your changes are specific and don't introduce
 problems, such as changes in the Dockerfile or any script could.
-1. She needs to create a branch in our repository. Let's call this "internal MR branch".
-1. She needs to change the target branch of your MR from "preview" to "internal MR branch".
-1. She needs to merge it.
-1. She needs to open another MR from "internal MR branch" to "preview" to check whether the changes
-pass the CI checks.
-1. She needs to fix things that were found by CI.
-1. She informs you about the MR or asks for your support while fixing the CI.
+1. The developer needs to create a branch in our repository. Let's call this "internal MR branch".
+1. The developer needs to change the target branch of your MR from "preview" to "internal MR branch".
+1. The developer needs to merge it.
+1. The developer needs to open another MR from "internal MR branch" to "preview" to check whether
+   the changes pass the CI checks.
+1. The developer needs to fix things that were found by CI.
+1. The developer informs you about the MR or asks for your support while fixing the CI.
 
 When you follow our [content rules](content_rules.md) and
 [run checks locally](#run-the-proposed-checks-inside-container), you are making this process
