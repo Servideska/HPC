@@ -183,11 +183,12 @@ LoadLeveler
 localhost
 lsf
 lustre
+macOS
 markdownlint
 Mathematica
 MathKernel
 MathWorks
-matlab
+MATLAB
 Matplotlib
 MEGWARE
 mem
@@ -411,6 +412,7 @@ VMSize
 VNC
 VPN
 VRs
+walltime
 WebVNC
 WinSCP
 WML
