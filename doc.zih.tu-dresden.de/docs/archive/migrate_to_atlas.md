@@ -7,13 +7,12 @@
 [Atlas](system_atlas.md) is a different machine than [Deimos](system_deimos.md), please have a look
 at the table:
 
-|                                                   |            |           |
-|---------------------------------------------------|------------|-----------|
-|                                                   | **Deimos** | **Atlas** |
-| **number of hosts**                               | 584        | 92        |
-| **cores per host**                                | 2...8      | 64        |
-| **memory \[GB\] per host**                        | 8...64     | 64..512   |
-| **example benchmark: SciMark (higher is better)** | 655        | 584       |
+|                                                   | Deimos     | Atlas     |
+|---------------------------------------------------|-----------:|----------:|
+| number of hosts                                   | 584        | 92        |
+| cores per host                                    | 2...8      | 64        |
+| memory \[GB\] per host                            | 8...64     | 64..512   |
+| example benchmark: SciMark (higher is better)     | 655        | 584       |
 
 A single thread on Atlas runs with a very poor performance in comparison
 with the 6 year old Deimos. The reason for this is that the AMD CPU
@@ -37,13 +36,12 @@ The most important changes are:
     `-M <memory per process in MByte>`, the default is 300 MB, e.g.
     `-M 2000`.
 
-|                       |        |                                                      |
-|-----------------------|--------|------------------------------------------------------|
-| Hosts on Atlas        | number | per process/core user memory limit in MB (-M option) |
-| nodes with 64 GB RAM  | 48     | 940                                                  |
-| nodes with 128 GB RAM | 24     | 1950                                                 |
-| nodes with 256 GB RAM | 12     | 4000                                                 |
-| nodes with 512 GB RAM | 8      | 8050                                                 |
+| Hosts on Atlas        | Count  | Per Process/Core User Memory Limit in MB (`-M` option) |
+|-----------------------|-------:|-------------------------------------------------------:|
+| nodes with 64 GB RAM  | 48     | 940                                                    |
+| nodes with 128 GB RAM | 24     | 1950                                                   |
+| nodes with 256 GB RAM | 12     | 4000                                                   |
+| nodes with 512 GB RAM | 8      | 8050                                                   |
 
 - Jobs with a job runtime greater than 72 hours (jobs that will run in
   the queue `long`) will be collected over the day and scheduled in a
@@ -98,7 +96,7 @@ compiler comes from the Open64 suite. For convenience, other compilers are insta
 shows good results as well. Please check the best compiler flags at
 [this overview] developer.amd.com/Assets/CompilerOptQuickRef-62004200.pdf.
 
-### MPI parallel applications
+### MPI Parallel Applications
 
 Please note the more convenient syntax on Atlas. Therefore, please use a
 command like

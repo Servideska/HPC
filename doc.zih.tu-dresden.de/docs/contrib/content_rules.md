@@ -14,6 +14,24 @@ documentation that is pure joy to read and use. It shall help to find answers an
 instead of being the bottleneck and a great annoyance. Therefore, it need some guide lines which are
 outlined in the following.
 
+## Responsibility And License
+
+This documentation and the repository have two licenses (cf. [Legal Notice](../legal_notice.md)):
+
+* All documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+* All software components are licensed under [MIT license](../license_mit.txt).
+
+These licenses also apply to your contributions.
+
+!!! note
+
+    Each user is fully and solely responsible for the content he/she creates and has to ensure that
+    he/she has the right to create it under the laws which apply.
+
+If you are in doubt, please contact us either via
+[GitLab Issue](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues)
+or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
+
 ## Pages Structure and New Page
 
 The pages structure is defined in the configuration file `mkdocs.yaml`:
@@ -50,7 +68,6 @@ markdown dialects.
 
 * [Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * [Style Guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
-
 
 ### Graphics and Attachments
 
@@ -127,6 +144,7 @@ further decoration by providing the desired title as quoted string after the typ
 
 ## Writing Style
 
+* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
 * Capitalize headings, e.g. *Exclusive Reservation of Hardware*
 * Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is way more
   descriptive than [this subsection](#code-blocks-and-syntax-highlighting).
@@ -153,8 +171,6 @@ there is a list of conventions w.r.t. spelling and technical wording.
 | workspace | work space |
 |       | HPC-DA |
 | partition `ml` | ML partition, ml partition, `ml` partition, "ml" partition, etc. |
-
-
 
 ## Code Blocks and Command Prompts
 
@@ -193,6 +209,7 @@ This should help to avoid errors.
 | `alpha` partition      | `marie@alpha$`   |
 | `romeo` partition      | `marie@romeo$`   |
 | `julia` partition      | `marie@julia$`   |
+| `dcv` partition        | `marie@dcv$`     |
 | Localhost              | `marie@local$`   |
 
 * **Always use a prompt**, even there is no output provided for the shown command.
@@ -201,7 +218,7 @@ This should help to avoid errors.
   an example invocation, perhaps with output, should be given with the normal `console` code block.
   See also [Code Block description below](#code-blocks-and-syntax-highlighting).
 * Using some magic, the prompt as well as the output is identified and will not be copied!
-* Stick to the [generic user name](#data-privacy-and-generic-user-name) `marie`.
+* Stick to the [generic user name](#data-privacy-and-generic-names) `marie`.
 
 ### Code Blocks and Syntax Highlighting
 
@@ -230,11 +247,11 @@ templates should give a general idea of invocation and thus, do not contain any 
 
 ````markdown
 ```bash
-marie@local$ ssh -NL <local port>:<compute node>:<remote port> <zih login>@tauruslogin.hrsk.tu-dresden.de
+marie@local$ ssh -NL <local port>:<compute node>:<remote port> taurus
 ```
 
 ```console
-marie@local$ ssh -NL 5901:172.24.146.46:5901 marie@tauruslogin.hrsk.tu-dresden.de
+marie@local$ ssh -NL 5901:172.24.146.46:5901 taurus
 ```
 ````
 
@@ -252,7 +269,6 @@ module load foss
 srun a.out
 ```
 ````
-
 
 `python` for Python source code:
 
@@ -279,9 +295,9 @@ Line numbers can be added via
 ```bash linenums="1"
 #!/bin/bash
 
-#SBATCH -N 1
-#SBATCH -n 23
-#SBATCH -t 02:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=23
+#SBATCH --time=02:10:00
 
 srun a.out
 ```
@@ -297,9 +313,9 @@ Specific Lines can be highlighted by using
 ```bash hl_lines="2 3"
 #!/bin/bash
 
-#SBATCH -N 1
-#SBATCH -n 23
-#SBATCH -t 02:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=23
+#SBATCH --time=02:10:00
 
 srun a.out
 ```
@@ -309,16 +325,17 @@ _Result_:
 
 ![lines](misc/highlight_lines.png)
 
-### Data Privacy and Generic User Name
+### Data Privacy and Generic Names
 
-Where possible, replace login, project name and other private data with clearly arbitrary placeholders.
-E.g., use the generic login `marie` and the corresponding project name `p_marie`.
+Where possible, replace login, project name and other private data with clearly arbitrary
+placeholders.  In particular, use the generic login `marie` and the project title `p_number_crunch`
+as placeholders.
 
 ```console
 marie@login$ ls -l
-drwxr-xr-x   3 marie p_marie      4096 Jan 24  2020 code
-drwxr-xr-x   3 marie p_marie      4096 Feb 12  2020 data
--rw-rw----   1 marie p_marie      4096 Jan 24  2020 readme.md
+drwxr-xr-x   3 marie p_number_crunch      4096 Jan 24  2020 code
+drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
+-rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
 ## Mark Omissions
@@ -333,6 +350,23 @@ Stick to the Unix rules on optional and required arguments, and selection of ite
 * `[optional argument or value]`
 * `{choice1|choice2|choice3}`
 
-## Random things
+## Random Things
 
 **Remark:** Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
+
+All graphics and attachments are saved within `misc` directory of the respective sub directory in
+`docs`.
+
+The syntax to insert a graphic or attachment into a page is
+
+```Bash
+![PuTTY: Switch on X11](misc/putty2.jpg)
+{: align="center"}
+```
+
+The attribute `align` is optional. By default, graphics are left aligned. **Note:** It is crucial to
+have `{: align="center"}` on a new line.
+
+It is possible to add captions for tables and figures using `{: summary="This is a table caption"}`.
+The `summary` and `align` parameters can be combined as well:
+`{: summary="This is a table caption" align="top"}`.

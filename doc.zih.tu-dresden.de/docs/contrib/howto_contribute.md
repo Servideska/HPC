@@ -15,6 +15,22 @@ three possible ways how to contribute to this documentation. These ways are outl
 Please refer to the [content guide lines page](content_guide_lines.md) regarding markdown syntax
 and writing style.
 
+Even though we try to cover all aspects of working with the ZIH systems and keep the documentation
+up to date, you might miss something. In principle, there are three possible ways how you can
+contribute to this documentation as outlined below.
+
+## Content Rules
+
+To ensure a high-quality and consistent documentation and to make it easier for readers to
+understand all content, we set some [content rules](content_rules.md). Please follow these rules
+when contributing! Furthermore, reviewing your changes take less time and your improvements appear
+faster on the official documentation.
+
+!!! note
+
+    Each user is fully and solely responsible for the content he/she creates and has to ensure that
+    he/she has the right to create it under the laws which apply.
+
 ## Contribute via Issue
 
 Users can contribute to the documentation via the
@@ -35,26 +51,15 @@ documentation.
 
 ## Contribute via Web IDE
 
-GitLab offers a rich and versatile web interface to work with repositories. To fix typos and edit
-source files, follow these steps:
+If you have a web browser (most probably you are using it to read this page) and want to contribute
+to the documentation, you are good to go. GitLab offers a rich and versatile web interface to work
+with repositories. To start fixing typos and edit source files, please find more information on
+[Contributing via web browser](contribute_browser.md).
 
-1. Navigate to the repository at
-[https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium)
-and log in.
-1. Select the right branch.
-1. Select the file of interest in `doc.zih.tu-dresden.de/docs/...` and click the `Edit` button.
-1. A text and commit editor are invoked: Do your changes, add a meaningful commit message and commit
-   the changes.
-
-The more sophisticated integrated Web IDE is reached from the top level menu of the repository or
-by selecting any source file.
-
-Other git services might have an equivalent web interface to interact with the repository. Please
-refer to the corresponding documentation for further information.
-
-## Contribute Using Git Locally
+## Contribute via Local Clone
 
 For experienced Git users, we provide a Docker container that includes all checks of the CI engine
 used in the back-end. Using them should ensure that merge requests will not be blocked
 due to automatic checking.
-For details, refer to the page [Work Locally Using Containers](contribute_container.md).
+The page on [Contributing via local clone](contribute_container.md) provides you with the details
+about how to setup and use your local clone.

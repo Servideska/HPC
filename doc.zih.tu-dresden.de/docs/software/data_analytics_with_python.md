@@ -1,4 +1,4 @@
-# Python for Data Analytics
+# Data Analytics with Python
 
 Python is a high-level interpreted language widely used in research and science. Using ZIH system
 allows you to work with Python quicker and more effective. Here, a general introduction to working
@@ -10,6 +10,10 @@ with Python on ZIH systems is given. Further documentation is available for spec
 Often, it is useful to create an isolated development environment, which can be shared among
 a research group and/or teaching class. For this purpose,
 [Python virtual environments](python_virtual_environments.md) can be used.
+
+!!! hint
+    For working with conda virtual environments, it may be necessary to configure your shell via
+    `conda init` as described in [Python virtual environments](python_virtual_environments.md#conda-virtual-environment)
 
 The interactive Python interpreter can also be used on ZIH systems via an interactive job:
 
@@ -215,7 +219,7 @@ from dask_jobqueue import SLURMCluster
 cluster = SLURMCluster(queue='alpha',
   cores=8,
   processes=2,
-  project='p_marie',
+  project='p_number_crunch',
   memory="8GB",
   walltime="00:30:00")
 
@@ -238,7 +242,7 @@ from dask import delayed
 cluster = SLURMCluster(queue='alpha',
   cores=8,
   processes=2,
-  project='p_marie',
+  project='p_number_crunch',
   memory="80GB",
   walltime="00:30:00",
   extra=['--resources gpu=1'])
@@ -290,7 +294,7 @@ for the Monte-Carlo estimation of Pi.
 
     #create a Slurm cluster, please specify your project
 
-    cluster = SLURMCluster(queue='alpha', cores=2, project='p_marie', memory="8GB", walltime="00:30:00", extra=['--resources gpu=1'], scheduler_options={"dashboard_address": f":{portdash}"})
+    cluster = SLURMCluster(queue='alpha', cores=2, project='p_number_crunch', memory="8GB", walltime="00:30:00", extra=['--resources gpu=1'], scheduler_options={"dashboard_address": f":{portdash}"})
 
     #submit the job to the scheduler with the number of nodes (here 2) requested:
 

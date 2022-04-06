@@ -1,16 +1,17 @@
 # Python Virtual Environments
 
-Virtual environments allow users to install additional Python packages and create an isolated
-run-time environment. We recommend using `virtualenv` for this purpose. In your virtual environment,
-you can use packages from the [modules list](modules.md) or if you didn't find what you need you can
-install required packages with the command: `pip install`. With the command `pip freeze`, you can
-see a list of all installed packages and their versions.
+Virtual environments allow users to install additional Python packages and
+create an isolated run-time environment. We recommend using `virtualenv` for
+this purpose. In your virtual environment, you can use packages from the
+[modules list](modules.md) or if you didn't find what you need you can install
+required packages with the command: `pip install`. With the command
+`pip freeze`, you can see a list of all installed packages and their versions.
 
 There are two methods of how to work with virtual environments on ZIH systems:
 
-1. **virtualenv** is a standard Python tool to create isolated Python environments.
-   It is the preferred interface for
-   managing installations and virtual environments on ZIH system and part of the Python modules.
+1. **virtualenv** is a standard Python tool to create isolated Python
+environments. It is the preferred interface for managing installations and
+virtual environments on ZIH system and part of the Python modules.
 
 2. **conda** is an alternative method for managing installations and
 virtual environments on ZIH system. conda is an open-source package
@@ -25,13 +26,13 @@ conda manager is included in all versions of Anaconda and Miniconda.
 
 ## Python Virtual Environment
 
-This example shows how to start working with **virtualenv** and Python virtual environment (using
-the module system).
+This example shows how to start working with **virtualenv** and Python virtual
+environment (using the module system).
 
 !!! hint
 
-    We recommend to use [workspaces](../data_lifecycle/workspaces.md) for your virtual
-    environments.
+    We recommend to use [workspaces](../data_lifecycle/workspaces.md) for your
+    virtual environments.
 
 At first, we check available Python modules and load the preferred version:
 
@@ -53,22 +54,60 @@ Info: creating workspace.
 [...]
 marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env  #Create virtual environment
 [...]
-marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (envtest) bash-4.2$
+marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env) bash-4.2$
 ```
 
-Now you can work in this isolated environment, without interfering with other tasks running on the
-system. Note that the inscription (env) at the beginning of each line represents that you are in
-the virtual environment. You can deactivate the environment as follows:
+Now you can work in this isolated environment, without interfering with other
+tasks running on the system. Note that the inscription (env) at the beginning of
+each line represents that you are in the virtual environment. You can deactivate
+the environment as follows:
 
 ```console
 (env) marie@compute$ deactivate    #Leave the virtual environment
 ```
 
+### Persistence of Python Virtual Environment
+
+To persist a virtualenv, you can store the names and versions of installed
+packages in a file. Then you can restore this virtualenv by installing the
+packages from this file. Use the `pip freeze` command for storing:
+
+```console
+(env) marie@compute$ pip freeze > requirements.txt    #Store the currently installed packages
+```
+
+In order to recreate python virtual environment, use the `pip install` command to install the
+packages from the file:
+
+```console
+marie@compute$ module load Python    #Load default Python
+[...]
+marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env_post  #Create virtual environment
+[...]
+marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env_post) bash-4.2$
+(env_post) marie@compute$ pip install -r requirements.txt    #Install packages from the created requirements.txt file
+```
+
 ## Conda Virtual Environment
 
-This example shows how to start working with **conda** and virtual environment (with using module
-system). At first, we use an interactive job and create a directory for the conda virtual
-environment:
+**Prerequisite:** Before working with conda, your shell needs to be configured
+initially. Therefore login to the ZIH system, load the Anaconda module and run
+`conda init`. For more information use `conda init --help`. Note that changes
+take effect after closing and re-opening your shell.
+
+??? example
+
+    ```console
+    marie@compute$ module load Anaconda3    #load Anaconda module
+    Module Anaconda3/2019.03 loaded.
+    marie@compute$ conda init    #configure shell
+    [...]
+    modified      /home/marie/.bashrc
+    ```
+
+This example shows how to start working with **conda** and virtual environment
+(with using module system). At first, we use an interactive job and create a
+directory for the conda virtual environment:
 
 ```console
 marie@compute$ ws_allocate -F scratch conda_virtual_environment 1
@@ -77,7 +116,8 @@ Info: creating workspace.
 [...]
 ```
 
-Then, we load Anaconda, create an environment in our directory and activate the environment:
+Then, we load Anaconda, create an environment in our directory and activate the
+environment:
 
 ```console
 marie@compute$ module load Anaconda3    #load Anaconda module
@@ -85,9 +125,10 @@ marie@compute$ conda create --prefix /scratch/ws/1/conda_virtual_environment/con
 marie@compute$ conda activate /scratch/ws/1/conda_virtual_environment/conda-env    #activate conda-env virtual environment
 ```
 
-Now you can work in this isolated environment, without interfering with other tasks running on the
-system. Note that the inscription (conda-env) at the beginning of each line represents that you
-are in the virtual environment. You can deactivate the conda environment as follows:
+Now you can work in this isolated environment, without interfering with other
+tasks running on the system. Note that the inscription (conda-env) at the
+beginning of each line represents that you are in the virtual environment. You
+can deactivate the conda environment as follows:
 
 ```console
 (conda-env) marie@compute$ conda deactivate    #Leave the virtual environment
@@ -98,7 +139,7 @@ are in the virtual environment. You can deactivate the conda environment as foll
     This is an example on partition Alpha. The example creates a virtual environment, and installs
     the package `torchvision` with pip.
     ```console
-    marie@login$ srun --partition=alpha-interactive -N=1 --gres=gpu:1 --time=01:00:00 --pty bash
+    marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
     marie@alpha$ mkdir python-environments                               # please use workspaces
     marie@alpha$ module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5 PyTorch
     Module GCC/10.2.0, CUDA/11.1.1, OpenMPI/4.0.5, PyTorch/1.9.0 and 54 dependencies loaded.
@@ -122,3 +163,53 @@ are in the virtual environment. You can deactivate the conda environment as foll
     0.10.0+cu102
     (my-torch-env) marie@alpha$ deactivate
     ```
+
+### Persistence of Conda Virtual Environment
+
+To persist a conda virtual environment, you can define an `environments.yml`
+file. Have a look a the [conda docs](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html?highlight=environment.yml#create-env-file-manually)
+for a description of the syntax. See an example for the `environments.yml` file
+below.
+
+??? example
+    ```yml
+    name: workshop_env
+    channels:
+    - conda-forge
+    - defaults
+    dependencies:
+    - python>=3.7
+    - pip
+    - colorcet
+    - 'geoviews-core=1.8.1'
+    - 'ipywidgets=7.6.*'
+    - geopandas
+    - hvplot
+    - pyepsg
+    - python-dotenv
+    - 'shapely=1.7.1'
+    - pip:
+        - python-hll
+    ```
+
+After specifying the `name`, the conda [channel priority](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html)
+is defined. In the example above, packages will be first installed from the
+`conda-forge` channel, and if not found, from the `default` Anaconda channel.
+
+Below, dependencies can be specified. Optionally, <abbr title="Pinning is a
+process that allows you to remain on a stable release while grabbing packages
+from a more recent version."> pinning</abbr> can be used to delimit the packages
+installed to compatible package versions.
+
+Finally, packages not available on conda can be specified (indented) below
+`- pip:`
+
+Recreate the conda virtual environment with the packages from the created
+`environment.yml` file:
+
+```console
+marie@compute$ mkdir workshop_env    #Create directory for environment
+marie@compute$ module load Anaconda3    #Load Anaconda
+marie@compute$ conda config --set channel_priority strict
+marie@compute$ conda env create --prefix workshop_env --file environment.yml    #Create conda env in directory with packages from environment.yml file
+```

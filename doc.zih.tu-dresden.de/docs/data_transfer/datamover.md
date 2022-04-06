@@ -1,7 +1,7 @@
-# Transferring Files Between ZIH Systems
+# Datamover - Data Transfer Inside ZIH Systems
 
-With the **datamover**, we provide a special data transfer machine for transferring data with best
-transfer speed between the filesystems of ZIH systems. The datamover machine is not accessible
+With the **Datamover**, we provide a special data transfer machine for transferring data with best
+transfer speed between the filesystems of ZIH systems. The Datamover machine is not accessible
 through SSH as it is dedicated to data transfers. To move or copy files from one filesystem to
 another filesystem, you have to use the following commands:
 
@@ -23,7 +23,7 @@ There are the commands `dtinfo`, `dtqueue`, `dtq`, and `dtcancel` to manage your
 and jobs.
 
 * `dtinfo` shows information about the nodes of the data transfer machine (like `sinfo`).
-* `dtqueue` and `dtq` show all your data transfer jobs (like `squeue -u $USER`).
+* `dtqueue` and `dtq` show all your data transfer jobs (like `squeue --me`).
 * `dtcancel` signals data transfer jobs (like `scancel`).
 
 To identify the mount points of the different filesystems on the data transfer machine, use
@@ -37,7 +37,7 @@ To identify the mount points of the different filesystems on the data transfer m
 |                    | `/warm_archive/ws`   | `/warm_archive/ws`                 |
 |                    | `/home`              | `/home`                            |
 |                    | `/projects`          | `/projects`                        |
-| **Archive**        |                      | `/archive`                         |
+| **Archive**        |                      | `/archiv`                         |
 | **Group storage**  |                      | `/grp/<group storage>`             |
 
 ## Usage of Datamover
@@ -45,7 +45,7 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! example "Copying data from `/beegfs/global0` to `/projects` filesystem."
 
     ``` console
-    marie@login$ dtcp -r /beegfs/global0/ws/marie-workdata/results /projects/p_marie/.
+    marie@login$ dtcp -r /beegfs/global0/ws/marie-workdata/results /projects/p_number_crunch/.
     ```
 
 !!! example "Moving data from `/beegfs/global0` to `/warm_archive` filesystem."
@@ -57,7 +57,7 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! example "Archive data from `/beegfs/global0` to `/archiv` filesystem."
 
     ``` console
-    marie@login$ dttar -czf /archiv/p_marie/results.tgz /beegfs/global0/ws/marie-workdata/results
+    marie@login$ dttar -czf /archiv/p_number_crunch/results.tgz /beegfs/global0/ws/marie-workdata/results
     ```
 
 !!! warning
@@ -66,4 +66,34 @@ To identify the mount points of the different filesystems on the data transfer m
 !!! note
     The [warm archive](../data_lifecycle/warm_archive.md) and the `projects` filesystem are not
     writable from within batch jobs.
-    However, you can store the data in the `warm_archive` using the datamover.
+    However, you can store the data in the `warm_archive` using the Datamover.
+
+## Transferring Files Between ZIH Systems and Group Drive
+
+1. Copy your private SSH key from ZIH system to `login1.zih.tu-dresden.de`.
+
+   ``` console
+   marie@login$ ssh-copy-id -i ~/.ssh/id_rsa.pub login1.zih.tu-dresden.de
+   ```
+
+1. Now you can access your group drive with the Datamover commands.
+!!! example "Export the name of your group drive."
+
+   ``` console
+   marie@login$ export GROUP_DRIVE_NAME=???
+   ```
+
+!!! note
+    Please replace `???` with the name of your group drive.
+
+!!! example "Copying data from your group drive to `/beegfs/global0` filesystem."
+
+    ``` console
+    marie@login$ dtrsync -av dgw.zih.tu-dresden.de:/glw/${GROUP_DRIVE_NAME}/inputfile /beegfs/global0/ws/marie-workdata/.
+    ```
+
+!!! example "Copying data from `/beegfs/global0` filesystem to your group drive."
+
+    ``` console
+    marie@login$ dtrsync -av /beegfs/global0/ws/marie-workdata/resultfile dgw.zih.tu-dresden.de:/glw/${GROUP_DRIVE_NAME}/.
+    ```

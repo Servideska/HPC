@@ -1,6 +1,6 @@
-# ZIH Systems
+# HPC Resources
 
-ZIH systems comprises the *High Performance Computing and Storage Complex* and its
+HPC resources in ZIH systems comprises the *High Performance Computing and Storage Complex* and its
 extension *High Performance Computing – Data Analytics*. In total it offers scientists
 about 60,000 CPU cores and a peak performance of more than 1.5 quadrillion floating point
 operations per second. The architecture specifically tailored to data-intensive computing, Big Data
@@ -14,12 +14,16 @@ users and the ZIH.
   - each with 2x Intel(R) Xeon(R) CPU E5-2680 v3 each with 12 cores
     @ 2.50GHz, Multithreading Disabled, 64 GB RAM, 128 GB SSD local disk
   - IPs: 141.30.73.\[102-105\]
-- Transfer-Nodes (`taurusexport3/4.hrsk.tu-dresden.de`, DNS Alias
+- Transfer-Nodes (`taurusexport[3-4].hrsk.tu-dresden.de`, DNS Alias
   `taurusexport.hrsk.tu-dresden.de`)
   - 2 Servers without interactive login, only available via file transfer protocols (`rsync`, `ftp`)
   - IPs: 141.30.73.82/83
 - Direct access to these nodes is granted via IP whitelisting (contact
   hpcsupport@zih.tu-dresden.de) - otherwise use TU Dresden VPN.
+
+!!! warning "Run time limit"
+
+    Any process on login nodes is stopped after 5 minutes.
 
 ## AMD Rome CPUs + NVIDIA A100
 
@@ -67,8 +71,8 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
 
 - 1456 nodes, each with 2x Intel(R) Xeon(R) CPU E5-2680 v3 (12 cores)
   @ 2.50GHz, Multithreading disabled, 128 GB SSD local disk
-- Hostname: `taurusi4[001-232]`, `taurusi5[001-612]`,
-  `taurusi6[001-612]`
+- Hostname: `taurusi[4001-4232]`, `taurusi[5001-5612]`,
+  `taurusi[6001-6612]`
 - Varying amounts of main memory (selected automatically by the batch
   system for you according to your job requirements)
   - 1328 nodes with 2.67 GB RAM per core (64 GB total):
@@ -97,8 +101,8 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
 * 64 nodes, each with 2x Intel(R) Xeon(R) CPU E5-E5-2680 v3 (12 cores)
   @ 2.50GHz, Multithreading Disabled, 64 GB RAM (2.67 GB per core),
   128 GB SSD local disk, 4x NVIDIA Tesla K80 (12 GB GDDR RAM) GPUs
-* Hostname: `taurusi2[045-108]`
-* Slurm Partition `gpu`
+* Hostname: `taurusi[2045-2108]`
+* Slurm Partition `gpu2`
 * Node topology, same as [island 4 - 6](#island-4-to-6-intel-haswell-cpus)
 
 ## SMP Nodes - up to 2 TB RAM
@@ -111,17 +115,4 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
 ??? hint "Node topology"
 
     ![Node topology](misc/smp2.png)
-    {: align=center}
-
-## Island 2 Phase 1 - Intel Sandybridge CPUs + NVIDIA K20x GPUs
-
-- 44 nodes, each with 2x Intel(R) Xeon(R) CPU E5-2450 (8 cores) @
-  2.10GHz, Multithreading Disabled, 48 GB RAM (3 GB per core), 128 GB
-  SSD local disk, 2x NVIDIA Tesla K20x (6 GB GDDR RAM) GPUs
-- Hostname: `taurusi2[001-044]`
-- Slurm partition `gpu1`
-
-??? hint "Node topology"
-
-    ![Node topology](misc/i2000.png)
     {: align=center}

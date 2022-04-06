@@ -13,7 +13,7 @@ The main feature of the nodes is the ability to work with the
 [NVIDIA Tesla V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) GPU with **NV-Link**
 support that allows a total bandwidth with up to 300 GB/s. Each node on the
 partition ML has 6x Tesla V-100 GPUs. You can find a detailed specification of the partition in our
-[Power9 documentation](../jobs_and_resources/power9.md).
+[Power9 documentation](../jobs_and_resources/hardware_overview.md).
 
 !!! note
 
@@ -155,7 +155,7 @@ The following HPC related software is installed on all nodes:
 There are many different datasets designed for research purposes. If you would like to download some
 of them, keep in mind that many machine learning libraries have direct access to public datasets
 without downloading it, e.g. [TensorFlow Datasets](https://www.tensorflow.org/datasets). If you
-still need to download some datasets use [datamover](../data_transfer/datamover.md) machine.
+still need to download some datasets use [Datamover](../data_transfer/datamover.md) machine.
 
 ### The ImageNet Dataset
 

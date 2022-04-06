@@ -1,4 +1,4 @@
-# Math Libraries
+# Mathematics Libraries
 
 Many software heavily relies on math libraries, e.g., for linear algebra or FFTW calculations.
 Writing portable and fast math functions is a really challenging task. You can try it for fun, but you
@@ -59,7 +59,7 @@ libraries tuned specifically for AMD EPYC processor family. AOCL offers linear a
  as well as
  [AMD Random Number Generator Library](https://developer.amd.com/amd-cpu-libraries/rng-library/)
  and
- [AMD Secure RNG Libraary](https://developer.amd.com/amd-cpu-libraries/rng-library/#securerng).
+ [AMD Secure RNG Library](https://developer.amd.com/amd-cpu-libraries/rng-library/#securerng).
 
 ## Math Kernel Library (MKL)
 

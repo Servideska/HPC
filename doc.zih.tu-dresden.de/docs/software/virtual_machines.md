@@ -61,7 +61,7 @@ Last login: Fri Jul 24 13:53:48 2020 from gateway
 
 ## Automation
 
-We provide [tools](virtual_machines_tools.md) to automate these steps. You may just type `startInVM
+We provide [tools](singularity_power9.md) to automate these steps. You may just type `startInVM
 --arch=power9` on a login node and you will be inside the VM with everything mounted.
 
 ## Known Issues
@@ -79,7 +79,7 @@ rm -rf /tmp/sbuild-*
 ```
 
 If that does not help, e.g., because one build alone needs more than the available disk memory, then
-it will be necessary to use the tmp folder on scratch. In order to ensure that the files in the
+it will be necessary to use the `tmp` folder on `scratch`. In order to ensure that the files in the
 temporary folder will be owned by root, it is necessary to set up an image inside `/scratch/tmp`
 instead of using it directly. E.g., to create a 25 GB of temporary memory image:
 
