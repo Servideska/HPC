@@ -128,7 +128,7 @@ nav:
     - Windows Batchjobs: archive/windows_batch.md
   - Contribute:
     - How-To Contribute: contrib/howto_contribute.md
-    - Content Rules: contrib/content_rules.md
+    - Content Guide Lines: contrib/content_guide_lines.md
     - Contribute via Browser: contrib/contribute_browser.md
     - Contribute via Local Clone: contrib/contribute_container.md
     
