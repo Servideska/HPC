@@ -74,11 +74,65 @@ Below are some examples:
 
 ## Where can I get more information about management of research data?
 
-Go to [http://www.forschungsdaten.org/en/](http://www.forschungsdaten.org/en/) to find more
-information about managing research data.
+Please visit the wiki [forschungsdaten.org](https://www.forschungsdaten.org/en/) to learn more about
+all of the different aspects of research data management.
 
-## I want to store my research data at ZIH. How can I do that?
+For questions or individual consultations regarding research data management in general or any of
+its certain aspects, you can contact the
+[Service Center Research Data](https://tu-dresden.de/forschung-transfer/services-fuer-forschende/kontaktstelle-forschungsdaten?set_language=en)
+(Kontaktstelle Forschungsdaten) of TU Dresden.
 
-Long-term preservation of research data is under construction at ZIH and in a testing phase.
-Nevertheless you can already use the archiving service. If you would like to become a test
-user, please write an E-Mail to [Dr. Klaus Köhler](mailto:klaus.koehler@tu-dresden.de).
+## I want to archive my research data at ZIH safely. How can I do that?
+
+For TU Dresden there exist two different services at ZIH for archiving research data. Both of
+them ensure high data safety by duplicating data internally at two separate locations and
+require some data preparation (e.g. packaging), but serve different use cases:
+
+### Storing very infrequently used data during the course of the project
+
+The intermediate archive is a tape storage easily accessible as a directory
+(`/archiv/<HRSK-project>/` or `/archiv/<login>/`) using the
+[export nodes](../data_transfer/export_nodes.md)
+and
+[Datamover tools](https://doc.zih.tu-dresden.de/data_transfer/datamover/) to move your data to.
+For detailed information please visit the
+[ZIH intermediate archive documentation](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/backup_archiv/archivierung_am_zih#section-2-1).
+
+!!! note
+
+    The usage of the HRSK-project-related archive is preferable to the login-related archive, as
+    this enables assigning access rights and responsibility across multiple researchers, due to the
+    common staff turnover in research.
+
+The use of the intermediate archive usually is limited by the end of the corresponding
+research project. Afterwards data is required to be removed, tidied up and submitted to a
+long-term repository (see next section).
+
+The intermediate archive is the preferred service when you keep large, mostly unused data volumes
+during the course of your research project; if you want or need to free storage capacities, but
+you are still not able to define certain or relevant datasets for long-term archival.
+
+If you are able to identify complete and final datasets, which you probably won't use actively
+anymore, then repositories as described in the next section may be the more appropriate selection.
+
+### Archiving data beyond the project lifetime, for 10 years and above
+
+According to good scientific practice (cf.
+[DFG guidelines, #17](https://www.dfg.de/download/pdf/foerderung/rechtliche_rahmenbedingungen/gute_wissenschaftliche_praxis/kodex_gwp.pdf))
+and
+[TU Dresden research data guidelines](https://tu-dresden.de/tu-dresden/qualitaetsmanagement/ressourcen/dateien/wisprax/Leitlinien-fuer-den-Umgang-mit-Forschungsdaten-an-der-TU-Dresden.pdf),
+relevant research data needs to be archived at least for 10 years. The
+[OpARA service](https://opara.zih.tu-dresden.de/xmlui/) (Open Access Repository and Archive) is the
+joint research data repository service for Saxon universities to address this requirement.
+
+Data can be uploaded and, to comply to the demands of long-term understanding of data, additional
+metadata and description must be added. Large datasets may be optionally imported beforehand. In
+this case, please contact the
+[TU Dresden Service Desk](mailto:servicedesk@tu-dresden.de?subject=OpARA:%20Data%20Import).
+Optionally, data can also be **published** by OpARA. To ensure data quality, data submissions
+undergo a review process.
+
+Beyond OpARA, it is also recommended to use discipline-specific data repositories for data
+publications. Usually those are well known in a scientific community, and offer better fitting
+options of data description and classification. Please visit [re3data.org](https://re3data.org)
+to look up a suitable one for your discipline.

@@ -20,13 +20,16 @@ Some more information:
 ## Access the Intermediate Archive
 
 For storing and restoring your data in/from the "Intermediate Archive" you can use the tool
-[Datamover](../data_transfer/datamover.md). To use the DataMover you have to login to ZIH systems.
+[Datamover](../data_transfer/datamover.md). To use the Datamover you have to login to ZIH systems.
 
 ### Store Data
 
 ```console
 marie@login$ dtcp -r /<directory> /archiv/<project or user>/<directory> # or
 marie@login$ dtrsync -av /<directory> /archiv/<project or user>/<directory>
+# example:
+marie@login$ dtcp -r /scratch/marie/results /archiv/marie/ # or
+marie@login$ dtrsync -av /scratch/marie/results /archiv/marie/results
 ```
 
 ### Restore Data
@@ -34,11 +37,16 @@ marie@login$ dtrsync -av /<directory> /archiv/<project or user>/<directory>
 ```console
 marie@login$ dtcp -r /archiv/<project or user>/<directory> /<directory> # or
 marie@login$ dtrsync -av /archiv/<project or user>/<directory> /<directory>
+# example:
+marie@login$ dtcp -r /archiv/marie/results /scratch/marie/ # or
+marie@login$ dtrsync -av /archiv/marie/results /scratch/marie/results
 ```
 
-### Examples
+!!! note "Listing files in archive"
 
-```console
-marie@login$ dtcp -r /scratch/rotscher/results /archiv/rotscher/ # or
-marie@login$ dtrsync -av /scratch/rotscher/results /archiv/rotscher/results
-```
+    The intermediate archive is not mounted on the login nodes, but only on the [export nodes](../data_transfer/export_nodes.md).
+
+    In order to list the user's files in the archive use the `dtls` command
+    ```console
+    marie@login$ dtls /archiv/$USER/
+    ```

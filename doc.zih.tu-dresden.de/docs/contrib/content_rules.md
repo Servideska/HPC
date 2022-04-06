@@ -1,6 +1,22 @@
 # Content Rules
 
-**Remark:** Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
+## Responsibility And License
+
+This documentation and the repository have two licenses (cf. [Legal Notice](../legal_notice.md)):
+
+* All documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+* All software components are licensed under [MIT license](../license_mit.txt).
+
+These licenses also apply to your contributions.
+
+!!! note
+
+    Each user is fully and solely responsible for the content he/she creates and has to ensure that
+    he/she has the right to create it under the laws which apply.
+
+If you are in doubt, please contact us either via
+[GitLab Issue](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues)
+or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 
 ## New Page and Pages Structure
 
@@ -50,6 +66,7 @@ should be highlighted, etc. Code examples, longer than half screen height should
 
 ## Writing Style
 
+* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
 * Capitalize headings, e.g. *Exclusive Reservation of Hardware*
 * Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
   descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
@@ -105,6 +122,7 @@ We follow this rules regarding prompts:
 | `alpha` partition      | `marie@alpha$`   |
 | `romeo` partition      | `marie@romeo$`   |
 | `julia` partition      | `marie@julia$`   |
+| `dcv` partition        | `marie@dcv$`     |
 | Localhost              | `marie@local$`   |
 
 *Remarks:*
@@ -116,7 +134,7 @@ We follow this rules regarding prompts:
   an example invocation, perhaps with output, should be given with the normal `console` code block.
   See also [Code Block description below](#code-blocks-and-syntax-highlighting).
 * Using some magic, the prompt as well as the output is identified and will not be copied!
-* Stick to the [generic user name](#data-privacy-and-generic-user-name) `marie`.
+* Stick to the [generic user name](#data-privacy-and-generic-names) `marie`.
 
 ### Code Blocks and Syntax Highlighting
 
@@ -197,9 +215,9 @@ Line numbers can be added via
 ```bash linenums="1"
 #!/bin/bash
 
-#SBATCH -N 1
-#SBATCH -n 23
-#SBATCH -t 02:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=23
+#SBATCH --time=02:10:00
 
 srun a.out
 ```
@@ -215,9 +233,9 @@ Specific Lines can be highlighted by using
 ```bash hl_lines="2 3"
 #!/bin/bash
 
-#SBATCH -N 1
-#SBATCH -n 23
-#SBATCH -t 02:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=23
+#SBATCH --time=02:10:00
 
 srun a.out
 ```
@@ -227,16 +245,17 @@ _Result_:
 
 ![lines](misc/highlight_lines.png)
 
-### Data Privacy and Generic User Name
+### Data Privacy and Generic Names
 
-Where possible, replace login, project name and other private data with clearly arbitrary placeholders.
-E.g., use the generic login `marie` and the corresponding project name `p_marie`.
+Where possible, replace login, project name and other private data with clearly arbitrary
+placeholders.  In particular, use the generic login `marie` and the project title `p_number_crunch`
+as placeholders.
 
 ```console
 marie@login$ ls -l
-drwxr-xr-x   3 marie p_marie      4096 Jan 24  2020 code
-drwxr-xr-x   3 marie p_marie      4096 Feb 12  2020 data
--rw-rw----   1 marie p_marie      4096 Jan 24  2020 readme.md
+drwxr-xr-x   3 marie p_number_crunch      4096 Jan 24  2020 code
+drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
+-rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
 ## Mark Omissions
@@ -265,3 +284,7 @@ The syntax to insert a graphic or attachment into a page is
 
 The attribute `align` is optional. By default, graphics are left aligned. **Note:** It is crucial to
 have `{: align="center"}` on a new line.
+
+It is possible to add captions for tables and figures using `{: summary="This is a table caption"}`.
+The `summary` and `align` parameters can be combined as well:
+`{: summary="This is a table caption" align="top"}`.

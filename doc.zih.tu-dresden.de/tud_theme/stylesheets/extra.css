@@ -1,17 +1,17 @@
 /* general */
 @font-face {
     font-family: "Open Sans Regular";
-    src: 
+    src:
         local('Open Sans Regular'),
         url('./Open_Sans/OpenSans-Regular-webfont.woff') format('woff')
 }
 @font-face {
     font-family: "Open Sans Semibold";
-    src: 
+    src:
         local('Open Sans Semibold'),
         url('./Open_Sans/OpenSans-Semibold-webfont.woff') format('woff')
 }
-/*  
+/*
     change colors via "css color variables"
     https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors
 */
@@ -22,7 +22,7 @@
     --md-primary-fg-color:        rgb(0, 37, 87);
     --md-primary-fg-color--light: rgb(39, 66, 117);
     --md-footer-bg-color:         rgb(0, 37, 87);
-    
+
     --tud-blue-20:                rgb(191, 201, 215);
     --tud-blue-10:                rgb(207, 214, 225);
     --ms-blue:                    rgb(233, 237, 242);
@@ -38,10 +38,10 @@
     --fg-color--light:              rgba(0, 0, 0, 0.6);
 }
 
-.md-typeset h1, 
-.md-typeset h2, 
-.md-typeset h3, 
-.md-typeset h4, 
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
 .md-typeset h5 {
     font-family: 'Open Sans Semibold';
     line-height: 130%;
@@ -97,12 +97,10 @@ strong {
 /* admonitions */
 .md-typeset code {
     word-break: normal;
-    #background-color: var(--grey-75);
-    #background-color: var(--tud-blue-10);
     background-color: var(--ms-blue);
 }
 
-* { 
+* {
     --md-code-hl-comment-color:   var(--fg-color--light);
 }
 
@@ -112,7 +110,8 @@ strong {
 
 .md-typeset .admonition,
 .md-typeset details,
-.md-typeset code {
+.md-typeset code,
+.highlighttable .linenos {
     font-size: 0.8rem;
 }
 
@@ -122,11 +121,11 @@ strong {
 }
 @media screen and (min-width: 76.25rem) {
     .md-header,
-    .md-header__title, 
+    .md-header__title,
     .md-header__button,
     .md-header__topic {
         height: 80px;
-    }  
+    }
 
     .md-header__button,
     .md-header__button.md-logo,
@@ -145,7 +144,7 @@ strong {
 
 .md-header__topic{
     padding: 0 30px;
-    background-color: var(--md-primary-fg-color--light); 
+    background-color: var(--md-primary-fg-color--light);
 }
 
 .md-header__topic *,
@@ -171,20 +170,26 @@ strong {
     height: 36px;
     width: 125px;
 }
-
+/* navbar */
+.md-nav__link--active{
+    background-color: var(--tud-blue-10);
+    color: inherit;
+    border-radius: 5px;
+    padding: 0.2em 0.5em;
+}
 /* toc */
 /* operation-status */
 .operation-status-logo {
     width: 0.5rem;
 }
-    
+
 hr.solid {
     border-top: 2px solid #bbb;
 }
 
 p {
     padding: 0 0.6rem;
-	margin: 0.2em;	
+	margin: 0.2em;
 }
 /* main */
 

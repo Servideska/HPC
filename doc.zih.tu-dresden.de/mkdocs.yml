@@ -15,6 +15,7 @@ nav:
     - JupyterHub:
       - JupyterHub: access/jupyterhub.md
       - JupyterHub for Teaching: access/jupyterhub_for_teaching.md
+      - JupyterHub Teaching Example: access/jupyterhub_teaching_example.md
     - Key Fingerprints: access/key_fingerprints.md  
     - Security Restrictions: access/security_restrictions.md
   - Data Transfer:
@@ -72,6 +73,7 @@ nav:
       - PIKA: software/pika.md
       - Perf Tools: software/perf_tools.md
       - Vampir: software/vampir.md
+      - Energy Measurement: software/energy_measurement.md
   - Data Life Cycle Management:
     - Overview: data_lifecycle/overview.md
     - Filesystems:
@@ -136,7 +138,7 @@ site_name: ZIH HPC Compendium
 site_description: ZIH HPC Compendium
 site_author: ZIH Team
 site_dir: public
-site_url: https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium
+site_url: https://doc.zih.tu-dresden.de/
 
 # uncomment next 3 lines if link to repo should not be displayed in the navbar
 
@@ -178,18 +180,25 @@ extra_css:
 
 extra_javascript:
   - javascripts/extra.js
+  - javascripts/mermaid.min.js
 
 markdown_extensions:
     - admonition
     - pymdownx.details
-    - pymdownx.superfences
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
     - pymdownx.highlight
     - toc:
         permalink: True
     - attr_list
     - footnotes
     - pymdownx.tabbed:
-        alternate_style: true
+        alternate_style: True
+
+          #  - mkdocs-video
 
 extra:
   tud_homepage: https://tu-dresden.de
@@ -210,3 +219,7 @@ extra:
       name: "Data Protection Declaration / Datenschutzerklärung"
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
+
+plugins:
+  - search
+  - markdown-caption
