@@ -165,6 +165,15 @@ can deactivate the conda environment as follows:
 (conda-env) marie@compute$ conda deactivate    #Leave the virtual environment
 ```
 
+!!! warning
+    When installing conda packages via `conda install`, ensure to have enough main memory requested
+    in your job allocation.
+
+!!! hint
+    We do not recommend to use conda environments together with easybuild modules due to
+    dependency conflicts. Nevertheless, if you need easybuild modules, consider installing conda
+    packages via `conda install --no-deps [...]` to prevent conda from installing dependencies.
+
 ??? example
 
     This is an example on partition Alpha. The example creates a conda virtual environment, and
@@ -187,9 +196,10 @@ can deactivate the conda environment as follows:
     [...]
     Preparing transaction: done
     Verifying transaction: done
+    (my-torch-env) marie@alpha$ which python    # ensure to use the correct Python
     (my-torch-env) marie@alpha$ python -c "import torchvision; print(torchvision.__version__)"
-    0.10.0+cu102
-    (my-torch-env) marie@alpha$ deactivate
+    0.12.0
+    (my-torch-env) marie@alpha$ conda deactivate
     ```
 
 ### Persistence of Conda Virtual Environment
