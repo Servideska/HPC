@@ -35,12 +35,13 @@ marie@compute$ tmux attach -t marie_is_testing
 Ctrl+B & d
 ```
 
-!!! NOTE: Do note that if you want to jump out of your Tmux session,
+!!! note NOTE: Do note that if you want to jump out of your Tmux session,
 you would usually be using the key combination
 Control Key and B-Key (thus now addressing Tmux itself)
 and then you'd be using the D-Key to tell it to "detach" yourself from it
 (the Tmux session will stay alive and running).
 You can jump into it any time later by just using the aforementioned "tmux attach" command again.
+++ctrl+B++  ++D++
 
 ### Using a more recent Tmux version on Taurus
 
@@ -91,7 +92,7 @@ marie@compute$ tmux -V
 tmux 3.2a
 ```
 
-!!! NOTE: When your clients version is newer than the server-version,
+!!! hint NOTE: When your clients version is newer than the server-version,
 the aforementioned approach won't help you.
 In that case you might want to invoke `module unload tmux`,
 to downgrade your Tmux version to the Tmux version that is supplied with the operating system
