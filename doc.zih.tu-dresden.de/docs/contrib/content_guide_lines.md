@@ -55,25 +55,27 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
     * Respect [data privacy](#data-privacy-and-generic-names).
     * Stick to the [rules on optional and required arguments](#unix-rules).
 
-## Pages Structure and New Page
+## Detailed Overview
+
+### Pages Structure and New Page
 
 The documentation and pages structure is defined in the configuration file
 [mkdocs.yml](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/blob/main/doc.zih.tu-dresden.de/mkdocs.yml):
 
-```Bash
-nav:
-  - Home: index.md
-  - Application for Login and Resources:
-    - Overview: application/overview.md
-    - Terms of Use: application/terms_of_use.md
-    - Request for Resources: application/request_for_resources.md
-    - Project Request Form: application/project_request_form.md
-    - Project Management: application/project_management.md
-    - Acknowledgement: application/acknowledgement.md
-  - Access to ZIH Systems:
-    - Overview: access/overview.md
+| Heading | File |
+| --- | --- |
+| Home | index.md |
+| Application for Login and Resources |
+| ➥ Overview | application/overview.md |
+| ➥ Terms of Use | application/terms_of_use.md |
+| ➥ Request for Resources | application/request_for_resources.md |
+| ➥ Project Request Form | application/project_request_form.md |
+| ➥ Project Management | application/project_management.md |
+| ➥ Acknowledgement | application/acknowledgement.md |
+| Access to ZIH Systems |
+| ➥ Overview | access/overview.md |
   [...]
-```
+
 
 Follow these two steps to **add a new page** to the documentation:
 
@@ -86,12 +88,12 @@ The sub-directory and file name should follow the pattern `fancy_title_and_more.
 Make sure that the new page **is not floating**, i.e., it can be reached directly from
 the documentation structure.
 
-## Markdown
+### Markdown
 
 All documentation is written in Markdown. Please keep things simple, i.e., avoid using fancy
 Markdown dialects.
 
-### Brief How-To on Markdown
+#### Brief How-To on Markdown
 
 | Purpose | Markdown | Rendered HTML |
 |---|---|---|
@@ -102,40 +104,11 @@ Markdown dialects.
 | Internal link | `[Slurm page](../jobs_and_resources/slurm.md)` | [Slurm page](../jobs_and_resources/slurm.md)|
 | Internal link to section | `[section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs)` | [section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs) |
 
-??? node "Lists and enumerations"
+Further tips here: [Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-    ```markdown
-    * First list item
-    * Second list item
-        * Nested item
-    * Another list item
-    ```
+#### Graphics and Attachments
 
-    * First list item
-    * Second list item
-        * Nested item
-    * Another list item
-
-    ```markdown
-    1. First list item
-    1. Second list item
-        1. Nested item
-    1. Another list item
-    ```
-
-    1. First list item
-    1. Second list item
-        1. Nested item
-    1. Another list item
-
-For further reading, we recommand this
-[Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) an Markdown.
-
-### Graphics and Attachments
-
-Images and graphics are an important part of every technical documentation, They are use used to
-provide a more detailes or further outline a certain process and topic. This also holds for this HPC
-compendium. Thus, we encourage you to add images and graphics for illustration purposes.
+Please use graphics for understandability.
 
 All graphics and attachments are saved within `misc` directory of the respective sub directory in
 `docs`.
@@ -160,7 +133,7 @@ The `summary` and `align` parameters can be combined as well:
     Do not add large binary files or high resolution images to the repository. See this valuable
     document for [image optimization](https://web.dev/fast/#optimize-your-images).
 
-### Admonitions
+#### Special Feature: Admonitions
 
 [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/), also known as
 call-outs, may be actively used to highlight examples, warnings, tips, important information etc.
@@ -188,13 +161,13 @@ for a comprehensive overview.
         vero eos et accusam et justo duo dolores et ea rebum.
     ```
 
-#### Folding
+!!! node Folding
 
 Admonitions can be made foldable by using `???` instead of `!!!`. A small toggle on the right side
 is displayed. The block is open by default if `???+` is used. Long code examples should be folded by
 default.
 
-## Writing Style
+### Writing Style
 
 * Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
 * Capitalize headings, e.g. *Exclusive Reservation of Hardware*
@@ -207,7 +180,7 @@ default.
 * Write directly to the readers/users, e.g., use `you can/have` instead of `users can/have`
 * If there are multiple ways of doing things, recommend one over the others and justify
 
-## Spelling and Technical Wording
+### Spelling and Technical Wording
 
 To provide a consistent and high quality documentation, and help users to find the right pages,
 there is a list of conventions w.r.t. spelling and technical wording.
@@ -224,35 +197,25 @@ there is a list of conventions w.r.t. spelling and technical wording.
 |       | HPC-DA |
 | partition `ml` | ML partition, ml partition, `ml` partition, "ml" partition, etc. |
 
-## Code Blocks and Command Prompts
+### Code Blocks and Command Prompts
+
+| Bad | Good |
+| --- | --- |
+| `jitschin@tauruslogin3:~> mkdir rick-roll` | `marie@login$ mkdir --verbose example_directory` |
+| | `mkdir: created directory 'example_directory'` |
+| `jitschin@tauruslogin3:~> ls -ld rick-roll` | `marie@login$ ls -l --directory example_directory` |
+| `-rw-rw-r-- 1 jitschin jitschin 0 Apr  8 18:27 rick-roll` | `-rw-rw-r-- 1 marie p_number_crunch 0 Apr  8 18:27 example_directory` |
 
 Showing commands and sample output is an important part of all technical documentation. To make
 things as clear as possible for readers and provide a consistent documentation, some guide lines
 have to be followed.
 
-1. Use ticks to mark code blocks and commands, not italic font.
-1. Specify language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
-1. All code blocks and commands should be runnable from a login node or a node within a specific
-   partition (e.g., `ml`).
-1. It should be clear from the [prompt](#prompts), where the command is run (e.g., local machine,
-   login node or specific partition).
+Please especially consider to:
 
-### Long Options
+- specify the language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
+- use the hostnames [listed below](#List-of-Prompts) (prefer login nodes or specify partition)
 
-The general guide line is to provide long over short parameter names where possible to ease
-understanding. This holds especially for Slurm options, but also for other commands, e.g.,
-use the `module` command over the short front-end `ml`.
-
-??? example
-
-    `srun --nodes=2 --ntasks-per-node=4 [...]`
-
-    is preferred over
-
-    `srun -N 2 -n 4 [...]`
-
-
-### Prompts
+#### List of Prompts
 
 We follow this rules regarding prompts to make clear where a certain command or example is executed.
 This should help to avoid errors.
@@ -277,7 +240,7 @@ This should help to avoid errors.
 * Using some magic, the prompt as well as the output is identified and will not be copied!
 * Stick to the [generic user name](#data-privacy-and-generic-names) `marie`.
 
-### Code Blocks and Syntax Highlighting
+#### Code Blocks and Syntax Highlighting
 
 Providing code blocks and snippets is the meat and bones of this documentation.
 
@@ -378,7 +341,7 @@ highlighting. There is a complete list of supported
 
     ![lines](misc/highlight_lines.png)
 
-### Data Privacy and Generic Names
+#### Data Privacy and Generic Names
 
 Where possible, replace login, project name and other private data with clearly arbitrary
 placeholders.  In particular, use the generic login `marie` and the project title `p_number_crunch`
@@ -391,11 +354,11 @@ drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
 -rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
-## Mark Omissions
+### Mark Omissions
 
 If showing only a snippet of a long output, omissions are marked with `[...]`.
 
-## Unix Rules
+### Unix Rules
 
 Stick to the Unix rules on optional and required arguments, and selection of item sets:
 
