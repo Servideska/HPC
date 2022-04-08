@@ -99,6 +99,7 @@ FlinkExample
 FMA
 foreach
 Fortran
+Frontend
 Galilei
 Gauss
 Gaussian
@@ -165,6 +166,7 @@ ipython
 IPython
 ISA
 Itanium
+Jards
 jobqueue
 jpg
 jss
@@ -237,6 +239,7 @@ NEC
 Neptun
 NFS
 NGC
+NHR
 NODELIST
 nodelist
 NRINGS
