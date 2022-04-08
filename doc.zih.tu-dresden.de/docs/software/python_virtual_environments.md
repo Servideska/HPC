@@ -170,7 +170,7 @@ can deactivate the conda environment as follows:
     in your job allocation.
 
 !!! hint
-    We do not recommend to use conda environments together with easybuild modules due to
+    We do not recommend to use conda environments together with EasyBuild modules due to
     dependency conflicts. Nevertheless, if you need EasyBuild modules, consider installing conda
     packages via `conda install --no-deps [...]` to prevent conda from installing dependencies.
 
