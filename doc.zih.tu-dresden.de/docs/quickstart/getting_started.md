@@ -1,4 +1,4 @@
-# Getting Started
+# Quick Start
 
 This page is intended to provide the key information on starting to work on the ZIH High
 Performance Computing (HPC) system and is of particular importance to new users.
