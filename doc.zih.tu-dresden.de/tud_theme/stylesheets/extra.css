@@ -204,6 +204,7 @@ p {
   [href*="//doc.zih.tu-dresden.de"],
   /* exclude relative links beginning with ../ */
   [href^="\.\./"],
+  [href^="misc/"],
   /* exclude buttons */
   .md-content__button,
   /* exclude icons */
