@@ -38,8 +38,6 @@ Due to the structuring there are different ways to access [HPC resources](https:
     click D href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
   ```
 
-{: align="center"}
-
 === "NHR Type"
 
     ### NHR Type
