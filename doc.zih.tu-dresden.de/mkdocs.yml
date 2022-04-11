@@ -9,7 +9,10 @@ nav:
     - Acknowledgement: application/acknowledgement.md
   - Access to ZIH Systems:
     - Overview: access/overview.md
-    - Connecting with SSH: access/ssh_login.md
+    - Connecting with SSH: 
+      - Overview: access/ssh_login.md
+      - SSH from Linux: access/ssh_linux.md
+      - SSH from Windows: access/ssh_windows.md
     - Desktop Cloud Visualization (DCV): access/desktop_cloud_visualization.md
     - Graphical Applications with WebVNC: access/graphical_applications_with_webvnc.md
     - JupyterHub:
