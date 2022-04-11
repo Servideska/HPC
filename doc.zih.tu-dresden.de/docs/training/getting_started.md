@@ -57,8 +57,7 @@ This aspect is considered for all the following recommendations.
 
 ## Accessing the ZIH HPC system
 
-
-The ZIH HPC system can be accessed only within the TUD campus networks.
+The ZIH HPC system can be accessed only within the TU Dresden campus networks.
 Access from outside is possible by establishing a [VPN connection](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4).
 
 There are different ways to access the ZIH HPC system (which are described in more detail below),
@@ -124,7 +123,7 @@ This is the starting point for many tasks such as running programs and data mana
 === "Users of older versions of Windows"
 
     Install and set up [MobaXTerm](../access/ssh_login_mobaxterm) or [PuTTY](../access/ssh_login_putty).
-    
+
 For more information explore the [access compendium page](../access/ssh_login.md).
 
 ## Data Management and Data Transfer
@@ -156,18 +155,18 @@ To start we recommend the Lustre filesystem **scratch**.
 
     To explain:
 
-    - `ws_allocate` - command to allocate   
-    - `-F scratch` - on the scratch filesystem 
+    - `ws_allocate` - command to allocate
+    - `-F scratch` - on the scratch filesystem
     - `-r 7 -m marie.testuser@tu-dresden.de` - send a reminder to `marie.testuser@tu-dresden.de` 7 days before expiration
-    - `test-workspace` - workspace's name 
+    - `test-workspace` - workspace's name
     - a life time of `90` days
-      
-    The path to this workspace is `/scratch/ws/marie-test-workspace`. You will need it when 
+
+    The path to this workspace is `/scratch/ws/marie-test-workspace`. You will need it when
     transferring data or running jobs.
 
 Find more [information on workspaces in the compendium](../data_lifecycle/workspaces.md).
 
-### Transferring data **within** the ZIH HPC system 
+### Transferring data **within** the ZIH HPC system
 
 The approach depends on the data volume: up to 100 MB or above.
 
@@ -178,12 +177,12 @@ The approach depends on the data volume: up to 100 MB or above.
      ```console
      marie@login$ cp /home/marie/example.R /scratch/ws/marie-test-workspace
      ```
-    
+
     Analogously use command `mv` to move a file.
 
-    Find more examples for the `cp` command on [bropages.org](http://bropages.org/cp) or use 
+    Find more examples for the `cp` command on [bropages.org](http://bropages.org/cp) or use
     manual pages with `man cp`.
-    
+
 ???+ example "`dtcp`/`dtmv` for medium/large data (above 100 MB)"
 
     Use command `dtcp` to copy the directory `/warm_archive/ws/large-dataset` from one filesystem
@@ -194,7 +193,7 @@ The approach depends on the data volume: up to 100 MB or above.
     ```
     Analogously use command `dtmv` to move a file.
 
-    More details on the [datamover](../data_transfer/datamover.md) are available in the data 
+    More details on the [datamover](../data_transfer/datamover.md) are available in the data
     transfer section.
 
 ### Transferring data **to/from** the ZIH HPC system
@@ -281,7 +280,8 @@ software you need to "load" the respective module.
     Different partitions might have different versions available of the same software.
     See [software](../software/overview.md) for more details.
 
-1. Use `module spider <software>` command to check all available versions of the software.
+- Use `module spider <software>` command to check all available versions of the software.
+
 ```console
 marie@login$ module spider Python
 --------------------------------------------------------------------------------------------------------------------------------
@@ -312,9 +312,11 @@ marie@login$ module spider Python
      $ module spider Python/3.9.5
 --------------------------------------------------------------------------------------------------------------------------------
 ```
+
 We now see the list of versions of Python that are available.
 
-1. To get information on a specific module, use `module spider <software>/<version>` call.
+- To get information on a specific module, use `module spider <software>/<version>` call.
+
 ```console  hl_lines="9 10 11"
 marie@login$ module spider Python/3.9.5
 --------------------------------------------------------------------------------------------------------------------------------
@@ -351,10 +353,12 @@ marie@login$ module spider Python/3.9.5
       attrs-21.2.0, Babel-2.9.1, bcrypt-3.2.0, bitstring-3.1.7, blist-1.3.6,
       [...]
 ```
+
 In some cases it is required to load additional modules before loading the desired software.
 In the example above, these are `modenv/hiera` and `GCCcore/10.3.0`.
 
-1. Load prerequisites and the desired software:
+- Load prerequisites and the desired software:
+
 ```console
 marie@login$ module load modenv/hiera  GCCcore/10.3.0  # load prerequisites
 
@@ -371,7 +375,7 @@ For additional information refer to the detailed documentation on [modules](../s
 
 ??? hint "Special hints on different software"
 
-    Special hints on different software can be in the section "Environment and Software", e.g. 
+    Special hints on different software can be in the section "Environment and Software", e.g.
     for [Python](../software/data_analytics_with_python.md), [R](../software/data_analytics_with_r.md),
     [Mathematica/MatLab](../software/mathematics.md), etc.
 
@@ -394,11 +398,7 @@ It is possible to run a job [interactively](../jobs_and_resources/slurm.md#inter
 (real time execution) or submit a [batch job](../jobs_and_resources/slurm.md#batch-jobs)
 (scheduled execution).
 
-For beginners, we highly advise to run the job interactively. To do so, use the `srun` command:
-
-```bash
-marie@login$ srun [options] <executable> [arguments]
-```
+For beginners, we highly advise to run the job interactively. To do so, use the `srun` command.
 
 Here, among the other options it is possible to define a partition you would like to work on
 (`--partition`), the number of tasks (`--ntasks`), number of CPUs per task (`--cpus-per-task`),
