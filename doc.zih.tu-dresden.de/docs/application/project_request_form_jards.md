@@ -16,27 +16,27 @@ Due to the structuring there are different ways to access [HPC resources](https:
 
 ## Workflow
 
-  ``` mermaid
-  graph LR
-    A(NHR Type) --> |National| B(Login);
-    A --> |Saxony| B;
-    A --> |TU Dresden| B;
-    B --> |ZIH Login| H(Jards Frontend);
-    B --> |E-Mail Callback| H;
-    J --> |show| J;
-    J--> |copy| J;
-    H --> |create| J(Application);
-    J --> |edit| J;
-    J --> | submit | L(Finalized Application);
+``` mermaid
+graph LR
+A(NHR Type) --> |National| B(Login);
+A --> |Saxony| B;
+A --> |TU Dresden| B;
+B --> |ZIH Login| H(Jards Frontend);
+B --> |E-Mail Callback| H;
+J --> |show| J;
+J--> |copy| J;
+H --> |create| J(Application);
+J --> |edit| J;
+J --> | submit | L(Finalized Application);
 
-    click A href "http://localhost:8000/application/project_request_form_jards/#application-type" _self;
-    click E href "http://localhost:8000/application/project_request_form_jards/#nhr" _self;
-    click F href "http://localhost:8000/application/project_request_form_jards/#saxony" _self;
-    click G href "http://localhost:8000/application/project_request_form_jards/#tu-dresden" _self;
-    click B href "http://localhost:8000/application/project_request_form_jards/#login" _self;
-    click C href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
-    click D href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
-  ```
+click A href "http://localhost:8000/application/project_request_form_jards/#application-type" _self;
+click E href "http://localhost:8000/application/project_request_form_jards/#nhr" _self;
+click F href "http://localhost:8000/application/project_request_form_jards/#saxony" _self;
+click G href "http://localhost:8000/application/project_request_form_jards/#tu-dresden" _self;
+click B href "http://localhost:8000/application/project_request_form_jards/#login" _self;
+click C href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
+click D href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
+```
 
 === "NHR Type"
 
