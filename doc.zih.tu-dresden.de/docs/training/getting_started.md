@@ -91,8 +91,8 @@ Note that you will now be working in your home directory as opposed to a specifi
 
 !!! caution "Stopping session on JupyterHub"
     Once you are done with your work on the ZIH HPC system, explicitly stop the session by logging
-    out by clicking `File` -> `Log Out`-> `Stop My Server`.
-    Alternatively, choose `File` -> `Hub control panel` -> `Stop My Server`.
+    out by clicking `File` &#8594 `Log Out` &#8594 `Stop My Server`.
+    Alternatively, choose `File` &#8594 `Hub control panel` &#8594 `Stop My Server`.
 
 Explore the [JupyterHub](../access/jupyterhub.md) page for more information.
 
