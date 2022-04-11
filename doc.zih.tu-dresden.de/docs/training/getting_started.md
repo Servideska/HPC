@@ -106,14 +106,14 @@ This is the starting point for many tasks such as running programs and data mana
 
     We recommend to create an ssh key pair by following the
     [instructions here](../access/ssh_login.md#before-your-first-connection).
-    Using an ssh key pair is benefical for security reasons, although it is not necessary to work
+    Using an ssh key pair is beneficial for security reasons, although it is not necessary to work
     with the ZIH HPC system.
 
-=== "Windows 10 and heigher/Mac/Linux users"
+=== "Windows 10 and higher/Mac/Linux users"
 
-If you are a Windows user, you need to install Windows Terminal first (more information [here](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)).
+    Windows users might need to install [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab).
 
-    1. Open a terminal/shell/console (`Ctrl+Alt+T`) and type in
+    1. Open a terminal/shell/console and type in
     ```console
     marie@local$ ssh marie@taurus.hrsk.tu-dresden.de
     ```
@@ -121,7 +121,7 @@ If you are a Windows user, you need to install Windows Terminal first (more info
     1. After typing in your password, you end up seeing something like the following image.
     ![Successful ssh login](misc/ssh-success-login.png)
 
-=== "Users of any version of Windows"
+=== "Users of older versions of Windows"
 
     Install and set up [MobaXTerm](../access/ssh_login_mobaxterm) or [PuTTY](../access/ssh_login_putty).
     
@@ -129,7 +129,8 @@ For more information explore the [access compendium page](../access/ssh_login.md
 
 ## Data Management and Data Transfer
 
-First, it shown how to create a workspace, then how to transfer data within and to/from the ZIH HPC system. Also take care of the file permissions while collaboration.
+First, it shown how to create a workspace, then how to transfer data within and to/from the ZIH HPC
+system. Also keep in mind to set the file permissions when collaborating with other researchers.
 
 ### Create a Workspace
 
@@ -152,14 +153,17 @@ To start we recommend the Lustre filesystem **scratch**.
     remaining extensions  : 10
     remaining time in days: 90
     ```
-    To explain:
-    * `ws_allocate` - command to allocate   
-    * `-F scratch` - on the scratch filesystem 
-    * `test-workspace` - workspace's name 
-    * a life time of `90` days
-    * `-r 7 -m marie.testuser@tu-dresden.de` - send a reminder to `marie.testuser@tu-dresden.de` 7 days before expiration
 
-    The path to this workspace is `/scratch/ws/marie-test-workspace`. You will need it when transferring data or running jobs.
+    To explain:
+
+    - `ws_allocate` - command to allocate   
+    - `-F scratch` - on the scratch filesystem 
+    - `-r 7 -m marie.testuser@tu-dresden.de` - send a reminder to `marie.testuser@tu-dresden.de` 7 days before expiration
+    - `test-workspace` - workspace's name 
+    - a life time of `90` days
+      
+    The path to this workspace is `/scratch/ws/marie-test-workspace`. You will need it when 
+    transferring data or running jobs.
 
 Find more [information on workspaces in the compendium](../data_lifecycle/workspaces.md).
 
@@ -175,20 +179,23 @@ The approach depends on the data volume: up to 100 MB or above.
      marie@login$ cp /home/marie/example.R /scratch/ws/marie-test-workspace
      ```
     
-    Analagously use command `mv` to move a file.
+    Analogously use command `mv` to move a file.
 
-    Find [here more examples for the `cp` command](http://bropages.org/cp).
+    Find more examples for the `cp` command on [bropages.org](http://bropages.org/cp) or use 
+    manual pages with `man cp`.
     
 ???+ example "`dtcp`/`dtmv` for medium/large data (above 100 MB)"
 
-    Use command `dtcp` to copy the directory `/warm_archive/ws/large-dataset` from one Filesystem location to another:
+    Use command `dtcp` to copy the directory `/warm_archive/ws/large-dataset` from one filesystem
+    location to another:
 
-      ```console
-      marie@login$ dtcp -r /warm_archive/ws/large-dataset /scratch/ws/marie-test-workspace/data
-      ```
-    Analagously use command `dtmv` to move a file.
+    ```console
+    marie@login$ dtcp -r /warm_archive/ws/large-dataset /scratch/ws/marie-test-workspace/data
+    ```
+    Analogously use command `dtmv` to move a file.
 
-    More [details on the datamover can be found here](../data_transfer/datamover.md).
+    More details on the [datamover](../data_transfer/datamover.md) are available in the data 
+    transfer section.
 
 ### Transferring data **to/from** the ZIH HPC system
 
@@ -197,20 +204,20 @@ The approach depends on the data volume: up to 100 MB or above.
     Copy the file `example.R` from your local machine to a workspace on the ZIH system:
 
     ```console
-      marie@local$ scp /home/marie/Documents/example.R marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/
-      Password:
-      example.R                                                     100%  312    32.2KB/s   00:00``
-      ```
+    marie@local$ scp /home/marie/Documents/example.R marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/your_workspace/
+    Password:
+    example.R                                                     100%  312    32.2KB/s   00:00``
+    ```
 
     Note, the target path contains `taurusexport.hrsk.tu-dresden.de`, which is one of the
-    so called export nodes that allows for data transfer from/to the outside.
+    so called [export nodes](../data_transfer/export_nodes.md) that allows for data transfer from/to the outside.
 
 ???+ example "`scp` to transfer data from the ZIH HPC system to local machine"
 
     Copy the file `results.csv` from a workspace on the ZIH HPC system to your local machine:
 
     ```console
-    marie@local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/marie-test-workspace/results.csv home/marie/Documents/
+    marie@local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/marie-test-workspace/results.csv /home/marie/Documents/
     ```
 
     Feel free to explore further [examples](http://bropages.org/scp) of the scp command.
@@ -220,7 +227,7 @@ The approach depends on the data volume: up to 100 MB or above.
 !!! caution "Terabytes of data"
 
     If you are planning to move terabytes or even more from an outside machine into the ZIH system,
-    please contact the ZIH HPC support (hpcsupport@zih.tu-dresden.de) in advance.
+    please contact the ZIH [HPC support](mailto:hpcsupport@tu-dresden.de) in advance.
 
 ### Permission rights are crucial in a collaborative setting
 
@@ -232,11 +239,12 @@ Files created by a user in the project directory have read-only access for other
 by default. Therefore, the correct file permissions must be configured (using `chmod`
 and `chgrp`) for all files in the project home and the workspaces that should be fully
 accessible (read, write, execute) to your collaborator group.
-A first [overview on users and permissions in Linux can be found here](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions).
+Please refer to an [overview on users and permissions](https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC/Users_and_permissions)
+in Linux.
 
 ??? example "Checking and changing file permissions"
 
-    The following example checks for file permissions (`ls -l`) of the file dataset.csv and adds
+    The following example checks for file permissions (`ls -la`) of the file dataset.csv and adds
     permissions for write access for the group (`chmod g+w`).
 
     ```console
@@ -249,18 +257,18 @@ A first [overview on users and permissions in Linux can be found here](https://h
     -rw-rw-r-- 1 marie p_marie 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
     ```
 
-    [More details on `chmod` can be found here](http://bropages.org/chmod).
-
 ??? hint "GUI-based data management"
 
-    1. Transferring data and managing file permissions for smaller amounts of data can be handled by ssh clients.
-    **Windows users** can apply the [step-by-step procedure as indicated here](../data_transfer/export_nodes.md#access-from-windows).
-    1. More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote
+    - Transferring data and managing file permissions for smaller amounts of data can be handled
+    by ssh clients.
+    - More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote
     folder from a server to a local machine) can be used to mount user home, project home or
     workspaces within the local folder structure.
     Data can be transferred directly with drag and drop in your local file explorer.
     Moreover, this approach makes it possible to edit files with your common editors and tools on
     the local machine.
+    - Windows users can use [SFTP Drive](https://www.nsoftware.com/sftp/drive/) utility, to mount
+    remote filesystems as Windows drives.
 
 ## Software Environment
 
@@ -363,15 +371,16 @@ For additional information refer to the detailed documentation on [modules](../s
 
 ??? hint "Special hints on different software"
 
-    Special hints on different software can be found [here for Python](../software/data_analytics_with_python.md),
-    [R](../software/data_analytics_with_r.md), [Mathematica/MatLab](../software/mathematics.md), ...
+    Special hints on different software can be in the section "Environment and Software", e.g. 
+    for [Python](../software/data_analytics_with_python.md), [R](../software/data_analytics_with_r.md),
+    [Mathematica/MatLab](../software/mathematics.md), etc.
 
 ??? hint "Hint on Python packages"
 
     The usage of virtual environments and, therefore, the usage of workspaces is recommended,
     especially for Python. Please check out the module system, even for specific Python packages,
     e.g. `tqdm`, `torchvision`, `tensorboard`, etc. to get a better idea of what is available.
-    The Python (and other) package ecosystem is very heterogeneous and dynamic, daily updates.
+    The Python (and other) package ecosystem is very heterogeneous and dynamic, with daily updates.
     The central update cycle for software on the ZIH HPC system occurs approximately every six
     months.
 
@@ -399,9 +408,9 @@ See [Slurm documentation](../jobs_and_resources/slurm.md#interactive-jobs) for m
 
 ```console
 marie@login$ srun --partition=haswell --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 --pty bash -l #allocate 4 cores for the interactive job
-marie@login$ module load Python #load necessary packages
-marie@login$ cd /scratch/ws/0/marie-test-workspace/ #go to your created workspace
-marie@login$ python test.py #execute your file
+marie@haswell$ module load Python #load necessary packages
+marie@haswell$ cd /scratch/ws/0/marie-test-workspace/ #go to your created workspace
+marie@haswell$ python test.py #execute your file
 Hello, World!
 ```
 
