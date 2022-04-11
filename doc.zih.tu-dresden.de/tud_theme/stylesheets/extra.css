@@ -195,13 +195,16 @@ p {
 }
 /* main */
 /* style external links as found on https://stackoverflow.com/questions/5379752/css-style-external-links */
-.md-content a[href]:not(:where(
+.md-content a[href]:where([href*="\."]):not(:where(
   /* exclude hash only links */
   [href^="#"],
   /* exclude relative but not double slash only links */
   [href^="/"]:not([href^="//"]),
   /* exclude page itself */
   [href*="//doc.zih.tu-dresden.de"],
+  /* exclude relative links beginning with ../ */
+  [href^="\.\./"],
+  [href^="misc/"],
   /* exclude buttons */
   .md-content__button,
   /* exclude icons */
