@@ -8,11 +8,11 @@ available through several different interfaces, which are described below.
 
 | Interface                                  | Sensors         | Rate                            |
 |:-------------------------------------------|:----------------|:--------------------------------|
-| Dataheap (C, Python, VampirTrace, Score-P) | Blade, (CPU)    | 1 Sa/s                          |
-| HDEEM\* (C, Score-P)                       | Blade, CPU, DDR | 1 kSa/s (Blade), 100 Sa/s (VRs) |
-| HDEEM Command Line Interface               | Blade, CPU, DDR | 1 kSa/s (Blade), 100 Sa/s (VR)  |
-| Slurm Accounting (`sacct`)                   | Blade           | Per Job Energy                  |
-| Slurm Profiling (HDF5)                     | Blade           | Up to 1 Sa/s                    |
+| Dataheap (C, Python, VampirTrace, Score-P) | Blade, (CPU)    | 1 sample/s                          |
+| HDEEM\* (C, Score-P)                       | Blade, CPU, DDR | 1000 samples/s (Blade), 100 samples/s (VRs) |
+| HDEEM Command Line Interface               | Blade, CPU, DDR | 1000 samples/s (Blade), 100 samples/s (VR)  |
+| Slurm Accounting (`sacct`)                 | Blade           | Per Job Energy                  |
+| Slurm Profiling (HDF5)                     | Blade           | Up to 1 sample/s                    |
 
 !!! note
 
@@ -24,15 +24,15 @@ available through several different interfaces, which are described below.
 In addition to the above mentioned interfaces, you can access the measurements through a
 [C API](#using-the-hdeem-c-api) to get the full temporal and spatial resolution:
 
-- ** Blade:**1 kSa/s for the whole node, includes both sockets, DRAM,
+- ** Blade:** 1000 samples/s for the whole node, includes both sockets, DRAM,
   SSD, and other on-board consumers. Since the system is directly
   water cooled, no cooling components are included in the blade
   consumption.
-- **Voltage regulators (VR):** 100 Sa/s for each of the six VR
+- **Voltage regulators (VR):** 100 samples/s for each of the six VR
   measurement points, one for each socket and four for eight DRAM
   lanes (two lanes bundled).
 
-The GPU blades also have 1 Sa/s power instrumentation but have a lower accuracy.
+The GPU blades also have 1 sample/s power instrumentation but have a lower accuracy.
 
 HDEEM measurements have an accuracy of 2 % for Blade (node) measurements, and 5 % for voltage
 regulator (CPU, DDR) measurements.
@@ -44,7 +44,7 @@ loading the `hdeem` module. They are commonly used on the node under test to sta
 query the measurement device.
 
 - `startHdeem`: Start a measurement. After the command succeeds, the
-  measurement data with the 1000 / 100 Sa/s described above will be
+  measurement data with the 1000 / 100 samples/s described above will be
   recorded on the Board Management Controller (BMC), which is capable
   of storing up to 8h of measurement data.
 - `stopHdeem`: Stop a measurement. No further data is recorded and
@@ -64,13 +64,13 @@ provided metric plugins for Score-P (and VampirTrace). The plugins are provided 
 all necessary environment variables that are required to record data for all nodes that are part of
 the current job.
 
-For 1 Sa/s Blade values (Dataheap):
+For 1 sample/s Blade values (Dataheap):
 
 - [Score-P](scorep.md): use the module `scorep-dataheap`
 - [VampirTrace](../archive/vampirtrace.md): use the module `vampirtrace-plugins/power-1.1`
   (**Remark:** VampirTrace is outdated!)
 
-For 1000 Sa/s (Blade) and 100 Sa/s (CPU{0,1}, DDR{AB,CD,EF,GH}):
+For 1000 samples/s (Blade) and 100 samples/s (CPU{0,1}, DDR{AB,CD,EF,GH}):
 
 - [Score-P](scorep.md): use the module `scorep-hdeem`. This
   module requires a recent version of `scorep/sync-...`. Please use
