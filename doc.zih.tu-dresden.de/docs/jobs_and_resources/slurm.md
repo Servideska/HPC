@@ -428,7 +428,7 @@ constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com
 A feature `fs_*` is active if a certain filesystem is mounted and available on a node. Access to
 these filesystems are tested every few minutes on each node and the Slurm features set accordingly.
 
-| Feature            | Description                                                          | [Workspace Name](../data_liefcycle/workspaces.md#extension-of-a-workspace) |
+| Feature            | Description                                                          | [Workspace Name](../data_lifecycle/workspaces.md#extension-of-a-workspace) |
 |:-------------------|:---------------------------------------------------------------------|:------------------------------------------------------------------------|
 | `fs_lustre_scratch2` | `/scratch` mounted read-write (mount point is `/lustre/scratch2`)  | `scratch`                                                               |
 | `fs_lustre_ssd`      | `/ssd` mounted read-write (mount point is `/lustre/ssd`)           | `ssd`                                                                   |
