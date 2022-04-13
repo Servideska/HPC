@@ -248,12 +248,12 @@ in Linux.
 
     ```console
     marie@login$ ls -la /scratch/ws/0/marie-training-data/dataset.csv # list file permissions
-    -rw-r--r-- 1 marie p_marie 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
+    -rw-r--r-- 1 marie p_number_crunch 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
 
     marie@login$ chmod g+w /scratch/ws/0/marie-training-data/dataset.csv # add write permissions
 
     marie@login$ ls -la /scratch/ws/0/marie-training-data/dataset.csv # list file permissions again
-    -rw-rw-r-- 1 marie p_marie 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
+    -rw-rw-r-- 1 marie p_number_crunch 0 12. Jan 15:11 /scratch/ws/0/marie-training-data/dataset.csv
     ```
 
 ??? hint "GUI-based data management"
