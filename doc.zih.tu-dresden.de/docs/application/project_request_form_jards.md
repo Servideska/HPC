@@ -18,35 +18,13 @@ Due to the structuring there are different ways to access [HPC resources](https:
 
 ## Workflow
 
-  ``` mermaid
-  graph LR
-    A(Type of application) --> |National| B(Login);
-    A --> |Saxony| B;
-    A --> |TU Dresden| B;
-    B --> |ZIH Login| H(Jards Frontend);
-    B --> |E-Mail Callback| H;
-    J --> |show| J;
-    J--> |copy| J;
-    H --> |create| J(Application);
-    J --> |edit| J;
-    J --> | submit | L(Finalized Application);
-
-    click A href "http://localhost:8000/application/project_request_form_jards/#application-type" _self;
-    click E href "http://localhost:8000/application/project_request_form_jards/#nhr" _self;
-    click F href "http://localhost:8000/application/project_request_form_jards/#saxony" _self;
-    click G href "http://localhost:8000/application/project_request_form_jards/#tu-dresden" _self;
-    click B href "http://localhost:8000/application/project_request_form_jards/#login" _self;
-    click C href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
-    click D href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
-  ```
-
 There are several steps for a project application ...
 
-- Selection which type of project proposal is applicable
-- Login to the application portal via
-- Managing one or several applications in the application portal
-- Details for each project application
-- Finalize and submit your application
+- Selection which kind of project proposal is applicable &rarr; [Kind of Application](#kind-of-application)
+- Login to the application portal &rarr; [Login](#login)
+- Managing one or several applications in the application portal &rarr; [Jards Frontend](#jards-frontend)
+- Details for each project application &rarr; [Application](#application)
+- Finalize and submit your application &rarr; [Finalized Application](#finalized-application)
 
 Afterwards, the submitted application undergoes a technical and scientific
 review and you will be informed about the result in 1 to N work days.
@@ -55,52 +33,49 @@ If a project is granted, you can use the project management portal
 
 All steps for an application are documented in detail below.
 
+### Kind of Application
+
+Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
+More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
+
+At ZIH, TU Dresden we have 3 different kinds of application for applying for HPC resources: NHR, Saxony and TUD/TIER3.
+
+![Picture 1: Select Application][1]
 {: align="center"}
 
-=== "Type of Application"
+??? abstract "National NHR Application:"
 
-    ### Type of Application
+    #### NHR
 
-    Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
-    More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
+    This application kind is recommended for:
 
-    At ZIH, TU Dresden we have 3 different application categories for applying for HPC resources: NHR, Saxony and TUD/TIER3.
+    * for researchers from all over Germany there is the possibility
+      to apply for HPC resources at the NHR Center of the TU Dresden
+    * for all research projects related to our focus topics
+        * Life Sciences
+        * Earth System Science
+        * Methods for big data and data analysis and management
+        * Machine Learning
+        * Tiered storage architectures and I/O optimization
+        * Performance and energy efficiency analysis and optimization
+        * Further information can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).   
+        If your research topic fits the above focus topics, the application kind 'NHR' is recommended.
+    * for other focuses other NHR centers are available [https://www.nhr-gs.de/ueber-uns/nhr-verein](https://www.nhr-gs.de/ueber-uns/nhr-verein)
 
-    ![Picture 1: Select Application][1]
-    {: align="center"}
+    Application Login:
 
-    ??? abstract "National NHR Application:"
+    * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
 
-        #### NHR
+??? abstract "Saxony Application:"
 
-        This application kind is recommended for:
+    #### Saxony
 
-        * for researchers from all over Germany there is the possibility
-          to apply for HPC resources at the NHR Center of the TU Dresden
-        * for all research projects related to our focus topics
-          * Life Sciences
-          * Earth System Science
-          * Methods for big data and data analysis and management
-          * Machine Learning
-          * Tiered storage architectures and I/O optimization
-          * Performance and energy efficiency analysis and optimization
-          Further information can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center). If your research topic fits the above focus topics, the application kind 'NHR' is recommended.
-        * for other focuses other NHR centers are available [https://www.nhr-gs.de/ueber-uns/nhr-verein](https://www.nhr-gs.de/ueber-uns/nhr-verein)
+    This application is:
 
-        Application Login:
-
-        * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
-
-    ??? abstract "Saxony Application:"
-
-        #### Saxony
-
-        This application is:
-
-        * only applicable for researchers from universities in Saxony.
-          * If you are from Saxony and your project matches the NHR focus topics mentioned above, then either application kind is feasible and there are no differences for the resulting project between the two. We recommend to choose the NHR type.
-        * to apply at the NHR Center of the TU-Dresden for further focus topics
-          which are not covered by an NHR application
+    * only applicable for researchers from universities in Saxony.
+      * If you are from Saxony and your project matches the NHR focus topics mentioned above, then either application kind is feasible and there are no differences for the resulting project between the two. We recommend to choose the application kind "NHR".
+    * to apply at the NHR Center of the TU-Dresden for further focus topics
+      which are not covered by an NHR application
 
         Application Login:
 
@@ -112,7 +87,7 @@ All steps for an application are documented in detail below.
 
         This application is:
 
-        * Only for researchers at TU Dresden entitled 
+        * only for researchers at TU Dresden entitled
           to special HPC contingents, either from TU Dresdens
           own contribution to the funding of the NHR center or from own HPC funding.
 
@@ -124,24 +99,24 @@ All steps for an application are documented in detail below.
 
         ### ScaDS.AI
 
-        This is a separate type of application for ScaDS.AI Dresden/Leipzig
+        This is a separate kind of application for ScaDS.AI Dresden/Leipzig
         [https://scads.ai/research/resources-for-research/](https://scads.ai/research/resources-for-research/),
         only applicable for members, assiciated members and partners of ScaDS.AI.
         The following application steps are the same as for the others, though.
 
-    !!! hint "Taurus Application:"
+    !!! hint "Tauruss Application:"
 
-        ### Taurus
+        ### Tauruss
 
-        The Taurus type is deprecated, don't use anymore.
+        The application kind "Tauruss" is deprecated, don't use anymore.
 
 === "Login"
 
     ### Login
 
     !!! info ZIH login
-        For the application of a project no ZIH Login is necessary. 
-        
+        For the application of a project no ZIH Login is necessary.
+
         You only need a ZIH login if you want to access
         the resources you need for your project.
 
@@ -174,7 +149,7 @@ All steps for an application are documented in detail below.
 
     #### Overview
 
-    In the first part you will get information about the site. Please pay attention to the title of the page and what type of request you are making.
+    In the first part you will get information about the site. Please pay attention to the title of the page and what project type of request you are making.
 
     ![Overview][7]
 
@@ -196,7 +171,7 @@ All steps for an application are documented in detail below.
     ![New Application][8]
 
     !!! info New Application Kind
-        Please pay attention to the title of the page and what type of request you are making
+        Please pay attention to the title of the page and what kind of request you are making.
 
     #### Finalized Applications
 
@@ -212,11 +187,12 @@ All steps for an application are documented in detail below.
 
     ??? abstract "Project Type"
 
-        After a new project application is created you can choose a 
+        After a new project application is created you can choose a
+
         * **Trial project**: With a trial projects you can test
           whether the HPC resources meet your requirements.
-          Trial projects are all applications with up to 3500 CPUh/month 
-          or 250 GPUh/month. No detailed project description is required. 
+          Trial projects are all applications with up to 3500 CPUh/month
+          or 250 GPUh/month. No detailed project description is required.
         * **Regular project**: A regular project are for data intensive and
           compute intensive HPC applications, e.g. FEM, CFD and MD simulations.
           Regular projects have higher resource requirements than the trial projects.
@@ -226,11 +202,11 @@ All steps for an application are documented in detail below.
           communication. If there is a higher resource requirement needed,
           it can be enabled after consultation the HPC support.
           No detailed project description is required.
-          Please be aware, that in exceptional cases, ZIH reserves the right 
-          to request a more detailed abstract. 
-        
-        The project application differs depending on the type of 
-        application - and thus which components of our HPC system - resources are applied for. 
+          Please be aware, that in exceptional cases, ZIH reserves the right
+          to request a more detailed abstract.
+
+        The project application differs depending on the type of
+        application - and thus which components of our HPC system - resources are applied for.
 
         ![Project Type Selection][21]
 
