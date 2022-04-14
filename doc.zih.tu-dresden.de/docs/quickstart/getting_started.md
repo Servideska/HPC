@@ -125,6 +125,8 @@ This is the starting point for many tasks such as running programs and data mana
     Install and set up [MobaXTerm](../access/ssh_login_mobaxterm) or [PuTTY](../access/ssh_login_putty).
 
 For more information explore the [access compendium page](../access/ssh_login.md).
+[Configuring Default Parameters](../access/ssh_login.md#configuring-default-parameters-for-ssh)
+makes connecting more comfortable.
 
 ## Data Management and Data Transfer
 
@@ -373,13 +375,13 @@ Module Python/3.9.5 and 11 dependencies loaded.
 
 For additional information refer to the detailed documentation on [modules](../software/modules.md).
 
-??? hint "Special hints on different software"
+!!! hint "Special hints on different software"
 
     Special hints on different software can be in the section "Environment and Software", e.g.
     for [Python](../software/data_analytics_with_python.md), [R](../software/data_analytics_with_r.md),
     [Mathematica/MatLab](../software/mathematics.md), etc.
 
-??? hint "Hint on Python packages"
+!!! hint "Hint on Python packages"
 
     The usage of virtual environments and, therefore, the usage of workspaces is recommended,
     especially for Python. Please check out the module system, even for specific Python packages,
