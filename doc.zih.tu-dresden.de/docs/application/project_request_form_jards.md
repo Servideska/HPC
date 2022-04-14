@@ -5,6 +5,8 @@ This page describes the steps to fill the form on
 
 If you have not already reached the login form through a specialized page,
 here you have an overview of the possible project applications.
+There are technical and scientific reviews of the project applications,
+which vary depending on the type of application.
 
 Since 2021, HPC at universities has been restructured by the NHR network.
 The network consists of nine centers, which operate the systems and offer
@@ -16,31 +18,48 @@ Due to the structuring there are different ways to access [HPC resources](https:
 
 ## Workflow
 
-``` mermaid
-graph LR
-A(NHR Type) --> |National| B(Login);
-A --> |Saxony| B;
-A --> |TU Dresden| B;
-B --> |ZIH Login| H(Jards Frontend);
-B --> |E-Mail Callback| H;
-J --> |show| J;
-J--> |copy| J;
-H --> |create| J(Application);
-J --> |edit| J;
-J --> | submit | L(Finalized Application);
+  ``` mermaid
+  graph LR
+    A(Type of application) --> |National| B(Login);
+    A --> |Saxony| B;
+    A --> |TU Dresden| B;
+    B --> |ZIH Login| H(Jards Frontend);
+    B --> |E-Mail Callback| H;
+    J --> |show| J;
+    J--> |copy| J;
+    H --> |create| J(Application);
+    J --> |edit| J;
+    J --> | submit | L(Finalized Application);
 
-click A href "http://localhost:8000/application/project_request_form_jards/#application-type" _self;
-click E href "http://localhost:8000/application/project_request_form_jards/#nhr" _self;
-click F href "http://localhost:8000/application/project_request_form_jards/#saxony" _self;
-click G href "http://localhost:8000/application/project_request_form_jards/#tu-dresden" _self;
-click B href "http://localhost:8000/application/project_request_form_jards/#login" _self;
-click C href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
-click D href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
-```
+    click A href "http://localhost:8000/application/project_request_form_jards/#application-type" _self;
+    click E href "http://localhost:8000/application/project_request_form_jards/#nhr" _self;
+    click F href "http://localhost:8000/application/project_request_form_jards/#saxony" _self;
+    click G href "http://localhost:8000/application/project_request_form_jards/#tu-dresden" _self;
+    click B href "http://localhost:8000/application/project_request_form_jards/#login" _self;
+    click C href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
+    click D href "http://localhost:8000/application/project_request_form_jards/#with-tu-dresden-idm-account" _self;
+  ```
 
-=== "NHR Type"
+There are several steps for a project application ...
 
-    ### NHR Type
+- Selection which type of project proposal is applicable
+- Login to the application portal via
+- Managing one or several applications in the application portal
+- Details for each project application
+- Finalize and submit your application
+
+Afterwards, the submitted application undergoes a technical and scientific
+review and you will be informed about the result in 1 to N work days.
+If a project is granted, you can use the project management portal
+[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/).
+
+All steps for an application are documented in detail below.
+
+{: align="center"}
+
+=== "Type of Application"
+
+    ### Type of Application
 
     Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
     More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
@@ -54,12 +73,18 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
 
         #### NHR
 
-        This application is:
+        This application kind is recommended for:
 
         * for researchers from all over Germany there is the possibility
           to apply for HPC resources at the NHR Center of the TU Dresden
         * for all research projects related to our focus topics
-          [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center), application to our NHR center is recommended
+          * Life Sciences
+          * Earth System Science
+          * Methods for big data and data analysis and management
+          * Machine Learning
+          * Tiered storage architectures and I/O optimization
+          * Performance and energy efficiency analysis and optimization
+          Further information can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center). If your research topic fits the above focus topics, the application kind 'NHR' is recommended.
         * for other focuses other NHR centers are available [https://www.nhr-gs.de/ueber-uns/nhr-verein](https://www.nhr-gs.de/ueber-uns/nhr-verein)
 
         Application Login:
@@ -72,7 +97,8 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
 
         This application is:
 
-        * for researchers from Saxon universities
+        * only applicable for researchers from universities in Saxony.
+          * If you are from Saxony and your project matches the NHR focus topics mentioned above, then either application kind is feasible and there are no differences for the resulting project between the two. We recommend to choose the NHR type.
         * to apply at the NHR Center of the TU-Dresden for further focus topics
           which are not covered by an NHR application
 
@@ -86,8 +112,9 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
 
         This application is:
 
-        * for researchers of the TU Dresden with entitlement to special HPC contingents of the TU Dresden.
-          (This includes, for example, appointment commitments)
+        * Only for researchers at TU Dresden entitled 
+          to special HPC contingents, either from TU Dresdens
+          own contribution to the funding of the NHR center or from own HPC funding.
 
         Application Login:
 
@@ -97,14 +124,30 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
 
         ### ScaDS.AI
 
-        ScaDS.AI is not a NHR Type. If you need an application for ScaDS.AI, you know how.
+        This is a separate type of application for ScaDS.AI Dresden/Leipzig
+        [https://scads.ai/research/resources-for-research/](https://scads.ai/research/resources-for-research/),
+        only applicable for members, assiciated members and partners of ScaDS.AI.
+        The following application steps are the same as for the others, though.
+
+    !!! hint "Taurus Application:"
+
+        ### Taurus
+
+        The Taurus type is deprecated, don't use anymore.
 
 === "Login"
 
     ### Login
 
     !!! info ZIH login
-        For the application of a project no ZIH Login is necessary. Only if you want to use the resources yourself, a login is required: [https://tu-dresden.de/zih/hochleistungsrechnen/hpc](https://tu-dresden.de/zih/hochleistungsrechnen/hpc).
+        For the application of a project no ZIH Login is necessary. 
+        
+        You only need a ZIH login if you want to access
+        the resources you need for your project.
+
+        [https://tu-dresden.de/zih/hochleistungsrechnen/hpc](https://tu-dresden.de/zih/hochleistungsrechnen/hpc).
+
+        If you have a TU Dresden account already, then use the first option. Otherwise use the E-Mail callback option.
 
 
     #### With TU Dresden Account
@@ -152,7 +195,7 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
 
     ![New Application][8]
 
-    !!! info New Application Type
+    !!! info New Application Kind
         Please pay attention to the title of the page and what type of request you are making
 
     #### Finalized Applications
@@ -169,9 +212,25 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
 
     ??? abstract "Project Type"
 
-        Choose the project type. Please note the information about the project types on the page.
-
-        The project application differs depending on the type of application - and thus which components of our HPC system - resources are applied for.
+        After a new project application is created you can choose a 
+        * **Trial project**: With a trial projects you can test
+          whether the HPC resources meet your requirements.
+          Trial projects are all applications with up to 3500 CPUh/month 
+          or 250 GPUh/month. No detailed project description is required. 
+        * **Regular project**: A regular project are for data intensive and
+          compute intensive HPC applications, e.g. FEM, CFD and MD simulations.
+          Regular projects have higher resource requirements than the trial projects.
+          A detailed project description is required in addition to the online application.
+        * **Courses**: Courses is a project type for teaching courses,
+          where you can enable up to 5000 CPUh/month, without additional
+          communication. If there is a higher resource requirement needed,
+          it can be enabled after consultation the HPC support.
+          No detailed project description is required.
+          Please be aware, that in exceptional cases, ZIH reserves the right 
+          to request a more detailed abstract. 
+        
+        The project application differs depending on the type of 
+        application - and thus which components of our HPC system - resources are applied for. 
 
         ![Project Type Selection][21]
 
@@ -182,18 +241,18 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
         Keep in mind that the principal investigator (PI) has to be:
 
         * institute director
-        * chair holder
+        * Professors
         * research group leader
 
         ![Principal Investigator (PI)][22]
 
-        If you have not yet submitted an application to us, you will be asked to provide your information.
+        If you have not yet submitted an application to us, you will be asked to provide your personal information.
 
         ![Principal Investigator (PI)][23]
         ![Principal Investigator (PI)][24]
 
     ??? abstract "Resources"
-        Choose the needed resources. Typically, you can choose between GPU and CPU.
+        Choose the needed resources. Typically, you can choose between GPU and CPU. If you are unsure about some of the detail questions here and below, please provide a rough estimate or your best guess instead of specifiying 0 or no data.
 
         !!! info
             You can only choose after you have specified a project type.
@@ -285,10 +344,13 @@ click D href "http://localhost:8000/application/project_request_form_jards/#with
         ![Data][33]
         ![Data][34]
 
-    ??? abstract "Upload Full Projectdescription"
-        On some project types a detailed project description is needed to complete the application.
+    ??? abstract "Upload Full Project description"
+        If you are choosing the project type 'Regular project' a
+        detailed project description is needed to complete the application.
+        You can save the application form and add the detailed description later,
+        before submitting and finalize the HPC project application.
 
-        You can find a Template on this page:
+        You can find a template on this page:
         [https://tu-dresden.de/zih/hochleistungsrechnen/zugang/projektantrag?set_language=en](https://tu-dresden.de/zih/hochleistungsrechnen/zugang/projektantrag?set_language=en).
 
 === "Finalized Application"
