@@ -38,7 +38,8 @@ All steps for an application are documented in detail below.
 Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
 More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
 
-At ZIH, TU Dresden we have 3 different kinds of application for applying for HPC resources: NHR, Saxony and TUD/TIER3.
+At ZIH, TU Dresden we have 3 different kinds of application
+for applying for HPC resources: NHR, Saxony and TUD/TIER3.
 
 ![Picture 1: Select Application][1]
 {: align="center"}
@@ -58,7 +59,7 @@ At ZIH, TU Dresden we have 3 different kinds of application for applying for HPC
         * Machine Learning
         * Tiered storage architectures and I/O optimization
         * Performance and energy efficiency analysis and optimization
-        * Further information can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).   
+        * Further information can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
         If your research topic fits the above focus topics, the application kind 'NHR' is recommended.
     * for other focuses other NHR centers are available [https://www.nhr-gs.de/ueber-uns/nhr-verein](https://www.nhr-gs.de/ueber-uns/nhr-verein)
 
@@ -70,277 +71,299 @@ At ZIH, TU Dresden we have 3 different kinds of application for applying for HPC
 
     #### Saxony
 
+This application is:
+
+* only applicable for researchers from universities in Saxony.
+  * If you are from Saxony and your project matches the NHR
+  focus topics mentioned above, then either application kind
+  is feasible and there are no differences for the resulting
+  project between the two. We recommend to choose the application kind "NHR".
+* to apply at the NHR Center of the TU-Dresden for further focus topics
+  which are not covered by an NHR application
+
+    Application Login:
+
+    * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony)
+
+??? abstract "TU Dresden (Tier 3) Application:"
+
+    #### TU Dresden
+
     This application is:
 
-    * only applicable for researchers from universities in Saxony.
-      * If you are from Saxony and your project matches the NHR focus topics mentioned above, then either application kind is feasible and there are no differences for the resulting project between the two. We recommend to choose the application kind "NHR".
-    * to apply at the NHR Center of the TU-Dresden for further focus topics
-      which are not covered by an NHR application
+    * only for researchers at TU Dresden entitled
+      to special HPC contingents, either from TU Dresdens
+      own contribution to the funding of the NHR center or from own HPC funding.
 
-        Application Login:
+    Application Login:
 
-        * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony)
+    * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
 
-    ??? abstract "TU Dresden (Tier 3) Application:"
+!!! hint "ScaDS.AI Application:"
 
-        #### TU Dresden
+    ### ScaDS.AI
 
-        This application is:
+    This is a separate kind of application for ScaDS.AI Dresden/Leipzig
+    [https://scads.ai/research/resources-for-research/](https://scads.ai/research/resources-for-research/),
+    only applicable for members, assiciated members and partners of ScaDS.AI.
+    The following application steps are the same as for the others, though.
 
-        * only for researchers at TU Dresden entitled
-          to special HPC contingents, either from TU Dresdens
-          own contribution to the funding of the NHR center or from own HPC funding.
+!!! fail "T<wbr>a<wbr>u<wbr>r<wbr>u<wbr>s Application:"
 
-        Application Login:
+    ### T<wbr>a<wbr>u<wbr>r<wbr>u<wbr>s
 
-        * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
+    The application kind "T<wbr>a<wbr>u<wbr>r<wbr>u<wbr>s" is deprecated, don't use anymore.
 
-    !!! hint "ScaDS.AI Application:"
+### Login
 
-        ### ScaDS.AI
+!!! info ZIH login
+    For the application of a project no ZIH Login is necessary.
 
-        This is a separate kind of application for ScaDS.AI Dresden/Leipzig
-        [https://scads.ai/research/resources-for-research/](https://scads.ai/research/resources-for-research/),
-        only applicable for members, assiciated members and partners of ScaDS.AI.
-        The following application steps are the same as for the others, though.
+    You only need a ZIH login if you want to access
+    the resources you need for your project.
 
-    !!! hint "Tauruss Application:"
+    [https://tu-dresden.de/zih/hochleistungsrechnen/hpc](https://tu-dresden.de/zih/hochleistungsrechnen/hpc).
 
-        ### Tauruss
+    If you have a TU Dresden account already, then use the first option. Otherwise use the E-Mail callback option.
 
-        The application kind "Tauruss" is deprecated, don't use anymore.
+#### With TU Dresden Account
 
-=== "Login"
+If you have a ZIH Login, you can use it in the form.
 
-    ### Login
+![Login via TU Dresden Account][2]
 
-    !!! info ZIH login
-        For the application of a project no ZIH Login is necessary.
+#### With E-Mail Callback
 
-        You only need a ZIH login if you want to access
-        the resources you need for your project.
+If you do not have a ZIH login, you can have a login session emailed to you,
+just enter your e-mail address in the form.
 
-        [https://tu-dresden.de/zih/hochleistungsrechnen/hpc](https://tu-dresden.de/zih/hochleistungsrechnen/hpc).
+![Login via E-Mail Callback][3]
 
-        If you have a TU Dresden account already, then use the first option. Otherwise use the E-Mail callback option.
+Click on the link in the mail.
 
+![Callback Mail][4]
 
-    #### With TU Dresden Account
+### Jards Frontend
 
-    If you have a ZIH Login, you can use it in the form.
+After logging in, you will land on the overview page, which is divided into 3 parts.
 
-    ![Login via TU Dresden Account][2]
+#### Overview
 
-    #### With E-Mail Callback
+In the first part you will get information about the site.
+Please pay attention to the title of the page and what project
+type of request you are making.
 
-    If you do not have a ZIH login, you can have a login session emailed to you, just enter your e-mail address in the form.
+![Overview][7]
 
-    ![Login via E-Mail Callback][3]
+#### Active Applications
 
-    Click on the link in the mail.
+In this section you can see all applications that have not yet been sent.
+You can edit these applications at any time.
+![Active Application][6]
 
-    ![Calback Mail][4]
+##### New Application
 
-=== "Jards Frontend"
+To make a new request, press the button at the end of the listing.
 
-    ### Jards Frontend
+!!! hint "Create New Application"
+    Be aware of, when you press the 'New Project Application' button,
+    your project will be assigned a unique project ID.
+    If you are not sure about some details, you can save them and edit them later.
 
-    After logging in, you will land on the overview page, which is divided into 3 parts.
+If you decide to create a project proposal for the same project again,
+you will receive a new unique project ID.
 
-    #### Overview
+![New Application][8]
 
-    In the first part you will get information about the site. Please pay attention to the title of the page and what project type of request you are making.
+!!! info New Application Kind
+    Please pay attention to the title of the page and what kind of request you are making.
 
-    ![Overview][7]
+#### Finalized Applications
 
-    #### Active Applications
+Applications that have already been sent can be viewed in this section.
+These applications can no longer be updated and are under
+review and will be activated in case of a positive result.
 
-    In this section you can see all applications that have not yet been sent. You can edit these applications at any time.
-    ![Active Application][6]
+![Finalized Application][5]
 
-    ##### New Application
+### Application
 
-    To make a new request, press the button at the end of the listing.
+No matter which application you submit, the procedure is always identical.
 
-    !!! hint "Create New Application"
-        Be aware of, when you press the 'New Project Application' button, your project will be assigned a unique project ID.
-        If you are not sure about some details, you can save them and edit them later.
+??? abstract "Project Type"
 
-    If you decide to create a project proposal for the same project again, you will receive a new unique project ID.
+    After a new project application is created you can choose a
 
-    ![New Application][8]
+    * **Trial project**: With a trial projects you can test
+      whether the HPC resources meet your requirements.
+      Trial projects are all applications with up to 3500 CPUh/month
+      or 250 GPUh/month. No detailed project description is required.
+    * **Regular project**: A regular project are for data intensive and
+      compute intensive HPC applications, e.g. FEM, CFD and MD simulations.
+      Regular projects have higher resource requirements than the trial projects.
+      A detailed project description is required in addition to the online application.
+    * **Courses**: Courses is a project type for teaching courses,
+      where you can enable up to 5000 CPUh/month, without additional
+      communication. If there is a higher resource requirement needed,
+      it can be enabled after consultation the HPC support.
+      No detailed project description is required.
+      Please be aware, that in exceptional cases, ZIH reserves the right
+      to request a more detailed abstract.
 
-    !!! info New Application Kind
-        Please pay attention to the title of the page and what kind of request you are making.
+    The project application differs depending on the type of
+    application - and thus which components of our HPC system - resources are applied for.
 
-    #### Finalized Applications
+    ![Project Type Selection][21]
 
-    Applications that have already been sent can be viewed in this section. These applications can no longer be updated and are under review and will be activated in case of a positive result.
+??? abstract "Principal Investigator (PI) and Person to Contact (PC)"
 
-    ![Finalized Application][5]
+    Choose the principal investigator and the person to contact.
+    On the Button 'change my role ...' below, you can change your organisational part in the project.
 
-=== "Application"
+    Keep in mind that the principal investigator (PI) has to be:
 
-    ### Application
+    * institute director
+    * Professors
+    * research group leader
 
-    No matter which application you submit, the procedure is always identical.
+    ![Principal Investigator (PI)][22]
 
-    ??? abstract "Project Type"
+    If you have not yet submitted an application to us, you will
+    be asked to provide your personal information.
 
-        After a new project application is created you can choose a
+    ![Principal Investigator (PI)][23]
+    ![Principal Investigator (PI)][24]
 
-        * **Trial project**: With a trial projects you can test
-          whether the HPC resources meet your requirements.
-          Trial projects are all applications with up to 3500 CPUh/month
-          or 250 GPUh/month. No detailed project description is required.
-        * **Regular project**: A regular project are for data intensive and
-          compute intensive HPC applications, e.g. FEM, CFD and MD simulations.
-          Regular projects have higher resource requirements than the trial projects.
-          A detailed project description is required in addition to the online application.
-        * **Courses**: Courses is a project type for teaching courses,
-          where you can enable up to 5000 CPUh/month, without additional
-          communication. If there is a higher resource requirement needed,
-          it can be enabled after consultation the HPC support.
-          No detailed project description is required.
-          Please be aware, that in exceptional cases, ZIH reserves the right
-          to request a more detailed abstract.
+??? abstract "Resources"
+    Choose the needed resources. Typically, you can choose between GPU and CPU.
+    If you are unsure about some of the detail questions here and below,
+    please provide a rough estimate or your best guess instead of specifying 0 or no data.
 
-        The project application differs depending on the type of
-        application - and thus which components of our HPC system - resources are applied for.
+    !!! info
+        You can only choose after you have specified a project type.
 
-        ![Project Type Selection][21]
+    For each choosen resource there are some questions after the project data.
 
-    ??? abstract "Principal Investigator (PI) and Person to Contact (PC)"
+    ![Resource Selection][12]
 
-        Choose the principal investigator and the person to contact. On the Button 'change my role ...' below, you can change your organisational part in the project.
+    Questions for CPU resources could be:
 
-        Keep in mind that the principal investigator (PI) has to be:
+    - How much computing time is required for your project in the upcoming
+    compute time period of one year (in core-hours)?
+    - What is your job size and how many cores do you need?
+    - Define your memory: How many GB per core do you need?
 
-        * institute director
-        * Professors
-        * research group leader
+    !!! hint "Hint"
+        If you have chosen only CPU resources, please be aware to specify
+        here only resources for pure CPU nodes. Resources needed on accelerators
+        (GPUs) must be specified in the corresponding section. If you like
+        to change your computing time requirements go one slide back.
 
-        ![Principal Investigator (PI)][22]
+    ![CPU][13]
 
-        If you have not yet submitted an application to us, you will be asked to provide your personal information.
+    Questions for CPU resources could be:
 
-        ![Principal Investigator (PI)][23]
-        ![Principal Investigator (PI)][24]
+    - How much computing time is required on GPU nodes for your HPC project (in GPU-hours)?
+    - How many GPU do you use for a single job?
+    - How much GB of memory do you use for your typical job?
+    - Which GPU programming scheme (CUDA, OpenACC, etc.) do you use?
+    - Which software do you deploy on GPUs (own code, third party)?
 
-    ??? abstract "Resources"
-        Choose the needed resources. Typically, you can choose between GPU and CPU. If you are unsure about some of the detail questions here and below, please provide a rough estimate or your best guess instead of specifiying 0 or no data.
+    !!! hint "Hint"
+        If you have chosen both CPU and GPU resources, but you do not need
+        compute time on GPUs type in 0 here to be able to continue with your
+        project application in Jards.
 
-        !!! info
-            You can only choose after you have specified a project type.
+    ![GPU][14]
 
-        For each choosen resource there are some questions after the project data.
+??? abstract "Project Data"
+    In this step, the basic conditions of the project must be specified.
 
-        ![Resource Selection][12]
+    Depending on the selected project type, these can be different.
 
-        Questions for CPU resources could be:
+    For example:
 
-        - How much computing time is required for your project in the upcoming compute time period of one year (in core-hours)?
-        - What is your job size and how many cores do you need?
-        - Define your memory: How many GB per core do you need?
+    - How much time do you plan for your HPC project (add ending date)?
+    - What is your title of your HPC project (max. 250 char)?
+    - Define your keywords to explain your HPC project best.
+    - Please add a short project description (max. 6000 char).
+    - Explain your plans for this granting period (max. 500 char).
+    - Are you doing commissioned research (yes/no)?
+    - Who is sponsoring your HPC project?
+    - Classify your HPC project according to the following main and sub categories.
+    - Which methods (physical, mathematical, numerical, ...) are used?
+    - Which reasons make the use of this supercomputer necessary?
 
-        !!! hint "Hint"
-            If you have chosen only CPU resources, please be aware to specify here only resources for pure CPU nodes. Resources needed on accelerators (GPUs) must be specified in the corresponding section. If you like to change your computing time requirements go one slide back.
+    !!! hint "Commissioned Research"
+        Are you doing commissioned research?
 
-        ![CPU][13]
+        Commissioned research means direct order by private third parties to the
+        TU Dresden as well as indirect assignments by private third parties on a
+        promoting institution (university , research institution, or similar institutions).
+        All research projects sponsored by public institutions such as state, country DFG,
+        EU etc. are excluded.
 
-        Questions for CPU resources could be:
+        This specification is very important. In the end you must confirm this information
+        in writing. For this purpose, a PDF is generated, which you must send back to us.
 
-        - How much computing time is required on GPU nodes for your HPC project (in GPU-hours)?
-        - How many GPU do you use for a single job?
-        - How much GB of memory do you use for your typical job?
-        - Which GPU programming scheme (CUDA, OpenACC, etc.) do you use?
-        - Which software do you deploy on GPUs (own code, third party)?
+    ![Project Data][28]
+    ![Project Data][29]
+    ![Project Data][30]
 
-        !!! hint "Hint"
-            If you have chosen both CPU and GPU resources, but you do not need compute time on GPUs type in 0 here to be able to continue with your project application in Jards.
+??? abstract "Software"
+    Next you need to specify which software you want to use.
 
-        ![GPU][14]
+    Here are the following categories, you should answer:
 
-    ??? abstract "Project Data"
-        In this step, the basic conditions of the project must be specified.
+    - Commercial Software Packages
+    - Compilers
+    - Programming Languages
+    - Other packages, not named here.
+    - Use own-developed packages, please name here and provide the links to
+    the open source software.
+    - Parallelization strategy
 
-        Depending on the selected project type, these can be different.
+    !!!hint "Information About Required Software"
+        This is important for us, because we need to see if the software is installed, there is a valid license and it is available under the appropriate architecture. The biggest problem is the imagination of the license writers. We have to abide by these conditions. Even if we try to provide the common HPC software including licenses, not every software vendor offers appropriate licenses.
 
-        For example:
+    ![Software][31]
+    ![Software][32]
 
-        - How much time do you plan for your HPC project (add ending date)?
-        - What is your title of your HPC project (max. 250 char)?
-        - Define your keywords to explain your HPC project best.
-        - Please add a short project description (max. 6000 char).
-        - Explain your plans for this granting period (max. 500 char).
-        - Are you doing commissioned research (yes/no)?
-        - Who is sponsoring your HPC project?
-        - Classify your HPC project according to the following main and sub categories.
-        - Which methods (physical, mathematical, numerical, ...) are used?
-        - Which reasons make the use of this supercomputer necessary?
+??? abstract "Data Management"
+    The last thing to specify is the I/O behavior. All this information helps us
+    to check and, if necessary, to create the necessary conditions.
 
-        !!! hint "Commissioned Research"
-            Are you doing commissioned research?
+    For example:
 
-            Commissioned research means direct order by private third parties to the TU Dresden as well as indirect assignments by private third parties on a promoting institution (university , research institution, or similar institutions). All research projects sponsored by public institutions such as state, country DFG , EU etc. are excluded.
+    * How much memory do you need.
+    * How do your calculations behave (many small files or one big file)?
+    * Fetch data from external? How?
 
-            This specification is very important. In the end you must confirm this information in writing. For this purpose, a PDF is generated, which you must send back to us.
+    ![Data][33]
+    ![Data][34]
 
-        ![Project Data][28]
-        ![Project Data][29]
-        ![Project Data][30]
+??? abstract "Upload Full Project description"
+    If you are choosing the project type 'Regular project' a
+    detailed project description is needed to complete the application.
+    You can save the application form and add the detailed description later,
+    before submitting and finalize the HPC project application.
 
-    ??? abstract "Software"
-        Next you need to specify which software you want to use.
+    You can find a template on this page:
+    [https://tu-dresden.de/zih/hochleistungsrechnen/zugang/projektantrag?set_language=en](https://tu-dresden.de/zih/hochleistungsrechnen/zugang/projektantrag?set_language=en).
 
-        Here are the following categories, you should answer:
+### Finalized Application
 
-        - Commercial Software Packages
-        - Compilers
-        - Programming Languages
-        - Other packages, not named here.
-        - Use own-developed packages, please name here and provide the links to the open source software.
-        - Parallelization strategy
+The final step is to complete the application process.
+The application is submitted to us and approved for review. Editing is no longer possible.
 
-        !!!hint "Information About Required Software"
-            This is important for us, because we need to see if the software is installed, there is a valid license and it is available under the appropriate architecture. The biggest problem is the imagination of the license writers. We have to abide by these conditions. Even if we try to provide the common HPC software including licenses, not every software vendor offers appropriate licenses.
+In the next step you will receive an email with the data of the application
+as a PDF. In it you will find a template for the confirmation of the commissioned research.
 
-        ![Software][31]
-        ![Software][32]
+![Finalize][18]
 
-    ??? abstract "Data Management"
-        The last thing to specify is the I/O behavior. All this information helps us to check and, if necessary, to create the necessary conditions.
-
-        For example:
-
-        * How much memory do you need.
-        * How do your calculations behave (many small files or one big file)?
-        * Fetch data from external? How?
-
-        ![Data][33]
-        ![Data][34]
-
-    ??? abstract "Upload Full Project description"
-        If you are choosing the project type 'Regular project' a
-        detailed project description is needed to complete the application.
-        You can save the application form and add the detailed description later,
-        before submitting and finalize the HPC project application.
-
-        You can find a template on this page:
-        [https://tu-dresden.de/zih/hochleistungsrechnen/zugang/projektantrag?set_language=en](https://tu-dresden.de/zih/hochleistungsrechnen/zugang/projektantrag?set_language=en).
-
-=== "Finalized Application"
-
-    ### Finalized Application
-
-    The final step is to complete the application process. The application is submitted to us and approved for review. Editing is no longer possible.
-
-    In the next step you will receive an email with the data of the application as a PDF. In it you will find a template for the confirmation of the commissioned research.
-
-    ![Finalize][18]
-
-    !!! danger "Important"
-        Please send the confirmation of commissioned research signed back to us, even if it is not commissioned research.
+!!! danger "Important"
+    Please send the confirmation of commissioned research signed back to us,
+    even if it is not commissioned research.
 
 [1]: misc/application_1.png "Select Application"
 [2]: misc/idm_login.png "Login via TU Dresden Account"
