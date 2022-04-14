@@ -71,15 +71,15 @@ for applying for HPC resources: NHR, Saxony and TUD/TIER3.
 
     #### Saxony
 
-This application is:
+    This application is:
 
-* only applicable for researchers from universities in Saxony.
-  * If you are from Saxony and your project matches the NHR
-  focus topics mentioned above, then either application kind
-  is feasible and there are no differences for the resulting
-  project between the two. We recommend to choose the application kind "NHR".
-* to apply at the NHR Center of the TU-Dresden for further focus topics
-  which are not covered by an NHR application
+    * only applicable for researchers from universities in Saxony.
+    * If you are from Saxony and your project matches the NHR
+    focus topics mentioned above, then either application kind
+    is feasible and there are no differences for the resulting
+    project between the two. We recommend to choose the application kind "NHR".
+    * to apply at the NHR Center of the TU-Dresden for further focus topics
+    which are not covered by an NHR application
 
     Application Login:
 
