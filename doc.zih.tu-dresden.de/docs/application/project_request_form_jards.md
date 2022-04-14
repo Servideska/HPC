@@ -33,6 +33,7 @@ If a project is granted, you can use the project management portal
 
 All steps for an application are documented in detail below.
 
+
 ### Kind of Application
 
 Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
@@ -188,11 +189,20 @@ review and will be activated in case of a positive result.
 
 ### Application
 
+[Project Type](#project-type)  
+[Principal Investigator (PI) and Person to Contact (PC)](#principal-investigator)  
+[Resources](#resources)  
+[Project Data](#project-data)  
+[Software](#software)  
+[Data Management](#data_management)  
+[Upload Full Project description](#upload-full-project-description)
+
 No matter which application you submit, the procedure is always identical.
 
 ??? abstract "Project Type"
 
     ### Project Type
+
     After a new project application is created you can choose a
 
     * **Trial project**: With a trial projects you can test
