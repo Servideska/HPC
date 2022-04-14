@@ -192,6 +192,7 @@ No matter which application you submit, the procedure is always identical.
 
 ??? abstract "Project Type"
 
+    ### Project Type
     After a new project application is created you can choose a
 
     * **Trial project**: With a trial projects you can test
@@ -217,6 +218,8 @@ No matter which application you submit, the procedure is always identical.
 
 ??? abstract "Principal Investigator (PI) and Person to Contact (PC)"
 
+    ### Principal Investigator (PI) and Person to Contact (PC)
+
     Choose the principal investigator and the person to contact.
     On the Button 'change my role ...' below, you can change your organisational part in the project.
 
@@ -235,6 +238,9 @@ No matter which application you submit, the procedure is always identical.
     ![Principal Investigator (PI)][24]
 
 ??? abstract "Resources"
+
+    ### Resources
+
     Choose the needed resources. Typically, you can choose between GPU and CPU.
     If you are unsure about some of the detail questions here and below,
     please provide a rough estimate or your best guess instead of specifying 0 or no data.
@@ -277,6 +283,9 @@ No matter which application you submit, the procedure is always identical.
     ![GPU][14]
 
 ??? abstract "Project Data"
+
+    ### Project Data
+
     In this step, the basic conditions of the project must be specified.
 
     Depending on the selected project type, these can be different.
@@ -311,6 +320,9 @@ No matter which application you submit, the procedure is always identical.
     ![Project Data][30]
 
 ??? abstract "Software"
+ 
+    ### Software
+
     Next you need to specify which software you want to use.
 
     Here are the following categories, you should answer:
@@ -330,6 +342,9 @@ No matter which application you submit, the procedure is always identical.
     ![Software][32]
 
 ??? abstract "Data Management"
+
+    ### Data Management
+
     The last thing to specify is the I/O behavior. All this information helps us
     to check and, if necessary, to create the necessary conditions.
 
@@ -343,6 +358,9 @@ No matter which application you submit, the procedure is always identical.
     ![Data][34]
 
 ??? abstract "Upload Full Project description"
+ 
+    ### Upload Full Project description
+
     If you are choosing the project type 'Regular project' a
     detailed project description is needed to complete the application.
     You can save the application form and add the detailed description later,
