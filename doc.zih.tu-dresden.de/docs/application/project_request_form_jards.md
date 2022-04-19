@@ -43,9 +43,9 @@ More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr
 At ZIH, TU Dresden we have 3 different kinds of application
 for applying for HPC resources: NHR, Saxony and TUD/TIER3.
 
-- NHR: [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
-- Saxony: [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony)
-- TUD/Tier3: [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
+- [NHR](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
+- [Saxony](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony)
+- [TUD/Tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
 
 ![HPC Project Application][37]
 
