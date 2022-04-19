@@ -428,4 +428,5 @@ as a PDF. In it you will find a template for the confirmation of the commissione
 [34]: misc/nhr_10b_data_mgmt.png
 [35]: misc/nhr_11_upload_regular.png
 [36]: misc/nhr_11_upload_trial_project.png
-[37]: misc/project_application.png
+[37]: misc/project_application_small.png
+[38]: misc/project_application.png
