@@ -47,6 +47,8 @@ for applying for HPC resources: NHR, Saxony and TUD/TIER3.
 
 [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
 
+![HPC Project Application][37]
+
 
 ??? abstract "National NHR Application:"
 
