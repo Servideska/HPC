@@ -33,7 +33,6 @@ If a project is granted, you can use the project management portal
 
 All steps for an application are documented in detail below.
 
-
 ### Kind of Application
 
 Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
@@ -189,12 +188,12 @@ review and will be activated in case of a positive result.
 
 ### Application
 
-[Project Type](#project-type)  
-[Principal Investigator (PI) and Person to Contact (PC)](#principal-investigator)  
-[Resources](#resources)  
-[Project Data](#project-data)  
-[Software](#software)  
-[Data Management](#data_management)  
+[Project Type](#project-type)
+[Principal Investigator (PI) and Person to Contact (PC)](#principal-investigator)
+[Resources](#resources)
+[Project Data](#project-data)
+[Software](#software)
+[Data Management](#data_management)
 [Upload Full Project description](#upload-full-project-description)
 
 No matter which application you submit, the procedure is always identical.
@@ -330,7 +329,7 @@ No matter which application you submit, the procedure is always identical.
     ![Project Data][30]
 
 ??? abstract "Software"
- 
+
     ### Software
 
     Next you need to specify which software you want to use.
@@ -368,7 +367,7 @@ No matter which application you submit, the procedure is always identical.
     ![Data][34]
 
 ??? abstract "Upload Full Project description"
- 
+
     ### Upload Full Project description
 
     If you are choosing the project type 'Regular project' a
