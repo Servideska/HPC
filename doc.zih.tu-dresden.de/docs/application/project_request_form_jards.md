@@ -1,7 +1,7 @@
 # Project Request Form Jards
 
 This page describes the steps to fill the form on
-[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/).
+[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/). 
 
 If you have not already reached the login form through a specialized page,
 here you have an overview of the possible project applications.
@@ -41,8 +41,10 @@ More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr
 At ZIH, TU Dresden we have 3 different kinds of application
 for applying for HPC resources: NHR, Saxony and TUD/TIER3.
 
-![Picture 1: Select Application][1]
-{: align="center"}
+[https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
+[https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony)
+[https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
+
 
 ??? abstract "National NHR Application:"
 
@@ -107,12 +109,6 @@ for applying for HPC resources: NHR, Saxony and TUD/TIER3.
     [https://scads.ai/research/resources-for-research/](https://scads.ai/research/resources-for-research/),
     only applicable for members, assiciated members and partners of ScaDS.AI.
     The following application steps are the same as for the others, though.
-
-!!! fail "T<wbr>a<wbr>u<wbr>r<wbr>u<wbr>s Application:"
-
-    ### T<wbr>a<wbr>u<wbr>r<wbr>u<wbr>s
-
-    The application kind "T<wbr>a<wbr>u<wbr>r<wbr>u<wbr>s" is deprecated, don't use anymore.
 
 ### Login
 
@@ -428,3 +424,4 @@ as a PDF. In it you will find a template for the confirmation of the commissione
 [34]: misc/nhr_10b_data_mgmt.png
 [35]: misc/nhr_11_upload_regular.png
 [36]: misc/nhr_11_upload_trial_project.png
+[37]: misc/project_application.png
