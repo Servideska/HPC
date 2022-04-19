@@ -1,9 +1,11 @@
 # Project Request Form Jards
 
 This page describes the steps to fill the form on
-[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/). 
+[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/).
 
-Please be aware of, with the changeover to JARDS, the approval period lasts between 4 and 8 weeks. Except for trial projects and courses, regular projects are only approved after a positive review.
+Please be aware of, with the changeover to JARDS, the approval
+period lasts between 4 and 8 weeks. Except for trial projects and courses,
+regular projects are only approved after a positive review.
 
 If you have not already reached the login form through a specialized page,
 here you have an overview of the possible project applications.
@@ -48,7 +50,6 @@ for applying for HPC resources: NHR, Saxony and TUD/TIER3.
 - [TUD/Tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
 
 ![HPC Project Application][37]
-
 
 ??? abstract "National NHR Application:"
 
