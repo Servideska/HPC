@@ -189,13 +189,13 @@ review and will be activated in case of a positive result.
 
 ### Application
 
-[Project Type](#project-type)
-[Principal Investigator (PI) and Person to Contact (PC)](#principal-investigator)
-[Resources](#resources)
-[Project Data](#project-data)
-[Software](#software)
-[Data Management](#data_management)
-[Upload Full Project description](#upload-full-project-description)
+- [Project Type](#project-type)
+- [Principal Investigator (PI) and Person to Contact (PC)](#principal-investigator)
+- [Resources](#resources)
+- [Project Data](#project-data)
+- [Software](#software)
+- [Data Management](#data_management)
+- [Upload Full Project description](#upload-full-project-description)
 
 No matter which application you submit, the procedure is always identical.
 
