@@ -16,17 +16,17 @@ Visit its homepage for more information (https://mobaxterm.mobatek.net).
 
 To download go https://mobaxterm.mobatek.net/download-home-edition.html
 
-![Spawning](misc/mobaxterm1_download.png)
+![Downloading MobaXterm](misc/mobaxterm1_download.png)
 
 Pick the installer suiting best your current system and run it afterwards. Follow the instructions. You should see the following interface after starting the MobaXterm application.
 
-![Spawning](misc/mobaxterm2_first.png)
+![First opening MobaXterm](misc/mobaxterm2_first.png)
 
 ### Configure local settings
 
 Select the tab `Settings` &rarr; `Configuration` or click the button `Settings` in the toolbar. A new window will open.
 
-![Spawning](misc/mobaxterm3_config.png)
+![Settings in MobaXterm](misc/mobaxterm3_config.png)
 
 Here you can set different options in different tabs:
   
@@ -42,11 +42,11 @@ Here you can set different options in different tabs:
 
 1. Select the tab `Sessions`  &rarr; `New session` or click the button `Session` in the toolbar.
 
-![Spawning](misc/mobaxterm4_session.png)
+![Opening a new session in MobaXterm](misc/mobaxterm4_session.png)
 
 2. Select a SSH section. Inseart `Remote host` (taurus.hrsk.tu-dresden.de), `Username` ("marie" in this example), and `Port` 22. Near username, you can store credentials or just passphrases for specific connection (not recommended).
 
-![Spawning](misc/mobaxterm5_ssh.png)
+![Settings for ssh connection in MobaXterm](misc/mobaxterm5_ssh.png)
 
 3. You can configurate advanced settings in the same window below. These are
 
@@ -61,11 +61,11 @@ accessable by the top left navigation tab named `Sessions`.
     If it is **not** your first time, your previous sessions are saved and you can find by going to the tab `Sessions`  &rarr;  `User sessions` and click the desired session.
     You can double click on one of your previous sessions the left.
 
-![Spawning](misc/mobaxterm6_oldse.png)
+![Opening a saved session in MobaXterm](misc/mobaxterm6_oldse.png)
 
 5. The last thing to do is to input your HPC password in the command line and to pres `enter`.
 
-![Spawning](misc/mobaxterm7_pw.png)
+![Saving your password in MeobaXterm](misc/mobaxterm7_pw.png)
 
 !!! Caution
     
@@ -87,7 +87,7 @@ PuTTY is a free and open-source terminal emulator, serial console and network fi
 
 To download go https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
-![Spawning](misc/putty1_download.png)
+![Downloading PuTTY](misc/putty1_download.png)
 
 Pick the installer suiting best your current system and run it afterwards. Follow the instructions.
  
@@ -95,12 +95,12 @@ Pick the installer suiting best your current system and run it afterwards. Follo
 
 1. Start PuTTY and insert the `Host Name` (taurus.hrsk.tu-dresden.de) and change the `Port` (22) if needed.
 
-![Spawning](misc/putty2_quickstart.png)
+![Settings for ssh connection in PuTTY](misc/putty2_quickstart.png)
 
 2. Click "Open" to start a new session. A Terminal will open up as new window. This action will do
 basicly the same as using the command `ssh taurus.hrsk.tu-dresden.de:22` in Terminal.
 
-![Spawning](misc/putty3_login.png)
+![Login in PuTTY](misc/putty3_login.png)
 
 3. After inserting your user name ("marie" in this example) and your password, it will log you in. You can start working on HPC.
 
@@ -110,13 +110,13 @@ You can preconfigure some values. It will save your time during your  conections
 
 1. Define the connection target. To do so, start PuTTY, define the hostname (taurus.hrsk.tu-dresden.de) and the port (22).
 
-![Spawning](misc/putty2_quickstart.png)
+![Settings for ssh connection in PuTTY](misc/putty2_quickstart.png)
 
 2. Set your user name. For that choose the tab `Connection` &rarr; `Data` in the navigation tree on the left. 
 Insert your user name into the textbox `Auto-login username`. 
 The application will basicly perform the same action as the command `ssh marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
-![Spawning](misc/putty4_username.png)
+![Auto-login username in PuTTY](misc/putty4_username.png)
 
 3. Set a SSH-key (optional and recommended for security reason). 
 
@@ -134,16 +134,16 @@ The application will basicly perform the same action as the command `ssh marie@t
     Insert the path to your local key-file or brows it using the button `Browse...`. 
     This will do the same as the command `ssh -i .ssh/id_red25519 marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
-![Spawning](misc/putty5_key.png)
+![SSH-key in PuTTY](misc/putty5_key.png)
 
 4. Enable X-forwarding (optional). To do so, navigate to `Connection` &rarr; `SSH` &rarr; `X11` in the tree left. Put the tick in the checkbox for `Enable X11 forwarding`.
 
-![Spawning](misc/putty6_x11.png)
+![X-forwarding in PuTTY](misc/putty6_x11.png)
 
 1. Save your configurations. Go back to the `Session` in the tree left. Insert a name into the textbox `Saved Sessions` and click
 the button `Save`. Afterwards you will see the name in the listbox below.
 
-![Spawning](misc/putty7_save.png)
+![Saving settings in PuTTY](misc/putty7_save.png)
 
 Now, you can start a configured session by doubleclicking its name inside the listbox.
 
@@ -153,4 +153,4 @@ This will overwrite the old configuration permanetly.
 
 You can delete a saved configurations by clicking the button `Delete`. This will remove the configured session permanetly.
 
-**Have Fun!**
+**Enjoy!**
