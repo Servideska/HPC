@@ -33,5 +33,5 @@ publications that are based on granted HPC resources of the TU Dresden.
     We provide some [acknowledgment examples](acknowledgement.md) that show you how to do that.
 
 [1]: https://tu-dresden.de/zih/hochleistungsrechnen/zugang
-[2]: https://tu-dresden.de/zih/dienste/service-katalog/zugangsvoraussetzung
+[2]: https://selfservice.zih.tu-dresden.de/index.php/hpclogin/noLogin
 [3]: https://selfservice.zih.tu-dresden.de/l/index.php/hpclogin
