@@ -1,10 +1,29 @@
 # Connecting from Windows
 
-## Connecting from Windows with Terminal
+There several options to connect with SSH from Windows operating system. For more recent versions
+of Windows (Windows 10 - version 1809 and higher) it is possible to use built-in terminal (also
+known as [Command Prompt](https://en.wikipedia.org/wiki/Cmd.exe)
+or [PowerShell](https://en.wikipedia.org/wiki/PowerShell)).
 
-For Windows 10 (1809 and higher):
-    * [Windows Terminal](https://www.microsoft.com/store/productId/9N0DX20HK701)
-    * Together with the built-in [OpenSSH Client](https://docs.microsoft.com/de-de/windows-server/administration/openssh/openssh_overview)
+## Connecting from Windows with terminal
+
+Start PowerShell with pressing `Win + R` and typing `powershell`. 
+Check that SSH client is available by typing `ssh` in a terminal:
+
+```console
+PS marie@local$ ssh
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+```
+
+If you have similar output as above, just proceed with the documentation for
+[connecting with SSH from Linux](ssh_linux.md). Otherwise, refer to Microsoft documentation
+regarding [OpenSSH](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/factoryos/connect-using-ssh?view=windows-10).
 
 ## Connecting from Windows with MobaXterm
 
