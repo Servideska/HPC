@@ -123,8 +123,6 @@ for applying for HPC resources: NHR, Saxony and TUD/TIER3.
     You only need a ZIH login if you want to access
     the resources you need for your project.
 
-    [https://tu-dresden.de/zih/hochleistungsrechnen/hpc](https://tu-dresden.de/zih/hochleistungsrechnen/hpc).
-
     If you have a TU Dresden account already, then use the first option. Otherwise use the E-Mail callback option.
 
 #### With TU Dresden Account
