@@ -99,13 +99,13 @@ days with an email reminder for 7 days before the expiration.
 The lifetime of a workspace is finite. Different filesystems (storage systems) have different
 maximum durations. A workspace can be extended multiple times, depending on the filesystem.
 
-| Filesystem (use with parameter `-F`) | Duration, days | Extensions | Remarks |
-|:------------------------------------:|:----------:|:-------:|:-----------------------------------:|
-| `ssd`                                | 30         | 2       | High-IOPS filesystem (`/lustre/ssd`, symbolic link: `/ssd`) on SSDs. |
-| `beegfs_global0` (deprecated)        | 30         | 2       | High-IOPS filesystem (`/beegfs/global0`) on NVMes. |
-| `beegfs`                             | 30         | 2       | High-IOPS filesystem (`/beegfs`) on NVMes. |
-| `scratch`                            | 100        | 10      | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
-| `warm_archive`                       | 365        | 2       | Capacity filesystem based on spinning disks   |
+| Filesystem (use with parameter `-F`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
+|:-------------------------------------|---------------:|-----------:|:-------------------------------------------------------------------------|:--------|
+| `ssd`                                | 30             | 2          | `fs_lustre_ssd`                                                          | High-IOPS filesystem (`/lustre/ssd`, symbolic link: `/ssd`) on SSDs. |
+| `beegfs_global0` (deprecated)        | 30             | 2          | `fs_beegfs_global0`                                                      | High-IOPS filesystem (`/beegfs/global0`) on NVMes. |
+| `beegfs`                             | 30             | 2          | `fs_beegfs`                                                              | High-IOPS filesystem (`/beegfs`) on NVMes. |
+| `scratch`                            | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
+| `warm_archive`                       | 365            | 2          | `fs_warm_archive_ws`                                                     | Capacity filesystem based on spinning disks |
 
 To extent your workspace use the following command:
 

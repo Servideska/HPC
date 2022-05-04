@@ -428,13 +428,13 @@ constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com
 A feature `fs_*` is active if a certain filesystem is mounted and available on a node. Access to
 these filesystems are tested every few minutes on each node and the Slurm features set accordingly.
 
-| Feature            | Description                                                          |
-|:-------------------|:---------------------------------------------------------------------|
-| `fs_lustre_scratch2` | `/scratch` mounted read-write (mount point is `/lustre/scratch2`)  |
-| `fs_lustre_ssd`      | `/ssd` mounted read-write (mount point is `/lustre/ssd`)           |
-| `fs_warm_archive_ws` | `/warm_archive/ws` mounted read-only                               |
-| `fs_beegfs_global0`  | `/beegfs/global0` mounted read-write                               |
-| `fs_beegfs`          | `/beegfs` mounted read-write                                       |
+| Feature              | Description                                                        | [Workspace Name](../data_lifecycle/workspaces.md#extension-of-a-workspace) |
+|:---------------------|:-------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| `fs_lustre_scratch2` | `/scratch` mounted read-write (mount point is `/lustre/scratch2`)  | `scratch`                                                                  |
+| `fs_lustre_ssd`      | `/ssd` mounted read-write (mount point is `/lustre/ssd`)           | `ssd`                                                                      |
+| `fs_warm_archive_ws` | `/warm_archive/ws` mounted read-only                               | `warm_archive`                                                             |
+| `fs_beegfs_global0`  | `/beegfs/global0` mounted read-write                               | `beegfs_global0`                                                           |
+| `fs_beegfs`          | `/beegfs` mounted read-write                                       | `beegfs`                                                                   |
 
 For certain projects, specific filesystems are provided. For those,
 additional features are available, like `fs_beegfs_<projectname>`.

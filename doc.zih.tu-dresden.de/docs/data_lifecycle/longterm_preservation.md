@@ -91,7 +91,7 @@ require some data preparation (e.g. packaging), but serve different use cases:
 ### Storing very infrequently used data during the course of the project
 
 The intermediate archive is a tape storage easily accessible as a directory
-(`/archive/<HRSK-project>/` or `/archive/<login>/`) using the
+(`/archiv/<HRSK-project>/` or `/archiv/<login>/`) using the
 [export nodes](../data_transfer/export_nodes.md)
 and
 [Datamover tools](https://doc.zih.tu-dresden.de/data_transfer/datamover/) to move your data to.
