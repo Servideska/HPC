@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-c"]
 # Base #
 ########
 
-RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0
+RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0 mkdocs-htmlproofer-plugin>=0.8.0
 
 ##########
 # Linter #
@@ -14,7 +14,7 @@ RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0
 
 RUN apt-get update && apt-get install -y nodejs npm aspell git
 
-RUN npm install -g markdownlint-cli markdown-link-check
+RUN npm install -g markdownlint-cli
 
 ###########################################
 # prepare git for automatic merging in CI #
