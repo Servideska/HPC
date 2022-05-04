@@ -147,8 +147,6 @@ repo_url: https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium
 edit_uri: blob/main/doc.zih.tu-dresden.de/docs/
 
 # Configuration
-# To enable cross-page anchor validation
-use_directory_url: false
 
 # strict: true
 
