@@ -260,7 +260,7 @@ is limited to the number of cores on a single node. The maximum number of cores 
 be found in our [hardware documentation](../jobs_and_resources/hardware_overview.md).
 
 Submitting a multicore R job to Slurm is very similar to submitting an
-[OpenMP Job](../jobs_and_resources/slurm.md#binding-and-distribution-of-tasks),
+[OpenMP Job](../jobs_and_resources/binding_and_distribution_of_tasks.md),
 since both are running multicore jobs on a **single** node. Below is an example:
 
 ```Bash
@@ -292,7 +292,7 @@ This way of the R parallelism uses the
 [Rmpi](http://cran.r-project.org/web/packages/Rmpi/index.html) package and the
 [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) (Message Passing Interface) as a
 "back-end" for its parallel operations. The MPI-based job in R is very similar to submitting an
-[MPI Job](../jobs_and_resources/slurm.md#binding-and-distribution-of-tasks) since both are running
+[MPI Job](../jobs_and_resources/binding_and_distribution_of_tasks.md) since both are running
 multicore jobs on multiple nodes. Below is an example of running R script with the Rmpi on the ZIH
 system:
 
