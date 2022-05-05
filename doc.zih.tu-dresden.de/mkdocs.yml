@@ -103,7 +103,7 @@ nav:
       - Binding And Distribution Of Tasks: jobs_and_resources/binding_and_distribution_of_tasks.md
   - Support:
     - How to Ask for Support: support/support.md
-  - Archive of the Old Wiki:
+  - Archive:
     - Overview: archive/overview.md
     - Bio Informatics: archive/bioinformatics.md
     - CXFS End of Support: archive/cxfs_end_of_support.md
@@ -201,6 +201,27 @@ markdown_extensions:
 
           #  - mkdocs-video
 
+plugins:
+  - search
+  - markdown-caption
+  # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
+  - htmlproofer:
+      # True by default
+      # Toggle via env. var. ENABLED_HTMLPROOFER=false
+      enabled: !ENV [ENABLED_HTMLPROOFER, True]
+      # Check URLs before serving. Build fails in case of bad URLs.
+      raise_error: True
+      # Ignore errors
+      #raise_error_excludes:
+      #  504: ['https://www.mkdocs.org/']
+      # Toggle validating external URLs
+      validate_external_urls: False
+      # Validate the entire rendered template, slow!
+      validate_rendered_template: True
+
+# Enable cross-page anchor validation
+use_directory_urls: False
+
 extra:
   tud_homepage: https://tu-dresden.de
   tud_name: "TU Dresden"
@@ -220,7 +241,3 @@ extra:
       name: "Data Protection Declaration / Datenschutzerklärung"
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
-
-plugins:
-  - search
-  - markdown-caption

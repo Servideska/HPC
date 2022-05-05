@@ -12,7 +12,7 @@ so called dotfiles in your home directory, e.g., `~/.bashrc` or `~/.bash_profile
 ## Software Environment
 
 There are different options to work with software on ZIH systems: [modules](#modules),
-[Jupyter Notebook](#jupyternotebook) and [containers](#containers). Brief descriptions and related
+[Jupyter Notebook](#jupyter-notebook) and [containers](#containers). Brief descriptions and related
 links on these options are provided below.
 
 !!! note

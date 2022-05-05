@@ -137,7 +137,7 @@ the local machine.
 
 Windows 10 (1809 and higher) comes with a
 [built-in OpenSSH support](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview)
-including the above described [SCP](#SCP) and [SFTP](#SFTP).
+including the above described [SCP](#scp) and [SFTP](#sftp).
 
 ### GUI - Using WinSCP
 

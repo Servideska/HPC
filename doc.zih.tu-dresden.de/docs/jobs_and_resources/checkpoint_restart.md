@@ -49,7 +49,7 @@ make it easier to utilize DMTCP together with Slurm.
 ## Using w.r.t. Chain Jobs
 
 For long-running jobs that you wish to split into multiple shorter jobs
-([chain jobs](../jobs_and_resources/slurm.md#chain-jobs)), thereby enabling the job scheduler to
+([chain jobs](slurm_examples.md#chain-jobs)), thereby enabling the job scheduler to
 fill the cluster much more efficiently and also providing some level of fault-tolerance, we have
 written a script that automatically creates a number of jobs for your desired runtime and adds the
 checkpoint/restart bits transparently to your batch script. You just have to specify the targeted
