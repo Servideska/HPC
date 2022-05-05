@@ -6,7 +6,9 @@ This pages provides tools and utilities that make your life on ZIH systems more 
 
 ### Best Practices
 
-Terminal emulators are particularly well-suited for aiding the computer scientist in their trade. We generally favor TMUX("**T**erminal **Mu**litple**x**er") as it's newer than certain others and allows for better customization.
+Terminal emulators are particularly well-suited for aiding the computer scientist in their trade.
+We generally favor TMUX("**T**erminal **Mu**litple**x**er") as it's newer than certain others and
+allows for better customization.
 
 As there is already plenty of documentation on how to use Tmux,
 we won't repeat that here.
@@ -19,15 +21,15 @@ But instead we would like to point you to those documentations:
 
 ### Making your interactive sessions more stable
 
-Sometimes when you work on Taurus, you might encounter a connection loss.
+Sometimes when you work on ZIH systems, you might encounter a connection loss.
 While working on fixing the underlying issue
 (e.g. an unstable Wi-Fi connection is certainly a good cause),
 you might however find it to be quite efficient,
-to just open up a Tmux session on Taurus,
+to just open up a Tmux session on ZIH systems,
 into which you can connect to the running sessions anytime again
 (e.g. also two days later):
 
-``` bash
+```console
 marie@compute$ tmux new-session -s marie_is_testing -d
 marie@compute$ tmux attach -t marie_is_testing
   echo "hello world"
@@ -35,19 +37,21 @@ marie@compute$ tmux attach -t marie_is_testing
 Ctrl+B & d
 ```
 
-!!! note NOTE: Do note that if you want to jump out of your Tmux session,
-you would usually be using the key combination
-Control Key and B-Key (thus now addressing Tmux itself)
-and then you'd be using the D-Key to tell it to "detach" yourself from it
-(the Tmux session will stay alive and running).
-You can jump into it any time later by just using the aforementioned "tmux attach" command again.
-++ctrl+B++  ++D++
+!!! note NOTE:
+    Do note that if you want to jump out of your Tmux session,
+    you would usually be using the key combination
+    Control Key and B-Key (thus now addressing Tmux itself)
+    and then you'd be using the D-Key to tell it to "detach" yourself from it
+    (the Tmux session will stay alive and running).
+    You can jump into it any time later by just using the aforementioned "tmux attach" command again.
+    ++ctrl+B++  ++D++
 
-### Using a more recent Tmux version on Taurus
+### Using a more recent Tmux version on ZIH systems
 
 You might find yourself wanting to use a more recent Tmux version
 and you can do so with this command:
-``` bash
+
+```console
 marie@compute$ module load tmux
 ```
 
@@ -57,7 +61,7 @@ At times it might be quite handy to have Tmux sessions running inside your compu
 such that you perform your computations within an interactive Tmux session.
 For this purpose the following shorthand is to be placed inside an sbatch file that comes in handy:
 
-``` bash
+```bash
 module load tmux/3.2a
 tmux new-session -s marie_is_computing -d
 sleep 1;
@@ -66,7 +70,7 @@ tmux wait-for CHANNEL_NAME_MARIE
 
 You can then connect to it like this:
 
-``` bash
+```console
 ssh -t "$(squeue -u $USER -o "%N" 2>/dev/null | tail -n 1)" "source /etc/profile.d/10_modules.sh; module load tmux/3.2a; tmux attach"
 ```
 
@@ -74,7 +78,7 @@ ssh -t "$(squeue -u $USER -o "%N" 2>/dev/null | tail -n 1)" "source /etc/profile
 
 When trying to connect to Tmux, you might encounter the following error message:
 
-``` bash
+```console
 marie@compute$ tmux a -t juhu
 protocol version mismatch (client 7, server 8)
 ```
@@ -82,8 +86,9 @@ protocol version mismatch (client 7, server 8)
 To solve this issue, make sure that the Tmux-version you invoke
 is the same as the Tmux-server that is running.
 In particular you can determine your client's version with the command `tmux -V`.
-Try to load the appropriate tmux-version to match with your clients tmux-server like this:
-```
+Try to load the appropriate tmux-version to match with your client's tmux-server like this:
+
+```console
 marie@compute$ tmux -V
 tmux 1.8
 marie@compute$ module load tmux/3.2a
@@ -92,21 +97,21 @@ marie@compute$ tmux -V
 tmux 3.2a
 ```
 
-!!! hint NOTE: When your clients version is newer than the server-version,
-the aforementioned approach won't help you.
-In that case you might want to invoke `module unload tmux`,
-to downgrade your Tmux version to the Tmux version that is supplied with the operating system
-(which should have a lower version number).
-
+!!! hint NOTE:
+    When your client's version is newer than the server-version,
+    the aforementioned approach won't help you.
+    In that case you might want to invoke `module unload tmux`,
+    to downgrade your Tmux version to the Tmux version that is supplied with the operating system
+    (which should have a lower version number).
 
 ### My Tmux session is gone, what happened?
 
-Please note that, as there are thousands of compute-nodes available,
+Please note that, as there are thousands of compute nodes available,
 there are also multiple login nodes.
 
 Thus, try checking the other login nodes as well:
 
-``` bash
+```console
 marie@login3$ tmux ls
 failed to connect to server
 marie@login3$ ssh login4 tmux ls
