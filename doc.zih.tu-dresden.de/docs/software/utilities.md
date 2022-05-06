@@ -29,7 +29,7 @@ settings (e.g., loaded modules, current working directory, ...) are in place. Th
 beneficial when working within an unstable network with connection loses (e.g., traveling with the
 train in Germany), but also speed ups your workflow in the daily routine.
 
-``` bash
+```console
 marie@compute$ tmux new-session -s marie_is_testing -d
 marie@compute$ tmux attach -t marie_is_testing
   echo "hello world"
@@ -40,7 +40,7 @@ Ctrl+b & d
 !!! note
 
     If you want to jump out of your tmux session, hold the Control key and press 'b'. After that,
-    release both keys and type 'd'. With the first key combination you address tmux itself, whereas
+    release both keys and press 'd'. With the first key combination you address tmux itself, whereas
     'd' is the tmux command to "detach" yourself from it. The tmux session will stay alive and
     running. You can jump into it any time later by just using the aforementioned "tmux attach"
     command again.
@@ -59,7 +59,7 @@ marie@login$ module load tmux/3.2a
 
 When trying to connect to tmux, you might encounter the following error message:
 
-``` bash
+```console
 marie@compute$ tmux a -t juhu
 protocol version mismatch (client 7, server 8)
 ```
@@ -67,7 +67,7 @@ protocol version mismatch (client 7, server 8)
 To solve this issue, make sure that the tmux version you invoke
 is the same as the tmux server that is running.
 In particular you can determine your client's version with the command `tmux -V`.
-Try to [load the appropriate tmux version](#using-a-more-recent-tmux-version) to match with your
+Try to [load the appropriate tmux version](#using-a-more-recent-version) to match with your
 client's tmux server like this:
 
 ```
@@ -113,7 +113,7 @@ nodes.
 
 Thus, try checking the other login nodes as well:
 
-``` bash
+```console
 marie@login3$ tmux ls
 failed to connect to server
 marie@login3$ ssh login4 tmux ls
