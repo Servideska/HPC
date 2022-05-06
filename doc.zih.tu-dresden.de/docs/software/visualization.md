@@ -6,7 +6,7 @@
 application. The ParaView package comprises different tools which are designed to meet interactive,
 batch and in-situ workflows.
 
-ParaView is available on ZIH systems from the [modules system](modules.md#modules-environment). The
+ParaView is available on ZIH systems from the [modules system](modules.md#module-environments). The
 following command lists the available versions
 
 ```console
