@@ -35,7 +35,7 @@ filesystems.
 !!! hint "Recommendations to choose of storage system"
 
     * For data that seldom changes but consumes a lot of space, the
-      [warm_archive](file_systems.md#warm_archive) can be used.
+      [warm_archive](warm_archive.md) can be used.
       (Note that this is mounted **read-only** on the compute nodes).
     * For a series of calculations that works on the same data please use a `scratch` based
       [workspace](workspaces.md).
