@@ -74,6 +74,7 @@ nav:
       - Perf Tools: software/perf_tools.md
       - Vampir: software/vampir.md
       - Energy Measurement: software/energy_measurement.md
+    - Utilities: software/utilities.md
   - Data Life Cycle Management:
     - Overview: data_lifecycle/overview.md
     - Filesystems:
@@ -240,3 +241,4 @@ extra:
       name: "Data Protection Declaration / Datenschutzerklärung"
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
+
