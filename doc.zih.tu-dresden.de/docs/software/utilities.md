@@ -1,6 +1,6 @@
 # Utilities
 
-This pages provides tools and utilities that make your life on ZIH systems more comfortable.
+This page provides tools and utilities that make your life on ZIH systems more comfortable.
 
 ## Tmux
 
