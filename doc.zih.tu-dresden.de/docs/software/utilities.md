@@ -13,10 +13,10 @@ customization.
 As there is already plenty of documentation on how to use tmux, we won't repeat that here. But
 instead we would like to point you to those documentations:
 
-* [tmux manpage](https://manpages.org/tmux)
-* [tmux.conf customization](https://tmuxguide.readthedocs.io/en/latest/tmux/tmux.html#tmux-conf)
-* [Tao of tmux](https://tao-of-tmux.readthedocs.io/en/latest/)
-* [tmux Cheat Sheet](https://tmuxcheatsheet.com/)
+* [Tmux man page](https://manpages.org/tmux)
+* [Tmux customization](https://tmuxguide.readthedocs.io/en/latest/tmux/tmux.html#tmux-conf)
+* [Tao of Tmux](https://tao-of-tmux.readthedocs.io/en/latest/)
+* [Tmux Cheat Sheet](https://tmuxcheatsheet.com/)
 
 ### Basic Usage
 
@@ -91,7 +91,7 @@ tmux 3.2a
 At times it might be quite handy to have tmux sessions running inside your computation jobs,
 such that you perform your computations within an interactive tmux session.
 For this purpose the following shorthand is to be placed inside the
-[jobfile](../jobs_and_resources/slurm.md#job-files):
+[job file](../jobs_and_resources/slurm.md#job-files):
 
 ```bash
 module load tmux/3.2a
