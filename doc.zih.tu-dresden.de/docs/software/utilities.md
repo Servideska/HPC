@@ -11,7 +11,7 @@ daily trade. We generally favor *tmux* as it's newer than certain others and all
 customization.
 
 As there is already plenty of documentation on how to use tmux, we won't repeat that here. But
-instead we would like to point you to those documentations:
+instead, we would like to point you to those documents:
 
 * [Tmux man page](https://manpages.org/tmux)
 * [Tmux customization](https://tmuxguide.readthedocs.io/en/latest/tmux/tmux.html#tmux-conf)
@@ -21,13 +21,13 @@ instead we would like to point you to those documentations:
 ### Basic Usage
 
 Tmux is a terminal multiplexer. It lets you switch easily between several programs in one
-terminal, detach them (they keep running in the background) and reattach them to a different
+terminal, detach them (they keep running in the background), and reattach them to a different
 terminal.
 
 The huge advantage is, that as long as your tmux session is running, you can connect to it and your
-settings (e.g., loaded modules, current working directory, ...) are in place. This is clearly
-beneficial when working within an unstable network with connection loses (e.g., traveling with the
-train in Germany), but also speed ups your workflow in the daily routine.
+settings (e.g., loaded modules, current working directory, ...) are in place. This is
+beneficial when working within an unstable network with connection losses (e.g., traveling by the
+train in Germany), but also speed-ups your workflow in the daily routine.
 
 ```console
 marie@compute$ tmux new-session -s marie_is_testing -d
@@ -40,7 +40,7 @@ Ctrl+b & d
 !!! note
 
     If you want to jump out of your tmux session, hold the Control key and press 'b'. After that,
-    release both keys and press 'd'. With the first key combination you address tmux itself, whereas
+    release both keys and press 'd'. With the first key combination, you address tmux itself, whereas
     'd' is the tmux command to "detach" yourself from it. The tmux session will stay alive and
     running. You can jump into it any time later by just using the aforementioned "tmux attach"
     command again.
@@ -66,7 +66,7 @@ protocol version mismatch (client 7, server 8)
 
 To solve this issue, make sure that the tmux version you invoke
 is the same as the tmux server that is running.
-In particular you can determine your client's version with the command `tmux -V`.
+In particular, you can determine your client's version with the command `tmux -V`.
 Try to [load the appropriate tmux version](#using-a-more-recent-version) to match with your
 client's tmux server like this:
 
@@ -82,7 +82,7 @@ tmux 3.2a
 !!! hint
 
     When your client's version is newer than the server version, the aforementioned approach
-    won't help you. In that case, you need to unload the loaded tmux module in order to downgrade
+    won't help you. In that case, you need to unload the loaded tmux module to downgrade
     the client to the client version that is supplied with the operating system (which
     should have a lower version number).
 
@@ -90,7 +90,7 @@ tmux 3.2a
 
 At times it might be quite handy to have tmux sessions running inside your computation jobs,
 such that you perform your computations within an interactive tmux session.
-For this purpose the following shorthand is to be placed inside the
+For this purpose, the following shorthand is to be placed inside the
 [job file](../jobs_and_resources/slurm.md#job-files):
 
 ```bash
