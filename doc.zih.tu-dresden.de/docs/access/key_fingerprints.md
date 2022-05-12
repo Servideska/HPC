@@ -59,3 +59,4 @@ fingerprint shown matches one of the table.
 | ECDSA    | MD5:96:62:c6:80:a8:1f:34:64:86:f3:cf:c5:9b:cd:af:da |
 | ED25519  | SHA256:jxWiddvDe0E6kpH55PHKF0AaBg/dQLefQaQZ2P4mb3o  |
 | ED25519  | MD5:fe:0a:d2:46:10:4a:08:40:fd:e1:99:b7:f2:06:4f:bc |
+{: summary="List of valid fingerprints for export nodes"}
