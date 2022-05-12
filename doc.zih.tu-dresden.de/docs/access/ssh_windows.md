@@ -10,7 +10,7 @@ or [PowerShell](https://en.wikipedia.org/wiki/PowerShell)).
 Start PowerShell with pressing `Win + R` and typing `powershell`. 
 Check that SSH client is available by typing `ssh` in a terminal:
 
-```console
+```powershell
 PS marie@local$ ssh
 usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
            [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
@@ -27,17 +27,20 @@ regarding [OpenSSH](https://docs.microsoft.com/en-us/windows-hardware/manufactur
 
 ## Connecting from Windows with MobaXterm
 
-MobaXterm is an enhanced terminal for Windows with an X11 server, a tabbed SSH client, networl tools and more.
+MobaXterm is an enhanced terminal for Windows with an X11 server, a tabbed SSH client, network
+tools and more.
 
 Visit its homepage for more information (https://mobaxterm.mobatek.net).
 
 ### Download and install
 
-To download go https://mobaxterm.mobatek.net/download-home-edition.html
+To download go to [MobaXterm homepage](https://mobaxterm.mobatek.net/download-home-edition.html)
+and download a free home edition. 
 
 ![Downloading MobaXterm](misc/mobaxterm1_download.png)
 
-Pick the installer suiting best your current system and run it afterwards. Follow the instructions. You should see the following interface after starting the MobaXterm application.
+Pick the installer suiting best your current system and run it afterwards. Follow the instructions.
+You should see the following interface after starting the MobaXterm application.
 
 ![First opening MobaXterm](misc/mobaxterm2_first.png)
 
