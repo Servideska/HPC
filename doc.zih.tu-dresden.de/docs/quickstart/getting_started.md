@@ -394,7 +394,7 @@ For additional information refer to the detailed documentation on [modules](../s
 
 ## Running a Program/Job
 
-Running programs on an HPC machine is called **running jobs**.
+At HPC systems, computational work and resource requirements are encapsulated into so-called jobs.
 Since all computational resources are shared with other users, these resources need to be
 allocated. For managing these allocations a so-called job scheduler or a batch system is used.
 On the ZIH system, the job scheduler used is [Slurm](https://slurm.schedmd.com/quickstart.html).
