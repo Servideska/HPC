@@ -43,8 +43,8 @@ members of the TU Dresden have), but has the same credentials.
 The ZIH HPC system is structured by so-called HPC projects. To work on the ZIH HPC system, there
 are two possibilities:
 
-* create a [new project](../application/project_request_form.md)
-* join an existing project: e.g. new researchers in an existing project, students in projects for
+* Creating a [new project](../application/project_request_form.md)
+* Joining an existing project: e.g. new researchers in an existing project, students in projects for
 teaching purposes. The details will be provided to you by the project administrator.
 
 A HPC project on the ZIH HPC system includes: a project directory, project group, project members
@@ -70,7 +70,7 @@ command line knowledge is required
   [Graphical User Interfaces (GUIs)](../access/graphical_applications_with_webvnc.md) and similar:
   e.g. commercial software such as Ansys, LS-DYNA (are not covered here).
 
-Next, the access are described step by step.
+Next, the mentioned access methods are described step by step.
 
 ### JupyterHub
 
