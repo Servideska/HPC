@@ -55,7 +55,7 @@ groups for teaching purposes). Thus, granting appropriate file permissions and c
 and consistent software environment for multiple users is essential.
 This aspect is considered for all the following recommendations.
 
-## Accessing the ZIH HPC system
+## Accessing the ZIH HPC System
 
 The ZIH HPC system can be accessed only within the TU Dresden campus networks.
 Access from outside is possible by establishing a [VPN connection](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4).
@@ -168,7 +168,7 @@ To start we recommend the Lustre filesystem **scratch**.
 
 Find more [information on workspaces in the compendium](../data_lifecycle/workspaces.md).
 
-### Transferring data **within** the ZIH HPC system
+### Transferring Data **Within** the ZIH HPC System
 
 The approach depends on the data volume: up to 100 MB or above.
 
@@ -198,7 +198,7 @@ The approach depends on the data volume: up to 100 MB or above.
     More details on the [datamover](../data_transfer/datamover.md) are available in the data
     transfer section.
 
-### Transferring data **to/from** the ZIH HPC system
+### Transferring Data **To/From** the ZIH HPC System
 
 ???+ example "`scp` for transferring data from/to the ZIH HPC system"
 
@@ -230,7 +230,7 @@ The approach depends on the data volume: up to 100 MB or above.
     If you are planning to move terabytes or even more from an outside machine into the ZIH system,
     please contact the ZIH [HPC support](mailto:hpcsupport@tu-dresden.de) in advance.
 
-### Permission rights are crucial in a collaborative setting
+### Permission Rights Are Crucial In a Collaborative Setting
 
 Whenever working within a collaborative setting, take care of the file permissions.
 Esp. after creating and transferring data, file permission configuration might be necessary.
