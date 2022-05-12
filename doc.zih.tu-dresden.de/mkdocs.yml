@@ -1,5 +1,6 @@
 nav:
   - Home: index.md
+  - Quick Start: quickstart/getting_started.md
   - Application for Login and Resources:
     - Overview: application/overview.md
     - Terms of Use: application/terms_of_use.md
