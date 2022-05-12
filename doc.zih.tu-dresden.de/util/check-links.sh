@@ -6,3 +6,4 @@ set -eo pipefail
 
 export ENABLED_HTMLPROOFER=true
 mkdocs build
+rm -rf public
