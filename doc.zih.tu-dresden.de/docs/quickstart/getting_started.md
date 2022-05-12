@@ -232,9 +232,9 @@ The approach depends on the data volume: up to 100 MB or above.
     If you are planning to move terabytes or even more from an outside machine into the ZIH system,
     please contact the ZIH [HPC support](mailto:hpcsupport@tu-dresden.de) in advance.
 
-### Permission Rights Are Crucial In a Collaborative Setting
+### Permission Rights
 
-Whenever working within a collaborative setting, take care of the file permissions.
+Whenever working within a collaborative environment, take care of the file permissions.
 Esp. after creating and transferring data, file permission configuration might be necessary.
 
 **By default, workspaces are accessible only for the user who created the workspace.**
