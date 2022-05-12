@@ -26,6 +26,7 @@ shown matches one of the table.
 | ECDSA    | MD5:47:7e:24:46:ab:30:59:2c:1f:e8:fd:37:2a:5d:ee:25 |
 | ED25519  | SHA256:nNxjtCny1kB0N0epHaOPeY1YFd0ri2Dvt2CK7rOGlXg  |
 | ED25519  | MD5:7c:0c:2b:8b:83:21:b2:08:19:93:6d:03:80:76:8a:7b |
+{: summary="List of valid fingerprints for login nodes"}
 
 ??? example "Connecting with SSH"
 
