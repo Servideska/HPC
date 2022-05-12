@@ -118,7 +118,9 @@ This is the starting point for many tasks such as running programs and data mana
     ```
 
     1. After typing in your password, you end up seeing something like the following image.
+
     ![Successful SSH login](misc/ssh-success-login.png)
+    {: align="center"}
 
 === "Users of older versions of Windows"
 
