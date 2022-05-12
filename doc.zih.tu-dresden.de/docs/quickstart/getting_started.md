@@ -20,7 +20,7 @@ therefore needed. In preparation, explore the [collection](https://hpc-wiki.info
 of the most important Linux commands needed on the HPC system.
 
 To work on the ZIH HPC system and to follow the instructions on this page as well as other
-Compendium pages, it is important to be familiar with the
+compendium pages, it is important to be familiar with the
 [basic terminology](https://hpc-wiki.info/hpc/HPC-Dictionary) such as
 [ssh](https://hpc-wiki.info/hpc/SSH), [cluster](https://hpc-wiki.info/hpc/HPC-Dictionary#Cluster),
 [login node](https://hpc-wiki.info/hpc/HPC-Dictionary#Login_Node),
