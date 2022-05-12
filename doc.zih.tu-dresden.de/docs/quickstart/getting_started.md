@@ -45,7 +45,7 @@ are two possibilities:
 
 * create a [new project](../application/project_request_form.md)
 * join an existing project: e.g. new researchers in an existing project, students in projects for
-teaching purposes. The details will be provided to you by the project admin.
+teaching purposes. The details will be provided to you by the project administrator.
 
 A HPC project on the ZIH HPC system includes: a project directory, project group, project members
 (at least admin and manager), and resource quotas for compute time (CPU/GPU hours) and storage.
@@ -64,7 +64,7 @@ There are different ways to access the ZIH HPC system (which are described in mo
 depending on the user's needs and previous knowledge:
 
 * [JupyterHub](../access/jupyterhub.md): browser based connection, easiest way for beginners
-* [ssh connection](../access/ssh_login.md) (command line/terminal/console): "classical" connection,
+* [SSH connection](../access/ssh_login.md) (command line/terminal/console): "classical" connection,
 command line knowledge is required
 * [Desktop Visualization](../access/desktop_cloud_visualization.md),
   [Graphical User Interfaces (GUIs)](../access/graphical_applications_with_webvnc.md) and similar:
