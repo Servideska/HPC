@@ -22,7 +22,7 @@ of the most important Linux commands needed on the HPC system.
 To work on the ZIH HPC system and to follow the instructions on this page as well as other
 compendium pages, it is important to be familiar with the
 [basic terminology](https://hpc-wiki.info/hpc/HPC-Dictionary) such as
-[ssh](https://hpc-wiki.info/hpc/SSH), [cluster](https://hpc-wiki.info/hpc/HPC-Dictionary#Cluster),
+[SSH](https://hpc-wiki.info/hpc/SSH), [cluster](https://hpc-wiki.info/hpc/HPC-Dictionary#Cluster),
 [login node](https://hpc-wiki.info/hpc/HPC-Dictionary#Login_Node),
 [compute node](https://hpc-wiki.info/hpc/HPC-Dictionary#Backend_Node),
 [local and shared filesystem](https://hpc-wiki.info/hpc/HPC-Dictionary#File_System),
@@ -101,11 +101,11 @@ The more "classical" way to work with HPC is based on the command line. After fo
 the instructions below, you will be on one of the login nodes.
 This is the starting point for many tasks such as running programs and data management.
 
-!!! hint "Using ssh key pair"
+!!! hint "Using SSH key pair"
 
-    We recommend to create an ssh key pair by following the
+    We recommend to create an SSH key pair by following the
     [instructions here](../access/ssh_login.md#before-your-first-connection).
-    Using an ssh key pair is beneficial for security reasons, although it is not necessary to work
+    Using an SSH key pair is beneficial for security reasons, although it is not necessary to work
     with the ZIH HPC system.
 
 === "Windows 10 and higher/Mac/Linux users"
@@ -118,7 +118,7 @@ This is the starting point for many tasks such as running programs and data mana
     ```
 
     1. After typing in your password, you end up seeing something like the following image.
-    ![Successful ssh login](misc/ssh-success-login.png)
+    ![Successful SSH login](misc/ssh-success-login.png)
 
 === "Users of older versions of Windows"
 
@@ -261,7 +261,7 @@ in Linux.
 ??? hint "GUI-based data management"
 
     - Transferring data and managing file permissions for smaller amounts of data can be handled
-    by ssh clients.
+    by SSH clients.
     - More so for Linux-based systems, `sshfs` (a command-line tool for safely mounting a remote
     folder from a server to a local machine) can be used to mount user home, project home or
     workspaces within the local folder structure.
