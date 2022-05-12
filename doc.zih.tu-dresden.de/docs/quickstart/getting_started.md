@@ -150,7 +150,7 @@ To start we recommend the Lustre filesystem **scratch**.
     The following command creates a workspace
 
     ```console
-    marie@login$ ws_allocate -F scratch -r 7 -m marie.testuser@tu-dresden.de test-workspace 90
+    marie@login$ ws_allocate -F scratch -r 7 -m marie.testuser@tu-dresden.de -n test-workspace -d 90
     Info: creating workspace.
     /scratch/ws/marie-test-workspace
     remaining extensions  : 10
@@ -162,8 +162,8 @@ To start we recommend the Lustre filesystem **scratch**.
     - `ws_allocate` - command to allocate
     - `-F scratch` - on the scratch filesystem
     - `-r 7 -m marie.testuser@tu-dresden.de` - send a reminder to `marie.testuser@tu-dresden.de` 7 days before expiration
-    - `test-workspace` - workspace's name
-    - a life time of `90` days
+    - `-n test-workspace` - workspace's name
+    - `-d 90` - a life time of 90 days
 
     The path to this workspace is `/scratch/ws/marie-test-workspace`. You will need it when
     transferring data or running jobs.
