@@ -125,7 +125,7 @@ This is the starting point for many tasks such as running programs and data mana
     Install and set up [MobaXTerm](../access/ssh_login_mobaxterm) or [PuTTY](../access/ssh_login_putty).
 
 For more information explore the [access compendium page](../access/ssh_login.md).
-[Configuring Default Parameters](../access/ssh_login.md#configuring-default-parameters-for-ssh)
+[Configuring default parameters](../access/ssh_login.md#configuring-default-parameters-for-ssh)
 makes connecting more comfortable.
 
 ## Data Management and Data Transfer
