@@ -130,20 +130,20 @@ makes connecting more comfortable.
 
 ## Data Management and Data Transfer
 
-First, it shown how to create a workspace, then how to transfer data within and to/from the ZIH HPC
-system. Also keep in mind to set the file permissions when collaborating with other researchers.
+First, it is shown how to create a workspace, then how to transfer data within and to/from the ZIH
+HPC system. Also keep in mind to set the file permissions when collaborating with other researchers.
 
 ### Create a Workspace
 
 There are different areas for storing your data on the ZIH HPC system, called [Filesystems](../data_lifecycle/file_systems.md).
 You need to create a [workspace](../data_lifecycle/workspaces.md) for your data (see example
-below) on one of these Filesystems.
+below) on one of these filesystems.
 
 The filesystems have different [properties](../data_lifecycle/file_systems.md) (available space,
 storage time limit, permission rights). Therefore, choose the one that fits your project best.
 To start we recommend the Lustre filesystem **scratch**.
 
-!!! example "Creating a workspace on Lustre Scratch filesystem"
+!!! example "Creating a workspace on Lustre filesystem scratch"
 
     The following command creates a workspace
 
@@ -174,7 +174,7 @@ The approach depends on the data volume: up to 100 MB or above.
 
 ???+ example "`cp`/`mv` for small data (up to 100 MB)"
 
-    Use command `cp` to copy the file `example.R` from your ZIH home directory to a workspace:
+    Use the command `cp` to copy the file `example.R` from your ZIH home directory to a workspace:
 
      ```console
      marie@login$ cp /home/marie/example.R /scratch/ws/marie-test-workspace
@@ -185,15 +185,15 @@ The approach depends on the data volume: up to 100 MB or above.
     Find more examples for the `cp` command on [bropages.org](http://bropages.org/cp) or use
     manual pages with `man cp`.
 
-???+ example "`dtcp`/`dtmv` for medium/large data (above 100 MB)"
+???+ example "`dtcp`/`dtmv` for medium to large data (above 100 MB)"
 
-    Use command `dtcp` to copy the directory `/warm_archive/ws/large-dataset` from one filesystem
-    location to another:
+    Use the command `dtcp` to copy the directory `/warm_archive/ws/large-dataset` from one
+    filesystem location to another:
 
     ```console
     marie@login$ dtcp -r /warm_archive/ws/large-dataset /scratch/ws/marie-test-workspace/data
     ```
-    Analogously use command `dtmv` to move a file.
+    Analogously use the command `dtmv` to move a file.
 
     More details on the [datamover](../data_transfer/datamover.md) are available in the data
     transfer section.
@@ -221,7 +221,7 @@ The approach depends on the data volume: up to 100 MB or above.
     marie@local$ scp marie@taurusexport.hrsk.tu-dresden.de:/scratch/ws/0/marie-test-workspace/results.csv /home/marie/Documents/
     ```
 
-    Feel free to explore further [examples](http://bropages.org/scp) of the scp command.
+    Feel free to explore further [examples](http://bropages.org/scp) of the `scp` command.
     Furthermore, checkout other possibilities on the compendium for working with the
     [export nodes](../data_transfer/export_nodes.md).
 
