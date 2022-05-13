@@ -1,5 +1,6 @@
 nav:
   - Home: index.md
+  - Quick Start: quickstart/getting_started.md
   - Application for Login and Resources:
     - Overview: application/overview.md
     - Terms of Use: application/terms_of_use.md
@@ -77,6 +78,7 @@ nav:
       - Perf Tools: software/perf_tools.md
       - Vampir: software/vampir.md
       - Energy Measurement: software/energy_measurement.md
+    - Utilities: software/utilities.md
   - Data Life Cycle Management:
     - Overview: data_lifecycle/overview.md
     - Filesystems:
@@ -203,6 +205,27 @@ markdown_extensions:
 
           #  - mkdocs-video
 
+plugins:
+  - search
+  - markdown-caption
+  # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
+  - htmlproofer:
+      # True by default
+      # Toggle via env. var. ENABLED_HTMLPROOFER=false
+      enabled: !ENV [ENABLED_HTMLPROOFER, True]
+      # Check URLs before serving. Build fails in case of bad URLs.
+      raise_error: True
+      # Ignore errors
+      #raise_error_excludes:
+      #  504: ['https://www.mkdocs.org/']
+      # Toggle validating external URLs
+      validate_external_urls: False
+      # Validate the entire rendered template, slow!
+      validate_rendered_template: True
+
+# Enable cross-page anchor validation
+use_directory_urls: False
+
 extra:
   tud_homepage: https://tu-dresden.de
   tud_name: "TU Dresden"
@@ -223,6 +246,3 @@ extra:
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
 
-plugins:
-  - search
-  - markdown-caption

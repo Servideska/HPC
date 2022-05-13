@@ -57,12 +57,23 @@ actively used, especially for longer code examples, warnings, tips, important in
 should be highlighted, etc. Code examples, longer than half screen height should collapsed
 (and indented):
 
-??? example
+??? "Collapsed example"
     ```Bash
     [...]
     # very long example here
     [...]
     ```
+
+### Brief How-To on Markdown
+
+| Purpose | Markdown | Rendered HTML |
+|---|---|---|
+| Bold text | `**Bold Text**`  | **Bold Text**  |
+| Italic text | `*Italic Text*`   | *Italic Text*  |
+| Headings | `# Level 1`, `## Level 2`, `### Level 3`, ...   |  |
+| External link | `[website of TU Dresden](https://tu-dresden.de)` | [website of TU Dresden](https://tu-dresden.de) |
+| Internal link | `[Slurm page](../jobs_and_resources/slurm.md)` | [Slurm page](../jobs_and_resources/slurm.md)|
+| Internal link to section | `[section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs)` | [section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs) |
 
 ## Writing Style
 
@@ -130,7 +141,7 @@ We follow this rules regarding prompts:
 * **Always use a prompt**, even there is no output provided for the shown command.
 * All code blocks should use long parameter names (e.g. Slurm parameters), if available.
 * All code blocks which specify some general command templates, e.g. containing `<` and `>`
-  (see [Placeholders](#mark-placeholders)), should use `bash` for the code block. Additionally,
+  (see [Placeholders](#placeholders)), should use `bash` for the code block. Additionally,
   an example invocation, perhaps with output, should be given with the normal `console` code block.
   See also [Code Block description below](#code-blocks-and-syntax-highlighting).
 * Using some magic, the prompt as well as the output is identified and will not be copied!
@@ -157,7 +168,7 @@ bar
 
 Make sure that shell session and console code blocks are executable on the login nodes of HPC system.
 
-Command templates use [Placeholders](#mark-placeholders) to mark replaceable code parts. Command
+Command templates use [Placeholders](#placeholders) to mark replaceable code parts. Command
 templates should give a general idea of invocation and thus, do not contain any output. Use a
 `bash` code block followed by an invocation example (with `console`):
 
@@ -257,6 +268,10 @@ drwxr-xr-x   3 marie p_number_crunch      4096 Jan 24  2020 code
 drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
 -rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
+
+### Placeholders
+
+TODO!
 
 ## Mark Omissions
 

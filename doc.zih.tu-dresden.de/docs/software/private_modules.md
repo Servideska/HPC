@@ -94,7 +94,7 @@ table.
 
 Please refer to the official documentation of Lmod on
 [writing modules](https://lmod.readthedocs.io/en/latest/015_writing_modules.html) and
-[Lua ModulefileFunctions](https://lmod.readthedocs.io/en/latest/050_lua_modulefiles.html)
+[Lua Modulefile functions](https://lmod.readthedocs.io/en/latest/050_lua_modulefiles.html)
 for detailed information.
 You can also have a look at present module files at the system.
 
