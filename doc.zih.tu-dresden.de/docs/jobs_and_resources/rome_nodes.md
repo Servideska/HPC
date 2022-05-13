@@ -85,8 +85,8 @@ worse performance.
 
 !!! note
 
-    In version 2020, Intel has removed this environment variable and added separate Zen codepaths to
-    the library. However, they are still incomplete and do not cover every BLAS function. Also, the
+    In version 2020 and above, Intel has removed this environment variable and added separate Zen codepaths
+    to the library. However, they are still incomplete and do not cover every BLAS function. Also, the
     Intel AVX2 codepaths still seem to provide somewhat better performance, so a new workaround
     would be to overwrite the `mkl_serv_intel_cpu_true` symbol with a custom function:
 
