@@ -87,7 +87,7 @@ accessable by the top left navigation tab named `Sessions`.
 
 5. The last thing to do is to input your HPC password in the command line and to pres `enter`.
 
-![Saving your password in MeobaXterm](misc/mobaxterm7_pw.png)
+![Saving your password in MobaXterm](misc/mobaxterm7_pw.png)
 
 !!! Caution
     
