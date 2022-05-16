@@ -221,7 +221,9 @@ plugins:
       validate_rendered_template: True
 
 # Enable cross-page anchor validation
-use_directory_urls: False
+# https://www.mkdocs.org/user-guide/configuration/#use_directory_urls
+# True by default. But: explicit is better than implicit.
+use_directory_urls: True
 
 extra:
   tud_homepage: https://tu-dresden.de
