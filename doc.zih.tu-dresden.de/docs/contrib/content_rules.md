@@ -77,14 +77,22 @@ should be highlighted, etc. Code examples, longer than half screen height should
 
 ## Writing Style
 
-* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
-* Capitalize headings, e.g. *Exclusive Reservation of Hardware*
-* Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
-  descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
+* Assume that a future reader is eager to start typing commands. Thus, encourage the reader by
+  addressing him/her directly:
+    * Example: Use `You can/should ...` instead of `Users can/should ...`
+    * Example: Use `Your contribution is highly welcome` instead of `Contributions from user-side
+      are highly welcome`
+* Be brief! Provide the main idea/commands first, special cases later. If it is not necessary to
+  know how a special piece of software works, don't explain it.
+* Provide the often-used commands first.
 * Use active over passive voice
     * Write with confidence. This confidence should be reflected in the documentation, so that
       the readers trust and follow it.
     * Example: `We recommend something` instead of `Something is recommended.`
+* Capitalize headings, e.g. *Exclusive Reservation of Hardware*
+* Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
+  descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
+* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
 
 ## Spelling and Technical Wording
 
