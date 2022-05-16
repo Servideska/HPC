@@ -1,5 +1,9 @@
 # SCS5 Migration Hints
 
+!!! warning
+
+    This page is outdated!
+
 Bull's new cluster software is called SCS 5 (*Super Computing Suite*).
 Here are the major changes from the user's perspective:
 
