@@ -266,8 +266,8 @@ _Result_:
 
 ### Data Privacy and Generic Names
 
-Where possible, replace login, project name and other private data with clearly arbitrary
-placeholders.  In particular, use the generic login `marie` and the project title `p_number_crunch`
+Where possible, replace login, project name and other private data with clearly recognizable
+placeholders. In particular, use the generic login `marie` and the project title `p_number_crunch`
 as placeholders.
 
 ```console
@@ -277,21 +277,36 @@ drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
 -rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
-### Placeholders
+#### Placeholders
 
-TODO!
+Placeholders represent arguments or code parts that can be adapted to the user's needs. Use them to
+give a general idea of how a command or code snippet can be used, e. g. to explain the meaning of
+some command argument:
 
-## Mark Omissions
+```bash
+marie@login$ ws_find <job id>
+```
 
-If showing only a snippet of a long output, omissions are marked with `[...]`.
+Here, a placeholder explains the intention better than just a specific value:
 
-## Unix Rules
+```console
+marie@login$ ws_find 4041337
+```
+
+Please be aware, that a reader often understands placeholders easier if you also give an example.
+Therefore, please always add an example.
+
+##### Unix Rules
 
 Stick to the Unix rules on optional and required arguments, and selection of item sets:
 
 * `<required argument or value>`
 * `[optional argument or value]`
 * `{choice1|choice2|choice3}`
+
+#### Mark Omissions
+
+If showing only a snippet of a long output, omissions are marked with `[...]`.
 
 ## Graphics and Attachments
 
