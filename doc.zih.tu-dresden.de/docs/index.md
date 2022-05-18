@@ -1,7 +1,7 @@
 # ZIH HPC Documentation
 
 This is the documentation of the HPC systems and services provided at
-[TU Dresden/ZIH](https://tu-dresden.de/zih/).  This documentation is work in progress, since we try
+[TU Dresden/ZIH](https://tu-dresden.de/zih/). This documentation is work in progress, since we try
 to incorporate more information with increasing experience and with every question you ask us. The
 HPC team invites you to take part in the improvement of these pages by correcting or adding useful
 information.
@@ -13,7 +13,7 @@ Issues concerning this documentation can reported via the GitLab
 Please check for any already existing issue before submitting your issue in order to avoid duplicate
 issues.
 
-Contributions from user-side are highly welcome. Please find out more in our [guidelines how to contribute](contrib/howto_contribute.md).
+Your contributions are highly welcome. Please find out more in our [guidelines how to contribute](contrib/howto_contribute.md).
 
 !!! tip "Reminder"
 
