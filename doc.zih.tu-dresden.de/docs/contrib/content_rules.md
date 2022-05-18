@@ -294,7 +294,7 @@ marie@login$ ws_find 4041337
 ```
 
 Please be aware, that a reader often understands placeholders easier if you also give an example.
-Therefore, please always add an example.
+Therefore, always add an example!
 
 ##### Unix Rules
 
