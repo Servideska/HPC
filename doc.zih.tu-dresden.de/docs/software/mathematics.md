@@ -95,12 +95,12 @@ functions and data, implementation of algorithms, creation of user interfaces, a
 programs in other languages.  Although it specializes in numerical computing, an optional toolbox
 interfaces with the Maple symbolic engine, allowing it to be part of a full computer algebra system.
 
-Running MATLAB via the batch system could look like this (for 456 MB RAM per core and 12 cores
+Running MATLAB via the batch system could look like this (for 2 Gb RAM per core and 12 cores
 reserved). Please adapt this to your needs!
 
 ```console
 marie@login$ module load MATLAB
-marie@login$ srun --time=8:00 --cpus-per-task=12 --mem-per-cpu=456 --pty --x11=first bash
+marie@login$ srun --time=8:00 --cpus-per-task=12 --mem-per-cpu=2000 --pty --x11=first bash
 marie@compute$ matlab
 ```
 
@@ -108,7 +108,7 @@ With following command you can see a list of installed software - also
 the different versions of MATLAB.
 
 ```console
-marie@login$ module avail
+marie@login$ module avail MATLAB
 ```
 
 Please choose one of these, then load the chosen software with the command:
@@ -144,21 +144,21 @@ Using Scripts
 You have to start matlab-calculation as a Batch-Job via command
 
 ```console
-marie@login$ srun --pty matlab -nodisplay -r basename_of_your_matlab_script
+marie@login$ srun --pty matlab -batch <basename_of_your_matlab_script>
 # NOTE: you must omit the file extension ".m" here, because -r expects a matlab command or function call, not a file-name.
 ```
 
 !!! info "License occupying"
 
     While running your calculations as a script this way is possible, it is generally frowned upon,
-    because you are occupying Matlab licenses for the entire duration of your calculation when doing so.
+    because you are occupying MATLAB licenses for the entire duration of your calculation when doing so.
     Since the available licenses are limited, it is highly recommended you first compile your script via
-    the Matlab Compiler (`mcc`) before running it for a longer period of time on our systems.  That way,
+    the MATLAB Compiler (`mcc`) before running it for a longer period of time on our systems.  That way,
     you only need to check-out a license during compile time (which is relatively short) and can run as
     many instances of your calculation as you'd like, since it does not need a license during runtime
     when compiled to a binary.
 
-You can find detailed documentation on the Matlab compiler at
+You can find detailed documentation on the MATLAB compiler at
 [MathWorks' help pages](https://de.mathworks.com/help/compiler/).
 
 ### Using the MATLAB Compiler
@@ -188,8 +188,8 @@ marie@login$ srun ./run_compiled_executable.sh $EBROOTMATLAB
 - If you want to run your code in parallel, please request as many cores as you need!
 - Start a batch job with the number `N` of processes, e.g., `srun --cpus-per-task=4 --pty
   --x11=first bash -l`
-- Run Matlab with the GUI or the CLI or with a script
-- Inside Matlab use `matlabpool open 4` to start parallel processing
+- Run MATLAB with the GUI or the CLI or with a script
+- Inside MATLAB use `parpool open 4` to start parallel processing
 
 !!! example "Example for 1000*1000 matrix-matrix multiplication"
 
@@ -198,7 +198,7 @@ marie@login$ srun ./run_compiled_executable.sh $EBROOTMATLAB
     D = R * R
     ```
 
-- Close parallel task using `matlabpool close`
+- Close parallel task using `delete(gcp('nocreate'))`
 
 #### With parfor
 
@@ -206,7 +206,7 @@ marie@login$ srun ./run_compiled_executable.sh $EBROOTMATLAB
 - Inside use `matlabpool open N` or `matlabpool(N)` to start parallel processing. It will use
   the 'local' configuration by default.
 - Use `parfor` for a parallel loop, where the **independent** loop iterations are processed by `N`
-  threads
+  processes
 
 !!! example
 

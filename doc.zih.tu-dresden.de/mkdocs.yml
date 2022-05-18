@@ -1,5 +1,6 @@
 nav:
   - Home: index.md
+  - Quick Start: quickstart/getting_started.md
   - Application for Login and Resources:
     - Overview: application/overview.md
     - Terms of Use: application/terms_of_use.md
@@ -57,7 +58,6 @@ nav:
       - Distributed Training: software/distributed_training.md
       - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
       - Machine Learning with PowerAI: software/power_ai.md
-    - SCS5 Migration Hints: software/scs5_software.md
     - Virtual Desktops: software/virtual_desktops.md
     - Software Development and Tools:
       - Overview: software/software_development_overview.md
@@ -74,6 +74,7 @@ nav:
       - Perf Tools: software/perf_tools.md
       - Vampir: software/vampir.md
       - Energy Measurement: software/energy_measurement.md
+    - Utilities: software/utilities.md
   - Data Life Cycle Management:
     - Overview: data_lifecycle/overview.md
     - Filesystems:
@@ -123,6 +124,7 @@ nav:
       - System Triton: archive/system_triton.md
       - System Venus: archive/system_venus.md
       - KNL Nodes: archive/knl_nodes.md
+    - SCS5 Migration Hints: archive/scs5_software.md
     - UNICORE Rest API: archive/unicore_rest_api.md
     - VampirTrace: archive/vampirtrace.md
     - Windows Batchjobs: archive/windows_batch.md
@@ -200,6 +202,29 @@ markdown_extensions:
 
           #  - mkdocs-video
 
+plugins:
+  - search
+  - markdown-caption
+  # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
+  - htmlproofer:
+      # True by default
+      # Toggle via env. var. ENABLED_HTMLPROOFER=false
+      enabled: !ENV [ENABLED_HTMLPROOFER, True]
+      # Check URLs before serving. Build fails in case of bad URLs.
+      raise_error: True
+      # Ignore errors
+      #raise_error_excludes:
+      #  504: ['https://www.mkdocs.org/']
+      # Toggle validating external URLs
+      validate_external_urls: False
+      # Validate the entire rendered template, slow!
+      validate_rendered_template: True
+
+# Enable cross-page anchor validation
+# https://www.mkdocs.org/user-guide/configuration/#use_directory_urls
+# True by default. But: explicit is better than implicit.
+use_directory_urls: True
+
 extra:
   tud_homepage: https://tu-dresden.de
   tud_name: "TU Dresden"
@@ -220,6 +245,3 @@ extra:
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
 
-plugins:
-  - search
-  - markdown-caption
