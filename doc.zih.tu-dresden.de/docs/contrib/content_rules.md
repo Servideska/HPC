@@ -284,7 +284,7 @@ give a general idea of how a command or code snippet can be used, e. g. to expla
 some command argument:
 
 ```bash
-marie@login$ ws_find <job id>
+marie@login$ sacct -j <job id>
 ```
 
 Here, a placeholder explains the intention better than just a specific value:
