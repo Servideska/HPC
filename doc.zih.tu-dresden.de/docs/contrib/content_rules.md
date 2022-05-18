@@ -290,7 +290,7 @@ marie@login$ sacct -j <job id>
 Here, a placeholder explains the intention better than just a specific value:
 
 ```console
-marie@login$ ws_find 4041337
+marie@login$ sacct -j 4041337
 ```
 
 Please be aware, that a reader often understands placeholders easier if you also give an example.
