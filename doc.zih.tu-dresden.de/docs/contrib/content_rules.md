@@ -142,7 +142,6 @@ Several different admonitions are available within the used
 [documentation page](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types)
 for a comprehensive overview.
 
-
 !!! example "Syntax"
 
     All admonitions blocks start with `!!! <type>` and the following content block is indented by
