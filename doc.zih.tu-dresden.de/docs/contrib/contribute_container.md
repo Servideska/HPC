@@ -47,7 +47,7 @@ can [run checks locally](#run-the-proposed-checks-inside-container).
 
 !!! tip
 
-    When you contribute, please follow our [content rules](content_guide_lines.md) to make incorporating
+    When you contribute, please follow our [content rules](content_rules.md) to make incorporating
     your changes easy. We also check these rules via continuous integration checks and/or reviews.
     You can find the details and commands to [preview your changes](#start-the-local-web-server) and
     [apply checks](#run-the-proposed-checks-inside-container).
@@ -70,7 +70,7 @@ problems, such as changes in the Dockerfile or any script could.
 1. The developer needs to fix things that were found by CI.
 1. The developer informs you about the MR or asks for your support while fixing the CI.
 
-When you follow our [content rules](content_guide_lines.md) and
+When you follow our [content rules](content_rules.md) and
 [run checks locally](#run-the-proposed-checks-inside-container), you are making this process
 faster.
 
@@ -137,7 +137,7 @@ In our continuous integration (CI) pipeline, a merge request triggers the automa
 * correct text format.
 
 These checks ensure a high quality and consistency of the content and follow our
-[content rules](content_guide_lines.md). If one of them fails, the merge request will not be accepted. To
+[content rules](content_rules.md). If one of them fails, the merge request will not be accepted. To
 prevent this, you can run these checks locally and adapt your files accordingly.
 
 You are now ready to use the different checks, however we suggest to try the pre-commit hook.

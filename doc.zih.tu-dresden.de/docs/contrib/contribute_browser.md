@@ -97,7 +97,7 @@ into the `preview` branch of the repository.
 As stated earlier, all changes undergo a review process.
 This covers automated checks contained in the CI/CD pipeline and the review by a maintainer.
 This is to ensure the quality of all contributions, e. g. by checking our
-[content rules](content_guide_lines.md).
+[content rules](content_rules.md).
 You can follow this process under
 [Merge requests](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/merge_requests)
 (where you initiated your merge request).

@@ -15,7 +15,7 @@ three possible ways how to contribute to this documentation. These ways are outl
 ## Content Guide Lines
 
 To ensure a high-quality and consistent documentation and to make it easier for readers to
-understand all content, we set some [content guide lines](content_guide_lines.md). Please follow
+understand all content, we set some [content guide lines](content_rules.md). Please follow
 these rules regarding markdown syntax and writing style when contributing! Furthermore, reviewing
 your changes take less time and your improvements appear faster on the official documentation.
 
