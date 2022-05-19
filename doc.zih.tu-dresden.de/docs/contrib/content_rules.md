@@ -206,57 +206,12 @@ there is a list of conventions w.r.t. spelling and technical wording.
 * All code blocks and commands should be runnable from a login node or a node within a specific
   partition (e.g., `ml`).
 * It should be clear from the [prompt](#prompts), where the command is run (e.g., local machine,
-   login node or specific partition).
-
-### Long Options
-
-The general rule is to provide long over short parameter names where possible to ease
-understanding. This holds especially for Slurm options, but also for other commands, e.g.,
-use the `module` command over the short front-end `ml`.
-
-??? example
-
-    `srun --nodes=2 --ntasks-per-node=4 [...]`
-
-    is preferred over
-
-    `srun -N 2 -n 4 [...]`
-
-Please especially consider to
-
-- specify the language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
-- use the hostnames [listed below](#List-of-Prompts) (prefer login nodes or specify partition)
-
-#### List of Prompts
-
-We follow this rules regarding prompts to make clear where a certain command or example is executed.
-This should help to avoid errors.
-
-| Host/Partition         | Prompt           |
-|------------------------|------------------|
-| Localhost              | `marie@local$`   |
-| Login nodes            | `marie@login$`   |
-| Arbitrary compute node | `marie@compute$` |
-| `haswell` partition    | `marie@haswell$` |
-| `ml` partition         | `marie@ml$`      |
-| `alpha` partition      | `marie@alpha$`   |
-| `romeo` partition      | `marie@romeo$`   |
-| `julia` partition      | `marie@julia$`   |
-| `dcv` partition        | `marie@dcv$`     |
-
-* **Always use a prompt**, even there is no output provided for the shown command.
-* All code blocks which specify some general command templates, e.g. containing `<` and `>`
-  (see [unix rules](#unix-rules)), should use `bash` for the code block. Additionally,
-  an example invocation, perhaps with output, should be given with the normal `console` code block.
-  See also [Code Block description below](#code-blocks-and-syntax-highlighting).
-* Using some magic, the prompt as well as the output is identified and will not be copied!
-* Stick to the [generic user name](#data-privacy-and-generic-names) `marie`.
+  login node or specific partition).
 
 #### Code Blocks and Syntax Highlighting
 
 Providing code blocks and snippets is the meat and bones of this documentation.
-
-Code blocks and command examples should give the general idea of invocation and be be as precise as
+Code blocks and command examples should give the general idea of invocation and be as precise as
 possible, i.e., allowing for copy-and-paste. Please mark replaceable code parts and optional and
 required arguments as outlined in the section [required and optional arguments](#unix-rules) below.
 Long, non-meaningful output should be ommitted.
@@ -266,7 +221,7 @@ We make use of the extension
 highlighting. There is a complete list of supported
 [language short codes](https://pygments.org/docs/lexers/).
 
-???+ note "Syntax for commandline"
+??? note "Syntax for commandline"
 
     For normal commands executed in the terminal, use the language short code `console`.
 
@@ -277,7 +232,7 @@ highlighting. There is a complete list of supported
     ```
     ````
 
-???+ note "Syntax for job files and scripts"
+??? note "Syntax for job files and scripts"
 
     Use the language short code `bash` for job files and shell scripts.
 
@@ -355,8 +310,8 @@ highlighting. There is a complete list of supported
 
 #### Data Privacy and Generic Names
 
-Where possible, replace login, project name and other private data with clearly arbitrary
-placeholders.  In particular, use the generic login `marie` and the project title `p_number_crunch`
+Where possible, replace login, project name and other private data with clearly recognizable
+placeholders. In particular, use the generic login `marie` and the project title `p_number_crunch`
 as placeholders.
 
 ```console
@@ -366,14 +321,71 @@ drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
 -rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
-### Mark Omissions
+#### Placeholders
+
+Placeholders represent arguments or code parts that can be adapted to the user's needs. Use them to
+give a general idea of how a command or code snippet can be used, e. g. to explain the meaning of
+some command argument:
+
+```bash
+marie@login$ sacct -j <job id>
+```
+
+Here, a placeholder explains the intention better than just a specific value:
+
+```console
+marie@login$ sacct -j 4041337
+```
+
+Please be aware, that a reader often understands placeholders easier if you also give an example.
+Therefore, always add an example!
+
+#### Mark Omissions
 
 If showing only a snippet of a long output, omissions are marked with `[...]`.
 
-### Unix Rules
+#### Unix Rules
 
 Stick to the Unix rules on optional and required arguments, and selection of item sets:
 
 * `<required argument or value>`
 * `[optional argument or value]`
 * `{choice1|choice2|choice3}`
+
+#### List of Prompts
+
+We follow this rules regarding prompts to make clear where a certain command or example is executed.
+This should help to avoid errors.
+
+| Host/Partition         | Prompt           |
+|------------------------|------------------|
+| Localhost              | `marie@local$`   |
+| Login nodes            | `marie@login$`   |
+| Arbitrary compute node | `marie@compute$` |
+| `haswell` partition    | `marie@haswell$` |
+| `ml` partition         | `marie@ml$`      |
+| `alpha` partition      | `marie@alpha$`   |
+| `romeo` partition      | `marie@romeo$`   |
+| `julia` partition      | `marie@julia$`   |
+| `dcv` partition        | `marie@dcv$`     |
+
+* **Always use a prompt**, even there is no output provided for the shown command.
+* All code blocks which specify some general command templates, e.g. containing `<` and `>`
+  (see [placeholders](#placeholders) and [unix rules](#unix-rules)), should use `bash` for the code
+  block. Additionally, an example invocation, perhaps with output, should be given with the normal
+  `console` code block. See also
+  [Code Block description below](#code-blocks-and-syntax-highlighting).
+* Using some magic, the prompt as well as the output is identified and will not be copied! Stick to
+* the [generic user name](#data-privacy-and-generic-names) `marie`.
+
+#### Long Options
+
+The general rule is to provide long over short parameter names where possible to ease
+understanding. This holds especially for Slurm options, but also for other commands.
+
+??? example
+
+    | Do | Don't |
+    |----|-------|
+    | `srun --nodes=2 --ntasks-per-node=4 [...]`| `srun -N 2 -n 4 [...]` |
+    | `module [...]` | `ml [...]` |
