@@ -41,9 +41,9 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 * Type spaces (not tabs) both in Markdown files and in `mkdocs.yml`.
 * Respect the line limit of 100 characters (exception: links).
 * Do not add large binary files or high resolution images to the repository (cf.
-   [adding images and attachments](#grapics-and-attachments)).
-* [Admonitions](#admonitions) may be actively used for longer code examples, warnings, tips,
-   important information etc.
+   [adding images and attachments](#graphics-and-attachments)).
+* [Admonitions](#special-feature-admonitions) may be actively used for longer code examples,
+   warnings, tips, important information etc.
 * Respect the [writing style](#writing-style) and the rules for
   [spelling and technical wording](#spelling-and-technical-wording).
 * For code blocks:
@@ -204,8 +204,8 @@ there is a list of conventions w.r.t. spelling and technical wording.
 * Specify language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
 * All code blocks and commands should be runnable from a login node or a node within a specific
   partition (e.g., `ml`).
-* It should be clear from the [prompt](#prompts), where the command is run (e.g., local machine,
-  login node or specific partition).
+* It should be clear from the [prompt](#list-of-prompts), where the command is run (e.g., local
+  machine, login node or specific partition).
 
 #### Code Blocks and Syntax Highlighting
 
