@@ -1,24 +1,20 @@
-# Content Guide Lines
+# Content Rules
 
 !!! cite "George Bernard Shaw"
 
     The golden rule is that there are no golden rules.
 
-!!! cite "Proverb"
-
-    There is an exception to every rule.
-
 ## Motivation and Rationale
 
-This page holds <del>rules</del> guide lines regarding the layout, content, and writing of this
+This page holds rules regarding the layout, content, and writing of this
 documentation. The goals are to provide a comprehensive, consistent, up-to-date and well-written
 documentation that is pure joy to read and use. It shall help to find answers and provide knowledge
-instead of being the bottleneck and a great annoyance. Therefore, we set up some guide lines which
+instead of being the bottleneck and a great annoyance. Therefore, we set up some rules which
 are outlined in the following.
 
 !!! tip
 
-    Following these guide lines when contributing speeds up the review process. Furthermore, your
+    Following these rules when contributing speeds up the review process. Furthermore, your
     changes will not be blocked by the automatic checks implementened in the CI pipeline.
 
 ## Responsibility and License
@@ -205,18 +201,28 @@ there is a list of conventions w.r.t. spelling and technical wording.
 
 ### Code Blocks and Command Prompts
 
-| Bad | Good |
-| --- | --- |
-| `jitschin@tauruslogin3:~> mkdir rick-roll` | `marie@login$ mkdir --verbose example_directory` |
-| | `mkdir: created directory 'example_directory'` |
-| `jitschin@tauruslogin3:~> ls -ld rick-roll` | `marie@login$ ls -l --directory example_directory` |
-| `-rw-rw-r-- 1 jitschin jitschin 0 Apr  8 18:27 rick-roll` | `-rw-rw-r-- 1 marie p_number_crunch 0 Apr  8 18:27 example_directory` |
+* Use ticks to mark code blocks and commands, not italic font.
+* Specify language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
+* All code blocks and commands should be runnable from a login node or a node within a specific
+  partition (e.g., `ml`).
+* It should be clear from the [prompt](#prompts), where the command is run (e.g., local machine,
+   login node or specific partition).
 
-Showing commands and sample output is an important part of all technical documentation. To make
-things as clear as possible for readers and provide a consistent documentation, some guide lines
-have to be followed.
+### Long Options
 
-Please especially consider to:
+The general rule is to provide long over short parameter names where possible to ease
+understanding. This holds especially for Slurm options, but also for other commands, e.g.,
+use the `module` command over the short front-end `ml`.
+
+??? example
+
+    `srun --nodes=2 --ntasks-per-node=4 [...]`
+
+    is preferred over
+
+    `srun -N 2 -n 4 [...]`
+
+Please especially consider to
 
 - specify the language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
 - use the hostnames [listed below](#List-of-Prompts) (prefer login nodes or specify partition)

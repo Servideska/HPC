@@ -130,7 +130,7 @@ nav:
     - Windows Batchjobs: archive/windows_batch.md
   - Contribute:
     - How-To Contribute: contrib/howto_contribute.md
-    - Content Guide Lines: contrib/content_guide_lines.md
+    - Content Rules: contrib/content_rules.md
     - Contribute via Browser: contrib/contribute_browser.md
     - Contribute via Local Clone: contrib/contribute_container.md
     
@@ -204,7 +204,7 @@ markdown_extensions:
 
 plugins:
   - search
-  - markdown-caption
+    #  - markdown-caption
   # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
   - htmlproofer:
       # True by default
