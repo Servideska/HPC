@@ -28,8 +28,8 @@ These licenses also apply to your contributions.
 
 !!! note
 
-    Each user is fully and solely responsible for the content he/she creates and has to ensure that
-    he/she has the right to create it under the laws which apply.
+    If you contribute, you are fully and solely responsible for the content you create and have to
+    ensure that you have the right to create it under the laws which apply.
 
 If you are in doubt, please contact us either via
 [GitLab Issue](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues)
