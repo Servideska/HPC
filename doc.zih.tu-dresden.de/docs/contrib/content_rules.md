@@ -368,7 +368,7 @@ This should help to avoid errors.
 | `julia` partition      | `marie@julia$`   |
 | `dcv` partition        | `marie@dcv$`     |
 
-* **Always use a prompt**, even there is no output provided for the shown command.
+* **Always use a prompt**, even if there is no output provided for the shown command.
 * All code blocks which specify some general command templates, e.g. containing `<` and `>`
   (see [placeholders](#placeholders) and [unix rules](#unix-rules)), should use `bash` for the code
   block. Additionally, an example invocation, perhaps with output, should be given with the normal
@@ -380,7 +380,7 @@ This should help to avoid errors.
 #### Long Options
 
 The general rule is to provide long over short parameter names where possible to ease
-understanding. This holds especially for Slurm options, but also for other commands.
+understanding. This holds especially for Slurm options, but also other commands.
 
 ??? example
 
