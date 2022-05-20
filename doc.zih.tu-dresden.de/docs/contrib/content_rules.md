@@ -75,7 +75,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 ### Pages Structure and New Page
 
 The documentation and pages structure is defined in the configuration file
-[mkdocs.yml](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/blob/main/doc.zih.tu-dresden.de/mkdocs.yml):
+[`mkdocs.yml`](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/blob/main/doc.zih.tu-dresden.de/mkdocs.yml):
 
 ```Markdown
 nav:
@@ -124,7 +124,7 @@ Further tips can be found at this
 
 #### Graphics and Attachments
 
-Please use images and graphics for illustration purposes and to improve understandability.
+Please use images and graphics for illustration purposes and to improve comprehensibility.
 All graphics and attachments are saved within `misc` directory of the respective subdirectory in
 `docs`.
 
@@ -133,7 +133,7 @@ All graphics and attachments are saved within `misc` directory of the respective
     The syntax to insert a graphic or attachment into a page is
 
     ```markdown
-    ![Alternative text](misc/<graphics_file>)
+    ![Alternative text](misc/graphics_file.png)
     {: align="center"}
     ```
 
@@ -193,7 +193,7 @@ there is a list of conventions w.r.t. spelling and technical wording.
 | I/O | IO |
 | Slurm | SLURM |
 | filesystem(s) | file system(s) |
-| ZIH system(s) | Taurus, HRSKII, our HPC systems, etc. |
+| ZIH system(s) | Taurus, HRSK II, our HPC systems, etc. |
 | workspace | work space |
 |       | HPC-DA |
 | partition `ml` | ML partition, ml partition, `ml` partition, "ml" partition, etc. |
@@ -370,7 +370,7 @@ This should help to avoid errors.
 
 * **Always use a prompt**, even if there is no output provided for the shown command.
 * All code blocks which specify some general command templates, e.g. containing `<` and `>`
-  (see [placeholders](#placeholders) and [unix rules](#unix-rules)), should use `bash` for the code
+  (see [placeholders](#placeholders) and [Unix rules](#unix-rules)), should use `bash` for the code
   block. Additionally, an example invocation, perhaps with output, should be given with the normal
   `console` code block. See also
   [Code Block description below](#code-blocks-and-syntax-highlighting).
