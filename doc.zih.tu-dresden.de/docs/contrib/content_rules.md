@@ -205,7 +205,7 @@ there is a list of conventions w.r.t. spelling and technical wording.
 * All code blocks and commands should be runnable from a login node or a node within a specific
   partition (e.g., `ml`).
 * It should be clear from the [prompt](#list-of-prompts), where the command is run (e.g., local
-  machine, login node or specific partition).
+  machine, login node, or specific partition).
 
 #### Code Blocks and Syntax Highlighting
 
@@ -213,7 +213,7 @@ Providing code blocks and snippets is the meat and bones of this documentation.
 Code blocks and command examples should give the general idea of invocation and be as precise as
 possible, i.e., allowing for copy-and-paste. Please mark replaceable code parts and optional and
 required arguments as outlined in the section [required and optional arguments](#unix-rules) below.
-Long, non-meaningful output should be ommitted.
+Long, non-meaningful output should be omitted.
 
 We make use of the extension
 [pymdownx.highlight](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) for syntax
