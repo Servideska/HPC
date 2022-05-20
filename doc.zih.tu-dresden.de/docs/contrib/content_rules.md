@@ -183,7 +183,7 @@ for a comprehensive overview.
 
 ### Spelling and Technical Wording
 
-To provide a consistent and high quality documentation, and help users to find the right pages,
+To provide consistent and high-quality documentation, and help users to find the right pages,
 there is a list of conventions w.r.t. spelling and technical wording.
 
 * Language settings: en_us
@@ -200,7 +200,7 @@ there is a list of conventions w.r.t. spelling and technical wording.
 
 ### Code Blocks and Command Prompts
 
-* Use ticks to mark code blocks and commands, not italic font.
+* Use ticks to mark code blocks and commands, not an italic font.
 * Specify language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
 * All code blocks and commands should be runnable from a login node or a node within a specific
   partition (e.g., `ml`).
