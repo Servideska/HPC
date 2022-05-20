@@ -220,7 +220,7 @@ We make use of the extension
 highlighting. There is a complete list of supported
 [language short codes](https://pygments.org/docs/lexers/).
 
-??? note "Syntax for commandline"
+??? note "Syntax for command line"
 
     For normal commands executed in the terminal, use the language short code `console`.
 
@@ -309,7 +309,7 @@ highlighting. There is a complete list of supported
 
 #### Data Privacy and Generic Names
 
-Where possible, replace login, project name and other private data with clearly recognizable
+Where possible, replace login, project name, and other private data with clearly recognizable
 placeholders. In particular, use the generic login `marie` and the project title `p_number_crunch`
 as placeholders.
 
@@ -353,7 +353,7 @@ Stick to the Unix rules on optional and required arguments, and selection of ite
 
 #### List of Prompts
 
-We follow this rules regarding prompts to make clear where a certain command or example is executed.
+We follow these rules regarding prompts to make clear where a certain command or example is executed.
 This should help to avoid errors.
 
 | Host/Partition         | Prompt           |
