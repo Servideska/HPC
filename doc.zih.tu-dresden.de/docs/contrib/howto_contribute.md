@@ -15,7 +15,7 @@ three possible ways how to contribute to this documentation. These ways are outl
 ## Content Guide Lines
 
 To ensure a high-quality and consistent documentation and to make it easier for readers to
-understand all content, we set some [content guide lines](content_rules.md). Please follow
+understand all content, we set some [Content rules](content_rules.md). Please follow
 these rules regarding markdown syntax and writing style when contributing! Furthermore, reviewing
 your changes take less time and your improvements appear faster on the official documentation.
 
@@ -47,7 +47,7 @@ documentation.
 If you have a web browser (most probably you are using it to read this page) and want to contribute
 to the documentation, you are good to go. GitLab offers a rich and versatile web interface to work
 with repositories. To start fixing typos and edit source files, please find more information on
-the page [Contributing via web browser](contribute_browser.md).
+[Contributing via web browser](contribute_browser.md).
 
 ## Contribute via Local Clone
 
