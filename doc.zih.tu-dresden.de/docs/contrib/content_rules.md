@@ -60,11 +60,11 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
     * Example: Use `You can/should ...` instead of `Users can/should ...`
     * Example: Use `Your contribution is highly welcome` instead of `Contributions from user-side
       are highly welcome`
-* Be brief! Provide the main idea/commands first, special cases later. If it is not necessary to
+* Be brief! Provide the main idea/commands first, and special cases later. If it is not necessary to
   know how a special piece of software works, don't explain it.
 * Provide the often-used commands first.
 * Use active over passive voice
-    * Write with confidence. This confidence should be reflected in the documentation, so that
+    * Write with confidence. This confidence should be reflected in the documentation so that
       the readers trust and follow it.
     * Example: `We recommend something` instead of `Something is recommended.`
 * Capitalize headings, e.g. *Exclusive Reservation of Hardware*
@@ -125,7 +125,7 @@ Further tips can be found at this
 #### Graphics and Attachments
 
 Please use images and graphics for illustration purposes and to improve understandability.
-All graphics and attachments are saved within `misc` directory of the respective sub directory in
+All graphics and attachments are saved within `misc` directory of the respective subdirectory in
 `docs`.
 
 !!! example "Syntax"
