@@ -46,7 +46,7 @@ You should see the following interface after starting the MobaXterm application.
 
 ### Configure local settings
 
-Select the tab `Settings` &rarr; `Configuration` or click the button `Settings` in the toolbar. A new window will open.
+Select the tab `Settings` &#8594 `Configuration` or click the button `Settings` in the toolbar. A new window will open.
 
 ![Settings in MobaXterm](misc/mobaxterm3_config.png)
 
