@@ -137,7 +137,7 @@ All graphics and attachments are saved within `misc` directory of the respective
     {: align="center"}
     ```
 
-The attribute `align` is optional. By default, graphics are left aligned. **Note:** It is crucial to
+The attribute `align` is optional. By default, graphics are left-aligned. **Note:** It is crucial to
 have `{: align="center"}` on a new line.
 It is possible to add captions for tables and figures using `{: summary="This is a table caption"}`.
 The `summary` and `align` parameters can be combined as well:
@@ -145,19 +145,19 @@ The `summary` and `align` parameters can be combined as well:
 
 !!! warning
 
-    Do not add large binary files or high resolution images to the repository. See this valuable
+    Do not add large binary files or high-resolution images to the repository. See this valuable
     document for [image optimization](https://web.dev/fast/#optimize-your-images).
 
 #### Special Feature: Admonitions
 
 [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/), also known as
-call-outs, may be actively used to highlight examples, warnings, tips, important information etc.
+call-outs, may be actively used to highlight examples, warnings, tips, important information, etc.
 Admonitions are an excellent choice for including side content without significantly interrupting
 the document flow.
 
 Several different admonitions are available within the used
 [material theme](https://squidfunk.github.io/mkdocs-material/), e.g., `note`, `info`, `example`,
-`tip`, `warning` and `cite`. Please refer to the
+`tip`, `warning`, and `cite`. Please refer to the
 [documentation page](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types)
 for a comprehensive overview.
 
