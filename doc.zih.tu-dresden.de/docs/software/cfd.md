@@ -34,7 +34,7 @@ marie@login$ # source $FOAM_CSH
     #SBATCH --time=12:00:00     # walltime
     #SBATCH --ntasks=60         # number of processor cores (i.e. tasks)
     #SBATCH --mem-per-cpu=500M  # memory per CPU core
-    #SBATCH -job-name="Test"    # job name
+    #SBATCH --job-name="Test"   # job name
     #SBATCH --mail-user=marie@tu-dresden.de  # email address (only tu-dresden)
     #SBATCH --mail-type=ALL
 
@@ -75,6 +75,7 @@ geometry and mesh generator cfx5pre, and the post-processor cfx5post.
     #SBATCH --mem-per-cpu=1900M                 # memory per CPU core
     #SBATCH --mail-user=marie@tu-dresden.de     # email address (only tu-dresden)
     #SBATCH --mail-type=ALL
+
     module load ANSYS
 
     nodeset -e $SLURM_JOB_NODELIST | xargs -n1 > hostsfile_job_$SLURM_JOBID.txt
