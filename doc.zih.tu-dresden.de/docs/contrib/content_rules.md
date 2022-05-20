@@ -15,7 +15,7 @@ are outlined in the following.
 !!! tip
 
     Following these rules when contributing speeds up the review process. Furthermore, your
-    changes will not be blocked by the automatic checks implementened in the CI pipeline.
+    changes will not be blocked by the automatic checks implemented in the CI pipeline.
 
 ## Responsibility and License
 
