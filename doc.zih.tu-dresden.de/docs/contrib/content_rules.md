@@ -66,7 +66,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 * Use active over passive voice
     * Write with confidence. This confidence should be reflected in the documentation so that
       the readers trust and follow it.
-    * Example: `We recommend something` instead of `Something is recommended.`
+    * Example: "We recommend something" instead of "Something is recommended."
 * Capitalize headings, e.g. *Exclusive Reservation of Hardware*
 * Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
   descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
