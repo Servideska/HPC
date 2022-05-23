@@ -61,7 +61,6 @@ nav:
       - Distributed Training: software/distributed_training.md
       - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
       - Machine Learning with PowerAI: software/power_ai.md
-    - SCS5 Migration Hints: software/scs5_software.md
     - Virtual Desktops: software/virtual_desktops.md
     - Software Development and Tools:
       - Overview: software/software_development_overview.md
@@ -128,6 +127,7 @@ nav:
       - System Triton: archive/system_triton.md
       - System Venus: archive/system_venus.md
       - KNL Nodes: archive/knl_nodes.md
+    - SCS5 Migration Hints: archive/scs5_software.md
     - UNICORE Rest API: archive/unicore_rest_api.md
     - VampirTrace: archive/vampirtrace.md
     - Windows Batchjobs: archive/windows_batch.md
@@ -224,7 +224,9 @@ plugins:
       validate_rendered_template: True
 
 # Enable cross-page anchor validation
-use_directory_urls: False
+# https://www.mkdocs.org/user-guide/configuration/#use_directory_urls
+# True by default. But: explicit is better than implicit.
+use_directory_urls: True
 
 extra:
   tud_homepage: https://tu-dresden.de
