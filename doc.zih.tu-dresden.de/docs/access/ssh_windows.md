@@ -60,7 +60,7 @@ Here you can set different options in different tabs:
 - `Toolbar` - customization of the toolbar,
 - `Misc` - options to alter specific actions inside the MobaXterm-application.
 
-### Start a new seccion
+### Start a new session
 
 1. Select the tab `Sessions`  &rarr; `New session` or click the button `Session` in the toolbar.
 
