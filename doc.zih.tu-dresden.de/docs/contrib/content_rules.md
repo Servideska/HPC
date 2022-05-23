@@ -43,7 +43,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 * Do not add large binary files or high-resolution images to the repository (cf.
    [adding images and attachments](#graphics-and-attachments)).
 * [Admonitions](#special-feature-admonitions) may be actively used for longer code examples,
-   warnings, tips, important information etc.
+   warnings, tips, important information, etc.
 * Respect the [writing style](#writing-style) and the rules for
   [spelling and technical wording](#spelling-and-technical-wording).
 * For code blocks:
