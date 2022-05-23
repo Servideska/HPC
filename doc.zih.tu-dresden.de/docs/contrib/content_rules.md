@@ -175,7 +175,7 @@ for a comprehensive overview.
         vero eos et accusam et justo duo dolores et ea rebum.
     ```
 
-!!! node Folding
+!!! note Folding
 
     Admonitions can be made foldable by using `???` instead of `!!!`. A small toggle on the right
     side is displayed. The block is open by default if `???+` is used. Long code examples should be
