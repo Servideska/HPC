@@ -77,14 +77,22 @@ should be highlighted, etc. Code examples, longer than half screen height should
 
 ## Writing Style
 
-* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
-* Capitalize headings, e.g. *Exclusive Reservation of Hardware*
-* Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
-  descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
+* Assume that a future reader is eager to start typing commands. Thus, encourage the reader by
+  addressing him/her directly:
+    * Example: Use `You can/should ...` instead of `Users can/should ...`
+    * Example: Use `Your contribution is highly welcome` instead of `Contributions from user-side
+      are highly welcome`
+* Be brief! Provide the main idea/commands first, special cases later. If it is not necessary to
+  know how a special piece of software works, don't explain it.
+* Provide the often-used commands first.
 * Use active over passive voice
     * Write with confidence. This confidence should be reflected in the documentation, so that
       the readers trust and follow it.
     * Example: `We recommend something` instead of `Something is recommended.`
+* Capitalize headings, e.g. *Exclusive Reservation of Hardware*
+* Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
+  descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
+* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
 
 ## Spelling and Technical Wording
 
@@ -258,8 +266,8 @@ _Result_:
 
 ### Data Privacy and Generic Names
 
-Where possible, replace login, project name and other private data with clearly arbitrary
-placeholders.  In particular, use the generic login `marie` and the project title `p_number_crunch`
+Where possible, replace login, project name and other private data with clearly recognizable
+placeholders. In particular, use the generic login `marie` and the project title `p_number_crunch`
 as placeholders.
 
 ```console
@@ -269,21 +277,36 @@ drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
 -rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
-### Placeholders
+#### Placeholders
 
-TODO!
+Placeholders represent arguments or code parts that can be adapted to the user's needs. Use them to
+give a general idea of how a command or code snippet can be used, e. g. to explain the meaning of
+some command argument:
 
-## Mark Omissions
+```bash
+marie@login$ sacct -j <job id>
+```
 
-If showing only a snippet of a long output, omissions are marked with `[...]`.
+Here, a placeholder explains the intention better than just a specific value:
 
-## Unix Rules
+```console
+marie@login$ sacct -j 4041337
+```
+
+Please be aware, that a reader often understands placeholders easier if you also give an example.
+Therefore, always add an example!
+
+##### Unix Rules
 
 Stick to the Unix rules on optional and required arguments, and selection of item sets:
 
 * `<required argument or value>`
 * `[optional argument or value]`
 * `{choice1|choice2|choice3}`
+
+#### Mark Omissions
+
+If showing only a snippet of a long output, omissions are marked with `[...]`.
 
 ## Graphics and Attachments
 

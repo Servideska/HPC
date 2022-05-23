@@ -1,5 +1,9 @@
 # SCS5 Migration Hints
 
+!!! warning
+
+    This page is outdated!
+
 Bull's new cluster software is called SCS 5 (*Super Computing Suite*).
 Here are the major changes from the user's perspective:
 
@@ -22,7 +26,8 @@ remove it and accept the new one after comparing its fingerprint with those list
 
 Starting with SCS5, we do not support [C environment modules](http://modules.sourceforge.net/)
 anymore. We only provide [Lmod](http://lmod.readthedocs.io/en/latest/index.html) as the environment
-module tool of choice. Refer to the [module page](modules.md) for further information on modules.
+module tool of choice. Refer to the [module page](../software/modules.md) for further information on
+modules.
 
 As usual, you can get a list of the available software modules via:
 
