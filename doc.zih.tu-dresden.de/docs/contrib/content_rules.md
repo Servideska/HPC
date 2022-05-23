@@ -374,8 +374,8 @@ This should help to avoid errors.
   block. Additionally, an example invocation, perhaps with output, should be given with the normal
   `console` code block. See also
   [Code Block description below](#code-blocks-and-syntax-highlighting).
-* Using some magic, the prompt as well as the output is identified and will not be copied! Stick to
-* the [generic user name](#data-privacy-and-generic-names) `marie`.
+* Using some magic, the prompt as well as the output is identified and will not be copied!
+* Stick to the [generic user name](#data-privacy-and-generic-names) `marie`.
 
 #### Long Options
 
