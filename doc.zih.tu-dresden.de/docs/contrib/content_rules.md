@@ -95,7 +95,9 @@ nav:
 Follow these two steps to **add a new page** to the documentation:
 
 1. Create a new Markdown file under `docs/subdir/file_name.md` and put the documentation inside.
-The sub-directory and file name should follow the pattern `fancy_title_and_more.md`.
+The sub-directory structure represents different topics of the documentation. Try to fit the
+contribution into the existing structure. The file name should reflect the title of the
+documentation page, i. e. `shortened_page_heading.md`.
 1. Add `subdir/file_name.md` to the configuration file `mkdocs.yml` by updating the navigation
    section. Yes, the order of files is crucial and defines the structure of the content. Thus,
    carefully consider the right spot and section for the new page.
