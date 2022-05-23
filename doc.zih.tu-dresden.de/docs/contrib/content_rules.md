@@ -387,4 +387,4 @@ understanding. This holds especially for Slurm options, but also other commands.
     | Do | Don't |
     |----|-------|
     | `srun --nodes=2 --ntasks-per-node=4 [...]`| `srun -N 2 -n 4 [...]` |
-    | `module [...]` | `ml [...]` |
+    | `module load [...]` | `ml [...]` |
