@@ -38,7 +38,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 ## Quick Overview
 
 * All documentation is written in [Markdown](#markdown).
-* Type spaces (not tabs) both in Markdown files and in `mkdocs.yml`.
+* Use spaces (not tabs) both in Markdown files and in `mkdocs.yml`.
 * Respect the line limit of 100 characters (exception: links).
 * Do not add large binary files or high resolution images to the repository (cf.
    [adding images and attachments](#graphics-and-attachments)).
