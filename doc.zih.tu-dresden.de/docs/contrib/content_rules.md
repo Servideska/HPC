@@ -59,7 +59,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
   addressing him/her directly:
     * Example: Use `You can/should ...` instead of `Users can/should ...`
     * Example: Use `Your contribution is highly welcome` instead of `Contributions from user-side
-      are highly welcome`
+      are highly welcome"
 * Be brief! Provide the main idea/commands first, and special cases later. If it is not necessary to
   know how a special piece of software works, don't explain it.
 * Provide the often-used commands first.
