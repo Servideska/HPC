@@ -57,7 +57,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 
 * Assume that a future reader is eager to start typing commands. Thus, encourage the reader by
   addressing him/her directly:
-    * Example: Use `You can/should ...` instead of `Users can/should ...`
+    * Example: Use "You can/should ..." instead of "Users can/should ..."
     * Example: Use "Your contribution is highly welcome" instead of "Contributions from user-side
       are highly welcome"
 * Be brief! Provide the main idea/commands first, and special cases later. If it is not necessary to
