@@ -40,7 +40,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 * All documentation is written in [Markdown](#markdown).
 * Use spaces (not tabs) both in Markdown files and in `mkdocs.yml`.
 * Respect the line length limit of 100 characters (exception: links).
-* Do not add large binary files or high resolution images to the repository (cf.
+* Do not add large binary files or high-resolution images to the repository (cf.
    [adding images and attachments](#graphics-and-attachments)).
 * [Admonitions](#special-feature-admonitions) may be actively used for longer code examples,
    warnings, tips, important information etc.
