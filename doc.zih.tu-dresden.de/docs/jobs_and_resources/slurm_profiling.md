@@ -6,7 +6,6 @@
     We looking forward to activate job profiling with the next Slurm version again.
     The plan is to upgrade within the next weeks to Slurm 20.08.X.
 
-
 Slurm offers the option to gather profiling data from every task/node of the job. Analyzing this
 data allows for a better understanding of your jobs in terms of elapsed time, runtime and I/O
 behavior, and many more.
