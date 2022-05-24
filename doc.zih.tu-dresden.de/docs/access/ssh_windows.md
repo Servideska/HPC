@@ -7,7 +7,7 @@ or [PowerShell](https://en.wikipedia.org/wiki/PowerShell)).
 
 ## Connecting from Windows with terminal
 
-Start PowerShell with pressing `Win + R` and typing `powershell`. 
+Start PowerShell with pressing `Win + R` and typing `powershell`.
 Check that SSH client is available by typing `ssh` in a terminal:
 
 ```powershell
@@ -35,7 +35,7 @@ Visit its homepage for more information (https://mobaxterm.mobatek.net).
 ### Download and install
 
 To download go to [MobaXterm homepage](https://mobaxterm.mobatek.net/download-home-edition.html)
-and download a free home edition. 
+and download a free home edition.
 
 ![Downloading MobaXterm](misc/mobaxterm1_download.png)
 
@@ -51,7 +51,7 @@ Select the tab `Settings` &#8594 `Configuration` or click the button `Settings` 
 ![Settings in MobaXterm](misc/mobaxterm3_config.png)
 
 Here you can set different options in different tabs:
-  
+
 - `General` - local pathing-options for local MobaXterm-session,
 - `Terminal` -  options, which alter your Terminal. e.g. color scheme,
 - `X11` - options for X11-forwarding. It is enabled by default,
@@ -90,8 +90,8 @@ accessable by the top left navigation tab named `Sessions`.
 ![Saving your password in MobaXterm](misc/mobaxterm7_pw.png)
 
 !!! Caution
-    
-    Do not forget to close the session after your jobs are finished. Just enter `exit` in the command line and complete with pressing `enter`. So, the system knows that you are off. Otherwise, the reserved for you cores cannot be used by other users. Your PCU time stays active until your reserved time will be over. 
+
+    Do not forget to close the session after your jobs are finished. Just enter `exit` in the command line and complete with pressing `enter`. So, the system knows that you are off. Otherwise, the reserved for you cores cannot be used by other users. Your PCU time stays active until your reserved time will be over.
 
 
 
@@ -112,7 +112,7 @@ To download go https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 ![Downloading PuTTY](misc/putty1_download.png)
 
 Pick the installer suiting best your current system and run it afterwards. Follow the instructions.
- 
+
 ### Quickstart a new ssh-seccion
 
 1. Start PuTTY and insert the `Host Name` (taurus.hrsk.tu-dresden.de) and change the `Port` (22) if needed.
@@ -126,7 +126,7 @@ basicly the same as using the command `ssh taurus.hrsk.tu-dresden.de:22` in Term
 
 3. After inserting your user name ("marie" in this example) and your password, it will log you in. You can start working on HPC.
 
-### Configured start a new ssh-seccion 
+### Configured start a new ssh-seccion
 
 You can preconfigure some values. It will save your time during your  conections in the future.
 
@@ -134,15 +134,15 @@ You can preconfigure some values. It will save your time during your  conections
 
 ![Settings for ssh connection in PuTTY](misc/putty2_quickstart.png)
 
-2. Set your user name. For that choose the tab `Connection` &rarr; `Data` in the navigation tree on the left. 
-Insert your user name into the textbox `Auto-login username`. 
+2. Set your user name. For that choose the tab `Connection` &rarr; `Data` in the navigation tree on the left.
+Insert your user name into the textbox `Auto-login username`.
 The application will basicly perform the same action as the command `ssh marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
 ![Auto-login username in PuTTY](misc/putty4_username.png)
 
-3. Set a SSH-key (optional and recommended for security reason). 
+3. Set a SSH-key (optional and recommended for security reason).
 
-    **Note**: For being able to use a ssh-key to login to HPC, you have to register the key on the system before! 
+    **Note**: For being able to use a ssh-key to login to HPC, you have to register the key on the system before!
 
     Add the public-key to `~/.ssh/authorized_keys` and use the following format.
 
@@ -151,9 +151,9 @@ The application will basicly perform the same action as the command `ssh marie@t
     # <key-type> <public key> <comment>
     ssh-ed25519 <public key> myuser@mylocalhost
     ```
-    To configure the ssh-key to use, naviagte to `Connection` &rarr; `SSH` &rarr; `Auth` in the tree left. 
-    You will see a textbox for `Private key file for authentifikation`. 
-    Insert the path to your local key-file or brows it using the button `Browse...`. 
+    To configure the ssh-key to use, naviagte to `Connection` &rarr; `SSH` &rarr; `Auth` in the tree left.
+    You will see a textbox for `Private key file for authentifikation`.
+    Insert the path to your local key-file or brows it using the button `Browse...`.
     This will do the same as the command `ssh -i .ssh/id_red25519 marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
 ![SSH-key in PuTTY](misc/putty5_key.png)
@@ -169,8 +169,8 @@ the button `Save`. Afterwards you will see the name in the listbox below.
 
 Now, you can start a configured session by doubleclicking its name inside the listbox.
 
-You can change your saved configurations by selecting its name inside the listbox and clicking the button `Load`. 
-Make your changes and save it again under the same name. 
+You can change your saved configurations by selecting its name inside the listbox and clicking the button `Load`.
+Make your changes and save it again under the same name.
 This will overwrite the old configuration permanetly.
 
 You can delete a saved configurations by clicking the button `Delete`. This will remove the configured session permanetly.
