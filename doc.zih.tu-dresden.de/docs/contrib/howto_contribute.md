@@ -4,16 +4,20 @@
 
     Ink is better than the best memory.
 
-Even though we try to cover all aspects of working with the ZIH systems and keep the documentation
-up to date, you might miss something. In principle, there are three possible ways how you can
-contribute to this documentation as outlined below.
+This documentation is written in markdown and translated into static html pages using
+[mkdocs](https://www.mkdocs.org/). A single configuration file holds the pages structure
+as well as specification of the theme and extensions. This file is `mkdocs.yaml`.
 
-## Content Rules
+All essential files (markdown pages, graphics, configuration, theme, etc.) are managed within a Git
+repository which makes it quite easy to contribute to this documentation. In principle, there are
+three possible ways how to contribute to this documentation. These ways are outlined below.
+
+## Content Guide Lines
 
 To ensure a high-quality and consistent documentation and to make it easier for readers to
-understand all content, we set some [content rules](content_rules.md). Please follow these rules
-when contributing! Furthermore, reviewing your changes take less time and your improvements appear
-faster on the official documentation.
+understand all content, we set some [Content rules](content_rules.md). Please follow
+these rules regarding markdown syntax and writing style when contributing! Furthermore, reviewing
+your changes take less time and your improvements appear faster on the official documentation.
 
 !!! note
 
@@ -51,4 +55,4 @@ For experienced Git users, we provide a Docker container that includes all check
 used in the back-end. Using them should ensure that merge requests will not be blocked
 due to automatic checking.
 The page on [Contributing via local clone](contribute_container.md) provides you with the details
-about how to setup and use your local clone.
+about how to setup and use your local clone of the repository.
