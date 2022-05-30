@@ -8,8 +8,8 @@ This documentation is written in markdown and translated into static html pages 
 [mkdocs](https://www.mkdocs.org/). A single configuration file holds the pages structure
 as well as specification of the theme and extensions. This file is `mkdocs.yaml`.
 
-All essential files (markdown pages, graphics, configuration, theme, etc.) are managed within a Git
-repository which makes it quite easy to contribute to this documentation. In principle, there are
+We manage all essential files (markdown pages, graphics, configuration, theme, etc.) within a Git
+repository, which makes it quite easy to contribute to this documentation. In principle, there are
 three possible ways how to contribute to this documentation. These ways are outlined below.
 
 ## Content Guide Lines
@@ -17,16 +17,16 @@ three possible ways how to contribute to this documentation. These ways are outl
 To ensure a high-quality and consistent documentation and to make it easier for readers to
 understand all content, we set some [Content rules](content_rules.md). Please follow
 these rules regarding markdown syntax and writing style when contributing! Furthermore, reviewing
-your changes take less time and your improvements appear faster on the official documentation.
+your changes takes less time and your improvements appear faster on the official documentation.
 
 !!! note
 
-    Each user is fully and solely responsible for the content he/she creates and has to ensure that
-    he/she has the right to create it under the laws which apply.
+    If you contribute, you are fully and solely responsible for the content you create and have to
+    ensure that you have the right to create it under the laws which apply.
 
 ## Contribute via Issue
 
-Users can contribute to the documentation via the
+You can contribute to the documentation via the
 [GitLab issue tracking system](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues).
 For that, open an issue to report typos and missing documentation or request for more precise
 wording etc. ZIH staff will get in touch with you to resolve the issue and improve the
