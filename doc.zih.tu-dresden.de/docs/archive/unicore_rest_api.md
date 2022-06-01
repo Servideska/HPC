@@ -1,4 +1,4 @@
-# UNICORE access via REST API
+# UNICORE access via REST API (Outdated)
 
 !!! warning
 

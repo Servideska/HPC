@@ -1,4 +1,4 @@
-# SGI Altix
+# SGI Altix (Outdated)
 
 !!! warning
 

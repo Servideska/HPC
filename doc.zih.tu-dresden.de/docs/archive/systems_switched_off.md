@@ -1,4 +1,4 @@
-# Hardware
+# Hardware (Outdated)
 
 HPC at ZIH has a quite long history and several systems have been installed and operated.
 Documentation on former systems for future reference can be found on the following pages:

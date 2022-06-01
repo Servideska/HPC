@@ -1,4 +1,4 @@
-# Intel Xeon Phi (Knights Landing)
+# Intel Xeon Phi (Knights Landing) (Outdated)
 
 !!! warning
 
