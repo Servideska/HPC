@@ -1,4 +1,4 @@
-# SCS5 Migration Hints
+# SCS5 Migration Hints (Outdated)
 
 !!! warning
 

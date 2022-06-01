@@ -1,4 +1,4 @@
-# Jobs without Infiniband
+# Jobs without Infiniband (Outdated)
 
 !!! warning
 

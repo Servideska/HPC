@@ -1,4 +1,4 @@
-# BeeGFS Filesystem
+# BeeGFS Filesystem (Outdated)
 
 !!! warning
 
