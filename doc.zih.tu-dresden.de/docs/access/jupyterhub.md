@@ -279,6 +279,14 @@ Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
 (my-kernel) marie@compute$ deactivate
 ```
 
+!!! warning
+
+    Depending on the Python module you have loaded for creating your virtual environment, you should
+    select the apropriate [Standard environment](#standard-environments). For example, you could
+    select `scs5_gcccore-10.2.0_python-3.8.6`, when you want to use `my-kernel`. Furthermore,
+    ensure, that you load the modules via [Spawner Options](#start-a-session) that you used for
+    creating your kernel.
+
 #### Conda Environment
 
 Load the needed module depending on partition architecture:
