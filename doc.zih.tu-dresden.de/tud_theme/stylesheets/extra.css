@@ -172,6 +172,52 @@ strong {
     height: 36px;
     width: 125px;
 }
+
+/* table caption */
+
+
+.md-typeset table:not([class]) {
+    border: none;
+}
+
+.md-typeset table tbody,
+.md-typeset table thead,
+.md-typeset table caption{
+    display:block;
+}
+
+.md-typeset table tbody, 
+.md-typeset table thead {
+   border: 0.05rem solid var(--md-typeset-table-color);
+}
+.md-typeset table tbody{
+  border-top:none;
+}
+
+.md-typeset table thead{
+  border-bottom:none;
+}
+
+/* Counter */
+body {
+	counter-reset: tableCounter;
+    counter-reset: figureCounter;
+}
+.md-typeset table caption{
+    counter-increment: tableCounter;
+}
+.md-typeset figcaption {
+    counter-increment: figureCounter;
+}
+
+.md-typeset table caption:before{
+   content: "Table " counter(tableCounter) ": ";
+}
+
+.md-typeset figcaption:before {
+    content: "Figure " counter(figureCounter) ": ";
+}
+
 /* navbar */
 .md-nav__link--active{
     background-color: var(--tud-blue-10);
