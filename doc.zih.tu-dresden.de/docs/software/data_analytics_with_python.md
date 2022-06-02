@@ -12,8 +12,8 @@ a research group and/or teaching class. For this purpose,
 [Python virtual environments](python_virtual_environments.md) can be used.
 
 !!! hint
-    For working with conda virtual environments, it may be necessary to configure your shell via
-    `conda init` as described in [Python virtual environments](python_virtual_environments.md#conda-virtual-environment)
+    For working with conda virtual environments, it may be necessary to configure your shell as
+    described in [Python virtual environments](python_virtual_environments.md#conda-virtual-environment)
 
 The interactive Python interpreter can also be used on ZIH systems via an interactive job:
 
