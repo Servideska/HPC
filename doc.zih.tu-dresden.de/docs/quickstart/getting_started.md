@@ -58,7 +58,8 @@ This aspect is considered for all the following recommendations.
 ## Accessing the ZIH HPC System
 
 The ZIH HPC system can be accessed only within the TU Dresden campus networks.
-Access from outside is possible by establishing a [VPN connection](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4).
+Access from outside is possible by establishing a
+[VPN connection](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn#section-4).
 
 There are different ways to access the ZIH HPC system (which are described in more detail below),
 depending on the user's needs and previous knowledge:
@@ -75,15 +76,15 @@ Next, the mentioned access methods are described step by step.
 ### JupyterHub
 
 1. Access JupyterHub here [https://taurus.hrsk.tu-dresden.de/jupyter](https://taurus.hrsk.tu-dresden.de/jupyter).
-1. Start by clicking on the `Start my server` button and you will see two Spawner Options,
+1. Start by clicking on the button `Start My Server` and you will see two Spawner Options,
 `Simple` and `Advanced`.
 1. The `Simple` view offers a minimal selection of parameters to choose from. The `Advanced`
 view gives more opportunities. To get started, choose the `Simple` view, follow the image below
 for choice of parameters and then click `Spawn`
-![Simple form](misc/jupyterhub-simple-2022-03.png)
+![Simple form](misc/jupyterhub-spawner-options.jpg)
 {: align="center"}
 1. You will see:
-![Spawning](misc/jupyterhub-spawning-2022-03.png)
+![Spawning](misc/jupyterhub-spawning.jpg)
 1. Once it loads, you will see the possibility between opening a `Notebook`, `Console` or `Other`.
 Note that you will now be working in your home directory as opposed to a specific workspace
 (see [Data Management and Data Transfer](#data-management-and-data-transfer) section below for more details).
@@ -91,7 +92,7 @@ Note that you will now be working in your home directory as opposed to a specifi
 !!! caution "Stopping session on JupyterHub"
     Once you are done with your work on the ZIH HPC system, explicitly stop the session by logging
     out by clicking `File` &#8594 `Log Out` &#8594 `Stop My Server`.
-    Alternatively, choose `File` &#8594 `Hub control panel` &#8594 `Stop My Server`.
+    Alternatively, choose `File` &#8594 `Hub Control Panel` &#8594 `Stop My Server`.
 
 Explore the [JupyterHub](../access/jupyterhub.md) page for more information.
 

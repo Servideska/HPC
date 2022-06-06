@@ -8,16 +8,17 @@ information.
 
 ## Contribution
 
-Issues concerning this documentation can reported via the GitLab
+Your contributions are highly welcome. The easiest way for you to contribute is to report issues via
+the GitLab
 [issue tracking system](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues).
 Please check for any already existing issue before submitting your issue in order to avoid duplicate
 issues.
 
-Your contributions are highly welcome. Please find out more in our [guidelines how to contribute](contrib/howto_contribute.md).
+Please also find out the other ways you could contribute in our [guidelines how to contribute](contrib/howto_contribute.md).
 
 !!! tip "Reminder"
 
-    Non-documentation issues and requests need to be send as ticket to
+    Non-documentation issues and requests need to be send to
     [hpcsupport@zih.tu-dresden.de](mailto:hpcsupport@zih.tu-dresden.de).
 
 ## News

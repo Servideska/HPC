@@ -1,4 +1,4 @@
-# Migration towards Phase 2
+# Migration towards Phase 2 (Outdated)
 
 ## How to copy your data from an old scratch (Atlas, Venus, Taurus I) to our new scratch (Taurus II)
 

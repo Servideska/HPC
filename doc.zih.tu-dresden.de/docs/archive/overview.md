@@ -1,4 +1,4 @@
-# Archive
+# Archive (Outdated)
 
 A warm welcome to the **archive**. You probably got here by following a link from within the compendium
 or by purpose.
