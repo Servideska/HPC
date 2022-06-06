@@ -14,16 +14,19 @@ CODE_MODE = 1
 readMode = NORMAL_MODE
 #We need to avoid matches for "#include <iostream>", "<Ctrl+D>", "<-" (typically in R) and "<594>" (VampirServer)
 pattern = re.compile(r"(?<!#include )<(?!Ctrl\+)[^0-9 -][^<>']*>")
-with open(fileName) as f:
-    lineNumber = 1
-    for line in f:
-        if "```" in line:
-            # toggle read mode if we find a line with ```, so that we know that we are in a code block or not
-            readMode = CODE_MODE if readMode == NORMAL_MODE else NORMAL_MODE
-        strippedLine = line.strip()
-        # We want tuples with lineNumber, the line itself, whether it is a code line, whether it contains a template (e. g. <FILENAME>) and the line again with all templats replaced by '\\S'
-        lines.append((lineNumber, strippedLine, readMode, pattern.search(strippedLine) != None, pattern.sub(r"\\S*", escapeSomeSigns(strippedLine))))
-        lineNumber += 1
+try:
+    with open(fileName) as f:
+        lineNumber = 1
+        for line in f:
+            if "```" in line:
+                # toggle read mode if we find a line with ```, so that we know that we are in a code block or not
+                readMode = CODE_MODE if readMode == NORMAL_MODE else NORMAL_MODE
+            strippedLine = line.strip()
+            # We want tuples with lineNumber, the line itself, whether it is a code line, whether it contains a template (e. g. <FILENAME>) and the line again with all templats replaced by '\\S'
+            lines.append((lineNumber, strippedLine, readMode, pattern.search(strippedLine) != None, pattern.sub(r"\\S*", escapeSomeSigns(strippedLine))))
+            lineNumber += 1
+except FileNotFoundError:
+    print("  File not found, probably deleted")
 # those tuples with the CODE_MODE as field 2 represent code lines
 codeLines = list(filter(lambda line: line[2] == CODE_MODE, lines))
 # we take line number, the line and a regular expression from the those code lines which contain a template, call them templatedLines

@@ -1,4 +1,4 @@
-# Migration from Deimos to Atlas
+# Migration from Deimos to Atlas (Outdated)
 
 !!! warning
 

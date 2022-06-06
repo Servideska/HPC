@@ -1,4 +1,4 @@
-# Jupyter Installation
+# Jupyter Installation (Outdated)
 
 !!! warning
 

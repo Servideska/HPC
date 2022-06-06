@@ -1,4 +1,4 @@
-# VampirTrace
+# VampirTrace (Outdated)
 
 !!! warning
 

@@ -1,4 +1,4 @@
-# SGI UV2000 / Venus
+# SGI UV2000 / Venus (Outdated)
 
 !!! warning
 

@@ -1,4 +1,4 @@
-# Bioinformatics
+# Bioinformatics (Outdated)
 
 !!! warning
 
