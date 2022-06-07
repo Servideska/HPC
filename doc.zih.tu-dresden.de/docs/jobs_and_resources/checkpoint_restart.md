@@ -63,7 +63,7 @@ To use it, first add a `dmtcp_launch` before your application call in your batch
 of MPI applications, you have to add the parameters `--ib --rm` and put it between `srun` and your
 application call, e.g.:
 
-???+ my_script.sbatch
+???+ example "Example my-dmtcp-script.sbatch"
 
     ```bash
     [...]
@@ -83,7 +83,7 @@ Then just substitute your usual `sbatch` call with `dmtcp_sbatch` and be sure to
 and `-i` parameters (don't forget you need to have loaded the `dmtcp` module).
 
 ```console
-marie@login$ dmtcp_sbatch --time 2-00:00:00 --interval 28000,800 my_script.sbatch
+marie@login$ dmtcp_sbatch --time 2-00:00:00 --interval 28000,800 my-dmtcp-script.sbatch
 ```
 
 With `-t, --time` you set the total runtime of your calculations. This will be replaced in the batch
@@ -178,7 +178,7 @@ original job. If you do not wish to create another checkpoint in your
 restarted run again, you can omit the `-i` and `--exit-after-ckpt`
 parameters this time. Afterwards, the application must be run using the
 restart script, specifying the host and port of the coordinator (they
-have been exported by the start_coordinator function).
+have been exported by the `start_coordinator` function).
 
 ???+ example
 
