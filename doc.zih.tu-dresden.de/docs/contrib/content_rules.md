@@ -345,13 +345,21 @@ Therefore, always add an example!
 
 If showing only a snippet of a long output, omissions are marked with `[...]`.
 
-#### Unix Rules
+#### Code Styling Rules
 
-Stick to the Unix rules on optional and required arguments, and selection of item sets:
+* Stick to the Unix rules on optional and required arguments, and selection of item sets:
 
-* `<required argument or value>`
-* `[optional argument or value]`
-* `{choice1|choice2|choice3}`
+  * `<required argument or value>`
+  * `[optional argument or value]`
+  * `{choice1|choice2|choice3}`
+
+* Please use following style guidelines while writing code blocks:
+  * Shell: [Google shell style guide](https://google.github.io/styleguide/shellguide.html)
+  * Python: [PEP-0008 style guide](https://peps.python.org/pep-0008/)
+  * Matlab: [MATLAB programming style guide](https://www.researchgate.net/publication/316479241_Best_practices_for_scientific_computing_and_MATLAB_programming_style_guidelines)
+  * R: [R style guide](https://google.github.io/styleguide/Rguide.html)
+  * C++: [C++ style guide](https://google.github.io/styleguide/cppguide.html)
+  * Java: [Java style guide](https://google.github.io/styleguide/javaguide.html)
 
 #### List of Prompts
 
