@@ -49,7 +49,7 @@ or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
 * For code blocks:
     * Use [syntax highlighting and appropriate prompts](#code-blocks-and-command-prompts).
     * Respect [data privacy](#data-privacy-and-generic-names).
-    * Stick to the [rules on optional and required arguments](#unix-rules).
+    * Stick to the [rules on optional and required arguments](#code-styling-rules).
 
 ## Detailed Overview
 
@@ -214,8 +214,8 @@ there is a list of conventions w.r.t. spelling and technical wording.
 Providing code blocks and snippets is the meat and bones of this documentation.
 Code blocks and command examples should give the general idea of invocation and be as precise as
 possible, i.e., allowing for copy-and-paste. Please mark replaceable code parts and optional and
-required arguments as outlined in the section [required and optional arguments](#unix-rules) below.
-Long, non-meaningful output should be omitted.
+required arguments as outlined in the section [required and optional arguments](#code-styling-rules)
+below. Long, non-meaningful output should be omitted.
 
 We make use of the extension
 [pymdownx.highlight](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) for syntax
@@ -349,17 +349,18 @@ If showing only a snippet of a long output, omissions are marked with `[...]`.
 
 * Stick to the Unix rules on optional and required arguments, and selection of item sets:
 
-  * `<required argument or value>`
-  * `[optional argument or value]`
-  * `{choice1|choice2|choice3}`
+    * `<required argument or value>`
+    * `[optional argument or value]`
+    * `{choice1|choice2|choice3}`
 
 * Please use following style guidelines while writing code blocks:
-  * Shell: [Google shell style guide](https://google.github.io/styleguide/shellguide.html)
-  * Python: [PEP-0008 style guide](https://peps.python.org/pep-0008/)
-  * Matlab: [MATLAB programming style guide](https://www.researchgate.net/publication/316479241_Best_practices_for_scientific_computing_and_MATLAB_programming_style_guidelines)
-  * R: [R style guide](https://google.github.io/styleguide/Rguide.html)
-  * C++: [C++ style guide](https://google.github.io/styleguide/cppguide.html)
-  * Java: [Java style guide](https://google.github.io/styleguide/javaguide.html)
+
+    * Shell: [Shell style guide](https://google.github.io/styleguide/shellguide.html)
+    * Python: [PEP-0008 style guide](https://peps.python.org/pep-0008/)
+    * Matlab: [MATLAB programming style guide](https://www.researchgate.net/publication/316479241_Best_practices_for_scientific_computing_and_MATLAB_programming_style_guidelines)
+    * R: [R style guide](https://google.github.io/styleguide/Rguide.html)
+    * C++: [C++ style guide](https://google.github.io/styleguide/cppguide.html)
+    * Java: [Java style guide](https://google.github.io/styleguide/javaguide.html)
 
 #### List of Prompts
 
@@ -380,9 +381,9 @@ This should help to avoid errors.
 
 * **Always use a prompt**, even if there is no output provided for the shown command.
 * All code blocks which specify some general command templates, e.g. containing `<` and `>`
-  (see [placeholders](#placeholders) and [Unix rules](#unix-rules)), should use `bash` for the code
-  block. Additionally, an example invocation, perhaps with output, should be given with the normal
-  `console` code block. See also
+  (see [placeholders](#placeholders) and [Code Styling Rules](#code-styling-rules)), should use
+  `bash` for the code block. Additionally, an example invocation, perhaps with output, should be
+  given with the normal `console` code block. See also
   [Code Block description below](#code-blocks-and-syntax-highlighting).
 * Using some magic, the prompt as well as the output is identified and will not be copied!
 * Stick to the [generic user name](#data-privacy-and-generic-names) `marie`.
