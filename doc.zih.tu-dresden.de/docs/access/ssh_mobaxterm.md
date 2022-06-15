@@ -36,17 +36,17 @@ Here you can set different options in the following tabs:
 
 ## Start a new session
 
-1. Select the tab "Sessions"  &#8594; "New session" or click the button "Session" in the toolbar.
+1.  Select the tab "Sessions"  &#8594; "New session" or click the button "Session" in the toolbar.
 
 ![Opening a new session in MobaXterm](misc/mobaxterm4_session.png)
 
-2. Select a SSH section. Insert "Remote host" (`taurus.hrsk.tu-dresden.de`), "Username" (replace
+1.  Select a SSH section. Insert "Remote host" (`taurus.hrsk.tu-dresden.de`), "Username" (replace
     `marie` with your ZIH login), and "Port" 22. Using the button right from the username option,
     you can store and manage credentials.
 
 ![Settings for SSH connection in MobaXterm](misc/mobaxterm5_ssh.png)
 
-3. Advanced settings can be configured in the same window below. These are
+1.  Advanced settings can be configured in the same window below. These are
     - "Advanced SSH settings" - set defaults for this specific session. For example, set a SSH key
     or change the remote environment,
     - "Terminal settings" - change terminal options,
@@ -55,7 +55,7 @@ Here you can set different options in the following tabs:
     - "Bookmark settings" - specify how the session will be saved to your session list, which is
     afterwards accessible by the button "Sessions".
 
-4.  Start the session by clicking the button "OK".
+1.  Start the session by clicking the button "OK".
 
     Your previous sessions are saved in the bookmarks and can be accessed via the menu entry
     "Sessions"  &#8594;  "User sessions". Alternatively, double click on one of the previous
@@ -63,7 +63,7 @@ Here you can set different options in the following tabs:
 
 ![Opening a saved session in MobaXterm](misc/mobaxterm6_oldse.png)
 
-5. The last thing to do is to input your ZIH password in the command line and to press enter.
+1.  The last thing to do is to input your ZIH password in the command line and to press enter.
     The entered symbols of your password are invisible and will not appear as typed in. 
 
 ![Saving your password in MobaXterm](misc/mobaxterm7_pw.png)
