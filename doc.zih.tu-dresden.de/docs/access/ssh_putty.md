@@ -31,7 +31,7 @@ You can preconfigure some values. It will save your time during your connections
 
 ![Settings for SSH connection in PuTTY](misc/putty2_quickstart.png)
 
-2. Set your user name. For that choose the tab `Connection` &rarr; `Data` in the navigation tree on the left.
+2. Set your user name. For that choose the tab `Connection` &#8594; `Data` in the navigation tree on the left.
 Insert your user name into the text field `Auto-login username`.
 The application will basically perform the same action as the command `ssh marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
@@ -49,14 +49,14 @@ The application will basically perform the same action as the command `ssh marie
     ssh-ed25519 <public key> myuser@mylocalhost
     ```
 
-    To configure the SSH key to use, navigate to `Connection` &rarr; `SSH` &rarr; `Auth` in the tree left.
+    To configure the SSH key to use, navigate to `Connection` &#8594; `SSH` &#8594; `Auth` in the tree left.
     You will see a text field for `Private key file for authentification`.
     Insert the path to your local key-file or brows it using the button `Browse...`.
     This will do the same as the command `ssh -i .ssh/id_red25519 marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
 ![SSH-key in PuTTY](misc/putty5_key.png)
 
-4. Enable X-forwarding (optional). To do so, navigate to `Connection` &rarr; `SSH` &rarr; `X11` in the tree left. Put the tick in the checkbox for `Enable X11 forwarding`.
+4. Enable X-forwarding (optional). To do so, navigate to `Connection` &#8594; `SSH` &#8594; `X11` in the tree left. Put the tick in the checkbox for `Enable X11 forwarding`.
 
 ![X-forwarding in PuTTY](misc/putty6_x11.png)
 

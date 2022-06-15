@@ -27,16 +27,16 @@ toolbar. A new window will open.
 Here you can set different options in the following tabs:
 
 - "General" - local pathing-options for local MobaXterm-session,
-- "Terminal" -  options, which alter your Terminal. e.g. color scheme,
+- "Terminal" -  options, which alter your terminal, e.g. color scheme,
 - "X11" - options for X11-forwarding. It is enabled by default,
-- "SSH" - general SSH settings e.g. keep-alive, SSH agent, browser-options,
+- "SSH" - general SSH settings, e.g. keep-alive, SSH agent, browser-options,
 - "Display" - general display-options for the application,
 - "Toolbar" - customization of the toolbar,
 - "Misc" - options to alter specific actions inside the MobaXterm-application.
 
 ## Start a new session
 
-1. Select the tab "Sessions"  &rarr; "New session" or click the button "Session" in the toolbar.
+1. Select the tab "Sessions"  &#8594; "New session" or click the button "Session" in the toolbar.
 
 ![Opening a new session in MobaXterm](misc/mobaxterm4_session.png)
 
@@ -57,7 +57,7 @@ accessible by the top left navigation tab named "Sessions".
 4.  Start the session by clicking the button "OK".
 
     If it is **not** your first time, your previous sessions are saved and you can find by going to
-    the tab "Sessions"  &rarr;  "User sessions" and click the desired session. You can double click
+    the tab "Sessions"  &#8594;  "User sessions" and click the desired session. You can double click
     on one of your previous sessions the left.
 
 ![Opening a saved session in MobaXterm](misc/mobaxterm6_oldse.png)
