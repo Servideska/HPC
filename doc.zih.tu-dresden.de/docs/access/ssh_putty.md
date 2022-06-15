@@ -40,19 +40,17 @@ You can pre-configure some connection details additionally. It will save time in
         If you do not have your SSH key pair (public and private keys) yet, you can generate
         it using PuTTYgen program, which was installed together with the main PuTTY client.
 
-        ![PuTTY generate key pair](misc/putty8_gen_key.png)
+        ![PuTTY generate key pair](misc/putty8_gen_key.png){: width=400}
 
         Click on the button "Generate" to create a new key pair. Move the mouse pointer in the
         respective field as requested. Afterwards save your public and private keys in separate
-        files. It is recommended to use a passphrase for a private key.
+        files. It is recommended to use a passphrase for the private key.
 
-    To configure the SSH key to use, navigate to "Connection" &#8594; "SSH" &#8594; "Auth" in the tree left.
-    You will see a text field for "Private key file for authentication".
-    Insert the path to your local key-file or brows it using the button "Browse...".
-    This will do the same as the command `ssh -i .ssh/id_red25519 marie@taurus.hrsk.tudresden.de:22` in Terminal.
+    To configure the SSH key to use, navigate to "Connection" &#8594; "SSH" &#8594; "Auth" in the
+    tree left. Insert the path to your local key-file in a text field "Private key file for
+    authentication" or select it with "Browse...".
 
     ![SSH-key in PuTTY](misc/putty5_key.png)
-
 
     !!! note "Add public key to ZIH system"
     
