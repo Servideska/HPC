@@ -9,7 +9,7 @@ application, supports several network protocols, including SCP, SSH. Visit the
 Download the installer suiting best your current system and run it afterwards. Follow the
 instructions for installation.
 
-![Downloading PuTTY](misc/putty1_download.png) 
+![Downloading PuTTY](misc/putty1_download.png)
 
 ## Start a new SSH session
 
@@ -53,7 +53,7 @@ You can pre-configure some connection details additionally. It will save time in
     ![SSH-key in PuTTY](misc/putty5_key.png)
 
     !!! note "Add public key to ZIH system"
-    
+
         For being able to use a SSH key to login to ZIH system, you have to register the key
         on the system before!
 

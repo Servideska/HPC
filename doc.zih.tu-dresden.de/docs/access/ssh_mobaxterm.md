@@ -26,7 +26,7 @@ toolbar. A new window will open.
 
 Here you can set different options in the following tabs:
 
-- "General" - local pathing-options for local MobaXterm-session,
+- "General" - local path options for local MobaXterm-session,
 - "Terminal" -  options, which alter your terminal, e.g. color scheme,
 - "X11" - options for X11-forwarding. It is enabled by default,
 - "SSH" - general SSH settings, e.g. keep-alive, SSH agent, browser-options,
@@ -64,7 +64,7 @@ Here you can set different options in the following tabs:
     ![Opening a saved session in MobaXterm](misc/mobaxterm6_oldse.png)
 
 1.  The last thing to do is to input your ZIH password in the command line and to press enter.
-    The entered symbols of your password are invisible and will not appear as typed in. 
+    The entered symbols of your password are invisible and will not appear as typed in.
 
     ![Saving your password in MobaXterm](misc/mobaxterm7_pw.png)
 
@@ -72,5 +72,3 @@ Here you can set different options in the following tabs:
 
     Do not forget to close the session after your jobs are finished. Just type `exit` in the
     command line and complete with pressing enter.
-
-
