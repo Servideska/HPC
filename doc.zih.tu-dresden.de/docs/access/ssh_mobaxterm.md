@@ -63,15 +63,14 @@ Here you can set different options in the following tabs:
 
 ![Opening a saved session in MobaXterm](misc/mobaxterm6_oldse.png)
 
-5. The last thing to do is to input your HPC password in the command line and to press enter.
+5. The last thing to do is to input your ZIH password in the command line and to press enter.
+    The entered symbols of your password are invisible and will not appear as typed in. 
 
 ![Saving your password in MobaXterm](misc/mobaxterm7_pw.png)
 
 !!! Caution
 
     Do not forget to close the session after your jobs are finished. Just type `exit` in the
-    command line and complete with pressing enter. So, the system knows that you are off.
-    Otherwise, the cores reserved for you cannot be used by other users. Your CPU time stays active
-    until your reserved time will be over.
+    command line and complete with pressing enter.
 
 
