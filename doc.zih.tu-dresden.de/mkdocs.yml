@@ -11,7 +11,7 @@ nav:
   - Access to ZIH Systems:
     - Overview: access/overview.md
     - Connecting with SSH: 
-      - Connecting via terminal (Linux, Mac, Windows): access/ssh_terminal.md
+      - Connecting via terminal (Linux, Mac, Windows): access/ssh_login.md
       - Connecting via MobaXterm (Windows): access/ssh_mobaxterm.md
       - Connecting via Putty (Windows): access/ssh_putty.md
     - Desktop Cloud Visualization (DCV): access/desktop_cloud_visualization.md
