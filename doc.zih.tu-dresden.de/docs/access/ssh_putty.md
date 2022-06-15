@@ -33,24 +33,23 @@ You can pre-configure some connection details additionally. It will save time in
 
     ![Auto-login username in PuTTY](misc/putty4_username.png)
 
--   Set a SSH-key (recommended for security reason).
-
-    **Note**: For being able to use a SSH key to login to HPC, you have to register the key on the
-    system before!
-
-    Add the public-key to `~/.ssh/authorized_keys` and use the following format.
-
-    ```console
-    # <key-type> <public key> <comment>
-    ssh-ed25519 <public key> myuser@mylocalhost
-    ```
+-   Configure SSH-key (recommended for security reason).
 
     To configure the SSH key to use, navigate to "Connection" &#8594; "SSH" &#8594; "Auth" in the tree left.
-    You will see a text field for "Private key file for authentification".
+    You will see a text field for "Private key file for authentication".
     Insert the path to your local key-file or brows it using the button "Browse...".
     This will do the same as the command `ssh -i .ssh/id_red25519 marie@taurus.hrsk.tudresden.de:22` in Terminal.
 
     ![SSH-key in PuTTY](misc/putty5_key.png)
+
+
+    !!! note "Add public key to ZIH system"
+    
+        For being able to use a SSH key to login to ZIH system, you have to register the key
+        on the system before!
+
+        Login to the ZIH system using your password and add your public-key to
+        `~/.ssh/authorized_keys`.
 
 -   Enable X-forwarding. Navigate to "Connection" &#8594; "SSH" &#8594; "X11" in the tree on the
     left. Select the checkbox "Enable X11 forwarding".
