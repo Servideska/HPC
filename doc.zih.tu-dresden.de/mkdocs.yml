@@ -52,9 +52,9 @@ nav:
       - Big Data Analytics: software/big_data_frameworks.md
     - Machine Learning:
       - Overview: software/machine_learning.md
-      - TensorFlow: software/tensorflow.md
-      - TensorBoard: software/tensorboard.md
-      - PyTorch: software/pytorch.md
+      - Neural Networks with TensorFlow: software/tensorflow.md
+      - Inspect Model Training with TensorBoard: software/tensorboard.md
+      - Neural Networks with PyTorch: software/pytorch.md
       - Distributed Training: software/distributed_training.md
       - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
       - Machine Learning with PowerAI: software/power_ai.md
