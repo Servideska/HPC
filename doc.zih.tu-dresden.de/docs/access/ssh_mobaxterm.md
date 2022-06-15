@@ -40,25 +40,26 @@ Here you can set different options in the following tabs:
 
 ![Opening a new session in MobaXterm](misc/mobaxterm4_session.png)
 
-2. Select a SSH section. Insert "Remote host" (taurus.hrsk.tu-dresden.de), "Username" ("marie" in
-   this example), and "Port" 22. Near username, you can store credentials or just passphrases for
-   specific connection (not recommended).
+2. Select a SSH section. Insert "Remote host" (`taurus.hrsk.tu-dresden.de`), "Username" (replace
+    `marie` with your ZIH login), and "Port" 22. Using the button right from the username option,
+    you can store and manage credentials.
 
 ![Settings for SSH connection in MobaXterm](misc/mobaxterm5_ssh.png)
 
-3. You can configure advanced settings in the same window below. These are
-
-- "Advanced SSH settings" - set defaults for this specific new session. For example, set an SSH key or change the remote environment,
-- "Terminal settings" - change some terminal options,
-- "Network settings" - configure how the connection is built over the network. For example, by adding a proxy as gateway to the targeted system,
-- "Bookmark settings" - specify how the session will be saved to your session list, which is afterwards
-accessible by the top left navigation tab named "Sessions".
+3. Advanced settings can be configured in the same window below. These are
+    - "Advanced SSH settings" - set defaults for this specific session. For example, set a SSH key
+    or change the remote environment,
+    - "Terminal settings" - change terminal options,
+    - "Network settings" - configure how the connection is built over the network. For example, by
+    adding a proxy as gateway to the targeted system,
+    - "Bookmark settings" - specify how the session will be saved to your session list, which is
+    afterwards accessible by the button "Sessions".
 
 4.  Start the session by clicking the button "OK".
 
-    If it is **not** your first time, your previous sessions are saved and you can find by going to
-    the tab "Sessions"  &#8594;  "User sessions" and click the desired session. You can double click
-    on one of your previous sessions the left.
+    Your previous sessions are saved in the bookmarks and can be accessed via the menu entry
+    "Sessions"  &#8594;  "User sessions". Alternatively, double click on one of the previous
+    sessions on the left panel.
 
 ![Opening a saved session in MobaXterm](misc/mobaxterm6_oldse.png)
 
