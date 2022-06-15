@@ -13,16 +13,16 @@ instructions for installation.
 
 ## Start a new SSH session
 
-1. Start PuTTY and insert the "Host Name" (`taurus.hrsk.tu-dresden.de`) and change the "Port" (22) if needed.
+1.  Start PuTTY and insert the "Host Name" (`taurus.hrsk.tu-dresden.de`) and leave the default
+    port (22).
 
-![Settings for SSH connection in PuTTY](misc/putty2_quickstart.png)
+    ![Settings for SSH connection in PuTTY](misc/putty2_quickstart.png)
 
-2. Click "Open" to start a new session. A Terminal will open up as new window. This action will do
-basically the same as using the command `ssh taurus.hrsk.tu-dresden.de:22` in Terminal.
+1.  Click "Open" to start a new session. A terminal window will open up.
 
-![Login in PuTTY](misc/putty3_login.png)
+    ![Login in PuTTY](misc/putty3_login.png)
 
-3. After inserting your user name ("marie" in this example) and your password, it will log you in. You can start working on HPC.
+1.  After entering your ZIH login and password you will be logged in to one of the login nodes.
 
 ## Configured start a new SSH session
 
