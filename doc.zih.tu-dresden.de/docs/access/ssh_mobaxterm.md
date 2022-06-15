@@ -68,7 +68,7 @@ accessible by the top left navigation tab named "Sessions".
 
 !!! Caution
 
-    Do not forget to close the session after your jobs are finished. Just enter `exit` in the
+    Do not forget to close the session after your jobs are finished. Just type `exit` in the
     command line and complete with pressing enter. So, the system knows that you are off.
     Otherwise, the cores reserved for you cannot be used by other users. Your CPU time stays active
     until your reserved time will be over.
