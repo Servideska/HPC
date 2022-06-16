@@ -1,30 +1,18 @@
-# Connecting with SSH
+# Connecting via terminal
 
-For security reasons, ZIH systems are only accessible for hosts within the domains of TU Dresden.
+Connecting via terminal works on every operating system. For Linux and Macintosh operating systems
+no additional software is required. For users of a Windows OS a recent version of Windows is
+required (Windows 10, Build 1809 and higher). It is possible to use
+[Command Prompt](https://en.wikipedia.org/wiki/Cmd.exe) or [PowerShell](https://en.wikipedia.org/wiki/PowerShell)).
+Ensure that [OpenSSH](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/factoryos/connect-using-ssh?view=windows-10)
+is installed on the system.
 
-## Virtual Private Network (VPN)
+SSH establishes secure connections using authentication and encryption. The login nodes accept
+the following encryption algorithms: `aes128-ctr`, `aes192-ctr`, `aes256-ctr`,
+`aes128-gcm@openssh.com`, `aes256-gcm@openssh.com`, `chacha20-poly1305@openssh.com`,
+`chacha20-poly1305@openssh.com`.
 
-To access the ZIH systems from outside the campus networks it's recommended to set up a VPN
-connection to enter the campus network. While active, it allows the user to connect directly to the
-HPC login nodes.
-
-For more information on our VPN and how to set it up, please visit the corresponding
-[ZIH service catalog page](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn).
-
-## Connecting from Linux
-
-SSH establishes secure connections using authentication and encryption. Thus, please use an
-up-to-date SSH client. The login nodes accept the following encryption algorithms:
-
-* `aes128-ctr`
-* `aes192-ctr`
-* `aes256-ctr`
-* `aes128-gcm@openssh.com`
-* `aes256-gcm@openssh.com`
-* `chacha20-poly1305@openssh.com`
-* `chacha20-poly1305@openssh.com`
-
-### Before Your First Connection
+## Before Your First Connection
 
 We suggest to create an SSH key pair before you work with the ZIH systems. This ensures high
 connection security.
@@ -71,7 +59,7 @@ they match. Then you can accept by typing `yes`.
     marie@login$ cat id_ed25519.pub >> ~/.ssh/authorized_keys
     ```
 
-#### Configuring Default Parameters for SSH
+### Configuring Default Parameters for SSH
 
 After you have copied your key to the ZIH system, you should be able to connect using:
 
@@ -119,7 +107,7 @@ marie@local$ ssh taurus
 If you want to copy data from/to ZIH systems, please refer to [Export Nodes: Transfer Data to/from
 ZIH's Filesystems](../data_transfer/export_nodes.md) for more information on export nodes.
 
-### X11-Forwarding
+## X11-Forwarding
 
 If you plan to use an application with graphical user interface (GUI), you need to enable
 X11-forwarding for the connection. If you use the SSH configuration described above, everything is
@@ -141,18 +129,3 @@ marie@local$ ssh -XC taurus
 
     Also consider to use a [DCV session](desktop_cloud_visualization.md) for remote desktop
     visualization at ZIH systems.
-
-## Connecting from Windows
-
-We recommend one of the following applications:
-
-  * [MobaXTerm](https://mobaxterm.mobatek.net): [ZIH documentation](misc/basic_usage_of_MobaXterm.pdf)
-  * [PuTTY](https://www.putty.org): [ZIH documentation](misc/basic_usage_of_PuTTY.pdf)
-  * For Windows 10 (1809 and higher):
-    * [Windows Terminal](https://www.microsoft.com/store/productId/9N0DX20HK701)
-    * Together with the built-in [OpenSSH Client](https://docs.microsoft.com/de-de/windows-server/administration/openssh/openssh_overview)
-
-## SSH Key Fingerprints
-
-The page [key fingerprints](key_fingerprints.md) holds the up-to-date fingerprints for the login
-nodes. Make sure they match.
