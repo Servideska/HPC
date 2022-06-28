@@ -69,8 +69,7 @@ for applying for HPC resources: NHR and TUD/TIER3.
         If your research topic fits the above focus topics, the application kind 'NHR' is recommended.
     * for all research projects not related to our focus topics but from universities in Saxony
     * for other focuses other NHR centers are available [https://www.nhr-gs.de/ueber-uns/nhr-verein](https://www.nhr-gs.de/ueber-uns/nhr-verein)
-    
-    
+
     Application Login:
 
     * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
