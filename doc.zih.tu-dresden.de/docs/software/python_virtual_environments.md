@@ -123,17 +123,20 @@ marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate 
 
 **Prerequisite:** Before working with conda, your shell needs to be configured
 initially. Therefore login to the ZIH system, load the Anaconda module and run
-`conda init`. For more information use `conda init --help`. Note that changes
-take effect after closing and re-opening your shell.
+`sh $EBROOTANACONDA3/etc/profile.d/conda.sh`. Note that changes take effect after closing and
+re-opening your shell.
+
+!!! warning
+    We recommend to **not** use the `conda init` command, since it may cause unexpected behaviour
+    when working with the ZIH system.
 
 ??? example
 
     ```console
     marie@compute$ module load Anaconda3    #load Anaconda module
     Module Anaconda3/2019.03 loaded.
-    marie@compute$ conda init    #configure shell
+    marie@compute$ sh $EBROOTANACONDA3/etc/profile.d/conda.sh    #init conda
     [...]
-    modified      /home/marie/.bashrc
     ```
 
 This example shows how to start working with **conda** and virtual environment

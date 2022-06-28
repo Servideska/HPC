@@ -116,7 +116,7 @@ Basic test of tensorflow - A Hello World!!!...
 
 !!! hint
     In the above example, we create a conda virtual environment. To use conda, it is be necessary to
-    configure your shell in advance via `conda init` as described in [Python virtual environments](python_virtual_environments.md#conda-virtual-environment)
+    configure your shell as described in [Python virtual environments](python_virtual_environments.md#conda-virtual-environment)
 
 ## TensorFlow with Python or R
 
