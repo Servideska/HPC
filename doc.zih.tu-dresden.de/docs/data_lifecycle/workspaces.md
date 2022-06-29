@@ -91,12 +91,12 @@ days with an email reminder for 7 days before the expiration.
 
 !!! Note
 
-    Setting the reminder to `7` means you will get a reminder email on every day starting `7` prior
-    to expiration date.
+    Setting the reminder to `7` means you will get a reminder email on every day starting `7` days
+    prior to expiration date.
 
 ### Extension of a Workspace
 
-The lifetime of a workspace is finite. Different filesystems (storage systems) have different
+The lifetime of a workspace is finite and different filesystems (storage systems) have different
 maximum durations. A workspace can be extended multiple times, depending on the filesystem.
 
 | Filesystem (use with parameter `-F`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
@@ -107,7 +107,7 @@ maximum durations. A workspace can be extended multiple times, depending on the 
 | `scratch`                            | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
 | `warm_archive`                       | 365            | 2          | `fs_warm_archive_ws`                                                     | Capacity filesystem based on spinning disks |
 
-To extent your workspace use the following command:
+Use the command `ws_extent` to extent your workspace:
 
 ```console
 marie@login$ ws_extend -F scratch test-workspace 100
@@ -120,7 +120,7 @@ remaining time in days: 100
 !!!Attention
 
     With the `ws_extend` command, a new duration for the workspace is set. The new duration is not
-    added!
+    added to the remaining lifetime!
 
 This means when you extend a workspace that expires in 90 days with the command
 
