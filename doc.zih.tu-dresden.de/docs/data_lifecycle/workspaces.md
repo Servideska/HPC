@@ -124,7 +124,8 @@ remaining extensions  : 1
 remaining time in days: 100
 ```
 
-Mail reminder settings are retained.
+Mail reminder settings are retained. I.e., previously set mail alerts apply to the extended
+workspace, too.
 
 !!! attention
 
