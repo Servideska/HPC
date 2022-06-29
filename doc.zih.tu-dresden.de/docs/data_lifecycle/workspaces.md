@@ -107,7 +107,7 @@ maximum durations. A workspace can be extended multiple times, depending on the 
 
 | Filesystem (use with parameter `-F <fs>`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
 |:-------------------------------------|---------------:|-----------:|:-------------------------------------------------------------------------|:--------|
-| `scratch` (default)                  | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
+| `scratch` (default)                  | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/scratch2`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
 | `ssd`                                | 30             | 2          | `fs_lustre_ssd`                                                          | High-IOPS filesystem (`/lustre/ssd`, symbolic link: `/ssd`) on SSDs. |
 | `beegfs_global0` (deprecated)        | 30             | 2          | `fs_beegfs_global0`                                                      | High-IOPS filesystem (`/beegfs/global0`) on NVMes. |
 | `beegfs`                             | 30             | 2          | `fs_beegfs`                                                              | High-IOPS filesystem (`/beegfs`) on NVMes. |
