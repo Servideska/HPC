@@ -311,3 +311,10 @@ workspace.
 
 **A**: The workspace you want to restore into is either not on the same filesystem or you used the
 wrong name. Use only the short name that is listed after `id:` when using `ws_list`.
+
+**Q**: Man, I've missed to specify mail alert when allocating my workspace. How can I add the mail
+alert functionality to an existing workspace?
+
+**A**: You can add the mail alert by "overwriting" the workspace settings via `ws_allocate -x -m
+<mail address> -r <days> -n <ws-name> -d <duration> -F <fs>`. (This will lower the remaining
+extensions by one.)
