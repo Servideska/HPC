@@ -28,16 +28,22 @@ times.
 
 ### List Available Filesystems
 
-To list all available filesystems for using workspaces use:
+To list all available filesystems for using workspaces, use:
 
 ```console
 marie@login$ ws_find -l
-Available filesystems:
-scratch
+available filesystems:
+scratch (default)
 warm_archive
 ssd
 beegfs_global0
+beegfs
 ```
+
+!!! note "Default is `scratch`"
+
+    The default filesystem is `scratch`. If you prefer another filesystem, provide the option `-F
+    <fs>` to the workspace commands.
 
 ### List Current Workspaces
 
@@ -56,8 +62,8 @@ id: test-workspace
 
 ### Allocate a Workspace
 
-To create a workspace in one of the listed filesystems use `ws_allocate`. It is necessary to specify
-a unique name and the duration of the workspace.
+To create a workspace in one of the listed filesystems, use `ws_allocate`. It is necessary to
+specify a unique name and the duration of the workspace.
 
 ```console
 marie@login$ ws_allocate: [options] workspace_name duration
@@ -99,13 +105,14 @@ days with an email reminder for 7 days before the expiration.
 The lifetime of a workspace is finite and different filesystems (storage systems) have different
 maximum durations. A workspace can be extended multiple times, depending on the filesystem.
 
-| Filesystem (use with parameter `-F`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
+| Filesystem (use with parameter `-F <fs>`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
 |:-------------------------------------|---------------:|-----------:|:-------------------------------------------------------------------------|:--------|
+| `scratch` (default)                  | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
 | `ssd`                                | 30             | 2          | `fs_lustre_ssd`                                                          | High-IOPS filesystem (`/lustre/ssd`, symbolic link: `/ssd`) on SSDs. |
 | `beegfs_global0` (deprecated)        | 30             | 2          | `fs_beegfs_global0`                                                      | High-IOPS filesystem (`/beegfs/global0`) on NVMes. |
 | `beegfs`                             | 30             | 2          | `fs_beegfs`                                                              | High-IOPS filesystem (`/beegfs`) on NVMes. |
-| `scratch`                            | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
 | `warm_archive`                       | 365            | 2          | `fs_warm_archive_ws`                                                     | Capacity filesystem based on spinning disks |
+{: summary="Settings for Workspace Filesystem."}
 
 Use the command `ws_extent` to extend your workspace:
 
@@ -147,7 +154,7 @@ To delete a workspace use the `ws_release` command. It is mandatory to specify t
 workspace and the filesystem in which it is located:
 
 ```console
-marie@login$ ws_release -F <filesystem> <workspace name>
+marie@login$ ws_release -F <fs> <workspace name>
 ```
 
 ### Restoring Expired Workspaces
