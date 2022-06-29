@@ -146,7 +146,7 @@ Send a calendar invitation by Email to ensure that the expiration date of a work
 forgotten
 
 ```console
-ws_send_ical -F scratch my-workspace -m marie.testuser@tu-dresden.de
+marie@login$ ws_send_ical -F scratch my-workspace -m marie.testuser@tu-dresden.de
 ```
 
 ### Deletion of a Workspace
@@ -155,7 +155,7 @@ To delete a workspace use the `ws_release` command. It is mandatory to specify t
 workspace and the filesystem in which it is located:
 
 ```console
-marie@login$ ws_release -F <fs> <workspace name>
+marie@login$ ws_release -F scratch my-workspace
 ```
 
 ### Restoring Expired Workspaces
