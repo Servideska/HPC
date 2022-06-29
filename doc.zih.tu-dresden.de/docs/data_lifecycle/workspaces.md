@@ -107,7 +107,7 @@ maximum durations. A workspace can be extended multiple times, depending on the 
 | `scratch`                            | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
 | `warm_archive`                       | 365            | 2          | `fs_warm_archive_ws`                                                     | Capacity filesystem based on spinning disks |
 
-Use the command `ws_extent` to extent your workspace:
+Use the command `ws_extent` to extend your workspace:
 
 ```console
 marie@login$ ws_extend -F scratch test-workspace 100
@@ -117,7 +117,9 @@ remaining extensions  : 1
 remaining time in days: 100
 ```
 
-!!!Attention
+Mail reminder settings are retained.
+
+!!! attention
 
     With the `ws_extend` command, a new duration for the workspace is set. The new duration is not
     added to the remaining lifetime!
