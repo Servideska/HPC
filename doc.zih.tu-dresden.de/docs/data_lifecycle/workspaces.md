@@ -306,11 +306,15 @@ valid locale value like `export LC_CTYPE=de_DE.UTF-8`.
 A list of valid locales can be retrieved via `locale -a`. Please only use UTF8 (or plain) settings.
 Avoid "iso" codepages!
 
+----
+
 **Q**: I am getting the error `Error: target workspace does not exist!` when trying to restore my
 workspace.
 
 **A**: The workspace you want to restore into is either not on the same filesystem or you used the
 wrong name. Use only the short name that is listed after `id:` when using `ws_list`.
+
+----
 
 **Q**: Man, I've missed to specify mail alert when allocating my workspace. How can I add the mail
 alert functionality to an existing workspace?
