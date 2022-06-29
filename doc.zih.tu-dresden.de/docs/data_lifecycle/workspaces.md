@@ -287,19 +287,19 @@ marie@login$ qinfo quota /warm_archive/ws/
 Note that the workspaces reside under the mountpoint `/warm_archive/ws/` and not `/warm_archive`
 anymore.
 
-## FAQ
+## FAQ and Troubleshooting
 
 **Q**: I am getting the error `Error: could not create workspace directory!`
 
-**A**: Please check the "locale" setting of your ssh client. Some clients (e.g. the one from MacOSX)
+**A**: Please check the "locale" setting of your SSH client. Some clients (e.g. the one from MacOSX)
 set values that are not valid on our ZIH systems. You should overwrite `LC_CTYPE` and set it to a
 valid locale value like `export LC_CTYPE=de_DE.UTF-8`.
 
 A list of valid locales can be retrieved via `locale -a`. Please only use UTF8 (or plain) settings.
 Avoid "iso" codepages!
 
-**Q**: I am getting the error `Error: target workspace does not exist!`  when trying to restore my
+**Q**: I am getting the error `Error: target workspace does not exist!` when trying to restore my
 workspace.
 
 **A**: The workspace you want to restore into is either not on the same filesystem or you used the
-wrong name. Use only the short name that is listed after `id:` when using `ws_list`
+wrong name. Use only the short name that is listed after `id:` when using `ws_list`.
