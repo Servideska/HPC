@@ -50,11 +50,11 @@ Then create the virtual environment and activate it.
 ```console
 marie@compute$ ws_allocate -F scratch python_virtual_environment 1
 Info: creating workspace.
-/scratch/ws/1/python_virtual_environment
+/scratch/ws/1/marie-python_virtual_environment
 [...]
-marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env  #Create virtual environment
+marie@compute$ virtualenv --system-site-packages /scratch/ws/1/marie-python_virtual_environment/env  #Create virtual environment
 [...]
-marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env) bash-4.2$
+marie@compute$ source /scratch/ws/1/marie-python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env) bash-4.2$
 ```
 
 Now you can work in this isolated environment, without interfering with other
@@ -113,9 +113,9 @@ packages from the file:
 ```console
 marie@compute$ module load Python    #Load default Python
 [...]
-marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env_post  #Create virtual environment
+marie@compute$ virtualenv --system-site-packages /scratch/ws/1/marie-python_virtual_environment/env_post  #Create virtual environment
 [...]
-marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env_post) bash-4.2$
+marie@compute$ source /scratch/ws/1/marie-python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env_post) bash-4.2$
 (env_post) marie@compute$ pip install -r requirements.txt    #Install packages from the created requirements.txt file
 ```
 
@@ -146,7 +146,7 @@ directory for the conda virtual environment:
 ```console
 marie@compute$ ws_allocate -F scratch conda_virtual_environment 1
 Info: creating workspace.
-/scratch/ws/1/conda_virtual_environment
+/scratch/ws/1/marie-conda_virtual_environment
 [...]
 ```
 
@@ -155,8 +155,8 @@ environment:
 
 ```console
 marie@compute$ module load Anaconda3    #load Anaconda module
-marie@compute$ conda create --prefix /scratch/ws/1/conda_virtual_environment/conda-env python=3.6    #create virtual environment with Python version 3.6
-marie@compute$ conda activate /scratch/ws/1/conda_virtual_environment/conda-env    #activate conda-env virtual environment
+marie@compute$ conda create --prefix /scratch/ws/1/marie-conda_virtual_environment/conda-env python=3.6    #create virtual environment with Python version 3.6
+marie@compute$ conda activate /scratch/ws/1/marie-conda_virtual_environment/conda-env    #activate conda-env virtual environment
 ```
 
 Now you can work in this isolated environment, without interfering with other
