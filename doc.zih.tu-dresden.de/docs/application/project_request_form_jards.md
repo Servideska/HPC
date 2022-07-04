@@ -1,5 +1,9 @@
 # Project Request Form Jards
 
+**We hereby inform you that a new application system is now in place.**
+
+**Please note:**  For follow-up applications, please submit a new application once
+
 This page describes the steps to fill the form on
 [https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/).
 
