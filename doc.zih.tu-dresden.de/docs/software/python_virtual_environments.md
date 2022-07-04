@@ -50,11 +50,11 @@ Then create the virtual environment and activate it.
 ```console
 marie@compute$ ws_allocate -F scratch python_virtual_environment 1
 Info: creating workspace.
-/scratch/ws/1/python_virtual_environment
+/scratch/ws/1/marie-python_virtual_environment
 [...]
-marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env  #Create virtual environment
+marie@compute$ virtualenv --system-site-packages /scratch/ws/1/marie-python_virtual_environment/env  #Create virtual environment
 [...]
-marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env) bash-4.2$
+marie@compute$ source /scratch/ws/1/marie-python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env) bash-4.2$
 ```
 
 Now you can work in this isolated environment, without interfering with other
@@ -113,9 +113,9 @@ packages from the file:
 ```console
 marie@compute$ module load Python    #Load default Python
 [...]
-marie@compute$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env_post  #Create virtual environment
+marie@compute$ virtualenv --system-site-packages /scratch/ws/1/marie-python_virtual_environment/env_post  #Create virtual environment
 [...]
-marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env_post) bash-4.2$
+marie@compute$ source /scratch/ws/1/marie-python_virtual_environment/env/bin/activate    #Activate virtual environment. Example output: (env_post) bash-4.2$
 (env_post) marie@compute$ pip install -r requirements.txt    #Install packages from the created requirements.txt file
 ```
 
@@ -123,17 +123,20 @@ marie@compute$ source /scratch/ws/1/python_virtual_environment/env/bin/activate 
 
 **Prerequisite:** Before working with conda, your shell needs to be configured
 initially. Therefore login to the ZIH system, load the Anaconda module and run
-`conda init`. For more information use `conda init --help`. Note that changes
-take effect after closing and re-opening your shell.
+`sh $EBROOTANACONDA3/etc/profile.d/conda.sh`. Note that changes take effect after closing and
+re-opening your shell.
+
+!!! warning
+    We recommend to **not** use the `conda init` command, since it may cause unexpected behaviour
+    when working with the ZIH system.
 
 ??? example
 
     ```console
     marie@compute$ module load Anaconda3    #load Anaconda module
     Module Anaconda3/2019.03 loaded.
-    marie@compute$ conda init    #configure shell
+    marie@compute$ sh $EBROOTANACONDA3/etc/profile.d/conda.sh    #init conda
     [...]
-    modified      /home/marie/.bashrc
     ```
 
 This example shows how to start working with **conda** and virtual environment
@@ -143,7 +146,7 @@ directory for the conda virtual environment:
 ```console
 marie@compute$ ws_allocate -F scratch conda_virtual_environment 1
 Info: creating workspace.
-/scratch/ws/1/conda_virtual_environment
+/scratch/ws/1/marie-conda_virtual_environment
 [...]
 ```
 
@@ -152,8 +155,8 @@ environment:
 
 ```console
 marie@compute$ module load Anaconda3    #load Anaconda module
-marie@compute$ conda create --prefix /scratch/ws/1/conda_virtual_environment/conda-env python=3.6    #create virtual environment with Python version 3.6
-marie@compute$ conda activate /scratch/ws/1/conda_virtual_environment/conda-env    #activate conda-env virtual environment
+marie@compute$ conda create --prefix /scratch/ws/1/marie-conda_virtual_environment/conda-env python=3.6    #create virtual environment with Python version 3.6
+marie@compute$ conda activate /scratch/ws/1/marie-conda_virtual_environment/conda-env    #activate conda-env virtual environment
 ```
 
 Now you can work in this isolated environment, without interfering with other

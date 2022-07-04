@@ -251,8 +251,8 @@ Python virtualenv or conda environment.
 !!! note
     Please keep in mind that Python virtualenv is the preferred way to create a Python
     virtual environment.
-    For working with conda virtual environments, it may be necessary to configure your shell via
-    `conda init` as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
+    For working with conda virtual environments, it may be necessary to configure your shell
+    as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
 
 #### Python Virtualenv
 
@@ -291,6 +291,11 @@ Load the needed module depending on partition architecture:
     ```console
     marie@ml$ module load PythonAnaconda
     ```
+
+!!! hint
+    For working with conda virtual environments, it may be necessary to configure your shell as
+    described in
+    [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment).
 
 Continue with environment creation, package installation and kernel
 registration:

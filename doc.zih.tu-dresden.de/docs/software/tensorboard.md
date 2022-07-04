@@ -1,4 +1,4 @@
-# TensorBoard
+# Inspect Model Training with TensorBoard
 
 TensorBoard is a visualization toolkit for TensorFlow and offers a variety of functionalities such
 as presentation of loss and accuracy, visualization of the model graph or profiling of the
