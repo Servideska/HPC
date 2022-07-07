@@ -1,7 +1,7 @@
 # Project Request Form Jards
 
 This page describes the steps to fill the form on
-[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/).
+[https://projects.hpc.tu-dresden.de/](https://projects.hpc.tu-dresden.de/application/).
 
 Please be aware of, with the changeover to JARDS, the approval
 period lasts between 4 and 8 weeks. Except for trial projects and courses,
@@ -33,7 +33,7 @@ There are several steps for a project application ...
 Afterwards, the submitted application undergoes a technical and scientific
 review and you will be informed about the result in 1 to N work days.
 If a project is granted, you can use the project management portal
-[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/application/).
+[https://hpcprojekte.zih.tu-dresden.de/](https://hpcprojekte.zih.tu-dresden.de/managers/).
 
 All steps for an application are documented in detail below.
 
@@ -42,12 +42,11 @@ All steps for an application are documented in detail below.
 Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
 More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
 
-At ZIH, TU Dresden we have 3 different kinds of application
-for applying for HPC resources: NHR, Saxony and TUD/TIER3.
+At ZIH, TU Dresden we have two different kinds of application
+for applying for HPC resources: NHR and TUD/TIER3.
 
-- [NHR](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
-- [Saxony](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony)
-- [TUD/Tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
+- [NHR](https://projects.hpc.tu-dresden.de/application/login.php?appkind=nhr)
+- [TUD/Tier3](https://projects.hpc.tu-dresden.de/application/login.php?appkind=tier3)
 
 ![HPC Project Application][37]
 
@@ -68,29 +67,12 @@ for applying for HPC resources: NHR, Saxony and TUD/TIER3.
         * Performance and energy efficiency analysis and optimization
         * Further information can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
         If your research topic fits the above focus topics, the application kind 'NHR' is recommended.
+    * for all research projects not related to our focus topics but from universities in Saxony
     * for other focuses other NHR centers are available [https://www.nhr-gs.de/ueber-uns/nhr-verein](https://www.nhr-gs.de/ueber-uns/nhr-verein)
 
     Application Login:
 
-    * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=nhr)
-
-??? abstract "Saxony Application:"
-
-    #### Saxony
-
-    This application is:
-
-    * only applicable for researchers from universities in Saxony.
-    * If you are from Saxony and your project matches the NHR
-    focus topics mentioned above, then either application kind
-    is feasible and there are no differences for the resulting
-    project between the two. We recommend to choose the application kind "NHR".
-    * to apply at the NHR Center of the TU-Dresden for further focus topics
-    which are not covered by an NHR application
-
-    Application Login:
-
-    * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=saxony)
+    * [https://projects.hpc.tu-dresden.de/application/login.php?appkind=nhr](https://projects.hpc.tu-dresden.de/application/login.php?appkind=nhr)
 
 ??? abstract "TU Dresden (Tier 3) Application:"
 
@@ -104,7 +86,7 @@ for applying for HPC resources: NHR, Saxony and TUD/TIER3.
 
     Application Login:
 
-    * [https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3](https://hpcprojekte.zih.tu-dresden.de/application/login.php?appkind=tier3)
+    * [https://projects.hpc.tu-dresden.de/application/login.php?appkind=tier3](https://projects.hpc.tu-dresden.de/application/login.php?appkind=tier3)
 
 !!! hint "ScaDS.AI Application:"
 
