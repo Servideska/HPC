@@ -1,4 +1,4 @@
-# Modules
+# Environment Modules
 
 Usage of software on HPC systems is managed by a **modules system**.
 
