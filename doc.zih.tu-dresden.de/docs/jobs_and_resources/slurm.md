@@ -293,6 +293,7 @@ The command `squeue` will tell the reason, why a job is not running (job status 
 of the output). More information about job parameters can also be determined with `scontrol -d show
 job <jobid>`. The following table holds detailed descriptions of the possible job states:
 
+new line
 ??? tip "Reason Table"
 
     | Reason             | Long Description  |
