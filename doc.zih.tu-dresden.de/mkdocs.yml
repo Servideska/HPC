@@ -81,7 +81,7 @@ nav:
       - GPU Programming: software/gpu_programming.md
       - Mathematics Libraries: software/math_libraries.md
       - Debugging: software/debuggers.md
-    - Software Tools:
+    - Software Engineering Tools:
       - MPI Error Detection: software/mpi_usage_error_detection.md
       - Score-P: software/scorep.md
       - lo2s: software/lo2s.md
