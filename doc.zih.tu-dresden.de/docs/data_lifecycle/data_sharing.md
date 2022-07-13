@@ -16,8 +16,22 @@ persons from your project and also some persons outside of your project, but not
     `scratch` and `ssd`.
 
 The command `setfacl` is used manage access rights for workspaces. To view the current access
-rights, use the command `getfacl`.  The following commands are used to grant a user access to the
+rights, use the command `getfacl`. The following commands are used to grant a user access to the
 workspace.
+
+If you are unsure what your group/project is, you can use the following command to find out:
+
+```console
+marie@login$ id --group --name
+p_number_crunch
+```
+
+If you are in multiple projects, you could see all of them using `--groups` instead of `--group`:
+
+```console
+marie@login$ id --groups --name
+p_number_crunch
+```
 
 !!! example "Grant a user full access to the workspace folder"
 
@@ -44,11 +58,11 @@ workspace.
     marie@login$ setfacl --modify=g:<projectname>:rwx <path_to_workspace>
     ```
 
-    For example, if `marie` wants to give all colleagues in her project `p_number_crunch` access to
-    the workspace `input-data` she has created, she would use the following command:
+    For example, if `marie` wants to give all colleagues in `martin`'s project `p_long_computations`
+    access to the workspace `input-data` she has created, she would use the following command:
 
     ```console
-    marie@login$ setfacl --modify=g:p_number_crunch:rwx /scratch/ws/1/marie-input-data
+    marie@login$ setfacl --modify=g:p_long_computations:rwx /scratch/ws/1/marie-input-data
     ```
 
 !!! example "Inherit these same rights to all newly created files and folders"
