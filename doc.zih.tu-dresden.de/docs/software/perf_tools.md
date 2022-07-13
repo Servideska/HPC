@@ -1,20 +1,23 @@
-# Introduction
+# Perf Tools
 
-`perf` consists of two parts: the kernel space implementation and the userland tools. This wiki
-entry focusses on the latter. These tools are installed on ZIH systems, and others and provides
-support for sampling applications and reading performance counters.
+The Linux `perf` command provides support for sampling applications and reading performance
+counters. `perf` consists of two parts: the kernel space implementation and the userland tools.
+This compendium page focusses on the latter.
+
+For detailed information, please refer to the [perf
+documentation](https://perf.wiki.kernel.org/index.php/Main_Page) and the comprehensive
+[perf examples page](https://www.brendangregg.com/perf.html) of Brendan Gregg.
 
 ## Configuration
 
 Admins can change the behaviour of the perf tools kernel part via the
 following interfaces
 
-|                                             |                                                                                                                                   |
-|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | File Name                                   | Description                                                                                                                       |
-| `/proc/sys/kernel/perf_event_max_sample_rate` | describes the maximal sample rate for perf record and native access. This is used to limit the performance influence of sampling. |
-| `/proc/sys/kernel/perf_event_mlock_kb`        | defines the number of pages that can be used for sampling via perf record or the native interface                                 |
-| `/proc/sys/kernel/perf_event_paranoid`        | defines access rights:                                                                                                            |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `/proc/sys/kernel/perf_event_max_sample_rate` | Describes the maximal sample rate for perf record and native access. This is used to limit the performance influence of sampling. |
+| `/proc/sys/kernel/perf_event_mlock_kb`        | Defines the number of pages that can be used for sampling via perf record or the native interface                                 |
+| `/proc/sys/kernel/perf_event_paranoid`        | Defines access rights:                                                                                                            |
 |                                             | -1 - Not paranoid at all                                                                                                          |
 |                                             | 0 - Disallow raw tracepoint access for unpriv                                                                                     |
 |                                             | 1 - Disallow cpu events for unpriv                                                                                                |
@@ -31,9 +34,12 @@ performance data can provide hints on the internals of the application.
 ### For Users
 
 Run `perf stat <Your application>`. This will provide you with a general
-overview on some counters.
+overview on some counters. The following listing holds an exemplary output for sampling the `ls`
+command.
 
-```Bash
+```console
+marie@compute$ perf stat ls
+[...]
 Performance counter stats for 'ls':=
           2,524235 task-clock                #    0,352 CPUs utilized
                 15 context-switches          #    0,006 M/sec
@@ -51,7 +57,7 @@ Performance counter stats for 'ls':=
 
 - Generally speaking **task clock** tells you how parallel your job
   has been/how many cpus were used.
-- **[Context switches](http://en.wikipedia.org/wiki/Context_switch)**
+- [Context switches](http://en.wikipedia.org/wiki/Context_switch)
   are an information about how the scheduler treated the application.  Also interrupts cause context
   switches. Lower is better.
 - **CPU migrations** are an information on whether the scheduler moved
@@ -90,23 +96,26 @@ measures the performance counters for the whole computing node over one second.
 ## Perf Record
 
 `perf record` provides the possibility to sample an application or a system. You can find
-performance issues and hot parts of your code. By default perf record samples your program at a 4000
+performance issues and hot parts of your code. By default `perf record` samples your program at 4000
 Hz. It records CPU, Instruction Pointer and, if you specify it, the call chain. If your code runs
-long (or often) enough, you can find hot spots in your application and external libraries. Use
-**perf report** to evaluate the result. You should have debug symbols available, otherwise you won't
-be able to see the name of the functions that are responsible for your load. You can pass one or
-multiple events to define the **sampling event**.
+long (or often) enough, you can find hot spots in your application and external libraries.
+Use [perf report](#perf-report) to evaluate the result. You should have debug symbols available,
+otherwise you won't be able to see the name of the functions that are responsible for your load. You
+can pass one or multiple events to define the **sampling event**.
 
-**What is a sampling event?** Sampling reads values at a specific sampling frequency. This
-frequency is usually static and given in Hz, so you have for example 4000 events per second and a
-sampling frequency of 4000 Hz and a sampling rate of 250 microseconds. With the sampling event, the
-concept of a static sampling frequency in time is somewhat redefined. Instead of a constant factor
-in time (sampling rate) you define a constant factor in events. So instead of a sampling rate of 250
-microseconds, you have a sampling rate of 10,000 floating point operations.
+!!! note "What is a sampling event?"
 
-**Why would you need sampling events?** Passing an event allows you to find the functions
-that produce cache misses, floating point operations, ... Again, you can use events defined in `perf
-list` and raw events.
+    Sampling reads values at a specific sampling frequency. This frequency is usually static and
+    given in Hz, so you have for example 4000 events per second and a sampling frequency of 4000 Hz
+    and a sampling rate of 250 microseconds. With the sampling event, the concept of a static
+    sampling frequency in time is somewhat redefined. Instead of a constant factor in time (sampling
+    rate) you define a constant factor in events. So instead of a sampling rate of 250 microseconds,
+    you have a sampling rate of 10,000 floating point operations.
+
+!!! note "Why would you need sampling events?"
+
+    Passing an event allows you to find the functions that produce cache misses, floating point
+    operations, ... Again, you can use events defined in `perf list` and raw events.
 
 Use the `-g` flag to receive a call graph.
 
@@ -126,7 +135,7 @@ perf record -o perf.data.$SLURM_JOB_ID.$SLURM_PROCID $@
 ```
 
 To start the MPI program type `srun ./perfwrapper ./myapp` on your command line. The result will be
-n independent perf.data files that can be analyzed individually with perf report.
+n independent `perf.data` files that can be analyzed individually using `perf report`.
 
 ### For Admins
 
@@ -138,14 +147,18 @@ record -a -g` to monitor the whole node.
 
 `perf report` is a command line UI for evaluating the results from perf record. It creates something
 like a profile from the recorded samplings.  These profiles show you what the most used have been.
-If you added a callchain, it also gives you a callchain profile.\<br /> \*Disclaimer: Sampling is
-not an appropriate way to gain exact numbers. So this is merely a rough overview and not guaranteed
-to be absolutely correct.\*\<span style="font-size: 1em;"> \</span>
+If you added a callchain, it also gives you a callchain profile.
 
-### On ZIH systems
+!!! note "Disclaimer"
+
+    Sampling is not an appropriate way to gain exact numbers. So this is merely a rough overview and
+    not guaranteed to be absolutely correct.
+
+### On ZIH Systems
 
 On ZIH systems, users are not allowed to see the kernel functions. If you have multiple events
-defined, then the first thing you select in `perf report` is the type of event. Press right
+defined, then the first thing you select in `perf report` is the type of event. Press the right
+arrow key:
 
 ```Bash
 Available samples
@@ -153,12 +166,12 @@ Available samples
 11 cache-misse
 ```
 
-**Hints:**
+!!! hint
 
-* The more samples you have, the more exact is the profile. 96 or
-11 samples is not enough by far.
-* Repeat the measurement and set `-F 50000` to increase the sampling frequency.
-* The higher the frequency, the higher the influence on the measurement.
+    * The more samples you have, the more exact is the profile. 96 or
+    11 samples is not enough by far.
+    * Repeat the measurement and set `-F 50000` to increase the sampling frequency.
+    * The higher the frequency, the higher the influence on the measurement.
 
 If you'd select cycles, you would get such a screen:
 
@@ -172,7 +185,7 @@ Events: 96  cycles
 +   2,02%  test_gcc_perf  [kernel.kallsyms]  [k] 0xffffffff8102e9ea
 ```
 
-Increased sample frequency:
+With increased sample frequency, it might look like this:
 
 ```Bash
 Events: 7K cycles
@@ -198,16 +211,16 @@ Events: 7K cycles
 +   0,00%  test_gcc_perf  libc-2.12.so       [.] __execvpe
 ```
 
-Now you select the most often sampled function and zoom into it by pressing right. If debug symbols
-are not available, perf report will show which assembly instruction is hit most often when sampling.
-If debug symbols are available, it will also show you the source code lines for these assembly
-instructions. You can also go back and check which instruction caused the cache misses or whatever
-event you were passing to perf record.
+Now you select the most often sampled function and zoom into it by pressing the right arrow key. If
+debug symbols are not available, `perf report` will show which assembly instruction is hit most often
+when sampling. If debug symbols are available, it will also show you the source code lines for
+these assembly instructions. You can also go back and check which instruction caused the cache
+misses or whatever event you were passing to `perf record`.
 
 ## Perf Script
 
 If you need a trace of the sampled data, you can use `perf script` command, which by default prints
-all samples to stdout. You can use various interfaces (e.g., python) to process such a trace.
+all samples to stdout. You can use various interfaces (e.g., Python) to process such a trace.
 
 ## Perf Top
 

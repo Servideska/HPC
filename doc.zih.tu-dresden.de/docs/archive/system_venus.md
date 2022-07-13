@@ -1,4 +1,4 @@
-# SGI UV2000 / Venus
+# SGI UV2000 / Venus (Outdated)
 
 !!! warning
 
@@ -21,7 +21,7 @@ hyperthreads.
 
 ### Filesystems
 
-Venus uses the same `home` filesystem as all our other HPC installations.
+Venus uses the same home filesystem as all our other HPC installations.
 For computations, please use `/scratch`.
 
 ## Usage

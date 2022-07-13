@@ -16,3 +16,15 @@ There are several different ways to access ZIH systems depending on the intended
     Prerequisite for accessing ZIH systems is a HPC project and a login. Please refer to the pages
     within [Application for Login and Resources](../application/overview.md) for detailed
     information.
+
+For security reasons, ZIH systems are only accessible for hosts within the domains of TU Dresden.
+
+To access the ZIH systems from outside the campus networks it is recommended to set up a Virtual
+Private Network (VPN) connection to enter the campus network. While active, it allows the user
+to connect directly to the HPC login nodes.
+
+For more information on our VPN and how to set it up, please visit the corresponding
+[ZIH service catalog page](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn).
+
+The page [key fingerprints](key_fingerprints.md) holds the up-to-date fingerprints for the login
+nodes. Make sure they match.

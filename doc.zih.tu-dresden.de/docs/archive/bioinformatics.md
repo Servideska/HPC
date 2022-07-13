@@ -1,4 +1,4 @@
-# Bioinformatics
+# Bioinformatics (Outdated)
 
 !!! warning
 
@@ -6,10 +6,10 @@
 
 | Software                          | Module                                    |
 |-----------------------------------|-------------------------------------------|
-| **[Infernal](#Infernal)**         | infernal                                  |
-| **[OpenProspect](#OpenProspect)** | openprospect, openprospect/885-mpi        |
-| **[Phylip](#Phylip)**             | phylip                                    |
-| **[PhyML](#PhyML)**               | phyml/2.4.4, phyml/2.4.5-mpi, phyml/3.0.0 |
+| **[Infernal](#infernal)**         | infernal                                  |
+| **[OpenProspect](#openprospect)** | openprospect, openprospect/885-mpi        |
+| **[Phylip](#phylip)**             | phylip                                    |
+| **[PhyML](#phyml)**               | phyml/2.4.4, phyml/2.4.5-mpi, phyml/3.0.0 |
 
 ## Infernal
 

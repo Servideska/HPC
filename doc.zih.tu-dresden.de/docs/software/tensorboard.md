@@ -1,4 +1,4 @@
-# TensorBoard
+# Inspect Model Training with TensorBoard
 
 TensorBoard is a visualization toolkit for TensorFlow and offers a variety of functionalities such
 as presentation of loss and accuracy, visualization of the model graph or profiling of the
@@ -76,8 +76,13 @@ For accessing TensorBoard now, you have to set up some port forwarding via ssh t
 machine:
 
 ```console
-marie@local$ ssh -N -f -L 6006:taurusi8034.taurus.hrsk.tu-dresden.de:6006 <zih-login>@taurus.hrsk.tu-dresden.de
+marie@local$ ssh -N -f -L 6006:taurusi8034:6006 taurus
 ```
+
+!!! important "SSH command"
+
+    The previous SSH command requires that you have already set up your [SSH configuration
+    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 Now, you can see the TensorBoard in your browser at `http://localhost:6006/`.
 

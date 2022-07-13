@@ -6,7 +6,7 @@
 application. The ParaView package comprises different tools which are designed to meet interactive,
 batch and in-situ workflows.
 
-ParaView is available on ZIH systems from the [modules system](modules.md#modules-environment). The
+ParaView is available on ZIH systems from the [modules system](modules.md#module-environments). The
 following command lists the available versions
 
 ```console
@@ -38,9 +38,10 @@ parallel, if it was built using MPI.
     ```
 
 The resources for the MPI processes have to be allocated via the
-[batch system](../jobs_and_resources/slurm.md) option `-c NUM` (not `-n`, as it would be usually for
-MPI processes). It might be valuable in terms of runtime to bind/pin the MPI processes to hardware.
-A convenient option is `-bind-to core`. All other options can be obtained by
+[batch system](../jobs_and_resources/slurm.md) option `--cpus-per-task=<NUM>` (not `--ntasks=<NUM>`,
+as it would be usual for MPI processes). It might be valuable in terms of runtime to bind/pin the
+MPI processes to hardware.  A convenient option is `-bind-to core`. All other options can be
+obtained by
 
 ```console
 marie@login$ mpiexec -bind-to -help`
@@ -57,8 +58,8 @@ interactive allocation.
     ```Bash
     #!/bin/bash
 
-    #SBATCH -N 1
-    #SBATCH -c 12
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=12
     #SBATCH --time=01:00:00
 
     # Make sure to only use ParaView
@@ -71,7 +72,7 @@ interactive allocation.
 ??? example "Example of interactive allocation using `salloc`"
 
     ```console
-    marie@login$ salloc -N 1 -c 16 --time=01:00:00 bash
+    marie@login$ salloc --nodes=1 --cpus-per-task=16 --time=01:00:00 bash
     salloc: Pending job allocation 336202
     salloc: job 336202 queued and waiting for resources
     salloc: job 336202 has been allocated resources
@@ -102,8 +103,8 @@ cards (GPUs) specified by the device index. For that, make sure to use the modul
     ```Bash
     #!/bin/bash
 
-    #SBATCH -N 1
-    #SBATCH -c 12
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=12
     #SBATCH --gres=gpu:2
     #SBATCH --partition=gpu2
     #SBATCH --time=01:00:00
@@ -133,7 +134,7 @@ handling. First, you need to open a DCV session, so please follow the instructio
 virtual desktop session, then load the ParaView module as usual and start the GUI:
 
 ```console
-marie@dcv module load ParaView/5.7.0
+marie@dcv$ module load ParaView/5.7.0
 paraview
 ```
 
@@ -156,7 +157,7 @@ processes.
 
     ```console
     marie@login$ module ParaView/5.7.0-osmesa
-    marie@login$ srun -N1 -n8 --mem-per-cpu=2500 -p interactive --pty pvserver --force-offscreen-rendering
+    marie@login$ srun --nodes=1 --ntasks=8 --mem-per-cpu=2500 --partition=interactive --pty pvserver --force-offscreen-rendering
     srun: job 2744818 queued and waiting for resources
     srun: job 2744818 has been allocated resources
     Waiting for client...
@@ -166,7 +167,7 @@ processes.
 
 If the default port 11111 is already in use, an alternative port can be specified via `-sp=port`.
 *Once the resources are allocated, the pvserver is started in parallel and connection information
-are outputed.*
+are output.*
 
 This contains the node name which your job and server runs on. However, since the node names of the
 cluster are not present in the public domain name system (only cluster-internally), you cannot just
@@ -183,8 +184,13 @@ The SSH tunnel has to be created from the user's localhost. The following exampl
 forward SSH tunnel to localhost on port 22222 (or what ever port is preferred):
 
 ```console
-marie@local$ ssh -L 22222:172.24.140.229:11111 <zihlogin>@taurus.hrsk.tu-dresden.de
+marie@local$ ssh -L 22222:172.24.140.229:11111 taurus
 ```
+
+!!! important "SSH command"
+
+    The previous SSH command requires that you have already set up your
+    [SSH configuration](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 The final step is to start ParaView locally on your own machine and add the connection
 
@@ -206,7 +212,7 @@ filesystems.
 
 #### Caveats
 
-Connecting to the compute nodes will only work when you are **inside the TUD campus network**,
+Connecting to the compute nodes will only work when you are **inside the TU Dresden campus network**,
 because otherwise, the private networks 172.24.\* will not be routed. That's why you either need to
 use [VPN](https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn),
 or, when coming via the ZIH login gateway (`login1.zih.tu-dresden.de`), use an SSH tunnel. For the
@@ -234,15 +240,18 @@ it into thinking your provided GL rendering version is higher than what it actua
 
 ??? example
 
+    The following lines requires that you have already set up your
+    [SSH configuration](../access/ssh_login.md#configuring-default-parameters-for-ssh).
+
     ```console
     # 1st, connect to ZIH systems using X forwarding (-X).
     # It is a good idea to also enable compression for such connections (-C):
-    marie@local$ ssh -XC taurus.hrsk.tu-dresden.de
+    marie@local$ ssh -XC taurus
 
     # 2nd, load the ParaView module and override the GL version (if necessary):
     marie@login$ module Paraview/5.7.0
     marie@login$ export MESA_GL_VERSION_OVERRIDE=3.2
 
     # 3rd, start the ParaView GUI inside an interactive job. Don't forget the --x11 parameter for X forwarding:
-    marie@login$ srun -n1 -c1 -p interactive --mem-per-cpu=2500 --pty --x11=first paraview
+    marie@login$ srun --ntasks=1 --cpus-per-task=1 --partition=interactive --mem-per-cpu=2500 --pty --x11=first paraview
     ```

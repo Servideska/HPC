@@ -8,7 +8,9 @@
     ```console
     marie@login$ module avail ANSYS
     [...]
-    marie@login$ module load ANSYS/<version>
+    marie@login$ # module load ANSYS/<version>
+    marie@login$ # e.g.
+    marie@login$ module load ANSYS/2020R2
     ```
 
     The section [runtime environment](modules.md) provides a comprehensive overview
@@ -59,7 +61,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     #SBATCH --job-name=yyyy         # give a name, what ever you want
     #SBATCH --mail-type=END,FAIL    # send email when the job finished or failed
     #SBATCH --mail-user=<name>@mailbox.tu-dresden.de  # set your email
-    #SBATCH -A p_xxxxxxx            # charge compute time to your project
+    #SBATCH --account=p_number_crunch       # charge compute time to project p_number_crunch
 
 
     # Abaqus has its own MPI
@@ -75,7 +77,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     ```
     4. Control the status of the job
     ```
-    marie@login squeue -u your_login     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
+    marie@login squeue --me     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
     ```
 
 ## Ansys
@@ -105,7 +107,9 @@ all data via `-C`.
 
 ```console
 # SSH connection established using -CX
-marie@login$ module load ANSYS/<version>
+marie@login$ # module load ANSYS/<version>
+marie@login$ # e.g.
+marie@login$ module load ANSYS/2020R2
 marie@login$ runwb2
 ```
 
@@ -113,8 +117,10 @@ If more time is needed, a CPU has to be allocated like this (see
 [batch systems Slurm](../jobs_and_resources/slurm.md) for further information):
 
 ```console
-marie@login$ module load ANSYS/<version>
-marie@login$ srun -t 00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
+marie@login$ # module load ANSYS/<version>
+marie@login$ # e.g.
+marie@login$ module load ANSYS/2020R2
+marie@login$ srun --time=00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
 [...]
 marie@login$ runwb2
 ```
@@ -153,7 +159,9 @@ parameter (for batch mode), `-F` for your project file, and can then either add 
 
     unset SLURM_GTIDS              # Odd, but necessary!
 
-    module load ANSYS/<version>
+    # module load ANSYS/<version>
+    # e.g.
+    module load ANSYS ANSYS/2020R2
 
     runwb2 -B -F Workbench_Taurus.wbpj -E 'Project.Update' -E 'Save(Overwrite=True)'
     #or, if you wish to use a workbench replay file, replace the -E parameters with: -R mysteps.wbjn
@@ -162,7 +170,7 @@ parameter (for batch mode), `-F` for your project file, and can then either add 
 ### Running Workbench in Parallel
 
 Unfortunately, the number of CPU cores you wish to use cannot simply be given as a command line
-parameter to your `runwb2` call. Instead, you have to enter it into an XML file in your `home`
+parameter to your `runwb2` call. Instead, you have to enter it into an XML file in your home
 directory. This setting will then be **used for all** your `runwb2` jobs. While it is also possible
 to edit this setting via the Mechanical GUI, experience shows that this can be problematic via
 X11-forwarding and we only managed to use the GUI properly via [DCV](virtual_desktops.md), so we
@@ -208,7 +216,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun -n 1 -c 4 --mem-per-cpu=2500 -t 8:00 comsol -np 4 server
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=08:00:00 comsol -np 4 server
     ```
 
 ??? example "Interactive Job"
@@ -218,7 +226,7 @@ firewall of ZIH. For further information, please refer to the COMSOL manual.
 
     ```console
     marie@login$ module load COMSOL
-    marie@login$ srun -n 1 -c 4 --mem-per-cpu=2500 -t 8:00 --pty --x11=first comsol -np 4
+    marie@login$ srun --ntasks=1 --cpus-per-task=4 --mem-per-cpu=2500 --time=08:00:00 --pty --x11=first comsol -np 4
     ```
 
     Please make sure, that the option *Preferences* --> Graphics --> *Renedering* is set to *software
@@ -264,10 +272,10 @@ You need a job file (aka. batch script) to run the MPI version.
     srun mpp-dyna i=neon_refined01_30ms.k memory=120000000
     ```
 
-    Submit the job file to the batch system via
+    Submit the job file named `job.sh` to the batch system via
 
     ```console
-    marie@login$ sbatch <filename>
+    marie@login$ sbatch job.sh
     ```
 
     Please refer to the section [Slurm](../jobs_and_resources/slurm.md) for further details and

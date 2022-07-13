@@ -1,4 +1,4 @@
-# Lustre Filesystems
+# Lustre
 
 ## Large Files in /scratch
 

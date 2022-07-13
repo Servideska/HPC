@@ -1,4 +1,4 @@
-# Export Nodes: Transfer Data to/from ZIH's Filesystems
+# Export Nodes - Data Transfer to/from ZIH Systems
 
 To copy large data to/from ZIH systems, the so-called **export nodes** should be used. While it is
 possible to transfer small files directly via the login nodes, they are not intended to be used that
@@ -19,8 +19,8 @@ There are at least three tools to exchange data between your local workstation a
 are explained in the following section in more detail.
 
 !!! important
-    The following explanations require that you have already set up your [SSH configuration
-    ](../access/ssh_login.md#configuring-default-parameters-for-ssh).
+    The following explanations require that you have already set up your
+    [SSH configuration](../access/ssh_login.md#configuring-default-parameters-for-ssh).
 
 ### SCP
 
@@ -132,6 +132,14 @@ the local machine.
     ```
 
 ## Access From Windows
+
+### Command Line
+
+Windows 10 (1809 and higher) comes with a
+[built-in OpenSSH support](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview)
+including the above described [SCP](#scp) and [SFTP](#sftp).
+
+### GUI - Using WinSCP
 
 First you have to install [WinSCP](http://winscp.net/eng/download.php).
 

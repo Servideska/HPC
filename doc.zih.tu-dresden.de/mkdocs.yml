@@ -1,45 +1,62 @@
 nav:
   - Home: index.md
+  - Quick Start: quickstart/getting_started.md
   - Application for Login and Resources:
     - Overview: application/overview.md
-    - Terms: application/terms_of_use.md
+    - Terms of Use: application/terms_of_use.md
     - Request for Resources: application/request_for_resources.md
     - Project Request Form: application/project_request_form.md
     - Project Management: application/project_management.md
+    - Acknowledgement: application/acknowledgement.md
   - Access to ZIH Systems:
     - Overview: access/overview.md
-    - Connecting with SSH: access/ssh_login.md
-    - Desktop Visualization: access/desktop_cloud_visualization.md
+    - Connecting with SSH: 
+      - Connecting via terminal (Linux, Mac, Windows): access/ssh_login.md
+      - Connecting via MobaXterm (Windows): access/ssh_mobaxterm.md
+      - Connecting via Putty (Windows): access/ssh_putty.md
+    - Desktop Cloud Visualization (DCV): access/desktop_cloud_visualization.md
     - Graphical Applications with WebVNC: access/graphical_applications_with_webvnc.md
     - JupyterHub:
       - JupyterHub: access/jupyterhub.md
       - JupyterHub for Teaching: access/jupyterhub_for_teaching.md
+      - JupyterHub Teaching Example: access/jupyterhub_teaching_example.md
     - Key Fingerprints: access/key_fingerprints.md  
     - Security Restrictions: access/security_restrictions.md
-  - Transfer of Data:
+  - Data Transfer:
     - Overview: data_transfer/overview.md
     - Datamover: data_transfer/datamover.md
     - Export Nodes: data_transfer/export_nodes.md
-  - Environment and Software:
+  - Data Life Cycle Management:
+    - Overview: data_lifecycle/overview.md
+    - Filesystems:
+      - Overview: data_lifecycle/file_systems.md
+      - Permanent Filesystems: data_lifecycle/permanent.md
+      - Lustre: data_lifecycle/lustre.md
+      - BeeGFS: data_lifecycle/beegfs.md
+      - Warm Archive: data_lifecycle/warm_archive.md
+      - Intermediate Archive: data_lifecycle/intermediate_archive.md
+    - Workspaces: data_lifecycle/workspaces.md
+    - Long-Term Preservation: data_lifecycle/longterm_preservation.md
+    - Sharing Data: data_lifecycle/data_sharing.md
+  - User Environment:
     - Overview: software/overview.md
-    - Environment:
-      - Modules: software/modules.md
-      - Private Modulefiles: software/private_modules.md
-      - Custom EasyBuild Modules: software/custom_easy_build_environment.md
-      - Python Virtual Environments: software/python_virtual_environments.md
-      - ZSH: software/zsh.md
+    - Environment Modules: software/modules.md
+    - Private Modules: software/private_modules.md
+    - Software Installation with EasyBuild: software/custom_easy_build_environment.md
+    - Python Virtual Environments: software/python_virtual_environments.md
+    - ZSH as Alternative Shell: software/zsh.md
+  - Applications and Software:
     - Containers:
       - Singularity: software/containers.md
       - Singularity Recipes and Hints: software/singularity_recipe_hints.md
-      - Virtual Machines Tools: software/virtual_machines_tools.md
+      - Singularity for Power9: software/singularity_power9.md
       - Virtual Machines: software/virtual_machines.md
-      - NGC Containers: software/ngc_containers.md
-    - Applications:
-      - Licenses: software/licenses.md
-      - Computational Fluid Dynamics (CFD): software/cfd.md
-      - Mathematics: software/mathematics.md
-      - Nanoscale Simulations: software/nanoscale_simulations.md
-      - FEM Software: software/fem_software.md
+      - GPU-accelerated Containers for Deep Learning (NGC Containers): software/ngc_containers.md
+    - External Licenses: software/licenses.md
+    - Computational Fluid Dynamics (CFD): software/cfd.md
+    - Mathematics Applications: software/mathematics.md
+    - Nanoscale Simulations: software/nanoscale_simulations.md
+    - FEM Software: software/fem_software.md
     - Visualization: software/visualization.md
     - Data Analytics:
       - Overview: software/data_analytics.md
@@ -49,47 +66,36 @@ nav:
       - Big Data Analytics: software/big_data_frameworks.md
     - Machine Learning:
       - Overview: software/machine_learning.md
-      - TensorFlow: software/tensorflow.md
-      - TensorBoard: software/tensorboard.md
-      - PyTorch: software/pytorch.md
+      - Neural Networks with TensorFlow: software/tensorflow.md
+      - Inspect Model Training with TensorBoard: software/tensorboard.md
+      - Neural Networks with PyTorch: software/pytorch.md
       - Distributed Training: software/distributed_training.md
       - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
-      - PowerAI: software/power_ai.md
-    - SCS5 Migration Hints: software/scs5_software.md
+      - Machine Learning with PowerAI: software/power_ai.md
     - Virtual Desktops: software/virtual_desktops.md
-    - Software Development and Tools:
-      - Overview: software/software_development_overview.md
-      - Building Software: software/building_software.md
-      - Compilers: software/compilers.md
+  - Software Development and Tools:
+    - Overview: software/software_development_overview.md
+    - Building Software:
+      - Overview: software/building_software.md
+      - Compilers and Flags: software/compilers.md
       - GPU Programming: software/gpu_programming.md
-      - Libraries: software/math_libraries.md
+      - Mathematics Libraries: software/math_libraries.md
       - Debugging: software/debuggers.md
+    - Software Engineering Tools:
       - MPI Error Detection: software/mpi_usage_error_detection.md
       - Score-P: software/scorep.md
       - lo2s: software/lo2s.md
       - PAPI Library: software/papi.md
-      - Pika: software/pika.md
+      - PIKA: software/pika.md
       - Perf Tools: software/perf_tools.md
       - Vampir: software/vampir.md
-  - Data Life Cycle Management:
-    - Overview: data_lifecycle/overview.md
-    - Filesystems:
-      - Overview: data_lifecycle/file_systems.md
-      - Permanent File Systems: data_lifecycle/permanent.md
-      - Lustre: data_lifecycle/lustre.md
-      - BeeGFS: data_lifecycle/beegfs.md
-      - Warm Archive: data_lifecycle/warm_archive.md
-      - Intermediate Archive: data_lifecycle/intermediate_archive.md
-    - Workspaces: data_lifecycle/workspaces.md
-    - Preservation of Research Data: data_lifecycle/preservation_research_data.md
-    - Structuring Experiments: data_lifecycle/experiments.md
-    - Sharing Data: data_lifecycle/data_sharing.md
+      - Energy Measurement: software/energy_measurement.md
+    - Utilities: software/utilities.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
       - Overview: jobs_and_resources/hardware_overview.md
       - AMD Rome Nodes: jobs_and_resources/rome_nodes.md
-      - IBM Power9 Nodes: jobs_and_resources/power9.md
       - NVMe Storage: jobs_and_resources/nvme_storage.md
       - Alpha Centauri: jobs_and_resources/alpha_centauri.md
       - HPE Superdome Flex: jobs_and_resources/sd_flex.md
@@ -102,7 +108,7 @@ nav:
       - Binding And Distribution Of Tasks: jobs_and_resources/binding_and_distribution_of_tasks.md
   - Support:
     - How to Ask for Support: support/support.md
-  - Archive of the Old Wiki:
+  - Archive:
     - Overview: archive/overview.md
     - Bio Informatics: archive/bioinformatics.md
     - CXFS End of Support: archive/cxfs_end_of_support.md
@@ -123,14 +129,15 @@ nav:
       - System Triton: archive/system_triton.md
       - System Venus: archive/system_venus.md
       - KNL Nodes: archive/knl_nodes.md
+    - SCS5 Migration Hints: archive/scs5_software.md
     - UNICORE Rest API: archive/unicore_rest_api.md
     - VampirTrace: archive/vampirtrace.md
     - Windows Batchjobs: archive/windows_batch.md
   - Contribute:
-    - How-To: contrib/howto_contribute.md
+    - How-To Contribute: contrib/howto_contribute.md
     - Content Rules: contrib/content_rules.md
-    - Browser-based Editing: contrib/contribute_browser.md
-    - Work Locally Using Containers: contrib/contribute_container.md
+    - Contribute via Browser: contrib/contribute_browser.md
+    - Contribute via Local Clone: contrib/contribute_container.md
     
 # Project Information
 
@@ -138,7 +145,7 @@ site_name: ZIH HPC Compendium
 site_description: ZIH HPC Compendium
 site_author: ZIH Team
 site_dir: public
-site_url: https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium
+site_url: https://doc.zih.tu-dresden.de/
 
 # uncomment next 3 lines if link to repo should not be displayed in the navbar
 
@@ -170,28 +177,65 @@ theme:
 
   logo: assets/images/TUD_Logo_weiss_57.png
   second_logo: assets/images/zih_weiss.png
-
-# extends base css
-
+  features:
+    - navigation.instant
+    
+# extends base css/js
 extra_css:
 
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/mermaid.min.js
+
 markdown_extensions:
     - admonition
     - pymdownx.details
-    - pymdownx.superfences
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
     - pymdownx.highlight
     - toc:
         permalink: True
     - attr_list
     - footnotes
     - pymdownx.tabbed:
-        alternate_style: true
+        alternate_style: True
+
+          #  - mkdocs-video
+
+plugins:
+  - search
+  - markdown-caption
+  # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
+  - htmlproofer:
+      # True by default
+      # Toggle via env. var. ENABLED_HTMLPROOFER=false
+      enabled: !ENV [ENABLED_HTMLPROOFER, True]
+      # Check URLs before serving. Build fails in case of bad URLs.
+      raise_error: True
+      # Ignore errors
+      #raise_error_excludes:
+      #  504: ['https://www.mkdocs.org/']
+      # Toggle validating external URLs
+      validate_external_urls: False
+      # Validate the entire rendered template, slow!
+      validate_rendered_template: True
+
+# Enable cross-page anchor validation
+# https://www.mkdocs.org/user-guide/configuration/#use_directory_urls
+# True by default. But: explicit is better than implicit.
+use_directory_urls: True
 
 extra:
-  homepage: https://tu-dresden.de
+  tud_homepage: https://tu-dresden.de
+  tud_name: "TU Dresden"
+  # second logo
   zih_homepage: https://tu-dresden.de/zih
+  zih_name: "center for information services and high performance computing (ZIH)"
   hpcsupport_mail: hpcsupport@zih.tu-dresden.de
 
   # links in footer
@@ -205,3 +249,4 @@ extra:
       name: "Data Protection Declaration / Datenschutzerklärung"
     - link: https://tu-dresden.de/zertifikate
       name: "Certificates"
+

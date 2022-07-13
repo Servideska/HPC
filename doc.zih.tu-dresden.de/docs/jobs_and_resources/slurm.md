@@ -2,9 +2,31 @@
 
 When logging in to ZIH systems, you are placed on a login node. There, you can manage your
 [data life cycle](../data_lifecycle/overview.md),
-[setup experiments](../data_lifecycle/experiments.md), and
+setup experiments, and
 edit and prepare jobs. The login nodes are not suited for computational work! From the login nodes,
 you can interact with the batch system, e.g., submit and monitor your jobs.
+
+A typical workflow would look like this:
+
+```mermaid
+sequenceDiagram
+    user ->>+ login node: run programm
+    login node ->> login node: kill after 5 min
+    login node ->>- user: Killed!
+    user ->> login node: salloc [...]
+    login node ->> Slurm: Request resources
+    Slurm ->> user: resources
+    user ->>+ allocated resources: srun [options] [command]
+    allocated resources ->> allocated resources: run command (on allocated nodes)
+    allocated resources ->>- user: program finished
+    user ->>+ allocated resources: srun [options] [further_command]
+    allocated resources ->> allocated resources: run further command
+    allocated resources ->>- user: program finished
+    user ->>+ allocated resources: srun [options] [further_command]
+    allocated resources ->> allocated resources: run further command
+    Slurm ->> allocated resources: Job limit reached/exceeded
+    allocated resources ->>- user: Job limit reached
+```
 
 ??? note "Batch System"
 
@@ -261,10 +283,15 @@ provide a comprehensive collection of job examples.
 
 ### Job and Slurm Monitoring
 
-On the command line, use `squeue` to watch the scheduling queue. This command will tell the reason,
-why a job is not running (job status in the last column of the output). More information about job
-parameters can also be determined with `scontrol -d show job <jobid>`. The following table holds
-detailed descriptions of the possible job states:
+On the command line, use `squeue` to watch the scheduling queue.
+
+!!! tip "Show your jobs"
+
+    Invoke `squeue --me` to list only your jobs.
+
+The command `squeue` will tell the reason, why a job is not running (job status in the last column
+of the output). More information about job parameters can also be determined with `scontrol -d show
+job <jobid>`. The following table holds detailed descriptions of the possible job states:
 
 ??? tip "Reason Table"
 
@@ -376,13 +403,13 @@ If you want to use your reservation, you have to add the parameter
 
 ## Node Features for Selective Job Submission
 
-The nodes in our HPC system are becoming more diverse in multiple aspects: hardware, mounted
-storage, software. The system administrators can describe the set of properties and it is up to the
-user to specify her/his requirements. These features should be thought of as changing over time
+The nodes in our HPC system are becoming more diverse in multiple aspects, e.g, hardware, mounted
+storage, software. The system administrators can describe the set of properties and it is up to you
+as user to specify the requirements. These features should be thought of as changing over time
 (e.g., a filesystem get stuck on a certain node).
 
-A feature can be used with the Slurm option `--constrain` or `-C` like
-`srun -C fs_lustre_scratch2 ...` with `srun` or `sbatch`. Combinations like
+A feature can be used with the Slurm option `-C, --constraint=<ARG>` like
+`srun --constraint=fs_lustre_scratch2 ...` with `srun` or `sbatch`. Combinations like
 `--constraint="fs_beegfs_global0`are allowed. For a detailed description of the possible
 constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com/srun.html).
 
@@ -401,13 +428,13 @@ constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com
 A feature `fs_*` is active if a certain filesystem is mounted and available on a node. Access to
 these filesystems are tested every few minutes on each node and the Slurm features set accordingly.
 
-| Feature            | Description                                                          |
-|:-------------------|:---------------------------------------------------------------------|
-| `fs_lustre_scratch2` | `/scratch` mounted read-write (mount point is `/lustre/scratch2`)  |
-| `fs_lustre_ssd`      | `/ssd` mounted read-write (mount point is `/lustre/ssd`)           |
-| `fs_warm_archive_ws` | `/warm_archive/ws` mounted read-only                               |
-| `fs_beegfs_global0`  | `/beegfs/global0` mounted read-write                               |
-| `fs_beegfs`          | `/beegfs` mounted read-write                                       |
+| Feature              | Description                                                        | [Workspace Name](../data_lifecycle/workspaces.md#extension-of-a-workspace) |
+|:---------------------|:-------------------------------------------------------------------|:---------------------------------------------------------------------------|
+| `fs_lustre_scratch2` | `/scratch` mounted read-write (mount point is `/lustre/scratch2`)  | `scratch`                                                                  |
+| `fs_lustre_ssd`      | `/ssd` mounted read-write (mount point is `/lustre/ssd`)           | `ssd`                                                                      |
+| `fs_warm_archive_ws` | `/warm_archive/ws` mounted read-only                               | `warm_archive`                                                             |
+| `fs_beegfs_global0`  | `/beegfs/global0` mounted read-write                               | `beegfs_global0`                                                           |
+| `fs_beegfs`          | `/beegfs` mounted read-write                                       | `beegfs`                                                                   |
 
 For certain projects, specific filesystems are provided. For those,
 additional features are available, like `fs_beegfs_<projectname>`.

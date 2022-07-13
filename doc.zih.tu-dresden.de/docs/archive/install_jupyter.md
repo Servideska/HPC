@@ -1,4 +1,4 @@
-# Jupyter Installation
+# Jupyter Installation (Outdated)
 
 !!! warning
 
@@ -59,6 +59,10 @@ marie@compute$ ./Anaconda3-2019.03-Linux-x86_64.sh
 ```
 
 (during installation you have to confirm the license agreement)
+
+!!! hint
+    For working with conda virtual environments, it may be necessary to configure your shell via
+    `conda init` as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
 
 Next step will install the anaconda environment into the home
 directory (`/home/userxx/anaconda3`). Create a new anaconda environment with the name `jnb`.
@@ -144,7 +148,7 @@ c.NotebookApp.allow_remote_access = True
 #SBATCH --time=02:30:00
 #SBATCH --mem=4000M
 #SBATCH -J "jupyter-notebook" # job-name
-#SBATCH -A p_marie
+#SBATCH -A p_number_crunch
 
 unset XDG_RUNTIME_DIR   # might be required when interactive instead of sbatch to avoid 'Permission denied error'
 srun jupyter notebook

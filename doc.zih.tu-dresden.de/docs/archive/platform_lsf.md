@@ -1,4 +1,4 @@
-# Platform LSF
+# Platform LSF (Outdated)
 
 !!! warning
     This Page is deprecated!

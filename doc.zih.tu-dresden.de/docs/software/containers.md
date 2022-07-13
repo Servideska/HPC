@@ -1,4 +1,4 @@
-# Use of Containers
+# Singularity
 
 [Containerization](https://www.ibm.com/cloud/learn/containerization) encapsulating or packaging up
 software code and all its dependencies to run uniformly and consistently on any infrastructure. On
@@ -15,11 +15,11 @@ systems cannot be granted root permissions. A solution is a Virtual Machine (VM)
 `ml` which allows users to gain root permissions in an isolated environment. There are two main
 options on how to work with Virtual Machines on ZIH systems:
 
-1. [VM tools](virtual_machines_tools.md): Automated algorithms for using virtual machines;
+1. [VM tools](singularity_power9.md): Automated algorithms for using virtual machines;
 1. [Manual method](virtual_machines.md): It requires more operations but gives you more flexibility
    and reliability.
 
-## Singularity
+## Usage of Singularity
 
 If you wish to containerize your workflow and/or applications, you can use Singularity containers on
 ZIH systems. As opposed to Docker, this solution is much more suited to being used in an HPC
@@ -33,7 +33,7 @@ environment.
 However, new containers can be created on your local workstation and moved to ZIH systems for
 execution. Follow the instructions for [locally installing Singularity](#local-installation) and
 [container creation](#container-creation). Moreover, existing Docker container can easily be
-converted, see [Import a docker container](#importing-a-docker-container).
+converted, see [Import a docker container](#import-a-docker-container).
 
 If you are already familiar with Singularity, you might be more interested in our [singularity
 recipes and hints](singularity_recipe_hints.md).
@@ -46,7 +46,7 @@ instructions from the official documentation to install Singularity.
 1. Check if `go` is installed by executing `go version`.  If it is **not**:
 
     ```console
-    marie@local$ wget <https://storage.googleapis.com/golang/getgo/installer_linux> && chmod +x
+    marie@local$ wget 'https://storage.googleapis.com/golang/getgo/installer_linux' && chmod +x
     installer_linux && ./installer_linux && source $HOME/.bash_profile
     ```
 
@@ -88,7 +88,9 @@ instructions from the official documentation to install Singularity.
 There are two possibilities:
 
 1. Create a new container on your local workstation (where you have the necessary privileges), and
-   then copy the container file to ZIH systems for execution.
+   then copy the container file to ZIH systems for execution. Therefore you also have to install
+   [Singularity](https://sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps)
+   on your local workstation.
 1. You can, however, import an existing container from, e.g., Docker.
 
 Both methods are outlined in the following.
@@ -101,12 +103,13 @@ You can create a new custom container on your workstation, if you have root righ
 
     You cannot create containers for the partition `ml`, as it bases on Power9 micro-architecture
     which is different to the x86 architecture in common computers/laptops. For that you can use
-    the [VM Tools](virtual_machines_tools.md).
+    the [VM Tools](singularity_power9.md).
 
-Creating a container is done by writing a **definition file** and passing it to
+Creating a container is done by writing a definition file, such as `myDefinition.def`, and passing
+it to `singularity` via
 
 ```console
-marie@local$ singularity build myContainer.sif <myDefinition.def>
+marie@local$ singularity build myContainer.sif myDefinition.def
 ```
 
 A definition file contains a bootstrap
@@ -167,7 +170,7 @@ https://github.com/singularityware/singularity/tree/master/examples.
 You can import an image directly from the Docker repository (Docker Hub):
 
 ```console
-marie@local$ singularity build my-container.sif docker://ubuntu:latest
+marie@login$ singularity build my-container.sif docker://ubuntu:latest
 ```
 
 Creating a singularity container directly from a local docker image is possible but not
@@ -175,20 +178,20 @@ recommended. The steps are:
 
 ```console
 # Start a docker registry
-$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
+marie@local$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 # Push local docker container to it
-$ docker tag alpine localhost:5000/alpine
-$ docker push localhost:5000/alpine
+marie@local$ docker tag alpine localhost:5000/alpine
+marie@local$ docker push localhost:5000/alpine
 
 # Create def file for singularity like this...
-$ cat example.def
+marie@local$ cat example.def
 Bootstrap: docker
 Registry: <a href="http://localhost:5000" rel="nofollow" target="_blank">http://localhost:5000</a>
 From: alpine
 
 # Build singularity container
-$ singularity build --nohttps alpine.sif example.def
+marie@local$ singularity build --nohttps alpine.sif example.def
 ```
 
 #### Start from a Dockerfile
@@ -284,7 +287,7 @@ While the `shell` command can be useful for tests and setup, you can also launch
 inside the container directly using "exec":
 
 ```console
-marie@login$ singularity exec my-container.img /opt/myapplication/bin/run_myapp
+marie@login$ singularity exec my-container.sif /opt/myapplication/bin/run_myapp
 ```
 
 This can be useful if you wish to create a wrapper script that transparently calls a containerized
@@ -299,7 +302,7 @@ if [ "z$X" = "z" ] ; then
   exit 1
 fi
 
-singularity exec /scratch/p_myproject/my-container.sif /opt/myapplication/run_myapp "$@"
+singularity exec /projects/p_number_crunch/my-container.sif /opt/myapplication/run_myapp "$@"
 ```
 
 The better approach is to use `singularity run`, which executes whatever was set in the `%runscript`
@@ -325,20 +328,20 @@ singularity build my-container.sif example.def
 Then you can run your application via
 
 ```console
-singularity run my-container.sif first_arg 2nd_arg
+marie@login$ singularity run my-container.sif first_arg 2nd_arg
 ```
 
 Alternatively you can execute the container directly which is equivalent:
 
 ```console
-./my-container.sif first_arg 2nd_arg
+marie@login$ ./my-container.sif first_arg 2nd_arg
 ```
 
 With this you can even masquerade an application with a singularity container as if it was an actual
 program by naming the container just like the binary:
 
 ```console
-mv my-container.sif myCoolAp
+marie@login$ mv my-container.sif myCoolAp
 ```
 
 ### Use-Cases

@@ -1,4 +1,4 @@
-# R for Data Analytics
+# Data Analytics with R
 
 [R](https://www.r-project.org/about.html) is a programming language and environment for statistical
 computing and graphics. It provides a wide variety of statistical (linear and nonlinear modeling,
@@ -63,7 +63,8 @@ marie@compute$ R -e 'install.packages("ggplot2")'
 ## Deep Learning with R
 
 The deep learning frameworks perform extremely fast when run on accelerators such as GPU.
-Therefore, using nodes with built-in GPUs, e.g., partitions [ml](../jobs_and_resources/power9.md)
+Therefore, using nodes with built-in GPUs, e.g., partitions
+[ml](../jobs_and_resources/hardware_overview.md)
 and [alpha](../jobs_and_resources/alpha_centauri.md), is beneficial for the examples here.
 
 ### R Interface to TensorFlow
@@ -259,7 +260,7 @@ is limited to the number of cores on a single node. The maximum number of cores 
 be found in our [hardware documentation](../jobs_and_resources/hardware_overview.md).
 
 Submitting a multicore R job to Slurm is very similar to submitting an
-[OpenMP Job](../jobs_and_resources/slurm.md#binding-and-distribution-of-tasks),
+[OpenMP Job](../jobs_and_resources/binding_and_distribution_of_tasks.md),
 since both are running multicore jobs on a **single** node. Below is an example:
 
 ```Bash
@@ -268,8 +269,8 @@ since both are running multicore jobs on a **single** node. Below is an example:
 #SBATCH --tasks-per-node=1
 #SBATCH --cpus-per-task=16
 #SBATCH --time=00:10:00
-#SBATCH -o test_Rmpi.out
-#SBATCH -e test_Rmpi.err
+#SBATCH --output=test_Rmpi.out
+#SBATCH --error=test_Rmpi.err
 
 module purge
 module load modenv/scs5
@@ -291,7 +292,7 @@ This way of the R parallelism uses the
 [Rmpi](http://cran.r-project.org/web/packages/Rmpi/index.html) package and the
 [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) (Message Passing Interface) as a
 "back-end" for its parallel operations. The MPI-based job in R is very similar to submitting an
-[MPI Job](../jobs_and_resources/slurm.md#binding-and-distribution-of-tasks) since both are running
+[MPI Job](../jobs_and_resources/binding_and_distribution_of_tasks.md) since both are running
 multicore jobs on multiple nodes. Below is an example of running R script with the Rmpi on the ZIH
 system:
 

@@ -49,7 +49,7 @@ make it easier to utilize DMTCP together with Slurm.
 ## Using w.r.t. Chain Jobs
 
 For long-running jobs that you wish to split into multiple shorter jobs
-([chain jobs](../jobs_and_resources/slurm.md#chain-jobs)), thereby enabling the job scheduler to
+([chain jobs](slurm_examples.md#chain-jobs)), thereby enabling the job scheduler to
 fill the cluster much more efficiently and also providing some level of fault-tolerance, we have
 written a script that automatically creates a number of jobs for your desired runtime and adds the
 checkpoint/restart bits transparently to your batch script. You just have to specify the targeted
@@ -63,9 +63,13 @@ To use it, first add a `dmtcp_launch` before your application call in your batch
 of MPI applications, you have to add the parameters `--ib --rm` and put it between `srun` and your
 application call, e.g.:
 
-```bash
-srun dmtcp_launch --ib --rm ./my-mpi-application
-```
+???+ example "Example my-dmtcp-script.sbatch"
+
+    ```bash
+    [...]
+
+    srun dmtcp_launch --ib --rm ./my-mpi-application
+    ```
 
 !!! note
 
@@ -79,7 +83,7 @@ Then just substitute your usual `sbatch` call with `dmtcp_sbatch` and be sure to
 and `-i` parameters (don't forget you need to have loaded the `dmtcp` module).
 
 ```console
-marie@login$ dmtcp_sbatch --time 2-00:00:00 --interval 28000,800 my_batchfile.sh
+marie@login$ dmtcp_sbatch --time 2-00:00:00 --interval 28000,800 my-dmtcp-script.sbatch
 ```
 
 With `-t, --time` you set the total runtime of your calculations. This will be replaced in the batch
@@ -174,7 +178,7 @@ original job. If you do not wish to create another checkpoint in your
 restarted run again, you can omit the `-i` and `--exit-after-ckpt`
 parameters this time. Afterwards, the application must be run using the
 restart script, specifying the host and port of the coordinator (they
-have been exported by the start_coordinator function).
+have been exported by the `start_coordinator` function).
 
 ???+ example
 

@@ -1,4 +1,4 @@
-# TensorFlow
+# Neural Networks with TensorFlow
 
 [TensorFlow](https://www.tensorflow.org) is a free end-to-end open-source software library for data
 flow and differentiable programming across many tasks. It is a symbolic math library, used primarily
@@ -96,7 +96,7 @@ the notebook by pre-loading a specific TensorFlow module:
 
     You can also define your own Jupyter kernel for more specific tasks. Please read about Jupyter
     kernels and virtual environments in our
-    [JupyterHub](../access/jupyterhub.md#creating-and-using-your-own-environment) documentation.
+    [JupyterHub](../access/jupyterhub.md#creating-and-using-a-custom-environment) documentation.
 
 ## TensorFlow in Containers
 
@@ -113,6 +113,10 @@ Singularity>$ source activate /opt/anaconda3    #activate conda environment
 Basic test of tensorflow - A Hello World!!!...
 [...]
 ```
+
+!!! hint
+    In the above example, we create a conda virtual environment. To use conda, it is be necessary to
+    configure your shell as described in [Python virtual environments](python_virtual_environments.md#conda-virtual-environment)
 
 ## TensorFlow with Python or R
 
@@ -132,7 +136,7 @@ changing default values for parameters. Thus in some cases, it makes code writte
 1.X not compatible with TensorFlow 2.X. However, If you are using the high-level APIs (`tf.keras`)
 there may be little or no action you need to take to make your code fully
 [TensorFlow 2.0](https://www.tensorflow.org/guide/migrate) compatible. It is still possible to
-run 1.X code, unmodified (except for contrib), in TensorFlow 2.0:
+run 1.X code, unmodified (except for `contrib`), in TensorFlow 2.0:
 
 ```python
 import tensorflow.compat.v1 as tf

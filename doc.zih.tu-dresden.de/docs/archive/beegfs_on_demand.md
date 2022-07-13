@@ -1,4 +1,4 @@
-# BeeGFS Filesystem
+# BeeGFS Filesystem (Outdated)
 
 !!! warning
 
@@ -105,7 +105,7 @@ Show contents of the previously created file, for example,
 cat .beegfs_11054579
 ```
 
-Note: don't forget to go over to your `home` directory where the file located
+Note: don't forget to go over to your home directory where the file located
 
 Example output:
 

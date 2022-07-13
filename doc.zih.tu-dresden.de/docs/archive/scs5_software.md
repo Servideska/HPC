@@ -1,9 +1,13 @@
-# SCS5 Migration Hints
+# SCS5 Migration Hints (Outdated)
+
+!!! warning
+
+    This page is outdated!
 
 Bull's new cluster software is called SCS 5 (*Super Computing Suite*).
 Here are the major changes from the user's perspective:
 
-| software                        | old    | new      |
+| Software                        | Old    | New      |
 |:--------------------------------|:-------|:---------|
 | Red Hat Enterprise Linux (RHEL) | 6.x    | 7.x      |
 | Linux kernel                    | 2.26   | 3.10     |
@@ -20,9 +24,10 @@ remove it and accept the new one after comparing its fingerprint with those list
 
 ## Using Software Modules
 
-Starting with SCS5, we only provide
-[Lmod](../software/modules.md#lmod-an-alternative-module-implementation) as the
-environment module tool of choice.
+Starting with SCS5, we do not support [C environment modules](http://modules.sourceforge.net/)
+anymore. We only provide [Lmod](http://lmod.readthedocs.io/en/latest/index.html) as the environment
+module tool of choice. Refer to the [module page](../software/modules.md) for further information on
+modules.
 
 As usual, you can get a list of the available software modules via:
 
@@ -35,11 +40,11 @@ ml av
 There is a special module that is always loaded (sticky) called
 **modenv**. It determines the module environment you can see.
 
-|                |                                                 |         |
-|----------------|-------------------------------------------------|---------|
-| modenv/scs5    | SCS5 software                                   | default |
-| modenv/ml      | software for data analytics (partition ml)      |         |
-| modenv/classic | Manually built pre-SCS5 (AE4.0) software        | hidden  |
+| Module Environment | Description                                 | Status  |
+|--------------------|---------------------------------------------|---------|
+| `modenv/scs5`      | SCS5 software                               | default |
+| `modenv/ml`        | Software for data analytics (partition ml)  |         |
+| `modenv/classic`   | Manually built pre-SCS5 (AE4.0) software    | hidden  |
 
 The old modules (pre-SCS5) are still available after loading the
 corresponding **modenv** version (**classic**), however, due to changes
@@ -49,7 +54,7 @@ still work under SCS5. That's why those modenv versions are hidden.
 Example:
 
 ```Bash
-$ ml modenv/classic ansys/19.0
+marie@compute$ ml modenv/classic ansys/19.0
 
 The following have been reloaded with a version change:
   1) modenv/scs5 => modenv/classic
@@ -90,31 +95,28 @@ than you will be used to, coming from modenv/classic. A full toolchain, like "in
 
 For instance, the "intel" toolchain has the following structure:
 
-|              |            |
+| Toolchain    | `intel`    |
 |--------------|------------|
-| toolchain    | intel      |
-| compilers    | icc, ifort |
-| mpi library  | impi       |
-| math library | imkl       |
+| Compilers    | icc, ifort |
+| MPI library  | impi       |
+| Math. library | imkl       |
 
 On the other hand, the "foss" toolchain looks like this:
 
-|                |                     |
+| Toolchain      | `foss`              |
 |----------------|---------------------|
-| toolchain      | foss                |
-| compilers      | GCC (gcc, gfortran) |
-| mpi library    | OpenMPI             |
-| math libraries | OpenBLAS, FFTW      |
+| Compilers      | GCC (gcc, gfortran) |
+| MPI library    | OpenMPI             |
+| Math. libraries | OpenBLAS, FFTW      |
 
 If you want to combine the Intel compilers and MKL with OpenMPI, you'd have to use the "iomkl"
 toolchain:
 
-|              |            |
+| Toolchain    | `iomkl`    |
 |--------------|------------|
-| toolchain    | iomkl      |
-| compilers    | icc, ifort |
-| mpi library  | OpenMPI    |
-| math library | imkl       |
+| Compilers    | icc, ifort |
+| MPI library  | OpenMPI    |
+| Math library | imkl       |
 
 There are also subtoolchains that skip a layer or two, e.g. "iccifort" only consists of the
 respective compilers, same as "GCC". Then there is "iompi" that includes Intel compilers+OpenMPI but
@@ -145,7 +147,7 @@ Since "intel" is only a toolchain module now, it does not include the entire Par
 anymore. Tools like the Intel Advisor, Inspector, Trace Analyzer or VTune Amplifier are available as
 separate modules now:
 
-| product               | module    |
+| Product               | Module    |
 |:----------------------|:----------|
 | Intel Advisor         | Advisor   |
 | Intel Inspector       | Inspector |

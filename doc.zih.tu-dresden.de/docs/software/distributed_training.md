@@ -128,10 +128,10 @@ Each worker runs the training loop independently.
     module load modenv/hiera GCC/10.2.0 CUDA/11.1.1 OpenMPI/4.0.5 TensorFlow/2.4.1
 
     # On the first node
-    TF_CONFIG='{"cluster": {"worker": ["'"${NODE_1}"':33562", "'"${NODE_2}"':33561"]}, "task": {"index": 0, "type": "worker"}}' srun -w ${NODE_1} -N 1 --ntasks=1 --gres=gpu:1 python main_ddl.py &
+    TF_CONFIG='{"cluster": {"worker": ["'"${NODE_1}"':33562", "'"${NODE_2}"':33561"]}, "task": {"index": 0, "type": "worker"}}' srun --nodelist=${NODE_1} --nodes=1 --ntasks=1 --gres=gpu:1 python main_ddl.py &
 
     # On the second node
-    TF_CONFIG='{"cluster": {"worker": ["'"${NODE_1}"':33562", "'"${NODE_2}"':33561"]}, "task": {"index": 1, "type": "worker"}}' srun -w ${NODE_2} -N 1 --ntasks=1 --gres=gpu:1 python main_ddl.py &
+    TF_CONFIG='{"cluster": {"worker": ["'"${NODE_1}"':33562", "'"${NODE_2}"':33561"]}, "task": {"index": 1, "type": "worker"}}' srun --nodelist=${NODE_2} --nodes=1 --ntasks=1 --gres=gpu:1 python main_ddl.py &
 
     wait
     ```
@@ -177,8 +177,8 @@ It is recommended to use
 [DistributedDataParallel](https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html),
 instead of this class, to do multi-GPU training, even if there is only a single node.
 See: Use `nn.parallel.DistributedDataParallel` instead of multiprocessing or `nn.DataParallel`.
-Check the [page](https://pytorch.org/docs/stable/notes/cuda.html#cuda-nn-ddp-instead) and
-[Distributed Data Parallel](https://pytorch.org/docs/stable/notes/ddp.html#ddp).
+Check the [PyTorch CUDA page](https://pytorch.org/docs/stable/notes/cuda.html#cuda-nn-ddp-instead)
+and [Distributed Data Parallel](https://pytorch.org/docs/stable/notes/ddp.html#ddp).
 
 ??? example "Parallel Model"
 
