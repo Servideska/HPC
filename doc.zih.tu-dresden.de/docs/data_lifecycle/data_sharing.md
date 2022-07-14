@@ -35,10 +35,10 @@ dr-xr-----   2 marie    p_number_crunch   4096 27. Jun 17:13 data-file
 dr-xr-x---   2 marie    p_number_crunch   4096 28. Jun 09:45 env.sh
 ```
 
-!!! danger "New file inherits group and permission of the creator"
+!!! danger "New file inherits group and permissions of the creator"
 
     When a user creates a file, the created file is associated to that user and inherits the user's
-    default group. If the user is in multiple groups/projects, he/she has to ensure, that the a new
+    default group. If the user is in multiple groups/projects, he/she has to ensure, that the new
     file is associated with the project's group. This can be done using `chown` and `chmod` as shown
     above. Another possibility is to use an environment file `env.sh` with the following content:
 
@@ -129,7 +129,7 @@ p_number_crunch
 If you already have files inside your workspace, remember to use the `-R` or `--recursive` options
 to apply these ACL changes to all files.
 
-!!! example "Remove the access rights for a particular user"
+!!! example "Remove access rights for a particular user"
 
     If you want to remove a user's access then use:
 
