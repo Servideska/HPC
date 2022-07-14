@@ -23,16 +23,16 @@ group. Thus, `marie` has to make the directory searchable by using `chmod`:
 
 ```console
 marie@login$ ls -la /scratch/ws/1/marie-input-data
-dr-xr-----   4 marie    p_number_crunch   4096 27. Jun 17:13 .
+drwxr-----   4 marie    p_number_crunch   4096 27. Jun 17:13 .
 drwxr-xr-x 444 operator adm             151552 14. Jul 09:41 ..
-dr-xr-----   2 marie    p_number_crunch   4096 27. Jun 17:13 data-file
-dr-xr-x---   2 marie    p_number_crunch   4096 28. Jun 09:45 env.sh
+-rw-r-----   2 marie    p_number_crunch   4096 27. Jun 17:13 data-file
+-rw-r-----   2 marie    p_number_crunch   4096 28. Jun 09:45 env.sh
 marie@login$ chmod g+x /scratch/ws/1/marie-input-data
 marie@login$ ls -la /scratch/ws/1/marie-input-data
-dr-xr-x---   4 marie    p_number_crunch   4096 27. Jun 17:13 .
+drwxr-x---   4 marie    p_number_crunch   4096 27. Jun 17:13 .
 drwxr-xr-x 444 operator adm             151552 14. Jul 09:41 ..
-dr-xr-----   2 marie    p_number_crunch   4096 27. Jun 17:13 data-file
-dr-xr-x---   2 marie    p_number_crunch   4096 28. Jun 09:45 env.sh
+-rw-r-----   2 marie    p_number_crunch   4096 27. Jun 17:13 data-file
+-rw-r-----   2 marie    p_number_crunch   4096 28. Jun 09:45 env.sh
 ```
 
 !!! danger "New file inherits group and permissions of the creator"
