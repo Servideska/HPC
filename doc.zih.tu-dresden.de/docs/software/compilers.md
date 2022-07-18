@@ -1,4 +1,4 @@
-# Compilers
+# Compilers and Flags
 
 The following compilers are available on the ZIH system:
 

@@ -26,26 +26,36 @@ nav:
     - Overview: data_transfer/overview.md
     - Datamover: data_transfer/datamover.md
     - Export Nodes: data_transfer/export_nodes.md
-  - Environment and Software:
+  - Data Life Cycle Management:
+    - Overview: data_lifecycle/overview.md
+    - Filesystems:
+      - Overview: data_lifecycle/file_systems.md
+      - Permanent Filesystems: data_lifecycle/permanent.md
+      - Lustre: data_lifecycle/lustre.md
+      - BeeGFS: data_lifecycle/beegfs.md
+      - Warm Archive: data_lifecycle/warm_archive.md
+      - Intermediate Archive: data_lifecycle/intermediate_archive.md
+    - Workspaces: data_lifecycle/workspaces.md
+    - Long-Term Preservation: data_lifecycle/longterm_preservation.md
+  - User Environment:
     - Overview: software/overview.md
-    - Environment:
-      - Modules: software/modules.md
-      - Private Modules: software/private_modules.md
-      - EasyBuild: software/custom_easy_build_environment.md
-      - Python Virtual Environments: software/python_virtual_environments.md
-      - ZSH: software/zsh.md
+    - Environment Modules: software/modules.md
+    - Private Modules: software/private_modules.md
+    - Software Installation with EasyBuild: software/custom_easy_build_environment.md
+    - Python Virtual Environments: software/python_virtual_environments.md
+    - ZSH as Alternative Shell: software/zsh.md
+  - Applications and Software:
     - Containers:
       - Singularity: software/containers.md
       - Singularity Recipes and Hints: software/singularity_recipe_hints.md
       - Singularity for Power9: software/singularity_power9.md
       - Virtual Machines: software/virtual_machines.md
       - GPU-accelerated Containers for Deep Learning (NGC Containers): software/ngc_containers.md
-    - Applications:
-      - External Licenses: software/licenses.md
-      - Computational Fluid Dynamics (CFD): software/cfd.md
-      - Mathematics Applications: software/mathematics.md
-      - Nanoscale Simulations: software/nanoscale_simulations.md
-      - FEM Software: software/fem_software.md
+    - External Licenses: software/licenses.md
+    - Computational Fluid Dynamics (CFD): software/cfd.md
+    - Mathematics Applications: software/mathematics.md
+    - Nanoscale Simulations: software/nanoscale_simulations.md
+    - FEM Software: software/fem_software.md
     - Visualization: software/visualization.md
     - Data Analytics:
       - Overview: software/data_analytics.md
@@ -62,13 +72,15 @@ nav:
       - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
       - Machine Learning with PowerAI: software/power_ai.md
     - Virtual Desktops: software/virtual_desktops.md
-    - Software Development and Tools:
-      - Overview: software/software_development_overview.md
-      - Building Software: software/building_software.md
-      - Compilers: software/compilers.md
+  - Software Development and Tools:
+    - Overview: software/software_development_overview.md
+    - Building Software:
+      - Overview: software/building_software.md
+      - Compilers and Flags: software/compilers.md
       - GPU Programming: software/gpu_programming.md
       - Mathematics Libraries: software/math_libraries.md
       - Debugging: software/debuggers.md
+    - Software Engineering Tools:
       - MPI Error Detection: software/mpi_usage_error_detection.md
       - Score-P: software/scorep.md
       - lo2s: software/lo2s.md
@@ -78,17 +90,6 @@ nav:
       - Vampir: software/vampir.md
       - Energy Measurement: software/energy_measurement.md
     - Utilities: software/utilities.md
-  - Data Life Cycle Management:
-    - Overview: data_lifecycle/overview.md
-    - Filesystems:
-      - Overview: data_lifecycle/file_systems.md
-      - Permanent Filesystems: data_lifecycle/permanent.md
-      - Lustre: data_lifecycle/lustre.md
-      - BeeGFS: data_lifecycle/beegfs.md
-      - Warm Archive: data_lifecycle/warm_archive.md
-      - Intermediate Archive: data_lifecycle/intermediate_archive.md
-    - Workspaces: data_lifecycle/workspaces.md
-    - Long-Term Preservation: data_lifecycle/longterm_preservation.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:

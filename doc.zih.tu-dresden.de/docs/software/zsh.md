@@ -1,4 +1,4 @@
-# ZSH
+# ZSH as Alternative Shell
 
 !!! warning
     Though all efforts have been made to ensure the accuracy and
