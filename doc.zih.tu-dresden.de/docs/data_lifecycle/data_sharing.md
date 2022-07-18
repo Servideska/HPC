@@ -26,13 +26,11 @@ marie@login$ ls -la /scratch/ws/1/marie-input-data
 drwxr-----   4 marie    p_number_crunch   4096 27. Jun 17:13 .
 drwxr-xr-x 444 operator adm             151552 14. Jul 09:41 ..
 -rw-r-----   2 marie    p_number_crunch   4096 27. Jun 17:13 data-file
--rw-r-----   2 marie    p_number_crunch   4096 28. Jun 09:45 env.sh
 marie@login$ chmod g+x /scratch/ws/1/marie-input-data
 marie@login$ ls -la /scratch/ws/1/marie-input-data
 drwxr-x---   4 marie    p_number_crunch   4096 27. Jun 17:13 .
 drwxr-xr-x 444 operator adm             151552 14. Jul 09:41 ..
 -rw-r-----   2 marie    p_number_crunch   4096 27. Jun 17:13 data-file
--rw-r-----   2 marie    p_number_crunch   4096 28. Jun 09:45 env.sh
 ```
 
 !!! danger "New file inherits group and permissions of the creator"
@@ -52,7 +50,7 @@ drwxr-xr-x 444 operator adm             151552 14. Jul 09:41 ..
 
     ```console
     marie@login$ cd /scratch/ws/1/marie-input-data
-    marie@login$ source env.sh
+    marie@login$ source /projects/p_number_crunch/env.sh
     bash-4.2$ touch new-file    #create a new file
     ```
 
