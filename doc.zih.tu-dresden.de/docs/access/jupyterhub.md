@@ -192,8 +192,8 @@ We also have a more [in depth description regarding Modules](../software/modules
 
 The default Python kernel uses conda environments based on the
 [Watson Machine Learning Community Edition (formerly PowerAI)](https://developer.ibm.com/linuxonpower/deep-learning-powerai/)
-package suite. You can open a list with all included packages of the
-exact standard environment through the spawner form:
+package suite. You can open a list with all included python-packages, that
+are available within the standard environment, through the spawner form:
 
 ![Environment package list](misc/environment_package_list.png)
 {: align="center"}
@@ -202,32 +202,61 @@ This list shows all packages of the currently selected conda environment. This
 depends on your settings for partition (CPU architecture) and standard
 environment.
 
-There are three standard environments:
+As of july 2022 we have a number of standard environments, namely:
 
-- production
-- test
-- python-env-python3.8.6
+| name | optimized for | specially recommended for
+| foss-2020b | x86_64, ml | |
+| fosscuda-2019b | GPUs | |
+| fosscuda-2020b | GPUs | |
+| gcccore-10.3.0_python-3.9.5_matlab-2021b | x86_64 | matlab |
+| hiera_gcccore-10.2.0_python-3.8.6 | x86_64 (AMD) | |
+| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b | x86_64 (AMD) | matlab |
+| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 |  x86_64 (AMD) | rstudio |
+| **production** | x86_64, ml | |
+| scs5_gcccore-10.2.0_python-3.8.6 | x86_64 (Intel) | |
+| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b | x86_64 (Intel) | matlab |
+| scs5_gcccore-8.3.0_python-3.7.4 | x86_64 (Intel) | |
+| test | x86_64, ml | |
 
-**Python-env-python3.8.6** virtual environment can be used for all x86
-partitions (`gpu2`, `alpha`, etc). It gives the opportunity to create a user
-kernel with the help of a Python environment.
+With these **standard environments** we have tried to integrate a set of compatible software:
 
-Here is a short list of some included software:
+=== "production"
+    Offers a wide range of presently 188 python packages.
 
-|            | generic\* | ml     |
-|------------|-----------|--------|
-| Python     | 3.6.10    | 3.6.10 |
-| R\*\*      | 3.6.2     | 3.6.0  |
-| WML CE     | 1.7.0     | 1.7.0  |
-| PyTorch    | 1.3.1     | 1.3.1  |
-| TensorFlow | 2.1.1     | 2.1.1  |
-| Keras      | 2.3.1     | 2.3.1  |
-| NumPy      | 1.17.5    | 1.17.4 |
-| Matplotlib | 3.3.1     | 3.0.3  |
+    You can load more software using our module system,
+    by selecting these through the option ['Preload modules (module load)'](#loading-modules).
 
-\* generic = all partitions except ml
+=== "...matlab"
+    With it, we integrated matlab with presently 86 python packages.
 
-\*\* R is loaded from the [module system](../software/modules.md)
+    You can load more software using our module system,
+    by selecting these through the option ['Preload modules (module load)'](#loading-modules).
+
+=== "...rstudio"
+    We integrated R & RStudio into it, such that you can use it in your
+    browser. Please click on RStudio's Icon for it, when you are in the JupyterHub overview.
+
+=== "foss-2020b"
+    This virtual environment can be used for all x86
+    partitions (`gpu2`, `alpha`, etc). It gives the opportunity to create a user
+    kernel with the help of a Python environment.
+
+    Here is a short list of some included software:
+
+    |            | generic\* | ml     |
+    |------------|-----------|--------|
+    | Python     | 3.6.10    | 3.6.10 |
+    | R\*\*      | 3.6.2     | 3.6.0  |
+    | WML CE     | 1.7.0     | 1.7.0  |
+    | PyTorch    | 1.3.1     | 1.3.1  |
+    | TensorFlow | 2.1.1     | 2.1.1  |
+    | Keras      | 2.3.1     | 2.3.1  |
+    | NumPy      | 1.17.5    | 1.17.4 |
+    | Matplotlib | 3.3.1     | 3.0.3  |
+    
+    \* generic = all partitions except ml
+    
+    \*\* R is loaded from the [module system](../software/modules.md)
 
 ### Creating and Using a Custom Environment
 
