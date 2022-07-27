@@ -160,7 +160,7 @@ taurusi6604.taurus.hrsk.tu-dresden.de
 taurusi6603.taurus.hrsk.tu-dresden.de
 ```
 
-The command `srun` also creates an allocation, if it is running outside any sbatch or salloc
+The command `srun` also creates an allocation, if it is running outside any `sbatch` or `salloc`
 allocation.
 
 ```console
