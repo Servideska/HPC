@@ -145,19 +145,40 @@ the command `salloc`. It takes the same options as `sbatch` to specify the requi
 resources. If you allocate more than one task, please be aware that `srun` will run the command on
 each allocated task by default!
 
-The syntax for submitting a job is
-
+```console
+marie@login$ salloc --nodes=2
+salloc: Pending job allocation 27410653
+salloc: job 27410653 queued and waiting for resources
+salloc: job 27410653 has been allocated resources
+salloc: Granted job allocation 27410653
+salloc: Waiting for resource configuration
+salloc: Nodes taurusi[6603-6604] are ready for job
+marie@login$ hostname
+tauruslogin5.taurus.hrsk.tu-dresden.de
+marie@login$ srun hostname
+taurusi6604.taurus.hrsk.tu-dresden.de
+taurusi6603.taurus.hrsk.tu-dresden.de
 ```
-marie@login$ srun [options] <command>
-```
 
-An example of an interactive session looks like:
+The command `srun` also creates an allocation, if it is running outside any sbatch or salloc
+allocation.
 
 ```console
 marie@login$ srun --pty --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 bash -l
 srun: job 13598400 queued and waiting for resources
 srun: job 13598400 has been allocated resources
 marie@compute$ # Now, you can start interactive work with e.g. 4 cores
+```
+
+Since Slurm 20.11 `--exclusive` is the default for `srun` as a step, that means you have to
+use `--overlap`, if you want to run `srun` within a `srun` allocation.
+
+```console
+marie@login$ srun --pty bash -l
+srun: job 27410688 queued and waiting for resources
+srun: job 27410688 has been allocated resources
+marie@compute$ srun --overlap hostname
+taurusi6604.taurus.hrsk.tu-dresden.de
 ```
 
 !!! note "Using `module` commands"
