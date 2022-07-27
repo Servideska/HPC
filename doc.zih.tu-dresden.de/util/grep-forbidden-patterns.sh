@@ -48,7 +48,7 @@ doc.zih.tu-dresden.de/docs/accessibility.md
 i	[[:space:]]$
 When referencing projects, please use p_number_crunch for consistency.
 
-i	\<p_	p_number_crunch
+i	\<p_	p_number_crunch	p_long_computations
 Avoid \`home\`. Use home without backticks instead.
 
 i	\`home\`
