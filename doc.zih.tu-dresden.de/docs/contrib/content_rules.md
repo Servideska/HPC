@@ -129,8 +129,7 @@ Further tips can be found on this
 Please use images and graphics for illustration purposes and to improve comprehensibility.
 All graphics and attachments are saved within `misc` directory of the respective subdirectory in
 `docs`.
-For video attachments please use either webm or mp4 format, in fact it would be best to upload one
-file each in webm and mp4 because then you cover a wider range of browsers.
+For video attachments please use either webm or mp4 format.
 
 !!! example "Syntax"
 
@@ -144,12 +143,7 @@ file each in webm and mp4 because then you cover a wider range of browsers.
     The syntax to insert a video attachment into a page is
 
     ```html
-    <video controls="" width="320" style="border: 1px solid black">
-        <source src="https://doc.zih.tu-dresden.de/software/misc/terminate-virtual-desktop-dcv.mp4"
-            type="video/mp4" />
-        <source src="https://doc.zih.tu-dresden.de/software/misc/terminate-virtual-desktop-dcv.webm"
-            type="video/webm" />
-    </video>
+    ![type:video](misc/terminate-virtual-desktop-dcv.mp4)
     ```
 
 The attribute `align` is optional. By default, graphics are left-aligned. **Note:** It is crucial to
