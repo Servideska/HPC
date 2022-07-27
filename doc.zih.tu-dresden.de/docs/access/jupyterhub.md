@@ -180,11 +180,12 @@ home directory and have the name `jupyter-session-<jobid>.log`.
 
 Generally please consider using the optimized 'Modenv' for the architecture you are targeting:
 
-| Architecture | Partitions | Modenv |
-| x86_64 (Intel) | default, haswell, interactive, gpu2, hpdlf, dcv, julia, | modenv/scs5 |
-| x86_64 (AMD) | romeo, alpha | modenv/hiera |
-| *x86_64 (licensed software)* | *all of the above * | modenv/scs5 |
-| ppc64le | ml | modenv/ml |
+| Architecture                 | Partitions                                              | Modenv       |
+|------------------------------|---------------------------------------------------------|--------------|
+| x86_64 (Intel)               | default, haswell, interactive, gpu2, hpdlf, dcv, julia, | modenv/scs5  |
+| x86_64 (AMD)                 | romeo, alpha                                            | modenv/hiera |
+| *x86_64 (licensed software)* | *all of the above *                                     | modenv/scs5  |
+| ppc64le                      | ml                                                      | modenv/ml    |
 
 We also have a more [in depth description regarding Modules](../software/modules/#module-environments).
 
@@ -204,19 +205,20 @@ environment.
 
 As of july 2022 we have a number of standard environments, namely:
 
-| name | optimized for | specially recommended for
-| foss-2020b | x86_64, ml | |
-| fosscuda-2019b | GPUs | |
-| fosscuda-2020b | GPUs | |
-| gcccore-10.3.0_python-3.9.5_matlab-2021b | x86_64 | matlab |
-| hiera_gcccore-10.2.0_python-3.8.6 | x86_64 (AMD) | |
-| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b | x86_64 (AMD) | matlab |
-| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 |  x86_64 (AMD) | rstudio |
-| **production** | x86_64, ml | |
-| scs5_gcccore-10.2.0_python-3.8.6 | x86_64 (Intel) | |
-| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b | x86_64 (Intel) | matlab |
-| scs5_gcccore-8.3.0_python-3.7.4 | x86_64 (Intel) | |
-| test | x86_64, ml | |
+| name                                                       | optimized for  | specially recommended for |
+|------------------------------------------------------------|----------------|---------------------------|
+| foss-2020b                                                 | x86_64, ml     |                           |
+| fosscuda-2019b                                             | GPUs           |                           |
+| fosscuda-2020b                                             | GPUs           |                           |
+| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64         | matlab                    |
+| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)   |                           |
+| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)   | matlab                    |
+| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)   | rstudio                   |
+| **production**                                             | x86_64, ml     |                           |
+| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel) |                           |
+| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel) | matlab                    |
+| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel) |                           |
+| test                                                       | x86_64, ml     |                           |
 
 With these **standard environments** we have tried to integrate a set of compatible software:
 
