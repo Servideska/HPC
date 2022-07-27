@@ -184,7 +184,7 @@ Generally please consider using the optimized 'Modenv' for the architecture you 
 |------------------------------|---------------------------------------------------------|--------------|
 | x86_64 (Intel)               | default, haswell, interactive, gpu2, hpdlf, dcv, julia, | modenv/scs5  |
 | x86_64 (AMD)                 | romeo, alpha                                            | modenv/hiera |
-| *x86_64 (licensed software)* | *all of the above *                                     | modenv/scs5  |
+| *x86_64 (licensed software)* | *all of the above*                                      | modenv/scs5  |
 | ppc64le                      | ml                                                      | modenv/ml    |
 
 We also have a more [in depth description regarding Modules](../software/modules/#module-environments).
