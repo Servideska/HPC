@@ -178,6 +178,16 @@ home directory and have the name `jupyter-session-<jobid>.log`.
 
 ## Advanced Tips
 
+Generally please consider using the optimized 'Modenv' for the architecture you are targeting:
+
+| Architecture | Partitions | Modenv |
+| x86_64 (Intel) | default, haswell, interactive, gpu2, hpdlf, dcv, julia, | modenv/scs5 |
+| x86_64 (AMD) | romeo, alpha | modenv/hiera |
+| *x86_64 (licensed software)* | *all of the above * | modenv/scs5 |
+| ppc64le | ml | modenv/ml |
+
+We also have a more [in depth description regarding Modules](https://doc.zih.tu-dresden.de/software/modules/#module-environments).
+
 ### Standard Environments
 
 The default Python kernel uses conda environments based on the
