@@ -186,7 +186,7 @@ Generally please consider using the optimized 'Modenv' for the architecture you 
 | *x86_64 (licensed software)* | *all of the above * | modenv/scs5 |
 | ppc64le | ml | modenv/ml |
 
-We also have a more [in depth description regarding Modules](https://doc.zih.tu-dresden.de/software/modules/#module-environments).
+We also have a more [in depth description regarding Modules](../software/modules/#module-environments).
 
 ### Standard Environments
 
@@ -245,9 +245,23 @@ with keywords like `haswell`, `ml`, `romeo`, `venv`, `conda`. This way, you
 can later recognize easier how you built the kernel and on which hardware it
 will work. Depending on that hardware, allocate resources:
 
-=== "x86 nodes (e.g. partition `haswell`, `gpu2`)"
+=== "Nodes with Intel-CPU"
+    Use **one srun command** of these:
+
     ```console
-    maria@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2541 --time=08:00:00 bash -l
+    maria@login$ srun --partition=haswell64 --pty --ntasks=1 --cpus-per-task=2 \
+     --mem-per-cpu=2541 --time=08:00:00 bash -l
+    maria@login$ srun --partition=gpu2 --pty --ntasks=1 --cpus-per-task=2 \
+     --mem-per-cpu=2541 --time=08:00:00 bash -l
+    ```
+=== "Nodes with AMD-CPU"
+    Use **one srun command** of these:
+
+    ```console
+    maria@login$ srun --partition=romeo --pty --ntasks=1 --cpus-per-task=3 \
+     --mem-per-cpu=1972 --time=08:00:00 bash -l
+    maria@login$ srun --partition=alpha --gres=gpu:1 --pty --ntasks=1 \
+     --cpus-per-task=6 --mem-per-cpu=10312 --time=08:00:00 bash -l
     ```
 === "PowerPC nodes (partition `ml`)"
     ```console
@@ -255,8 +269,8 @@ will work. Depending on that hardware, allocate resources:
      --time=08:00:00 bash -l
     ```
 
-Create a virtual environment in your home directory. You can decide between
-Python virtualenv or conda environment.
+When creating a virtual environment in your home directory, you got to decide
+to either use "Python virtualenv" or "conda environment".
 
 !!! note
     Please keep in mind that Python virtualenv is the preferred way to create a Python
