@@ -162,7 +162,6 @@ Note that this video shows the case for a conda virtual environment.
 
 ![type:video](misc/startup_hub.webm)
 
-
 !!! note
     - The spawn link may not work the first time a user logs in.
 
