@@ -37,6 +37,7 @@ nav:
       - Intermediate Archive: data_lifecycle/intermediate_archive.md
     - Workspaces: data_lifecycle/workspaces.md
     - Long-Term Preservation: data_lifecycle/longterm_preservation.md
+    - Sharing Data: data_lifecycle/data_sharing.md
   - User Environment:
     - Overview: software/overview.md
     - Environment Modules: software/modules.md
@@ -223,6 +224,7 @@ plugins:
       validate_external_urls: False
       # Validate the entire rendered template, slow!
       validate_rendered_template: True
+  - mkdocs-video
 
 # Enable cross-page anchor validation
 # https://www.mkdocs.org/user-guide/configuration/#use_directory_urls
