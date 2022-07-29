@@ -225,6 +225,7 @@ plugins:
       # Validate the entire rendered template, slow!
       validate_rendered_template: True
   - mkdocs-video
+      is_video: True
 
 # Enable cross-page anchor validation
 # https://www.mkdocs.org/user-guide/configuration/#use_directory_urls
