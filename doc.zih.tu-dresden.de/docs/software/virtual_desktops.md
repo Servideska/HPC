@@ -20,7 +20,7 @@ Use WebVNC or DCV to run GUI applications on HPC resources.
 
 ### Demonstration
 
-![type:video](misc/start-virtual-desktop-dcv.mp4)
+![type:video](./misc/start-virtual-desktop-dcv.mp4)
 
 ### Using the Quickstart Feature
 
@@ -57,7 +57,7 @@ find your WebVNC desktop the way you left it.
 
 ### Demonstration
 
-![type:video](misc/terminate-virtual-desktop-dcv.mp4)
+![type:video](./misc/terminate-virtual-desktop-dcv.mp4)
 
 !!! note
 
