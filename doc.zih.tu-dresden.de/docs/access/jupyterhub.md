@@ -207,18 +207,18 @@ As of july 2022 we have a number of standard environments, namely:
 
 | name                                                       | optimized for  | specially recommended for |
 |------------------------------------------------------------|----------------|---------------------------|
-| foss-2020b                                                 | x86_64, ml     |                           |
-| fosscuda-2019b                                             | GPUs           |                           |
-| fosscuda-2020b                                             | GPUs           |                           |
-| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64         | matlab                    |
-| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)   |                           |
-| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)   | matlab                    |
-| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)   | rstudio                   |
-| **production**                                             | x86_64, ml     |                           |
-| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel) |                           |
-| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel) | matlab                    |
-| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel) |                           |
-| test                                                       | x86_64, ml     |                           |
+| foss-2020b                                                 | x86_64, ppc64le |                           |
+| fosscuda-2019b                                             | GPUs            |                           |
+| fosscuda-2020b                                             | GPUs            |                           |
+| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | matlab                    |
+| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           |
+| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | matlab                    |
+| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | rstudio                   |
+| **production**                                             | x86_64, ppc64le |                           |
+| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           |
+| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | matlab                    |
+| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           |
+| test                                                       | x86_64, ppc64le |                           |
 
 With these **standard environments** we have tried to integrate a set of compatible software:
 
