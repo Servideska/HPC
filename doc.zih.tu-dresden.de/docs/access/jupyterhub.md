@@ -186,6 +186,7 @@ Generally please consider using the optimized 'Modenv' for the architecture you 
 | x86_64 (AMD)                 | romeo, alpha                                            | modenv/hiera |
 | *x86_64 (licensed software)* | *all of the above*                                      | modenv/scs5  |
 | ppc64le                      | ml                                                      | modenv/ml    |
+<p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
 
 We also have a more [in depth description regarding Modules](../software/modules/#module-environments).
 
@@ -205,8 +206,8 @@ environment.
 
 As of july 2022 we have a number of standard environments, namely:
 
-| name                                                       | optimized for  | specially recommended for |
-|------------------------------------------------------------|----------------|---------------------------|
+| name                                                       | optimized for   | specially recommended for |
+|------------------------------------------------------------|-----------------|---------------------------|
 | foss-2020b                                                 | x86_64, ppc64le |                           |
 | fosscuda-2019b                                             | GPUs            |                           |
 | fosscuda-2020b                                             | GPUs            |                           |
