@@ -39,9 +39,8 @@ regulator (CPU, DDR) measurements.
 
 ## Command Line Interface
 
-The HDEEM infrastructure can be controlled through command line tools that are made available by
-loading the `hdeem` module. They are commonly used on the node under test to start, stop, and
-query the measurement device.
+The HDEEM infrastructure can be controlled through command line tools. They are commonly used on
+the node under test to start, stop, and query the measurement device.
 
 - `startHdeem`: Start a measurement. After the command succeeds, the
   measurement data with the 1000 / 100 samples/s described above will be
@@ -56,6 +55,10 @@ query the measurement device.
 - `clearHdeem`: Reset and clear the measurement device. No further
   data can be read from the device after this command is executed
   before a new measurement is started.
+
+!!! note
+
+    Please always execute `clearHdeem` before `startHdeem`. 
 
 ## Integration in Application Performance Traces
 
