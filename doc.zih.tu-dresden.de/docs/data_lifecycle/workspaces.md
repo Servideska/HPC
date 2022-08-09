@@ -114,7 +114,7 @@ maximum durations. A workspace can be extended multiple times, depending on the 
 | `warm_archive`                       | 365            | 2          | `fs_warm_archive_ws`                                                     | Capacity filesystem based on spinning disks |
 {: summary="Settings for Workspace Filesystem."}
 
-Use the command `ws_extent` to extend your workspace:
+Use the command `ws_extend` to extend your workspace:
 
 ```console
 marie@login$ ws_extend -F scratch test-workspace 100
