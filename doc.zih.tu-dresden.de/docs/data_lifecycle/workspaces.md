@@ -299,11 +299,11 @@ anymore.
 
 **Q**: I am getting the error `Error: could not create workspace directory!`
 
-**A**: Please check the "locale" setting of your SSH client. Some clients (e.g. the one from MacOSX)
+**A**: Please check the "locale" setting of your SSH client. Some clients (e.g. the one from Mac)
 set values that are not valid on our ZIH systems. You should overwrite `LC_CTYPE` and set it to a
 valid locale value like `export LC_CTYPE=de_DE.UTF-8`.
 
-A list of valid locales can be retrieved via `locale -a`. Please only use UTF8 (or plain) settings.
+A list of valid locales can be retrieved via `locale -a`. Please only use `UTF-8` (or plain) settings.
 Avoid "iso" codepages!
 
 ----

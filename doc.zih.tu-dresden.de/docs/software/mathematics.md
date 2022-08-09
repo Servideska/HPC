@@ -243,7 +243,7 @@ The MATLAB support package for ZIH Systems can be found as follows:
 * Windows:
     * [tud.nonshared.R2021b.zip](misc/tud.nonshared.R2021b.zip)
     * [tud.nonshared.R2022a.zip](misc/tud.nonshared.R2022a.zip)
-* Linux/macOS:
+* Linux/Mac:
     * [tud.nonshared.R2021b.tar.gz](misc/tud.nonshared.R2021b.tar.gz)
     * [tud.nonshared.R2022a.tar.gz](misc/tud.nonshared.R2022a.tar.gz)
 
