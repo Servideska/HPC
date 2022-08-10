@@ -246,3 +246,7 @@ p {
 .highlight .gp {
     user-select: none;
 }
+
+.md-typeset table:not([class]) th a{
+    color: revert;
+}
