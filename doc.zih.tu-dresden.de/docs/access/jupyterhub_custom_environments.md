@@ -90,6 +90,10 @@ Load the needed module depending on partition architecture:
     ```console
     marie@compute$ module load Anaconda3
     ```
+=== "modenv/hier TODO TODO TODO TODO TODO TODO TODO"
+    ```console
+    marie@compute$ module load Anaconda3
+    ```
 === "PowerPC nodes (partition `ml`)"
     ```console
     marie@ml$ module load PythonAnaconda
@@ -120,28 +124,32 @@ marie@compute$ conda install [..] # now install additional packages for your not
 marie@compute$ conda deactivate
 ```
 
+## Using your custom environment
+
 Now you can start a new session and your kernel should be available.
 
-**JupyterLab**: Your kernels are listed on the launcher page:
+=== "JupyterLab"
+    Your kernels are listed on the launcher page:
 
-![JupyterLab user kernel launcher](misc/jupyterlab_user_kernel_launcher.png)
-{: align="center"}
+    ![JupyterLab user kernel launcher](misc/jupyterlab_user_kernel_launcher.png)
+    {: align="center"}
 
-You can switch kernels of existing notebooks in the menu:
+    You can switch kernels of existing notebooks in the menu:
 
-![JupyterLab change kernel](misc/jupyterlab_change_kernel.png)
-{: align="center"}
+    ![JupyterLab change kernel](misc/jupyterlab_change_kernel.png)
+    {: align="center"}
 
-**Classic Jupyter notebook**: Your kernel is listed in the New menu:
+=== "Classic Jupyter notebook"
+    Your kernel is listed in the New menu:
 
-![Jupyter notebook user kernel launcher](misc/jupyter_notebook_user_kernel_launcher.png)
-{: align="center"}
+    ![Jupyter notebook user kernel launcher](misc/jupyter_notebook_user_kernel_launcher.png)
+    {: align="center"}
 
-You can switch kernels of existing notebooks in the kernel menu:
+    You can switch kernels of existing notebooks in the kernel menu:
 
-![Jupyter notebook change kernel](misc/jupyter_notebook_change_kernel.png)
-{: align="center"}
+    ![Jupyter notebook change kernel](misc/jupyter_notebook_change_kernel.png)
+    {: align="center"}
 
 !!! note
-    Both python venv and conda virtual environments will be mention in the same
+    Both python venv and conda virtual environments will be mentioned in the same
     list.
