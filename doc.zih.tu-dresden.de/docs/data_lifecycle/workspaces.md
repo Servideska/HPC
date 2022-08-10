@@ -2,8 +2,8 @@
 
 Storage systems differ in terms of capacity, streaming bandwidth, IOPS rate, etc. Price and
 efficiency don't allow to have it all in one. That is why fast parallel filesystems at ZIH have
-restrictions with regards to **age of files** and [quota](permanent.md#quotas). The mechanism of workspaces
-enables users to better manage their HPC data.
+restrictions with regards to **age of files** and [quota](permanent.md#quotas). The mechanism of
+workspaces enables users to better manage their HPC data.
 
 The concept of workspaces is common and used at a large number of HPC centers.
 
@@ -28,16 +28,22 @@ times.
 
 ### List Available Filesystems
 
-To list all available filesystems for using workspaces use:
+To list all available filesystems for using workspaces, use:
 
 ```console
 marie@login$ ws_find -l
-Available filesystems:
-scratch
+available filesystems:
+scratch (default)
 warm_archive
 ssd
 beegfs_global0
+beegfs
 ```
+
+!!! note "Default is `scratch`"
+
+    The default filesystem is `scratch`. If you prefer another filesystem, provide the option `-F
+    <fs>` to the workspace commands.
 
 ### List Current Workspaces
 
@@ -56,8 +62,8 @@ id: test-workspace
 
 ### Allocate a Workspace
 
-To create a workspace in one of the listed filesystems use `ws_allocate`. It is necessary to specify
-a unique name and the duration of the workspace.
+To create a workspace in one of the listed filesystems, use `ws_allocate`. It is necessary to
+specify a unique name and the duration of the workspace.
 
 ```console
 marie@login$ ws_allocate: [options] workspace_name duration
@@ -91,23 +97,24 @@ days with an email reminder for 7 days before the expiration.
 
 !!! Note
 
-    Setting the reminder to `7` means you will get a reminder email on every day starting `7` prior
-    to expiration date.
+    Setting the reminder to `7` means you will get a reminder email on every day starting `7` days
+    prior to expiration date.
 
 ### Extension of a Workspace
 
-The lifetime of a workspace is finite. Different filesystems (storage systems) have different
+The lifetime of a workspace is finite and different filesystems (storage systems) have different
 maximum durations. A workspace can be extended multiple times, depending on the filesystem.
 
-| Filesystem (use with parameter `-F`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
+| Filesystem (use with parameter `-F <fs>`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
 |:-------------------------------------|---------------:|-----------:|:-------------------------------------------------------------------------|:--------|
+| `scratch` (default)                  | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/scratch2`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
 | `ssd`                                | 30             | 2          | `fs_lustre_ssd`                                                          | High-IOPS filesystem (`/lustre/ssd`, symbolic link: `/ssd`) on SSDs. |
 | `beegfs_global0` (deprecated)        | 30             | 2          | `fs_beegfs_global0`                                                      | High-IOPS filesystem (`/beegfs/global0`) on NVMes. |
 | `beegfs`                             | 30             | 2          | `fs_beegfs`                                                              | High-IOPS filesystem (`/beegfs`) on NVMes. |
-| `scratch`                            | 100            | 10         | `fs_lustre_scratch2`                                                     | Scratch filesystem (`/lustre/ssd`, symbolic link: `/scratch`) with high streaming bandwidth, based on spinning disks |
 | `warm_archive`                       | 365            | 2          | `fs_warm_archive_ws`                                                     | Capacity filesystem based on spinning disks |
+{: summary="Settings for Workspace Filesystem."}
 
-To extent your workspace use the following command:
+Use the command `ws_extend` to extend your workspace:
 
 ```console
 marie@login$ ws_extend -F scratch test-workspace 100
@@ -117,10 +124,13 @@ remaining extensions  : 1
 remaining time in days: 100
 ```
 
-!!!Attention
+Mail reminder settings are retained. I.e., previously set mail alerts apply to the extended
+workspace, too.
+
+!!! attention
 
     With the `ws_extend` command, a new duration for the workspace is set. The new duration is not
-    added!
+    added to the remaining lifetime!
 
 This means when you extend a workspace that expires in 90 days with the command
 
@@ -132,10 +142,11 @@ it will now expire in 40 days **not** 130 days.
 
 ### Send Reminder for Workspace Expiry Date
 
-Send a calendar invitation by Email to ensure that the expiration date of a workspace is not forgotten
+Send a calendar invitation by Email to ensure that the expiration date of a workspace is not
+forgotten
 
 ```console
-ws_send_ical -F scratch my-workspace -m marie.testuser@tu-dresden.de
+marie@login$ ws_send_ical -F scratch my-workspace -m marie.testuser@tu-dresden.de
 ```
 
 ### Deletion of a Workspace
@@ -144,7 +155,7 @@ To delete a workspace use the `ws_release` command. It is mandatory to specify t
 workspace and the filesystem in which it is located:
 
 ```console
-marie@login$ ws_release -F <filesystem> <workspace name>
+marie@login$ ws_release -F scratch my-workspace
 ```
 
 ### Restoring Expired Workspaces
@@ -284,19 +295,30 @@ marie@login$ qinfo quota /warm_archive/ws/
 Note that the workspaces reside under the mountpoint `/warm_archive/ws/` and not `/warm_archive`
 anymore.
 
-## FAQ
+## FAQ and Troubleshooting
 
 **Q**: I am getting the error `Error: could not create workspace directory!`
 
-**A**: Please check the "locale" setting of your ssh client. Some clients (e.g. the one from MacOSX)
+**A**: Please check the "locale" setting of your SSH client. Some clients (e.g. the one from Mac)
 set values that are not valid on our ZIH systems. You should overwrite `LC_CTYPE` and set it to a
 valid locale value like `export LC_CTYPE=de_DE.UTF-8`.
 
-A list of valid locales can be retrieved via `locale -a`. Please only use UTF8 (or plain) settings.
+A list of valid locales can be retrieved via `locale -a`. Please only use `UTF-8` (or plain) settings.
 Avoid "iso" codepages!
 
-**Q**: I am getting the error `Error: target workspace does not exist!`  when trying to restore my
+----
+
+**Q**: I am getting the error `Error: target workspace does not exist!` when trying to restore my
 workspace.
 
 **A**: The workspace you want to restore into is either not on the same filesystem or you used the
-wrong name. Use only the short name that is listed after `id:` when using `ws_list`
+wrong name. Use only the short name that is listed after `id:` when using `ws_list`.
+
+----
+
+**Q**: Man, I've missed to specify mail alert when allocating my workspace. How can I add the mail
+alert functionality to an existing workspace?
+
+**A**: You can add the mail alert by "overwriting" the workspace settings via `ws_allocate -x -m
+<mail address> -r <days> -n <ws-name> -d <duration> -F <fs>`. (This will lower the remaining
+extensions by one.)

@@ -149,8 +149,8 @@ and files via `chmod`.
 
 Set up your shared Python virtual environment for JupyterHub.
 !!! hint
-    For working with conda virtual environments, it may be necessary to configure your shell via
-    `conda init` as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
+    For working with conda virtual environments, it may be necessary to configure your shell as
+    described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment).
 
 === "virtualenv"
 

@@ -1,4 +1,4 @@
-# PyTorch
+# Neural Networks with PyTorch
 
 [PyTorch](https://pytorch.org/) is an open-source machine learning framework.
 It is an optimized tensor library for deep learning using GPUs and CPUs.

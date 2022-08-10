@@ -129,6 +129,7 @@ Further tips can be found on this
 Please use images and graphics for illustration purposes and to improve comprehensibility.
 All graphics and attachments are saved within `misc` directory of the respective subdirectory in
 `docs`.
+For video attachments please use either webm or mp4 format.
 
 !!! example "Syntax"
 
@@ -137,6 +138,12 @@ All graphics and attachments are saved within `misc` directory of the respective
     ```markdown
     ![Alternative text](misc/graphics_file.png)
     {: align="center"}
+    ```
+
+    The syntax to insert a video attachment into a page is
+
+    ```html
+    ![type:video](misc/terminate-virtual-desktop-dcv.mp4)
     ```
 
 The attribute `align` is optional. By default, graphics are left-aligned. **Note:** It is crucial to

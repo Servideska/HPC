@@ -26,59 +26,6 @@ nav:
     - Overview: data_transfer/overview.md
     - Datamover: data_transfer/datamover.md
     - Export Nodes: data_transfer/export_nodes.md
-  - Environment and Software:
-    - Overview: software/overview.md
-    - Environment:
-      - Modules: software/modules.md
-      - Private Modules: software/private_modules.md
-      - EasyBuild: software/custom_easy_build_environment.md
-      - Python Virtual Environments: software/python_virtual_environments.md
-      - ZSH: software/zsh.md
-    - Containers:
-      - Singularity: software/containers.md
-      - Singularity Recipes and Hints: software/singularity_recipe_hints.md
-      - Singularity for Power9: software/singularity_power9.md
-      - Virtual Machines: software/virtual_machines.md
-      - GPU-accelerated Containers for Deep Learning (NGC Containers): software/ngc_containers.md
-    - CI/CD: software/cicd.md
-    - Applications:
-      - External Licenses: software/licenses.md
-      - Computational Fluid Dynamics (CFD): software/cfd.md
-      - Mathematics Applications: software/mathematics.md
-      - Nanoscale Simulations: software/nanoscale_simulations.md
-      - FEM Software: software/fem_software.md
-    - Visualization: software/visualization.md
-    - Data Analytics:
-      - Overview: software/data_analytics.md
-      - Data Analytics with R: software/data_analytics_with_r.md
-      - Data Analytics with RStudio: software/data_analytics_with_rstudio.md
-      - Data Analytics with Python: software/data_analytics_with_python.md
-      - Big Data Analytics: software/big_data_frameworks.md
-    - Machine Learning:
-      - Overview: software/machine_learning.md
-      - TensorFlow: software/tensorflow.md
-      - TensorBoard: software/tensorboard.md
-      - PyTorch: software/pytorch.md
-      - Distributed Training: software/distributed_training.md
-      - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
-      - Machine Learning with PowerAI: software/power_ai.md
-    - Virtual Desktops: software/virtual_desktops.md
-    - Software Development and Tools:
-      - Overview: software/software_development_overview.md
-      - Building Software: software/building_software.md
-      - Compilers: software/compilers.md
-      - GPU Programming: software/gpu_programming.md
-      - Mathematics Libraries: software/math_libraries.md
-      - Debugging: software/debuggers.md
-      - MPI Error Detection: software/mpi_usage_error_detection.md
-      - Score-P: software/scorep.md
-      - lo2s: software/lo2s.md
-      - PAPI Library: software/papi.md
-      - PIKA: software/pika.md
-      - Perf Tools: software/perf_tools.md
-      - Vampir: software/vampir.md
-      - Energy Measurement: software/energy_measurement.md
-    - Utilities: software/utilities.md
   - Data Life Cycle Management:
     - Overview: data_lifecycle/overview.md
     - Filesystems:
@@ -90,6 +37,61 @@ nav:
       - Intermediate Archive: data_lifecycle/intermediate_archive.md
     - Workspaces: data_lifecycle/workspaces.md
     - Long-Term Preservation: data_lifecycle/longterm_preservation.md
+    - Sharing Data: data_lifecycle/data_sharing.md
+  - User Environment:
+    - Overview: software/overview.md
+    - Environment Modules: software/modules.md
+    - Private Modules: software/private_modules.md
+    - Software Installation with EasyBuild: software/custom_easy_build_environment.md
+    - Python Virtual Environments: software/python_virtual_environments.md
+    - ZSH as Alternative Shell: software/zsh.md
+  - Applications and Software:
+    - Containers:
+      - Singularity: software/containers.md
+      - Singularity Recipes and Hints: software/singularity_recipe_hints.md
+      - Singularity for Power9: software/singularity_power9.md
+      - Virtual Machines: software/virtual_machines.md
+      - GPU-accelerated Containers for Deep Learning (NGC Containers): software/ngc_containers.md
+    - CI/CD: software/cicd.md
+    - External Licenses: software/licenses.md
+    - Computational Fluid Dynamics (CFD): software/cfd.md
+    - Mathematics Applications: software/mathematics.md
+    - Nanoscale Simulations: software/nanoscale_simulations.md
+    - FEM Software: software/fem_software.md
+    - Visualization: software/visualization.md
+    - Data Analytics:
+      - Overview: software/data_analytics.md
+      - Data Analytics with R: software/data_analytics_with_r.md
+      - Data Analytics with RStudio: software/data_analytics_with_rstudio.md
+      - Data Analytics with Python: software/data_analytics_with_python.md
+      - Big Data Analytics: software/big_data_frameworks.md
+    - Machine Learning:
+      - Overview: software/machine_learning.md
+      - Neural Networks with TensorFlow: software/tensorflow.md
+      - Inspect Model Training with TensorBoard: software/tensorboard.md
+      - Neural Networks with PyTorch: software/pytorch.md
+      - Distributed Training: software/distributed_training.md
+      - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
+      - Machine Learning with PowerAI: software/power_ai.md
+    - Virtual Desktops: software/virtual_desktops.md
+  - Software Development and Tools:
+    - Overview: software/software_development_overview.md
+    - Building Software:
+      - Overview: software/building_software.md
+      - Compilers and Flags: software/compilers.md
+      - GPU Programming: software/gpu_programming.md
+      - Mathematics Libraries: software/math_libraries.md
+      - Debugging: software/debuggers.md
+    - Software Engineering Tools:
+      - MPI Error Detection: software/mpi_usage_error_detection.md
+      - Score-P: software/scorep.md
+      - lo2s: software/lo2s.md
+      - PAPI Library: software/papi.md
+      - PIKA: software/pika.md
+      - Perf Tools: software/perf_tools.md
+      - Vampir: software/vampir.md
+      - Energy Measurement: software/energy_measurement.md
+    - Utilities: software/utilities.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
@@ -223,6 +225,8 @@ plugins:
       validate_external_urls: False
       # Validate the entire rendered template, slow!
       validate_rendered_template: True
+  - mkdocs-video:
+      is_video: True
 
 # Enable cross-page anchor validation
 # https://www.mkdocs.org/user-guide/configuration/#use_directory_urls

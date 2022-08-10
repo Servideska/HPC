@@ -160,12 +160,7 @@ The following video shows an example of the process of opening the
 spawn link and activating the environment, from the students perspective.
 Note that this video shows the case for a conda virtual environment.
 
-<div align="center">
-<video width="446" height="240" controls muted>
-  <source src="../misc/startup_hub.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
-</div>
+![type:video](./misc/startup_hub.webm)
 
 !!! note
     - The spawn link may not work the first time a user logs in.

@@ -1,4 +1,4 @@
-# EasyBuild
+# Software Install with EasyBuild
 
 Sometimes the [modules](modules.md) installed in the cluster are not enough for your purposes and
 you need some other software or a different version of a software.
@@ -6,8 +6,10 @@ you need some other software or a different version of a software.
 For most commonly used software, chances are high that there is already a *recipe* that EasyBuild
 provides, which you can use. But what is EasyBuild?
 
-[EasyBuild](https://easybuild.io/) is the software used to build and install
-software on ZIH systems.
+!!! note "EasyBuild"
+
+    [EasyBuild](https://easybuild.io/) is the software used to build and install software on ZIH
+    systems.
 
 The aim of this page is to introduce users to working with EasyBuild and to utilizing it to create
 modules.
@@ -15,26 +17,26 @@ modules.
 ## Prerequisites
 
 1. [Shell access](../access/ssh_login.md) to ZIH systems
-1. basic knowledge about:
-   - [the ZIH system](../jobs_and_resources/hardware_overview.md)
-   - [the module system](modules.md) on ZIH systems
+1. Basic knowledge about:
+    - [the ZIH system](../jobs_and_resources/hardware_overview.md)
+    - [the module system](modules.md) on ZIH systems
 
 EasyBuild uses a configuration file called recipe or "EasyConfig", which contains all the
 information about how to obtain and build the software:
 
--   Name
--   Version
--   Toolchain (think: Compiler + some more)
--   Download URL
--   Build system (e.g. `configure && make` or `cmake && make`)
--   Config parameters
--   Tests to ensure a successful build
+- Name
+- Version
+- Toolchain (think: Compiler + some more)
+- Download URL
+- Build system (e.g. `configure && make` or `cmake && make`)
+- Config parameters
+- Tests to ensure a successful build
 
 The build system part is implemented in so-called "EasyBlocks" and contains the common workflow.
 Sometimes, those are specialized to encapsulate behavior specific to multiple/all versions of the
 software. Everything is written in Python, which gives authors a great deal of flexibility.
 
-## Set up a custom module environment and build your own modules
+## Set Up a Custom Module Environment and Build Your Own Modules
 
 Installation of the new software (or version) does not require any specific credentials.
 
@@ -43,7 +45,7 @@ Installation of the new software (or version) does not require any specific cred
 1. An existing EasyConfig
 1. a place to put your modules.
 
-### Step by step guide
+### Step by Step Guide
 
 **Step 1:** Create a [workspace](../data_lifecycle/workspaces.md#allocate-a-workspace) where you
 install your modules. You need a place where your modules are placed. This needs to be done only

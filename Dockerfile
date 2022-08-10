@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-c"]
 # Base #
 ########
 
-RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0 mkdocs-htmlproofer-plugin==0.8.0
+RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0 mkdocs-htmlproofer-plugin==0.8.0 mkdocs-video==1.3.0
 
 ##########
 # Linter #

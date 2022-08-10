@@ -1,5 +1,7 @@
-personal_ws-1.1 en 459
+personal_ws-1.1 en 464
 Abaqus
+ACL
+ACLs
 Addon
 Addons
 ALLREDUCE
@@ -197,7 +199,8 @@ localhost
 lsf
 Lua
 lustre
-macOS
+mac
+Mac
 markdownlint
 Mathematica
 MathKernel
@@ -365,6 +368,7 @@ scontrol
 scp
 scs
 SDK
+setfacl
 sftp
 SFTP
 SGEMM
