@@ -86,14 +86,11 @@ Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
 
 Load the needed module depending on partition architecture:
 
-=== "Nodes with x86_64 (Intel) CPU"
+=== "Nodes with x86_64 CPU"
     ```console
     marie@compute$ module load Anaconda3
     ```
-=== "Nodes with x86_64 (AMD) CPU"
-    ```console
-    marie@compute$ module load Anaconda3
-    ```
+
 === "Nodes with ppc64le CPU"
     ```console
     marie@ml$ module load PythonAnaconda
