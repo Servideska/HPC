@@ -108,7 +108,15 @@ srun [...]
 You can then connect to the tmux session like this:
 
 ```console
-marie@login$ ssh -lstopo
+marie@login$ ssh -t "$(squeue --me --noheader --format="%N" 2>/dev/null | tail -n 1)" \
+             "source /etc/profile.d/10_modules.sh; module load tmux/3.2a; tmux attach"
+```
+
+### Where Is My Tmux Session?
+
+Please note that, as there are thousands of compute nodes available, there are also multiple login
+nodes. Thus, try checking the other login nodes as well:
+
 ```console
 marie@login3$ tmux ls
 failed to connect to server
@@ -116,37 +124,44 @@ marie@login3$ ssh login4 tmux ls
 marie_is_testing: 1 windows (created Tue Mar 29 19:06:26 2022) [105x32]
 ```
 
-## Architecture Information
+## Architecture Information (lstopo)
 
-To get a generell and fast overview about the available HPC recoures you can use our [HPC Ressource Overview] (../jobs_and_resources/overview.md).
-But sometime a deeper view is needed. Therefore we provide the following tool(s).
+The page [HPC Resource Overview](../jobs_and_resources/overview.md) holds a general and fast
+overview about the available HPC resources at ZIH.
+Sometime a closer look and deeper understanding of a particular architecture is needed. This is
+where the tool `lstopo` comes into play.
 
-### lstopo
+The tool [lstopo](https://linux.die.net/man/1/lstopo) displays the topology of a system in a variety
+of output formats.
 
-The tool "[lstopo](https://linux.die.net/man/1/lstopo)" allows a view on the topology of the system it was run on.
+`lstopo` and `lstopo-no-graphics` are available from the `hwloc` modules, e.g.
 
 ```console
-marie@login3$ module load GCC
-marie@login3$ module load OpenMPI
-marie@login3$ lstopo
+marie@login$ module load hwloc/2.5.0-GCCcore-11.2.0
+marie@login$ lstopo
 ```
 
-It is also possible to run this command using a batchjob.
+The topology map is displayed in a graphical window if the `DISPLAY` environment variable is set.
+Otherwise, a text summary is displayed. The displayed topology levels and granularity can be
+controlled using the various options of `lstopo`. Please refer to the corresponding man page and
+help message (`lstopo --help`).
+
+It is also possible to run this command using a job file to retrieve the topology of a compute nodes.
 
 ```bash
 #!/bin/bash
 
-#SBATCH --job-name=topo_haswell 
-#SBATCH --ntasks=1 
-#SBATCH --cpus-per-task=1 
-#SBATCH --mem-per-cpu=6g 
-#SBATCH --partition=haswell 
-#SBATCH --time=00:05:00 
-#SBATCH --output=get_topo.out 
+#SBATCH --job-name=topo_haswell
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=300m
+#SBATCH --partition=haswell
+#SBATCH --time=00:05:00
+#SBATCH --output=get_topo.out
 #SBATCH --error=get_topo.err
 
-module load GCC
-module load OpenMPI 
+module purge
+module load hwloc/2.5.0-GCCcore-11.2.0
 
 srun lstopo
 ```
