@@ -248,5 +248,7 @@ p {
 }
 
 .md-typeset table:not([class]) th a{
-    color: revert;
+    line-height: 170%;
+    color: var(--tud-red-90);
 }
+
