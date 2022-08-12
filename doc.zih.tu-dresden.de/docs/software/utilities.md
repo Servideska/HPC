@@ -108,18 +108,46 @@ srun [...]
 You can then connect to the tmux session like this:
 
 ```console
-marie@login$ ssh -t "$(squeue --me --noheader --format="%N" 2>/dev/null | tail -n 1)" \
-             "source /etc/profile.d/10_modules.sh; module load tmux/3.2a; tmux attach"
-```
-
-### Where Is My Tmux Session?
-
-Please note that, as there are thousands of compute nodes available, there are also multiple login
-nodes. Thus, try checking the other login nodes as well:
-
+marie@login$ ssh -lstopo
 ```console
 marie@login3$ tmux ls
 failed to connect to server
 marie@login3$ ssh login4 tmux ls
 marie_is_testing: 1 windows (created Tue Mar 29 19:06:26 2022) [105x32]
 ```
+
+## Architecture Information
+
+To get a generell and fast overview about the available HPC recoures you can use our [HPC Ressource Overview] (../jobs_and_resources/overview.md).
+But sometime a deeper view is needed. Therefore we provide the following tool(s).
+
+### lstopo
+
+The tool "[lstopo](https://linux.die.net/man/1/lstopo)" allows a view on the topology of the system it was run on.
+
+```console
+marie@login3$ module load GCC
+marie@login3$ module load OpenMPI
+marie@login3$ lstopo
+```
+
+It is also possible to run this command using a batchjob.
+
+```bash
+#!/bin/bash
+
+#SBATCH --job-name=topo_haswell 
+#SBATCH --ntasks=1 
+#SBATCH --cpus-per-task=1 
+#SBATCH --mem-per-cpu=6g 
+#SBATCH --partition=haswell 
+#SBATCH --time=00:05:00 
+#SBATCH --output=get_topo.out 
+#SBATCH --error=get_topo.err
+
+module load GCC
+module load OpenMPI 
+
+srun lstopo
+```
+
