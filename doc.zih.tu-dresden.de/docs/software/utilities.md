@@ -140,21 +140,21 @@ Currently, it can reach ~1.5 GB/s using a 12-core processor in the above-mention
 It is recommended to install it inside a
 [Python virtual environment](python_virtual_environments.md).
 
-```bash
-pip install pragzip
+```console
+marie@compute$ pip install pragzip
 ```
 
 It can also be installed from its C++ source code.
 If you prefer that over the version on PyPI, then you can build it like this:
 
-```bash
-git clone https://github.com/mxmlnkn/pragzip.git
-cd pragzip
-mkdir build
-cd build
-cmake ..
-cmake --build . pragzip
-src/tools/pragzip --help
+```console
+marie@compute$ git clone https://github.com/mxmlnkn/pragzip.git
+marie@compute$ cd pragzip
+marie@compute$ mkdir build
+marie@compute$ cd build
+marie@compute$ cmake ..
+marie@compute$ cmake --build . pragzip
+marie@compute$ src/tools/pragzip --help
 ```
 
 The built binary can then be used directly or copied inside a folder that is available in your
@@ -183,8 +183,8 @@ Subsequent mounts instantly load that sidecar file instead of reanalyzing the ar
 [Ratarmount](https://github.com/mxmlnkn/ratarmount) is available on PyPI and can be installed via pip.
 It is recommended to install it inside a [Python virtual environment](python_virtual_environments.md).
 
-```bash
-pip install ratarmount
+```console
+marie@compute$ pip install ratarmount
 ```
 
 Ratarmount is still in development, so if there are problems or if it is unexpectedly slow,
