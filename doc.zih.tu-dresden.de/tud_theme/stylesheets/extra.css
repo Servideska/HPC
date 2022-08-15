@@ -246,3 +246,9 @@ p {
 .highlight .gp {
     user-select: none;
 }
+
+.md-typeset table:not([class]) th a{
+    line-height: 170%;
+    color: var(--tud-red-90);
+}
+
