@@ -124,15 +124,14 @@ marie@login3$ ssh login4 tmux ls
 marie_is_testing: 1 windows (created Tue Mar 29 19:06:26 2022) [105x32]
 ```
 
-
 ## Working with Large Archives and Compressed Files
 
 ### Parallel Gzip Decompression
 
-There is a plethora of gzip tools but none of them can fully utilize multiple cores.
-The fastest single-core decoder is igzip from the
+There is a plethora of `gzip` tools but none of them can fully utilize multiple cores.
+The fastest single-core decoder is `igzip` from the
 [Intelligent Storage Acceleration Library](https://github.com/intel/isa-l.git).
-In tests, it can reach ~500 MB/s compared to ~200 MB/s for the system-default gzip.
+In tests, it can reach ~500 MB/s compared to ~200 MB/s for the system-default `gzip`.
 If you have very large files and need to decompress them even faster, you can use
 [pragzip](https://github.com/mxmlnkn/pragzip).
 Currently, it can reach ~1.5 GB/s using a 12-core processor in the above-mentioned tests.
@@ -161,8 +160,8 @@ src/tools/pragzip --help
 The built binary can then be used directly or copied inside a folder that is available in your
 `PATH` environment variable.
 
-Pragzip is still in development, so if it crashes or if it is slower than the system gzip,
-please [open an issue](https://github.com/mxmlnkn/pragzip/issues) on Github.
+Pragzip is still in development, so if it crashes or if it is slower than the system `gzip`,
+please [open an issue](https://github.com/mxmlnkn/pragzip/issues) on GitHub.
 
 ### Direct Archive Access Without Extraction
 
@@ -189,7 +188,7 @@ pip install ratarmount
 ```
 
 Ratarmount is still in development, so if there are problems or if it is unexpectedly slow,
-please [open an issue](https://github.com/mxmlnkn/ratarmount/issues) on Github.
+please [open an issue](https://github.com/mxmlnkn/ratarmount/issues) on GitHub.
 
 There also is a library interface called
 [ratarmountcore](https://github.com/mxmlnkn/ratarmount/tree/master/core#example) that works
