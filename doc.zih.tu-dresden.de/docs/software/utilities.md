@@ -123,3 +123,74 @@ failed to connect to server
 marie@login3$ ssh login4 tmux ls
 marie_is_testing: 1 windows (created Tue Mar 29 19:06:26 2022) [105x32]
 ```
+
+
+## Working with Large Archives and Compressed Files
+
+### Parallel Gzip Decompression
+
+There is a plethora of gzip tools but none of them can fully utilize multiple cores.
+The fastest single-core decoder is igzip from the
+[Intelligent Storage Acceleration Library](https://github.com/intel/isa-l.git).
+In tests, it can reach ~500 MB/s compared to ~200 MB/s for the system-default gzip.
+If you have very large files and need to decompress them even faster, you can use
+[pragzip](https://github.com/mxmlnkn/pragzip).
+Currently, it can reach ~1.5 GB/s using a 12-core processor in the above-mentioned tests.
+
+[Pragzip](https://github.com/mxmlnkn/pragzip) is available on PyPI and can be installed via pip.
+It is recommended to install it inside a
+[Python virtual environment](python_virtual_environments.md).
+
+```bash
+pip install pragzip
+```
+
+It can also be installed from its C++ source code.
+If you prefer that over the version on PyPI, then you can build it like this:
+
+```bash
+git clone https://github.com/mxmlnkn/pragzip.git
+cd pragzip
+mkdir build
+cd build
+cmake ..
+cmake --build . pragzip
+src/tools/pragzip --help
+```
+
+The built binary can then be used directly or copied inside a folder that is available in your
+`PATH` environment variable.
+
+Pragzip is still in development, so if it crashes or if it is slower than the system gzip,
+please [open an issue](https://github.com/mxmlnkn/pragzip/issues) on Github.
+
+### Direct Archive Access Without Extraction
+
+In some cases of archives with millions of small files, it might not be feasible to extract the
+whole archive to a filesystem.
+The known `archivemount` tool has performance problems with such archives even if they are simply
+uncompressed TAR files.
+Furthermore, with `archivemount` the archive would have to be reanalyzed whenever a new job is started.
+
+`Ratarmount` is an alternative that solves these performance issues.
+The archive will be analyzed and then can be accessed via a FUSE mountpoint showing the internal
+folder hierarchy.
+Access to files is consistently fast no matter the archive size while `archivemount` might take
+minutes per file access.
+Furthermore, the analysis results of the archive will be stored in a sidecar file alongside the
+archive or in your home directory if the archive is in a non-writable location.
+Subsequent mounts instantly load that sidecar file instead of reanalyzing the archive.
+
+[Ratarmount](https://github.com/mxmlnkn/ratarmount) is available on PyPI and can be installed via pip.
+It is recommended to install it inside a [Python virtual environment](python_virtual_environments.md).
+
+```bash
+pip install ratarmount
+```
+
+Ratarmount is still in development, so if there are problems or if it is unexpectedly slow,
+please [open an issue](https://github.com/mxmlnkn/ratarmount/issues) on Github.
+
+There also is a library interface called
+[ratarmountcore](https://github.com/mxmlnkn/ratarmount/tree/master/core#example) that works
+fully without FUSE, which might make access to files from Python even faster.
