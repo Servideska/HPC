@@ -187,6 +187,21 @@ It is recommended to install it inside a [Python virtual environment](python_vir
 marie@compute$ pip install ratarmount
 ```
 
+After that, you can use ratarmount to mount a TAR file using the following approach:
+
+```bash
+marie@compute$ ratarmount <compressed_file> <mountpoint>
+```
+
+Thus, you could invoke ratarmount as follows:
+
+```console
+marie@compute$ ratarmount inputdata.tar.gz input-folder
+
+# Now access the data as if it was a directory, e.g.:
+marie@compute$ cat input-folder/input-file1
+```
+
 Ratarmount is still in development, so if there are problems or if it is unexpectedly slow,
 please [open an issue](https://github.com/mxmlnkn/ratarmount/issues) on GitHub.
 
