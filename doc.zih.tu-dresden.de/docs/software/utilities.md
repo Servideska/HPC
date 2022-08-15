@@ -51,7 +51,7 @@ More recent versions of tmux are available via the module system. Using the well
 [module commands](modules.md#module-commands), you can query all available versions, load and unload
 certain versions from your environment, e.g.,
 
-``` bash
+```console
 marie@login$ module load tmux/3.2a
 ```
 
@@ -70,7 +70,7 @@ In particular, you can determine your client's version with the command `tmux -V
 Try to [load the appropriate tmux version](#using-a-more-recent-version) to match with your
 client's tmux server like this:
 
-```
+```console
 marie@compute$ tmux -V
 tmux 1.8
 marie@compute$ module load tmux/3.2a
@@ -94,24 +94,28 @@ For this purpose, the following shorthand is to be placed inside the
 [job file](../jobs_and_resources/slurm.md#job-files):
 
 ```bash
+#!/bin/bash
+#SBATCH [...]
+
 module load tmux/3.2a
 tmux new-session -s marie_is_computing -d
 sleep 1;
 tmux wait-for CHANNEL_NAME_MARIE
+
+srun [...]
 ```
 
 You can then connect to the tmux session like this:
 
-``` bash
-ssh -t "$(squeue --me --noheader --format="%N" 2>/dev/null | tail -n 1)" "source /etc/profile.d/10_modules.sh; module load tmux/3.2a; tmux attach"
+```console
+marie@login$ ssh -t "$(squeue --me --noheader --format="%N" 2>/dev/null | tail -n 1)" \
+             "source /etc/profile.d/10_modules.sh; module load tmux/3.2a; tmux attach"
 ```
 
 ### Where Is My Tmux Session?
 
 Please note that, as there are thousands of compute nodes available, there are also multiple login
-nodes.
-
-Thus, try checking the other login nodes as well:
+nodes. Thus, try checking the other login nodes as well:
 
 ```console
 marie@login3$ tmux ls

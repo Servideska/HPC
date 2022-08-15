@@ -1,6 +1,6 @@
 # Connecting via terminal
 
-Connecting via terminal works on every operating system. For Linux and Macintosh operating systems
+Connecting via terminal works on every operating system. For Linux and Mac operating systems
 no additional software is required. For users of a Windows OS a recent version of Windows is
 required (Windows 10, Build 1809 and higher). It is possible to use
 [Command Prompt](https://en.wikipedia.org/wiki/Cmd.exe) or [PowerShell](https://en.wikipedia.org/wiki/PowerShell)).
