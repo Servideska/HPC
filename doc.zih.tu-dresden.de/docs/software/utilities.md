@@ -160,6 +160,24 @@ marie@compute$ src/tools/pragzip --help
 The built binary can then be used directly or copied inside a folder that is available in your
 `PATH` environment variable.
 
+Pragzip can be used like this:
+
+```bash
+marie@compute$ pragzip -d <file_to_decompress>
+```
+
+For example, if you want to decompress a file called `data.gz`, use:
+
+```console
+marie@compute$ pragzip -d data.gz
+```
+
+Furthermore, you can use it to speed up extraction of a file `my-archive.tar.gz` like this:
+
+```console
+marie@compute$ tar --use-compress-program=pragzip -xf my-archive.tar.gz
+```
+
 Pragzip is still in development, so if it crashes or if it is slower than the system `gzip`,
 please [open an issue](https://github.com/mxmlnkn/pragzip/issues) on GitHub.
 
