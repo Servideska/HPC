@@ -62,35 +62,35 @@ presets in text files.
 
 You can choose between JupyterLab or classic Jupyter notebooks as outlined in the following.
 
-### JupyterLab
+=== "JupyterLab"
 
-![JupyterLab overview](misc/jupyterlab_overview.png)
-{: align="center"}
+    ![JupyterLab overview](misc/jupyterlab_overview.png)
+    {: align="center"}
 
-The main workspace is used for multiple notebooks, consoles or
-terminals. Those documents are organized with tabs and a very versatile
-split screen feature. On the left side of the screen you can open
-several views:
+    The main workspace is used for multiple notebooks, consoles or
+    terminals. Those documents are organized with tabs and a very versatile
+    split screen feature. On the left side of the screen you can open
+    several views:
 
-- file manager
-- controller for running kernels and terminals
-- overview of commands and settings
-- details about selected notebook cell
-- list of open tabs
+    - file manager
+    - controller for running kernels and terminals
+    - overview of commands and settings
+    - details about selected notebook cell
+    - list of open tabs
 
-### Classic Jupyter Notebook
+=== "Classic Jupyter Notebook"
 
-Initially, your home directory is listed. You can open existing notebooks or
-files by navigating to the corresponding path and clicking on them.
+    Initially, your home directory is listed. You can open existing notebooks or
+    files by navigating to the corresponding path and clicking on them.
 
-![Jupyter notebook file browser](misc/jupyter_notebook_file_browser.png)
-{: align="center"}
+    ![Jupyter notebook file browser](misc/jupyter_notebook_file_browser.png)
+    {: align="center"}
 
-Above the table on the right side, there is the button `New` which lets you create new
-notebooks, files, directories or terminals.
+    Above the table on the right side, there is the button `New` which lets you create new
+    notebooks, files, directories or terminals.
 
-![Jupyter notebook example Matplotlib](misc/jupyter_notebook_example_matplotlib.png)
-{: align="center"}
+    ![Jupyter notebook example Matplotlib](misc/jupyter_notebook_example_matplotlib.png)
+    {: align="center"}
 
 ## Jupyter Notebooks in General
 
@@ -126,20 +126,22 @@ Slurm job runtime hits the limit (usually 8 hours).
 
 At first, you have to open the JupyterHub control panel.
 
-**JupyterLab**: Open the file menu and then click on `Logout`. You can
-also click on `Hub Control Panel`, which opens the control panel in a new tab instead.
+=== "JupyterLab"
+    Open the file menu and then click on `Logout`. You can
+    also click on `Hub Control Panel`, which opens the control panel in a new tab instead.
 
-![JupyterLab logout](misc/jupyterlab_logout.png)
-{: align="center"}
+    ![JupyterLab logout](misc/jupyterlab_logout.png)
+    {: align="center"}
 
-**Classic Jupyter notebook**: Click on the control panel button on the top right of your screen.
+=== "Classic Jupyter notebook"
+    Click on the control panel button on the top right of your screen.
 
-![Jupyter notebook control panel button](misc/jupyter_notebook_control_panel_button.png)
-{: align="center"}
+    ![Jupyter notebook control panel button](misc/jupyter_notebook_control_panel_button.png)
+    {: align="center"}
 
-Now, you are back on the JupyterHub page and you can stop your server by clicking on
-![Stop my server](misc/stop_my_server.png)
-{: align="center"}
+    Now, you are back on the JupyterHub page and you can stop your server by clicking on
+    ![Stop my server](misc/stop_my_server.png)
+    {: align="center"}
 
 ## Error Handling
 
