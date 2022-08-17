@@ -51,22 +51,40 @@ to either use "Python virtualenv" or "conda environment".
 
 ## Python Virtualenv
 
+Depending on the CPU architecture that you are targeting, please choose a `modenv`:
+
+=== "scs5"
+    For use with Standard Environment `scs5_gcccore-10.2.0_python-3.8.6`,
+    please try to initialize your Python Virtual Environment like this:
+
+    ```console
+    marie@compute$ module load Python/3.8.6-GCCcore-10.2.0
+    Module Python/3.8.6-GCCcore-10.2.0 and 11 dependencies loaded.
+    marie@compute$ mkdir user-kernel # please use workspaces!
+    marie@compute$ cd user-kernel
+    marie@compute$ virtualenv --system-site-packages my-kernel
+    created virtual environment CPython3.8.6.final.0-64 in 5985ms
+      creator CPython3Posix(dest=[...]/my-kernel, clear=False, global=True)
+      seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=[...])
+        added seed packages: pip==20.2.3, setuptools==50.3.0, wheel==0.35.1
+      activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+    marie@compute$ source my-kernel/bin/activate
+    (my-kernel) marie@compute$ pip install ipykernel
+    Collecting ipykernel
+    [...]
+    Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
+    ```
+
+=== "hiera"
+TODOTODOTODOTODO
+=== "ml"
+TODOTODOTODOTODO
+=== "default ('production')"
+TODOTODTODOTOD, note, production environment uses Python 3.6
+
+
+
 ```console
-marie@compute$ module load Python/3.8.6-GCCcore-10.2.0
-Module Python/3.8.6-GCCcore-10.2.0 and 11 dependencies loaded.
-marie@compute$ mkdir user-kernel # please use workspaces!
-marie@compute$ cd user-kernel
-marie@compute$ virtualenv --system-site-packages my-kernel
-created virtual environment CPython3.8.6.final.0-64 in 5985ms
-  creator CPython3Posix(dest=[...]/my-kernel, clear=False, global=True)
-  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=[...])
-    added seed packages: pip==20.2.3, setuptools==50.3.0, wheel==0.35.1
-  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-marie@compute$ source my-kernel/bin/activate
-(my-kernel) marie@compute$ pip install ipykernel
-Collecting ipykernel
-[...]
-Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
 (my-kernel) marie@compute$ pip install --upgrade pip
 (my-kernel) marie@compute$ python -m ipykernel install --user --name my-kernel --display-name="my kernel"
 Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
