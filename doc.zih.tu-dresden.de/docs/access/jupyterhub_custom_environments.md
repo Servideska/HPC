@@ -77,6 +77,7 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
 
 === "hiera"
 TODOTODOTODOTODO
+    For use with Standard Environment `hiera_gcccore-11.2.0_python-3.9.6`
 === "ml"
 TODOTODOTODOTODO
 === "default ('production')"
