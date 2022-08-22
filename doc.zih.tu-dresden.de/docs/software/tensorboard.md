@@ -16,27 +16,19 @@ It will start a new terminal on the respective compute node. Then you can create
 `/tmp/<username>/tf-logs` and link it with the directory where your own log data is located.
 Consider the following commands to do so:
 
-The easiest way to use TensorBoard is via [JupyterHub](../access/jupyterhub.md). By default,
-TensorBoard is configured to read log data from `/tmp/<username>/tf-logs` on the compute node on
-which the Jupyter session is running. In order to show your own log data from a different directory,
-soft-link this directory with `/tmp/<username>/tf-logs` in order to make TensorBoard reading your
-log data. Note, that the directory `/tmp/<username>/tf-logs` might not exist and you have to
-create it first. Therefore, open a "New Launcher" (`Ctrl+Shift+L`) and select "Terminal" session.
-It will start a new terminal on the respective compute node. Then you can create the directory
-`/tmp/<username>/tf-logs` and link it with the directory where your own log data is located.
 
 Assuming you use a line like the following in your code:
 
-    ```python
-    tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="/home/marie/logs")
-    ```
+```python
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="/home/marie/logs")
+```
 
 You can then make the TensorBoard available with:
 
-    ```console
-    marie@compute$ mkdir -p /tmp/$USER/tf-logs
-    marie@compute$ ln -s /home/marie/logs /tmp/$USER/tf-logs
-    ```
+```bash
+mkdir -p /tmp/$USER/tf-logs
+ln -s /home/marie/logs /tmp/$USER/tf-logs
+```
 
 Update TensorBoard tab if needed with `F5`.
 
