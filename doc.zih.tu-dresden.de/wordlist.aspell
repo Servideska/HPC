@@ -8,8 +8,8 @@ ALLREDUCE
 Altix
 Amber
 Amdahl's
-analytics
 Analytics
+analytics
 anonymized
 Ansys
 APIs
@@ -198,6 +198,7 @@ lmod
 LoadLeveler
 localhost
 lsf
+lstopo
 Lua
 lustre
 mac

@@ -124,6 +124,48 @@ marie@login3$ ssh login4 tmux ls
 marie_is_testing: 1 windows (created Tue Mar 29 19:06:26 2022) [105x32]
 ```
 
+## Architecture Information (lstopo)
+
+The page [HPC Resource Overview](../jobs_and_resources/overview.md) holds a general and fast
+overview about the available HPC resources at ZIH.
+Sometime a closer look and deeper understanding of a particular architecture is needed. This is
+where the tool `lstopo` comes into play.
+
+The tool [lstopo](https://linux.die.net/man/1/lstopo) displays the topology of a system in a variety
+of output formats.
+
+`lstopo` and `lstopo-no-graphics` are available from the `hwloc` modules, e.g.
+
+```console
+marie@login$ module load hwloc/2.5.0-GCCcore-11.2.0
+marie@login$ lstopo
+```
+
+The topology map is displayed in a graphical window if the `DISPLAY` environment variable is set.
+Otherwise, a text summary is displayed. The displayed topology levels and granularity can be
+controlled using the various options of `lstopo`. Please refer to the corresponding man page and
+help message (`lstopo --help`).
+
+It is also possible to run this command using a job file to retrieve the topology of a compute nodes.
+
+```bash
+#!/bin/bash
+
+#SBATCH --job-name=topo_haswell
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=300m
+#SBATCH --partition=haswell
+#SBATCH --time=00:05:00
+#SBATCH --output=get_topo.out
+#SBATCH --error=get_topo.err
+
+module purge
+module load hwloc/2.5.0-GCCcore-11.2.0
+
+srun lstopo
+```
+
 ## Working with Large Archives and Compressed Files
 
 ### Parallel Gzip Decompression
