@@ -38,7 +38,6 @@ You can then make the TensorBoard available with:
     marie@compute$ ln -s /home/marie/logs /tmp/$USER/tf-logs
     ```
 
-
 Update TensorBoard tab if needed with `F5`.
 
 ## Using TensorBoard from Module Environment
