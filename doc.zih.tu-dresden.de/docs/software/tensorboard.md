@@ -31,7 +31,7 @@ Assuming you use a line like the following in your code:
     tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="/home/marie/logs")
     ```
 
-You can then make the tensorboard available with:
+You can then make the TensorBoard available with:
 
     ```console
     marie@compute$ mkdir -p /tmp/$USER/tf-logs
