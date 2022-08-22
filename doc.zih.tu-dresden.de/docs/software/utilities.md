@@ -165,4 +165,3 @@ module load hwloc/2.5.0-GCCcore-11.2.0
 
 srun lstopo
 ```
-
