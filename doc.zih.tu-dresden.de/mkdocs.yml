@@ -106,8 +106,7 @@ nav:
       - Checkpoint/Restart: jobs_and_resources/checkpoint_restart.md
       - Job Profiling: jobs_and_resources/slurm_profiling.md
       - Binding And Distribution Of Tasks: jobs_and_resources/binding_and_distribution_of_tasks.md
-  - Support:
-    - How to Ask for Support: support/support.md
+  - User Support: support/support.md
   - Archive:
     - Overview: archive/overview.md
     - Bio Informatics: archive/bioinformatics.md
@@ -133,7 +132,7 @@ nav:
     - UNICORE Rest API: archive/unicore_rest_api.md
     - VampirTrace: archive/vampirtrace.md
     - Windows Batchjobs: archive/windows_batch.md
-  - Contribute:
+  - Contribute to Documentation:
     - How-To Contribute: contrib/howto_contribute.md
     - Content Rules: contrib/content_rules.md
     - Contribute via Browser: contrib/contribute_browser.md
