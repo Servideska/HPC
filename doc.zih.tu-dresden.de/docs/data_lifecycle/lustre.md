@@ -21,9 +21,36 @@ marie@login$ lfs setstripe -c 20  /scratch/ws/marie-stripe20/tar
     This does not affect existing files. But all files that **will be created** in this
     directory will be distributed over 20 OSTs.
 
+## Good Practices
+
+!!! hint "Avoid accessing metadata information"
+
+    Queering metadata information such as file and directory attributes is a resource intensive task
+    in Lustre filesystems. When these tasks are performed frequently or over large directories, it
+    can degrade the filesystem's performance and thus affect all users.
+
+In this sense, you should minimize the usage of system calls quering or modifying file
+and directory attributes, e.g. `stat()`, `statx()`, `open()`, `openat()` etc.
+
+Please, also avoid commands basing on the above mentioned system calls such as `ls -l` and `ls
+--color`.
+Instead, you should invoke `ls` or `ls -l <filename` to reduce metadata operations.
+This also holds
+for commands walking the filessystems recursively performing massive metadata operations such as `ls
+-R`, `find`, `locate`, `du` and `df`.
+
+Lustre offers a number of commands that are suited to its architecture.
+
+| Good | Bad |
+|:-----|:----|
+| `lfs df` | `df` |
+| `lfs find` | `find` |
+| `ls -l <filename>` | `ls -l` |
+| `ls` | `ls --color` |
+
 ## Useful Commands for Lustre
 
-These commands work for `/scratch` and `/ssd`.
+These commands work for Lustre file systems `/scratch` and `/ssd`.
 
 ### Listing Disk Usages per OST and MDT
 
