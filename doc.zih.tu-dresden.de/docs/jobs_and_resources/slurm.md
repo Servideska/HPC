@@ -313,9 +313,9 @@ Running a job step on a specific component is supported by the option `--het-gro
 
 ```console
 marie@login$ salloc --ntasks 1 --cpus-per-task 4 --partition <partition> --mem=200G : \
---ntasks 8 --cpus-per-task 1 --gres=gpu:8 --mem=80G --partition <partition>
-
-srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
+                    --ntasks 8 --cpus-per-task 1 --gres=gpu:8 --mem=80G --partition <partition>
+[...]
+marie@login$ srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 ```
 
 Heterogeneous jobs can also be defined in job files. There, it is required to separate multiple
