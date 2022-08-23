@@ -303,7 +303,7 @@ provide a comprehensive collection of job examples.
 ## Heterogeneous Jobs
 
 A heterogeneous job consists of several job components, all of which can have individual job
-options.  In particular, different components can use resources from different Slurm partitions.
+options. In particular, different components can use resources from different Slurm partitions.
 One example for this setting is an MPI application consisting of a master process with a huge memory
 footprint and worker processes requiring GPU support.
 
@@ -346,11 +346,7 @@ wait
 ### Limitations
 
 Due to the way scheduling algorithm works it is required that each component has to be allocated on
-an different node.
-
-!!! warning
-
-    Job arrays of heterogeneous jobs are not supported.
+a different node. Furthermore, job arrays of heterogeneous jobs are not supported.
 
 ## Manage and Control Jobs
 
