@@ -14,7 +14,7 @@ set -euo pipefail
 scriptpath=${BASH_SOURCE[0]}
 basedir=`dirname "${scriptpath}"`
 basedir=`dirname "${basedir}"`
-
+#echo $basedir
 usage() {
   cat <<-EOF
 usage: $0 [file | -a]
@@ -28,8 +28,9 @@ if [[ "${1}" == "-h" ]] ||  [[ "${1}" == "--help" ]]; then
   usage
 else
   if [[ "${1}" == "-a" ]]; then
-    #files=$(git ls-tree --full-tree -r --name-only HEAD ./ | grep -e '\.sh$' -e '\.md')
     files=$(find $basedir | grep -e '\.md$' -e '\.sh$')
+    file_num=$(find $basedir | grep -e '\.md$' -e '\.sh$'| wc -l)
+    ((file_num=file_num-1)) # We skip check of this file
   else
     files=$1
   fi
@@ -47,49 +48,60 @@ function style_check() {
   
   local ext
   ext="${myfile##*.}"
-    
+   
   if  [[ "${ext}" == "sh" ]]; then
     # If shell script is provided
     local test_res
-    test_res=$(cat $myfile | grep -nP "${pattern}" | wc -l)
-    if [[ "${test_res}" -ne "0" ]]; then
+    test_res=$(echo $(cat $myfile | grep -nP "${pattern}" | wc -l))
+    if [[ "${test_res}" -gt "0" ]]; then
       echo -e "[WARNING] ${warning}" #\nThis coding style was not used for following lines:"
-      #echo "This coding style was not used for following lines in file $(realpath ${myfile}):"
+      echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
       cat $myfile | grep -nP "${pattern}"
       echo ""
     fi
   elif [[ "${ext}" == "md" ]]; then
     # If markdown file is provided
-    local test_string  
-    #if [[ "$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -v '```'; echo $?)" == 0 ]]
+    
+    # Check if the code snippet exists in the markdown file
+    local test_string_exit_code
     test_string_exit_code=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -qv '```'; echo $? | tail -1)
-    if [[ "${test_string_exit_code}" -ne "1" ]]; then 
+   
+    if [[ "${test_string_exit_code}" == "0" ]]; then 
+            
+      # Extracting code snippet within ```bash ... ```
+      local test_string
       test_string=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -v '```')
-      local test_res
-      local test_res_count
-      if echo "${test_string}" | grep -qP "${pattern}"; then
-        test_res=$(echo "${test_string}" | grep -oP "${pattern}")
-        test_res_count=$(echo $test_string | grep -nP "${pattern}" | wc -l)
+      
+      # Check the exit code of pattern match
+      local test_string_pattern_match_exit_code
+      test_string_pattern_match_exit_code=$(echo "${test_string}" | grep -qP "${pattern}"; echo $? | tail -1)
+      
+      if [[ "${test_string_pattern_match_exit_code}" == "0" ]]; then
+        local test_res
+        test_res="$(echo "${test_string}" | grep -oP "${pattern}")"
+        
+        local test_res_count 
+        test_res_count="$(echo "${test_string}" | grep -nP "${pattern}" | wc -l)"
       else
+        local test_res_count          
         test_res_count=0 
       fi
-      if [[ "${test_res_count}" -ne "0" ]]; then
+      if [[ "${test_res_count}" -gt "0" ]]; then
         echo -e "[WARNING] ${warning}" # This coding style was not used for following lines:"
-        #echo "This coding style was not used for following lines in file $(realpath ${myfile}):"
-        grep -no "$(echo "${test_string}" | grep -P "${pattern}")" "${myfile}"      
+        echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
+        grep -no -F "$(echo "${test_string}" | grep -P "${pattern}")" "${myfile}"
         echo ""
       fi
     fi
   fi
 }
-
+counter=0
 for file in $files; do
-  if [[ "${file}" == "$0" ]]; then
+  # Skip checking this file
+  if [[ "${file}" == "${0}" ]]; then
     continue
   fi
-  echo "Checking for file ${file}"
-  # Variable expansion
-  # Currently style check not possible for multiline comment
+  # Variable expansion. Currently style check not possible for multiline comment
   pattern='.*"[\n\s\w\W]*\$[^\{|^\(]\w*[\n\s\w\W]*"'
   warning="Using \"\${var}\" is recommended over \"\$var\""
   style_check "${file}" "${pattern}" "${warning}"
@@ -100,9 +112,13 @@ for file in $files; do
   style_check "${file}" "${pattern}" "${warning}"
   
   # Line length less than 80char length
-  pattern='^.{80}.*$'
-  warning="Recommended maximum line length is 80 characters."
-  style_check "${file}" "${pattern}" "${warning}"
+  file_ext="${file##*.}"
+  if [[ "${file_ext}" == "sh" ]]; then
+    #echo "Checking for max line length..."
+    pattern='^.{80}.*$'
+    warning="Recommended maximum line length is 80 characters."
+    style_check "${file}" "${pattern}" "${warning}"
+  fi
   
   # do, then in the same line as while, for and if
   pattern='^\s*(while|for|if)[\w\-\%\d\s\$=\[\]\(\)]*[^;]\s*[^do|then]\s*$'
@@ -134,5 +150,5 @@ for file in $files; do
   pattern='readonly [^A-Z]*=.*|declare [-a-zA-Z\s]*[^A-Z]*=.*'
   warning="Constants and anything exported to the environment should be capitalized."
   style_check "${file}" "${pattern}" "${warning}"
-
+  ((counter=counter+1))
 done
