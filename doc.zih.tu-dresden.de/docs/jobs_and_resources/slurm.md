@@ -312,8 +312,8 @@ specifications for each component of the heterogeneous job should be separated w
 Running a job step on a specific component is supported by the option `--het-group`.
 
 ```bash
-marie@login$ salloc --ntasks 1 --cpus 4 --partition <partition> --mem=200G : \
---ntasks 8 --cpus 1 --gres=gpu:8 --mem=80G --partition <partition>
+marie@login$ salloc --ntasks 1 --cpus-per-task 4 --partition <partition> --mem=200G : \
+--ntasks 8 --cpus-per-task 1 --gres=gpu:8 --mem=80G --partition <partition>
 
 srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 ```
