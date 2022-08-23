@@ -302,37 +302,38 @@ provide a comprehensive collection of job examples.
 
 ## Heterogeneous Jobs
 
-A heterogeneous job consists of several job components, all of which can have individual job options.
-In particular, different components can use resources from different Slurm partitions.
-One example for this setting is an MPI application consisting of an master process with
-a huge memory footprint and worker processes requiring GPU support.
+A heterogeneous job consists of several job components, all of which can have individual job
+options.  In particular, different components can use resources from different Slurm partitions.
+One example for this setting is an MPI application consisting of a master process with a huge memory
+footprint and worker processes requiring GPU support.
 
-The `salloc`, `sbatch` and `srun` commands can all be used to submit heterogeneous jobs.
-Resource specifications for each component of the heterogeneous job should be separated with ":" character.
-Run a job step on an specific component is supported by option `--het-group`.
+The `salloc`, `sbatch` and `srun` commands can all be used to submit heterogeneous jobs. Resource
+specifications for each component of the heterogeneous job should be separated with ":" character.
+Running a job step on a specific component is supported by the option `--het-group`.
 
 ```bash
-salloc -n 1 -c 4 -p <partition> --mem=200G : \
--n 8 -c 1 --gres=gpu:8 --mem=80G -p <partition>
+marie@login$ salloc --ntasks 1 --cpus 4 --partition <partition> --mem=200G : \
+--ntasks 8 --cpus 1 --gres=gpu:8 --mem=80G --partition <partition>
 
 srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 ```
 
-Using a Job files it is required separate multiple components by a line containing `"#SBATCH hetjob`
+Heterogeneous jobs can also be defined in job files. There, it is required to separate multiple
+components by a line containing the directive `"#SBATCH hetjob`.
 
 ```bash
 #!/bin/bash
 
-#SBATCH -n 1
-#SBATCH -c 4
-#SBATCH -p <partition>
+#SBATCH --ntasks 1
+#SBATCH --cpus 4
+#SBATCH --partition <partition>
 #SBATCH --mem=200G
 #SBATCH hetjob # required to separate groups
-#SBATCH -n 8
-#SBATCH -c 1
+#SBATCH --ntasks 8
+#SBATCH --cpus 1
 #SBATCH --gres=gpu:8
 #SBATCH --mem=80G
-#SBATCH -p <partition>
+#SBATCH --partition <partition>
 
 srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 
@@ -344,10 +345,12 @@ wait
 
 ### Limitations
 
-Due to the way scheduling algorithm works it is required that each component
-has to be allocated on an different node.
+Due to the way scheduling algorithm works it is required that each component has to be allocated on
+an different node.
 
-Job arrays of heterogeneous jobs are not supported.
+!!! warning
+
+    Job arrays of heterogeneous jobs are not supported.
 
 ## Manage and Control Jobs
 
