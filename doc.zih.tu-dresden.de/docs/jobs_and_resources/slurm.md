@@ -311,7 +311,7 @@ The `salloc`, `sbatch` and `srun` commands can all be used to submit heterogeneo
 specifications for each component of the heterogeneous job should be separated with ":" character.
 Running a job step on a specific component is supported by the option `--het-group`.
 
-```bash
+```console
 marie@login$ salloc --ntasks 1 --cpus-per-task 4 --partition <partition> --mem=200G : \
 --ntasks 8 --cpus-per-task 1 --gres=gpu:8 --mem=80G --partition <partition>
 
