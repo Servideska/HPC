@@ -42,11 +42,11 @@ function style_check() {
   local ext
   ext="${myfile##*.}"
    
+  local test_res_count
   if  [[ "${ext}" == "sh" ]]; then
     # If shell script is provided
-    local test_res
-    test_res=$(echo $(cat $myfile | grep -nP "${pattern}" | wc -l))
-    if [[ "${test_res}" -gt "0" ]]; then
+    test_res_count=$(grep -cP "${pattern}" $myfile || true)
+    if [[ "${test_res_count}" -gt "0" ]]; then
       echo -e "[WARNING] ${warning}" #\nThis coding style was not used for following lines:"
       echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
       grep -nP "${pattern}" $myfile
@@ -59,15 +59,13 @@ function style_check() {
     test_string_exit_code=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -qv '```'; echo $? | tail -1)
    
     if [[ "${test_string_exit_code}" == "0" ]]; then 
-            
       # Extracting code snippet within ```bash ... ```
       local test_string
       test_string=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -v '```')
       
       # Check the exit code of pattern match
       if echo "${test_string}" | grep -qP "${pattern}"; then
-        local test_res_count 
-        test_res_count="$(echo "${test_string}" | grep -nP "${pattern}" | wc -l)"
+        test_res_count="$(echo "${test_string}" | grep -cnP "${pattern}")"
       else
         local test_res_count          
         test_res_count=0 
