@@ -56,7 +56,7 @@ function style_check() {
     if [[ "${test_res}" -gt "0" ]]; then
       echo -e "[WARNING] ${warning}" #\nThis coding style was not used for following lines:"
       echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
-      cat $myfile | grep -nP "${pattern}"
+      grep -nP "${pattern}" $myfile
       echo ""
     fi
   elif [[ "${ext}" == "md" ]]; then
@@ -73,13 +73,7 @@ function style_check() {
       test_string=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -v '```')
       
       # Check the exit code of pattern match
-      local test_string_pattern_match_exit_code
-      test_string_pattern_match_exit_code=$(echo "${test_string}" | grep -qP "${pattern}"; echo $? | tail -1)
-      
-      if [[ "${test_string_pattern_match_exit_code}" == "0" ]]; then
-        local test_res
-        test_res="$(echo "${test_string}" | grep -oP "${pattern}")"
-        
+      if echo "${test_string}" | grep -qP "${pattern}"; then
         local test_res_count 
         test_res_count="$(echo "${test_string}" | grep -nP "${pattern}" | wc -l)"
       else
