@@ -17,6 +17,7 @@ will work. Depending on that hardware, allocate resources as follows.
 ## Preliminary Steps
 
 === "Nodes with x86_64 (Intel) CPU"
+
     Use **one srun command** of these:
 
     ```console
@@ -25,7 +26,9 @@ will work. Depending on that hardware, allocate resources as follows.
     maria@login$ srun --partition=gpu2 --pty --ntasks=1 --cpus-per-task=2 \
      --mem-per-cpu=2541 --time=08:00:00 bash -l
     ```
+
 === "Nodes with x86_64 (AMD) CPU"
+
     Use **one srun command** of these:
 
     ```console
@@ -34,7 +37,9 @@ will work. Depending on that hardware, allocate resources as follows.
     maria@login$ srun --partition=alpha --gres=gpu:1 --pty --ntasks=1 \
      --cpus-per-task=6 --mem-per-cpu=10312 --time=08:00:00 bash -l
     ```
+
 === "Nodes with ppc64le CPU"
+
     ```console
     maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 \
      --time=08:00:00 bash -l

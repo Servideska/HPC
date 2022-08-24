@@ -221,7 +221,6 @@ As of july 2022 we have a number of standard environments, namely:
 | scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           |
 | scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | matlab                    |
 | scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           |
-| test                                                       | x86_64, ppc64le |                           |
 
 With these **standard environments** we have tried to integrate a set of compatible software:
 
@@ -282,5 +281,5 @@ Each box therein represents a so called 'Kernel'
 but similarly provide basic functionality for running your use cases,
 e.g. Python or R)
 
-You can find further documentation on creating your own Kernels [here](/access/jupyterhub_custom_environments)
+You can find further documentation on creating your own Kernels [here](./jupyterhub_custom_environments.md)
 
