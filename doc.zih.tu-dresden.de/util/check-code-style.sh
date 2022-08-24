@@ -97,9 +97,8 @@ if [ $# -eq 1 ]; then
   ;;
   -a | --all)
     echo "Checking in all files."
-    files=$(find $basedir -name '*.md' -o -name '*.sh' | grep -v $0)
-    #file_num=$(find $basedir -name '*.md' -o -name '*.sh' | grep -v $0 | wc -l) #For debugging
-    # Note: `grep -v $0` is added to remove this file from checks
+    files=$(find $basedir -name '*.md' -o -name '*.sh')
+    #file_num=$(find $basedir -name '*.md' -o -name '*.sh' | wc -l) #For debugging
   ;;
   *)
     files="$1"
@@ -108,10 +107,9 @@ if [ $# -eq 1 ]; then
   esac
 elif [ $# -eq 0 ]; then
   echo "Search in git-changed files."
-  files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep -v $0 | grep -e '.md$' -e '.sh$' || true`
+  files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep -e '.md$' -e '.sh$' || true`
   #For debugging
-  #file_num=$(git diff --name-only "$(git merge-base HEAD "$branch")" | grep -v $0 | grep -c -e '.md$' -e '.sh$' || true)
-  # Note: `grep -v $0` is added to remove this file from checks
+  #file_num=$(git diff --name-only "$(git merge-base HEAD "$branch")" | grep -c -e '.md$' -e '.sh$' || true)
 else
   usage
 fi
