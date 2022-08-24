@@ -35,11 +35,12 @@ large_files_present=false
 branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
 source_hash=`git merge-base HEAD "$branch"`
 
-echo "===="
-git diff $source_hash --name-only
-echo "===="
+gitlfsfiles=$(git lfs ls-files -n)
 
-for f in $(git diff $source_hash --name-only); do    
+for f in $(git diff $source_hash --name-only); do
+    if [[ "$gitlfsfiles" =~ .*"$f".* ]]; then
+      echo "It's there."
+    fi
     fs=$(wc -c $f | awk '{print $1}')
     if [ $fs -gt 1048576 ]; then
         echo $f 'is over 1M ('$fs' bytes)'
