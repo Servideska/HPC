@@ -35,11 +35,10 @@ large_files_present=false
 branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
 source_hash=`git merge-base HEAD "$branch"`
 
-gitlfsfiles=$(git lfs ls-files -n)
-
 for f in $(git diff $source_hash --name-only); do
-    if [[ "$gitlfsfiles" =~ .*"$f".* ]]; then
-      echo "It's there."
+    if [[ "$f" =~ .*".webm" ]] || [[ "$f" =~ .*".mp4" ]] ; then
+        echo "Skip file in webm or mp4 format cause it is in git lfs."
+        continue
     fi
     fs=$(wc -c $f | awk '{print $1}')
     if [ $fs -gt 1048576 ]; then
