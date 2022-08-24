@@ -60,13 +60,10 @@ function style_check() {
   elif [[ "${ext}" == "md" ]]; then
     # If markdown file is provided
     # Check if the code snippet exists in the markdown file
-    local test_string_exit_code
-    test_string_exit_code=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -qv '```'; echo $? | tail -1)
-
-    if [[ "${test_string_exit_code}" == "0" ]]; then
+    if sed -n '/^```bash$/,/^```$/p' $myfile | grep -qv '```'; then
       # Extracting code snippet within ```bash ... ```
       local test_string
-      test_string=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -v '```')
+      test_string=$(sed -n '/^```bash$/,/^```$/p' $myfile | grep -v '```')
 
       # Check the exit code of pattern match
       if echo "${test_string}" | grep -qP "${pattern}"; then
