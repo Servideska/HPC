@@ -51,7 +51,7 @@ function style_check() {
     # If shell script is provided
     test_res_count=$(grep -cP "${pattern}" $myfile || true)
     if [[ "${test_res_count}" -gt "0" ]]; then
-      echo -e "[WARNING] ${warning}" #\nThis coding style was not used for following lines:"
+      echo -e "[WARNING] ${warning}"
       echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
       grep -nP "${pattern}" $myfile
       echo ""
@@ -70,7 +70,7 @@ function style_check() {
         test_res_count="$(echo "${test_string}" | grep -cnP "${pattern}")"
       fi
       if [[ "${test_res_count}" -gt "0" ]]; then
-        echo -e "[WARNING] ${warning}" # This coding style was not used for following lines:"
+        echo -e "[WARNING] ${warning}"
         echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
         grep -no -F "$(echo "${test_string}" | grep -P "${pattern}")" "${myfile}"
         echo ""
@@ -102,23 +102,18 @@ if [ $# -eq 1 ]; then
   -a | --all)
     echo "Checking in all files."
     files=$(find $basedir -name '*.md' -o -name '*.sh')
-    #file_num=$(find $basedir -name '*.md' -o -name '*.sh' | wc -l) #For debugging
   ;;
   *)
     files="$1"
-    file_num=1
   ;;
   esac
 elif [ $# -eq 0 ]; then
   echo "Search in git-changed files."
   files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep -e '.md$' -e '.sh$' || true`
-  #For debugging
-  #file_num=$(git diff --name-only "$(git merge-base HEAD "$branch")" | grep -c -e '.md$' -e '.sh$' || true)
 else
   usage
 fi
 
-#counter=0                                           #For debugging
 any_fails=false
 
 for file in $files; do
@@ -189,8 +184,6 @@ for file in $files; do
   if style_check "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
-  #((counter=counter+1))                             #For debugging
-  #echo -e "Checked ${counter}/${file_num} files\n"  #For debugging
 done
 if [[ "${any_fails}" == true ]]; then
   exit 1
