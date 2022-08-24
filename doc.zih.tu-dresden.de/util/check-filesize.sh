@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # BSD 3-Clause License
 # 
@@ -36,8 +36,11 @@ branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
 source_hash=`git merge-base HEAD "$branch"`
 
 for f in $(git diff $source_hash --name-only); do
+    # Do not check size of git lfs files.
+    # This is a bit "Going around your elbow to get to your ear" by assuming that lfs files are
+    # ending with webm or mp4
     if [[ "$f" =~ .*".webm" ]] || [[ "$f" =~ .*".mp4" ]] ; then
-        echo "Skip file in webm or mp4 format cause it is in git lfs."
+        echo "Skip file in webm or mp4 format cause it is a git lfs file."
         continue
     fi
     fs=$(wc -c $f | awk '{print $1}')
