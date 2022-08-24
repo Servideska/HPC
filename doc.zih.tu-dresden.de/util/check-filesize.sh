@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # BSD 3-Clause License
 # 
