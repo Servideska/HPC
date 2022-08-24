@@ -89,7 +89,7 @@ then
   exit_ok=no
 fi
 
-echo "Checking code styling for all files..."
+echo "Checking code styling for files..."
 docker run --name=hpc-compendium --rm -w /docs --mount src="$(pwd)",target=/docs,type=bind hpc-compendium ./doc.zih.tu-dresden.de/util/check-code-style.sh -a
 if [ $? -ne 0 ]
 then
