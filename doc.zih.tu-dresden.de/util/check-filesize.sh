@@ -35,6 +35,10 @@ large_files_present=false
 branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
 source_hash=`git merge-base HEAD "$branch"`
 
+echo "===="
+git diff $source_hash --name-only
+echo "===="
+
 for f in $(git diff $source_hash --name-only); do    
     fs=$(wc -c $f | awk '{print $1}')
     if [ $fs -gt 1048576 ]; then
