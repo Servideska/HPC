@@ -143,7 +143,7 @@ for file in $files; do
   # Naming conventions
   # Function name
   pattern='^.*[A-Z]+[_a-z]*\s*\(\)\s*\{'
-  warning="It is recommended to function names in lower-case, with underscores to separate words"
+  warning="It is recommended to write function names in lower-case, with underscores to separate words"
   style_check "${file}" "${pattern}" "${warning}"
   
   # Constants and Environment Variable Names
