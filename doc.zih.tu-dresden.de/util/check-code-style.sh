@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #-------------------------------------------------------------------------------
-# Checks code styling used in files. Currently only shell coding style in shell 
+# Checks code styling used in files. Currently only shell coding style in shell
 # scripts and shell code snippets inside markdown files is supported.
-# 
+#
 # Usage: $0 <arg>
-# arg: 
-#     > -a|--all              : Searches through all files with ".md" and ".sh" 
+# arg:
+#     > -a|--all              : Searches through all files with ".md" and ".sh"
 #                               endings
 #     > -h|--help|-help|help  : Print help message
 #     > file                  : Checks coding style of provided file
@@ -23,7 +23,7 @@ set -euo pipefail
 usage() {
   cat <<-EOF
 usage: $0 [file | -a]
-If file is given, checks code styling for the given file. If parameter -a 
+If file is given, checks code styling for the given file. If parameter -a
 (or --all) is given instead of the file, code style check of all the utility
 files and all markdown files is done.
 EOF
@@ -32,16 +32,16 @@ EOF
 function style_check() {
   local myfile
   myfile=$1
-    
+
   local pattern
   pattern=$2
 
   local warning
   warning="${3}"
-  
+
   local ext
   ext="${myfile##*.}"
-   
+
   local test_res_count
   if  [[ "${ext}" == "sh" ]]; then
     # If shell script is provided
@@ -57,18 +57,18 @@ function style_check() {
     # Check if the code snippet exists in the markdown file
     local test_string_exit_code
     test_string_exit_code=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -qv '```'; echo $? | tail -1)
-   
-    if [[ "${test_string_exit_code}" == "0" ]]; then 
+
+    if [[ "${test_string_exit_code}" == "0" ]]; then
       # Extracting code snippet within ```bash ... ```
       local test_string
       test_string=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -v '```')
-      
+
       # Check the exit code of pattern match
       if echo "${test_string}" | grep -qP "${pattern}"; then
         test_res_count="$(echo "${test_string}" | grep -cnP "${pattern}")"
       else
-        local test_res_count          
-        test_res_count=0 
+        local test_res_count
+        test_res_count=0
       fi
       if [[ "${test_res_count}" -gt "0" ]]; then
         echo -e "[WARNING] ${warning}" # This coding style was not used for following lines:"
@@ -122,12 +122,12 @@ for file in $files; do
   pattern='.*"[\n\s\w\W]*\$[^\{|^\(]\w*[\n\s\w\W]*"'
   warning="Using \"\${var}\" is recommended over \"\$var\""
   style_check "${file}" "${pattern}" "${warning}"
-  
+
   # Declaration and assignment of local variables
   pattern='local [a-zA-Z_]*=.*'
   warning="Declaration and assignment of local variables should be on different lines."
   style_check "${file}" "${pattern}" "${warning}"
-  
+
   # Line length less than 80char length
   file_ext="${file##*.}"
   if [[ "${file_ext}" == "sh" ]]; then
@@ -136,33 +136,33 @@ for file in $files; do
     warning="Recommended maximum line length is 80 characters."
     style_check "${file}" "${pattern}" "${warning}"
   fi
-  
+
   # do, then in the same line as while, for and if
   pattern='^\s*(while|for|if)[\w\-\%\d\s\$=\[\]\(\)]*[^;]\s*[^do|then]\s*$'
   warning="It is recommended to put '; do' and '; then' on the same line as the 'while', 'for' or 'if'"
   style_check "${file}" "${pattern}" "${warning}"
-  
+
   # using [[..]] over [..]
   pattern='^\s*(if|while|for)\s*\[[^\[].*$'
   warning="It is recommended to use '[[ … ]]' over '[ … ]', 'test' and '/usr/bin/['"
   style_check "${file}" "${pattern}" "${warning}"
-  
+
   # Avoiding 'eval'
   pattern='^[\w\=\"\s\$\(]*eval.*'
   warning="It is not recommended to use eval"
   style_check "${file}" "${pattern}" "${warning}"
-  
+
   # Arithmetic
   pattern='(\$\([^\(]|let|\$\[)\s*(expr|\w)\s*[\d\+\-\*\/\=\%\$]+'
   warning="It is recommended to use '(( … ))' or '\$(( … ))' rather than 'let' or '\$[ … ]' or 'expr'"
   style_check "${file}" "${pattern}" "${warning}"
-  
+
   # Naming conventions
   # Function name
   pattern='^.*[A-Z]+[_a-z]*\s*\(\)\s*\{'
   warning="It is recommended to write function names in lower-case, with underscores to separate words"
   style_check "${file}" "${pattern}" "${warning}"
-  
+
   # Constants and Environment Variable Names
   pattern='readonly [^A-Z]*=.*|declare [-a-zA-Z\s]*[^A-Z]*=.*'
   warning="Constants and anything exported to the environment should be capitalized."
