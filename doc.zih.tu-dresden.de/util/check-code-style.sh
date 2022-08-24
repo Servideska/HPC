@@ -28,8 +28,8 @@ if [[ "${1}" == "-h" ]] ||  [[ "${1}" == "--help" ]]; then
   usage
 else
   if [[ "${1}" == "-a" ]]; then
-    files=$(find $basedir | grep -e '\.md$' -e '\.sh$')
-    file_num=$(find $basedir | grep -e '\.md$' -e '\.sh$'| wc -l)
+    files=$(find $basedir -name '*.md' -o -name '*.sh')
+    file_num=$(find $basedir -name '*.md' -o -name '*.sh' | wc -l)
     ((file_num=file_num-1)) # We skip check of this file
   else
     files=$1
