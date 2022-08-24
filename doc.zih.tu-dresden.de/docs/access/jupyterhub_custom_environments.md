@@ -12,7 +12,7 @@ later on with the kernel. In the examples below, we use the name
 "my-kernel" for our user kernel. We recommend to prefix your kernels
 with keywords like `haswell`, `ml`, `romeo`, `venv`, `conda`. This way, you
 can later recognize easier how you built the kernel and on which hardware it
-will work. Depending on that hardware, allocate resources:
+will work. Depending on that hardware, allocate resources as follows.
 
 ## Preliminary Steps
 
@@ -51,6 +51,8 @@ to either use "Python virtualenv" or "conda environment".
 
 ## Python Virtualenv
 
+While we have a general description on [Python Virtual Environments](/software/python_virtual_environments/), here we have a more detailed description on using them with JupyterHub:
+
 Depending on the CPU architecture that you are targeting, please choose a `modenv`:
 
 === "scs5"
@@ -78,7 +80,6 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     Then continue with the steps below.
 
 === "hiera"
-TODOTODOTODOTODO
     For use with Standard Environment `hiera_gcccore-10.2.0_python-3.8.6`,
     please try to initialize your Python Virtual Environment like this:
 
@@ -118,6 +119,8 @@ TODOTODOTODOTODO
     
     Then continue with the steps below.
 
+After following the initialization of the environment (above),
+the usage of Python's Package manager `pip` is the same:
 
 ```console
 (my-kernel) marie@compute$ pip install --upgrade pip
@@ -129,11 +132,8 @@ Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
 
 !!! warning
 
-    Depending on the Python module you have loaded for creating your virtual environment, you should
-    select the apropriate [Standard environment](#standard-environments). For example, you could
-    select `scs5_gcccore-10.2.0_python-3.8.6`, when you want to use `my-kernel`. Furthermore,
-    ensure, that you pre-load the same modules via [Spawner Options](#start-a-session) that you used
-    for creating your kernel.
+    Take care to select the appropriate standard environment (as mentioned above)
+    when [spawning a new session](./jupyterhub#start-a-session).
 
 ## Conda Environment
 
