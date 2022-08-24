@@ -1,20 +1,25 @@
 #!/bin/bash
 
 #-------------------------------------------------------------------------------
-# Checks code styling of contents in utility files and markdown files
+# Checks code styling used in files. Currently only shell coding style in shell 
+# scripts and shell code snippets inside markdown files is supported.
 # 
-# Usage:
-# $0 [file| -a] 
+# Usage: $0 <arg>
+# arg: 
+#     > -a|--all              : Searches through all files with ".md" and ".sh" 
+#                               endings
+#     > -h|--help|-help|help  : Print help message
+#     > file                  : Checks coding style of provided file
+#     > If no arguments are provided, only the new/git-changed files will be
+#       checked
 #-------------------------------------------------------------------------------
 # TODO: Indent check for bash
 # TODO: Extend the code style check to other programming language
 
 set -euo pipefail
 
-scriptpath=${BASH_SOURCE[0]}
-basedir=`dirname "${scriptpath}"`
-basedir=`dirname "${basedir}"`
-#echo $basedir
+# -----------------------------------------------------------------------------
+# Functions Start
 usage() {
   cat <<-EOF
 usage: $0 [file | -a]
@@ -23,18 +28,6 @@ If file is given, checks code styling for the given file. If parameter -a
 files and all markdown files is done.
 EOF
 }
-
-if [[ "${1}" == "-h" ]] ||  [[ "${1}" == "--help" ]]; then
-  usage
-else
-  if [[ "${1}" == "-a" ]]; then
-    files=$(find $basedir -name '*.md' -o -name '*.sh')
-    file_num=$(find $basedir -name '*.md' -o -name '*.sh' | wc -l)
-    ((file_num=file_num-1)) # We skip check of this file
-  else
-    files=$1
-  fi
-fi
 
 function style_check() {
   local myfile
@@ -61,7 +54,6 @@ function style_check() {
     fi
   elif [[ "${ext}" == "md" ]]; then
     # If markdown file is provided
-    
     # Check if the code snippet exists in the markdown file
     local test_string_exit_code
     test_string_exit_code=$(cat $myfile | sed -n '/^```bash$/,/^```$/p' | grep -qv '```'; echo $? | tail -1)
@@ -89,12 +81,45 @@ function style_check() {
     fi
   fi
 }
-counter=0
+# -----------------------------------------------------------------------------
+# Functions End
+
+scriptpath=${BASH_SOURCE[0]}
+basedir=`dirname "${scriptpath}"`
+basedir=`dirname "${basedir}"`
+
+branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
+
+# Options
+if [ $# -eq 1 ]; then
+  case $1 in
+  -h | help | -help | --help)
+    usage
+    exit
+  ;;
+  -a | --all)
+    echo "Checking in all files."
+    files=$(find $basedir -name '*.md' -o -name '*.sh' | grep -v $0)
+    #file_num=$(find $basedir -name '*.md' -o -name '*.sh' | grep -v $0 | wc -l) #For debugging
+    # Note: `grep -v $0` is added to remove this file from checks
+  ;;
+  *)
+    files="$1"
+    file_num=1
+  ;;
+  esac
+elif [ $# -eq 0 ]; then
+  echo "Search in git-changed files."
+  files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep -v $0 | grep -e '.md$' -e '.sh$' || true`
+  #For debugging
+  #file_num=$(git diff --name-only "$(git merge-base HEAD "$branch")" | grep -v $0 | grep -c -e '.md$' -e '.sh$' || true)
+  # Note: `grep -v $0` is added to remove this file from checks
+else
+  usage
+fi
+
+#counter=0                                           #For debugging
 for file in $files; do
-  # Skip checking this file
-  if [[ "${file}" == "${0}" ]]; then
-    continue
-  fi
   # Variable expansion. Currently style check not possible for multiline comment
   pattern='.*"[\n\s\w\W]*\$[^\{|^\(]\w*[\n\s\w\W]*"'
   warning="Using \"\${var}\" is recommended over \"\$var\""
@@ -144,5 +169,8 @@ for file in $files; do
   pattern='readonly [^A-Z]*=.*|declare [-a-zA-Z\s]*[^A-Z]*=.*'
   warning="Constants and anything exported to the environment should be capitalized."
   style_check "${file}" "${pattern}" "${warning}"
-  ((counter=counter+1))
+  #((counter=counter+1))                             #For debugging
+  #echo -e "Checked ${counter}/${file_num} files\n"  #For debugging
 done
+#------------------------------------------------------------------------------
+# Script End
