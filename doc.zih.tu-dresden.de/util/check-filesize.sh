@@ -38,8 +38,8 @@ source_hash=`git merge-base HEAD "$branch"`
 for f in $(git diff $source_hash --name-only); do    
     fs=$(wc -c $f | awk '{print $1}')
     if [ $fs -gt 1048576 ]; then
-	echo $f 'is over 1M ('$fs' bytes)'
-	large_files_present=true
+        echo $f 'is over 1M ('$fs' bytes)'
+        large_files_present=true
     fi
 done
 
