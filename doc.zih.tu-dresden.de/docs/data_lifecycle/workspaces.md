@@ -232,9 +232,14 @@ A batch job needs a directory for temporary data. This can be deleted afterwards
     export GAUSS_SCRDIR=$(ws_allocate -F ssd $COMPUTE_DIR 7)
     echo $GAUSS_SCRDIR
 
+    # Check allocation
+    [ -z "${GAUSS_SCRDIR}" ] && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
+
+    cd ${GAUSS_SCRDIR}
     srun g16 inputfile.gjf logfile.log
 
     test -d $GAUSS_SCRDIR && rm -rf $GAUSS_SCRDIR/*
+    # Reduces grace period to 1 day!
     ws_release -F ssd $COMPUTE_DIR
     ```
 
