@@ -232,7 +232,7 @@ A batch job needs a directory for temporary data. This can be deleted afterwards
     export GAUSS_SCRDIR=$(ws_allocate -F ssd $COMPUTE_DIR 7)
     echo $GAUSS_SCRDIR
 
-    # Check allocation
+    # Check allocation.
     [ -z "${GAUSS_SCRDIR}" ] && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
 
     cd ${GAUSS_SCRDIR}
@@ -244,6 +244,12 @@ A batch job needs a directory for temporary data. This can be deleted afterwards
     ```
 
 Likewise, other jobs can use temporary workspaces.
+
+!!! attention "Check Workspace Allocation"
+
+    We highly recommand that you check the allocation of the workspace within your job file. If the
+    `ws_allocate` command fails, the variable `GAUSS_SCRDIR` is empty and you will `cd` to the wrong
+    directory and finaly, you might delete the wrong files and directories.
 
 ### Data for a Campaign
 
