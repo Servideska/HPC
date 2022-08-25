@@ -238,7 +238,10 @@ A batch job needs a directory for temporary data. This can be deleted afterwards
     cd ${GAUSS_SCRDIR}
     srun g16 inputfile.gjf logfile.log
 
-    test -d $GAUSS_SCRDIR && rm -rf $GAUSS_SCRDIR/*
+    # Save results!
+    # cp <results> <dest>
+
+    if [ -d $GAUSS_SCRDIR ] && rm -rf $GAUSS_SCRDIR/*
     # Reduces grace period to 1 day!
     ws_release -F ssd $COMPUTE_DIR
     ```
