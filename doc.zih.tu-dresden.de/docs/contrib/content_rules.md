@@ -336,6 +336,14 @@ drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
 -rw-rw----   1 marie p_number_crunch      4096 Jan 24  2020 readme.md
 ```
 
+!!! info "Marie"
+
+    We choose *marie* as generic login and placeholder. There is no magic story on this decision.
+    Feel free to associate this generic login for example with
+    physicist and chemist [Marie Curie](https://en.wikipedia.org/wiki/Marie_Curie),
+    and [Marianne](https://en.wikipedia.org/wiki/Marianne), symbol of France standing for liberty,
+    equality and fraternity.
+
 #### Placeholders
 
 Placeholders represent arguments or code parts that can be adapted to the user's needs. Use them to
