@@ -93,7 +93,7 @@ basedir=`dirname "${basedir}"`
 branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
 
 # Options
-if [ $# -eq 1 ]; then
+if [[ $# -eq 1 ]]; then
   case $1 in
   -h | help | -help | --help)
     usage
@@ -107,7 +107,7 @@ if [ $# -eq 1 ]; then
     files="$1"
   ;;
   esac
-elif [ $# -eq 0 ]; then
+elif [[ $# -eq 0 ]]; then
   echo "Search in git-changed files."
   files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep -e '.md$' -e '.sh$' || true`
 else
@@ -117,6 +117,11 @@ fi
 any_fails=false
 
 for file in $files; do
+  # Skip the check of this current ($0) script.
+  if [[ "$(echo "${file}" | grep -cP "check-code-style.sh$")" -gt "0" ]]; then
+    continue
+  fi
+
   # Variable expansion. Currently style check not possible for multiline comment
   pattern='.*"[\n\s\w\W]*\$[^\{|^\(]\w*[\n\s\w\W]*"'
   warning="Using \"\${var}\" is recommended over \"\$var\""
