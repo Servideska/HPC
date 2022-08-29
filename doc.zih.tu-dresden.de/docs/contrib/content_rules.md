@@ -105,6 +105,13 @@ documentation page, i. e. `shortened_page_heading.md`.
 Make sure that the new page **is not floating**, i.e., it can be reached directly from
 the documentation structure.
 
+#### Preserve URLs
+
+For several reasons it is important to preserve URLs within this documentation, e.g., pages with
+description of specific hardware might be used as references in papers. Therefore, existing pages
+shall not be renamed or moved on directory level. Outdated pages are marked with "Outdated" tag
+and moved to the archive by changing the page's navigation entry in the `mkdocs.yaml` file.
+
 ### Markdown
 
 All documentation is written in Markdown. Please keep things simple, i.e., avoid using fancy
