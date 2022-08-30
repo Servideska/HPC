@@ -200,7 +200,7 @@ Slurm will forward your X11 credentials to the first (or even all) node for a jo
 eight cores can be started with:
 
 ```console
-marie@login$ module load matlab
+marie@login$ module load MATLAB
 marie@login$ srun --ntasks=1 --cpus-per-task=8 --time=1:00:00 --pty --x11=first matlab
 ```
 
