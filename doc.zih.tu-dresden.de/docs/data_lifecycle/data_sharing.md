@@ -68,7 +68,7 @@ persons from your project and also some persons outside of your project, but not
     At the moment `setfacl` is only working on our Lustre filesystems, which contain the workspaces
     `scratch` and `ssd`.
 
-The command `setfacl` is used manage access rights for workspaces. To view the current access
+The command `setfacl` is used to manage access rights for workspaces. To view the current access
 rights, use the command `getfacl`. The following commands are used to grant a user access to the
 workspace.
 
