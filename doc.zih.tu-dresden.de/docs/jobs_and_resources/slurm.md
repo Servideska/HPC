@@ -242,7 +242,8 @@ has multiple advantages:
 Job files have to be written with the following structure.
 
 ```bash
-#!/bin/bash                           # Batch script starts with shebang line
+#!/bin/bash
+# ^Batch script starts with shebang line
 
 #SBATCH --ntasks=24                   # All #SBATCH lines have to follow uninterrupted
 #SBATCH --time=01:00:00               # after the shebang line
