@@ -276,7 +276,7 @@ provide a comprehensive collection of job examples.
     module load <modules>
 
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-    srun ./path/to/openmpi_application
+    srun ./path/to/openmp_application
     ```
 
     * Submisson: `marie@login$ sbatch batch_script.sh`
