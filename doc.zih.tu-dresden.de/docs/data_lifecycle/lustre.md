@@ -50,7 +50,7 @@ Lustre offers a number of commands that are suited to its architecture.
 
 ## Useful Commands for Lustre
 
-These commands work for Lustre file systems `/scratch` and `/ssd`.
+These commands work for Lustre filesystems `/scratch` and `/ssd`.
 
 ### Listing Disk Usages per OST and MDT
 
