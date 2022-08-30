@@ -213,59 +213,60 @@ There are three typical options for the use of workspaces:
 ### Per-Job Storage
 
 A batch job needs a directory for temporary data. This can be deleted afterwards.
+To help you to write your own SBatch file, suited to your own needs, we came up with
+the following example (which works [for the program g16](../software/nanoscale_simulations.md)).
+You will probably want to adjust it in a few places (e.g. what software you want to
+[load](../software/modules.md), inserting the path to your input file and actually
+calling the actual software to do your computation).
 
-!!! example "Use with Gaussian"
+!!! example "Using temporary Workspaces for I/O intensive tasks"
 
     #!/bin/bash
     #SBATCH --partition=haswell
     #SBATCH --time=96:00:00
     #SBATCH --nodes=1
     #SBATCH --ntasks=1
+    ## The optional constraint for the filesystem feature depends
+    ## on the Filesystem on which you want to use a Workspace.
+    ## Documentation here https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#available-features
     #SBATCH --constraint=fs_lustre_ssd
     #SBATCH --cpus-per-task=24
 
-    module purge
-    module load modenv/hiera
-    module load Gaussian
+    # TODO: Load the software you need here
+    module load somesoftware/12345678
 
     # TODO: Adjust the path to where your input file is located
-    INPUTFILE="/path/to/my/inputfile.gjf"
+    INPUTFILE="/path/to/my/inputfile.data"
 
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
 
-    COMPUTE_DIR=gaussian_$SLURM_JOB_ID
-    export GAUSS_SCRDIR=$(ws_allocate -F ssd $COMPUTE_DIR 7)
-    echo $GAUSS_SCRDIR
+    COMPUTE_DIR=computation_$SLURM_JOB_ID
+    export WORKSPACE_DIR=$(ws_allocate -F ssd $COMPUTE_DIR 7)
+    echo $WORKSPACE_DIR
 
     # Check allocation.
-    test -z "${GAUSS_SCRDIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
+    test -z "${WORKSPACE_DIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
 
-    cd ${GAUSS_SCRDIR}
-    srun g16 < "${INPUTFILE}" > logfile.log
+    cd ${WORKSPACE_DIR}
+
+    # TODO: adjust the following line to invoke the program you want to run
+    srun name_of_the_program_you_want_to_run_here < "${INPUTFILE}" > logfile.log
 
     # Compress results with bzip2 (which includes CRC32 Checksums)
-    bzip2 --compress --stdout -4 "${GAUSS_SRCDIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
+    bzip2 --compress --stdout -4 "${WORKSPACE_DIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
     RETURN_CODE=$?
     COMPRESSION_SUCCESS="$(if test $RETURN_CODE -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
     
     if [ "TRUE" = $COMPRESSION_SUCCESS ]; then
-        test -d $GAUSS_SCRDIR && rm -rf $GAUSS_SCRDIR/*
+        test -d $WORKSPACE_DIR && rm -rf $WORKSPACE_DIR/*
         # Reduces grace period to 1 day!
         ws_release -F ssd $COMPUTE_DIR
     else
         echo "Error with compression and writing of results";
-        echo "Please check the folder \"${GAUSS_SRCDIR}\" for any partial(?) results.";
+        echo "Please check the folder \"${WORKSPACE_DIR}\" for any partial(?) results.";
         exit 1;
     fi;
     ```
-
-Likewise, other jobs can use temporary workspaces.
-
-!!! attention "Check Workspace Allocation"
-
-    We highly recommand that you check the allocation of the workspace within your job file. If the
-    `ws_allocate` command fails, the variable `GAUSS_SCRDIR` is empty and you will `cd` to the wrong
-    directory and finaly, you might delete the wrong files and directories.
 
 ### Data for a Campaign
 
