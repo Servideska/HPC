@@ -216,34 +216,47 @@ A batch job needs a directory for temporary data. This can be deleted afterwards
 
 !!! example "Use with Gaussian"
 
-    ```
     #!/bin/bash
     #SBATCH --partition=haswell
     #SBATCH --time=96:00:00
     #SBATCH --nodes=1
     #SBATCH --ntasks=1
+    #SBATCH --constraint=fs_lustre_ssd
     #SBATCH --cpus-per-task=24
 
     module purge
     module load modenv/hiera
     module load Gaussian
 
+    # TODO: Adjust the path to where your input file is located
+    INPUTFILE="/path/to/my/inputfile.gjf"
+
+    test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
+
     COMPUTE_DIR=gaussian_$SLURM_JOB_ID
     export GAUSS_SCRDIR=$(ws_allocate -F ssd $COMPUTE_DIR 7)
     echo $GAUSS_SCRDIR
 
     # Check allocation.
-    [ -z "${GAUSS_SCRDIR}" ] && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
+    test -z "${GAUSS_SCRDIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
 
     cd ${GAUSS_SCRDIR}
-    srun g16 inputfile.gjf logfile.log
+    srun g16 < "${INPUTFILE}" > logfile.log
 
-    # Save results!
-    # cp <results> <dest>
-
-    if [ -d $GAUSS_SCRDIR ] && rm -rf $GAUSS_SCRDIR/*
-    # Reduces grace period to 1 day!
-    ws_release -F ssd $COMPUTE_DIR
+    # Compress results with bzip2 (which includes CRC32 Checksums)
+    bzip2 --compress --stdout -4 "${GAUSS_SRCDIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
+    RETURN_CODE=$?
+    COMPRESSION_SUCCESS="$(if test $RETURN_CODE -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
+    
+    if [ "TRUE" = $COMPRESSION_SUCCESS ]; then
+        test -d $GAUSS_SCRDIR && rm -rf $GAUSS_SCRDIR/*
+        # Reduces grace period to 1 day!
+        ws_release -F ssd $COMPUTE_DIR
+    else
+        echo "Error with compression and writing of results";
+        echo "Please check the folder \"${GAUSS_SRCDIR}\" for any partial(?) results.";
+        exit 1;
+    fi;
     ```
 
 Likewise, other jobs can use temporary workspaces.
