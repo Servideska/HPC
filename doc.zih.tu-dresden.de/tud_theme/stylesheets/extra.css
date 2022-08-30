@@ -286,7 +286,7 @@ body {
     padding: 5px;
   }
   .limits {
-    color: red;
+    color: rgb(255, 121, 121);
     display: none;
     margin-left: 10px;
   }
@@ -316,7 +316,6 @@ body {
   .cell-name {
     display: flex;
     height: 25px;
-    justify-content: center;
     align-items: center;
     width: 125px;
   }
@@ -330,6 +329,12 @@ body {
   .cell-input {
     display: flexbox;
     vertical-align: middle;
+  }
+  .executable {
+    width: 500px;
+  }
+  .mail {
+    width: 350px;
   }
   .partition-input {
     float: left;
@@ -355,7 +360,7 @@ body {
     cursor: pointer;
     font-size: 20px;
     outline: none;
-    padding: 18px;
+    padding: 10px 18px;
     text-align: left;
     width: 100%;
   }

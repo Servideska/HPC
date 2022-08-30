@@ -1,6 +1,5 @@
 # Slurm Job Generator
 
-<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -16,36 +15,34 @@
     </div>
     <button type="button" class="collapsible">General</button>
     <div class="content">
-      <div class="input">
-        <div class="row">
-          <label class="cell-name">Job name</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <input id="job-name" class="cell-input" type="text">
+      <div class="row">
+        <label class="cell-name">Job name</label>
+        <div class="cell-tooltip">
+          <img class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row">
-          <label class="cell-name">Account</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <input id="account" class="cell-input" type="text">
+        <input id="job-name" class="cell-input" type="text">
+      </div>
+      <div class="row">
+        <label class="cell-name">Account</label>
+        <div class="cell-tooltip">
+          <img class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row">
-          <label class="cell-name">Email</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <div class="cell-input">
-            <input id="mail" type="mail">
+        <input id="account" class="cell-input" type="text">
+      </div>
+      <div class="row">
+        <label class="cell-name">Email</label>
+        <div class="cell-tooltip">
+          <img class="info-img" src="../misc/info.png" title="help">
+        </div>
+        <div class="cell-input">
+          <input id="mail" class="mail" type="mail">
 
-            <input id="begin" type="checkbox">
-            <lable for="begin">Begin</lable>
-            <input id="end" type="checkbox">
-            <lable for="end">End</lable>
-            <input id="fail" type="checkbox">
-            <lable for="fail">Fail</lable>
-          </div>
+          <input id="begin" type="checkbox">
+          <lable for="begin">Begin</lable>
+          <input id="end" type="checkbox">
+          <lable for="end">End</lable>
+          <input id="fail" type="checkbox">
+          <lable for="fail">Fail</lable>
         </div>
       </div>
     </div>
@@ -164,7 +161,7 @@
           <div class="cell-tooltip">
             <img class="info-img" src="../misc/info.png" title="help">
           </div>
-          <input id="executable" class="cell-input" type="text">
+          <input id="executable" class="cell-input executable" type="text">
         </div>
         <div class="row">
           <span class="cell-name"></span>
@@ -845,7 +842,7 @@
         // walltime
         let reArray = /^(([0-9]{1,3})-)?([0-9]{2}):[0-9]{2}:[0-9]{2}$/;
         if (!reArray.test(document.getElementById('time').value) && document.getElementById('time').value) {
-          document.getElementById('time').style.backgroundColor = 'red';
+          document.getElementById('time').style.backgroundColor = 'rgb(255, 121, 121)';
           boolValues = false;
         } else {
           document.getElementById('time').style.backgroundColor = '';
@@ -856,6 +853,9 @@
           fields.push('duration');
         }
         [].forEach.call(fields, function(field) {
+          // remove all leading zeros
+          document.getElementById(field).value = document.getElementById(field).value.replace(/^0+/, '');
+
           let element = document.getElementById(field);
           let elementText = document.getElementById(field + '-text');
           let value = Number(document.getElementById(field).value);
@@ -942,7 +942,7 @@
       document.getElementById('array').addEventListener('change', function () {
         let reArray = /^[0-9]+(-[0-9]+)?(,[0-9]+(-[0-9]+)?)*(:[0-9]+)?(%[0-9]+)?$/;
         if (!reArray.test(document.getElementById('array').value) && document.getElementById('array').value) {
-          document.getElementById('array').style.backgroundColor = 'red';
+          document.getElementById('array').style.backgroundColor = 'rgb(255, 121, 121)';
         } else {
           document.getElementById('array').style.backgroundColor = '';
         }
@@ -951,7 +951,7 @@
       document.getElementById('time').addEventListener('change', function () {
         let reArray = /^([0-9]{1,3}-)?[0-9]{2}:[0-9]{2}:[0-9]{2}$/;
         if (!reArray.test(document.getElementById('time').value) && document.getElementById('time').value) {
-          document.getElementById('time').style.backgroundColor = 'red';
+          document.getElementById('time').style.backgroundColor = 'rgb(255, 121, 121)';
         } else {
           document.getElementById('time').style.backgroundColor = '';
           setMinDuration()
@@ -1031,7 +1031,7 @@
       var setMaxTasks = function() {
         // get partition limits from dictionary
         let partitionLimits = limits[document.getElementById('partition').value];
-        
+
         let nodes = 0;
         // set number of nodes
         if (document.getElementById('nodes').value !== '') {
