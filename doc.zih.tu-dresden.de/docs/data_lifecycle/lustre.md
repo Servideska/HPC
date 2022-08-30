@@ -29,15 +29,13 @@ marie@login$ lfs setstripe -c 20  /scratch/ws/marie-stripe20/tar
     in Lustre filesystems. When these tasks are performed frequently or over large directories, it
     can degrade the filesystem's performance and thus affect all users.
 
-In this sense, you should minimize the usage of system calls quering or modifying file
+In this sense, you should minimize the usage of system calls querying or modifying file
 and directory attributes, e.g. `stat()`, `statx()`, `open()`, `openat()` etc.
 
-Please, also avoid commands basing on the above mentioned system calls such as `ls -l` and `ls
---color`.
-Instead, you should invoke `ls` or `ls -l <filename` to reduce metadata operations.
-This also holds
-for commands walking the filessystems recursively performing massive metadata operations such as `ls
--R`, `find`, `locate`, `du` and `df`.
+Please, also avoid commands basing on the above mentioned system calls such as `ls -l` and
+`ls --color`. Instead, you should invoke `ls` or `ls -l <filename` to reduce metadata operations.
+This also holds for commands walking the filesystems recursively performing massive metadata
+operations such as `ls -R`, `find`, `locate`, `du` and `df`.
 
 Lustre offers a number of commands that are suited to its architecture.
 
