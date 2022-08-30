@@ -25,7 +25,7 @@ marie@login$ lfs setstripe -c 20  /scratch/ws/marie-stripe20/tar
 
 !!! hint "Avoid accessing metadata information"
 
-    Queering metadata information such as file and directory attributes is a resource intensive task
+    Querying metadata information such as file and directory attributes is a resource intensive task
     in Lustre filesystems. When these tasks are performed frequently or over large directories, it
     can degrade the filesystem's performance and thus affect all users.
 
@@ -48,7 +48,7 @@ Lustre offers a number of commands that are suited to its architecture.
 
 ## Useful Commands for Lustre
 
-These commands work for Lustre file systems `/scratch` and `/ssd`.
+These commands work for Lustre filesystems `/scratch` and `/ssd`.
 
 ### Listing Disk Usages per OST and MDT
 
