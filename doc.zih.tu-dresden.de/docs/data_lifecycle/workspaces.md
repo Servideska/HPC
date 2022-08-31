@@ -235,11 +235,11 @@ calling the actual software to do your computation).
     #SBATCH --constraint=fs_lustre_ssd
     #SBATCH --cpus-per-task=24
 
-    # TODO: Load the software you need here
+    # Load the software you need here
     module purge
     module load <modules>
 
-    # TODO: Adjust the path to where your input file is located
+    # Adjust the path to where your input file is located
     INPUTFILE="/path/to/my/inputfile.data"
 
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
@@ -248,12 +248,12 @@ calling the actual software to do your computation).
     export WORKSPACE_DIR=$(ws_allocate -F ssd ${COMPUTE_DIR} 7)
     echo ${WORKSPACE_DIR}
 
-    # Check allocation.
+    # Check allocation
     test -z "${WORKSPACE_DIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
 
     cd ${WORKSPACE_DIR}
 
-    # TODO: adjust the following line to invoke the program you want to run
+    # Adjust the following line to invoke the program you want to run
     srun name_of_the_program_you_want_to_run_here < "${INPUTFILE}" > logfile.log
 
     # Compress results with bzip2 (which includes CRC32 Checksums)
