@@ -18,21 +18,21 @@
       <div class="row">
         <label class="cell-name">Job name</label>
         <div class="cell-tooltip">
-          <img class="info-img" src="../misc/info.png" title="help">
+          <img id="job-name-info" class="info-img" src="../misc/info.png" title="help">
         </div>
         <input id="job-name" class="cell-input" type="text">
       </div>
       <div class="row">
         <label class="cell-name">Account</label>
         <div class="cell-tooltip">
-          <img class="info-img" src="../misc/info.png" title="help">
+          <img id="account-info" class="info-img" src="../misc/info.png" title="help">
         </div>
         <input id="account" class="cell-input" type="text">
       </div>
       <div class="row">
         <label class="cell-name">Email</label>
         <div class="cell-tooltip">
-          <img class="info-img" src="../misc/info.png" title="help">
+          <img id="mail-info" class="info-img" src="../misc/info.png" title="help">
         </div>
         <div class="cell-input">
           <input id="mail" class="mail" type="mail">
@@ -288,7 +288,6 @@
         'gpu2' : gpu2 = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -302,7 +301,6 @@
         'gpu2-interactive' : gpu2_interactive = {
           'MaxTime' : 480,
           'DefaultTime' : 10,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -316,7 +314,6 @@
         'haswell' : haswell = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -330,7 +327,6 @@
         'haswell64' : haswell64 = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -344,7 +340,6 @@
         'haswell128' : haswell128 = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -358,7 +353,6 @@
         'haswell256' : haswell256 = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -372,7 +366,6 @@
         'haswell64long' : haswell64long = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -386,7 +379,6 @@
         'haswell64extralong' : haswell64extralong = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -400,7 +392,6 @@
         'haswell64ht' : haswell64ht = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 2,
@@ -414,7 +405,6 @@
         'interactive' : interactive = {
           'MaxTime' : 480,
           'DefaultTime' : 30,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -428,7 +418,6 @@
         'smp2' : smp2 = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 4,
           'cpu/socket' : 14,
           'threads' : 1,
@@ -442,7 +431,6 @@
         'broadwell' : broadwell = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 14,
           'threads' : 1,
@@ -456,7 +444,6 @@
         'ifm' : ifm = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 60,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 8,
           'threads' : 2,
@@ -470,7 +457,6 @@
         'hpdlf' : hpdlf = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 60,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 6,
           'threads' : 1,
@@ -484,7 +470,6 @@
         'ml-all' : ml_all = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 60,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 22,
           'threads' : 4,
@@ -498,7 +483,6 @@
         'ml' : ml = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 60,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 22,
           'threads' : 4,
@@ -512,7 +496,6 @@
         'ml-interactive' : ml_interactive = {
           'MaxTime' : 480,
           'DefaultTime' : 10,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 22,
           'threads' : 4,
@@ -526,7 +509,6 @@
         'nvme' : nvme = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 60,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 8,
           'threads' : 2,
@@ -538,7 +520,6 @@
           'gpu/node' : 0
         },
         'datamover' : datamover = {
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 8,
           'threads' : 1,
@@ -552,7 +533,6 @@
         'romeo' : romeo = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 64,
           'threads' : 2,
@@ -566,7 +546,6 @@
         'romeo-interactive' : romeo_interactive = {
           'MaxTime' : 480,
           'DefaultTime' : 10,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 64,
           'threads' : 2,
@@ -580,7 +559,6 @@
         'julia' : julia = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 32,
           'cpu/socket' : 28,
           'threads' : 1,
@@ -594,7 +572,6 @@
         'alpha' : alpha = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 24,
           'threads' : 2,
@@ -608,7 +585,6 @@
         'alpha-interactive' : alpha_interactive = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 24,
           'threads' : 2,
@@ -622,7 +598,6 @@
         'htw-gpu' : htw_gpu = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 24,
           'threads' : 2,
@@ -636,7 +611,6 @@
         'beaker-interactive' : beaker_interactive = {
           'MaxTime' : 480,
           'DefaultTime' : 10,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 16,
           'threads' : 2,
@@ -650,7 +624,6 @@
         'beaker' : beaker = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'info' : 'help',
           'Sockets' : 2,
           'cpu/socket' : 16,
           'threads' : 2,
@@ -666,27 +639,18 @@
       // dictionary containing the limits for the different workspaces
       const limitsWorkspace = {
         'scratch' : scratch = {
-          'info' : 'help',
           'duration' : 100,
           'extensions' : 10
         },
         'warm_archive' : warm_archive = {
-          'info' : 'help',
           'duration' : 365,
           'extensions' : 2
         },
         'ssd' : ssd = {
-          'info' : 'help',
-          'duration' : 30,
-          'extensions' : 2
-        },
-        'beegfs_global0' : beegfs_global0 = {
-          'info' : 'help',
           'duration' : 30,
           'extensions' : 2
         },
         'beegfs' : beegfs = {
-          'info' : 'help',
           'duration' : 30,
           'extensions' : 2
         }
@@ -718,9 +682,13 @@
           outputText.innerText += '\n#SBATCH --array='
           + document.getElementById('array').value;
         }
-        outputText.innerText += '\n#SBATCH --time='
-        + document.getElementById('time').value;
-        + limits[document.getElementById('partition').value]['DefaultTime']
+        if (document.getElementById('time').value !== '') {
+          outputText.innerText += '\n#SBATCH --time='
+          + document.getElementById('time').value;
+        } else {
+          outputText.innerText += '\n#SBATCH --time='
+          + limits[document.getElementById('partition').value]['DefaultTime'];
+        }
         outputText.innerText += '\n#SBATCH --partition='
         + document.getElementById('partition').value;
         if (document.getElementById('nodes').value !== '') {
