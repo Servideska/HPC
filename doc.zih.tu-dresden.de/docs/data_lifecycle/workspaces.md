@@ -244,8 +244,9 @@ calling the actual software to do your computation).
 
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
 
+    # Allocate workspace. Adjust time span to time limit of the job (-d <N>).
     COMPUTE_DIR=computation_$SLURM_JOB_ID
-    export WORKSPACE_DIR=$(ws_allocate -F ssd ${COMPUTE_DIR} 7)
+    export WORKSPACE_DIR=$(ws_allocate -F ssd -n ${COMPUTE_DIR} -d 7)
     echo ${WORKSPACE_DIR}
 
     # Check allocation

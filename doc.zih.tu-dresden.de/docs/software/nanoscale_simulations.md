@@ -139,8 +139,9 @@ However hereafter we have an example on how that might look like for Gaussian:
 
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
 
+    # Allocate workspace. Adjust time span to time limit of the job (-d <N>).
     COMPUTE_DIR=gaussian_${SLURM_JOB_ID}
-    export GAUSS_SCRDIR=$(ws_allocate -F ssd ${COMPUTE_DIR} 7)
+    export GAUSS_SCRDIR=$(ws_allocate -F ssd -n ${COMPUTE_DIR} -d 7)
     echo ${GAUSS_SCRDIR}
 
     # Check allocation.
