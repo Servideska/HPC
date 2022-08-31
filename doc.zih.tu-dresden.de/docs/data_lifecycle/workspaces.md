@@ -213,13 +213,13 @@ There are three typical options for the use of workspaces:
 ### Per-Job Storage
 
 A batch job needs a directory for temporary data. This can be deleted afterwards.
-To help you to write your own SBatch file, suited to your own needs, we came up with
+To help you to write your own (Slurm) job file, suited to your own needs, we came up with
 the following example (which works [for the program g16](../software/nanoscale_simulations.md)).
 You will probably want to adjust it in a few places (e.g. what software you want to
 [load](../software/modules.md), inserting the path to your input file and actually
 calling the actual software to do your computation).
 
-!!! example "Using temporary Workspaces for I/O intensive tasks"
+!!! example "Using temporary workspaces for I/O intensive tasks"
 
     #!/bin/bash
     #SBATCH --partition=haswell
@@ -256,7 +256,7 @@ calling the actual software to do your computation).
     bzip2 --compress --stdout -4 "${WORKSPACE_DIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
     RETURN_CODE=$?
     COMPRESSION_SUCCESS="$(if test $RETURN_CODE -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
-    
+
     if [ "TRUE" = $COMPRESSION_SUCCESS ]; then
         test -d $WORKSPACE_DIR && rm -rf $WORKSPACE_DIR/*
         # Reduces grace period to 1 day!
