@@ -229,13 +229,14 @@ calling the actual software to do your computation).
     #SBATCH --nodes=1
     #SBATCH --ntasks=1
     ## The optional constraint for the filesystem feature depends
-    ## on the Filesystem on which you want to use a Workspace.
+    ## on the filesystem on which you want to use a workspace.
     ## Documentation here https://doc.zih.tu-dresden.de/jobs_and_resources/slurm/#available-features
     #SBATCH --constraint=fs_lustre_ssd
     #SBATCH --cpus-per-task=24
 
     # TODO: Load the software you need here
-    module load somesoftware/12345678
+    module purge
+    module load <modules>
 
     # TODO: Adjust the path to where your input file is located
     INPUTFILE="/path/to/my/inputfile.data"
