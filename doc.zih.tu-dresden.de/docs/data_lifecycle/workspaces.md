@@ -251,6 +251,7 @@ calling the actual software to do your computation).
     # Check allocation
     test -z "${WORKSPACE_DIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
 
+    # Change to workspace directory
     cd ${WORKSPACE_DIR}
 
     # Adjust the following line to invoke the program you want to run
@@ -261,6 +262,7 @@ calling the actual software to do your computation).
     RETURN_CODE=$?
     COMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
 
+    # Clean up workspace
     if [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then
         test -d ${WORKSPACE_DIR} && rm -rf ${WORKSPACE_DIR}/*
         # Reduces grace period to 1 day!

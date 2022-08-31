@@ -154,6 +154,7 @@ However hereafter we have an example on how that might look like for Gaussian:
     RETURN_CODE=$?
     COMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
 
+    # Clean up workspace
     if [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then
         test -d ${GAUSS_SCRDIR} && rm -rf ${GAUSS_SCRDIR}/*
         # Reduces grace period to 1 day!
