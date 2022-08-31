@@ -275,7 +275,7 @@
     <div class="output">
       <button id="generate-button" class="output" type="button">Generate</button>
       <div class="code">
-        <label id="output-text" class="limits">Output requieres update</label>
+        <label id="output-text" class="limits">Output requires update</label>
         <pre id="output"></pre>
       </div>
       <button id="copy-button" class="output" type="button">Copy to Clipboard</button>
