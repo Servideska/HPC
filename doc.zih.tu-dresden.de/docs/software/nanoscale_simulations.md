@@ -172,7 +172,7 @@ interactions, but since GROMACS is extremely fast at calculating the nonbonded i
 usually dominate simulations), many groups are also using it for research on non-biological systems,
 e.g., polymers. For documentations see [GROMACS homepage](https://www.gromacs.org/).
 
-GROMACSS is available as [modules](modules.md). Available packages can be listed and loaded with the
+GROMACS is available as [modules](modules.md). Available packages can be listed and loaded with the
 following commands:
 
 ```console
@@ -249,16 +249,16 @@ standard quantum chemical methods ranging from semiempirical methods to DFT to s
 multireference correlated ab initio methods. It can also treat environmental and relativistic
 effects.
 
-To run Orca jobs in parallel, you have to specify the number of processes in your input file (here
+To run ORCA jobs in parallel, you have to specify the number of processes in your input file (here
 for example 16 processes):
 
 ```Bash
 %pal nprocs 16 end
 ```
 
-Note, that Orca spawns MPI processes itself, so you must not use `srun` to launch it in your batch
+Note, that ORCA spawns MPI processes itself, so you must not use `srun` to launch it in your batch
 file. Just set `--ntasks` to the same number as in your input file and call the `orca` executable
-directly.  For parallel runs, it must be called with the full path:
+directly. For parallel runs, it must be called with the full path:
 
 ```Bash
 #!/bin/bash
