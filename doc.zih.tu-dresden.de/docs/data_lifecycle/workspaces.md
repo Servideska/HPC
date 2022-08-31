@@ -213,7 +213,8 @@ There are three typical options for the use of workspaces:
 ### Per-Job Storage
 
 A batch job needs a directory for temporary data. This can be deleted afterwards.
-To help you to write your own (Slurm) job file, suited to your own needs, we came up with
+To help you to write your own [(Slurm) job file](../jobs_and_resources/slurm.md#job-files),
+suited to your own needs, we came up with
 the following example (which works [for the program g16](../software/nanoscale_simulations.md)).
 You will probably want to adjust it in a few places (e.g. what software you want to
 [load](../software/modules.md), inserting the path to your input file and actually
