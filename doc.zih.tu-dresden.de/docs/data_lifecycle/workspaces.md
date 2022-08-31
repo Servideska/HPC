@@ -257,6 +257,7 @@ calling the actual software to do your computation).
     # Adjust the following line to invoke the program you want to run
     srun name_of_the_program_you_want_to_run_here < "${INPUTFILE}" > logfile.log
 
+    # Save result files into user home
     # Compress results with bzip2 (which includes CRC32 Checksums)
     bzip2 --compress --stdout -4 "${WORKSPACE_DIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
     RETURN_CODE=$?
