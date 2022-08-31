@@ -265,10 +265,10 @@ calling the actual software to do your computation).
         # Reduces grace period to 1 day!
         ws_release -F ssd ${COMPUTE_DIR}
     else
-        echo "Error with compression and writing of results";
-        echo "Please check the folder \"${WORKSPACE_DIR}\" for any partial(?) results.";
-        exit 1;
-    fi;
+        echo "Error with compression and writing of results"
+        echo "Please check the folder \"${WORKSPACE_DIR}\" for any partial(?) results."
+        exit 1
+    fi
     ```
 
 ### Data for a Campaign
