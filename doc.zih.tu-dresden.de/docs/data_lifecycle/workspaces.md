@@ -244,8 +244,8 @@ calling the actual software to do your computation).
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
 
     COMPUTE_DIR=computation_$SLURM_JOB_ID
-    export WORKSPACE_DIR=$(ws_allocate -F ssd $COMPUTE_DIR 7)
-    echo $WORKSPACE_DIR
+    export WORKSPACE_DIR=$(ws_allocate -F ssd ${COMPUTE_DIR} 7)
+    echo ${WORKSPACE_DIR}
 
     # Check allocation.
     test -z "${WORKSPACE_DIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
@@ -258,12 +258,12 @@ calling the actual software to do your computation).
     # Compress results with bzip2 (which includes CRC32 Checksums)
     bzip2 --compress --stdout -4 "${WORKSPACE_DIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
     RETURN_CODE=$?
-    COMPRESSION_SUCCESS="$(if test $RETURN_CODE -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
+    COMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
 
-    if [ "TRUE" = $COMPRESSION_SUCCESS ]; then
-        test -d $WORKSPACE_DIR && rm -rf $WORKSPACE_DIR/*
+    if [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then
+        test -d ${WORKSPACE_DIR} && rm -rf ${WORKSPACE_DIR}/*
         # Reduces grace period to 1 day!
-        ws_release -F ssd $COMPUTE_DIR
+        ws_release -F ssd ${COMPUTE_DIR}
     else
         echo "Error with compression and writing of results";
         echo "Please check the folder \"${WORKSPACE_DIR}\" for any partial(?) results.";
