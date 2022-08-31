@@ -90,7 +90,7 @@ then
 fi
 
 echo "Checking code styling for files..."
-docker run --name=hpc-compendium --rm -w /docs --mount src="$(pwd)",target=/docs,type=bind hpc-compendium ./doc.zih.tu-dresden.de/util/check-code-style.sh -a
+docker run --name=hpc-compendium --rm -w /docs --mount src="$(pwd)",target=/docs,type=bind hpc-compendium ./doc.zih.tu-dresden.de/util/check-code-style.sh
 if [ $? -ne 0 ]
 then
   exit_ok=no
