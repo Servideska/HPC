@@ -221,7 +221,9 @@ calling the actual software to do your computation).
 
 !!! example "Using temporary workspaces for I/O intensive tasks"
 
+    ```bash
     #!/bin/bash
+
     #SBATCH --partition=haswell
     #SBATCH --time=96:00:00
     #SBATCH --nodes=1
