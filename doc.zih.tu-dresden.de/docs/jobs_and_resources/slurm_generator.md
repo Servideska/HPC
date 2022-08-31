@@ -788,6 +788,9 @@
           outputText.innerText += '\n\n# Execute parallel application '
           outputText.innerText += '\nsrun '
           + document.getElementById('executable').value;
+        } else {
+          outputText.innerText += '\n\n# Execute parallel application '
+          outputText.innerText += '\n# srun <file to execute>'
         }
 
         if (document.getElementById('check-workspace').checked && document.getElementById('check-delete').checked) {
@@ -1264,6 +1267,12 @@
         }
         select.appendChild(option);
       }
+
+      // set up info texts
+      // const infoMap = JSON.parse(text);
+      // for (const [key, value] of Object.entries(infoMap)) {
+      //   document.getElementById(key + '-info').title = value['text'];
+      // }
 
       // initialize UI
       partitionLimitChange();
