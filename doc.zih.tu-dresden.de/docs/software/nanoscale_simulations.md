@@ -117,7 +117,7 @@ We have a general description about
 [how to utilize workspaces for your I/O intensive jobs](../data_lifecycle/workspaces.md).
 However hereafter we have an example on how that might look like for Gaussian:
 
-!!! example "Using Workspaces with Gaussian"
+???+ example "Using workspaces with Gaussian"
 
     ```
     #!/bin/bash
@@ -146,9 +146,11 @@ However hereafter we have an example on how that might look like for Gaussian:
     # Check allocation.
     test -z "${GAUSS_SCRDIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
 
+    # Change to workspace directory and execute application
     cd ${GAUSS_SCRDIR}
     srun g16 < "${INPUTFILE}" > logfile.log
 
+    # Save result files into user home
     # Compress results with bzip2 (which includes CRC32 Checksums)
     bzip2 --compress --stdout -4 "${GAUSS_SRCDIR}" > ${HOME}/gaussian_job-${SLURM_JOB_ID}.bz2
     RETURN_CODE=$?
