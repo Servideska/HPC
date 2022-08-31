@@ -151,7 +151,7 @@ However hereafter we have an example on how that might look like for Gaussian:
     bzip2 --compress --stdout -4 "${GAUSS_SRCDIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
     RETURN_CODE=$?
     COMPRESSION_SUCCESS="$(if test $RETURN_CODE -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
-    
+
     if [ "TRUE" = $COMPRESSION_SUCCESS ]; then
         test -d $GAUSS_SCRDIR && rm -rf $GAUSS_SCRDIR/*
         # Reduces grace period to 1 day!
@@ -162,7 +162,6 @@ However hereafter we have an example on how that might look like for Gaussian:
         exit 1;
     fi;
     ```
-
 
 ## GROMACS
 
