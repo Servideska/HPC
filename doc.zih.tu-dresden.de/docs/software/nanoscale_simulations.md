@@ -107,20 +107,21 @@ compounds which are difficult or impossible to observe experimentally such as sh
 intermediates and transition structures.
 
 Access to the Gaussian installation on our system is limited to members
-of the  UNIX group s_gaussian. Please, contact
+of the  UNIX group `s_gaussian`. Please, contact
 [hpcsupport@zih.tu-dresden.de](mailto:hpcsupport@zih.tu-dresden.de) if you can't
 access it, yet wish to use it.
 
 ### Guidance on Data Management with Gaussian
 
 We have a general description about
-[how to utilize Workspaces for your I/O intensive Jobs](../data_lifecycle/workspaces.md).
+[how to utilize workspaces for your I/O intensive jobs](../data_lifecycle/workspaces.md).
 However hereafter we have an example on how that might look like for Gaussian:
 
 !!! example "Using Workspaces with Gaussian"
 
     ```
     #!/bin/bash
+
     #SBATCH --partition=haswell
     #SBATCH --time=96:00:00
     #SBATCH --nodes=1
@@ -128,18 +129,19 @@ However hereafter we have an example on how that might look like for Gaussian:
     #SBATCH --constraint=fs_lustre_ssd
     #SBATCH --cpus-per-task=24
 
+    # Load the software you need here
     module purge
     module load modenv/hiera
     module load Gaussian
 
-    # TODO: Adjust the path to where your input file is located
+    # Adjust the path to where your input file is located
     INPUTFILE="/path/to/my/inputfile.gjf"
 
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
 
-    COMPUTE_DIR=gaussian_$SLURM_JOB_ID
-    export GAUSS_SCRDIR=$(ws_allocate -F ssd $COMPUTE_DIR 7)
-    echo $GAUSS_SCRDIR
+    COMPUTE_DIR=gaussian_${SLURM_JOB_ID}
+    export GAUSS_SCRDIR=$(ws_allocate -F ssd ${COMPUTE_DIR} 7)
+    echo ${GAUSS_SCRDIR}
 
     # Check allocation.
     test -z "${GAUSS_SCRDIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
@@ -148,19 +150,19 @@ However hereafter we have an example on how that might look like for Gaussian:
     srun g16 < "${INPUTFILE}" > logfile.log
 
     # Compress results with bzip2 (which includes CRC32 Checksums)
-    bzip2 --compress --stdout -4 "${GAUSS_SRCDIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
+    bzip2 --compress --stdout -4 "${GAUSS_SRCDIR}" > ${HOME}/gaussian_job-${SLURM_JOB_ID}.bz2
     RETURN_CODE=$?
-    COMPRESSION_SUCCESS="$(if test $RETURN_CODE -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
+    COMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
 
-    if [ "TRUE" = $COMPRESSION_SUCCESS ]; then
-        test -d $GAUSS_SCRDIR && rm -rf $GAUSS_SCRDIR/*
+    if [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then
+        test -d ${GAUSS_SCRDIR} && rm -rf ${GAUSS_SCRDIR}/*
         # Reduces grace period to 1 day!
-        ws_release -F ssd $COMPUTE_DIR
+        ws_release -F ssd ${COMPUTE_DIR}
     else
-        echo "Error with compression and writing of results";
-        echo "Please check the folder \"${GAUSS_SRCDIR}\" for any partial(?) results.";
-        exit 1;
-    fi;
+        echo "Error with compression and writing of results"
+        echo "Please check the folder \"${GAUSS_SRCDIR}\" for any partial(?) results."
+        exit 1
+    fi
     ```
 
 ## GROMACS
