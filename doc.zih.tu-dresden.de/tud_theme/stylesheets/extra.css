@@ -261,6 +261,9 @@ body {
   img {
     display: block;
   }
+  label {
+    font-size: .7rem;
+  }
   pre {
     background-color: lightgrey;
     border-color: black;
@@ -284,11 +287,13 @@ body {
   .info-pre {
     display: flex;
     padding: 5px;
+    width: 275px;
+    font-size: .7rem;
   }
   .limits {
     color: rgb(255, 121, 121);
     display: none;
-    margin-left: 10px;
+    margin-left: 7px;
   }
   button.output {
     padding: 8px;
@@ -302,7 +307,7 @@ body {
   div.output {
     margin: 15px 0px;
   }
-  
+
   /* tablelike layout */
   .input {
     display: block;
@@ -317,7 +322,8 @@ body {
     display: flex;
     height: 25px;
     align-items: center;
-    width: 125px;
+    width: 300px;
+    font-size: .7rem;
   }
   .cell-tooltip {
     align-items: center;
@@ -331,21 +337,21 @@ body {
     vertical-align: middle;
   }
   .executable {
-    width: 500px;
+    width: 650px;
   }
   .mail {
     width: 350px;
   }
   .partition-input {
     float: left;
-    width: 650px;
+    width: 72.5;
   }
   .partition-info {
     display: flex;
-    float: left;
-    width: calc(30%);
+    float: right;
+    width: calc(27.5%);
   }
-  
+
   /* collapsible */
   .active {
     background-color: #5a7094 !important;
