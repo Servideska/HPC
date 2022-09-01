@@ -1,10 +1,23 @@
-# Slurm Job Generator
+# Slurm Job File Generator
+
+This page provides a generator for Slurm job files covering
+
+- basic Slurm options for resource specification and job management,
+- data life cycle handling using workspaces,
+- and a skeleton for setting up the computational environment using modules.
+
+It is intended as a starting point for beginners and thus, does not covers all available Slurm
+options.
+
+If you are interested in providing this job file generator for your HPC users, you can find the
+project at
+[https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/slurm-jobfile-generator](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/slurm-jobfile-generator).
 
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>Slurm-Job-Generator</title>
+    <title>Slurm-Job-File-Generator</title>
     <!-- <link type="text/css" href="../misc/style.css" rel="stylesheet"> -->
     <!-- <script src="jquery-3.6.0.min.js"> </script> -->
   </head>

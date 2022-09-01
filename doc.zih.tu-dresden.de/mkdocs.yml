@@ -102,8 +102,8 @@ nav:
     - Running Jobs:
       - Batch System Slurm: jobs_and_resources/slurm.md
       - Job Examples: jobs_and_resources/slurm_examples.md
-      - Partitions and Limits : jobs_and_resources/partitions_and_limits.md
-      - Slurm Job Generator : jobs_and_resources/slurm_generator.md
+      - Partitions and Limits: jobs_and_resources/partitions_and_limits.md
+      - Slurm Job File Generator: jobs_and_resources/slurm_generator.md
       - Checkpoint/Restart: jobs_and_resources/checkpoint_restart.md
       - Job Profiling: jobs_and_resources/slurm_profiling.md
       - Binding And Distribution Of Tasks: jobs_and_resources/binding_and_distribution_of_tasks.md
