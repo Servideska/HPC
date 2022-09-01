@@ -61,6 +61,7 @@ While we have a general description on [Python Virtual Environments](/software/p
 Depending on the CPU architecture that you are targeting, please choose a `modenv`:
 
 === "scs5"
+
     For use with Standard Environment `scs5_gcccore-10.2.0_python-3.8.6`,
     please try to initialize your Python Virtual Environment like this:
 
@@ -85,6 +86,7 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     Then continue with the steps below.
 
 === "hiera"
+
     For use with Standard Environment `hiera_gcccore-10.2.0_python-3.8.6`,
     please try to initialize your Python Virtual Environment like this:
 
@@ -108,8 +110,26 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     
     Then continue with the steps below.
 === "ml"
-    ??? use production?
+
+    For use with the Standard Environment `fosscuda/2020b`,
+    please try to initialize your Python Virtual Environment like this:
+
+    ```console
+    marie@ml$ module load fosscuda/2020b ZeroMQ/4.3.3-GCCcore-10.2.0 Python/3.8.6-GCCcore-10.2.0
+    Module fosscuda/2020b and 23 dependencies loaded.
+    marie@ml$ mkdir user-kernel # please use workspaces!
+    marie@ml$ cd user-kernel
+    marie@ml$ python3 -m venv --system-site-packages my-kernel
+    marie@ml$ sourcde my-kernel/bin/activate
+    (my-kernel) marie@compute$ pip install ipykernel
+    Collecting ipykernel
+    [...]
+    Successfully installed asttokens-2.0.8 backcall-0.2.0 debugpy-1.6.3 entrypoints-0.4 executing-1.0.0 ipykernel-6.15.2 ipython-8.4.0 jedi-0.18.1 jupyter-client-7.3.5 jupyter-core-4.11.1 matplotlib-inline-0.1.6 nest-asyncio-1.5.5 parso-0.8.3 pickleshare-0.7.5 prompt-toolkit-3.0.30 pure-eval-0.2.2 python-dateutil-2.8.2 pyzmq-23.2.1 stack-data-0.5.0 tornado-6.2 traitlets-5.3.0
+
+    Then continue with the steps below.
+
 === "default ('production')"
+
     For use with Standard Environment `production`,
     please try to initialize your Python Virtual Environment like this:
 
