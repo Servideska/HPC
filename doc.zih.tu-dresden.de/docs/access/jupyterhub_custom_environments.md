@@ -41,7 +41,7 @@ will work. Depending on that hardware, allocate resources as follows.
 === "Nodes with ppc64le CPU"
 
     ```console
-    maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 \
+    maria@ml$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 \
      --time=08:00:00 bash -l
     ```
 
@@ -66,18 +66,18 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     please try to initialize your Python Virtual Environment like this:
 
     ```console
-    marie@compute$ module load Python/3.8.6-GCCcore-10.2.0
+    marie@haswell$ module load Python/3.8.6-GCCcore-10.2.0
     Module Python/3.8.6-GCCcore-10.2.0 and 11 dependencies loaded.
-    marie@compute$ mkdir user-kernel # please use workspaces!
-    marie@compute$ cd user-kernel
-    marie@compute$ virtualenv --system-site-packages my-kernel
+    marie@haswell$ mkdir user-kernel # please use workspaces!
+    marie@haswell$ cd user-kernel
+    marie@haswell$ virtualenv --system-site-packages my-kernel
     created virtual environment CPython3.8.6.final.0-64 in 5985ms
       creator CPython3Posix(dest=[...]/my-kernel, clear=False, global=True)
       seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=[...])
         added seed packages: pip==20.2.3, setuptools==50.3.0, wheel==0.35.1
       activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-    marie@compute$ source my-kernel/bin/activate
-    (my-kernel) marie@compute$ pip install ipykernel
+    marie@haswell$ source my-kernel/bin/activate
+    (my-kernel) marie@haswell$ pip install ipykernel
     Collecting ipykernel
     [...]
     Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
@@ -91,18 +91,18 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     please try to initialize your Python Virtual Environment like this:
 
     ```console
-    marie@compute$ module load GCC/10.2.0 Python/3.8.6
+    marie@romeo$ module load GCC/10.2.0 Python/3.8.6
     Module GCC/10.2.0Python/3.8.6 and 11 dependencies loaded.
-    marie@compute$ mkdir user-kernel # please use workspaces!
-    marie@compute$ cd user-kernel
-    marie@compute$ virtualenv --system-site-packages my-kernel
+    marie@romeo$ mkdir user-kernel # please use workspaces!
+    marie@romeo$ cd user-kernel
+    marie@romeo$ virtualenv --system-site-packages my-kernel
     created virtual environment CPython3.8.6.final.0-64 in 5985ms
       creator CPython3Posix(dest=[...]/my-kernel, clear=False, global=True)
       seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=[...])
         added seed packages: pip==20.2.3, setuptools==50.3.0, wheel==0.35.1
       activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-    marie@compute$ source my-kernel/bin/activate
-    (my-kernel) marie@compute$ pip install ipykernel
+    marie@romeo$ source my-kernel/bin/activate
+    (my-kernel) marie@romeo$ pip install ipykernel
     Collecting ipykernel
     [...]
     Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
