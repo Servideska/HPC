@@ -16,21 +16,21 @@
     <button type="button" class="collapsible">General</button>
     <div class="content">
       <div class="row">
-        <label class="cell-name">Job name</label>
+        <label class="cell-name">Job name (<tt>-J, --job-name</tt>) </label>
         <div class="cell-tooltip">
           <img id="job-name-info" class="info-img" src="../misc/info.png" title="help">
         </div>
         <input id="job-name" class="cell-input" type="text">
       </div>
       <div class="row">
-        <label class="cell-name">Account</label>
+        <label class="cell-name">Project (<tt>-A, --account</tt>)</label>
         <div class="cell-tooltip">
           <img id="account-info" class="info-img" src="../misc/info.png" title="help">
         </div>
         <input id="account" class="cell-input" type="text">
       </div>
       <div class="row">
-        <label class="cell-name">Email</label>
+        <label class="cell-name">Email (<tt>--mail-user, --mail-type</tt>)</label>
         <div class="cell-tooltip">
           <img id="mail-info" class="info-img" src="../misc/info.png" title="help">
         </div>
@@ -51,56 +51,56 @@
     <div class="content">
       <div class="partition-input">
         <div class="row">
-          <label class="cell-name">Time limit</label>
+          <label class="cell-name">Time limit (<tt>-t, --time</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="days-hours:minutes:seconds">
+            <img id="time-info" class="info-img" src="../misc/info.png" title="days-hours:minutes:seconds">
           </div>
           <input id="time" class="cell-input" type="text" placeholder="00-00:00:00">
           <label id="time-text" class="limits cell-input"></label>
         </div>
         <div class="row">
-          <label class="cell-name">Partition</label>
+          <label class="cell-name">Partition (<tt>-p, --partition</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="partition-info" class="info-img" src="../misc/info.png" title="help">
           </div>
           <select id="partition" class="cell-input"></select>
         </div>
         <div class="row">
-          <label class="cell-name">Nodes</label>
+          <label class="cell-name">Nodes (<tt>-N, --nodes</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="nodes-info" class="info-img" src="../misc/info.png" title="help">
           </div>
-          <input id="nodes" class="cell-input" type="number" min="1">
+          <input id="nodes" class="cell-input" type="number">
           <label id="nodes-text" class="limits cell-input"></label>
         </div>
         <div class="row">
-          <label class="cell-name">Tasks</label>
+          <label class="cell-name">Tasks (<tt>-n, --ntasks</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="tasks-info" class="info-img" src="../misc/info.png" title="help">
           </div>
-          <input id="tasks" class="cell-input" type="number" min="1">
+          <input id="tasks" class="cell-input" type="number">
           <label id="tasks-text" class="limits cell-input"></label>
         </div>
         <div class="row">
           <label class="cell-name">Tasks/node</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="tasks/node-info" class="info-img" src="../misc/info.png" title="help">
           </div>
-          <input id="tasks/node" class="cell-input" type="number" min="1">
+          <input id="tasks/node" class="cell-input" type="number">
           <label id="tasks/node-text" class="limits cell-input"></label>
         </div>
         <div class="row">
-          <label class="cell-name">CPUs/task</label>
+          <label class="cell-name">CPUs per task (<tt>-c, --cpus-per-task</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="cpus-info" class="info-img" src="../misc/info.png" title="help">
           </div>
-          <input id="cpus" class="cell-input" type="number" min="1">
+          <input id="cpus" class="cell-input" type="number">
           <label id="cpus-text" class="limits cell-input"></label>
         </div>
         <div id="div-thread" class="row">
           <span class="cell-name"></span>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="nomultithread-info" class="info-img" src="../misc/info.png" title="help">
           </div>
           <div class="cell-input">
             <input id="nomultithread" class="cell" type="checkbox">
@@ -108,28 +108,28 @@
           </div>
         </div>
         <div id="div-gpu" class="row">
-          <label class="cell-name">GPUs/node</label>
+          <label class="cell-name">GPUs per node (<tt>--gpus-per-node</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="gpus-info" class="info-img" src="../misc/info.png" title="help">
           </div>
-          <input id="gpus" class="cell-input" type="number" min="1">
+          <input id="gpus" class="cell-input" type="number">
           <label id="gpus-text" class="limits cell-input"></label>
         </div>
         <div id="div-gpu/task" class="row">
-          <label class="cell-name">GPUs/task</label>
+          <label class="cell-name">GPUs per task (<tt>--gpus-per-task</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="gpus/task-info" class="info-img" src="../misc/info.png" title="help">
           </div>
-          <input id="gpus/task" class="cell-input" type="number" min="1">
+          <input id="gpus/task" class="cell-input" type="number">
           <label id="gpus/task-text" class="limits cell-input"></label>
         </div>
         <div class="row">
-          <label class="cell-name">RAM/CPU</label>
+          <label class="cell-name">Memory per CPU (<tt>--mem-per-cpu</tt>)</label>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="mem-info" class="info-img" src="../misc/info.png" title="help">
           </div>
           <div class="cell-input">
-            <input id="mem" type="number" min="1">
+            <input id="mem" type="number">
             <select id="byte">
               <option value="M" title="placeholder" selected="selected">MiB</option>
               <option value="G" title="placeholder">GiB</option>
@@ -140,11 +140,11 @@
         <div class="row">
           <span class="cell-name"></span>
           <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
+            <img id="exclusive-info" class="info-img" src="../misc/info.png" title="help">
           </div>
           <div class="cell-input">
             <input id="exclusive" type="checkbox">
-            <lable for="exclusive">Exclusive</lable>
+            <lable for="exclusive">Exclusive (<tt>--exclusive</tt>)</lable>
           </div>
         </div>
       </div>
@@ -155,119 +155,113 @@
 
     <button type="button" class="collapsible">Files</button>
     <div class="content">
-      <div class="input">
-        <div class="row">
-          <label class="cell-name">Executable</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <input id="executable" class="cell-input executable" type="text">
+      <div class="row">
+        <label class="cell-name">Executable</label>
+        <div class="cell-tooltip">
+          <img id="executable-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row">
-          <span class="cell-name"></span>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <div class="cell-input">
-            <input id="one-output" type="checkbox">
-            <lable for="one-output">just one output file</lable>
-          </div>
+        <input id="executable" class="cell-input executable" type="text">
+      </div>
+      <div class="row">
+        <span class="cell-name"></span>
+        <div class="cell-tooltip">
+          <img id="one-output-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row">
-          <label class="cell-name">Output file</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <input id="output-file" class="cell-input" type="text">
+        <div class="cell-input">
+          <input id="one-output" type="checkbox">
+          <lable for="one-output">just one output file</lable>
         </div>
-        <div id="err-div" class="row">
-          <label class="cell-name">Error file</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <input id="error-file" class="cell-input" type="text">
+      </div>
+      <div class="row">
+        <label class="cell-name">Output file (<tt>-o, --output</tt>) </label>
+        <div class="cell-tooltip">
+          <img id="output-file-info" class="info-img" src="../misc/info.png" title="help">
         </div>
+        <input id="output-file" class="cell-input" type="text">
+      </div>
+      <div id="err-div" class="row">
+        <label class="cell-name">Error file (<tt>-e, --error</tt>) </label>
+        <div class="cell-tooltip">
+          <img id="error-file-info" class="info-img" src="../misc/info.png" title="help">
+        </div>
+        <input id="error-file" class="cell-input" type="text">
       </div>
     </div>
 
     <button type="button" class="collapsible">Advanced</button>
     <div class="content">
-      <div class="input">
-        <div class="row">
-          <label class="cell-name">Array</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <input id="array" class="cell-input" type="text" placeholder="1-5">
+      <div class="row">
+        <label class="cell-name">Array (<tt>-a, --array</tt>)</label>
+        <div class="cell-tooltip">
+          <img id="array-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row">
-          <label class="cell-name">Dependency</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <div class="cell-input">
-            <select id="type-depend">
-              <option value="none" title="placeholder" selected="selected"></option>
-              <option value="after" title="placeholder">after</option>
-              <option value="afterany" title="placeholder">afterany</option>
-              <option value="afterburstbuffer" title="placeholder">afterburstbuffer</option>
-              <option value="aftercorr" title="placeholder">aftercorr</option>
-              <option value="afternotok" title="placeholder">afternotok</option>
-              <option value="afterok" title="placeholder">afterok</option>
-              <option value="singleton" title="placeholder">singleton</option>
-            </select>
-            <input id="jobid" class="hidden" type="text" placeholder="jobid">
-          </div>
+        <input id="array" class="cell-input" type="text" placeholder="1-5">
+      </div>
+      <div class="row">
+        <label class="cell-name">Dependency (<tt>-d, --dependency</tt>)</label>
+        <div class="cell-tooltip">
+          <img id="dependency-info" class="info-img" src="../misc/info.png" title="help">
+        </div>
+        <div class="cell-input">
+          <select id="type-depend">
+            <option value="none" title="placeholder" selected="selected"></option>
+            <option value="after" title="placeholder">after</option>
+            <option value="afterany" title="placeholder">afterany</option>
+            <option value="afterburstbuffer" title="placeholder">afterburstbuffer</option>
+            <option value="aftercorr" title="placeholder">aftercorr</option>
+            <option value="afternotok" title="placeholder">afternotok</option>
+            <option value="afterok" title="placeholder">afterok</option>
+            <option value="singleton" title="placeholder">singleton</option>
+          </select>
+          <input id="jobid" class="hidden" type="text" placeholder="jobid">
         </div>
       </div>
     </div>
 
     <button type="button" class="collapsible">Workspace</button>
     <div class="content">
-      <div class="input">
-        <div class="row">
-          <span class="cell-name"></span>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <div class="cell-input">
-            <input id="check-workspace" type="checkbox">
-            <label for="check-workspace">Allocate a workspace</label>
-          </div>
+      <div class="row">
+        <span class="cell-name"></span>
+        <div class="cell-tooltip">
+          <img id="ws-alloc-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row hidden">
-          <label class="cell-name">Filesystem</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <select id="workspace-filesystem" class="cell-input"></select>
+        <div class="cell-input">
+          <input id="check-workspace" type="checkbox">
+          <label for="check-workspace">Allocate a workspace</label>
         </div>
-        <div class="row hidden">
-          <label class="cell-name">Name</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <input id="name" class="cell-input" type="text">
+      </div>
+      <div class="row hidden">
+        <label class="cell-name">Filesystem</label>
+        <div class="cell-tooltip">
+          <img id="ws-filesystem-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row hidden">
-          <label class="cell-name">Duration</label>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <div class="cell-input">
-            <input id="duration" type="number" min="1">
-            <label id="duration-text" class="limits"></label>
-          </div>
+        <select id="workspace-filesystem" class="cell-input"></select>
+      </div>
+      <div class="row hidden">
+        <label class="cell-name">Name</label>
+        <div class="cell-tooltip">
+          <img id="ws-name-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <div class="row hidden">
-          <span class="cell-name"></span>
-          <div class="cell-tooltip">
-            <img class="info-img" src="../misc/info.png" title="help">
-          </div>
-          <div class="cell-input">
-            <input id="check-delete" type="checkbox">
-            <label for="check-delete">Delete after job</label>
-          </div>
+        <input id="name" class="cell-input" type="text">
+      </div>
+      <div class="row hidden">
+        <label class="cell-name">Duration</label>
+        <div class="cell-tooltip">
+          <img id="ws-duration-info" class="info-img" src="../misc/info.png" title="help">
+        </div>
+        <div class="cell-input">
+          <input id="duration" type="number" min="1">
+          <label id="duration-text" class="limits"></label>
+        </div>
+      </div>
+      <div class="row hidden">
+        <span class="cell-name"></span>
+        <div class="cell-tooltip">
+          <img id="ws-delete-info" class="info-img" src="../misc/info.png" title="help">
+        </div>
+        <div class="cell-input">
+          <input id="check-delete" type="checkbox">
+          <label for="check-delete">Delete after job</label>
         </div>
       </div>
     </div>
@@ -284,23 +278,10 @@
 
     <script>
       // dictionary containing the limits for the different partitions
-      const limits = {
+      const limitsPartition = {
         'gpu2' : gpu2 = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 59,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 2583,
-          'mem/node' : 62000,
-          'gpu/node' : 4
-        },
-        'gpu2-interactive' : gpu2_interactive = {
-          'MaxTime' : 480,
-          'DefaultTime' : 10,
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
@@ -317,7 +298,7 @@
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
-          'nodes' : 1435,
+          'nodes' : 1399,
           'cores/node' : 24,
           'ht_cores/node' : 24,
           'mem/core' : 2541,
@@ -330,7 +311,7 @@
           'Sockets' : 2,
           'cpu/socket' : 12,
           'threads' : 1,
-          'nodes' : 1284,
+          'nodes' : 1266,
           'cores/node' : 24,
           'ht_cores/node' : 24,
           'mem/core' : 2541,
@@ -363,32 +344,6 @@
           'mem/node' : 254000,
           'gpu/node' : 0
         },
-        'haswell64long' : haswell64long = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 878,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 2541,
-          'mem/node' : 61000,
-          'gpu/node' : 0
-        },
-        'haswell64extralong' : haswell64extralong = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 698,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 2541,
-          'mem/node' : 61000,
-          'gpu/node' : 0
-        },
         'haswell64ht' : haswell64ht = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
@@ -399,19 +354,6 @@
           'cores/node' : 24,
           'ht_cores/node' : 48,
           'mem/core' : 1270,
-          'mem/node' : 61000,
-          'gpu/node' : 0
-        },
-        'interactive' : interactive = {
-          'MaxTime' : 480,
-          'DefaultTime' : 30,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 8,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 2541,
           'mem/node' : 61000,
           'gpu/node' : 0
         },
@@ -467,19 +409,6 @@
           'mem/node' : 95000,
           'gpu/node' : 3
         },
-        'ml-all' : ml_all = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 60,
-          'Sockets' : 2,
-          'cpu/socket' : 22,
-          'threads' : 4,
-          'nodes' : 32,
-          'cores/node' : 44,
-          'ht_cores/node' : 176,
-          'mem/core' : 1443,
-          'mem/node' : 254000,
-          'gpu/node' : 6
-        },
         'ml' : ml = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 60,
@@ -493,43 +422,6 @@
           'mem/node' : 254000,
           'gpu/node' : 6
         },
-        'ml-interactive' : ml_interactive = {
-          'MaxTime' : 480,
-          'DefaultTime' : 10,
-          'Sockets' : 2,
-          'cpu/socket' : 22,
-          'threads' : 4,
-          'nodes' : 2,
-          'cores/node' : 44,
-          'ht_cores/node' : 176,
-          'mem/core' : 1443,
-          'mem/node' : 254000,
-          'gpu/node' : 6
-        },
-        'nvme' : nvme = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 60,
-          'Sockets' : 2,
-          'cpu/socket' : 8,
-          'threads' : 2,
-          'nodes' : 90,
-          'cores/node' : 16,
-          'ht_cores/node' : 32,
-          'mem/core' : 1875,
-          'mem/node' : 60000,
-          'gpu/node' : 0
-        },
-        'datamover' : datamover = {
-          'Sockets' : 2,
-          'cpu/socket' : 8,
-          'threads' : 1,
-          'nodes' : 2,
-          'cores/node' : 16,
-          'ht_cores/node' : 16,
-          'mem/core' : 3875,
-          'mem/node' : 62000,
-          'gpu/node' : 0
-        },
         'romeo' : romeo = {
           'MaxTime' : 'INFINITE',
           'DefaultTime' : 480,
@@ -537,19 +429,6 @@
           'cpu/socket' : 64,
           'threads' : 2,
           'nodes' : 190,
-          'cores/node' : 128,
-          'ht_cores/node' : 256,
-          'mem/core' : 1972,
-          'mem/node' : 505000,
-          'gpu/node' : 0
-        },
-        'romeo-interactive' : romeo_interactive = {
-          'MaxTime' : 480,
-          'DefaultTime' : 10,
-          'Sockets' : 2,
-          'cpu/socket' : 64,
-          'threads' : 2,
-          'nodes' : 2,
           'cores/node' : 128,
           'ht_cores/node' : 256,
           'mem/core' : 1972,
@@ -581,58 +460,6 @@
           'mem/core' : 10312,
           'mem/node' : 990000,
           'gpu/node' : 8
-        },
-        'alpha-interactive' : alpha_interactive = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 24,
-          'threads' : 2,
-          'nodes' : 2,
-          'cores/node' : 48,
-          'ht_cores/node' : 96,
-          'mem/core' : 10312,
-          'mem/node' : 990000,
-          'gpu/node' : 8
-        },
-        'htw-gpu' : htw_gpu = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 24,
-          'threads' : 2,
-          'nodes' : 5,
-          'cores/node' : 48,
-          'ht_cores/node' : 96,
-          'mem/core' : 10312,
-          'mem/node' : 990000,
-          'gpu/node' : 8
-        },
-        'beaker-interactive' : beaker_interactive = {
-          'MaxTime' : 480,
-          'DefaultTime' : 10,
-          'Sockets' : 2,
-          'cpu/socket' : 16,
-          'threads' : 2,
-          'nodes' : 2,
-          'cores/node' : 32,
-          'ht_cores/node' : 64,
-          'mem/core' : 7890,
-          'mem/node' : 505000,
-          'gpu/node' : 0
-        },
-        'beaker' : beaker = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 16,
-          'threads' : 2,
-          'nodes' : 114,
-          'cores/node' : 32,
-          'ht_cores/node' : 64,
-          'mem/core' : 7890,
-          'mem/node' : 505000,
-          'gpu/node' : 0
         }
       };
 
@@ -656,16 +483,132 @@
         }
       };
 
-      // dictionary for the min and max values
+      // dictionary containing the texts and link for the info icons
+      const info = {
+        'job-name': {
+          'text': 'Specify a name for the job allocation. The specified name will appear along with the job id number when querying running jobs on the system. (default: name of the job file)',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_job-name'
+        },
+        'account': {
+          'text': 'Charge resources used by this job to specified project.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_account'
+        },
+        'mail': {
+          'text': 'Specify which user is send a email notification of state changes as defined by --mail-type.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_mail-user'
+        },
+        'time': {
+          'text': 'Set the total run time limit of the job allocation. When the time limit is reached, each task in each job step is sent SIGTERM followed by SIGKILL. The default time limit is the partition\'s default time limit. (currently only supports ddd-hh:mm:ss and hh:mm:ss)',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_time'
+        },
+        'partition': {
+          'text': 'Request a specific partition for the resource allocation. If the job can use more than one partition, specify their names in a comma separate list and the one offering earliest initiation will be used with no regard given to the partition name ordering. (default: default paritition of the system)',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_partition'
+        },
+        'nodes': {
+          'text': 'Request that number of nodes be allocated to this job.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_nodes'
+        },
+        'tasks': {
+          'text': 'Request that many MPI tasks (default: one task per node)',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_ntasks'
+        },
+        'tasks/node': {
+          'text': 'Allocate that many tasks per node.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_ntasks-per-node'
+        },
+        'cpus': {
+          'text': 'Request that number of processors per MPI task. This is needed for multithreaded (e.g. OpenMP) jobs; typically <N> should be equal to OMP_NUM_THREADS',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_cpus-per-task'
+        },
+        'nomultithread': {
+          'text': '[don\'t] use extra threads with in-core multi-threading which can benefit communication intensive applications.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_[no]multithread'
+        },
+        'gpus': {
+          'text': 'help text for gpus',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_gpus'
+        },
+        'gpus/task': {
+          'text': 'help text for gpus/task',
+          'link': 'test'
+        },
+        'mem': {
+          'text': 'Specify the real memory required per node.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_output'
+        },
+        'exclusive': {
+          'text': 'The job allocation can not share nodes with other running job. Exclusive usage of compute nodes; you will be charged for all CPUs/cores on the node',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_exclusive'
+        },
+        'executable': {
+          'text': 'help text for executable',
+          'link': 'test'
+        },
+        'one-output': {
+          'text': 'help text for one-output',
+          'link': 'test'
+        },
+        'output-file': {
+          'text': 'File to save all normal output (stdout) (default: slurm-%j.out)',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_output'
+        },
+        'error-file': {
+          'text': 'File to save all error output (stderr) (default: slurm-%j.out)',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_error'
+        },
+        'array': {
+          'text': 'help text for array',
+          'link': 'test'
+        },
+        'dependency': {
+          'text': 'help text for dependency',
+          'link': 'test'
+        },
+        'ws-alloc': {
+          'text': 'help text for allocate workspace',
+          'link': 'test'
+        },
+        'ws-filesystem': {
+          'text': 'help text for filesystem',
+          'link': 'test'
+        },
+        'ws-name': {
+          'text': 'help text for ws name',
+          'link': 'test'
+        },
+        'ws-duration': {
+          'text': 'help text for duration',
+          'link': 'test'
+        },
+        'ws-delete': {
+          'text': 'help text for delete workspace',
+          'link': 'test'
+        }
+      };
+
+      // dictionary for the max values
       var maxValues = {
-        'nodes' : 0,
-        'tasks' : 0,
-        'tasks/node' : 0,
-        'cpus' : 0,
+        'nodes' : 1,
+        'tasks' : 1,
+        'tasks/node' : 1,
+        'cpus' : 1,
         'gpus' : 0,
         'gpus/task' : 0,
-        'mem' : 0,
-        'duration': 0
+        'mem' : 1,
+        'duration': 1
+      }
+
+      // dictionary for the min values
+      var minValues = {
+        'nodes' : 1,
+        'tasks' : 1,
+        'tasks/node' : 1,
+        'cpus' : 1,
+        'gpus' : 0,
+        'gpus/task' : 0,
+        'mem' : 1,
+        'duration': 1
       }
 
       /**
@@ -687,7 +630,7 @@
           + document.getElementById('time').value;
         } else {
           outputText.innerText += '\n#SBATCH --time='
-          + limits[document.getElementById('partition').value]['DefaultTime'];
+          + limitsPartition[document.getElementById('partition').value]['DefaultTime'];
         }
         outputText.innerText += '\n#SBATCH --partition='
         + document.getElementById('partition').value;
@@ -698,7 +641,7 @@
           outputText.innerText += '\n#SBATCH --ntasks='
           + document.getElementById('tasks').value;
         }
-        if (document.getElementById('tasks/node').value !== '' && document.getElementById('gpus').value !== '') {
+        if (document.getElementById('tasks/node').value !== '' && document.getElementById('gpus').value === '') {
           outputText.innerText += '\n#SBATCH --ntasks-per-node='
           + document.getElementById('tasks/node').value;
         } else if (document.getElementById('tasks/node').value !== '') {
@@ -830,7 +773,7 @@
           let element = document.getElementById(field);
           let elementText = document.getElementById(field + '-text');
           let value = Number(document.getElementById(field).value);
-          let min = Number(document.getElementById(field).min);
+          let min = Number(minValues[field]);
           let max = Number(maxValues[field]);
           if (value >= min && value <= max || document.getElementById(field).value === '') {
             element.style.backgroundColor = '';
@@ -925,7 +868,7 @@
           document.getElementById('time').style.backgroundColor = 'rgb(255, 121, 121)';
         } else {
           document.getElementById('time').style.backgroundColor = '';
-          setMinDuration()
+          setLimitDuration()
         }
       });
 
@@ -934,7 +877,7 @@
        */
       var fillInfo = function() {
         let panelText = document.getElementById('info-panel');
-        let partitionLimits = limits[document.getElementById('partition').value];
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
 
         panelText.innerText = partitionLimits['info'];
         panelText.innerText += '\nNodes: ' + partitionLimits['nodes'];
@@ -949,9 +892,9 @@
        * Function to fill the tooltip about the partitions
        */
       var fillTooltips = function() {
-        for (const [key, value] of Object.entries(limits)) {
+        for (const [key, value] of Object.entries(limitsPartition)) {
           let panelText = document.getElementById(key);
-          let partitionLimits = limits[key];
+          let partitionLimits = limitsPartition[key];
 
           panelText.title = partitionLimits['info'];
           panelText.title += '\nNodes: ' + partitionLimits['nodes'];
@@ -986,155 +929,221 @@
         let panelText = document.getElementById(field);
 
         panelText.title = 'Limits by current setting:';
-        panelText.title += '\nmin: ' + panelText.min;
+        panelText.title += '\nmin: ' + minValues[field];
         panelText.title += '\nmax: ' + maxValues[field];
         panelText.title += '\nEmpty the field if unneeded'
 
         // set limit labels
         let limitText = document.getElementById(field + '-text');
-        limitText.innerText = 'min: ' + panelText.min;
+        limitText.innerText = 'min: ' + minValues[field];
         limitText.innerText += ' max: ' + maxValues[field];
       }
 
       /**
-       * Set the max for the tasks field
+       * Get the value of a field, or its maximum
        */
-      var setMaxTasks = function() {
+      var getValue = function(field, type) {
+        let number = 0;
+        // get field value
+        rawNodes = document.getElementById(field).value;
+        // set to maximum if value is undefined or out of range
+        if (
+          rawNodes !== ''
+          && Number(rawNodes) >= minValues[field]
+          && Number(rawNodes) <= maxValues[field]
+        ) {
+          number = Number(document.getElementById(field).value);
+        } else {
+          number = type === 'min' ? minValues[field] : maxValues[field];
+        }
+        return number;
+      }
+
+      /**
+       * Set the limits for the nodes field
+       */
+       var setLimitNodes = function() {
         // get partition limits from dictionary
-        let partitionLimits = limits[document.getElementById('partition').value];
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
 
-        let nodes = 0;
-        // set number of nodes
-        if (document.getElementById('nodes').value !== '') {
-          nodes = Number(document.getElementById('nodes').value);
-        } else {
-          nodes = maxValues['nodes'];
-        }
+        // set max for nodes
+        maxValues['nodes'] = partitionLimits['nodes'];
 
-        // set max for tasks
-        if (document.getElementById('nomultithread').checked === true) {
-          maxValues['tasks'] = nodes * partitionLimits['cores/node'];
+        // set min for nodes
+        if (
+          document.getElementById('tasks').value !== ''
+          && document.getElementById('tasks/node').value !== ''
+          ) {
+          let tasks = getValue('tasks', 'min');
+          let tasksPerNode = getValue('tasks/node', 'min');
+          minValues['nodes'] = Math.ceil(tasks / tasksPerNode);
         } else {
-          maxValues['tasks'] = nodes * partitionLimits['ht_cores/node'];
-        }
-        if (document.getElementById('tasks/node').value !== '' && document.getElementById('nodes').value !== '') {
-          maxValues['tasks'] = Number(document.getElementById('tasks/node').value)
-          * Number(document.getElementById('nodes').value);
+          minValues['nodes'] = 1;
         }
 
-        // tasks per node
-        if (document.getElementById('nomultithread').checked === true) {
-          maxValues['tasks/node'] = partitionLimits['cores/node'];
+        // set min for nodes
+        setTooltips('nodes');
+      }
+
+      /**
+       * Set the limits for the tasks field
+       */
+      var setLimitTasks = function() {
+        // get partition limits from dictionary
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
+
+        // set max
+        let nodes = getValue('nodes', 'max');
+        let taskPerNode = getValue('tasks/node', 'max');
+        // multithreading
+        let limit = document.getElementById('nomultithread').checked === true ? 'cores/node' : 'ht_cores/node';
+        maxValues['tasks'] = nodes * partitionLimits[limit];
+        // limit if nodes and tasks/node
+        if (
+          document.getElementById('tasks/node').value !== ''
+          && document.getElementById('nodes').value !== ''
+        ) {
+          maxValues['tasks'] = taskPerNode * nodes;
         } else {
-          maxValues['tasks/node'] = partitionLimits['ht_cores/node'];
+          minValues['tasks/node'] = 1;
         }
-        if (document.getElementById('gpus').value !== '' && document.getElementById('nodes').value !== '' && document.getElementById('tasks').value !== '') {
-          document.getElementById('tasks/node').min = Number(document.getElementById('tasks').value)
-          / Number(document.getElementById('nodes').value);
-          maxValues['tasks/node'] = Number(document.getElementById('tasks').value)
-          / Number(document.getElementById('nodes').value);
-        } else {
-          document.getElementById('tasks/node').min = 1;
-        }
+
+        // set min
+        nodes = getValue('nodes', 'min');
+        minValues['tasks'] = nodes;
         setTooltips('tasks');
+      }
+
+      /**
+       * Set the limits for tasks per node field
+       */
+      var setLimitTasksPerNode = function() {
+        // get partition limits from dictionary
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
+
+        // set max
+        let nodes = getValue('nodes', 'max');
+        let tasks = getValue('tasks', 'max');
+
+        // multithreading
+        let limit = document.getElementById('nomultithread').checked === true ? 'cores/node' : 'ht_cores/node';
+        maxValues['tasks/node'] = partitionLimits[limit];
+        //set min
+        nodes = getValue('nodes', 'min');
+        tasks = getValue('tasks', 'min');
+        if (
+          document.getElementById('tasks').value !== ''
+          && document.getElementById('nodes').value !== ''
+        ) {
+          minValues['tasks/node'] = Math.ceil(tasks / nodes);
+        } else {
+          minValues['tasks/node'] = 1;
+        }
+
+        // set min and max for --mincpus if gpus are allocated
+        if (
+          document.getElementById('gpus').value !== ''
+          && document.getElementById('nodes').value !== ''
+          && document.getElementById('tasks').value !== ''
+        ) {
+          minValues['tasks/node'] = Math.ceil(tasks / nodes);
+          nodes = getValue('nodes', 'max');
+          tasks = getValue('tasks', 'max');
+          maxValues['tasks/node'] = Math.floor(tasks / nodes);
+        }
+        // set tooltips
         setTooltips('tasks/node');
       }
 
       /**
-       * Set the max for the cpus or gpus field
-       *
-       * @param {string} field The id for the field, for which the max has to be updated
+       * Set the limits for cpu per task field
        */
-      var setMaxCpuGpu = function(field) {
+       var setLimitCpu = function() {
         // get partition limits from dictionary
-        let partitionLimits = limits[document.getElementById('partition').value];
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
 
-        // get the partition limit and base for the respective field
-        if (field === 'cpus') {
-          if (document.getElementById('nomultithread').checked === true) {
-            limit = 'cores/node';
-          } else {
-            limit = 'ht_cores/node';
-          }
-        } else if (field === 'gpus/task') {
-          limit = 'gpu/node';
+        // set max
+        // multithreading
+        let limit = document.getElementById('nomultithread').checked === true ? 'cores/node' : 'ht_cores/node';
+        let nodes = getValue('nodes', 'max');
+        let tasks = getValue('tasks', 'max');
+        let tasksPerNode = getValue('tasks/node', 'max');
+        let maxValue = [partitionLimits[limit]];
+        maxValue.push(Math.floor(partitionLimits[limit] / Math.ceil(tasks / nodes)));
+        maxValue.push(Math.floor(partitionLimits[limit] / tasksPerNode));
+        maxValues['cpus'] = Math.min.apply(null, maxValue);
+        // set max for cpus if gpus are set
+        if (
+          document.getElementById('gpus').value !== ''
+          && document.getElementById('gpus').value !== '0'
+          && document.getElementById('exclusive').checked !== true
+        ) {
+          let gpus = getValue('gpus', 'max');
+          maxValues[field] = Math.floor(gpus / partitionLimits['gpu/node'] * partitionLimits[limit]);
         }
+        //set min
+        minValues['cpus'] = 1;
+        // set tooltips
+        setTooltips('cpus');
+      }
+
+      /**
+       * Set the limits for gpu per node field
+       */
+       var setLimitGpu = function() {
+        // get partition limits from dictionary
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
+
+        // set max for gpus
+        maxValues['gpus'] = partitionLimits['gpu/node'];
+        setTooltips('gpus');
+        //set min
+        if (document.getElementById('gpus/task').value !== '') {
+          let tasks = getValue('tasks', 'min');
+          let nodes = getValue('nodes', 'min');
+          let gpusPerTask = getValue('gpus/task', 'min');
+          minValues['gpus'] = Math.ceil(tasks / nodes * gpusPerTask);
+        } else {
+          minValues['gpus'] = 0;
+        }
+        // set tooltips
+        setTooltips('gpus');
+      }
+
+      /**
+       * Set the limits for the gpus per task field
+       */
+      var setLimitGpuPerTask = function() {
+        // get partition limits from dictionary
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
 
         // get value from base
-        let tasks = document.getElementById('tasks').value;
-        let tasksNode = document.getElementById('tasks/node').value;
-        // set number of nodes
-        let nodes = 0;
-        if (document.getElementById('nodes').value !== '') {
-          nodes = Number(document.getElementById('nodes').value);
-        } else {
-          nodes = maxValues['nodes'];
-        }
+        let tasks = getValue('tasks', 'max');
+        let tasksNode = getValue('tasks/node', 'max');
+        let nodes = getValue('nodes', 'max');
 
         // set new max
-        let maxValue = [partitionLimits[limit]];
+        let maxValue = [partitionLimits['gpu/node']];
         if (tasks !== '') {
-          maxValue.push(Math.floor(partitionLimits[limit] / Math.ceil(Number(tasks) / Number(nodes))));
+          maxValue.push(Math.floor(partitionLimits['gpu/node'] / Math.ceil(Number(tasks) / Number(nodes))));
         }
         if (tasksNode !== '') {
-          maxValue.push(Math.floor(partitionLimits[limit] / Number(document.getElementById('tasks/node').value)));
+          maxValue.push(Math.floor(partitionLimits['gpu/node'] / Number(document.getElementById('tasks/node').value)));
         }
-        maxValues[field] = Math.min.apply(null, maxValue);
-
-        // set max for cpus if gpus are set
-        if (document.getElementById('gpus').value !== '' && document.getElementById('gpus').value !== '0' && field === 'cpus' && document.getElementById('exclusive').checked !== true) {
-          maxValues[field] = Math.floor(Number(document.getElementById('gpus').value) / partitionLimits['gpu/node'] * partitionLimits[limit]);
-        }
+        maxValues['gpus/task'] = Math.min.apply(null, maxValue);
         // set tooltips for new limits
-        setTooltips(field);
+        setTooltips('gpus/task');
       }
 
       /**
-       * Set the max for the duration field
+       * Update the max for memory per cpu values
        */
-       var setMaxDuration = function() {
+      var setLimitMem = function() {
         // get partition limits from dictionary
-        let workspaceLimits = limitsWorkspace[document.getElementById('workspace-filesystem').value];
-        // set new max
-        maxValues['duration'] = workspaceLimits['duration'];
-        // set tooltips for new limits
-        setTooltips('duration');
-      }
-
-      /**
-       * Set the min for the duration field
-       */
-       var setMinDuration = function() {
-        // get days and hours from walltime
-        let reArray = /^(([0-9]{1,3})-)?([0-9]{2}):([0-9]{2}):([0-9]{2})$/;
-        let match = reArray.exec(document.getElementById('time').value);
-        // if days are defined or not
-        if (match[2]) {
-          document.getElementById('duration').min = Number(match[2]) + Math.ceil(Number(match[3]) / 24);
-        } else {
-          document.getElementById('duration').min = Math.ceil(Number(match[3]) / 24);
-        }
-        if ((Number(match[4]) !== 0 || Number(match[5]) !== 0) && Number(match[3]) % 24 === 0) {
-          document.getElementById('duration').min = Number(document.getElementById('duration').min) + 1;
-        }
-        // set tooltips for new limits
-        setTooltips('duration');
-      }
-
-      /**
-       * Update the value und max for CPU values
-       */
-      var memUpdate = function() {
-        // 0 limit if no cpus are selected
-        if (document.getElementById('cpus').value === '0' || document.getElementById('cpus').value === '') {
-          maxValues['mem'] = '0';
-        } else {
-          // get partition limits from dictionary
-          let partitionLimits = limits[document.getElementById('partition').value];
-          maxValues['mem'] = partitionLimits['mem/core'];
-        }
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
+        maxValues['mem'] = partitionLimits['mem/core'];
         if (document.getElementById('nomultithread').checked === true) {
-          maxValues['mem'] *= 2;
+          maxValues['mem'] *= partitionLimits['threads'];
         }
         if (document.getElementById('byte').value === 'G') {
         maxValues['mem'] = Math.floor(maxValues['mem'] / 1024);
@@ -1143,13 +1152,48 @@
       }
 
       /**
+       * Set the limits for the duration field
+       */
+      var setLimitDuration = function() {
+        // get partition limits from dictionary
+        let workspaceLimits = limitsWorkspace[document.getElementById('workspace-filesystem').value];
+        // set new max
+        maxValues['duration'] = workspaceLimits['duration'];
+
+        //set min
+        // get days and hours from walltime
+        let reArray = /^(([0-9]{1,3})-)?([0-9]{2}):([0-9]{2}):([0-9]{2})$/;
+        let match = reArray.exec(document.getElementById('time').value);
+        if (match === null) {
+          setTooltips('duration');
+          return;
+        }
+        // if days are defined or not
+        if (match[2]) {
+          minValues['duration'] = Number(match[2]);
+        }
+        minValues['duration'] += Math.ceil(Number(match[3]) / 24);
+        if ((Number(match[4]) !== 0 || Number(match[5]) !== 0) && Number(match[3]) % 24 === 0) {
+          minValues['duration'] += 1;
+        }
+        // set tooltips for new limits
+        setTooltips('duration');
+      }
+
+      /**
        * Update the value und max for CPU and GPU values
        */
-      var cpugpuLimitChange = function() {
-        setMaxCpuGpu('cpus');
+      var LimitChange = function() {
+        setLimitNodes();
+        setLimitTasks();
+        setLimitTasksPerNode();
+        setLimitCpu();
         if (document.getElementById('div-gpu').style.display !== 'none') {
-          setMaxCpuGpu('gpus/task');
+          setLimitGpu();
+          setLimitGpuPerTask();
         }
+        setLimitMem();
+        setLimitDuration();
       }
 
       /**
@@ -1157,7 +1201,7 @@
        */
       var partitionLimitChange = function() {
         // get partition limits from dictionary
-        let partitionLimits = limits[document.getElementById('partition').value];
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
         // hide the GPU field, if partition do not have GPUs
         if (partitionLimits['gpu/node'] === 0) {
           document.getElementById('div-gpu').style.display = 'none';
@@ -1169,42 +1213,30 @@
           document.getElementById('div-gpu/task').style.display = '';
         }
         // hide the multithreading field if it isnt supported
-        if (partitionLimits['cores/node'] === partitionLimits['ht_cores/node']) {
+        if (partitionLimits['threads'] === 1) {
           document.getElementById('div-thread').style.display = 'none';
           document.getElementById('nomultithread').checked = false;
         } else {
           document.getElementById('div-thread').style.display = '';
         }
-        // set new max for nodes
-        maxValues['nodes'] = partitionLimits['nodes'];
-        setTooltips('nodes');
-        // set max for gpus
-        maxValues['gpus'] = partitionLimits['gpu/node'];
-        setTooltips('gpus');
         // update other values
-        setMaxTasks();
-        cpugpuLimitChange();
-        memUpdate();
+        LimitChange();
       }
 
       // set up event listeners, if field change
       document.getElementById('partition').addEventListener('change', partitionLimitChange);
       document.getElementById('partition').addEventListener('change', fillInfo);
-      document.getElementById('tasks').addEventListener('change', cpugpuLimitChange);
-      document.getElementById('byte').addEventListener('change', memUpdate);
-      document.getElementById('nodes').addEventListener('change', cpugpuLimitChange);
-      document.getElementById('nodes').addEventListener('change', setMaxTasks);
-      document.getElementById('tasks').addEventListener('change', memUpdate);
-      document.getElementById('tasks').addEventListener('change', setMaxTasks);
-      document.getElementById('gpus').addEventListener('change', setMaxTasks);
-      document.getElementById('gpus').addEventListener('change', cpugpuLimitChange);
-      document.getElementById('tasks/node').addEventListener('change', setMaxTasks);
-      document.getElementById('tasks/node').addEventListener('change', cpugpuLimitChange);
-      document.getElementById('cpus').addEventListener('change', memUpdate);
-      document.getElementById('exclusive').addEventListener('change', memUpdate);
-      document.getElementById('exclusive').addEventListener('change', cpugpuLimitChange);
-      document.getElementById('nomultithread').addEventListener('change', partitionLimitChange);
-      document.getElementById('workspace-filesystem').addEventListener('change', setMaxDuration);
+      document.getElementById('nodes').addEventListener('change', LimitChange);
+      document.getElementById('tasks').addEventListener('change', LimitChange);
+      document.getElementById('tasks/node').addEventListener('change', LimitChange);
+      document.getElementById('cpus').addEventListener('change', LimitChange);
+      document.getElementById('gpus').addEventListener('change', LimitChange);
+      document.getElementById('gpus/task').addEventListener('change', LimitChange);
+      document.getElementById('mem').addEventListener('change', LimitChange);
+      document.getElementById('byte').addEventListener('change', setLimitMem);
+      document.getElementById('exclusive').addEventListener('change', LimitChange);
+      document.getElementById('nomultithread').addEventListener('change', LimitChange);
+      document.getElementById('workspace-filesystem').addEventListener('change', setLimitDuration);
 
       // hide jobid field if unneeded
       document.getElementById('type-depend').addEventListener('change', function() {
@@ -1243,7 +1275,7 @@
       // set up of partition options
       let select = document.getElementById('partition');
 
-      for (const [key, value] of Object.entries(limits)) {
+      for (const [key, value] of Object.entries(limitsPartition)) {
         let option = document.createElement('option');
         option.id = key;
         option.value = key;
@@ -1269,17 +1301,15 @@
       }
 
       // set up info texts
-      // const infoMap = JSON.parse(text);
-      // for (const [key, value] of Object.entries(infoMap)) {
-      //   document.getElementById(key + '-info').title = value['text'];
-      // }
+      for (const [key, value] of Object.entries(info)) {
+        document.getElementById(key + '-info').title = value['text'];
+      }
 
       // initialize UI
       partitionLimitChange();
       fillInfo();
       fillTooltips();
       fillTooltipsWorkspace();
-      setMaxDuration();
     </script>
   </body>
 </html>
