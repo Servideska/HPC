@@ -82,6 +82,7 @@ nav:
       - Mathematics Libraries: software/math_libraries.md
       - Debugging: software/debuggers.md
     - Software Engineering Tools:
+      - Overview: software/performance_engineering_overview.md
       - MPI Error Detection: software/mpi_usage_error_detection.md
       - Score-P: software/scorep.md
       - lo2s: software/lo2s.md
