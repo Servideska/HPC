@@ -188,9 +188,7 @@ Generally please consider using the optimized 'Modenv' for the architecture you 
 | x86_64 (AMD)                 | romeo, alpha                                            | modenv/hiera |
 | *x86_64 (licensed software)* | *all of the above*                                      | modenv/scs5  |
 | ppc64le                      | ml                                                      | modenv/ml    |
-<p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
 
-We also have a more [in depth description regarding Modules](../software/modules/#module-environments).
 
 ### Standard Environments
 
@@ -208,19 +206,23 @@ environment.
 
 As of july 2022 we have a number of standard environments, namely:
 
-| name                                                       | optimized for   | specially recommended for |
-|------------------------------------------------------------|-----------------|---------------------------|
-| foss-2020b                                                 | x86_64, ppc64le |                           |
-| fosscuda-2019b                                             | GPUs            |                           |
-| fosscuda-2020b                                             | GPUs            |                           |
-| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | matlab                    |
-| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           |
-| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | matlab                    |
-| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | rstudio                   |
-| **production**                                             | x86_64, ppc64le |                           |
-| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           |
-| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | matlab                    |
-| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           |
+| name                                                       | optimized for   | specially recommended for | Modenv       | Partitions                                             |
+|------------------------------------------------------------|-----------------|---------------------------|--------------|
+| foss-2020b                                                 | x86_64, ppc64le |                           | ?            |
+| fosscuda-2019b                                             | GPUs            |                           | ?            |
+| fosscuda-2020b                                             | GPUs            |                           | ?            |
+| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | matlab                    | ?            |
+| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           | modenv/hiera | romeo, alpha                                           |
+| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | matlab                    | modenv/hiera | romeo, alpha                                           |
+| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | rstudio                   | modenv/hiera | romeo, alpha                                           |
+| **production**                                             | x86_64, ppc64le |                           | ?            |
+| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           | modenv/scs5  | default, haswell, interactive, gpu2, hpdlf, dcv, julia |
+| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | matlab                    | modenv/scs5  |
+| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           | modenv/scs5  |
+
+<p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
+
+We also have a more [in depth description regarding Modules](../software/modules/#module-environments).
 
 With these **standard environments** we have tried to integrate a set of compatible software:
 
