@@ -1,4 +1,4 @@
-# Slurm Job Generator
+# Slurm Job File Generator
 
 <html lang="en-us">
   <head>
