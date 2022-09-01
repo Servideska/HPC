@@ -180,15 +180,6 @@ home directory and have the name `jupyter-session-<jobid>.log`.
 
 ## Advanced Tips
 
-Generally please consider using the optimized 'Modenv' for the architecture you are targeting:
-
-| Architecture                 | Partitions                                              | Modenv       |
-|------------------------------|---------------------------------------------------------|--------------|
-| x86_64 (Intel)               | default, haswell, interactive, gpu2, hpdlf, dcv, julia, | modenv/scs5  |
-| x86_64 (AMD)                 | romeo, alpha                                            | modenv/hiera |
-| *x86_64 (licensed software)* | *all of the above*                                      | modenv/scs5  |
-| ppc64le                      | ml                                                      | modenv/ml    |
-
 
 ### Standard Environments
 
@@ -206,19 +197,19 @@ environment.
 
 As of july 2022 we have a number of standard environments, namely:
 
-| name                                                       | optimized for   | specially recommended for | Modenv       | Partitions                                             |
-|------------------------------------------------------------|-----------------|---------------------------|--------------|
-| foss-2020b                                                 | x86_64, ppc64le |                           | ?            |
-| fosscuda-2019b                                             | GPUs            |                           | ?            |
-| fosscuda-2020b                                             | GPUs            |                           | ?            |
-| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | matlab                    | ?            |
-| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           | modenv/hiera | romeo, alpha                                           |
-| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | matlab                    | modenv/hiera | romeo, alpha                                           |
-| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | rstudio                   | modenv/hiera | romeo, alpha                                           |
-| **production**                                             | x86_64, ppc64le |                           | ?            |
-| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           | modenv/scs5  | default, haswell, interactive, gpu2, hpdlf, dcv, julia |
-| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | matlab                    | modenv/scs5  |
-| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           | modenv/scs5  |
+| name                                                       | optimized for   | specially recommended for | Modenv            | Partitions                                             |
+|------------------------------------------------------------|-----------------|---------------------------|-------------------|-----------------------------------|
+| foss-2020b                                                 | x86_64, ppc64le |                           | modenv/hiera & ml | romeo, alpha, ml                           |
+| fosscuda-2019b                                             | GPUs            |                           | modenv/hiera & ml | romeo, alpha, ml                           |
+| fosscuda-2020b                                             | GPUs            |                           | modenv/hiera & ml | romeo, alpha, ml                           |
+| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | matlab                    | modenv/hiera      | romeo, alpha                               |
+| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           | modenv/hiera      | romeo, alpha                               |
+| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | matlab                    | modenv/hiera      | romeo, alpha                               |
+| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | rstudio                   | modenv/hiera      | romeo, alpha                               |
+| **production**                                             | x86_64, ppc64le |                           | modenv/scs5 & ml  | default, haswell, interactive, gpu2, hpdlf, dcv, julia, ml |
+| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
+| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | matlab                    | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
+| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
 
 <p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
 
@@ -227,42 +218,28 @@ We also have a more [in depth description regarding Modules](../software/modules
 With these **standard environments** we have tried to integrate a set of compatible software:
 
 === "production"
+
     Offers a wide range of presently 188 python packages.
 
     You can load more software using our module system,
     by selecting these through the option ['Preload modules (module load)'](#loading-modules).
 
 === "...matlab"
+
     With it, we integrated matlab with presently 86 python packages.
 
     You can load more software using our module system,
     by selecting these through the option ['Preload modules (module load)'](#loading-modules).
 
 === "...rstudio"
+
     We integrated R & RStudio into it, such that you can use it in your
     browser. Please click on RStudio's Icon for it, when you are in the JupyterHub overview.
 
-=== "foss-2020b"
-    This virtual environment can be used for all x86
-    partitions (`gpu2`, `alpha`, etc). It gives the opportunity to create a user
-    kernel with the help of a Python environment.
+=== "fosscuda-2020b"
 
-    Here is a short list of some included software:
-
-    |            | generic\* | ml     |
-    |------------|-----------|--------|
-    | Python     | 3.6.10    | 3.6.10 |
-    | R\*\*      | 3.6.2     | 3.6.0  |
-    | WML CE     | 1.7.0     | 1.7.0  |
-    | PyTorch    | 1.3.1     | 1.3.1  |
-    | TensorFlow | 2.1.1     | 2.1.1  |
-    | Keras      | 2.3.1     | 2.3.1  |
-    | NumPy      | 1.17.5    | 1.17.4 |
-    | Matplotlib | 3.3.1     | 3.0.3  |
-    
-    \* generic = all partitions except ml
-    
-    \*\* R is loaded from the [module system](../software/modules.md)
+    Can be utilized with the partitions gpu2, alpha and ml
+    It's specially geared towards GPU support.
 
 
 
