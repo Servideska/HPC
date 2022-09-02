@@ -256,7 +256,7 @@ calling the actual software to do your computation).
     cd ${WSDIR}
 
     # Adjust the following line to invoke the program you want to run
-    srun name_of_the_program_you_want_to_run_here < "${INPUTFILE}" > logfile.log
+    srun <application> < "${INPUTFILE}" > logfile.log
 
     # Save result files, e.g. into your user home
     # Compress results with bzip2 (which includes CRC32 Checksums)
