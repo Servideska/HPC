@@ -226,7 +226,7 @@ calling the actual software to do your computation).
     #!/bin/bash
 
     #SBATCH --partition=haswell
-    #SBATCH --time=96:00:00
+    #SBATCH --time=48:00:00
     #SBATCH --nodes=1
     #SBATCH --ntasks=1
     ## The optional constraint for the filesystem feature depends
@@ -246,7 +246,7 @@ calling the actual software to do your computation).
 
     # Allocate workspace. Adjust time span to time limit of the job (-d <N>).
     WSNAME=computation_$SLURM_JOB_ID
-    export WSDDIR=$(ws_allocate -F ssd -n ${WSNAME} -d 7)
+    export WSDDIR=$(ws_allocate -F ssd -n ${WSNAME} -d 2)
     echo ${WSDIR}
 
     # Check allocation
