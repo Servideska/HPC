@@ -245,33 +245,33 @@ calling the actual software to do your computation).
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
 
     # Allocate workspace. Adjust time span to time limit of the job (-d <N>).
-    COMPUTE_DIR=computation_$SLURM_JOB_ID
-    export WORKSPACE_DIR=$(ws_allocate -F ssd -n ${COMPUTE_DIR} -d 7)
-    echo ${WORKSPACE_DIR}
+    WSNAME=computation_$SLURM_JOB_ID
+    export WSDDIR=$(ws_allocate -F ssd -n ${WSNAME} -d 7)
+    echo ${WSDIR}
 
     # Check allocation
-    test -z "${WORKSPACE_DIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
+    test -z "${WSDIR}" && echo "Error: Cannot allocate workspace ${WSDIR}" && exit 1
 
     # Change to workspace directory
-    cd ${WORKSPACE_DIR}
+    cd ${WSDIR}
 
     # Adjust the following line to invoke the program you want to run
     srun name_of_the_program_you_want_to_run_here < "${INPUTFILE}" > logfile.log
 
-    # Save result files into user home
+    # Save result files, e.g. into your user home
     # Compress results with bzip2 (which includes CRC32 Checksums)
-    bzip2 --compress --stdout -4 "${WORKSPACE_DIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
+    bzip2 --compress --stdout -4 "${WSDIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
     RETURN_CODE=$?
     COMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
 
     # Clean up workspace
     if [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then
-        test -d ${WORKSPACE_DIR} && rm -rf ${WORKSPACE_DIR}/*
+        test -d ${WSDIR} && rm -rf ${WSDIR}/*
         # Reduces grace period to 1 day!
-        ws_release -F ssd ${COMPUTE_DIR}
+        ws_release -F ssd ${WSNAME}
     else
         echo "Error with compression and writing of results"
-        echo "Please check the folder \"${WORKSPACE_DIR}\" for any partial(?) results."
+        echo "Please check the folder \"${WSDIR}\" for any partial(?) results."
         exit 1
     fi
     ```
