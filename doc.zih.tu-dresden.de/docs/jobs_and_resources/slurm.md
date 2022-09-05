@@ -200,7 +200,7 @@ Slurm will forward your X11 credentials to the first (or even all) node for a jo
 eight cores can be started with:
 
 ```console
-marie@login$ module load matlab
+marie@login$ module load MATLAB
 marie@login$ srun --ntasks=1 --cpus-per-task=8 --time=1:00:00 --pty --x11=first matlab
 ```
 
@@ -242,7 +242,8 @@ has multiple advantages:
 Job files have to be written with the following structure.
 
 ```bash
-#!/bin/bash                           # Batch script starts with shebang line
+#!/bin/bash
+# ^Batch script starts with shebang line
 
 #SBATCH --ntasks=24                   # All #SBATCH lines have to follow uninterrupted
 #SBATCH --time=01:00:00               # after the shebang line
@@ -276,7 +277,7 @@ provide a comprehensive collection of job examples.
     module load <modules>
 
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-    srun ./path/to/openmpi_application
+    srun ./path/to/openmp_application
     ```
 
     * Submisson: `marie@login$ sbatch batch_script.sh`
@@ -299,6 +300,54 @@ provide a comprehensive collection of job examples.
 
     * Submisson: `marie@login$ sbatch batch_script.sh`
     * Run with fewer MPI tasks: `marie@login$ sbatch --ntasks=14 batch_script.sh`
+
+## Heterogeneous Jobs
+
+A heterogeneous job consists of several job components, all of which can have individual job
+options. In particular, different components can use resources from different Slurm partitions.
+One example for this setting is an MPI application consisting of a master process with a huge memory
+footprint and worker processes requiring GPU support.
+
+The `salloc`, `sbatch` and `srun` commands can all be used to submit heterogeneous jobs. Resource
+specifications for each component of the heterogeneous job should be separated with ":" character.
+Running a job step on a specific component is supported by the option `--het-group`.
+
+```console
+marie@login$ salloc --ntasks 1 --cpus-per-task 4 --partition <partition> --mem=200G : \
+                    --ntasks 8 --cpus-per-task 1 --gres=gpu:8 --mem=80G --partition <partition>
+[...]
+marie@login$ srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
+```
+
+Heterogeneous jobs can also be defined in job files. There, it is required to separate multiple
+components by a line containing the directive `"#SBATCH hetjob`.
+
+```bash
+#!/bin/bash
+
+#SBATCH --ntasks 1
+#SBATCH --cpus 4
+#SBATCH --partition <partition>
+#SBATCH --mem=200G
+#SBATCH hetjob # required to separate groups
+#SBATCH --ntasks 8
+#SBATCH --cpus 1
+#SBATCH --gres=gpu:8
+#SBATCH --mem=80G
+#SBATCH --partition <partition>
+
+srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
+
+# or as an alternative
+srun ./my_application <args for master tasks> &
+srun --het-group=1 ./my_application <args for worker tasks> &
+wait
+```
+
+### Limitations
+
+Due to the way scheduling algorithm works it is required that each component has to be allocated on
+a different node. Furthermore, job arrays of heterogeneous jobs are not supported.
 
 ## Manage and Control Jobs
 

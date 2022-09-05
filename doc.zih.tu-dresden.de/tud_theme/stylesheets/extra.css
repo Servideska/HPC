@@ -252,3 +252,139 @@ p {
     color: var(--tud-red-90);
 }
 
+/* style for the slurm job generator */
+/* universal style */
+body {
+    margin: auto;
+    width: 90%;
+  }
+  img {
+    display: block;
+  }
+  label {
+    font-size: .7rem;
+  }
+  pre {
+    background-color: lightgrey;
+    border-color: black;
+    border-width: 1pt;
+  }
+  .header {
+    background-color: #002557;
+  }
+  label.header {
+    color: white;
+    font-size: 40px;
+    margin: 15px;
+  }
+  .hidden {
+    display: none !important;
+  }
+  .info-img {
+    height: 20px;
+    width: 20px;
+  }
+  .info-pre {
+    display: flex;
+    padding: 5px;
+    width: 275px;
+    font-size: .7rem;
+  }
+  .limits {
+    color: rgb(255, 121, 121);
+    display: none;
+    margin-left: 7px;
+  }
+  button.output {
+    padding: 8px;
+    background-color: rgba(231, 231, 231, 0.726);
+    border-color: rgba(124, 119, 119, 0.541);
+    border-radius: .25rem;
+  }
+  button.output:hover, button.output:focus {
+    background-color: #ddd;
+  }
+  div.output {
+    margin: 15px 0px;
+  }
+
+  /* tablelike layout */
+  .input {
+    display: block;
+    width: 70%;
+  }
+  .row {
+    align-items: center;
+    display: flex;
+    width: 100%;
+  }
+  .cell-name {
+    display: flex;
+    height: 25px;
+    align-items: center;
+    width: 300px;
+    font-size: .7rem;
+  }
+  .cell-tooltip {
+    align-items: center;
+    display: flex;
+    height: 25px;
+    justify-content: center;
+    width: 25px;
+  }
+  .cell-input {
+    display: flexbox;
+    vertical-align: middle;
+  }
+  .executable {
+    width: 650px;
+  }
+  .mail {
+    width: 350px;
+  }
+  .partition-input {
+    float: left;
+    width: 72.5;
+  }
+  .partition-info {
+    display: flex;
+    float: right;
+    width: calc(27.5%);
+  }
+
+  /* collapsible */
+  .active {
+    background-color: #5a7094 !important;
+  }
+  .active:after {
+    content: "-" !important;
+  }
+  .collapsible {
+    background-color: #274275;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    outline: none;
+    padding: 10px 18px;
+    text-align: left;
+    width: 100%;
+  }
+  .collapsible:hover, .collapsible:focus {
+    text-decoration: underline;
+  }
+  .collapsible:after {
+    color: #fff;
+    content: '+';
+    float: right;
+    font-size: 20px;
+    font-weight:900;
+    margin-left: 5px;
+  }
+  .content {
+    background-color: #f1f1f1;
+    display: block;
+    overflow: hidden;
+    padding: 0 18px;
+  }
+

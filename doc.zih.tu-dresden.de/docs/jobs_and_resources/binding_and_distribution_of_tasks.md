@@ -118,7 +118,7 @@ every second socket of every node and so on.
     #SBATCH --tasks-per-node=16
     #SBATCH --cpus-per-task=1
 
-    srun --ntasks 32 --cpu_bind=cores --distribution=cyclic:cyclic
+    srun --ntasks 32 --cpu_bind=cores --distribution=cyclic:cyclic ./application
     ```
 
 #### Distribution: cyclic:block
