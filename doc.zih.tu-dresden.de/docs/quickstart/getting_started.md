@@ -125,7 +125,7 @@ This is the starting point for many tasks such as running programs and data mana
 
 === "Users of older versions of Windows"
 
-    Install and set up [MobaXTerm](../access/ssh_login_mobaxterm) or [PuTTY](../access/ssh_login_putty).
+    Install and set up [MobaXTerm](../access/ssh_mobaxterm) or [PuTTY](../access/ssh_putty).
 
 For more information explore the [access compendium page](../access/ssh_login.md).
 [Configuring default parameters](../access/ssh_login.md#configuring-default-parameters-for-ssh)
