@@ -39,7 +39,7 @@ lfsfiles=$(git lfs ls-files -n)
 for f in $(git diff $source_hash --name-only); do
     # Do not check size of git lfs files.
     if [[ $lfsfiles =~ "$f" ]]; then
-        echo "Skip file ${f} in webm or mp4 format cause it is a git lfs file."
+        echo "Skip file ${f} because it is a git lfs file."
         continue
     fi
     fs=$(wc -c $f | awk '{print $1}')
