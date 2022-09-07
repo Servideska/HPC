@@ -202,7 +202,7 @@ project at
         <div class="cell-tooltip">
           <img id="error-file-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <input id="error-file" class="cell-input" type="text" placeholder="slurm-%j.out">
+        <input id="error-file" class="cell-input" type="text" placeholder="slurm-%j.err">
       </div>
     </div>
 
