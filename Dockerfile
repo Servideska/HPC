@@ -12,7 +12,7 @@ RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0 mkdocs-htmlproofer-plugin==
 # Linter #
 ##########
 
-RUN apt-get update && apt-get install -y nodejs npm aspell git
+RUN apt-get update && apt-get install -y nodejs npm aspell git git-lfs
 
 RUN npm install -g markdownlint-cli markdown-link-check
 
