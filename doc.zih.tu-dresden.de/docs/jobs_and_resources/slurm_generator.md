@@ -18,8 +18,8 @@ project at
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Slurm-Job-File-Generator</title>
-    <!-- <link type="text/css" href="../misc/style.css" rel="stylesheet"> -->
-    <!-- <script src="jquery-3.6.0.min.js"> </script> -->
+    <!--<link type="text/css" href="../misc/style.css" rel="stylesheet">-->
+    <!--<script src="jquery-3.6.0.min.js"> </script>-->
   </head>
 
   <body>
@@ -95,7 +95,7 @@ project at
           <label id="tasks-text" class="limits cell-input"></label>
         </div>
         <div class="row">
-          <label class="cell-name">Tasks/node</label>
+          <label class="cell-name">Tasks per node (<tt>--tasks-per-node</tt>)</label>
           <div class="cell-tooltip">
             <img id="tasks/node-info" class="info-img" src="../misc/info.png" title="help">
           </div>
@@ -151,13 +151,19 @@ project at
           </div>
         </div>
         <div class="row">
-          <span class="cell-name"></span>
+          <label class="cell-name">Reservation (<tt>--reservation</tt>)</label>
+          <div class="cell-tooltip">
+            <img id="reservation-info" class="info-img" src="../misc/info.png" title="help">
+          </div>
+          <input id="reservation" class="cell-input" type="text">
+        </div>
+        <div class="row">
+          <label class="cell-name">Exclusive (<tt>--exclusive</tt>)</label>
           <div class="cell-tooltip">
             <img id="exclusive-info" class="info-img" src="../misc/info.png" title="help">
           </div>
           <div class="cell-input">
             <input id="exclusive" type="checkbox">
-            <lable for="exclusive">Exclusive (<tt>--exclusive</tt>)</lable>
           </div>
         </div>
       </div>
@@ -176,13 +182,12 @@ project at
         <input id="executable" class="cell-input executable" type="text">
       </div>
       <div class="row">
-        <span class="cell-name"></span>
+        <label class="cell-name">Single output file</label>
         <div class="cell-tooltip">
           <img id="one-output-info" class="info-img" src="../misc/info.png" title="help">
         </div>
         <div class="cell-input">
           <input id="one-output" type="checkbox">
-          <lable for="one-output">just one output file</lable>
         </div>
       </div>
       <div class="row">
@@ -190,14 +195,14 @@ project at
         <div class="cell-tooltip">
           <img id="output-file-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <input id="output-file" class="cell-input" type="text">
+        <input id="output-file" class="cell-input" type="text" placeholder="slurm-%j.out">
       </div>
       <div id="err-div" class="row">
         <label class="cell-name">Error file (<tt>-e, --error</tt>) </label>
         <div class="cell-tooltip">
           <img id="error-file-info" class="info-img" src="../misc/info.png" title="help">
         </div>
-        <input id="error-file" class="cell-input" type="text">
+        <input id="error-file" class="cell-input" type="text" placeholder="slurm-%j.out">
       </div>
     </div>
 
@@ -234,13 +239,12 @@ project at
     <button type="button" class="collapsible">Workspace</button>
     <div class="content">
       <div class="row">
-        <span class="cell-name"></span>
+        <label class="cell-name">Allocate a workspace</label>
         <div class="cell-tooltip">
           <img id="ws-alloc-info" class="info-img" src="../misc/info.png" title="help">
         </div>
         <div class="cell-input">
           <input id="check-workspace" type="checkbox">
-          <label for="check-workspace">Allocate a workspace</label>
         </div>
       </div>
       <div class="row hidden">
@@ -550,6 +554,10 @@ project at
           'text': 'Specify the real memory required per node.',
           'link': 'https://slurm.schedmd.com/sbatch.html#OPT_output'
         },
+        'reservation': {
+          'text': 'Allocate resources for the job from the named reservation.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_reservation'
+        },
         'exclusive': {
           'text': 'The job allocation can not share nodes with other running job. Exclusive usage of compute nodes; you will be charged for all CPUs/cores on the node',
           'link': 'https://slurm.schedmd.com/sbatch.html#OPT_exclusive'
@@ -610,7 +618,7 @@ project at
         'gpus/task' : 0,
         'mem' : 1,
         'duration': 1
-      }
+      };
 
       // dictionary for the min values
       var minValues = {
@@ -622,7 +630,7 @@ project at
         'gpus/task' : 0,
         'mem' : 1,
         'duration': 1
-      }
+      };
 
       /**
        *  Function to generate the output text
@@ -634,9 +642,22 @@ project at
           outputText.innerText += '\n#SBATCH --job-name=\"'
           + document.getElementById('job-name').value + '\"';
         }
-        if (document.getElementById('array').value !== '') {
-          outputText.innerText += '\n#SBATCH --array='
-          + document.getElementById('array').value;
+        if (document.getElementById('account').value !== '') {
+          outputText.innerText += '\n#SBATCH --account=\"'
+          + document.getElementById('account').value + '\"';
+        }
+        if (document.getElementById('mail').value !== '') {
+          outputText.innerText += '\n#SBATCH --mail-user='
+          + document.getElementById('mail').value;
+          if (document.getElementById('begin').checked === true) {
+            outputText.innerText += '\n#SBATCH --mail-type=BEGIN';
+          }
+          if (document.getElementById('end').checked === true) {
+            outputText.innerText += '\n#SBATCH --mail-type=END';
+          }
+          if (document.getElementById('fail').checked === true) {
+            outputText.innerText += '\n#SBATCH --mail-type=FAIL';
+          }
         }
         if (document.getElementById('time').value !== '') {
           outputText.innerText += '\n#SBATCH --time='
@@ -678,22 +699,15 @@ project at
           + document.getElementById('mem').value
           + document.getElementById('byte').value;
         }
-        if (document.getElementById('account').value !== '') {
-          outputText.innerText += '\n#SBATCH --account=\"'
-          + document.getElementById('account').value + '\"';
+        if (document.getElementById('reservation').value !== '') {
+          outputText.innerText += '\n#SBATCH --reservation='
+          + document.getElementById('reservation').value;
         }
-        if (document.getElementById('mail').value !== '') {
-          outputText.innerText += '\n#SBATCH --mail-user='
-          + document.getElementById('mail').value;
-          if (document.getElementById('begin').checked === true) {
-            outputText.innerText += '\n#SBATCH --mail-type=BEGIN';
-          }
-          if (document.getElementById('end').checked === true) {
-            outputText.innerText += '\n#SBATCH --mail-type=END';
-          }
-          if (document.getElementById('fail').checked === true) {
-            outputText.innerText += '\n#SBATCH --mail-type=FAIL';
-          }
+        if (document.getElementById('exclusive').checked === true) {
+          outputText.innerText += '\n#SBATCH --exclusive';
+        }
+        if (document.getElementById('nomultithread').checked === true) {
+          outputText.innerText += '\n#SBATCH --hint=nomultithread';
         }
         if (document.getElementById('output-file').value !== '') {
           outputText.innerText += '\n#SBATCH --output='
@@ -703,17 +717,15 @@ project at
           outputText.innerText += '\n#SBATCH --error='
           + document.getElementById('error-file').value;
         }
-        if (document.getElementById('exclusive').checked === true) {
-          outputText.innerText += '\n#SBATCH --exclusive';
-        }
-        if (document.getElementById('nomultithread').checked === true) {
-          outputText.innerText += '\n#SBATCH --hint=nomultithread';
+        if (document.getElementById('array').value !== '') {
+          outputText.innerText += '\n#SBATCH --array='
+          + document.getElementById('array').value;
         }
         if (document.getElementById('type-depend').value !== 'none') {
           outputText.innerText += '\n#SBATCH --dependency='
-          + document.getElementById('type-depend').value
+          + document.getElementById('type-depend').value;
           if (document.getElementById('type-depend').value !== 'singleton') {
-            outputText.innerText += ':' + document.getElementById('jobid').value
+            outputText.innerText += ':' + document.getElementById('jobid').value;
           }
         }
 
@@ -725,38 +737,51 @@ project at
         if (document.getElementById('check-workspace').checked) {
           outputText.innerText += '\n# Allocate workspace as working directory';
           outputText.innerText += '\nWSNAME='
-          + document.getElementById('name').value + '_$SLURM_JOB_ID';
+          + document.getElementById('name').value + '_${SLURM_JOB_ID}';
           outputText.innerText += '\nexport WSDIR=$(ws_allocate -F '
           + document.getElementById('workspace-filesystem').value
-          + ' -n $WSNAME -d '
+          + ' -n ${WSNAME} -d '
           + document.getElementById('duration').value
           + ')';
-          outputText.innerText += '\necho "Workspace: $WSDIR"';
+          outputText.innerText += '\necho "Workspace: ${WSDIR}"';
 
           outputText.innerText += '\n# Check allocation';
-          outputText.innerText += '\n[ -z "$WSDIR" ] && echo "Error: Cannot allocate workspace $WSNAME" && exit 1';
+          outputText.innerText += '\n[ -z "${WSDIR}" ] && echo "Error: Cannot allocate workspace {$WSNAME}" && exit 1';
 
-          outputText.innerText += '\n\n# Change to workspace';
-          outputText.innerText += '\ncd $WSDIR';
+          outputText.innerText += '\n\n# Change to workspace directory';
+          outputText.innerText += '\ncd ${WSDIR}';
         }
 
         if (document.getElementById('executable').value !== '') {
-          outputText.innerText += '\n\n# Execute parallel application '
+          outputText.innerText += '\n\n# Execute parallel application ';
           outputText.innerText += '\nsrun '
           + document.getElementById('executable').value;
         } else {
-          outputText.innerText += '\n\n# Execute parallel application '
-          outputText.innerText += '\n# srun <file to execute>'
+          outputText.innerText += '\n\n# Execute parallel application ';
+          outputText.innerText += '\n# srun <application>';
         }
 
         if (document.getElementById('check-workspace').checked && document.getElementById('check-delete').checked) {
-          outputText.innerText += '\n\n# Save your results!'
-          outputText.innerText += '\n# cp <results> <dest>'
-          outputText.innerText += '\n\n# Clean up workspace'
-          outputText.innerText += '\nif [ -d $WORK_SCRDIR ] && rm -rf $WSDIR/*';
-          outputText.innerText += '\nws_release -F '
-          + document.getElementById('workspace-filesystem').value
-          + ' $WSDIR';
+          outputText.innerText += '\n\n# Save your results, e.g. in your home directory';
+          outputText.innerText += '\n# Compress results with bzip2 (which includes CRC32 checksums)';
+          outputText.innerText += '\nbzip2 --compress --stdout -4 "${WSDIR}" > ${HOME}/${SLURM_JOB_ID}.bz2';
+          outputText.innerText += '\nRETURN_CODE=$?';
+          outputText.innerText += '\nCOMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo'
+                                  +' \'TRUE\'; else echo \'FALSE\'; fi)"';
+
+          outputText.innerText += '\n\n# Clean up workspace';
+          outputText.innerText += '\nif [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then';
+          outputText.innerText += '\n    if [ -d ${WSDIR} ] && rm -rf ${WSDIR}/*';
+          outputText.innerText += '\n    # Reduce grace period to 1 day';
+          outputText.innerText += '\n    ws_release -F '
+                                  + document.getElementById('workspace-filesystem').value
+                                  + ' ${WSNAME}';
+          outputText.innerText += '\nelse'
+          outputText.innerText += '\n    echo "Error with compression and writing of results"'
+          outputText.innerText += '\n    echo "Please check the folder \"${WSDIR}\" for any'
+                                  + ' partial(?) results.n';
+          outputText.innerText += '\n    exit 1';
+          outputText.innerText += '\nfi';
         }
       }
 
@@ -881,7 +906,7 @@ project at
           document.getElementById('time').style.backgroundColor = 'rgb(255, 121, 121)';
         } else {
           document.getElementById('time').style.backgroundColor = '';
-          setLimitDuration()
+          setLimitDuration();
         }
       });
 
@@ -944,7 +969,7 @@ project at
         panelText.title = 'Limits by current setting:';
         panelText.title += '\nmin: ' + minValues[field];
         panelText.title += '\nmax: ' + maxValues[field];
-        panelText.title += '\nEmpty the field if unneeded'
+        panelText.title += '\nEmpty the field if unneeded';
 
         // set limit labels
         let limitText = document.getElementById(field + '-text');
@@ -1159,7 +1184,7 @@ project at
           maxValues['mem'] *= partitionLimits['threads'];
         }
         if (document.getElementById('byte').value === 'G') {
-        maxValues['mem'] = Math.floor(maxValues['mem'] / 1024);
+          maxValues['mem'] = Math.floor(maxValues['mem'] / 1024);
         }
         setTooltips('mem');
       }
@@ -1253,8 +1278,10 @@ project at
 
       // hide jobid field if unneeded
       document.getElementById('type-depend').addEventListener('change', function() {
-        if (document.getElementById('type-depend').value === 'none' ||
-          document.getElementById('type-depend').value === 'singleton') {
+        if (
+          document.getElementById('type-depend').value === 'none' ||
+          document.getElementById('type-depend').value === 'singleton'
+        ) {
           document.getElementById('jobid').style.cssText = 'display:none !important';
         } else {
           document.getElementById('jobid').style.cssText = 'display:inline !important';
