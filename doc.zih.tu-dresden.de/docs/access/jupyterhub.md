@@ -253,9 +253,9 @@ chosen by your selected partition.
 
 As you might have noticed, after launching Jupyter**Lab**,
 there are several boxes with icons therein visible in the `Launcher`.
-Each box therein represents a so called 'Kernel'
-(note that these are not to be confused with Operating System Kernel,
+Each box therein represents a so called 'Kernel'.
+(note that these are not to be confused with operating system kernel,
 but similarly provide basic functionality for running your use cases,
 e.g. Python or R)
 
-You can find further documentation on creating your own Kernels [here](./jupyterhub_custom_environments.md)
+You can also [create your own Kernels](./jupyterhub_custom_environments.md).
