@@ -82,7 +82,7 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     [...]
     Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
     ```
-    
+
     Then continue with the steps below.
 
 === "hiera"
@@ -107,8 +107,9 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     [...]
     Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
     ```
-    
+
     Then continue with the steps below.
+
 === "ml"
 
     For use with the Standard Environment `fosscuda/2020b`,
@@ -141,7 +142,7 @@ Depending on the CPU architecture that you are targeting, please choose a `moden
     marie@compute$ python3 -m venv --system-site-packages my-kernel
     (my-kernel) marie@compute$ pip install ipykernel
     ```
-    
+
     Then continue with the steps below.
 
 After following the initialization of the environment (above),
