@@ -31,7 +31,7 @@ software performance engineering or application performance engineering within s
 
 ## Installed Tools in a Nutshell
 
-|                      | Task                                         | Easiness    | Details  | Overhead  | Re-compilation |
+| Tool                 | Task                                         | Easiness    | Details  | Overhead  | Re-compilation |
 |----------------------|----------------------------------------------|-------------|----------|-----------|-----------------
 | [lo2s](#lo2s)        | Create performance [trace](#trace)           | easy        | medium   | low       | (no)[^2]       |
 | [MUST](#must)        | Check MPI correctness                        | medium      | medium   | variable  | no             |
