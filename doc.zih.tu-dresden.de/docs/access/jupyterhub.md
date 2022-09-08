@@ -180,7 +180,6 @@ home directory and have the name `jupyter-session-<jobid>.log`.
 
 ## Advanced Tips
 
-
 ### Standard Environments
 
 The default Python kernel uses conda environments based on the
@@ -211,7 +210,8 @@ As of July 2022 we have a number of standard environments, namely:
 | scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | matlab                    | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
 | scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
 
-<p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
+<p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive
+partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
 
 We also have a more [in depth description regarding Modules](../software/modules.md#module-environments).
 
@@ -241,8 +241,6 @@ With these **standard environments** we have tried to integrate a set of compati
     Can be utilized with the partitions gpu2, alpha and ml
     It's specially geared towards GPU support.
 
-
-
 ### Loading Modules
 
 You have now the option to preload modules from the [module system](../software/modules.md).
@@ -261,4 +259,3 @@ but similarly provide basic functionality for running your use cases,
 e.g. Python or R)
 
 You can find further documentation on creating your own Kernels [here](./jupyterhub_custom_environments.md)
-

@@ -56,7 +56,9 @@ to either use "Python virtualenv" or "conda environment".
 
 ## Python Virtualenv
 
-While we have a general description on [Python Virtual Environments](/software/python_virtual_environments/), here we have a more detailed description on using them with JupyterHub:
+While we have a general description on
+[Python Virtual Environments](/software/python_virtual_environments/), here we have a more detailed
+description on using them with JupyterHub:
 
 Depending on the CPU architecture that you are targeting, please choose a `modenv`:
 
