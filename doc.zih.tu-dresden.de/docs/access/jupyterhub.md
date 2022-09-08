@@ -213,7 +213,7 @@ As of july 2022 we have a number of standard environments, namely:
 
 <p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
 
-We also have a more [in depth description regarding Modules](../software/modules/#module-environments).
+We also have a more [in depth description regarding Modules](../software/modules.md#module-environments).
 
 With these **standard environments** we have tried to integrate a set of compatible software:
 
