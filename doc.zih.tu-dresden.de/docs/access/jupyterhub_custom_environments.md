@@ -3,7 +3,7 @@
 !!! info
 
     Interactive code interpreters which are used by Jupyter notebooks are called
-    *kernels*. Creating and using your own kernel has the benefit that you can
+    *kernels*. Creating and using your own kernel has the benefit, that you can
     install your own preferred Python packages and use them in your notebooks.
 
 We currently have two different architectures at ZIH systems.
