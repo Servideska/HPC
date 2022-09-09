@@ -194,7 +194,7 @@ This list shows all packages of the currently selected conda environment. This
 depends on your settings for partition (CPU architecture) and standard
 environment.
 
-As of July 2022 we have a number of standard environments, namely:
+We have a number of standard environments, namely:
 
 | name                                                       | optimized for   | specially recommended for | Modenv            | Partitions                                             |
 |------------------------------------------------------------|-----------------|---------------------------|-------------------|-----------------------------------|
