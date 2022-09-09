@@ -239,7 +239,7 @@ With these **standard environments** we have tried to integrate a set of compati
 
 === "fosscuda-2020b"
 
-    Can be utilized with the partitions gpu2, alpha and ml
+    Can be utilized with the partitions `gpu2`, `alpha` and `ml`.
     It's specially geared towards GPU support.
 
 ### Loading Modules
