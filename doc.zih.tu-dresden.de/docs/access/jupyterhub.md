@@ -220,22 +220,22 @@ With these **standard environments** we have tried to integrate a set of compati
 
 === "production"
 
-    Offers a wide range of presently 188 python packages.
+    In that environment we provide DCV and WebVNC access.
 
     You can load more software using our module system,
     by selecting these through the option ['Preload modules (module load)'](#loading-modules).
 
 === "...matlab"
 
-    With it, we integrated matlab with presently 86 python packages.
+    We integrated MATLAB into it, such that you can use it in your browser.
 
     You can load more software using our module system,
     by selecting these through the option ['Preload modules (module load)'](#loading-modules).
 
 === "...rstudio"
 
-    We integrated R & RStudio into it, such that you can use it in your
-    browser. Please click on RStudio's Icon for it, when you are in the JupyterHub overview.
+    We integrated R & RStudio into it, such that you can use it in your browser.
+    Please click on RStudio's Icon for it, when you are in the JupyterHub overview.
 
 === "fosscuda-2020b"
 
