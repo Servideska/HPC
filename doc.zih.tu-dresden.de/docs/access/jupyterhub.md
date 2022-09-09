@@ -184,8 +184,8 @@ home directory and have the name `jupyter-session-<jobid>.log`.
 
 The default Python kernel uses conda environments based on the
 [Watson Machine Learning Community Edition (formerly PowerAI)](https://developer.ibm.com/linuxonpower/deep-learning-powerai/)
-package suite. You can open a list with all included python-packages, that
-are available within the standard environment, through the spawner form:
+package suite. You can open a list with all included python-packages that
+are available within the standard environment through the spawner form:
 
 ![Environment package list](misc/environment_package_list.png)
 {: align="center"}
