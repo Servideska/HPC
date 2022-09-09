@@ -81,16 +81,17 @@ nav:
       - GPU Programming: software/gpu_programming.md
       - Mathematics Libraries: software/math_libraries.md
       - Debugging: software/debuggers.md
-    - Software Engineering Tools:
+    - Performance Engineering Tools:
       - Overview: software/performance_engineering_overview.md
-      - MPI Error Detection: software/mpi_usage_error_detection.md
-      - Score-P: software/scorep.md
-      - lo2s: software/lo2s.md
-      - PAPI Library: software/papi.md
-      - PIKA: software/pika.md
-      - Perf Tools: software/perf_tools.md
-      - Vampir: software/vampir.md
-      - Energy Measurement: software/energy_measurement.md
+      - Record Course of Events with lo2s: software/lo2s.md
+      - Check MPI Correctness with MUST: software/mpi_usage_error_detection.md
+      - Read CPU Performance Counters with PAPI: software/papi.md
+      - Produce Performance Overview with Perf: software/perf_tools.md
+      - Track Slurm Jobs with PIKA: software/pika.md
+      - Record Course of Events with Score-P: software/scorep.md
+      - Profile Jobs with Slurm: jobs_and_resources/slurm_profiling.md
+      - Study Course of Events with Vampir: software/vampir.md
+      - Measure Energy Consumption: software/energy_measurement.md
     - Utilities: software/utilities.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md

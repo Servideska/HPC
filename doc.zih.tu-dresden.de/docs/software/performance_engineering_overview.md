@@ -38,8 +38,8 @@ software performance engineering or application performance engineering within s
 | [PAPI](#papi)        | Read portable CPU counters                   | advanced    | medium   | variable  | yes            |
 | [Perf](#perf-tools)  | Produce and visualize [profile](#profile)    | easy        | medium   | low       | (no)[^2]       |
 | [PIKA](#pika)        | Show performance [profile](#profile) and [trace](#trace) | very easy | low | very low | no         |
-| [Slurm](#slurm-profiler) | Produce and visualize simple [trace](#trace)| easy     | low      | low       | no             |
 | [Score-P](#score-p)  | Create performance [trace](#trace)           | complex     | high     | variable  | yes            |
+| [Slurm](#slurm-profiler) | Produce and visualize simple [trace](#trace)| easy     | low      | low       | no             |
 | [Vampir](#vampir)    | Visualize performance [trace](#trace)        | complex     | high     | n.a.      | n.a.           |
 
 [^2]: Re-compilation is not required. Yet, to obtain more details it is recommended to re-compile with the `-g` compiler option, which adds debugging information to the executable of an application.
