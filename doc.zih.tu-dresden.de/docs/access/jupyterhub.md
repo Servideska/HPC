@@ -259,4 +259,4 @@ Each box therein represents a so called 'Kernel'.
 but similarly provide basic functionality for running your use cases,
 e.g. Python or R)
 
-You can also [create your own Kernels](./jupyterhub_custom_environments.md).
+You can also [create your own Kernels](jupyterhub_custom_environments.md).

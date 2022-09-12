@@ -57,7 +57,7 @@ to either use "Python virtualenv" or "conda environment".
 ## Python Virtualenv
 
 While we have a general description on
-[Python Virtual Environments](/software/python_virtual_environments/), here we have a more detailed
+[Python Virtual Environments](../software/python_virtual_environments.md), here we have a more detailed
 description on using them with JupyterHub:
 
 Depending on the CPU architecture that you are targeting, please choose a `modenv`:
@@ -161,7 +161,7 @@ Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
 !!! warning
 
     Take care to select the appropriate standard environment (as mentioned above)
-    when [spawning a new session](./jupyterhub#start-a-session).
+    when [spawning a new session](jupyterhub.md#start-a-session).
 
 ## Conda Environment
 
