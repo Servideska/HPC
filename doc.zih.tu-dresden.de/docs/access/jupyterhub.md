@@ -216,11 +216,11 @@ partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce 
 The standard environments in Jupyter are also closely related to the available
 [Module Environments](../software/modules.md#module-environments).
 
-With these **standard environments** we have tried to integrate a set of compatible software:
+With these **standard environments**, we have tried to integrate a set of compatible software:
 
 === "production"
 
-    In that environment we provide DCV and WebVNC access.
+    In this environment, we provide DCV and WebVNC access.
 
     You can load more software using our module system,
     by selecting these through the option ['Preload modules (module load)'](#loading-modules).
