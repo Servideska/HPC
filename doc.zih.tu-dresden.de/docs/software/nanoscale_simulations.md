@@ -106,8 +106,68 @@ molecules and reactions under a wide range of conditions, including both stable 
 compounds which are difficult or impossible to observe experimentally such as short-lived
 intermediates and transition structures.
 
-Gaussian is currently not installed as a module. Please, contact
-[hpcsupport@zih.tu-dresden.de](mailto:hpcsupport@zih.tu-dresden.de) if you need assistance.
+Access to the Gaussian installation on our system is limited to members
+of the  UNIX group `s_gaussian`. Please, contact
+[hpcsupport@zih.tu-dresden.de](mailto:hpcsupport@zih.tu-dresden.de) if you can't
+access it, yet wish to use it.
+
+### Guidance on Data Management with Gaussian
+
+We have a general description about
+[how to utilize workspaces for your I/O intensive jobs](../data_lifecycle/workspaces.md).
+However hereafter we have an example on how that might look like for Gaussian:
+
+???+ example "Using workspaces with Gaussian"
+
+    ```
+    #!/bin/bash
+
+    #SBATCH --partition=haswell
+    #SBATCH --time=96:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --constraint=fs_lustre_ssd
+    #SBATCH --cpus-per-task=24
+
+    # Load the software you need here
+    module purge
+    module load modenv/hiera
+    module load Gaussian
+
+    # Adjust the path to where your input file is located
+    INPUTFILE="/path/to/my/inputfile.gjf"
+
+    test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
+
+    # Allocate workspace. Adjust time span to time limit of the job (-d <N>).
+    COMPUTE_DIR=gaussian_${SLURM_JOB_ID}
+    export GAUSS_SCRDIR=$(ws_allocate -F ssd -n ${COMPUTE_DIR} -d 7)
+    echo ${GAUSS_SCRDIR}
+
+    # Check allocation.
+    test -z "${GAUSS_SCRDIR}" && echo "Error: Cannot allocate workspace ${COMPUTE_DIR}" && exit 1
+
+    # Change to workspace directory and execute application
+    cd ${GAUSS_SCRDIR}
+    srun g16 < "${INPUTFILE}" > logfile.log
+
+    # Save result files into user home
+    # Compress results with bzip2 (which includes CRC32 Checksums)
+    bzip2 --compress --stdout -4 "${GAUSS_SRCDIR}" > ${HOME}/gaussian_job-${SLURM_JOB_ID}.bz2
+    RETURN_CODE=$?
+    COMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
+
+    # Clean up workspace
+    if [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then
+        test -d ${GAUSS_SCRDIR} && rm -rf ${GAUSS_SCRDIR}/*
+        # Reduces grace period to 1 day!
+        ws_release -F ssd ${COMPUTE_DIR}
+    else
+        echo "Error with compression and writing of results"
+        echo "Please check the folder \"${GAUSS_SRCDIR}\" for any partial(?) results."
+        exit 1
+    fi
+    ```
 
 ## GROMACS
 
@@ -116,9 +176,9 @@ of motion for systems with hundreds to millions of particles. It is primarily de
 biochemical molecules like proteins, lipids and nucleic acids that have a lot of complicated bonded
 interactions, but since GROMACS is extremely fast at calculating the nonbonded interactions (that
 usually dominate simulations), many groups are also using it for research on non-biological systems,
-e.g., polymers. For documentations see [Gromacs homepage](https://www.gromacs.org/).
+e.g., polymers. For documentations see [GROMACS homepage](https://www.gromacs.org/).
 
-GROMACSS is available as [modules](modules.md). Available packages can be listed and loaded with the
+GROMACS is available as [modules](modules.md). Available packages can be listed and loaded with the
 following commands:
 
 ```console
@@ -195,16 +255,16 @@ standard quantum chemical methods ranging from semiempirical methods to DFT to s
 multireference correlated ab initio methods. It can also treat environmental and relativistic
 effects.
 
-To run Orca jobs in parallel, you have to specify the number of processes in your input file (here
+To run ORCA jobs in parallel, you have to specify the number of processes in your input file (here
 for example 16 processes):
 
 ```Bash
 %pal nprocs 16 end
 ```
 
-Note, that Orca spawns MPI processes itself, so you must not use `srun` to launch it in your batch
+Note, that ORCA spawns MPI processes itself, so you must not use `srun` to launch it in your batch
 file. Just set `--ntasks` to the same number as in your input file and call the `orca` executable
-directly.  For parallel runs, it must be called with the full path:
+directly. For parallel runs, it must be called with the full path:
 
 ```Bash
 #!/bin/bash
