@@ -196,19 +196,19 @@ environment.
 
 We have a number of standard environments, namely:
 
-| name                                                       | optimized for   | specially recommended for | Modenv            | Partitions                                             |
-|------------------------------------------------------------|-----------------|---------------------------|-------------------|-----------------------------------|
-| foss-2020b                                                 | x86_64, ppc64le |                           | modenv/hiera & ml | romeo, alpha, ml                           |
-| fosscuda-2019b                                             | GPUs            |                           | modenv/hiera & ml | romeo, alpha, ml                           |
-| fosscuda-2020b                                             | GPUs            |                           | modenv/hiera & ml | romeo, alpha, ml                           |
-| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | MATLAB                    | modenv/hiera      | romeo, alpha                               |
-| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           | modenv/hiera      | romeo, alpha                               |
-| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | MATLAB                    | modenv/hiera      | romeo, alpha                               |
-| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | RStudio                   | modenv/hiera      | romeo, alpha                               |
-| **production**                                             | x86_64, ppc64le |                           | modenv/scs5 & ml  | default, haswell, interactive, gpu2, hpdlf, dcv, julia, ml |
-| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
-| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | MATLAB                    | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
-| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           | modenv/scs5       | default, haswell, interactive, gpu2, hpdlf, dcv, julia     |
+| name                                                       | optimized for   | specially recommended for | Modenv                  | Partitions                                                                 |
+|------------------------------------------------------------|-----------------|---------------------------|-------------------------|----------------------------------------------------------------------------|
+| foss-2020b                                                 | x86_64, ppc64le |                           | modenv/hiera, modenv/ml | `romeo`, `alpha`, `ml`                                                     |
+| fosscuda-2019b                                             | GPUs            |                           | modenv/hiera, modenv/ml | `romeo`, `alpha`, `ml`                                                     |
+| fosscuda-2020b                                             | GPUs            |                           | modenv/hiera, modenv/ml | `romeo`, `alpha`, `ml`                                                     |
+| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | MATLAB                    | modenv/hiera            | `romeo`, `alpha`                                                           |
+| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           | modenv/hiera            | `romeo`, `alpha`                                                           |
+| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | MATLAB                    | modenv/hiera            | `romeo`, `alpha`                                                           |
+| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | RStudio                   | modenv/hiera            | `romeo`, `alpha`                                                           |
+| **production**                                             | x86_64, ppc64le |                           | modenv/scs5, modenv/ml  | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`, `ml` |
+| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           | modenv/scs5             | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`       |
+| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | MATLAB                    | modenv/scs5             | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`       |
+| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           | modenv/scs5             | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`       |
 
 <p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive
 partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
