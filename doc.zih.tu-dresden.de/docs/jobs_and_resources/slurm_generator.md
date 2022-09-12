@@ -6,7 +6,7 @@ This page provides a generator for Slurm job files covering
 - data life cycle handling using workspaces,
 - and a skeleton for setting up the computational environment using modules.
 
-It is intended as a starting point for beginners and thus, does not covers all available Slurm
+It is intended as a starting point for beginners and thus, does not cover all available Slurm
 options.
 
 If you are interested in providing this job file generator for your HPC users, you can find the
