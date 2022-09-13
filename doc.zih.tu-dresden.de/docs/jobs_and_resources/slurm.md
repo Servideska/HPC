@@ -326,12 +326,12 @@ components by a line containing the directive `"#SBATCH hetjob`.
 #!/bin/bash
 
 #SBATCH --ntasks 1
-#SBATCH --cpus 4
+#SBATCH --cpus-per-task 4
 #SBATCH --partition <partition>
 #SBATCH --mem=200G
 #SBATCH hetjob # required to separate groups
 #SBATCH --ntasks 8
-#SBATCH --cpus 1
+#SBATCH --cpus-per-task 1
 #SBATCH --gres=gpu:8
 #SBATCH --mem=80G
 #SBATCH --partition <partition>
