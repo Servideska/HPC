@@ -203,7 +203,7 @@ The approach depends on the data volume: up to 100 MB or above.
 
 ### Transferring Data **To/From** the ZIH HPC System
 
-???+ example "`scp` for transferring data from/to the ZIH HPC system"
+???+ example "`scp` for transferring data to the ZIH HPC system"
 
     Copy the file `example.R` from your local machine to a workspace on the ZIH system:
 
