@@ -4,7 +4,7 @@ import re
 import sys
 
 def escapeSomeSigns(someString):
-    return someString.replace("$", "\\$").replace("(", "\\(").replace(")", "\\)").replace("*", "\\*")
+    return someString.replace("\\", "\\\\").replace("$", "\\$").replace("(", "\\(").replace(")", "\\)").replace("*", "\\*")
 
 fileName = sys.argv[1]
 print("FILE: " + fileName)

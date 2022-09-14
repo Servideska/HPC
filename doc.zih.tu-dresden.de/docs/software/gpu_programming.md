@@ -9,7 +9,7 @@ Each node uses a different [module environment](modules.md#module-environments):
 * [NVIDIA Tesla K80 GPUs nodes](../jobs_and_resources/hardware_overview.md#island-2-phase-2-intel-haswell-cpus-nvidia-k80-gpus)
 (partition `gpu2`): use the default `scs5` module environment (`module switch modenv/scs5`).
 * [NVIDIA Tesla V100 nodes](../jobs_and_resources/hardware_overview.md#ibm-power9-nodes-for-machine-learning)
-(partition `ml`): use the `ml` module environment (`modenv switch modenv/ml`)
+(partition `ml`): use the `ml` module environment (`module switch modenv/ml`)
 * [NVIDIA A100 nodes](../jobs_and_resources/hardware_overview.md#amd-rome-cpus-nvidia-a100)
 (partition `alpha`): use the `hiera` module environment (`module switch modenv/hiera`)
 
@@ -81,7 +81,7 @@ Alternatively, you can work on the partitions interactively:
 
 ```bash
 marie@login$ srun --partition=<partition>-interactive --gres=gpu:<N> --pty bash
-marie@compute$ module purge; modenv switch modenv/<env>
+marie@compute$ module purge; module switch modenv/<env>
 ```
 
 ## Directive Based GPU Programming

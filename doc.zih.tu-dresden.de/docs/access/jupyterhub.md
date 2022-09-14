@@ -62,35 +62,35 @@ presets in text files.
 
 You can choose between JupyterLab or classic Jupyter notebooks as outlined in the following.
 
-### JupyterLab
+=== "JupyterLab"
 
-![JupyterLab overview](misc/jupyterlab_overview.png)
-{: align="center"}
+    ![JupyterLab overview](misc/jupyterlab_overview.png)
+    {: align="center"}
 
-The main workspace is used for multiple notebooks, consoles or
-terminals. Those documents are organized with tabs and a very versatile
-split screen feature. On the left side of the screen you can open
-several views:
+    The main workspace is used for multiple notebooks, consoles or
+    terminals. Those documents are organized with tabs and a very versatile
+    split screen feature. On the left side of the screen you can open
+    several views:
 
-- file manager
-- controller for running kernels and terminals
-- overview of commands and settings
-- details about selected notebook cell
-- list of open tabs
+    - file manager
+    - controller for running kernels and terminals
+    - overview of commands and settings
+    - details about selected notebook cell
+    - list of open tabs
 
-### Classic Jupyter Notebook
+=== "Classic Jupyter Notebook"
 
-Initially, your home directory is listed. You can open existing notebooks or
-files by navigating to the corresponding path and clicking on them.
+    Initially, your home directory is listed. You can open existing notebooks or
+    files by navigating to the corresponding path and clicking on them.
 
-![Jupyter notebook file browser](misc/jupyter_notebook_file_browser.png)
-{: align="center"}
+    ![Jupyter notebook file browser](misc/jupyter_notebook_file_browser.png)
+    {: align="center"}
 
-Above the table on the right side, there is the button `New` which lets you create new
-notebooks, files, directories or terminals.
+    Above the table on the right side, there is the button `New` which lets you create new
+    notebooks, files, directories or terminals.
 
-![Jupyter notebook example Matplotlib](misc/jupyter_notebook_example_matplotlib.png)
-{: align="center"}
+    ![Jupyter notebook example Matplotlib](misc/jupyter_notebook_example_matplotlib.png)
+    {: align="center"}
 
 ## Jupyter Notebooks in General
 
@@ -126,20 +126,22 @@ Slurm job runtime hits the limit (usually 8 hours).
 
 At first, you have to open the JupyterHub control panel.
 
-**JupyterLab**: Open the file menu and then click on `Logout`. You can
-also click on `Hub Control Panel`, which opens the control panel in a new tab instead.
+=== "JupyterLab"
+    Open the file menu and then click on `Logout`. You can
+    also click on `Hub Control Panel`, which opens the control panel in a new tab instead.
 
-![JupyterLab logout](misc/jupyterlab_logout.png)
-{: align="center"}
+    ![JupyterLab logout](misc/jupyterlab_logout.png)
+    {: align="center"}
 
-**Classic Jupyter notebook**: Click on the control panel button on the top right of your screen.
+=== "Classic Jupyter notebook"
+    Click on the control panel button on the top right of your screen.
 
-![Jupyter notebook control panel button](misc/jupyter_notebook_control_panel_button.png)
-{: align="center"}
+    ![Jupyter notebook control panel button](misc/jupyter_notebook_control_panel_button.png)
+    {: align="center"}
 
-Now, you are back on the JupyterHub page and you can stop your server by clicking on
-![Stop my server](misc/stop_my_server.png)
-{: align="center"}
+    Now, you are back on the JupyterHub page and you can stop your server by clicking on
+    ![Stop my server](misc/stop_my_server.png)
+    {: align="center"}
 
 ## Error Handling
 
@@ -182,8 +184,8 @@ home directory and have the name `jupyter-session-<jobid>.log`.
 
 The default Python kernel uses conda environments based on the
 [Watson Machine Learning Community Edition (formerly PowerAI)](https://developer.ibm.com/linuxonpower/deep-learning-powerai/)
-package suite. You can open a list with all included packages of the
-exact standard environment through the spawner form:
+package suite. You can open a list with all included python-packages that
+are available within the standard environment through the spawner form:
 
 ![Environment package list](misc/environment_package_list.png)
 {: align="center"}
@@ -192,169 +194,69 @@ This list shows all packages of the currently selected conda environment. This
 depends on your settings for partition (CPU architecture) and standard
 environment.
 
-There are three standard environments:
+We have a number of standard environments, namely:
 
-- production
-- test
-- python-env-python3.8.6
+| name                                                       | optimized for   | specially recommended for | Modenv                  | Partitions                                                                 |
+|------------------------------------------------------------|-----------------|---------------------------|-------------------------|----------------------------------------------------------------------------|
+| foss-2020b                                                 | x86_64, ppc64le |                           | modenv/hiera, modenv/ml | `romeo`, `alpha`, `ml`                                                     |
+| fosscuda-2019b                                             | GPUs            |                           | modenv/hiera, modenv/ml | `romeo`, `alpha`, `ml`                                                     |
+| fosscuda-2020b                                             | GPUs            |                           | modenv/hiera, modenv/ml | `romeo`, `alpha`, `ml`                                                     |
+| gcccore-10.3.0_python-3.9.5_matlab-2021b                   | x86_64          | MATLAB                    | modenv/hiera            | `romeo`, `alpha`                                                           |
+| hiera_gcccore-10.2.0_python-3.8.6                          | x86_64 (AMD)    |                           | modenv/hiera            | `romeo`, `alpha`                                                           |
+| hiera_gcccore-10.3.0_python-3.9.5_matlab-2021b             | x86_64 (AMD)    | MATLAB                    | modenv/hiera            | `romeo`, `alpha`                                                           |
+| hiera_gcccore-10.3.0_python-3.9.5_r-4.1.0_rstudio-1.4.1717 | x86_64 (AMD)    | RStudio                   | modenv/hiera            | `romeo`, `alpha`                                                           |
+| **production**                                             | x86_64, ppc64le |                           | modenv/scs5, modenv/ml  | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`, `ml` |
+| scs5_gcccore-10.2.0_python-3.8.6                           | x86_64 (Intel)  |                           | modenv/scs5             | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`       |
+| scs5_gcccore-10.3.0_python-3.9.5_matlab-2021b              | x86_64 (Intel)  | MATLAB                    | modenv/scs5             | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`       |
+| scs5_gcccore-8.3.0_python-3.7.4                            | x86_64 (Intel)  |                           | modenv/scs5             | `default`, `haswell`, `interactive`, `gpu2`, `hpdlf`, `dcv`, `julia`       |
 
-**Python-env-python3.8.6** virtual environment can be used for all x86
-partitions (`gpu2`, `alpha`, etc). It gives the opportunity to create a user
-kernel with the help of a Python environment.
+<p style="font-size: 80%;">Actually 'romeo', 'alpha' and 'ml' refer to their respective interactive
+partitions 'romeo-interactive', 'alpha-interactive', 'ml-interactive' to reduce job queue waiting time.</p>
 
-Here is a short list of some included software:
+The standard environments in Jupyter are also closely related to the available
+[Module Environments](../software/modules.md#module-environments).
 
-|            | generic\* | ml     |
-|------------|-----------|--------|
-| Python     | 3.6.10    | 3.6.10 |
-| R\*\*      | 3.6.2     | 3.6.0  |
-| WML CE     | 1.7.0     | 1.7.0  |
-| PyTorch    | 1.3.1     | 1.3.1  |
-| TensorFlow | 2.1.1     | 2.1.1  |
-| Keras      | 2.3.1     | 2.3.1  |
-| NumPy      | 1.17.5    | 1.17.4 |
-| Matplotlib | 3.3.1     | 3.0.3  |
+With these **standard environments**, we have tried to integrate a set of compatible software:
 
-\* generic = all partitions except ml
+=== "production"
 
-\*\* R is loaded from the [module system](../software/modules.md)
+    In this environment, we provide DCV and WebVNC access.
 
-### Creating and Using a Custom Environment
+    You can load more software using our module system,
+    by selecting these through the option ['Preload modules (module load)'](#loading-modules).
 
-!!! info
+=== "...matlab"
 
-    Interactive code interpreters which are used by Jupyter notebooks are called
-    *kernels*. Creating and using your own kernel has the benefit that you can
-    install your own preferred Python packages and use them in your notebooks.
+    We integrated MATLAB into it, such that you can use it in your browser.
 
-We currently have two different architectures at ZIH systems.
-Build your kernel environment on the **same architecture** that you want to use
-later on with the kernel. In the examples below, we use the name
-"my-kernel" for our user kernel. We recommend to prefix your kernels
-with keywords like `haswell`, `ml`, `romeo`, `venv`, `conda`. This way, you
-can later recognize easier how you built the kernel and on which hardware it
-will work. Depending on that hardware, allocate resources:
+    You can load more software using our module system,
+    by selecting these through the option ['Preload modules (module load)'](#loading-modules).
 
-=== "x86 nodes (e.g. partition `haswell`, `gpu2`)"
-    ```console
-    maria@login$ srun --pty --ntasks=1 --cpus-per-task=2 --mem-per-cpu=2541 --time=08:00:00 bash -l
-    ```
-=== "PowerPC nodes (partition `ml`)"
-    ```console
-    maria@login$ srun --pty --partition=ml --ntasks=1 --cpus-per-task=2 --mem-per-cpu=1443 \
-     --time=08:00:00 bash -l
-    ```
+=== "...rstudio"
 
-Create a virtual environment in your home directory. You can decide between
-Python virtualenv or conda environment.
+    We integrated R & RStudio into it, such that you can use it in your browser.
+    Please click on RStudio's Icon for it, when you are in the JupyterHub overview.
 
-!!! note
-    Please keep in mind that Python virtualenv is the preferred way to create a Python
-    virtual environment.
-    For working with conda virtual environments, it may be necessary to configure your shell
-    as described in [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment)
+=== "fosscuda-2020b"
 
-#### Python Virtualenv
-
-```console
-marie@compute$ module load Python/3.8.6-GCCcore-10.2.0
-Module Python/3.8.6-GCCcore-10.2.0 and 11 dependencies loaded.
-marie@compute$ mkdir user-kernel # please use workspaces!
-marie@compute$ cd user-kernel
-marie@compute$ virtualenv --system-site-packages my-kernel
-created virtual environment CPython3.8.6.final.0-64 in 5985ms
-  creator CPython3Posix(dest=[...]/my-kernel, clear=False, global=True)
-  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=[...])
-    added seed packages: pip==20.2.3, setuptools==50.3.0, wheel==0.35.1
-  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-marie@compute$ source my-kernel/bin/activate
-(my-kernel) marie@compute$ pip install ipykernel
-Collecting ipykernel
-[...]
-Successfully installed [...] ipykernel-6.9.1 ipython-8.0.1 [...]
-(my-kernel) marie@compute$ pip install --upgrade pip
-(my-kernel) marie@compute$ python -m ipykernel install --user --name my-kernel --display-name="my kernel"
-Installed kernelspec my-kernel in .../.local/share/jupyter/kernels/my-kernel
-(my-kernel) marie@compute$ pip install [...] # now install additional packages for your notebooks
-(my-kernel) marie@compute$ deactivate
-```
-
-!!! warning
-
-    Depending on the Python module you have loaded for creating your virtual environment, you should
-    select the apropriate [Standard environment](#standard-environments). For example, you could
-    select `scs5_gcccore-10.2.0_python-3.8.6`, when you want to use `my-kernel`. Furthermore,
-    ensure, that you pre-load the same modules via [Spawner Options](#start-a-session) that you used
-    for creating your kernel.
-
-#### Conda Environment
-
-Load the needed module depending on partition architecture:
-
-=== "x86 nodes (e.g. partition `haswell`, `gpu2`)"
-    ```console
-    marie@compute$ module load Anaconda3
-    ```
-=== "PowerPC nodes (partition `ml`)"
-    ```console
-    marie@ml$ module load PythonAnaconda
-    ```
-
-!!! hint
-    For working with conda virtual environments, it may be necessary to configure your shell as
-    described in
-    [Python virtual environments](../software/python_virtual_environments.md#conda-virtual-environment).
-
-Continue with environment creation, package installation and kernel
-registration:
-
-```console
-marie@compute$ mkdir user-kernel # please use workspaces!
-marie@compute$ conda create --prefix $HOME/user-kernel/my-kernel python=3.8.6
-Collecting package metadata: done
-Solving environment: done
-[...]
-marie@compute$ conda activate $HOME/user-kernel/my-kernel
-marie@compute$ conda install ipykernel
-Collecting package metadata: done
-Solving environment: done
-[...]
-marie@compute$ python -m ipykernel install --user --name my-kernel --display-name="my kernel"
-Installed kernelspec my-kernel in [...]
-marie@compute$ conda install [..] # now install additional packages for your notebooks
-marie@compute$ conda deactivate
-```
-
-Now you can start a new session and your kernel should be available.
-
-**JupyterLab**: Your kernels are listed on the launcher page:
-
-![JupyterLab user kernel launcher](misc/jupyterlab_user_kernel_launcher.png)
-{: align="center"}
-
-You can switch kernels of existing notebooks in the menu:
-
-![JupyterLab change kernel](misc/jupyterlab_change_kernel.png)
-{: align="center"}
-
-**Classic Jupyter notebook**: Your kernel is listed in the New menu:
-
-![Jupyter notebook user kernel launcher](misc/jupyter_notebook_user_kernel_launcher.png)
-{: align="center"}
-
-You can switch kernels of existing notebooks in the kernel menu:
-
-![Jupyter notebook change kernel](misc/jupyter_notebook_change_kernel.png)
-{: align="center"}
-
-!!! note
-    Both python venv and conda virtual environments will be mention in the same
-    list.
+    Can be utilized with the partitions `gpu2`, `alpha` and `ml`.
+    It's specially geared towards GPU support.
 
 ### Loading Modules
 
 You have now the option to preload modules from the [module system](../software/modules.md).
 Select multiple modules that will be preloaded before your notebook server
 starts. The list of available modules depends on the module environment you want
-to start the session in (`scs5` or `ml`). The right module environment will be
+to start the session in (`scs5`, `hiera` or `ml`). The right module environment will be
 chosen by your selected partition.
+
+### Custom Kernels
+
+As you might have noticed, after launching Jupyter**Lab**,
+there are several boxes with icons therein visible in the `Launcher`.
+Each box therein represents a so called 'Kernel'.
+(note that these are not to be confused with operating system kernel,
+but similarly provide basic functionality for running your use cases,
+e.g. Python or R)
+
+You can also [create your own Kernels](jupyterhub_custom_environments.md).
