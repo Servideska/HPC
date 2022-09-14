@@ -143,7 +143,8 @@ the command `salloc`. It takes the same options as `sbatch` to specify the requi
 `salloc` returns a new shell on the node, where you submitted the job. You need to use the command
 `srun` in front of the following commands to have these commands executed on the allocated
 resources. If you allocate more than one task, please be aware that `srun` will run the command on
-each allocated task by default!
+each allocated task by default! To release the allocated resources, invoke the command `exit` or
+`scancel <jobid`.
 
 ```console
 marie@login$ salloc --nodes=2
