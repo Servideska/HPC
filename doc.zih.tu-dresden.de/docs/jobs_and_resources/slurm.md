@@ -158,6 +158,7 @@ tauruslogin5.taurus.hrsk.tu-dresden.de
 marie@login$ srun hostname
 taurusi6604.taurus.hrsk.tu-dresden.de
 taurusi6603.taurus.hrsk.tu-dresden.de
+marie@login$ exit # ending the resource allocation
 ```
 
 The command `srun` also creates an allocation, if it is running outside any `sbatch` or `salloc`
