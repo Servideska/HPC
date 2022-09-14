@@ -29,7 +29,7 @@ files and all markdown files is done.
 EOF
 }
 
-function style_check() {
+function pattern_matches() {
   local any_fails
   any_fails=false
 
@@ -79,9 +79,9 @@ function style_check() {
     fi
   fi
   if [[ "${any_fails}" == true ]]; then
-    return 1
+    return 0
   fi
-  return 0
+  return 1
 }
 # -----------------------------------------------------------------------------
 # Functions End
@@ -125,14 +125,14 @@ for file in $files; do
   # Variable expansion. Currently style check not possible for multiline comment
   pattern='.*"[\n\s\w\W]*\$[^\{|^\(]\w*[\n\s\w\W]*"'
   warning="Using \"\${var}\" is recommended over \"\$var\""
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 
   # Declaration and assignment of local variables
   pattern='local [a-zA-Z_]*=.*'
   warning="Declaration and assignment of local variables should be on different lines."
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 
@@ -142,7 +142,7 @@ for file in $files; do
     #echo "Checking for max line length..."
     pattern='^.{80}.*$'
     warning="Recommended maximum line length is 80 characters."
-    if style_check "${file}" "${pattern}" "${warning}"; then
+    if pattern_matches "${file}" "${pattern}" "${warning}"; then
       any_fails=true
     fi
   fi
@@ -150,28 +150,28 @@ for file in $files; do
   # do, then in the same line as while, for and if
   pattern='^\s*(while|for|if)[\w\-\%\d\s\$=\[\]\(\)]*[^;]\s*[^do|then]\s*$'
   warning="It is recommended to put '; do' and '; then' on the same line as the 'while', 'for' or 'if'"
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 
   # using [[..]] over [..]
   pattern='^\s*(if|while|for)\s*\[[^\[].*$'
   warning="It is recommended to use '[[ … ]]' over '[ … ]', 'test' and '/usr/bin/['"
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 
   # Avoiding 'eval'
   pattern='^[\w\=\"\s\$\(]*eval.*'
   warning="It is not recommended to use eval"
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 
   # Arithmetic
   pattern='(\$\([^\(]|let|\$\[)\s*(expr|\w)\s*[\d\+\-\*\/\=\%\$]+'
   warning="It is recommended to use '(( … ))' or '\$(( … ))' rather than 'let' or '\$[ … ]' or 'expr'"
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 
@@ -179,14 +179,14 @@ for file in $files; do
   # Function name
   pattern='^.*[A-Z]+[_a-z]*\s*\(\)\s*\{'
   warning="It is recommended to write function names in lower-case, with underscores to separate words"
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 
   # Constants and Environment Variable Names
   pattern='readonly [^A-Z]*=.*|declare [-a-zA-Z\s]*[^A-Z]*=.*'
   warning="Constants and anything exported to the environment should be capitalized."
-  if style_check "${file}" "${pattern}" "${warning}"; then
+  if pattern_matches "${file}" "${pattern}" "${warning}"; then
     any_fails=true
   fi
 done
