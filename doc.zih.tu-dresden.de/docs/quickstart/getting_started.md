@@ -125,7 +125,7 @@ This is the starting point for many tasks such as running programs and data mana
 
 === "Users of older versions of Windows"
 
-    Install and set up [MobaXTerm](../access/ssh_login_mobaxterm) or [PuTTY](../access/ssh_login_putty).
+    Install and set up [MobaXTerm](../access/ssh_mobaxterm.md) or [PuTTY](../access/ssh_putty.md).
 
 For more information explore the [access compendium page](../access/ssh_login.md).
 [Configuring default parameters](../access/ssh_login.md#configuring-default-parameters-for-ssh)
@@ -203,7 +203,7 @@ The approach depends on the data volume: up to 100 MB or above.
 
 ### Transferring Data **To/From** the ZIH HPC System
 
-???+ example "`scp` for transferring data from/to the ZIH HPC system"
+???+ example "`scp` for transferring data to the ZIH HPC system"
 
     Copy the file `example.R` from your local machine to a workspace on the ZIH system:
 

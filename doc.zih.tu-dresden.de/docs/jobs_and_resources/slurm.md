@@ -143,7 +143,8 @@ the command `salloc`. It takes the same options as `sbatch` to specify the requi
 `salloc` returns a new shell on the node, where you submitted the job. You need to use the command
 `srun` in front of the following commands to have these commands executed on the allocated
 resources. If you allocate more than one task, please be aware that `srun` will run the command on
-each allocated task by default!
+each allocated task by default! To release the allocated resources, invoke the command `exit` or
+`scancel <jobid`.
 
 ```console
 marie@login$ salloc --nodes=2
@@ -158,6 +159,7 @@ tauruslogin5.taurus.hrsk.tu-dresden.de
 marie@login$ srun hostname
 taurusi6604.taurus.hrsk.tu-dresden.de
 taurusi6603.taurus.hrsk.tu-dresden.de
+marie@login$ exit # ending the resource allocation
 ```
 
 The command `srun` also creates an allocation, if it is running outside any `sbatch` or `salloc`
@@ -326,12 +328,12 @@ components by a line containing the directive `"#SBATCH hetjob`.
 #!/bin/bash
 
 #SBATCH --ntasks 1
-#SBATCH --cpus 4
+#SBATCH --cpus-per-task 4
 #SBATCH --partition <partition>
 #SBATCH --mem=200G
 #SBATCH hetjob # required to separate groups
 #SBATCH --ntasks 8
-#SBATCH --cpus 1
+#SBATCH --cpus-per-task 1
 #SBATCH --gres=gpu:8
 #SBATCH --mem=80G
 #SBATCH --partition <partition>
