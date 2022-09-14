@@ -39,7 +39,7 @@ We provide the script `ml_arch_avail` that can be used to check if a certain mod
 ## Example, running CP2K on Rome
 
 First, check what CP2K modules are available in general:
-`module load spider CP2K` or `module avail CP2K`.
+`module spider CP2K` or `module avail CP2K`.
 
 You will see that there are several different CP2K versions avail, built with different toolchains.
 Now let's assume you have to decided you want to run CP2K version 6 at least, so to check if those
