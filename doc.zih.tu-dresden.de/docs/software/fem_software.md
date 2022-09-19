@@ -96,7 +96,7 @@ start a Ansys workbench on the login nodes interactively for short tasks. The se
 
     Since the MPI library that Ansys uses internally (Platform MPI) has some problems integrating
     seamlessly with Slurm, you have to unset the enviroment variable `SLURM_GTIDS` in your
-    environment befor running Ansysy workbench in interactive andbatch mode.
+    environment befor running Ansysy workbench in interactive and batch mode.
 
 ### Using Workbench Interactively
 
