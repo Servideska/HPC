@@ -96,11 +96,11 @@ start a Ansys workbench on the login nodes interactively for short tasks. The se
 
     Since the MPI library that Ansys uses internally (Platform MPI) has some problems integrating
     seamlessly with Slurm, you have to unset the enviroment variable `SLURM_GTIDS` in your
-    environment bevor running Ansysy workbench in interactive andbatch mode.
+    environment befor running Ansysy workbench in interactive andbatch mode.
 
 ### Using Workbench Interactively
 
-Ansys workbench (`runwb2`) an be invoked interactively on the login nodes of ZIH systems for short tasks.
+Ansys workbench (`runwb2`) can be invoked interactively on the login nodes of ZIH systems for short tasks.
 [X11 forwarding](../access/ssh_login.md#x11-forwarding) needs to enabled when establishing the SSH
 connection. For OpenSSH the corresponding option is `-X` and it is valuable to use compression of
 all data via `-C`.
@@ -268,7 +268,7 @@ You need a job file (aka. batch script) to run the MPI version.
     #SBATCH --ntasks=16           # number of processor cores (i.e. tasks)
     #SBATCH --mem-per-cpu=1900M   # memory per CPU core
 
-    module load ls-dyna
+    module load LS-DYNA
     srun mpp-dyna i=neon_refined01_30ms.k memory=120000000
     ```
 
