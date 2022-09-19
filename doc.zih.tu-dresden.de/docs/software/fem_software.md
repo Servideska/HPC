@@ -122,7 +122,7 @@ marie@login$ # e.g.
 marie@login$ module load ANSYS/2020R2
 marie@login$ srun --time=00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
 [...]
-marie@login$ runwb2
+marie@compute$ runwb2
 ```
 
 !!! hint "Better use DCV"
