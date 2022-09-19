@@ -161,7 +161,7 @@ parameter (for batch mode), `-F` for your project file, and can then either add 
 
     # module load ANSYS/<version>
     # e.g.
-    module load ANSYS ANSYS/2020R2
+    module load ANSYS/2020R2
 
     runwb2 -B -F Workbench_Taurus.wbpj -E 'Project.Update' -E 'Save(Overwrite=True)'
     #or, if you wish to use a workbench replay file, replace the -E parameters with: -R mysteps.wbjn
