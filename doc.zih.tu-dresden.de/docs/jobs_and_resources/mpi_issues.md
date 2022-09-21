@@ -26,8 +26,8 @@ object for RDMA operations (ref. [man page](https://www.open-mpi.org/doc/v3.0/ma
 > Using MPI_Win_allocate rather than separate MPI_Alloc_mem + MPI_Win_create may allow the MPI implementation to optimize the memory allocation.
 > (Using advanced MPI)
 
-It was observed for at least for the `OpenMPI/4.0.5` module that using `MPI_Alloc_mem` in
-conjunction with `MPI_Win_create` instead of `MPI_Win_Allocate` leads to segmentation faults in the
-calling application. To be precise, the segfaults occurred at partition `romeo` when about 200 GB
-per node where allocated. In contrast, the segmentation faults vanished when the implementation was
-refactored to call the `MPI_Win_allocate` function.
+It was observed for at least for the `OpenMPI/4.0.5` module that using `MPI_Win_Allocate` instead of
+`MPI_Alloc_mem` in conjunction with `MPI_Win_create` leads to segmentation faults in the calling
+application . To be precise, the segfaults occurred at partition `romeo` when about 200 GB per node
+where allocated. In contrast, the segmentation faults vanished when the implementation was
+refactored to call the `MPI_Alloc_mem + MPI_Win_create` functions.
