@@ -80,6 +80,7 @@ nav:
       - Compilers and Flags: software/compilers.md
       - GPU Programming: software/gpu_programming.md
       - Mathematics Libraries: software/math_libraries.md
+      - MPI Usage Issues: software/mpi_issues.md
       - Debugging: software/debuggers.md
     - Software Engineering Tools:
       - MPI Error Detection: software/mpi_usage_error_detection.md
