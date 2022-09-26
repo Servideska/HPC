@@ -96,11 +96,11 @@ start a Ansys workbench on the login nodes interactively for short tasks. The se
 
     Since the MPI library that Ansys uses internally (Platform MPI) has some problems integrating
     seamlessly with Slurm, you have to unset the enviroment variable `SLURM_GTIDS` in your
-    environment bevor running Ansysy workbench in interactive andbatch mode.
+    environment befor running Ansysy workbench in interactive and batch mode.
 
 ### Using Workbench Interactively
 
-Ansys workbench (`runwb2`) an be invoked interactively on the login nodes of ZIH systems for short tasks.
+Ansys workbench (`runwb2`) can be invoked interactively on the login nodes of ZIH systems for short tasks.
 [X11 forwarding](../access/ssh_login.md#x11-forwarding) needs to enabled when establishing the SSH
 connection. For OpenSSH the corresponding option is `-X` and it is valuable to use compression of
 all data via `-C`.
@@ -122,7 +122,7 @@ marie@login$ # e.g.
 marie@login$ module load ANSYS/2020R2
 marie@login$ srun --time=00:30:00 --x11=first [SLURM_OPTIONS] --pty bash
 [...]
-marie@login$ runwb2
+marie@compute$ runwb2
 ```
 
 !!! hint "Better use DCV"
@@ -161,7 +161,7 @@ parameter (for batch mode), `-F` for your project file, and can then either add 
 
     # module load ANSYS/<version>
     # e.g.
-    module load ANSYS ANSYS/2020R2
+    module load ANSYS/2020R2
 
     runwb2 -B -F Workbench_Taurus.wbpj -E 'Project.Update' -E 'Save(Overwrite=True)'
     #or, if you wish to use a workbench replay file, replace the -E parameters with: -R mysteps.wbjn
@@ -268,7 +268,7 @@ You need a job file (aka. batch script) to run the MPI version.
     #SBATCH --ntasks=16           # number of processor cores (i.e. tasks)
     #SBATCH --mem-per-cpu=1900M   # memory per CPU core
 
-    module load ls-dyna
+    module load LS-DYNA
     srun mpp-dyna i=neon_refined01_30ms.k memory=120000000
     ```
 
