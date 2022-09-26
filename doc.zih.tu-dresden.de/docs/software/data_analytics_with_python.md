@@ -85,7 +85,7 @@ pandarallel module. If the pandarallel module is not installed already, use a
     df.parallel_apply(func=transform, axis=1)
     ```
 For more examples of using pandarallel check out
-[https://github.com/nalepae/pandarallel/blob/master/docs/examples.ipynb](https://github.com/nalepae/pandarallel/blob/master/docs/examples.ipynb).
+[https://github.com/nalepae/pandarallel/blob/master/docs/examples.ipynb](https://github.com/nalepae/pandarallel/blob/master/docs/examples_mac_linux.ipynb).
 
 ### Dask
 
