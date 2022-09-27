@@ -54,7 +54,6 @@ you can interact with the batch system, e.g., submit and monitor your jobs.
     Moreover, the [runtime environment](../software/overview.md) as well as the executable and
     certain command-line arguments have to be specified to run the computational work.
 
-
 This page provides a brief overview on
 
 * [Slurm options](#options) to specify resource requirements,
