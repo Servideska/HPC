@@ -77,8 +77,8 @@ There are three basic Slurm commands for job submission and execution:
 
 1. `srun`: Run a parallel application (and, if necessary, allocate resources first).
 1. `sbatch`: Submit a batch script to Slurm for later execution.
-1. `salloc`: Obtain a Slurm job allocation (i.e., resources like CPUs, nodes and GPUs) for interactive use.
-Release the allocation when finished.
+1. `salloc`: Obtain a Slurm job allocation (i.e., resources like CPUs, nodes and GPUs) for
+interactive use. Release the allocation when finished.
 
 Using `srun` directly on the shell will be blocking and launch an
 [interactive job](#interactive-jobs). Apart from short test runs, it is recommended to submit your
@@ -92,25 +92,15 @@ at runtime) which you can find via `squeue --me`. The id allows you to
 
 !!! warning "srun vs. mpirun"
 
-    On ZIH systems, srun is used for job submission. The use of mpirun is provenly broken on
-    partitions ml and alpha for jobs requiring more than one node. Especially when using code from
-    github projects, double-check it's configuration by looking for a line like
-    'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'
-
-    ??? warning "Issues with mpirun"
-        Using `mpirun` on partitions `alpha` and `ml` leads to wrong resource distribution when more than
-        one node is involved. This yields a strange distribution like e.g. `SLURM_NTASKS_PER_NODE=15,1`
-        even though `--tasks-per-node=8` was specified. Unless you really know what you're doing (e.g.
-        use rank pinning via perl script), avoid using mpirun.
-
-        Another issue arises when using the Intel toolchain: mpirun calls a different MPI and caused a
-        8-9x slowdown in the PALM app in comparison to using srun or the GCC-compiled version of the app
-        (which uses the correct MPI).
+    On ZIH systems, `srun` is used to run your parallel application. The use of `mpirun` is provenly
+    broken on partitions `ml` and `alpha` for jobs requiring more than one node. Especially when
+    using code from github projects, double-check it's configuration by looking for a line like
+    'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'.
 
 ## Options
 
-The following table contains the most important options for `srun`, `sbatch`, `salloc` to specify resource
-requirements and control communication.
+The following table contains the most important options for `srun`, `sbatch`, `salloc` to specify
+resource requirements and control communication.
 
 ??? tip "Options Table (see `man sbatch`)"
 
