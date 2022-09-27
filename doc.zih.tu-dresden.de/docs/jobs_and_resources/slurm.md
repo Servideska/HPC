@@ -85,7 +85,7 @@ jobs to Slurm for later execution by using [batch jobs](#batch-jobs). For that, 
 put the parameters in a [job file](#job-files), which you can submit using `sbatch
 [options] <job file>`.
 
-After submitting, your job gets a unique job ID, which is stored in the environment variable
+After submission, your job gets a unique job ID, which is stored in the environment variable
 `SLURM_JOB_ID` at job runtime. The command `sbatch` outputs the job ID to stderr. Furthermore, you
 can find it via `squeue --me`. The job ID allows you to
 [manage and control](#manage-and-control-jobs) your jobs.
