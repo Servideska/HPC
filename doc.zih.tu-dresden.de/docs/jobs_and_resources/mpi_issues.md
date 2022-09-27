@@ -2,6 +2,17 @@
 
 This pages holds known issues observed with MPI and concrete MPI implementations.
 
+## Mpirun on partition `alpha`and `m`
+
+Using `mpirun` on partitions `alpha` and `ml` leads to wrong resource distribution when more than
+one node is involved. This yields a strange distribution like e.g. `SLURM_NTASKS_PER_NODE=15,1`
+even though `--tasks-per-node=8` was specified. Unless you really know what you're doing (e.g.
+use rank pinning via perl script), avoid using mpirun.
+
+Another issue arises when using the Intel toolchain: mpirun calls a different MPI and caused a
+8-9x slowdown in the PALM app in comparison to using srun or the GCC-compiled version of the app
+(which uses the correct MPI).
+
 ## R Parallel Library on Multiple Nodes
 
 Using the R parallel library on MPI clusters has shown problems when using more than a few compute
