@@ -75,10 +75,10 @@ information:
 
 There are three basic Slurm commands for job submission and execution:
 
-1. `srun`: Submit a job for execution or initiate job steps in real time.
+1. `srun`: Run a parallel application (and, if necessary, allocate resources first).
 1. `sbatch`: Submit a batch script to Slurm for later execution.
-1. `salloc`: Obtain a Slurm job allocation (a set of nodes) for interactive use. Release the
-   allocation when finished.
+1. `salloc`: Obtain a Slurm job allocation (i.e., resources like CPUs, nodes and GPUs) for interactive use.
+Release the allocation when finished.
 
 Using `srun` directly on the shell will be blocking and launch an
 [interactive job](#interactive-jobs). Apart from short test runs, it is recommended to submit your
