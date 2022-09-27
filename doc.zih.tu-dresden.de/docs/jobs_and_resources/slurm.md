@@ -98,7 +98,7 @@ at runtime) which you can find via `squeue --me`. The id allows you to
     'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'
 
     ??? warning "Issues with mpirun"
-        Using `mpirun` on partitions alpha and ml leads to wrong resource distribution when more than
+        Using `mpirun` on partitions `alpha` and `ml` leads to wrong resource distribution when more than
         one node is involved. This yields a strange distribution like e.g. `SLURM_NTASKS_PER_NODE=15,1`
         even though `--tasks-per-node=8` was specified. Unless you really know what you're doing (e.g.
         use rank pinning via perl script), avoid using mpirun.
