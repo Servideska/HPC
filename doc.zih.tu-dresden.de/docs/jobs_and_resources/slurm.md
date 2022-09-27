@@ -242,7 +242,7 @@ has multiple advantages*:
 * You can reproduce your experiments and work, because all steps are saved in a file.
 * You can easily share your settings and experimental setup with colleagues.
 
-*) If job files are version controlled or environment `env` is saved along with slurm output.
+*) If job files are version controlled or environment `env` is saved along with Slurm output.
 
 !!! hint "Syntax: Submitting a batch job"
 
@@ -259,7 +259,7 @@ Job files have to be written with the following structure.
 # ^Batch script starts with shebang line
 
 #SBATCH --ntasks=24                   # #SBATCH lines request resources and
-#SBATCH --time=01:00:00               # specify slurm options
+#SBATCH --time=01:00:00               # specify Slurm options
 #SBATCH --account=<KTR>               #
 #SBATCH --job-name=fancyExp           # All #SBATCH lines have to follow uninterrupted
 #SBATCH --output=simulation-%j.out    # after the shebang line
