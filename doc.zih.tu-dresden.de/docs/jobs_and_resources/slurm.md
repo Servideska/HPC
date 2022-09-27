@@ -1,8 +1,8 @@
 # Batch System Slurm
 
-ZIH uses the batch system Slurm for resource management and job scheduling.
-Compute nodes are not accessed directly, but addressed through slurm.
-You specify the needed resources (cores, memory, GPU, time, ...) and Slurm will schedule your job for execution.
+ZIH uses the batch system Slurm for resource management and job scheduling. Compute nodes are not
+accessed directly, but addressed through Slurm. You specify the needed resources
+(cores, memory, GPU, time, ...) and Slurm will schedule your job for execution.
 
 When logging in to ZIH systems, you are placed on a login node. There, you can manage your
 [data life cycle](../data_lifecycle/overview.md),
@@ -86,26 +86,26 @@ jobs to Slurm for later execution by using [batch jobs](#batch-jobs). For that, 
 put the parameters in a [job file](#job-files), which you can submit using `sbatch
 [options] <job file>`.
 
-After submitting, your job gets a unique job id (stored in the environment variable `SLURM_JOB_ID` 
-at runtime) which you can find via `squeue --me`. The id allows you to [manage and control](#manage-and-control-jobs) your jobs.
+After submitting, your job gets a unique job id (stored in the environment variable `SLURM_JOB_ID`
+at runtime) which you can find via `squeue --me`. The id allows you to
+[manage and control](#manage-and-control-jobs) your jobs.
 
 !!! warning "srun vs. mpirun"
 
-    On ZIH systems, srun is used for job submission. The use of mpirun is provenly broken on 
+    On ZIH systems, srun is used for job submission. The use of mpirun is provenly broken on
     partitions ml and alpha for jobs requiring more than one node. Especially when using code from
-    github projects, double-check it's configuration by looking for a line like 
+    github projects, double-check it's configuration by looking for a line like
     'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'
 
     ??? warning "Issues with mpirun"
         Using `mpirun` on partitions alpha and ml leads to wrong resource distribution when more than
         one node is involved. This yields a strange distribution like e.g. `SLURM_NTASKS_PER_NODE=15,1`
-        even though `--tasks-per-node=8` was specified. Unless you really know what you're doing (e.g. 
+        even though `--tasks-per-node=8` was specified. Unless you really know what you're doing (e.g.
         use rank pinning via perl script), avoid using mpirun.
 
         Another issue arises when using the Intel toolchain: mpirun calls a different MPI and caused a
-        8-9x slowdown in the PALM app in comparison to using srun or the GCC-compiled version of the app 
+        8-9x slowdown in the PALM app in comparison to using srun or the GCC-compiled version of the app
         (which uses the correct MPI).
-
 
 ## Options
 
@@ -212,8 +212,8 @@ taurusi6604.taurus.hrsk.tu-dresden.de
 !!! note "Partition `interactive`"
 
     A dedicated partition `interactive` is reserved for short jobs (< 8h) with no more than one job
-    per user. An interactive partition is available for every regular partition, e.g. 
-    `alpha-interactive` for `alpha`. Please check the availability of nodes there with 
+    per user. An interactive partition is available for every regular partition, e.g.
+    `alpha-interactive` for `alpha`. Please check the availability of nodes there with
     `sinfo |grep 'interactive\|AVAIL' |less`
 
 ### Interactive X11/GUI Jobs
@@ -270,7 +270,7 @@ Job files have to be written with the following structure.
 
 #SBATCH --ntasks=24                   # #SBATCH lines request resources and
 #SBATCH --time=01:00:00               # specify slurm options
-#SBATCH --account=<KTR>               # 
+#SBATCH --account=<KTR>               #
 #SBATCH --job-name=fancyExp           # All #SBATCH lines have to follow uninterrupted
 #SBATCH --output=simulation-%j.out    # after the shebang line
 #SBATCH --error=simulation-%j.err     # Comments start with # and do not count as interruptions
@@ -406,7 +406,6 @@ job <jobid>`.
     | `TimeLimit`          | The job exhausted its time limit. |
     | `InactiveLimit`      | The job reached the system inactive limit. |
 
-
 For detailed information on why your submitted job has not started yet, you can use the command
 
 ```console
@@ -430,14 +429,15 @@ The command `scancel <jobid>` kills a single job and removes it from the queue. 
 The Slurm command `sacct` provides job statistics like memory usage, CPU time, energy usage etc.
 as table-formatted output on the command line.
 
-The job monitor [PIKA](../software/pika.md) provides web-based graphical performance statistics at no extra cost.
+The job monitor [PIKA](../software/pika.md) provides web-based graphical performance statistics
+at no extra cost.
 
 !!! hint "Learn from old jobs"
 
     We highly encourage you to inspect your previous jobs in order to better
     estimate the requirements, e.g., runtime, for future jobs.
-    With PIKA, it is e.g. easy to check whether a job is hanging, idling, 
-    or making good use of the resources. 
+    With PIKA, it is e.g. easy to check whether a job is hanging, idling,
+    or making good use of the resources.
 
 ??? tip "Using sacct (see also `man sacct`)"
     `sacct` outputs the following fields by default.
