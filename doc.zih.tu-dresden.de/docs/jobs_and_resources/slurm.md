@@ -97,6 +97,9 @@ can find it via `squeue --me`. The job ID allows you to
     using code from github projects, double-check it's configuration by looking for a line like
     'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'.
 
+    Otherwise, this may lead to wrong resource distribution and thus job failure, or tremendous
+    slowdowns of your application.
+
 ## Options
 
 The following table contains the most important options for `srun`, `sbatch`, `salloc` to specify
