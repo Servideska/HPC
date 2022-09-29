@@ -61,7 +61,7 @@ marie@login$ ws_list | grep 'directory.*EasyBuild'
 put commands in a batch file and source it. The latter is recommended for non-interactive jobs,
 using the command `sbatch` instead of `srun`. For the sake of illustration, we use an
 interactive job as an example. Depending on the partitions that you want the module to be usable on
-later, you need to select nodes with the same architecture. Thus, use nodes from partition ml for
+later, you need to select nodes with the same architecture. Thus, use nodes from partition `ml` for
 building, if you want to use the module on nodes of that partition. In this example, we assume
 that we want to use the module on nodes with x86 architecture and thus, we use Haswell nodes.
 
@@ -80,14 +80,14 @@ environment variable called `WORKSPACE` with the path to your workspace:
 marie@compute$ export WORKSPACE=/scratch/ws/1/marie-EasyBuild    #see output of ws_list above
 ```
 
-**Step 4:** Load the correct module environment  `modenv` according to your current or target
+**Step 4:** Load the correct module environment `modenv` according to your current or target
 architecture:
 
-=== "x86 (default, e. g. partition haswell)"
+=== "x86 (default, e. g. partition `haswell`)"
     ```console
     marie@compute$ module load modenv/scs5
     ```
-=== "Power9 (partition ml)"
+=== "Power9 (partition `ml`)"
     ```console
     marie@ml$ module load modenv/ml
     ```

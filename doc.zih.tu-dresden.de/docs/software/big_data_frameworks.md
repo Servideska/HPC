@@ -41,7 +41,7 @@ The Spark and Flink modules are available in both `scs5` and `ml` environments.
 Thus, Spark and Flink can be executed using different CPU architectures, e.g., Haswell and Power9.
 
 Let us assume that two nodes should be used for the computation. Use a `srun` command similar to
-the following to start an interactive session using the partition haswell. The following code
+the following to start an interactive session using the partition `haswell`. The following code
 snippet shows a job submission to haswell nodes with an allocation of two nodes with 60000 MB main
 memory exclusively for one hour:
 

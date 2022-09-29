@@ -133,8 +133,8 @@ marie@compute$ module load modenv/ml
 
 ### modenv/ml
 
-* data analytics software (for use on the partition ml)
-* necessary to run most software on the partition ml
+* data analytics software (for use on the partition `ml`)
+* necessary to run most software on the partition `ml`
 (The instruction set [Power ISA](https://en.wikipedia.org/wiki/Power_ISA#Power_ISA_v.3.0)
 is different from the usual x86 instruction set.
 Thus the 'machine code' of other modenvs breaks).
