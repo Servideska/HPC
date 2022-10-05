@@ -103,11 +103,6 @@ functions with the component power consumption of the parallel application.
 ![Energy measurements in Vampir](misc/energy_measurements-vampir.png)
 {: align="center"}
 
-!!! note
-
-    The power measurement modules `scorep-dataheap` and `scorep-hdeem` are dynamic and only
-    need to be loaded during execution. However, `scorep-hdeem` does require the application to
-    be linked with a certain version of Score-P.
 
 By default, `scorep-dataheap` records all sensors that are available. Currently this is the total
 node consumption and the CPUs. `scorep-hdeem` also records all available sensors
