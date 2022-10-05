@@ -21,8 +21,8 @@ Disabling UCX has solved these problems in our experiments.
 
 We invoked the R script successfully with the following command:
 
-```
-console mpirun -mca btl_openib_allow_ib true --mca pml ^ucx --mca osc ^ucx -np 1 Rscript
+```console
+mpirun -mca btl_openib_allow_ib true --mca pml ^ucx --mca osc ^ucx -np 1 Rscript
 --vanilla the-script.R
 ```
 
