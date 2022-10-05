@@ -3,8 +3,6 @@
     "first-heading-h1": true,
     "header-increment": true,
     "heading-style": { "style": "atx" },
-    "no-missing-space-atx": true,
-    "no-multiple-space-atx": true,
     "blanks-around-headings": true,
     "no-emphasis-as-heading": true,
     "first-line-heading": true,
