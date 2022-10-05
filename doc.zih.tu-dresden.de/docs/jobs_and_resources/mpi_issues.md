@@ -34,8 +34,8 @@ UCX.
 The function `MPI_Win_allocate` is a one-sided MPI call that allocates memory and returns a window
 object for RDMA operations (ref. [man page](https://www.open-mpi.org/doc/v3.0/man3/MPI_Win_allocate.3.php)).
 
-> Using MPI_Win_allocate rather than separate MPI_Alloc_mem + MPI_Win_create may allow the MPI implementation to optimize the memory allocation.
-> (Using advanced MPI)
+> Using MPI_Win_allocate rather than separate MPI_Alloc_mem + MPI_Win_create may allow the MPI
+> implementation to optimize the memory allocation. (Using advanced MPI)
 
 It was observed for at least for the `OpenMPI/4.0.5` module that using `MPI_Win_Allocate` instead of
 `MPI_Alloc_mem` in conjunction with `MPI_Win_create` leads to segmentation faults in the calling
