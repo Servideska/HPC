@@ -30,9 +30,6 @@ EOF
 }
 
 function pattern_matches() {
-  local any_fails
-  any_fails=false
-
   local myfile
   myfile=$1
 
@@ -49,21 +46,20 @@ function pattern_matches() {
   test_res_count=0
   if  [[ "${ext}" == "sh" ]]; then
     # If shell script is provided
-    test_res_count=$(grep -cP "${pattern}" $myfile || true)
-    if [[ "${test_res_count}" -gt "0" ]]; then
+    if grep -qP "${pattern}" "$myfile"; then
       echo -e "[WARNING] ${warning}"
-      echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
-      grep -nP "${pattern}" $myfile
+      echo "[WARNING] This coding style was not used for following lines in file $(realpath "${myfile}"):"
+      grep -nP "${pattern}" "$myfile"
       echo ""
-      any_fails=true
+      return 0
     fi
   elif [[ "${ext}" == "md" ]]; then
     # If markdown file is provided
     # Check if the code snippet exists in the markdown file
-    if sed -n '/^```bash$/,/^```$/p' $myfile | grep -qv '```'; then
+    if sed -n '/^```bash$/,/^```$/p' "$myfile" | grep -qv '```'; then
       # Extracting code snippet within ```bash ... ```
       local test_string
-      test_string=$(sed -n '/^```bash$/,/^```$/p' $myfile | grep -v '```')
+      test_string=$(sed -n '/^```bash$/,/^```$/p' "$myfile" | grep -v '```')
 
       # Check the exit code of pattern match
       if echo "${test_string}" | grep -qP "${pattern}"; then
@@ -71,24 +67,22 @@ function pattern_matches() {
       fi
       if [[ "${test_res_count}" -gt "0" ]]; then
         echo -e "[WARNING] ${warning}"
-        echo "[WARNING] This coding style was not used for following lines in file $(realpath ${myfile}):"
+        echo "[WARNING] This coding style was not used for following lines in file $(realpath "${myfile}"):"
         grep -no -F "$(echo "${test_string}" | grep -P "${pattern}")" "${myfile}"
         echo ""
-        any_fails=true
+        return 0
       fi
     fi
   fi
-  if [[ "${any_fails}" == true ]]; then
-    return 0
-  fi
+  # Reached here: Return false/non-zero, i.e. no error/match found
   return 1
 }
 # -----------------------------------------------------------------------------
 # Functions End
 
 scriptpath=${BASH_SOURCE[0]}
-basedir=`dirname "${scriptpath}"`
-basedir=`dirname "${basedir}"`
+basedir=$(dirname "${scriptpath}")
+basedir=$(dirname "${basedir}")
 
 branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
 
@@ -101,7 +95,7 @@ if [[ $# -eq 1 ]]; then
   ;;
   -a | --all)
     echo "Checking in all files."
-    files=$(find $basedir -name '*.md' -o -name '*.sh')
+    files=$(find "$basedir" -name '*.md' -o -name '*.sh')
   ;;
   *)
     files="$1"
@@ -109,7 +103,7 @@ if [[ $# -eq 1 ]]; then
   esac
 elif [[ $# -eq 0 ]]; then
   echo "Search in git-changed files."
-  files=`git diff --name-only "$(git merge-base HEAD "$branch")" | grep -e '.md$' -e '.sh$' || true`
+  files=$(git diff --name-only "$(git merge-base HEAD "$branch")" | grep -e '.md$' -e '.sh$' || true)
 else
   usage
 fi
@@ -118,7 +112,7 @@ any_fails=false
 
 for file in $files; do
   # Skip the check of this current ($0) script.
-  if [[ "$(echo "${file}" | grep -cP "check-code-style.sh$")" -gt "0" ]]; then
+  if echo "${file}" | grep -qP "check-code-style.sh$"; then
     continue
   fi
 
@@ -193,5 +187,3 @@ done
 if [[ "${any_fails}" == true ]]; then
   exit 1
 fi
-#------------------------------------------------------------------------------
-# Script End
