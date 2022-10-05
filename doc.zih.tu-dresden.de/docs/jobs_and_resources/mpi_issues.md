@@ -2,7 +2,7 @@
 
 This pages holds known issues observed with MPI and concrete MPI implementations.
 
-## Mpirun on partition `alpha`and `m`
+## Mpirun on partition `alpha`and `ml`
 
 Using `mpirun` on partitions `alpha` and `ml` leads to wrong resource distribution when more than
 one node is involved. This yields a strange distribution like e.g. `SLURM_NTASKS_PER_NODE=15,1`
