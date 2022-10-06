@@ -103,7 +103,7 @@ days with an email reminder for 7 days before the expiration.
 ### Extension of a Workspace
 
 The lifetime of a workspace is finite and different filesystems (storage systems) have different
-maximum durations. A workspace can be extended multiple times, depending on the filesystem.
+maximum duration. A workspace can be extended multiple times, depending on the filesystem.
 
 | Filesystem (use with parameter `-F <fs>`) | Duration, days | Extensions | [Filesystem Feature](../jobs_and_resources/slurm.md#filesystem-features) | Remarks |
 |:-------------------------------------|---------------:|-----------:|:-------------------------------------------------------------------------|:--------|
@@ -340,7 +340,7 @@ set values that are not valid on our ZIH systems. You should overwrite `LC_CTYPE
 valid locale value like `export LC_CTYPE=de_DE.UTF-8`.
 
 A list of valid locales can be retrieved via `locale -a`. Please only use `UTF-8` (or plain) settings.
-Avoid "iso" codepages!
+Avoid `iso` code pages!
 
 ----
 

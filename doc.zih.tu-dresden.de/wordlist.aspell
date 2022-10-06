@@ -269,6 +269,8 @@ Nvidia
 NVIDIA
 NVLINK
 NVMe
+NVMe
+NVMes
 nvprof
 Nvprof
 NWChem
@@ -399,7 +401,9 @@ Speicherkomplex
 spython
 squeue
 srun
+SSD
 ssd
+SSDs
 ssh
 SSH
 SSHFS
@@ -409,6 +413,7 @@ stdout
 subdirectories
 subdirectory
 SubMathKernel
+Supercomputing
 Superdome
 SUSE
 SXM
