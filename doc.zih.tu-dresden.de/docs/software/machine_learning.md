@@ -5,25 +5,25 @@ For machine learning purposes, we recommend to use the partitions `alpha` and/or
 
 ## Partition `ml`
 
-The compute nodes of the partition ML are built on the base of
+The compute nodes of the partition `ml` are built on the base of
 [Power9 architecture](https://www.ibm.com/it-infrastructure/power/power9) from IBM. The system was created
 for AI challenges, analytics and working with data-intensive workloads and accelerated databases.
 
 The main feature of the nodes is the ability to work with the
 [NVIDIA Tesla V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) GPU with **NV-Link**
 support that allows a total bandwidth with up to 300 GB/s. Each node on the
-partition ML has 6x Tesla V-100 GPUs. You can find a detailed specification of the partition in our
+partition `ml` has 6x Tesla V-100 GPUs. You can find a detailed specification of the partition in our
 [Power9 documentation](../jobs_and_resources/hardware_overview.md).
 
 !!! note
 
-    The partition ML is based on the Power9 architecture, which means that the software built
+    The partition `ml` is based on the Power9 architecture, which means that the software built
     for x86_64 will not work on this partition. Also, users need to use the modules which are
     specially build for this architecture (from `modenv/ml`).
 
 ### Modules
 
-On the partition ML load the module environment:
+On the partition `ml` load the module environment:
 
 ```console
 marie@ml$ module load modenv/ml
@@ -32,19 +32,20 @@ The following have been reloaded with a version change:  1) modenv/scs5 => moden
 
 ### Power AI
 
-There are tools provided by IBM, that work on partition ML and are related to AI tasks.
+There are tools provided by IBM, that work on partition `ml` and are related to AI tasks.
 For more information see our [Power AI documentation](power_ai.md).
 
 ## Partition: Alpha
 
-Another partition for machine learning tasks is Alpha. It is mainly dedicated to
-[ScaDS.AI](https://scads.ai/) topics. Each node on Alpha has 2x AMD EPYC CPUs, 8x NVIDIA A100-SXM4
-GPUs, 1 TB RAM and 3.5 TB local space (`/tmp`) on an NVMe device. You can find more details of the
-partition in our [Alpha Centauri](../jobs_and_resources/alpha_centauri.md) documentation.
+Another partition for machine learning tasks is `alpha`. It is mainly dedicated to
+[ScaDS.AI](https://scads.ai/) topics. Each node on partition `alpha` has 2x AMD EPYC CPUs, 8x NVIDIA
+A100-SXM4 GPUs, 1 TB RAM and 3.5 TB local space (`/tmp`) on an NVMe device. You can find more
+details of the partition in our [Alpha Centauri](../jobs_and_resources/alpha_centauri.md)
+documentation.
 
 ### Modules
 
-On the partition alpha load the module environment:
+On the partition `alpha` load the module environment:
 
 ```console
 marie@alpha$ module load modenv/hiera
@@ -53,7 +54,7 @@ The following have been reloaded with a version change:  1) modenv/ml => modenv/
 
 !!! note
 
-    On partition Alpha, the most recent modules are build in `hiera`. Alternative modules might be
+    On partition `alpha`, the most recent modules are build in `hiera`. Alternative modules might be
     build in `scs5`.
 
 ## Machine Learning via Console
@@ -82,7 +83,7 @@ create documents containing live code, equations, visualizations, and narrative 
 TensorFlow or PyTorch) on ZIH systems and to run your Jupyter notebooks on HPC nodes.
 
 After accessing JupyterHub, you can start a new session and configure it. For machine learning
-purposes, select either partition **Alpha** or **ML** and the resources, your application requires.
+purposes, select either partition `alpha` or `ml` and the resources, your application requires.
 
 In your session you can use [Python](data_analytics_with_python.md#jupyter-notebooks),
 [R](data_analytics_with_r.md#r-in-jupyterhub) or [RStudio](data_analytics_with_rstudio.md) for your
