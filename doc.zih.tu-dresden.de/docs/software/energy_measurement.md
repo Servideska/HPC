@@ -103,7 +103,6 @@ functions with the component power consumption of the parallel application.
 ![Energy measurements in Vampir](misc/energy_measurements-vampir.png)
 {: align="center"}
 
-
 By default, `scorep-dataheap` records all sensors that are available. Currently this is the total
 node consumption and the CPUs. `scorep-hdeem` also records all available sensors
 (node, 2x CPU, 4x DDR) by default. You can change the selected sensors by setting the environment
