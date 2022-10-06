@@ -127,6 +127,7 @@ resource requirements and control communication.
     | `-a, --array=<arg>`        | Submit an array job ([examples](slurm_examples.md#array-jobs)) |
     | `-w <node1>,<node2>,...`   | Restrict job to run on specific nodes only |
     | `-x <node1>,<node2>,...`   | Exclude specific nodes from job |
+    | `--test-only`              | Retrieve estimated start time of a job considering the job queue; does not actually submit the job nor run the application |
 
 !!! note "Output and Error Files"
 
