@@ -79,7 +79,7 @@ MUST aware of this knowledge. Overhead is drastically reduced with this switch.
 
 After running your application with MUST you will have its output in the working directory of your
 application. The output is named `MUST_Output.html`. Open this files in a browser to analyze the
-results. The HTML file is color coded: 
+results. The HTML file is color coded:
 -   Entries in green represent notes and useful information
 -   Entries in yellow represent warnings
 -   Entries in red represent errors
