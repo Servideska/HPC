@@ -127,6 +127,7 @@ resource requirements and control communication.
     | `-a, --array=<arg>`        | Submit an array job ([examples](slurm_examples.md#array-jobs)) |
     | `-w <node1>,<node2>,...`   | Restrict job to run on specific nodes only |
     | `-x <node1>,<node2>,...`   | Exclude specific nodes from job |
+    | `--test-only`              | Retrieve estimated start time of a job considering the job queue; does not actually submit the job nor run the application |
 
 !!! note "Output and Error Files"
 
@@ -212,12 +213,10 @@ taurusi6604.taurus.hrsk.tu-dresden.de
 ### Interactive X11/GUI Jobs
 
 Slurm will forward your X11 credentials to the first (or even all) node for a job with the
-(undocumented) `--x11` option. For example, an interactive session for one hour with Matlab using
-eight cores can be started with:
+(undocumented) `--x11` option.
 
 ```console
-marie@login$ module load MATLAB
-marie@login$ srun --ntasks=1 --cpus-per-task=8 --time=1:00:00 --pty --x11=first matlab
+marie@login$ srun --ntasks=1 --pty --x11=first xeyes
 ```
 
 !!! hint "X11 error"
@@ -492,7 +491,7 @@ marie@login$ scontrol show res=<reservation name>
 ```
 
 If you want to use your reservation, you have to add the parameter
-`--reservation=<reservation name>` either in your sbatch script or to your `srun` or `salloc` command.
+`--reservation=<reservation name>` either in your job script or to your `srun` or `salloc` command.
 
 ## Node Features for Selective Job Submission
 

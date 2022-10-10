@@ -190,8 +190,8 @@ There are the following script preparation steps for OmniOpt:
         ```
 
 1. Testing script functionality and determine software requirements for the chosen
-   [partition](../jobs_and_resources/partitions_and_limits.md). In the following, the alpha
-   partition is used. Please note the parameters `--out-layer1`, `--batchsize`, `--epochs` when
+   [partition](../jobs_and_resources/partitions_and_limits.md). In the following, the
+   partition `alpha` is used. Please note the parameters `--out-layer1`, `--batchsize`, `--epochs` when
    calling the Python script. Additionally, note the `RESULT` string with the output for OmniOpt.
 
     ??? hint "Hint for installing Python modules"

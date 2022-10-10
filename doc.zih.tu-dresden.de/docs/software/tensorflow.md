@@ -17,13 +17,13 @@ to find out, which TensorFlow modules are available on your partition.
 On ZIH systems, TensorFlow 2 is the default module version. For compatibility hints between
 TensorFlow 2 and TensorFlow 1, see the corresponding [section below](#compatibility-tf2-and-tf1).
 
-We recommend using partitions **Alpha** and/or **ML** when working with machine learning workflows
+We recommend using partitions `alpha` and/or `ml` when working with machine learning workflows
 and the TensorFlow library. You can find detailed hardware specification in our
 [Hardware](../jobs_and_resources/hardware_overview.md) documentation.
 
 ## TensorFlow Console
 
-On the partition Alpha, load the module environment:
+On the partition `alpha`, load the module environment:
 
 ```console
 marie@alpha$ module load modenv/scs5
@@ -47,7 +47,7 @@ marie@alpha$ module avail TensorFlow
 [...]
 ```
 
-On the partition ML load the module environment:
+On the partition `ml` load the module environment:
 
 ```console
 marie@ml$ module load modenv/ml
