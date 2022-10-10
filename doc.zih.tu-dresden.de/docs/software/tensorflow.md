@@ -74,9 +74,9 @@ import TensorFlow:
     [...]
     marie@ml$ which python    #check which python are you using
     /sw/installed/Python/3.7.2-GCCcore-8.2.0
-    marie@ml$ virtualenv --system-site-packages /scratch/ws/1/python_virtual_environment/env
+    marie@ml$ virtualenv --system-site-packages /scratch/ws/1/marie-python_virtual_environment/env
     [...]
-    marie@ml$ source /scratch/ws/1/python_virtual_environment/env/bin/activate
+    marie@ml$ source /scratch/ws/1/marie-python_virtual_environment/env/bin/activate
     marie@ml$ python -c "import tensorflow as tf; print(tf.__version__)"
     [...]
     2.3.1
