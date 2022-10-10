@@ -79,9 +79,9 @@ modified by DDT available, which has better support for Fortran 90 (e.g.  derive
   - The more processes and nodes involved, the higher is the probability for timeouts or other
     problems
   - Debug with as few processes as required to reproduce the bug you want to find
-- Module to load before using: `module load ddt` Start: `ddt <executable>` If the GUI runs too slow
-- over your remote connection:
-  Use [WebVNC](../access/graphical_applications_with_webvnc.md) to start a remote desktop session in
+- Module to load before using: `module load ddt` Start: `ddt <executable>`
+    - If the GUI runs too slow over your remote connection: Use
+[WebVNC](../access/graphical_applications_with_webvnc.md) to start a remote desktop session in
   a web browser.
 - Slides from user training: [Parallel Debugging with DDT](misc/debugging_ddt.pdf)
 

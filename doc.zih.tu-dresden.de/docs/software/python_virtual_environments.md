@@ -68,7 +68,7 @@ the environment as follows:
 
 ??? example
 
-    This is an example on partition Alpha. The example creates a conda virtual environment, and
+    This is an example on partition `alpha`. The example creates a conda virtual environment, and
     installs the package `torchvision` with conda.
     ```console
     marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
@@ -179,7 +179,7 @@ can deactivate the conda environment as follows:
 
 ??? example
 
-    This is an example on partition Alpha. The example creates a conda virtual environment, and
+    This is an example on partition `alpha`. The example creates a conda virtual environment, and
     installs the package `torchvision` with conda.
     ```console
     marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
