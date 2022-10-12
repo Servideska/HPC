@@ -13,8 +13,8 @@ your project and how to effectively use HPC resources.
 
 ## Available Software
 
-It is good practice for working on HPC clusters to use software and packages with parallelization
-wherever possible. Open-source software is more preferable than proprietary software. You can check
+It is good practice for working on HPC clusters to use software and packages built with support for parallelization
+wherever possible. Open-source software is generally preferable to proprietary software. You can check
 for already installed software at the [Software module list][2]. However, the majority of popular
 programming languages, scientific applications, software and packages can be installed on the HPC
 cluster using different dependencies. There are
