@@ -20,7 +20,7 @@ programming languages, scientific applications, software and packages can be ins
 cluster using different dependencies. There are
 [two different software environments](../software/modules.md) implementing these varying
 dependencies: `scs5` (the regular one) and `ml` (environment for the Machine Learning partition).
-When looking for your software, keep in mind that it needs to work on Linux.
+Keep in mind that any software you wish to use on ZIH HPC systems needs to work on Linux.
 
 [1]: https://en.wikipedia.org/wiki/Amdahl%27s_law
 [2]: https://gauss-allianz.de/de/application?organizations%5B0%5D=1200
