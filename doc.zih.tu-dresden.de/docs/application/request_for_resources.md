@@ -8,7 +8,7 @@ Linux based systems and the Bash Shell. Beginners can find a lot of tutorials on
 ZIH systems are focused on data-intensive computing. They are meant to be used for highly
 parallelized code. Please take that into account when transferring sequential code from a local
 machine. To estimate your execution time when executing your previously sequential program
-parallely, you can use [Amdahl's law][1]. Think in advance about the parallelization strategy for
+in parallel, you can use [Amdahl's law][1]. Think in advance about the parallelization strategy for
 your project.
 
 ## Available Software
