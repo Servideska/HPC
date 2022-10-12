@@ -6,10 +6,10 @@ Linux based systems and the Bash Shell. Beginners can find a lot of tutorials on
 ## Determine the Required CPU and GPU Hours
 
 ZIH systems are focused on data-intensive computing. They are meant to be used for highly
-parallelized code. Please take that into account when transferring sequential code from a local
-machine. To estimate your execution time when executing your previously sequential program
+parallelized code. Please take that into account when migrating sequential code from a local
+machine to our HPC systems. To estimate your execution time when executing your previously sequential program
 in parallel, you can use [Amdahl's law][1]. Think in advance about the parallelization strategy for
-your project.
+your project and how to effectively use HPC resources.
 
 ## Available Software
 
