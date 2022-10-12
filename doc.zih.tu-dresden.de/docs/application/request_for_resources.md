@@ -13,14 +13,11 @@ your project and how to effectively use HPC resources.
 
 ## Available Software
 
-It is good practice for working on HPC clusters to use software and packages built with support for parallelization
-wherever possible. Open-source software is generally preferable to proprietary software. You can check
-for already installed software at the [Software module list][2]. However, the majority of popular
-programming languages, scientific applications, software and packages can be installed on the HPC
-cluster using different dependencies. There are
-[two different software environments](../software/modules.md) implementing these varying
-dependencies: `scs5` (the regular one) and `ml` (environment for the Machine Learning partition).
-Keep in mind that any software you wish to use on ZIH HPC systems needs to work on Linux.
+Pre-installed software on our HPC systems is managed via [modules][2]. You can 
+see the list of software that's already installed and accessible via module [here][3]. However, 
+there are many different variants of these modules available. We have divided these into two different software environments: `scs5` (for regular partitions) and `ml` (for the Machine Learning partition). 
+Within each environment there are further dependencies and variants; see (TODO some explanation of EasyBuild naming scheme) for more details.
 
 [1]: https://en.wikipedia.org/wiki/Amdahl%27s_law
-[2]: https://gauss-allianz.de/de/application?organizations%5B0%5D=1200
+[2]: https://doc.zih.tu-dresden.de/software/modules/
+[3]: https://gauss-allianz.de/de/application?organizations%5B0%5D=1200
