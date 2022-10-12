@@ -16,7 +16,7 @@ your project and how to effectively use HPC resources.
 Pre-installed software on our HPC systems is managed via [modules][2]. You can 
 see the list of software that's already installed and accessible via module [here][3]. However, 
 there are many different variants of these modules available. We have divided these into two different software environments: `scs5` (for regular partitions) and `ml` (for the Machine Learning partition). 
-Within each environment there are further dependencies and variants; see (TODO some explanation of EasyBuild naming scheme) for more details.
+Within each environment there are further dependencies and variants.
 
 [1]: https://en.wikipedia.org/wiki/Amdahl%27s_law
 [2]: https://doc.zih.tu-dresden.de/software/modules/
