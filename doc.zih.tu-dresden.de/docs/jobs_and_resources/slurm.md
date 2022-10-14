@@ -196,7 +196,7 @@ marie@compute$ srun --overlap hostname
 taurusi6604.taurus.hrsk.tu-dresden.de
 ```
 
-!!! note "Using `module` commands"
+!!! note "Using `module` commands in interactive mode"
 
     The [module commands](../software/modules.md) are made available by sourcing the files
     `/etc/profile` and `~/.bashrc`. This is done automatically by passing the parameter `-l` to your
