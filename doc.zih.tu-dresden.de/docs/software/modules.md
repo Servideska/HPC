@@ -227,6 +227,18 @@ In some cases a desired software is available as an extension of a module.
     2.4.1
     ```
 
+### Module Hierarchy
+
+The available software packages are structured within the following three-leveled module hierarchy:
+
+    Core level: All base modules that don’t depend on modules from the deeper levels, like compilers, toolchains, and proprietary SW
+    Compiler level: Modules built with and thus depending on a certain compiler or toolchain
+    MPI level: Modules built with MPI5 support and using the corresponding MPI library
+
+On login (or after module purge, see later) only Core modules are available. More modules will made be visible when modules from Compiler and MPI level are loaded.
+
+The command module avail lists directly loadable modules available in the current level of the hierarchy tree. On the other hand, module spider lists all available modules across all module environments.
+
 ### Toolchains
 
 The Core level also comprises several **toolchain modules**, e.g. *gompi*, *foss*, and *intel*. These meta-modules provide a combination of certain compilers, MPI, and/or BLAS libraries. Loading a toolchain will make all modules available that have been built with this respective toolchain (deepest level of module hierarchy). Some of the toolchain modules are only sub-toolchains, like *gompi* which contains a compiler and MPI library, but no BLAS library.
