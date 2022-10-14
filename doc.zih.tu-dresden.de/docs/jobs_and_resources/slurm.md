@@ -1,32 +1,14 @@
 # Batch System Slurm
 
+ZIH uses the batch system Slurm for resource management and job scheduling. Compute nodes are not
+accessed directly, but addressed through Slurm. You specify the needed resources
+(cores, memory, GPU, time, ...) and Slurm will schedule your job for execution.
+
 When logging in to ZIH systems, you are placed on a login node. There, you can manage your
 [data life cycle](../data_lifecycle/overview.md),
 setup experiments, and
 edit and prepare jobs. The login nodes are not suited for computational work! From the login nodes,
 you can interact with the batch system, e.g., submit and monitor your jobs.
-
-A typical workflow would look like this:
-
-```mermaid
-sequenceDiagram
-    user ->>+ login node: run programm
-    login node ->> login node: kill after 5 min
-    login node ->>- user: Killed!
-    user ->> login node: salloc [...]
-    login node ->> Slurm: Request resources
-    Slurm ->> user: resources
-    user ->>+ allocated resources: srun [options] [command]
-    allocated resources ->> allocated resources: run command (on allocated nodes)
-    allocated resources ->>- user: program finished
-    user ->>+ allocated resources: srun [options] [further_command]
-    allocated resources ->> allocated resources: run further command
-    allocated resources ->>- user: program finished
-    user ->>+ allocated resources: srun [options] [further_command]
-    allocated resources ->> allocated resources: run further command
-    Slurm ->> allocated resources: Job limit reached/exceeded
-    allocated resources ->>- user: Job limit reached
-```
 
 ??? note "Batch System"
 
@@ -35,6 +17,28 @@ sequenceDiagram
     It organizes the queueing and messaging, if all resources are in use. If resources are available
     for your job, the batch system allocates and connects to these resources, transfers runtime
     environment, and starts the job.
+
+    A workflow could look like this:
+
+    ```mermaid
+    sequenceDiagram
+        user ->>+ login node: run programm
+        login node ->> login node: kill after 5 min
+        login node ->>- user: Killed!
+        user ->> login node: salloc [...]
+        login node ->> Slurm: Request resources
+        Slurm ->> user: resources
+        user ->>+ allocated resources: srun [options] [command]
+        allocated resources ->> allocated resources: run command (on allocated nodes)
+        allocated resources ->>- user: program finished
+        user ->>+ allocated resources: srun [options] [further_command]
+        allocated resources ->> allocated resources: run further command
+        allocated resources ->>- user: program finished
+        user ->>+ allocated resources: srun [options] [further_command]
+        allocated resources ->> allocated resources: run further command
+        Slurm ->> allocated resources: Job limit reached/exceeded
+        allocated resources ->>- user: Job limit reached
+    ```
 
 ??? note "Batch Job"
 
@@ -49,10 +53,6 @@ sequenceDiagram
 
     Moreover, the [runtime environment](../software/overview.md) as well as the executable and
     certain command-line arguments have to be specified to run the computational work.
-
-ZIH uses the batch system Slurm for resource management and job scheduling.
-Just specify the resources you need in terms
-of cores, memory, and time and your Slurm will place your job on the system.
 
 This page provides a brief overview on
 
@@ -74,31 +74,43 @@ information:
 
 There are three basic Slurm commands for job submission and execution:
 
-1. `srun`: Submit a job for execution or initiate job steps in real time.
+1. `srun`: Run a parallel application (and, if necessary, allocate resources first).
 1. `sbatch`: Submit a batch script to Slurm for later execution.
-1. `salloc`: Obtain a Slurm job allocation (a set of nodes), execute a command, and then release the
-   allocation when the command is finished.
+1. `salloc`: Obtain a Slurm job allocation (i.e., resources like CPUs, nodes and GPUs) for
+interactive use. Release the allocation when finished.
 
 Using `srun` directly on the shell will be blocking and launch an
 [interactive job](#interactive-jobs). Apart from short test runs, it is recommended to submit your
 jobs to Slurm for later execution by using [batch jobs](#batch-jobs). For that, you can conveniently
-put the parameters directly in a [job file](#job-files), which you can submit using `sbatch
+put the parameters in a [job file](#job-files), which you can submit using `sbatch
 [options] <job file>`.
 
-At runtime, the environment variable `SLURM_JOB_ID` is set to the id of your job. The job
-id is unique. The id allows you to [manage and control](#manage-and-control-jobs) your jobs.
+After submission, your job gets a unique job ID, which is stored in the environment variable
+`SLURM_JOB_ID` at job runtime. The command `sbatch` outputs the job ID to stderr. Furthermore, you
+can find it via `squeue --me`. The job ID allows you to
+[manage and control](#manage-and-control-jobs) your jobs.
+
+!!! warning "srun vs. mpirun"
+
+    On ZIH systems, `srun` is used to run your parallel application. The use of `mpirun` is provenly
+    broken on partitions `ml` and `alpha` for jobs requiring more than one node. Especially when
+    using code from github projects, double-check it's configuration by looking for a line like
+    'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'.
+
+    Otherwise, this may lead to wrong resource distribution and thus job failure, or tremendous
+    slowdowns of your application.
 
 ## Options
 
-The following table contains the most important options for `srun/sbatch/salloc` to specify resource
-requirements and control communication.
+The following table contains the most important options for `srun`, `sbatch`, `salloc` to specify
+resource requirements and control communication.
 
-??? tip "Options Table"
+??? tip "Options Table (see `man sbatch`)"
 
     | Slurm Option               | Description |
     |:---------------------------|:------------|
-    | `-n, --ntasks=<N>`         | Number of (MPI) tasks (default: 1) |
-    | `-N, --nodes=<N>`          | Number of nodes; there will be `--ntasks-per-node` processes started on each node |
+    | `-n, --ntasks=<N>`         | Total number of (MPI) tasks (default: 1) |
+    | `-N, --nodes=<N>`          | Number of compute nodes |
     | `--ntasks-per-node=<N>`    | Number of tasks per allocated node to start (default: 1) |
     | `-c, --cpus-per-task=<N>`  | Number of CPUs per task; needed for multithreaded (e.g. OpenMP) jobs; typically `N` should be equal to `OMP_NUM_THREADS` |
     | `-p, --partition=<name>`   | Type of nodes where you want to execute your job (refer to [partitions](partitions_and_limits.md)) |
@@ -115,6 +127,7 @@ requirements and control communication.
     | `-a, --array=<arg>`        | Submit an array job ([examples](slurm_examples.md#array-jobs)) |
     | `-w <node1>,<node2>,...`   | Restrict job to run on specific nodes only |
     | `-x <node1>,<node2>,...`   | Exclude specific nodes from job |
+    | `--test-only`              | Retrieve estimated start time of a job considering the job queue; does not actually submit the job nor run the application |
 
 !!! note "Output and Error Files"
 
@@ -140,11 +153,11 @@ Interactive activities like editing, compiling, preparing experiments etc. are n
 the login nodes. For longer interactive sessions, you can allocate cores on the compute node with
 the command `salloc`. It takes the same options as `sbatch` to specify the required resources.
 
-`salloc` returns a new shell on the node, where you submitted the job. You need to use the command
+`salloc` returns a new shell on the node where you submitted the job. You need to use the command
 `srun` in front of the following commands to have these commands executed on the allocated
 resources. If you allocate more than one task, please be aware that `srun` will run the command on
 each allocated task by default! To release the allocated resources, invoke the command `exit` or
-`scancel <jobid`.
+`scancel <jobid>`.
 
 ```console
 marie@login$ salloc --nodes=2
@@ -188,22 +201,22 @@ taurusi6604.taurus.hrsk.tu-dresden.de
     The [module commands](../software/modules.md) are made available by sourcing the files
     `/etc/profile` and `~/.bashrc`. This is done automatically by passing the parameter `-l` to your
     shell, as shown in the example above. If you missed adding `-l` at submitting the interactive
-    session, no worry, you can source this files also later on manually.
+    session, no worry, you can source this files also later on manually (`source /etc/profile`).
 
 !!! note "Partition `interactive`"
 
-    A dedicated partition `interactive` is reserved for short jobs (< 8h) with not more than one job
-    per user. Please check the availability of nodes there with `sinfo --partition=interactive`.
+    A dedicated partition `interactive` is reserved for short jobs (< 8h) with no more than one job
+    per user. An interactive partition is available for every regular partition, e.g.
+    `alpha-interactive` for `alpha`. Please check the availability of nodes there with
+    `sinfo |grep 'interactive\|AVAIL' |less`
 
 ### Interactive X11/GUI Jobs
 
 Slurm will forward your X11 credentials to the first (or even all) node for a job with the
-(undocumented) `--x11` option. For example, an interactive session for one hour with Matlab using
-eight cores can be started with:
+(undocumented) `--x11` option.
 
 ```console
-marie@login$ module load MATLAB
-marie@login$ srun --ntasks=1 --cpus-per-task=8 --time=1:00:00 --pty --x11=first matlab
+marie@login$ srun --ntasks=1 --pty --x11=first xeyes
 ```
 
 !!! hint "X11 error"
@@ -222,18 +235,18 @@ marie@login$ srun --ntasks=1 --cpus-per-task=8 --time=1:00:00 --pty --x11=first 
 ## Batch Jobs
 
 Working interactively using `srun` and `salloc` is a good starting point for testing and compiling.
-But, as soon as you leave the testing stage, we highly recommend you to use batch jobs.
+But, as soon as you leave the testing stage, we highly recommend to use batch jobs.
 Batch jobs are encapsulated within [job files](#job-files) and submitted to the batch system using
 `sbatch` for later execution. A job file is basically a script holding the resource requirements,
 environment settings and the commands for executing the application. Using batch jobs and job files
-has multiple advantages:
+has multiple advantages*:
 
 * You can reproduce your experiments and work, because all steps are saved in a file.
 * You can easily share your settings and experimental setup with colleagues.
-* You can submit your job file to the scheduling system for later execution. In the meanwhile, you can
-  grab a coffee and proceed with other work (e.g., start writing a paper).
 
-!!! hint "The syntax for submitting a job file to Slurm is"
+*) If job files are version controlled or environment `env` is saved along with Slurm output.
+
+!!! hint "Syntax: Submitting a batch job"
 
     ```console
     marie@login$ sbatch [options] <job_file>
@@ -247,15 +260,15 @@ Job files have to be written with the following structure.
 #!/bin/bash
 # ^Batch script starts with shebang line
 
-#SBATCH --ntasks=24                   # All #SBATCH lines have to follow uninterrupted
-#SBATCH --time=01:00:00               # after the shebang line
-#SBATCH --account=<KTR>               # Comments start with # and do not count as interruptions
-#SBATCH --job-name=fancyExp
-#SBATCH --output=simulation-%j.out
-#SBATCH --error=simulation-%j.err
+#SBATCH --ntasks=24                   # #SBATCH lines request resources and
+#SBATCH --time=01:00:00               # specify Slurm options
+#SBATCH --account=<KTR>               #
+#SBATCH --job-name=fancyExp           # All #SBATCH lines have to follow uninterrupted
+#SBATCH --output=simulation-%j.out    # after the shebang line
+#SBATCH --error=simulation-%j.err     # Comments start with # and do not count as interruptions
 
-module purge                          # Set up environment, e.g., clean modules environment
-module load <modules>                 # and load necessary modules
+module purge                          # Set up environment, e.g., clean/switch modules environment
+module load <module1 module2>         # and load necessary modules
 
 srun ./application [options]          # Execute parallel application with srun
 ```
@@ -361,9 +374,10 @@ On the command line, use `squeue` to watch the scheduling queue.
 
     Invoke `squeue --me` to list only your jobs.
 
-The command `squeue` will tell the reason, why a job is not running (job status in the last column
-of the output). More information about job parameters can also be determined with `scontrol -d show
-job <jobid>`. The following table holds detailed descriptions of the possible job states:
+In it's last column, the `squeue` command will also tell why a job is not running.
+Possible reasons and their detailed descriptions are listed in the following table.
+More information about job parameters can be obtained with `scontrol -d show
+job <jobid>`.
 
 ??? tip "Reason Table"
 
@@ -384,8 +398,6 @@ job <jobid>`. The following table holds detailed descriptions of the possible jo
     | `TimeLimit`          | The job exhausted its time limit. |
     | `InactiveLimit`      | The job reached the system inactive limit. |
 
-In addition, the `sinfo` command gives you a quick status overview.
-
 For detailed information on why your submitted job has not started yet, you can use the command
 
 ```console
@@ -394,7 +406,7 @@ marie@login$ whypending <jobid>
 
 ### Editing Jobs
 
-Jobs that have not yet started can be altered. Using `scontrol update timelimit=4:00:00
+Jobs that have not yet started can be altered. By using `scontrol update timelimit=4:00:00
 jobid=<jobid>`, it is for example possible to modify the maximum runtime. `scontrol` understands
 many different options, please take a look at the
 [scontrol documentation](https://slurm.schedmd.com/scontrol.html) for more details.
@@ -404,62 +416,70 @@ many different options, please take a look at the
 The command `scancel <jobid>` kills a single job and removes it from the queue. By using `scancel -u
 <username>`, you can send a canceling signal to all of your jobs at once.
 
-### Accounting
+### Evaluating Jobs
 
 The Slurm command `sacct` provides job statistics like memory usage, CPU time, energy usage etc.
+as table-formatted output on the command line.
+
+The job monitor [PIKA](../software/pika.md) provides web-based graphical performance statistics
+at no extra cost.
 
 !!! hint "Learn from old jobs"
 
-    We highly encourage you to use `sacct` to learn from you previous jobs in order to better
+    We highly encourage you to inspect your previous jobs in order to better
     estimate the requirements, e.g., runtime, for future jobs.
+    With PIKA, it is e.g. easy to check whether a job is hanging, idling,
+    or making good use of the resources.
 
-`sacct` outputs the following fields by default.
-
-```console
-# show all own jobs contained in the accounting database
-marie@login$ sacct
-       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
------------- ---------- ---------- ---------- ---------- ---------- --------
-[...]
-```
-
-We'd like to point your attention to the following options to gain insight in your jobs.
-
-??? example "Show specific job"
+??? tip "Using sacct (see also `man sacct`)"
+    `sacct` outputs the following fields by default.
 
     ```console
-    marie@login$ sacct --jobs=<JOBID>
+    # show all own jobs contained in the accounting database
+    marie@login$ sacct
+        JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
+    ------------ ---------- ---------- ---------- ---------- ---------- --------
+    [...]
     ```
 
-??? example "Show all fields for a specific job"
+    We'd like to point your attention to the following options to gain insight in your jobs.
 
-    ```console
-    marie@login$ sacct --jobs=<JOBID> --format=All
-    ```
+    ??? example "Show specific job"
 
-??? example "Show specific fields"
+        ```console
+        marie@login$ sacct --jobs=<JOBID>
+        ```
 
-    ```console
-    marie@login$ sacct --jobs=<JOBID> --format=JobName,MaxRSS,MaxVMSize,CPUTime,ConsumedEnergy
-    ```
+    ??? example "Show all fields for a specific job"
 
-The manual page (`man sacct`) and the [sacct online reference](https://slurm.schedmd.com/sacct.html)
-provide a comprehensive documentation regarding available fields and formats.
+        ```console
+        marie@login$ sacct --jobs=<JOBID> --format=All
+        ```
 
-!!! hint "Time span"
+    ??? example "Show specific fields"
 
-    By default, `sacct` only shows data of the last day. If you want to look further into the past
-    without specifying an explicit job id, you need to provide a start date via the option
-    `--starttime` (or short: `-S`). A certain end date is also possible via `--endtime` (or `-E`).
+        ```console
+        marie@login$ sacct --jobs=<JOBID> --format=JobName,MaxRSS,MaxVMSize,CPUTime,ConsumedEnergy
+        ```
 
-??? example "Show all jobs since the beginning of year 2021"
+    The manual page (`man sacct`) and the [sacct online reference](https://slurm.schedmd.com/sacct.html)
+    provide a comprehensive documentation regarding available fields and formats.
 
-    ```console
-    marie@login$ sacct -S 2021-01-01 [-E now]
-    ```
+    !!! hint "Time span"
+
+        By default, `sacct` only shows data of the last day. If you want to look further into the past
+        without specifying an explicit job id, you need to provide a start date via the option
+        `--starttime` (or short: `-S`). A certain end date is also possible via `--endtime` (or `-E`).
+
+    ??? example "Show all jobs since the beginning of year 2021"
+
+        ```console
+        marie@login$ sacct -S 2021-01-01 [-E now]
+        ```
 
 ## Jobs at Reservations
 
+Within a reservation, you have privileged access to HPC resources.
 How to ask for a reservation is described in the section
 [reservations](overview.md#exclusive-reservation-of-hardware).
 After we agreed with your requirements, we will send you an e-mail with your reservation name. Then,
@@ -471,7 +491,7 @@ marie@login$ scontrol show res=<reservation name>
 ```
 
 If you want to use your reservation, you have to add the parameter
-`--reservation=<reservation name>` either in your sbatch script or to your `srun` or `salloc` command.
+`--reservation=<reservation name>` either in your job script or to your `srun` or `salloc` command.
 
 ## Node Features for Selective Job Submission
 

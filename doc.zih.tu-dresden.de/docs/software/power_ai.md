@@ -5,7 +5,7 @@ the PowerAI Framework for Machine Learning. In the following the links
 are valid for PowerAI version 1.5.4.
 
 !!! warning
-    The information provided here is available from IBM and can be used on partition ml only!
+    The information provided here is available from IBM and can be used on partition `ml` only!
 
 ## General Overview
 

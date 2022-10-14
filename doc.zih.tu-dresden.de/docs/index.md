@@ -25,11 +25,11 @@ Please also find out the other ways you could contribute in our [guidelines how 
 
 **2022-01-13** [Supercomputing extension for TU Dresden](https://tu-dresden.de/zih/die-einrichtung/news/supercomputing-cluster-2022)
 
-**2021-09-29** Introduction to HPC at ZIH ([HPC introduction slides](misc/HPC-Introduction.pdf))
-
 ## Training and Courses
 
 We offer a rich and colorful bouquet of courses from classical *HPC introduction* to various
 *Performance Analysis* and *Machine Learning* trainings. Please refer to the page
 [Training Offers](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-training)
 for a detailed overview of the courses and the respective dates at ZIH.
+
+* [HPC introduction slides](misc/HPC-Introduction.pdf) (Sep. 2021)

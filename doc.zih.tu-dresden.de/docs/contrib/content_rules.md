@@ -394,12 +394,12 @@ This should help to avoid errors.
 | Localhost              | `marie@local$`   |
 | Login nodes            | `marie@login$`   |
 | Arbitrary compute node | `marie@compute$` |
-| `haswell` partition    | `marie@haswell$` |
-| `ml` partition         | `marie@ml$`      |
-| `alpha` partition      | `marie@alpha$`   |
-| `romeo` partition      | `marie@romeo$`   |
-| `julia` partition      | `marie@julia$`   |
-| `dcv` partition        | `marie@dcv$`     |
+| Partition `haswell`    | `marie@haswell$` |
+| Partition `ml`         | `marie@ml$`      |
+| Partition `alpha`      | `marie@alpha$`   |
+| Partition `romeo`      | `marie@romeo$`   |
+| Partition `julia`      | `marie@julia$`   |
+| Partition `dcv`        | `marie@dcv$`     |
 
 * **Always use a prompt**, even if there is no output provided for the shown command.
 * All code blocks which specify some general command templates, e.g. containing `<` and `>`

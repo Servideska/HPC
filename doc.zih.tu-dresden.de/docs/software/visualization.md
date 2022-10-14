@@ -44,7 +44,7 @@ MPI processes to hardware.  A convenient option is `-bind-to core`. All other op
 obtained by
 
 ```console
-marie@login$ mpiexec -bind-to -help`
+marie@login$ mpiexec -bind-to -help
 ```
 
 or from
@@ -135,7 +135,7 @@ virtual desktop session, then load the ParaView module as usual and start the GU
 
 ```console
 marie@dcv$ module load ParaView/5.7.0
-paraview
+marie@dcv$ paraview
 ```
 
 Since your DCV session already runs inside a job, which has been scheduled to a compute node, no

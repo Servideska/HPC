@@ -88,7 +88,7 @@ To use fluent interactively, please try:
 ```console
 marie@login$ module load ANSYS/19.2
 marie@login$ srun --nodes=1 --cpus-per-task=4 --time=1:00:00 --pty --x11=first bash
-marie@login$ fluent &
+marie@compute$ fluent &
 ```
 
 ## STAR-CCM+
