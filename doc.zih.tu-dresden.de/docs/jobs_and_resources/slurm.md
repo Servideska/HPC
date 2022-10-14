@@ -229,7 +229,7 @@ marie@login$ srun --ntasks=1 --pty --x11=first xeyes
 
     that probably means you still have an old host key for the target node in your
     `~.ssh/known_hosts` file (e.g. from pre-SCS5). This can be solved either by removing the entry
-    from your known_hosts or by simply deleting the `known_hosts` file altogether if you don't have
+    from your `known_hosts` or by simply deleting the `known_hosts` file altogether if you don't have
     important other entries in it.
 
 ## Batch Jobs
@@ -335,7 +335,7 @@ marie@login$ srun ./my_application <args for master tasks> : ./my_application <a
 ```
 
 Heterogeneous jobs can also be defined in job files. There, it is required to separate multiple
-components by a line containing the directive `"#SBATCH hetjob`.
+components by a line containing the directive `#SBATCH hetjob`.
 
 ```bash
 #!/bin/bash
@@ -374,7 +374,7 @@ On the command line, use `squeue` to watch the scheduling queue.
 
     Invoke `squeue --me` to list only your jobs.
 
-In it's last column, the `squeue` command will also tell why a job is not running.
+In its last column, the `squeue` command will also tell why a job is not running.
 Possible reasons and their detailed descriptions are listed in the following table.
 More information about job parameters can be obtained with `scontrol -d show
 job <jobid>`.
