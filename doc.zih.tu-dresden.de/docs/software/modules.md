@@ -227,6 +227,23 @@ In some cases a desired software is available as an extension of a module.
     2.4.1
     ```
 
+### Toolchains
+
+The Core level also comprises several **toolchain modules**, e.g. *gompi*, *foss*, and *intel*. These meta-modules provide a combination of certain compilers, MPI, and/or BLAS libraries. Loading a toolchain will make all modules available that have been built with this respective toolchain (deepest level of module hierarchy). Some of the toolchain modules are only sub-toolchains, like *gompi* which contains a compiler and MPI library, but no BLAS library.
+
+The available toolchains are:
+
+^ Toolchain Module ^ Compiler ^ MPI Library ^ Math Libraries ^
+| foss | GCC | OpenMPI | OpenBLAS + FFTW |
+| gompi | GCC | OpenMPI | |
+| intel | icc + ifort | impi (Intel MPI) | imkl (Intel MKL) |
+| iimpi | icc + ifort | impi (Intel MPI) | |
+| iccifort | icc + ifort | | |
+
+The *foss/2019a* (Free and Open Source Software) toolchain is **set as default module** and therefor, **loaded automatically on login**. Thus, many of the applications built with this toolchain are available right from the start. This behavior can be changed via `module save`, see below.
+
+**Warning: All** intel toolchains show only half capacity of the InfiniBand communication between nodes in comparison to the foss toolchains! Be aware that this can cause performance differences.
+
 ## Per-Architecture Builds
 
 Since we have a heterogeneous cluster, we do individual builds of some of the software for each
