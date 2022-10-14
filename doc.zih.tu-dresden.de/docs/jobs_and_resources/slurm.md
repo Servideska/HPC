@@ -94,7 +94,7 @@ can find it via `squeue --me`. The job ID allows you to
 
     On ZIH systems, `srun` is used to run your parallel application. The use of `mpirun` is provenly
     broken on partitions `ml` and `alpha` for jobs requiring more than one node. Especially when
-    using code from github projects, double-check it's configuration by looking for a line like
+    using code from github projects, double-check its configuration by looking for a line like
     'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'.
 
     Otherwise, this may lead to wrong resource distribution and thus job failure, or tremendous
