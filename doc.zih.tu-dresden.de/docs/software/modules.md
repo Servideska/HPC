@@ -129,7 +129,7 @@ marie@compute$ module load modenv/ml
 ### modenv/scs5 (default)
 
 * SCS5 software
-* usually optimized for Intel processors (Partitions: `haswell`, `broadwell`, `gpu2`, `julia`)
+* usually optimized for Intel processors (partitions `haswell`, `broadwell`, `gpu2`, `julia`)
 
 ### modenv/ml
 
@@ -142,7 +142,7 @@ Thus the 'machine code' of other modenvs breaks).
 ### modenv/hiera
 
 * uses a hierarchical module load scheme
-* optimized software for AMD processors (Partitions: romeo, alpha)
+* optimized software for AMD processors (partitions `romeo` and `alpha`)
 
 ### modenv/classic
 
