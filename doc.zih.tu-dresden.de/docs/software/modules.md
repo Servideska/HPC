@@ -253,12 +253,13 @@ toolchain will make all modules available that have been built with this respect
 
 The available toolchains are:
 
-^ Toolchain Module ^ Compiler ^ MPI Library ^ Math Libraries ^
-| foss | GCC | OpenMPI | OpenBLAS + FFTW |
-| gompi | GCC | OpenMPI | |
-| intel | icc + ifort | impi (Intel MPI) | imkl (Intel MKL) |
-| iimpi | icc + ifort | impi (Intel MPI) | |
-| iccifort | icc + ifort | | |
+| Toolchain Module | Compiler | MPI Library | Math Libraries |
+|---|---|---|---|
+| `foss` | `GCC` | OpenMPI | OpenBLAS + FFTW |
+| `gompi` | `GCC` | OpenMPI | |
+| `intel` | `icc` + `ifort` | `impi` (Intel MPI) | `imkl` (Intel MKL) |
+| `iimpi` | `icc` + `ifort` | `impi` (Intel MPI) | |
+| `iccifort` | `icc` + `ifort` | | |
 
 The *foss/2019a* (Free and Open Source Software) toolchain is **set as default module** and
 therefor, **loaded automatically on login**. Thus, many of the applications built with this
