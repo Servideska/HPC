@@ -13,7 +13,7 @@ Think in advance about the parallelization strategy for your project and how to 
 
 ## Available Software
 
-Pre-installed software on our HPC systems is managed via [modules](https://doc.zih.tu-dresden.de/software/modules/.
+Pre-installed software on our HPC systems is managed via [modules](../software/modules.md).
 You can see the
 [list of software that's already installed and accessible via modules](https://gauss-allianz.de/de/application?organizations%5B0%5D=1200).
 However, there are many
