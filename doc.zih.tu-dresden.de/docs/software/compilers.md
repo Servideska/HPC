@@ -2,16 +2,17 @@
 
 The following compilers are available on the ZIH system:
 
-|                      | GNU Compiler Collection | Intel Compiler | PGI Compiler (Nvidia HPC SDK) |
-|----------------------|-----------|------------|-------------|
-| Further information  | [GCC website](https://gcc.gnu.org/) | [C/C++](https://software.intel.com/en-us/c-compilers), [Fortran](https://software.intel.com/en-us/fortran-compilers) | [PGI website](https://www.pgroup.com) |
-| Module name          | GNU        | intel     | PGI         |
-| C Compiler           | `gcc`      | `icc`     | `pgcc`      |
-| C++ Compiler         | `g++`      | `icpc`    | `pgc++`     |
-| Fortran Compiler     | `gfortran` | `ifort`   | `pgfortran` |
+|                      | GNU Compiler Collection | Clang Compiler | Intel Compiler | PGI Compiler (Nvidia HPC SDK) |
+|----------------------|-------------------------|----------------|----------------|-------------------------------|
+| Further information  | [GCC website](https://gcc.gnu.org/) | [Clang documentation](https://clang.llvm.org/docs/UsersManual.html) | [C/C++](https://software.intel.com/en-us/c-compilers), [Fortran](https://software.intel.com/en-us/fortran-compilers) | [PGI website](https://www.pgroup.com) |
+| Module name          | GCC        | Clang      | iccifort  | PGI         |
+| C Compiler           | `gcc`      | `clang`    | `icc`     | `pgcc`      |
+| C++ Compiler         | `g++`      | `clang++`  | `icpc`    | `pgc++`     |
+| Fortran Compiler     | `gfortran` |     -      | `ifort`   | `pgfortran` |
 
 For an overview of the installed compiler versions, please use `module spider <module name>`
 on the ZIH systems.
+Additionally you can use `module av` and look below "compilers" to see all available compiler modules.
 
 All compilers support various language standards, at least up to ISO C11, ISO C++ 2014, and Fortran 2003.
 Please check the man pages to verify that your code can be compiled.

@@ -79,7 +79,7 @@ There are three basic Slurm commands for job submission and execution:
 1. `salloc`: Obtain a Slurm job allocation (i.e., resources like CPUs, nodes and GPUs) for
 interactive use. Release the allocation when finished.
 
-Using `srun` directly on the shell will be blocking and launch an
+Executing a program with `srun` directly on the shell will be blocking and launch an
 [interactive job](#interactive-jobs). Apart from short test runs, it is recommended to submit your
 jobs to Slurm for later execution by using [batch jobs](#batch-jobs). For that, you can conveniently
 put the parameters in a [job file](#job-files), which you can submit using `sbatch
@@ -94,7 +94,7 @@ can find it via `squeue --me`. The job ID allows you to
 
     On ZIH systems, `srun` is used to run your parallel application. The use of `mpirun` is provenly
     broken on partitions `ml` and `alpha` for jobs requiring more than one node. Especially when
-    using code from github projects, double-check it's configuration by looking for a line like
+    using code from github projects, double-check its configuration by looking for a line like
     'submit command  mpirun -n $ranks ./app' and replace it with 'srun ./app'.
 
     Otherwise, this may lead to wrong resource distribution and thus job failure, or tremendous
@@ -196,7 +196,7 @@ marie@compute$ srun --overlap hostname
 taurusi6604.taurus.hrsk.tu-dresden.de
 ```
 
-!!! note "Using `module` commands"
+!!! note "Using `module` commands in interactive mode"
 
     The [module commands](../software/modules.md) are made available by sourcing the files
     `/etc/profile` and `~/.bashrc`. This is done automatically by passing the parameter `-l` to your
@@ -229,7 +229,7 @@ marie@login$ srun --ntasks=1 --pty --x11=first xeyes
 
     that probably means you still have an old host key for the target node in your
     `~.ssh/known_hosts` file (e.g. from pre-SCS5). This can be solved either by removing the entry
-    from your known_hosts or by simply deleting the `known_hosts` file altogether if you don't have
+    from your `known_hosts` or by simply deleting the `known_hosts` file altogether if you don't have
     important other entries in it.
 
 ## Batch Jobs
@@ -335,7 +335,7 @@ marie@login$ srun ./my_application <args for master tasks> : ./my_application <a
 ```
 
 Heterogeneous jobs can also be defined in job files. There, it is required to separate multiple
-components by a line containing the directive `"#SBATCH hetjob`.
+components by a line containing the directive `#SBATCH hetjob`.
 
 ```bash
 #!/bin/bash
@@ -374,7 +374,7 @@ On the command line, use `squeue` to watch the scheduling queue.
 
     Invoke `squeue --me` to list only your jobs.
 
-In it's last column, the `squeue` command will also tell why a job is not running.
+In its last column, the `squeue` command will also tell why a job is not running.
 Possible reasons and their detailed descriptions are listed in the following table.
 More information about job parameters can be obtained with `scontrol -d show
 job <jobid>`.
