@@ -266,9 +266,6 @@ therefor, **loaded automatically on login**. Thus, many of the applications buil
 toolchain are available right from the start. This behavior can be changed via `module save`, see
 below.
 
-**Warning: All** intel toolchains show only half capacity of the InfiniBand communication between
-nodes in comparison to the foss toolchains! Be aware that this can cause performance differences.
-
 ## Per-Architecture Builds
 
 Since we have a heterogeneous cluster, we do individual builds of some of the software for each
