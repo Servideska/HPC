@@ -239,9 +239,9 @@ The available software packages are structured within the following three-levele
 On login (or after module purge, see later) only Core modules are available. More modules will made
 be visible when modules from Compiler and MPI level are loaded.
 
-The command module avail lists directly loadable modules available in the current level of the
-hierarchy tree. On the other hand, module spider lists all available modules across all module
-environments.
+The command `module avail` lists directly loadable modules available in the current level of the
+hierarchy tree. On the other hand, `module spider` lists all available modules across all module
+environments. And `module spider <modulename>` shows which modules need to be loaded in order to load the specified module.
 
 ### Toolchains
 
