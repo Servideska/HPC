@@ -68,8 +68,8 @@ the environment as follows:
 
 ??? example
 
-    This is an example on partition `alpha`. The example creates a conda virtual environment, and
-    installs the package `torchvision` with conda.
+    This is an example on partition `alpha`. The example creates a python virtual environment, and
+    installs the package `torchvision` with pip.
     ```console
     marie@login$ srun --partition=alpha-interactive --nodes=1 --gres=gpu:1 --time=01:00:00 --pty bash
     marie@alpha$ ws_allocate -F scratch my_python_virtualenv 100    # use a workspace for the environment
