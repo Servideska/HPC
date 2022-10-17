@@ -241,7 +241,8 @@ be visible when modules from Compiler and MPI level are loaded.
 
 The command `module avail` lists directly loadable modules available in the current level of the
 hierarchy tree. On the other hand, `module spider` lists all available modules across all module
-environments. And `module spider <modulename>` shows which modules need to be loaded in order to load the specified module.
+environments. And `module spider <modulename>` shows which modules need to be loaded in order to
+load the specified module.
 
 ### Toolchains
 
@@ -249,7 +250,7 @@ The Core level also comprises several **toolchain modules**, e.g. `gompi`, `foss
 These meta-modules provide a combination of certain compilers, MPI, and/or BLAS libraries. Loading a
 toolchain will make all modules available that have been built with this respective toolchain
 (deepest level of module hierarchy). Some of the toolchain modules are only sub-toolchains, like
-*gompi* which contains a compiler and MPI library, but no BLAS library.
+`gompi` which contains a compiler and MPI library, but no BLAS library.
 
 The available toolchains are:
 
@@ -261,7 +262,7 @@ The available toolchains are:
 | `iimpi` | `icc` + `ifort` | `impi` (Intel MPI) | |
 | `iccifort` | `icc` + `ifort` | | |
 
-The *foss/2019a* (Free and Open Source Software) toolchain is **set as default module** and
+The `foss/2019a` (Free and Open Source Software) toolchain is **set as default module** and
 therefore, **loaded automatically on login**. Thus, many of the applications built with this
 toolchain are available right from the start. This behavior can be changed via `module save`, see
 below.
