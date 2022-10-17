@@ -262,7 +262,7 @@ The available toolchains are:
 | `iccifort` | `icc` + `ifort` | | |
 
 The *foss/2019a* (Free and Open Source Software) toolchain is **set as default module** and
-therefor, **loaded automatically on login**. Thus, many of the applications built with this
+therefore, **loaded automatically on login**. Thus, many of the applications built with this
 toolchain are available right from the start. This behavior can be changed via `module save`, see
 below.
 
