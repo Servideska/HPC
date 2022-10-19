@@ -62,7 +62,7 @@ Memory requirements for your job can be specified via the `sbatch/srun` paramete
 of the partition it runs on is quite low at **300 MB** per CPU. If you need more memory, you need
 to request it.
 
-ZIH system comprises different sets of nodes with different amount of installed memory which affect
+ZIH systems comprise different sets of nodes with different amount of installed memory which affect
 where your job may be run. To achieve the shortest possible waiting time for your jobs, you should
 be aware of the limits shown in the following table.
 
