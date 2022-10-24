@@ -90,7 +90,7 @@ For machine learning, we have 32 IBM AC922 nodes installed with this configurati
 
 ### Extension of Island 4 with Broadwell CPUs
 
-* 32 nodes, each witch 2 x Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz
+* 32 nodes, each with 2 x Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz
   (**14 cores**), Multithreading disabled, 64 GB RAM, 256 GB SSD local disk
 * from the users' perspective: Broadwell is like Haswell
 * Hostname: `taurusi[4233-4264]`
