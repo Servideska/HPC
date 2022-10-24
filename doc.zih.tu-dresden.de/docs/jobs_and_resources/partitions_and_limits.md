@@ -32,7 +32,7 @@ Shorter jobs come with multiple advantages:
 
 To bring down the percentage of long running jobs we restrict the number of cores with jobs longer
 than 2 days to approximately 50% and with jobs longer than 24 to 75% of the total number of cores.
-(These numbers are subject to changes.) As best practice we advise a run time of about 8h.
+(These numbers are subject to change.) As best practice we advise a run time of about 8h.
 
 !!! hint "Please always try to make a good estimation of your needed time limit."
 
@@ -58,10 +58,11 @@ not capable of checkpoint/restart can be adapted. Please refer to the section
 
 Memory requirements for your job can be specified via the `sbatch/srun` parameters:
 
-`--mem-per-cpu=<MB>` or `--mem=<MB>` (which is "memory per node"). The **default limit** is quite
-low at **300 MB** per CPU.
+`--mem-per-cpu=<MB>` or `--mem=<MB>` (which is "memory per node"). The **default limit** regardless
+of the partition it runs on is quite low at **300 MB** per CPU. If you need more memory, you need
+to request it.
 
-ZIH systems comprises different sets of nodes with different amount of installed memory which affect
+ZIH systems comprise different sets of nodes with different amount of installed memory which affect
 where your job may be run. To achieve the shortest possible waiting time for your jobs, you should
 be aware of the limits shown in the following table.
 
