@@ -6,7 +6,7 @@ ZIH systems [Singularity](https://sylabs.io/) is used as a standard container so
 enables users to have full control of their environment. This means that you don’t have to ask the
 HPC support to install anything for you - you can put it in a Singularity container and run! As
 opposed to Docker (the most famous container solution), Singularity is much more suited to being
-used in an HPC environment and more efficient in many cases. Docker containers can easily be used in
+used in an HPC environment and more efficient in many cases. Docker images can easily be used in
 Singularity. Information about the use of Singularity on ZIH systems can be found on this page.
 
 In some cases using Singularity requires a Linux machine with root privileges (e.g. using the
