@@ -92,6 +92,21 @@ below.
     echo "All parallel job steps completed!"
     ```
 
+### Request Ressources for Parallel Make
+
+From time to time, you want to build and compile software and applications on a compute node.
+But, do you need to request tasks or CPUs from Slurm in order to provide ressources for the parallel `make` command?
+The answer is "CPUs".
+
+!!! example "Interactive allocation for parallel `make` command"
+
+    ```console
+    marie@login $ srun --ntasks=1 --cpus-per-task=16 --mem=16G --time=01:00:00 --pty bash
+    [...]
+    marie@compute $ # prepare the source code for building using configure, cmake or so
+    marie@compute $ make -j
+    ```
+
 ## Requesting GPUs
 
 Slurm will allocate one or many GPUs for your job if requested. Please note that GPUs are only
