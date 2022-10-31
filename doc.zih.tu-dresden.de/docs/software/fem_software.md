@@ -77,7 +77,7 @@ Slurm or [writing job files](../jobs_and_resources/slurm.md#job-files).
     ```
     4. Control the status of the job
     ```
-    marie@login squeue --me     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
+    marie@login$ squeue --me     # in column "ST" (Status) you will find a R=Running or P=Pending (waiting for resources)
     ```
 
 ## Ansys
