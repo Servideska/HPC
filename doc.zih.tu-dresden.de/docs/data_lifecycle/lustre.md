@@ -46,6 +46,8 @@ Lustre offers a number of commands that are suited to its architecture.
 | `ls -l <filename>` | `ls -l` |
 | `ls` | `ls --color` |
 
+In case commands such as `du` are needed, for example to identify large directories, these commands should be applied to as little data as possible. You should not just query the main directory in general, you should try to work in the sub directories first. The deeper in the structure, the better.
+
 ## Useful Commands for Lustre
 
 These commands work for Lustre filesystems `/scratch` and `/ssd`.
