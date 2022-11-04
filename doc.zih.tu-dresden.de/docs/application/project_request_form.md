@@ -191,7 +191,7 @@ No matter which application you submit, the procedure is always identical.
 
     * **Trial project**: With a trial projects you can test
       whether the HPC resources meet your requirements.
-      Trial projects are all applications with up to 3500 CPUh/month
+      Trial projects are all applications with up to 42.000 CPUh/month
       or 250 GPUh/month. No detailed project description is required.
     * **Regular project**: A regular project are for data intensive and
       compute intensive HPC applications, e.g. FEM, CFD and MD simulations.
