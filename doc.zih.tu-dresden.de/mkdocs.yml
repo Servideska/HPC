@@ -74,6 +74,8 @@ nav:
       - Hyperparameter Optimization (OmniOpt): software/hyperparameter_optimization.md
       - Machine Learning with PowerAI: software/power_ai.md
     - Virtual Desktops: software/virtual_desktops.md
+    - Experience Reports:
+      - PALM: software/palm.md
   - Software Development and Tools:
     - Overview: software/software_development_overview.md
     - Building Software:
