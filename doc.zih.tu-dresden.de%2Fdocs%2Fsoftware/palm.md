@@ -1,11 +1,11 @@
 # PALM
 
-PALM is a Large Eddie Simulation tool (LES) which is described on it's
+PALM is a Large Eddie Simulation tool (LES). A Description of PALM can be found on it's
 [wiki page](http://palm.muk.uni-hannover.de/trac/wiki/palm).
 
 ## Build
 
-There are two versions of PALM tested on ZIH system's `haswell` partition: One is compiled with Intel and the other with GNU compiler suite. You can use one of the following build workflows and run each of the commands seperately on the console.
+There are two versions of PALM tested on ZIH system's partition `haswell`: One is compiled with Intel and another with the GNU compiler suite. You can use one of the following build workflows and run each of the commands seperately on the console.
 - Replace `<user>` with your ZIH login name (lines 1 and 3)
 
 More information about the installation process can be found on the [PALM Installation wiki page](http://palm.muk.uni-hannover.de/trac/wiki/doc/install/advanced).
@@ -141,10 +141,10 @@ More information about the installation process can be found on the [PALM Instal
 
 ## Configuration
 
-The configurations for the `haswell` partition for both Intel and GNU versions should be included in the next release of PALM (>22.04). If they are not yet available, copy the configuration from below and save it as `</palm/installation/folder>/.palm.config.taurus_[gnu|intel]`.
+The configurations for the target partition `haswell` for both Intel and GNU versions should be included in the next release of PALM (>22.04). If they are not yet available, copy the configuration from below and save it as `</palm/installation/folder>/.palm.config.taurus_[gnu|intel]`.
 - Replace the values of `%workspace` and `%base_directory` (lines 14 and 15) with the values determined from the default configuration `.palm.config.default`
 - Replace the value of `%local_username` with your username (line 27)
-- Replace the value of `%project_account` with your project account name (line 35)
+- Replace the value of `%project_account` with your project name (line 35)
 
 ??? tip "PALM Configuration files"
     === .palm.config.taurus_gnu
@@ -252,7 +252,7 @@ The configurations for the `haswell` partition for both Intel and GNU versions s
         OC:[[ -f PARTICLE_INFOS/_0000 ]]  &&  cat  PARTICLE_INFOS/* >> PARTICLE_INFO
         ```
 
-    === .palm.config.taurus_gnu
+    === .palm.config.taurus_intel
         ```bash linenums="1"
         ################################################################################
         # This is a configuration file for PALM on TUD's HPC cluster Taurus. 
@@ -359,6 +359,9 @@ The configurations for the `haswell` partition for both Intel and GNU versions s
 ## Execution
 
 You can use the following batch scripts to submit a PALM simulation job. You are welcome to modify these examples according to your needs.
+- Replace `<p_projectname>` (line 3) with your project name
+- Replace `<firstname.lastname>@tu-dresden.de` (line 12) with your valid email address to receive a notification on job start
+- Replace `wm=/scratch/ws/0/<user>-palm` (line 27) with your PALM installation path
 
 ??? tip "Submit PALM with batch script"
     === submit_gpalm.sh (GCC 2021a)
@@ -576,3 +579,7 @@ You can use the following batch scripts to submit a PALM simulation job. You are
 
         palmrun -r $case -c taurus_intel -a "d3#" -T $SLURM_NTASKS_PER_NODE -X $SLURM_NTASKS -v -z
         ```
+
+## Resolved Issues
+
+TODO: list/explain resolved issues
