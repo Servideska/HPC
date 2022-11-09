@@ -299,7 +299,7 @@ determined from the default configuration `.palm.config.default`
         %execute_command     srun ./palm
         #
         %memory              10160
-        %module_commands     module load iimpi/2021b FFTW/3.3.10-iimpi-2021b netCDF-Fortran/4.5.3-iimpi-2021b Python/3.9.6-GCCcore-11.2.0
+        #%module_commands     module load iimpi/2021b FFTW/3.3.10-iimpi-2021b netCDF-Fortran/4.5.3-iimpi-2021b Python/3.9.6-GCCcore-11.2.0
         #%login_init_cmd      <./execute_cmd_first>
         #
         %compiler_name       \$(which mpiifort)
@@ -394,7 +394,7 @@ a notification on job start
         module load FFTW/3.3.9-gompi-2021a
         module load netCDF-Fortran/4.5.3-gompi-2021a
         module load Python/3.9.5-GCCcore-10.3.0
-        module load CMake/3.20.1-GCCcore-10.3.0
+        #
 
         # workspace
         export wm=/scratch/ws/0/<user>-palm
@@ -448,7 +448,7 @@ a notification on job start
         module load FFTW/3.3.8-gompi-2019a
         module load netCDF-Fortran/4.4.5-gompi-2019a
         module load Python/3.7.2-GCCcore-8.2.0
-        module load CMake/3.13.3-GCCcore-8.2.0
+        #
 
         # workspace
         export wm=/scratch/ws/0/<user>-palm
@@ -594,25 +594,29 @@ a notification on job start
 
 !!! failure "Error: Floating Point Exception"
     For the Intel 2020a version there is a floating point exception.
+
 !!! note "Explanation"
     This is an internal error produced by Intel's Hydra process manager (see 
-[HLRN solution](https://www.hlrn.de/doc/display/PUB/Floating+point+exception+with+Intel+MPI+2019.x+using+one+task+per+node)).
+    [HLRN solution](https://www.hlrn.de/doc/display/PUB/Floating+point+exception+with+Intel+MPI+2019.x+using+one+task+per+node)).
+    For the workflow with Intel 2021b or newer versions, this error is obsolete.
+
 !!! success "Solution"
     Use `export I_MPI_HYDRA_TOPOLIB=ipl` to add this workaround setting to your runtime environment.
-    For the workflow with Intel 2021b, this workaround is obsolete.
 
 ### Performance Loss with Intel
 
 !!! warning "Intel vs. GCC"
     Comparing the runtime of the Intel version and GCC-compiled version there is a massive
-performance loss.
+    performance loss.
+
 !!! note "Explanation"
     In the workflow with Intel, `mpirun` causes the use of an alternate underlying MPI library.
-This means tremendeous slowdowns of MPI communication calls resulting in a performance loss of
-at least factor 8 for a test simulation with 4 processes on one node.
+    This means tremendeous slowdowns of MPI communication calls resulting in a performance loss of
+    at least factor 8 for a test simulation with 4 processes on one node.
+
 !!! success "Solution"
     Use `srun` instead of `mpirun` as the `%execute_command` in your
-[configuration file](#configuration).
+    [configuration file](#configuration).
 
 ### Other Problems
 
