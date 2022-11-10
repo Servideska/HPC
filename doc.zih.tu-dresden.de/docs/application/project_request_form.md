@@ -46,11 +46,9 @@ All steps for an application are documented in detail below.
 Since January 2021 ZIH, TU Dresden is a NHR-center (Nationales Hochleistungsrechnen).
 More details can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
 
-At ZIH, TU Dresden we have two different kinds of application
-for applying for HPC resources: NHR and TUD/TIER3.
+At ZIH, TU Dresden for applying for HPC resources on NHR:
 
 - [NHR](https://projects.hpc.tu-dresden.de/application/login.php?appkind=nhr)
-- [TUD/Tier3](https://projects.hpc.tu-dresden.de/application/login.php?appkind=tier3)
 
 ![HPC Project Application][37]
 
