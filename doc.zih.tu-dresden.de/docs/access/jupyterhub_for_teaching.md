@@ -112,7 +112,7 @@ You can combine both features in a single link:
 https://taurus.hrsk.tu-dresden.de/jupyter/hub/user-redirect/git-pull?repo=https://github.com/jdwittenauer/ipython-notebooks&urlpath=/tree/ipython-notebooks/notebooks/language/Intro.ipynb#/~(partition~'interactive~environment~'test)
 ```
 
-![URL with quickstart parameters](misc/url-quick-start.png)
+![URL with quickstart parameters](misc/url-git-pull-and-quick-start.png)
 {: align="center"}
 
 ## Open a Notebook Automatically with a Single Link

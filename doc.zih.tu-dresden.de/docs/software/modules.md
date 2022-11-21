@@ -227,6 +227,96 @@ In some cases a desired software is available as an extension of a module.
     2.4.1
     ```
 
+## Toolchains
+
+A program or library may break in various ways
+(e.g. not starting, crashing or producing wrong results)
+when it is used with a software of a different version than it expects.  
+So each module specifies the exact other modules it depends on.
+They get loaded automatically when the dependent module is loaded.
+
+Loading a single module is easy as there can't be any conflicts between dependencies.
+However when loading multiple modules they can require different versions of the same software.
+This conflict is currently handled in that loading the same software with a different version
+automatically unloads the earlier loaded module.
+As the dependents of that module are **not** automatically unloaded this means they now have a
+wrong dependency (version) which can be a problem (see above).
+
+To avoid this there are (versioned) toolchains and for each toolchain there is (usually) at most
+one version of each software.
+A "toolchain" is a set of modules used to build the software for other modules.
+The most common one is the `foss`-toolchain comprising of `GCC`, `OpenMPI`, `OpenBLAS` & `FFTW`.
+
+!!! info
+
+    Modules are named like `<Softwarename>/<Version>-<Toolchain>` so `Python/3.6.6-foss-2019a`
+    uses the `foss-2019a` toolchain.
+
+This toolchain can be broken down into a sub-toolchain called `gompi` comprising of only
+`GCC` & `OpenMPI`, or further to `GCC` (the compiler and linker)
+and even further to `GCCcore` which is only the runtime libraries required to run programs built
+with the GCC standard library.
+
+!!! hint
+
+    As toolchains are regular modules you can display their parts via `module show foss/2019a`.
+
+This way the toolchains form a hierarchy and adding more modules makes them "higher" than another.
+
+Examples:
+
+| Toolchain | Components |
+| --------- | ---------- |
+| `foss`    | `GCC` `OpenMPI` `OpenBLAS` `FFTW` |
+| `gompi`   | `GCC` `OpenMPI` |
+| `GCC`     | `GCCcore` `binutils` |
+| `GCCcore` | none |
+| `intel`   | `intel-compilers` `impi` `imkl` |
+| `iimpi`   | `intel-compilers` `impi` |
+| `intel-compilers` | `GCCcore` `binutils` |
+
+As you can see `GCC` and `intel-compilers` are on the same level, as are `gompi` and `iimpi`
+although they are one level higher than the former.
+
+You can load and use modules from a lower toolchain with modules from
+one of its parent toolchains.  
+For example `Python/3.6.6-foss-2019a` can be used with `Boost/1.70.0-gompi-2019a`.
+
+But you cannot combine toolchains or toolchain versions.
+So `QuantumESPRESSO/6.5-intel-2019a` and `OpenFOAM/8-foss-2020a`
+are both incompatible with `Python/3.6.6-foss-2019a`.  
+However `LLVM/7.0.1-GCCcore-8.2.0` can be used with either
+`QuantumESPRESSO/6.5-intel-2019a` or `Python/3.6.6-foss-2019a`
+because `GCCcore-8.2.0` is a sub-toolchain of `intel-2019a` and `foss-2019a`.
+
+For [modenv/hiera](#modenvhiera) it is much easier to avoid loading incompatible
+modules as modules from other toolchains cannot be directly loaded
+and don't show up in `module av`.
+So the concept if this hierarchical toolchains is already built into this module environment.
+In the other module environments it is up to you to make sure the modules you load are compatible.
+
+So watch the output when you load another module as a message will be shown when loading a module
+causes other modules to be loaded in a different version:
+
+??? example "Module reload"
+
+    ```console
+    marie@login$ ml OpenFOAM/8-foss-2020a
+    Module OpenFOAM/8-foss-2020a and 72 dependencies loaded.
+
+    marie@login$ ml Biopython/1.78-foss-2020b
+    The following have been reloaded with a version change:
+      1) FFTW/3.3.8-gompi-2020a => FFTW/3.3.8-gompi-2020b                                   15) binutils/2.34-GCCcore-9.3.0 => binutils/2.35-GCCcore-10.2.0
+      2) GCC/9.3.0 => GCC/10.2.0                                                            16) bzip2/1.0.8-GCCcore-9.3.0 => bzip2/1.0.8-GCCcore-10.2.0
+      3) GCCcore/9.3.0 => GCCcore/10.2.0                                                    17) foss/2020a => foss/2020b
+      [...]
+    ```
+
+!!! info
+
+    The higher toolchains have a year and letter as their version corresponding to their release.
+    So `2019a` and `2020b` refer to the first half of 2019 and the 2nd half of 2020 respectively.
+
 ## Per-Architecture Builds
 
 Since we have a heterogeneous cluster, we do individual builds of some of the software for each
