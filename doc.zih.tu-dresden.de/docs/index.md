@@ -32,4 +32,4 @@ We offer a rich and colorful bouquet of courses from classical *HPC introduction
 [Training Offers](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-training)
 for a detailed overview of the courses and the respective dates at ZIH.
 
-* [HPC introduction slides](misc/HPC-Introduction.pdf) (Sep. 2021)
+* [HPC introduction slides](misc/HPC-Introduction.pdf) (Nov. 2022)
