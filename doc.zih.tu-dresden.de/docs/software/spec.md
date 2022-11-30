@@ -10,9 +10,10 @@ MPI+openACC, MPI+target offloading.
 ## Installation
 
 The target partition determines which of the parallelization models can be used, and vice versa.
-For example, if you want to run a model including acceleration, you would have to use a partition with GPUs.
+For example, if you want to run a model including acceleration, you would have to use a partition
+with GPUs.
 
-Once the target partition is determined, follow the 
+Once the target partition is determined, follow the
 [Installation Guide](https://www.spec.org/hpg/hpc2021/Docs/install-guide-linux.html),
 it is straight-forward and easy to use.
 
@@ -65,18 +66,18 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #
         #######################################################################
 
-        %ifndef %{label}         # IF label is not set use gnu 
-        %   define label gnu    
-        %endif              
+        %ifndef %{label}         # IF label is not set use gnu
+        %   define label gnu
+        %endif
 
         %ifndef %{model}         # IF model is not set use mpi
-        %   define model mpi      
-        %endif              
+        %   define model mpi
+        %endif
 
         teeout = yes
         makeflags=-j 24
 
-        # Tester Information 
+        # Tester Information
         license_num     = 37A
         tester          = Technische Universitaet Dresden
         test_sponsor    = Technische Universitaet Dresden
@@ -143,13 +144,13 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # Adjust to match your system
 
         # OpenMP (CPU) Settings
-        %if %{model} eq 'omp' 
+        %if %{model} eq 'omp'
         preENV_OMP_PROC_BIND=true
         preENV_OMP_PLACES=cores
         %endif
 
         #OpenMP Targeting Host Settings
-        %if %{model} eq 'tgt' 
+        %if %{model} eq 'tgt'
         preENV_OMP_PROC_BIND=true
         preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,226,27,28,29,30,31,32,33,34,35,36,37,38,39
         %endif
@@ -164,7 +165,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # Score-P performance profiling
         %if %{tudprof} eq 'scorep'
 
-        ## only record calls to main and MPI functions (runtime filtering) 
+        ## only record calls to main and MPI functions (runtime filtering)
         ## runtime filtering was replaced by compile-time filtering (see above)
         # preENV_SCOREP_FILTERING_FILE=/home/brunst/ws-hpc2020/kit91/scorep.filter
 
@@ -174,13 +175,13 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         ## enable profile recording
         preENV_SCOREP_ENABLE_PROFILING=true
 
-        ## set to 'true' to enable detailed trace file recording 
+        ## set to 'true' to enable detailed trace file recording
         preENV_SCOREP_ENABLE_TRACING=false
 
         ## collect memory consumption per node
         preENV_SCOREP_METRIC_RUSAGE=ru_maxrss
 
-        ## uncomment to record cycle counter for scheduling analysis 
+        ## uncomment to record cycle counter for scheduling analysis
         preENV_SCOREP_METRIC_PAPI=PAPI_TOT_CYC
 
         %endif
@@ -189,16 +190,16 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #######################################################################
         # Optimization
 
-        # Note that SPEC baseline rules require that all uses of a given compiler 
+        # Note that SPEC baseline rules require that all uses of a given compiler
         # use the same flags in the same order. See the SPEChpc Run Rules
-        # for more details 
+        # for more details
         #      http://www.spec.org/hpc2021/Docs/runrules.html
         #
         # OPTIMIZE    = flags applicable to all compilers
         # FOPTIMIZE   = flags appliable to the Fortran compiler
         # COPTIMIZE   = flags appliable to the C compiler
         # CXXOPTIMIZE = flags appliable to the C++ compiler
-        # 
+        #
         # See your compiler manual for information on the flags available
         # for your compiler
 
@@ -216,28 +217,28 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # OpenACC flags
         %if %{model} eq 'acc'
         pmodel=ACC
-        OPTIMIZE += -fopenacc -foffload=-lm  
+        OPTIMIZE += -fopenacc -foffload=-lm
         %endif
 
         # OpenMP (CPU) flags
-        %if %{model} eq 'omp' 
+        %if %{model} eq 'omp'
         pmodel=OMP
-        OPTIMIZE += -fopenmp 
+        OPTIMIZE += -fopenmp
         %endif
 
         # OpenMP Targeting host flags
-        %if %{model} eq 'tgt' 
+        %if %{model} eq 'tgt'
         pmodel=TGT
-        OPTIMIZE += -fopenmp 
+        OPTIMIZE += -fopenmp
         %endif
 
         # OpenMP Targeting Nvidia GPU flags
         %if %{model} eq 'tgtnv'
-        pmodel=TGT 
-        OPTIMIZE += -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda 
+        pmodel=TGT
+        OPTIMIZE += -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda
         %endif
 
-        # No peak flags set, so make peak use the same flags as base 
+        # No peak flags set, so make peak use the same flags as base
         default=peak=default:
         basepeak=1
         ```
@@ -866,7 +867,7 @@ search path, execute `source shrc` in your installation folder, first.
 You can now use the following batch scripts to submit a job, carrying out the complete benchmark
 suite or parts of it as specified. The workload is also set here (tiny, small, medium or large).
 
-- Replace `<p_projectname>` (line 2) with your project name
+- Replace `<p_number_crunch>` (line 2) with your project name
 - Replace `<firstname.lastname>@tu-dresden.de` (line 15) with your valid email address to receive
 a notification on job start
 - Replace `ws=/scratch/ws/0/<user>-spec` (line 27) with your SPEC installation path
@@ -875,7 +876,7 @@ a notification on job start
     === run-taurus-mpi-tiny-p24.sh
         ```bash linenums="1"
         #!/bin/bash
-        #SBATCH --account=<p_projectname>
+        #SBATCH --account=<p_number_crunch>
         #SBATCH --time=16:00:00
         #SBATCH --exclusive
         #SBATCH --nodes=1
@@ -896,7 +897,7 @@ a notification on job start
         module load Score-P/6.0-gompi-2019a
 
         # scorep loads OpenMPI and GCC
-        #module load OpenMPI/3.1.1-GCC-7.3.0-2.30 
+        #module load OpenMPI/3.1.1-GCC-7.3.0-2.30
         #module load OpenMPI/4.0.4-GCC-9.3.0
 
         ulimit -s unlimited
@@ -909,7 +910,7 @@ a notification on job start
         BENCH_SMALL_LIST="505.lbm_t 510.picongpu_t 511.palm_t 513.soma_t 518.tealeaf_t 519.clvleaf_t 521.miniswp_t 528.pot3d_t 532.sph_exa_t 534.hpgmgfv_t 535.weather_t"
 
         #
-        # Use tealeaf scorep run to check the benchmark performance 
+        # Use tealeaf scorep run to check the benchmark performance
         #
         BENCH="518.tealeaf_t"
 
@@ -942,7 +943,7 @@ a notification on job start
     === submit_spec_ml_openacc.sh
         ```bash linenums="1"
         #!/bin/bash
-        #SBATCH --account=<p_projectname>     # account CPU time to Project
+        #SBATCH --account=<p_number_crunch>   # account CPU time to Project
         #SBATCH --ntasks=6                    # number of tasks (MPI processes)
         #SBATCH --cpus-per-task=7             # use 7 threads per task
         #SBATCH --gpus-per-task=1             # use 1 gpu thread per task
@@ -981,11 +982,11 @@ a notification on job start
         # reference workload
         runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --rebuild --noreportable --tune=base --iterations=1 $suite
         ```
-    
+
     === submit_spec_alpha_openacc.sh
         ```bash linenums="1"
         #!/bin/bash
-        #SBATCH --account=<p_projectname>     # account CPU time to Project
+        #SBATCH --account=<p_number_crunch>   # account CPU time to Project
         #SBATCH --partition=alpha
         #SBATCH --nodes=1                     # number of compute nodes
         #SBATCH --ntasks-per-node=8           # number of tasks (MPI processes)
@@ -1005,11 +1006,11 @@ a notification on job start
         module switch modenv/hiera
         module load NVHPC
         module load OpenMPI
-        
+
         # all LBM produce "error" initializing openFabrics device:
-        # - can be ignored        
-        
-        
+        # - can be ignored
+
+
         ws=/scratch/ws/0/<user>-spec
         cd $ws
         source shrc
@@ -1142,14 +1143,14 @@ a notification on job start
     For openACC, NVHPC was in the process of adding OpenMP array reduction support which is needed
     for the `pot3d` benchmark. An Nvidia driver version of 450.80.00 or higher is required. Since
     the driver version on partiton `ml` is 440.64.00, it is not supported and not possible to run
-    the `pot3d` benchmark here. 
+    the `pot3d` benchmark here.
 
 !!! note "Workaround"
 
     As for the partition `ml`, you can only wait until the OS update to centOS 8 is carried out,
     as no driver update will be done beforehand.\
     As a workaround, you can do one of the following:\
-    
+
     - Exclude the `pot3d` benchmark
     - Switch the partition (e.g. to `alpha`)
 
@@ -1171,9 +1172,9 @@ a notification on job start
 !!! note "Workaround"
 
     - Use `srun` instead
-    - Use `mpirun` along with a rank-binding perl script (like 
+    - Use `mpirun` along with a rank-binding perl script (like
     `mpirun -np <ranks> perl <bind.pl> <command>`) as seen on the bottom of the configurations
-    [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210908-00012.cfg) and 
+    [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210908-00012.cfg) and
     [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210917-00056.cfg)
 
 

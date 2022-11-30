@@ -7,7 +7,7 @@ PALM is a Large Eddie Simulation tool (LES). A Description of PALM can be found 
 
 There are two versions of PALM tested on ZIH system's partition `haswell`: One is compiled with
 Intel and another with the GNU compiler suite. You can use one of the following build workflows
-and run each of the commands seperately on the console to install PALM in your workspace.
+and run each of the commands separately on the console to install PALM in your workspace.
 
 - Replace `<user>` with your ZIH login name (lines 1 and 3)
 
@@ -158,7 +158,7 @@ determined from the default configuration `.palm.config.default`
     === .palm.config.taurus_gnu
         ```bash linenums="1"
         ################################################################################
-        # This is a configuration file for PALM on TUD's HPC cluster Taurus. 
+        # This is a configuration file for PALM on TUD's HPC cluster Taurus.
         # It must be named: .palm.config.<suffix>
         # in order to use it, call palmbuild and palmrun with the option: -c <suffix>
         # Documentation: http://palm.muk.uni-hannover.de/trac/wiki/doc/app/palm_config
@@ -191,7 +191,7 @@ determined from the default configuration `.palm.config.default`
         #%remote_username     <username>
         #%ssh_key             ~/.ssh/id_rsa
         #
-        %project_account     <p_projectname>
+        %project_account     <p_number_crunch>
         %submit_command      sbatch
         %execute_command     srun ./palm
         #
@@ -263,7 +263,7 @@ determined from the default configuration `.palm.config.default`
     === .palm.config.taurus_intel
         ```bash linenums="1"
         ################################################################################
-        # This is a configuration file for PALM on TUD's HPC cluster Taurus. 
+        # This is a configuration file for PALM on TUD's HPC cluster Taurus.
         # It must be named: .palm.config.<suffix>
         # in order to use it, call palmbuild and palmrun with the option: -c <suffix>
         # Documentation: http://palm.muk.uni-hannover.de/trac/wiki/doc/app/palm_config
@@ -296,7 +296,7 @@ determined from the default configuration `.palm.config.default`
         #%remote_username     <username>
         #%ssh_key             ~/.ssh/id_rsa
         #
-        %project_account     <p_projectname>
+        %project_account     <p_number_crunch>
         %submit_command      sbatch
         %execute_command     srun ./palm
         #
@@ -369,7 +369,7 @@ determined from the default configuration `.palm.config.default`
 You can use the following batch scripts to submit a PALM simulation job. You are welcome to modify
 these examples according to your needs.
 
-- Replace `<p_projectname>` (line 3) with your project name
+- Replace `<p_number_crunch>` (line 3) with your project name
 - Replace `<firstname.lastname>@tu-dresden.de` (line 12) with your valid email address to receive
 a notification on job start
 - Replace `wm=/scratch/ws/0/<user>-palm` (line 27) with your PALM installation path
@@ -379,7 +379,7 @@ a notification on job start
         ```bash linenums="1"
         #!/bin/bash
         #SBATCH --job-name=les_palm
-        #SBATCH --account=<p_projectname>     # account CPU time to Project
+        #SBATCH --account=<p_number_crunch>     # account CPU time to Project
         #SBATCH --partition=haswell
         #SBATCH --time=00:10:00               # run for 1 hour
         #SBATCH --ntasks=4                    # number of tasks (MPI processes)
@@ -433,7 +433,7 @@ a notification on job start
         ```bash linenums="1"
         #!/bin/bash
         #SBATCH --job-name=les_palm
-        #SBATCH --account=<p_projectname>     # account CPU time to Project
+        #SBATCH --account=<p_number_crunch>   # account CPU time to Project
         #SBATCH --partition=haswell
         #SBATCH --time=00:10:00               # run for 1 hour
         #SBATCH --ntasks=4                    # number of tasks (MPI processes)
@@ -487,7 +487,7 @@ a notification on job start
         ```bash linenums="1"
         #!/bin/bash
         #SBATCH --job-name=les_palm
-        #SBATCH --account=<p_projectname>     # account CPU time to Project
+        #SBATCH --account=<p_number_crunch>   # account CPU time to Project
         #SBATCH --partition=haswell
         #SBATCH --time=00:10:00               # run for 1 hour
         #SBATCH --ntasks=4                    # number of tasks (MPI processes)
@@ -541,7 +541,7 @@ a notification on job start
         ```bash linenums="1"
         #!/bin/bash
         #SBATCH --job-name=les_palm
-        #SBATCH --account=<p_projectname>     # account CPU time to Project
+        #SBATCH --account=<p_number_crunch>   # account CPU time to Project
         #SBATCH --partition=haswell
         #SBATCH --time=00:10:00               # run for 1 hour
         #SBATCH --ntasks=4                    # number of tasks (MPI processes)
