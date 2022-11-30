@@ -76,6 +76,7 @@ nav:
     - Virtual Desktops: software/virtual_desktops.md
     - Experience Reports:
       - PALM: software/palm.md
+      - SPEChpc2021: software/spec.md
   - Software Development and Tools:
     - Overview: software/software_development_overview.md
     - Building Software:
