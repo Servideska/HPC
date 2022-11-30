@@ -3,11 +3,12 @@
 PALM is a Large Eddie Simulation tool (LES). A Description of PALM can be found on it's
 [wiki page](http://palm.muk.uni-hannover.de/trac/wiki/palm).
 
-## Build
+## Installation
 
 There are two versions of PALM tested on ZIH system's partition `haswell`: One is compiled with
 Intel and another with the GNU compiler suite. You can use one of the following build workflows
-and run each of the commands seperately on the console.
+and run each of the commands seperately on the console to install PALM in your workspace.
+
 - Replace `<user>` with your ZIH login name (lines 1 and 3)
 
 More information about the installation process can be found on the
@@ -147,6 +148,7 @@ More information about the installation process can be found on the
 The configurations for the target partition `haswell` for both Intel and GNU versions should be
 included in the next release of PALM (>22.04). If they are not yet available, copy the configuration
 from below and save it as `</palm/installation/folder>/.palm.config.taurus_[gnu|intel]`.
+
 - Replace the values of `%workspace` and `%base_directory` (lines 14 and 15) with the values
 determined from the default configuration `.palm.config.default`
 - Replace the value of `%local_username` with your username (line 27)
@@ -366,6 +368,7 @@ determined from the default configuration `.palm.config.default`
 
 You can use the following batch scripts to submit a PALM simulation job. You are welcome to modify
 these examples according to your needs.
+
 - Replace `<p_projectname>` (line 3) with your project name
 - Replace `<firstname.lastname>@tu-dresden.de` (line 12) with your valid email address to receive
 a notification on job start
@@ -394,7 +397,7 @@ a notification on job start
         module load FFTW/3.3.9-gompi-2021a
         module load netCDF-Fortran/4.5.3-gompi-2021a
         module load Python/3.9.5-GCCcore-10.3.0
-        #
+        #module load CMake/3.20.1-GCCcore-10.3.0
 
         # workspace
         export wm=/scratch/ws/0/<user>-palm
@@ -448,7 +451,7 @@ a notification on job start
         module load FFTW/3.3.8-gompi-2019a
         module load netCDF-Fortran/4.4.5-gompi-2019a
         module load Python/3.7.2-GCCcore-8.2.0
-        #
+        #module load CMake/3.13.3-GCCcore-8.2.0
 
         # workspace
         export wm=/scratch/ws/0/<user>-palm
@@ -593,28 +596,34 @@ a notification on job start
 ### Floating Point Exception
 
 !!! failure "Error: Floating Point Exception"
+
     For the Intel 2020a version there is a floating point exception.
 
 !!! note "Explanation"
-    This is an internal error produced by Intel's Hydra process manager (see 
+
+    This is an internal error produced by Intel's Hydra process manager (see
     [HLRN solution](https://www.hlrn.de/doc/display/PUB/Floating+point+exception+with+Intel+MPI+2019.x+using+one+task+per+node)).
-    For the workflow with Intel 2021b or newer versions, this error is obsolete.
 
 !!! success "Solution"
+
     Use `export I_MPI_HYDRA_TOPOLIB=ipl` to add this workaround setting to your runtime environment.
+    For the workflow with Intel 2021b, this workaround is obsolete.
 
 ### Performance Loss with Intel
 
 !!! warning "Intel vs. GCC"
-    Comparing the runtime of the Intel version and GCC-compiled version there is a massive
+
+    Comparing the runtimes of the Intel version and GCC-compiled version there is a massive
     performance loss.
 
 !!! note "Explanation"
+
     In the workflow with Intel, `mpirun` causes the use of an alternate underlying MPI library.
     This means tremendeous slowdowns of MPI communication calls resulting in a performance loss of
     at least factor 8 for a test simulation with 4 processes on one node.
 
 !!! success "Solution"
+
     Use `srun` instead of `mpirun` as the `%execute_command` in your
     [configuration file](#configuration).
 
