@@ -87,18 +87,37 @@ be aware of the limits shown in the following table.
     | `alpha`**          | `taurusi[8001-8034]`                     | `34`    | `48 (HT: 96)`   | `10312*`    | `990000`    | `8`               |
     {: summary="Partitions and limits table" align="bottom"}
 
-!!! note
+## Slurm Partitions
 
-    \* Some nodes have multithreading (SMT) enabled, so for every physical core allocated
-    (e.g., with `SLURM_HINT=nomultithread`), you will always get `MB per Core`*`number of threads`,
-    because the memory of the other threads is allocated implicitly, too.
+The available compute nodes are grouped into logical (possibly overlapping) sets, the so-called
+**partitions**. You can submit your job to a certain partition using the Slurm option
+`--partition=<partition-name>`.
 
-    ** These partitions have a counterpart for interactive
-    jobs. The corresponding partitions is suffixed with `-interactive` (e.g. `ml-interactive`) and
-    have the same configuration.
+Some nodes have multithreading (SMT) enabled, so for every physical core allocated
+(e.g., with `SLURM_HINT=nomultithread`), you will always get `MB per Core`*`number of threads`,
+because the memory of the other threads is allocated implicitly, too.
 
-    There is also a meta partition `haswell`, which contain partition `haswell64`, `haswell128`,
-    `haswell256` and `smp2`and this is also the default partition. If you specify no partition or
-    partition `haswell` a Slurm plugin will choose the partition which fits to your memory
-    requirements. There are some other partitions, which are not specified in the table above, but
-    those partitions should not be used directly.
+Some partitions have a *interactive* counterpart for interactive jobs. The corresponding partitions
+is suffixed with `-interactive` (e.g. `ml-interactive`) and have the same configuration.
+
+There is also a meta partition `haswell`, which contain partition `haswell64`, `haswell128`,
+`haswell256` and `smp2`and this is also the default partition. If you specify no partition or
+partition `haswell` a Slurm plugin will choose the partition which fits to your memory requirements.
+There are some other partitions, which are not specified in the table above, but those partitions
+should not be used directly.
+
+<!-- partitions_and_limits_table -->
+| Partition | Nodes | # Nodes | Cores per Node [SMT] | MB per Core [SMT] | MB per Node | GPUs per Node |
+|:--------|:------|--------:|---------------:|------------:|------------:|--------------:|
+| gpu2 | taurusi[2045-2103] | 59 | 24 | 2584 | 62000 | 4|
+| gpu2-interactive | taurusi[2045-2103] | 59 | 24 | 2584 | 62000 | 4|
+| haswell64ht | taurusi[4019-4036] | 18 | 24 [48] | 2542 [1271] | 61000 | -|
+| interactive | taurusi[6605-6612] | 8 | 24 | 2542 | 61000 | -|
+| smp2 | taurussmp[3-7] | 5 | 56 | 36500 | 2044000 | -|
+| ml-interactive | taurusml[1-2] | 2 | 44 [176] | 5773 [1444] | 254000 | 6|
+| nvme | taurusnvme[1-90] | 90 | 16 [32] | 3750 [1875] | 60000 | 8|
+| romeo-interactive | taurusi[7001-7002] | 2 | 128 [256] | 3946 [1973] | 505000 | -|
+| julia | taurussmp8 | 1 | 896 | 54007 | 48390000 | -|
+| alpha | taurusi[8003-8034] | 32 | 48 [96] | 20625 [10313] | 990000 | 8|
+| alpha-interactive | taurusi[8001-8002] | 2 | 48 [96] | 20625 [10313] | 990000 | 8|
+{: summary="Partitions and limits table" align="bottom"}
