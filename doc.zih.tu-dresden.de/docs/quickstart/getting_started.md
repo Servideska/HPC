@@ -277,8 +277,10 @@ in Linux.
 ## Software Environment
 
 The [software](../software/overview.md) on the ZIH HPC system is not installed system-wide,
-but is provided within the so-called [modules](../software/modules.md). In order to use specific
-software you need to "load" the respective module.
+but is provided within so-called [modules](../software/modules.md).
+In order to use specific software you need to "load" the respective module.
+This modifies the current environment (so only for the current user in the current session)
+such that the software becomes available.
 
 !!! note
 
@@ -380,18 +382,31 @@ For additional information refer to the detailed documentation on [modules](../s
 
 !!! hint "Special hints on different software"
 
-    Special hints on different software can be in the section "Environment and Software", e.g.
-    for [Python](../software/data_analytics_with_python.md), [R](../software/data_analytics_with_r.md),
+    See also the section "Applications and Software" for more information on e.g.
+    [Python](../software/data_analytics_with_python.md),
+    [R](../software/data_analytics_with_r.md),
     [Mathematica/MatLab](../software/mathematics.md), etc.
 
-!!! hint "Hint on Python packages"
+!!! hint "Tip for Python packages"
 
-    The usage of virtual environments and, therefore, the usage of workspaces is recommended,
-    especially for Python. Please check out the module system, even for specific Python packages,
-    e.g. `tqdm`, `torchvision`, `tensorboard`, etc. to get a better idea of what is available.
-    The Python (and other) package ecosystem is very heterogeneous and dynamic, with daily updates.
-    The central update cycle for software on the ZIH HPC system occurs approximately every six
-    months.
+    The use of [Virtual Environments](../software/python_virtual_environments.md)
+    (best in [workspaces](../data_lifecycle/workspaces.md)) is recommended.
+
+    Please check the module system, even for specific Python packages,
+    e.g. `numpy`, `tensorflow` or `pytorch`.
+    Those modules may provide much better performance than the packages found on PyPi
+    (installed via `pip`) which have to work on any system while our installation is optimized for
+    the ZIH system to make the best use of the specific CPUs and GPUs found here.  
+    However the Python package ecosystem (like others) is very heterogeneous and dynamic,
+    with daily updates.
+    The central update cycle for software on the ZIH HPC system is approximately every six months.
+    So the software installed as modules might be a bit older.
+
+!!! warning
+
+    When explicitely loading multiple modules you need to make sure that they are compatible.
+    So try to stick to modules using the same toolchain.
+    See the [Toolchains section](../software/modules.md#Toolchains) for more information.
 
 ## Running a Program/Job
 

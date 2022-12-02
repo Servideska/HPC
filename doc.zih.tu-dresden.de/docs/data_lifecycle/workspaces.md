@@ -158,6 +158,47 @@ workspace and the filesystem in which it is located:
 marie@login$ ws_release -F scratch my-workspace
 ```
 
+You can list your already released or expired workspaces using the `ws_restore -l` command.
+
+```console
+marie@login$ ws_restore -l
+warm_archive:
+scratch:
+marie-my-workspace-1665014486
+  unavailable since Thu Oct  6 02:01:26 2022
+marie-foo-647085320
+  unavailable since Sat Mar 12 12:42:00 2022
+ssd:
+marie-bar-1654074660
+  unavailable since Wen Jun 1 11:11:00 2022
+beegfs_global0:
+beegfs:
+```
+
+In this example, the user `marie` has three inactive, i.e., expired, workspaces namely
+`my-workspace` in `scratch`, as well as `foo` and `bar` in `ssd` filesystem. The command `ws_restore
+-l` lists the name of the workspace and the expiration date. As you can see, the expiration date is
+added to the workspace name as Unix timestamp.
+
+!!! hint "Deleting data in in an expired workspace"
+
+    If you are short on quota, you might want to delete data in expired workspaces since it counts
+    to your quota. Expired workspaces are moved to a hidden directory named `.removed`. The access
+    rights remain unchanged. I.e., you can delete the data inside the workspace directory but you
+    must not delete the workspace directory itself!
+
+#### Expirer Process
+
+The clean up process of expired workspaces is automatically handled by a so-called expirer process.
+It performs the following steps once per day and filesystem:
+
+- Check for remaining life time of all workspaces.
+  - If the workspaces expired, move it to a hidden directory so that it becomes inactive.
+- Send reminder Emails to users if the reminder functionality was configured for their particular
+  workspaces.
+- Scan through all workspaces in grace period.
+  - If a workspace exceeded the grace period, the workspace and its data are deleted.
+
 ### Restoring Expired Workspaces
 
 At expiration time your workspace will be moved to a special, hidden directory. For a month (in
@@ -174,13 +215,16 @@ Use
 
 ```console
 marie@login$ ws_restore -l -F scratch
+scratch:
+marie-my-workspace-1665014486
+  unavailable since Thu Oct  6 02:01:26 2022
 ```
 
 to get a list of your expired workspaces, and then restore them like that into an existing, active
 workspace 'new_ws':
 
 ```console
-marie@login$ ws_restore -F scratch marie-test-workspace-1234567 new_ws
+marie@login$ ws_restore -F scratch marie-my-workspace-1665014486 new_ws
 ```
 
 The expired workspace has to be specified by its full name as listed by `ws_restore -l`, including
