@@ -101,7 +101,7 @@ But, do you need to request tasks or CPUs from Slurm in order to provide resourc
 !!! example "Interactive allocation for parallel `make` command"
 
     ```console
-    marie@login$ srun --ntasks=1 --cpus-per-task=16 --mem=16G --time=01:00:00 --pty bash
+    marie@login$ srun --ntasks=1 --cpus-per-task=16 --mem=16G --time=01:00:00 --pty bash --login
     [...]
     marie@compute$ # prepare the source code for building using configure, cmake or so
     marie@compute$ make -j
