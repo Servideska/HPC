@@ -249,8 +249,8 @@ Recreate the conda virtual environment with the packages from the created
 `environment.yml` file:
 
 ```console
-marie@compute$ mkdir workshop_env    #Create directory for environment
+marie@compute$ mkdir /scratch/ws/1/marie-conda_virtual_environment/conda-env    #Create directory for environment
 marie@compute$ module load Anaconda3    #Load Anaconda
 marie@compute$ conda config --set channel_priority strict
-marie@compute$ conda env create --prefix workshop_env --file environment.yml    #Create conda env in directory with packages from environment.yml file
+marie@compute$ conda env create --prefix /scratch/ws/1/marie-conda_virtual_environment/conda-env --file environment.yml    #Create conda env in directory with packages from environment.yml file
 ```
