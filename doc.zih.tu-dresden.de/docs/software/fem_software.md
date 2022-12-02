@@ -195,7 +195,6 @@ marie@login$ srun --partition=haswell --ntasks=1 --cpus-per-task=4 --time=1:00:0
 marie@node$ mapdl -smp
 ```
 
-
 ## COMSOL Multiphysics
 
 [COMSOL Multiphysics](http://www.comsol.com) (formerly FEMLAB) is a finite element analysis, solver
