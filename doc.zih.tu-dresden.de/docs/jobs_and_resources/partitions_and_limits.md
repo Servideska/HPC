@@ -10,19 +10,21 @@ smaller jobs. Thus, restrictions w.r.t. [memory](#memory-limits) and
 
 !!! warning "Runtime limits on login nodes"
 
-    There is a time limit set for processes on login nodes. If you run applications outside of a
-    compute job, it will be stopped automatically after 5 minutes with
+    There is a time limit of 600 seconds set for processes on login nodes. Each process running
+    longer than this time limit is automatically killed. The login nodes are shared ressources
+    between all users of ZIH system and thus, need to be available and cannot be used for productive
+    runs.
 
     ```
     CPU time limit exceeded
     ```
 
-    Please start a job using the [batch system](slurm.md).
+    Please submit extensive application runs to the compute nodes using the [batch system](slurm.md).
 
 !!! note "Runtime limits are enforced."
 
-    A job is canceled as soon as it exceeds its requested limit. Currently, the maximum run time is
-    7 days.
+    A job is canceled as soon as it exceeds its requested limit. Currently, the maximum run time
+    limit is 7 days.
 
 Shorter jobs come with multiple advantages:
 
@@ -87,13 +89,16 @@ be aware of the limits shown in the following table.
 
 !!! note
 
-    Some nodes have multithreading (SMT) enabled, so for every physical core allocated
+    \* Some nodes have multithreading (SMT) enabled, so for every physical core allocated
     (e.g., with `SLURM_HINT=nomultithread`), you will always get `MB per Core`*`number of threads`,
     because the memory of the other threads is allocated implicitly, too.
-    Those nodes are marked with an asterisk.
-    Some of the partitions, denoted with a double asterisk, have a counterpart for interactive
-    jobs. These partitions have a `-interactive` suffix (e.g. `ml-interactive`) and have the same
-    configuration.
-    There is also a meta partition `haswell`, which contain partition `haswell64`, `haswell128`, `haswell256` and `smp2`and this is also the default partition.
-    If you specify no partition or partition `haswell` a Slurm plugin will choose the partition which fits to your memory requirements.
-    There are some other partitions, which are not specified in the table above, but those partitions should not be used directly.
+
+    ** These partitions have a counterpart for interactive
+    jobs. The corresponding partitions is suffixed with `-interactive` (e.g. `ml-interactive`) and
+    have the same configuration.
+
+    There is also a meta partition `haswell`, which contain partition `haswell64`, `haswell128`,
+    `haswell256` and `smp2`and this is also the default partition. If you specify no partition or
+    partition `haswell` a Slurm plugin will choose the partition which fits to your memory
+    requirements. There are some other partitions, which are not specified in the table above, but
+    those partitions should not be used directly.
