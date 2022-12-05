@@ -188,7 +188,9 @@ that you can simply change to something like 16 or 24. For now, you should stay 
 boundaries, because multi-node calculations require additional parameters. The number you choose
 should match your used `--cpus-per-task` parameter in your job file.
 
-### Running mapdl in interactive mode
+### Running MAPDL in interactive mode
+
+ANSYS Mechanical APDL (sometimes called ANSYS Classic, the older MAPDL scripted environment).
 
 ```console
 marie@login$ srun --partition=haswell --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 --pty bash
