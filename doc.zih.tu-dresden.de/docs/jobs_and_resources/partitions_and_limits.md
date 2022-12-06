@@ -71,7 +71,7 @@ The available compute nodes are grouped into logical (possibly overlapping) sets
 **partitions**. You can submit your job to a certain partition using the Slurm option
 `--partition=<partition-name>`.
 
-Some nodes have multithreading (SMT) enabled, so for every physical core allocated
+Some nodes have Multithreading (SMT) enabled, so for every physical core allocated
 (e.g., with `SLURM_HINT=nomultithread`), you will always get `MB per Core`*`number of threads`,
 because the memory of the other threads is allocated implicitly, too.
 
