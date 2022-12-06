@@ -94,13 +94,13 @@ should not be used directly.
 | haswell256 | taurusi[6541-6558] | 18 | 24 | 10583 | 254000 | none |
 | interactive | taurusi[6605-6612] | 8 | 24 | 2541 | 61000 | none |
 | smp2 | taurussmp[3-7] | 5 | 56 | 36500 | 2044000 | none |
-| ifm | taurusa2 | 1 | 16 (HT: 32) | 12000 | 384000 | gpu:1 |
+| ifm | taurusa2 | 1 | 16 (SMT: 32) | 12000 | 384000 | gpu:1 |
 | hpdlf | taurusa[3-16] | 14 | 12 | 7916 | 95000 | gpu:3 |
-| ml | taurusml[3-32] | 30 | 44 (HT: 176) | 1443 | 254000 | gpu:6 |
-| ml-interactive | taurusml[1-2] | 2 | 44 (HT: 176) | 1443 | 254000 | gpu:6 |
-| romeo | taurusi[7003-7192] | 190 | 128 (HT: 256) | 1972 | 505000 | none |
-| romeo-interactive | taurusi[7001-7002] | 2 | 128 (HT: 256) | 1972 | 505000 | none |
+| ml | taurusml[3-32] | 30 | 44 (SMT: 176) | 1443 | 254000 | gpu:6 |
+| ml-interactive | taurusml[1-2] | 2 | 44 (SMT: 176) | 1443 | 254000 | gpu:6 |
+| romeo | taurusi[7003-7192] | 190 | 128 (SMT: 256) | 1972 | 505000 | none |
+| romeo-interactive | taurusi[7001-7002] | 2 | 128 (SMT: 256) | 1972 | 505000 | none |
 | julia | taurussmp8 | 1 | 896 | 5400 | 4839000 | none |
-| alpha | taurusi[8003-8034] | 32 | 48 (HT: 96) | 10312 | 990000 | gpu:8 |
-| alpha-interactive | taurusi[8001-8002] | 2 | 48 (HT: 96) | 10312 | 990000 | gpu:8 |
+| alpha | taurusi[8003-8034] | 32 | 48 (SMT: 96) | 10312 | 990000 | gpu:8 |
+| alpha-interactive | taurusi[8001-8002] | 2 | 48 (SMT: 96) | 10312 | 990000 | gpu:8 |
 {: summary="Partitions and limits table" align="bottom"}
