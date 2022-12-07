@@ -11,7 +11,7 @@ users and the ZIH.
 ## Login and Export Nodes
 
 - 3 Login-Nodes `tauruslogin[3-6].hrsk.tu-dresden.de`
-    - Each login node is equiped with 2x Intel(R) Xeon(R) CPU E5-2680 v3 with 24 cores in total @
+    - Each login node is equipped with 2x Intel(R) Xeon(R) CPU E5-2680 v3 with 24 cores in total @
       2.50 GHz, Multithreading disabled, 64 GB RAM, 128 GB SSD local disk
     - IPs: 141.30.73.\[102-105\]
 - 2 Data-Transfer-Nodes `taurusexport[3-4].hrsk.tu-dresden.de`
@@ -19,7 +19,7 @@ users and the ZIH.
     - 2 Servers without interactive login, only available via file transfer protocols
       (`rsync`, `ftp`)
     - IPs: 141.30.73.82/83
-    - Further information on the usage is documentated on the site
+    - Further information on the usage is documented on the site
       [Export Nodes](../data_transfer/export_nodes.md)
 
 ## AMD Rome CPUs + NVIDIA A100
@@ -31,7 +31,7 @@ users and the ZIH.
     - 3.5 TB local memory at NVMe device at `/tmp`
 - Hostnames: `taurusi[8001-8034]`
 - Slurm partition: `alpha`
-- Further information on the usage is documentated on the site [AMD Rome Nodes](rome_nodes.md)
+- Further information on the usage is documented on the site [AMD Rome Nodes](rome_nodes.md)
 
 ## Island 7 - AMD Rome CPUs
 
@@ -41,7 +41,7 @@ users and the ZIH.
     - 200 GB local memory on SSD at `/tmp`
 - Hostnames: `taurusi[7001-7192]`
 - Slurm partition: `romeo`
-- Further information on the usage is documentated on the site [AMD Rome Nodes](rome_nodes.md)
+- Further information on the usage is documented on the site [AMD Rome Nodes](rome_nodes.md)
 
 ## Large SMP System HPE Superdome Flex
 
@@ -53,7 +53,7 @@ users and the ZIH.
 - 370 TB of fast NVME storage available at `/nvme/<projectname>`
 - Hostname: `taurussmp8`
 - Slurm partition: `julia`
-- Further information on the usage is documentated on the site [HPE Superdome Flex](sd_flex.md)
+- Further information on the usage is documented on the site [HPE Superdome Flex](sd_flex.md)
 
 ## IBM Power9 Nodes for Machine Learning
 
