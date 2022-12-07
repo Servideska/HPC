@@ -18,7 +18,7 @@ users and the ZIH.
     - DNS Alias `taurusexport.hrsk.tu-dresden.de`
     - 2 Servers without interactive login, only available via file transfer protocols
       (`rsync`, `ftp`)
-    - IPs: 141.30.73.82/83
+    - IPs: 141.30.73.\[82,83\]
     - Further information on the usage is documented on the site
       [Export Nodes](../data_transfer/export_nodes.md)
 
