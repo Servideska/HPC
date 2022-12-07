@@ -226,7 +226,6 @@ module load ANSYS/2021R2
 mapdl -smp -b -np $SLURM_NTASKS -j solution -i <input-file>
 ```
 
-
 ```console
 marie@login$ sbatch mapdl_job.sh
 ```
