@@ -36,7 +36,7 @@ i	hpc[ -]\+da\>
 i	attachurl
 Do not use \"up-to-date\", because this should be an inherent property of this great documentation.
 
-i \(\<up-to-date\>\|up to date\)
+i	\(\<up-to-date\>\|up to date\)
 Replace \"todo\" with real content.
 doc.zih.tu-dresden.de/docs/archive/system_triton.md
 i	\<todo\>	<!--.*todo.*-->
