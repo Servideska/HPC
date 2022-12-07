@@ -1,21 +1,16 @@
 # Alpha Centauri
 
-The multi-GPU sub-cluster "Alpha Centauri" had been installed for AI-related computations (ScaDS.AI).
-It has 34 nodes, each with:
+The multi-GPU sub-cluster "Alpha Centauri" has been installed for AI-related computations (ScaDS.AI).
 
-* 8 x NVIDIA A100-SXM4 (40 GB RAM)
-* 2 x AMD EPYC CPU 7352 (24 cores) @ 2.3 GHz with multi-threading enabled
-* 1 TB RAM
-* 3.5 TB `/tmp` local NVMe device
-* Hostnames: `taurusi[8001-8034]`
-* Slurm partition `alpha` for batch jobs and `alpha-interactive` for interactive jobs
+The up-to-date hardware specification is documentated on
+[this site](hardware_overview.md#amd-rome-cpus-nvidia-a100).
+
+## Usage
 
 !!! note
 
     The NVIDIA A100 GPUs may only be used with **CUDA 11** or later. Earlier versions do not
     recognize the new hardware properly. Make sure the software you are using is built with CUDA11.
-
-## Usage
 
 ### Modules
 

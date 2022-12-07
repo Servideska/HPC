@@ -1,13 +1,7 @@
 # Island 7 - AMD Rome Nodes
 
-## Hardware
-
-- Slurm partition: `romeo`
-- Module architecture: `rome`
-- 192 nodes `taurusi[7001-7192]`, each:
-    - 2x AMD EPYC CPU 7702 (64 cores) @ 2.0GHz, Simultaneous Multithreading (SMT)
-    - 512 GB RAM
-    - 200 GB SSD disk mounted on `/tmp`
+The up-to-date hardware documentation is provided at
+[this site](hardware_overview.md#island-7-amd-rome-cpus).
 
 ## Usage
 
