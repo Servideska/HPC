@@ -4,8 +4,8 @@ The HPE Superdome Flex is a large shared memory node. It is especially well suit
 intensive application scenarios, for example to process extremely large data sets completely in main
 memory or in very fast NVMe memory.
 
-The hardware configuration is documented on
-[this site](hardware_overview.md#large-smp-system-hpe-superdome-flex).
+The hardware specification is documented on the page
+[HPC Resources](hardware_overview.md#large-smp-system-hpe-superdome-flex).
 
 ## Local Temporary on NVMe Storage
 

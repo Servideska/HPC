@@ -1,7 +1,7 @@
 # Island 7 - AMD Rome Nodes
 
-The up-to-date hardware documentation is provided at
-[this site](hardware_overview.md#island-7-amd-rome-cpus).
+The hardware specification is documented on the page
+[HPC Resources](hardware_overview.md#island-7-amd-rome-cpus).
 
 ## Usage
 

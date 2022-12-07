@@ -2,8 +2,8 @@
 
 The multi-GPU sub-cluster "Alpha Centauri" has been installed for AI-related computations (ScaDS.AI).
 
-The up-to-date hardware specification is documented on
-[this site](hardware_overview.md#amd-rome-cpus-nvidia-a100).
+The hardware specification is documented on the page
+[HPC Resources](hardware_overview.md#amd-rome-cpus-nvidia-a100).
 
 ## Usage
 
