@@ -34,9 +34,6 @@ i	hpc[ -]\+da\>
 \"ATTACHURL\" was a keyword in the old wiki, don't use it.
 
 i	attachurl
-Replace variations of \"this site\" with a more suitable link description.
-
-i	\(\<this site>\>\|this page\>\)
 Replace \"todo\" with real content.
 doc.zih.tu-dresden.de/docs/archive/system_triton.md
 i	\<todo\>	<!--.*todo.*-->
