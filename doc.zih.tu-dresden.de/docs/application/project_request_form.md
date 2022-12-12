@@ -76,20 +76,6 @@ At ZIH, TU Dresden for applying for HPC resources on NHR:
 
     * [https://projects.hpc.tu-dresden.de/application/login.php?appkind=nhr](https://projects.hpc.tu-dresden.de/application/login.php?appkind=nhr)
 
-??? abstract "TU Dresden (Tier 3) Application:"
-
-    #### TU Dresden
-
-    This application is:
-
-    * only for researchers at TU Dresden entitled
-      to special HPC contingents, either from TU Dresdens
-      own contribution to the funding of the NHR center or from own HPC funding.
-
-    Application Login:
-
-    * [https://projects.hpc.tu-dresden.de/application/login.php?appkind=tier3](https://projects.hpc.tu-dresden.de/application/login.php?appkind=tier3)
-
 !!! hint "ScaDS.AI Application:"
 
     ### ScaDS.AI
