@@ -34,6 +34,9 @@ i	hpc[ -]\+da\>
 \"ATTACHURL\" was a keyword in the old wiki, don't use it.
 
 i	attachurl
+Do not use \"up-to-date\", because this should be an inherent property of this great documentation.
+
+i	\(\<up-to-date\>\|up to date\)
 Replace \"todo\" with real content.
 doc.zih.tu-dresden.de/docs/archive/system_triton.md
 i	\<todo\>	<!--.*todo.*-->
@@ -60,7 +63,7 @@ doc.zih.tu-dresden.de/docs/contrib/content_rules.md
 i	\(alpha\|ml\|haswell\|romeo\|gpu\|smp\|julia\|hpdlf\|scs5\|dcv\)-\?\(interactive\)\?[^a-z|]*partition
 Give hints in the link text. Words such as \"here\" or \"this link\" are meaningless.
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md
-i	\[\s\?\(documentation\|here\|more info\|\(this \)\?\(link\|page\|subsection\)\|slides\?\|manpage\)\s\?\]
+i	\[\s\?\(documentation\|here\|more info\|\(this \)\?\(link\|page\|site\|subsection\)\|slides\?\|manpage\)\s\?\]
 Use \"workspace\" instead of \"work space\" or \"work-space\".
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md
 i	work[ -]\+space"
