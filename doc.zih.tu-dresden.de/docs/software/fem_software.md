@@ -192,7 +192,9 @@ should match your used `--cpus-per-task` parameter in your job file.
 
 ANSYS Mechanical APDL (sometimes called ANSYS Classic, the older MAPDL scripted environment).
 
-### SMP (1 node only)
+### SMP
+
+MAPDL can be invoked in so-called smp-mode to make use of threads in order to speedup computation. The multi-threading approach is restricted to one node. In contrast, MAPDL offers a MPI-parallel mode to distribute the computation across  multiple nodes. This mode is described below.
 
 #### Interactive mode
 
