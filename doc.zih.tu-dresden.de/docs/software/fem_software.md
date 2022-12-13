@@ -256,6 +256,7 @@ marie@node$ KMP_AFFINITY=none mapdl -machines $NODELIST
 #SBATCH --output=output_ansys_mapdl
 #SBATCH --time=01:00:00
 
+module purge
 module load ANSYS/2021R2
 
 # generate node list 
