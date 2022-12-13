@@ -245,7 +245,7 @@ marie@node$ NODELIST=$(for node in $( scontrol show hostnames $SLURM_JOB_NODELIS
 marie@node$ KMP_AFFINITY=none mapdl -machines $NODELIST
 ```
 
-#### Batch mode
+#### Batch Mode
 
 ```bash
 #!/bin/bash
