@@ -195,11 +195,14 @@ interact with the Ansys Mechanical solver. Mechanical APDL (MAPDL), a finite ele
 program, is driven by APDL. APDL and MAPDL can be used for many tasks, ranging from creating
 geometries for analysis to setting up sophisticated solver settings for highly complex analyses
 
-### SMP
+#### Shared-Memory Mode
 
-MAPDL can be invoked in so-called smp-mode to make use of threads in order to speedup computation. The multi-threading approach is restricted to one node. In contrast, MAPDL offers a MPI-parallel mode to distribute the computation across  multiple nodes. This mode is described below.
+MAPDL can be invoked in so-called shared-memory mode to make use of threads in order to speedup
+computation. The multi-threading approach is restricted to one node. In contrast, MAPDL offers a
+MPI-parallel mode to distribute the computation across  multiple nodes. This mode is described
+below.
 
-#### Interactive mode
+##### Interactive mode
 
 ```console
 marie@login$ srun --partition=haswell --nodes 1 --ntasks-per-node=4 --time=0:20:00 --mem-per-cpu=1700 --pty bash -l
@@ -210,7 +213,7 @@ marie@node$ module load ANSYS/2021R2
 marie@node$ mapdl -smp -np $SLURM_NTASKS
 ```
 
-#### Batch mode
+##### Batch mode
 
 ```bash
 #!/bin/bash
@@ -235,9 +238,15 @@ mapdl -smp -b -np $SLURM_NTASKS -j solution -i <input-file>
 marie@login$ sbatch mapdl_job.sh
 ```
 
-### Distributed
+#### Distributed-Memory Mode
 
-#### Interactive Mode
+MAPDL can be run in distributed-memory mode using multiple compute nodes in either interactive as
+well as batch mode as shown in the following.
+
+In both cases, it is necessary to create a nodelist and provide it to MAPDL via `-machines` command
+line option.
+
+##### Interactive Mode
 
 ```console
 marie@login$ srun --partition=haswell --nodes 4 --ntasks-per-node=4 --time=0:20:00 --mem-per-cpu=1700 --pty bash -l
@@ -248,7 +257,7 @@ marie@node$ NODELIST=$(for node in $( scontrol show hostnames $SLURM_JOB_NODELIS
 marie@node$ KMP_AFFINITY=none mapdl -machines $NODELIST
 ```
 
-#### Batch Mode
+##### Batch Mode
 
 ```bash
 #!/bin/bash
