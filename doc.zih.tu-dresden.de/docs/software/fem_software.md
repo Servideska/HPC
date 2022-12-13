@@ -232,7 +232,7 @@ mapdl -smp -b -np $SLURM_NTASKS -j solution -i <input-file>
 marie@login$ sbatch mapdl_job.sh
 ```
 
-### Distributed (n nodes)
+### Distributed
 
 #### Interactive Mode
 
