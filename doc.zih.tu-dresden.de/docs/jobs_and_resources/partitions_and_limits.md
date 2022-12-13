@@ -89,7 +89,7 @@ should not be used directly.
 |:--------|:------|--------:|---------------:|------------:|------------:|--------------:|
 | gpu2 | taurusi[2045-2103] | 59 | 24 | 2583 | 62000 | gpu:4 |
 | gpu2-interactive | taurusi[2045-2103] | 59 | 24 | 2583 | 62000 | gpu:4 |
-| haswell | taurusi[6001-6604],taurussmp[3-7] | 609 | 56 | 36500 | 2044000 | none |
+| haswell | taurusi[6001-6604],taurussmp[3-7] | 609 | - | - | - | - |
 | haswell64 | taurusi[6001-6540,6559-6604] | 586 | 24 | 2541 | 61000 | none |
 | haswell256 | taurusi[6541-6558] | 18 | 24 | 10583 | 254000 | none |
 | interactive | taurusi[6605-6612] | 8 | 24 | 2541 | 61000 | none |
