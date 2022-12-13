@@ -190,7 +190,10 @@ should match your used `--cpus-per-task` parameter in your job file.
 
 ### Running MAPDL
 
-ANSYS Mechanical APDL (sometimes called ANSYS Classic, the older MAPDL scripted environment).
+*Ansys Parametric Design Language* (APDL) is a powerful structured scripting language used to
+interact with the Ansys Mechanical solver. Mechanical APDL (MAPDL), a finite element analysis
+program, is driven by APDL. APDL and MAPDL can be used for many tasks, ranging from creating
+geometries for analysis to setting up sophisticated solver settings for highly complex analyses
 
 ### SMP
 
@@ -239,7 +242,7 @@ marie@login$ sbatch mapdl_job.sh
 ```console
 marie@login$ srun --partition=haswell --nodes 4 --ntasks-per-node=4 --time=0:20:00 --mem-per-cpu=1700 --pty bash -l
 
-# generate node list 
+# generate node list
 marie@node$ NODELIST=$(for node in $( scontrol show hostnames $SLURM_JOB_NODELIST | uniq ); do echo -n "${node}:${SLURM_NTASKS_PER_NODE}:"; done | sed 's/:$//')
 
 marie@node$ KMP_AFFINITY=none mapdl -machines $NODELIST
@@ -259,7 +262,7 @@ marie@node$ KMP_AFFINITY=none mapdl -machines $NODELIST
 module purge
 module load ANSYS/2021R2
 
-# generate node list 
+# generate node list
 NODELIST=$(for node in $( scontrol show hostnames $SLURM_JOB_NODELIST | uniq ); do echo -n "${node}:${SLURM_NTASKS_PER_NODE}:"; done | sed 's/:$//')
 
 # -b (batch mode)
