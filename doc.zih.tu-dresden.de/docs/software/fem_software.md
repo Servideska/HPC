@@ -234,7 +234,7 @@ marie@login$ sbatch mapdl_job.sh
 
 ### Distributed (n nodes)
 
-#### Interactive mode
+#### Interactive Mode
 
 ```console
 marie@login$ srun --partition=haswell --nodes 4 --ntasks-per-node=4 --time=0:20:00 --mem-per-cpu=1700 --pty bash -l
