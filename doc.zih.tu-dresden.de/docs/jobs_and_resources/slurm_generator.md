@@ -13,11 +13,32 @@ If you are interested in providing this job file generator for your HPC users, y
 project at
 [https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/slurm-jobfile-generator](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/slurm-jobfile-generator).
 
+<!--
+This file is part of sgen software.
+Slurm Jobfile Generator
+
+Copyright (c) 2022,
+    Technische Universitaet Dresden, Germany
+
+sgen is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Foobar is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with sgen.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>Slurm-Job-File-Generator</title>
+    <title>Slurm-Job-Generator</title>
     <!-- <link type="text/css" href="../misc/style.css" rel="stylesheet"> -->
     <!-- <script src="jquery-3.6.0.min.js"> </script> -->
   </head>
@@ -31,31 +52,33 @@ project at
       <div class="row">
         <label class="cell-name">Job name (<tt>-J, --job-name</tt>) </label>
         <div class="cell-tooltip">
-          <img id="job-name-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="job-name-info" class="info-img" src="../misc/info.png" title="help"
+          alt="Information sign">
         </div>
         <input id="job-name" class="cell-input" type="text">
       </div>
       <div class="row">
         <label class="cell-name">Project (<tt>-A, --account</tt>)</label>
         <div class="cell-tooltip">
-          <img id="account-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="account-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
         <input id="account" class="cell-input" type="text">
       </div>
       <div class="row">
         <label class="cell-name">Email (<tt>--mail-user, --mail-type</tt>)</label>
         <div class="cell-tooltip">
-          <img id="mail-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="mail-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
         <div class="cell-input">
           <input id="mail" class="mail" type="mail">
-
-          <input id="begin" type="checkbox">
-          <lable for="begin">Begin</lable>
-          <input id="end" type="checkbox">
-          <lable for="end">End</lable>
-          <input id="fail" type="checkbox">
-          <lable for="fail">Fail</lable>
+          <input id="mail-all" type="checkbox">
+          <label for="all">All</label>
+          <input id="mail-begin" type="checkbox">
+          <label for="begin">Begin</label>
+          <input id="mail-end" type="checkbox">
+          <label for="end">End</label>
+          <input id="mail-fail" type="checkbox">
+          <label for="fail">Fail</label>
         </div>
       </div>
     </div>
@@ -66,83 +89,83 @@ project at
         <div class="row">
           <label class="cell-name">Time limit (<tt>-t, --time</tt>)</label>
           <div class="cell-tooltip">
-            <img id="time-info" class="info-img" src="../misc/info.png" title="days-hours:minutes:seconds">
+            <img id="time-info" class="info-img" src="../misc/info.png" title="days-hours:minutes:seconds" alt="Information sign">
           </div>
-          <input id="time" class="cell-input" type="text" placeholder="00-00:00:00">
+          <input id="timelimit" class="cell-input" type="text" placeholder="00-00:00:00">
           <label id="time-text" class="limits cell-input"></label>
         </div>
         <div class="row">
           <label class="cell-name">Partition (<tt>-p, --partition</tt>)</label>
           <div class="cell-tooltip">
-            <img id="partition-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="partition-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
           <select id="partition" class="cell-input"></select>
         </div>
         <div class="row">
           <label class="cell-name">Nodes (<tt>-N, --nodes</tt>)</label>
           <div class="cell-tooltip">
-            <img id="nodes-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="nodes-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
-          <input id="nodes" class="cell-input" type="number">
+          <input id="nodes" class="cell-input" type="text">
           <label id="nodes-text" class="limits cell-input"></label>
         </div>
         <div class="row">
           <label class="cell-name">Tasks (<tt>-n, --ntasks</tt>)</label>
           <div class="cell-tooltip">
-            <img id="tasks-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="tasks-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
-          <input id="tasks" class="cell-input" type="number">
+          <input id="tasks" class="cell-input" type="text">
           <label id="tasks-text" class="limits cell-input"></label>
         </div>
         <div class="row">
-          <label class="cell-name">Tasks/node</label>
+          <label class="cell-name">Tasks per node (<tt>--tasks-per-node</tt>)</label>
           <div class="cell-tooltip">
-            <img id="tasks/node-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="tasks/node-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
-          <input id="tasks/node" class="cell-input" type="number">
+          <input id="tasks/node" class="cell-input" type="text">
           <label id="tasks/node-text" class="limits cell-input"></label>
         </div>
         <div class="row">
           <label class="cell-name">CPUs per task (<tt>-c, --cpus-per-task</tt>)</label>
           <div class="cell-tooltip">
-            <img id="cpus-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="cpus-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
-          <input id="cpus" class="cell-input" type="number">
+          <input id="cpus" class="cell-input" type="text">
           <label id="cpus-text" class="limits cell-input"></label>
         </div>
         <div id="div-thread" class="row">
           <span class="cell-name"></span>
           <div class="cell-tooltip">
-            <img id="nomultithread-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="nomultithread-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
           <div class="cell-input">
             <input id="nomultithread" class="cell" type="checkbox">
-            <lable for="nomultithread">No Multithreading</lable>
+            <label for="nomultithread">No Multithreading</label>
           </div>
         </div>
         <div id="div-gpu" class="row">
           <label class="cell-name">GPUs per node (<tt>--gpus-per-node</tt>)</label>
           <div class="cell-tooltip">
-            <img id="gpus-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="gpus-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
-          <input id="gpus" class="cell-input" type="number">
+          <input id="gpus" class="cell-input" type="text">
           <label id="gpus-text" class="limits cell-input"></label>
         </div>
         <div id="div-gpu/task" class="row">
           <label class="cell-name">GPUs per task (<tt>--gpus-per-task</tt>)</label>
           <div class="cell-tooltip">
-            <img id="gpus/task-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="gpus/task-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
-          <input id="gpus/task" class="cell-input" type="number">
+          <input id="gpus/task" class="cell-input" type="text">
           <label id="gpus/task-text" class="limits cell-input"></label>
         </div>
         <div class="row">
           <label class="cell-name">Memory per CPU (<tt>--mem-per-cpu</tt>)</label>
           <div class="cell-tooltip">
-            <img id="mem-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="mem-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
           <div class="cell-input">
-            <input id="mem" type="number">
+            <input id="mem" type="text">
             <select id="byte">
               <option value="M" title="placeholder" selected="selected">MiB</option>
               <option value="G" title="placeholder">GiB</option>
@@ -151,53 +174,24 @@ project at
           </div>
         </div>
         <div class="row">
-          <span class="cell-name"></span>
+          <label class="cell-name">Reservation (<tt>--reservation</tt>)</label>
           <div class="cell-tooltip">
-            <img id="exclusive-info" class="info-img" src="../misc/info.png" title="help">
+            <img id="reservation-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
+          </div>
+          <input id="reservation" class="cell-input" type="text" alt="Information sign">
+        </div>
+        <div class="row">
+          <label class="cell-name">Exclusive (<tt>--exclusive</tt>)</label>
+          <div class="cell-tooltip">
+            <img id="exclusive-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
           </div>
           <div class="cell-input">
             <input id="exclusive" type="checkbox">
-            <lable for="exclusive">Exclusive (<tt>--exclusive</tt>)</lable>
           </div>
         </div>
       </div>
       <div class="partition-info">
-        <pre id="info-panel" class="info-pre"></pre>
-      </div>
-    </div>
-
-    <button type="button" class="collapsible">Files</button>
-    <div class="content">
-      <div class="row">
-        <label class="cell-name">Executable</label>
-        <div class="cell-tooltip">
-          <img id="executable-info" class="info-img" src="../misc/info.png" title="help">
-        </div>
-        <input id="executable" class="cell-input executable" type="text">
-      </div>
-      <div class="row">
-        <span class="cell-name"></span>
-        <div class="cell-tooltip">
-          <img id="one-output-info" class="info-img" src="../misc/info.png" title="help">
-        </div>
-        <div class="cell-input">
-          <input id="one-output" type="checkbox">
-          <lable for="one-output">just one output file</lable>
-        </div>
-      </div>
-      <div class="row">
-        <label class="cell-name">Output file (<tt>-o, --output</tt>) </label>
-        <div class="cell-tooltip">
-          <img id="output-file-info" class="info-img" src="../misc/info.png" title="help">
-        </div>
-        <input id="output-file" class="cell-input" type="text">
-      </div>
-      <div id="err-div" class="row">
-        <label class="cell-name">Error file (<tt>-e, --error</tt>) </label>
-        <div class="cell-tooltip">
-          <img id="error-file-info" class="info-img" src="../misc/info.png" title="help">
-        </div>
-        <input id="error-file" class="cell-input" type="text">
+        <pre id="info-panel-partition" class="info-pre"></pre>
       </div>
     </div>
 
@@ -206,14 +200,14 @@ project at
       <div class="row">
         <label class="cell-name">Array (<tt>-a, --array</tt>)</label>
         <div class="cell-tooltip">
-          <img id="array-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="array-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
         <input id="array" class="cell-input" type="text" placeholder="1-5">
       </div>
       <div class="row">
         <label class="cell-name">Dependency (<tt>-d, --dependency</tt>)</label>
         <div class="cell-tooltip">
-          <img id="dependency-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="dependency-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
         <div class="cell-input">
           <select id="type-depend">
@@ -231,51 +225,93 @@ project at
       </div>
     </div>
 
-    <button type="button" class="collapsible">Workspace</button>
+    <button type="button" class="collapsible">Log Files</button>
     <div class="content">
       <div class="row">
-        <span class="cell-name"></span>
+        <label class="cell-name">Single output file</label>
         <div class="cell-tooltip">
-          <img id="ws-alloc-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="one-output-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
         <div class="cell-input">
-          <input id="check-workspace" type="checkbox">
-          <label for="check-workspace">Allocate a workspace</label>
+          <input id="one-output" type="checkbox">
         </div>
       </div>
-      <div class="row hidden">
-        <label class="cell-name">Filesystem</label>
+      <div class="row">
+        <label class="cell-name">Output file (<tt>-o, --output</tt>) </label>
         <div class="cell-tooltip">
-          <img id="ws-filesystem-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="output-file-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
-        <select id="workspace-filesystem" class="cell-input"></select>
+        <input id="output-file" class="cell-input" type="text" placeholder="slurm-%j.out">
       </div>
-      <div class="row hidden">
-        <label class="cell-name">Name</label>
+      <div id="err-div" class="row">
+        <label class="cell-name">Error file (<tt>-e, --error</tt>) </label>
         <div class="cell-tooltip">
-          <img id="ws-name-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="error-file-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
-        <input id="name" class="cell-input" type="text">
+        <input id="error-file" class="cell-input" type="text" placeholder="slurm-%j.out">
       </div>
-      <div class="row hidden">
-        <label class="cell-name">Duration</label>
+    </div>
+
+    <button type="button" class="collapsible">Application</button>
+    <div class="content">
+      <div class="row">
+        <label class="cell-name">Command (w. path and arguments) </label>
         <div class="cell-tooltip">
-          <img id="ws-duration-info" class="info-img" src="../misc/info.png" title="help">
+          <img id="executable-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
         </div>
-        <div class="cell-input">
-          <input id="duration" type="number" min="1">
-          <label id="duration-text" class="limits"></label>
-        </div>
+        <input id="executable" class="cell-input executable" type="text" placeholder="./a.out">
       </div>
-      <div class="row hidden">
-        <span class="cell-name"></span>
-        <div class="cell-tooltip">
-          <img id="ws-delete-info" class="info-img" src="../misc/info.png" title="help">
+    </div>
+
+    <button type="button" class="collapsible">Workspace</button>
+    <div class="content">
+      <div class="partition-input">
+        <div class="row">
+          <label class="cell-name">Allocate a workspace</label>
+          <div class="cell-tooltip">
+            <img id="ws-alloc-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
+          </div>
+          <div class="cell-input">
+            <input id="check-workspace" type="checkbox">
+          </div>
         </div>
-        <div class="cell-input">
-          <input id="check-delete" type="checkbox">
+        <div class="row hidden">
+          <label class="cell-name">Filesystem</label>
+          <div class="cell-tooltip">
+            <img id="ws-filesystem-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
+          </div>
+          <select id="workspace-filesystem" class="cell-input"></select>
+        </div>
+        <div class="row hidden">
+          <label class="cell-name">Name</label>
+          <div class="cell-tooltip">
+            <img id="ws-name-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
+          </div>
+          <input id="ws-name" class="cell-input" type="text">
+        </div>
+        <div class="row hidden">
+          <label class="cell-name">Duration</label>
+          <div class="cell-tooltip">
+            <img id="ws-duration-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
+          </div>
+          <div class="cell-input">
+            <input id="duration" type="text" min="1">
+            <label id="duration-text" class="limits"></label>
+          </div>
+        </div>
+        <div class="row hidden">
+          <label class="cell-name">Release workspace after job</label>
+          <div class="cell-tooltip">
+            <img id="ws-delete-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
+          </div>
+          <div class="cell-input">
+            <input id="check-delete" type="checkbox">
+          </div>
           <label for="check-delete">Delete after job</label>
         </div>
+      </div>
+      <div class="partition-info">
+        <pre id="info-panel-ws" class="info-pre row hidden"></pre>
       </div>
     </div>
 
@@ -293,204 +329,215 @@ project at
       // dictionary containing the limits for the different partitions
       const limitsPartition = {
         'gpu2' : gpu2 = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 59,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 2583,
-          'mem/node' : 62000,
-          'gpu/node' : 4
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 2,
+          'CoresPerSocket': 12,
+          'ThreadsPerCore': 1,
+          'nodes': 59,
+          'GPU': 4,
+          'HTCores': 24,
+          'Cores': 24,
+          'MemoryPerNode': 62000,
+          'MemoryPerCore': 2583
+        },
+        'gpu2-interactive': {
+          'MaxTime': 480,
+          'DefaultTime': 10,
+          'Sockets': 2,
+          'CoresPerSocket': 12,
+          'ThreadsPerCore': 1,
+          'nodes': 59,
+          'GPU': 4,
+          'HTCores': 24,
+          'Cores': 24,
+          'MemoryPerNode': 62000,
+          'MemoryPerCore': 2583
         },
         'haswell' : haswell = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 1399,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 2541,
-          'mem/node' : 61000,
-          'gpu/node' : 0
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 2,
+          'CoresPerSocket': 12,
+          'ThreadsPerCore': 1,
+          'nodes': 609,
+          'GPU': 0,
+          'HTCores': 24,
+          'Cores': 24,
+          'MemoryPerNode': 61000,
+          'MemoryPerCore': 2541
         },
         'haswell64' : haswell64 = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 1266,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 2541,
-          'mem/node' : 61000,
-          'gpu/node' : 0
-        },
-        'haswell128' : haswell128 = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 84,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 5250,
-          'mem/node' : 126000,
-          'gpu/node' : 0
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 2,
+          'CoresPerSocket': 12,
+          'ThreadsPerCore': 1,
+          'nodes': 586,
+          'GPU': 0,
+          'HTCores': 24,
+          'Cores': 24,
+          'MemoryPerNode': 61000,
+          'MemoryPerCore': 2541
         },
         'haswell256' : haswell256 = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 1,
-          'nodes' : 44,
-          'cores/node' : 24,
-          'ht_cores/node' : 24,
-          'mem/core' : 10583,
-          'mem/node' : 254000,
-          'gpu/node' : 0
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 2,
+          'CoresPerSocket': 12,
+          'ThreadsPerCore': 1,
+          'nodes': 18,
+          'GPU': 0,
+          'HTCores': 24,
+          'Cores': 24,
+          'MemoryPerNode': 254000,
+          'MemoryPerCore': 10583
         },
-        'haswell64ht' : haswell64ht = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 12,
-          'threads' : 2,
-          'nodes' : 18,
-          'cores/node' : 24,
-          'ht_cores/node' : 48,
-          'mem/core' : 1270,
-          'mem/node' : 61000,
-          'gpu/node' : 0
+        'interactive' : interactive = {
+          'MaxTime': 480,
+          'DefaultTime': 30,
+          'Sockets': 2,
+          'CoresPerSocket': 12,
+          'ThreadsPerCore': 1,
+          'nodes': 8,
+          'GPU': 0,
+          'HTCores': 24,
+          'Cores': 24,
+          'MemoryPerNode': 61000,
+          'MemoryPerCore': 2541
         },
         'smp2' : smp2 = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 4,
-          'cpu/socket' : 14,
-          'threads' : 1,
-          'nodes' : 5,
-          'cores/node' : 56,
-          'ht_cores/node' : 56,
-          'mem/core' : 36500,
-          'mem/node' : 2044000,
-          'gpu/node' : 0
-        },
-        'broadwell' : broadwell = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 14,
-          'threads' : 1,
-          'nodes' : 32,
-          'cores/node' : 28,
-          'ht_cores/node' : 28,
-          'mem/core' : 2214,
-          'mem/node' : 62000,
-          'gpu/node' : 0
-        },
-        'ifm' : ifm = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 60,
-          'Sockets' : 2,
-          'cpu/socket' : 8,
-          'threads' : 2,
-          'nodes' : 1,
-          'cores/node' : 16,
-          'ht_cores/node' : 32,
-          'mem/core' : 12000,
-          'mem/node' : 384000,
-          'gpu/node' : 1
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 4,
+          'CoresPerSocket': 14,
+          'ThreadsPerCore': 1,
+          'nodes': 5,
+          'GPU': 0,
+          'HTCores': 56,
+          'Cores': 56,
+          'MemoryPerNode': 2044000,
+          'MemoryPerCore': 36500
         },
         'hpdlf' : hpdlf = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 60,
-          'Sockets' : 2,
-          'cpu/socket' : 6,
-          'threads' : 1,
-          'nodes' : 14,
-          'cores/node' : 12,
-          'ht_cores/node' : 12,
-          'mem/core' : 7916,
-          'mem/node' : 95000,
-          'gpu/node' : 3
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 60,
+          'Sockets': 2,
+          'CoresPerSocket': 6,
+          'ThreadsPerCore': 1,
+          'nodes': 14,
+          'GPU': 3,
+          'HTCores': 12,
+          'Cores': 12,
+          'MemoryPerNode': 95000,
+          'MemoryPerCore': 7916
         },
         'ml' : ml = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 60,
-          'Sockets' : 2,
-          'cpu/socket' : 22,
-          'threads' : 4,
-          'nodes' : 30,
-          'cores/node' : 44,
-          'ht_cores/node' : 176,
-          'mem/core' : 1443,
-          'mem/node' : 254000,
-          'gpu/node' : 6
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 60,
+          'Sockets': 2,
+          'CoresPerSocket': 22,
+          'ThreadsPerCore': 4,
+          'nodes': 30,
+          'GPU': 6,
+          'HTCores': 176,
+          'Cores': 44,
+          'MemoryPerNode': 254000,
+          'MemoryPerCore': 1443
+        },
+        'ml-interactive': {
+          'MaxTime': 480,
+          'DefaultTime': 10,
+          'Sockets': 2,
+          'CoresPerSocket': 22,
+          'ThreadsPerCore': 4,
+          'nodes': 2,
+          'GPU': 6,
+          'HTCores': 176,
+          'Cores': 44,
+          'MemoryPerNode': 254000,
+          'MemoryPerCore': 1443
         },
         'romeo' : romeo = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 64,
-          'threads' : 2,
-          'nodes' : 190,
-          'cores/node' : 128,
-          'ht_cores/node' : 256,
-          'mem/core' : 1972,
-          'mem/node' : 505000,
-          'gpu/node' : 0
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 2,
+          'CoresPerSocket': 64,
+          'ThreadsPerCore': 2,
+          'nodes': 190,
+          'GPU': 0,
+          'HTCores': 256,
+          'Cores': 128,
+          'MemoryPerNode': 505000,
+          'MemoryPerCore': 1972
+        },
+        'romeo-interactive': {
+          'MaxTime': 480,
+          'DefaultTime': 10,
+          'Sockets': 2,
+          'CoresPerSocket': 64,
+          'ThreadsPerCore': 2,
+          'nodes': 2,
+          'GPU': 0,
+          'HTCores': 256,
+          'Cores': 128,
+          'MemoryPerNode': 505000,
+          'MemoryPerCore': 1972
         },
         'julia' : julia = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 32,
-          'cpu/socket' : 28,
-          'threads' : 1,
-          'nodes' : 1,
-          'cores/node' : 896,
-          'ht_cores/node' : 896,
-          'mem/core' : 54006,
-          'mem/node' : 48390000,
-          'gpu/node' : 0
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 32,
+          'CoresPerSocket': 28,
+          'ThreadsPerCore': 1,
+          'nodes': 1,
+          'GPU': 0,
+          'HTCores': 896,
+          'Cores': 896,
+          'MemoryPerNode': 48390000,
+          'MemoryPerCore': 54006
         },
         'alpha' : alpha = {
-          'MaxTime' : 'INFINITE',
-          'DefaultTime' : 480,
-          'Sockets' : 2,
-          'cpu/socket' : 24,
-          'threads' : 2,
-          'nodes' : 32,
-          'cores/node' : 48,
-          'ht_cores/node' : 96,
-          'mem/core' : 10312,
-          'mem/node' : 990000,
-          'gpu/node' : 8
-        }
-      };
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 2,
+          'CoresPerSocket': 24,
+          'ThreadsPerCore': 2,
+          'nodes': 32,
+          'GPU': 8,
+          'HTCores': 96,
+          'Cores': 48,
+          'MemoryPerNode': 990000,
+          'MemoryPerCore': 10312
+        },
+        'alpha-interactive': {
+          'MaxTime': 'INFINITE',
+          'DefaultTime': 480,
+          'Sockets': 2,
+          'CoresPerSocket': 24,
+          'ThreadsPerCore': 2,
+          'nodes': 2,
+          'GPU': 8,
+          'HTCores': 96,
+          'Cores': 48,
+          'MemoryPerNode': 990000,
+          'MemoryPerCore': 10312
+        }      };
 
       // dictionary containing the limits for the different workspaces
       const limitsWorkspace = {
         'scratch' : scratch = {
+          'info' : '',
           'duration' : 100,
           'extensions' : 10
         },
-        'warm_archive' : warm_archive = {
+        'archive' : archive = {
+          'info' : '',
           'duration' : 365,
           'extensions' : 2
         },
         'ssd' : ssd = {
-          'duration' : 30,
-          'extensions' : 2
-        },
-        'beegfs' : beegfs = {
+          'info' : '',
           'duration' : 30,
           'extensions' : 2
         }
@@ -527,7 +574,7 @@ project at
           'link': 'https://slurm.schedmd.com/sbatch.html#OPT_ntasks'
         },
         'tasks/node': {
-          'text': 'Allocate that many tasks per node.',
+          'text': 'Allocate that many tasks per node. If used with the --ntasks option, the --ntasks option will take precedence and the --ntasks-per-node will be treated as a maximum count of tasks per node. Meant to be used with the --nodes option.',
           'link': 'https://slurm.schedmd.com/sbatch.html#OPT_ntasks-per-node'
         },
         'cpus': {
@@ -549,6 +596,10 @@ project at
         'mem': {
           'text': 'Specify the real memory required per node.',
           'link': 'https://slurm.schedmd.com/sbatch.html#OPT_output'
+        },
+        'reservation': {
+          'text': 'Allocate resources for the job from the named reservation.',
+          'link': 'https://slurm.schedmd.com/sbatch.html#OPT_reservation'
         },
         'exclusive': {
           'text': 'The job allocation can not share nodes with other running job. Exclusive usage of compute nodes; you will be charged for all CPUs/cores on the node',
@@ -587,7 +638,7 @@ project at
           'link': 'test'
         },
         'ws-name': {
-          'text': 'help text for ws name',
+          'text': 'Valid characters for workspace names are only alphanumeric characters, -, ., and _. Workspace name has to start with an alphanumeric character.',
           'link': 'test'
         },
         'ws-duration': {
@@ -610,7 +661,7 @@ project at
         'gpus/task' : 0,
         'mem' : 1,
         'duration': 1
-      }
+      };
 
       // dictionary for the min values
       var minValues = {
@@ -622,7 +673,7 @@ project at
         'gpus/task' : 0,
         'mem' : 1,
         'duration': 1
-      }
+      };
 
       /**
        *  Function to generate the output text
@@ -634,13 +685,49 @@ project at
           outputText.innerText += '\n#SBATCH --job-name=\"'
           + document.getElementById('job-name').value + '\"';
         }
-        if (document.getElementById('array').value !== '') {
-          outputText.innerText += '\n#SBATCH --array='
-          + document.getElementById('array').value;
+        if (document.getElementById('account').value !== '') {
+          outputText.innerText += '\n#SBATCH --account=\"'
+          + document.getElementById('account').value + '\"';
         }
-        if (document.getElementById('time').value !== '') {
+        if (document.getElementById('mail').value !== '') {
+          outputText.innerText += '\n#SBATCH --mail-user='
+          + document.getElementById('mail').value;
+          if (document.getElementById('mail-all').checked === true) {
+            outputText.innerText += '\n#SBATCH --mail-type=ALL';
+          } else {
+            let mailtype = ""
+            let mailtype_wanted = false
+            if (document.getElementById('mail-begin').checked === true) {
+              mailtype_wanted = true
+              mailtype = "BEGIN"
+              // outputText.innerText += '\n#SBATCH --mail-type=BEGIN';
+            }
+            if (document.getElementById('mail-end').checked === true) {
+              if (mailtype_wanted === true) {
+                mailtype += ",END"
+              } else {
+                mailtype += "END"
+              }
+              mailtype_wanted = true
+              // outputText.innerText += '\n#SBATCH --mail-type=END';
+            }
+            if (document.getElementById('mail-fail').checked === true) {
+              if (mailtype_wanted === true) {
+                mailtype += ",FAIL"
+              } else {
+                mailtype += "FAIL"
+              }
+              mailtype_wanted = true
+              // outputText.innerText += '\n#SBATCH --mail-type=FAIL';
+            }
+            if (mailtype_wanted === true) {
+              outputText.innerText += '\n#SBATCH --mail-type=' + mailtype
+            }
+          }
+        }
+        if (document.getElementById('timelimit').value !== '') {
           outputText.innerText += '\n#SBATCH --time='
-          + document.getElementById('time').value;
+          + document.getElementById('timelimit').value;
         } else {
           outputText.innerText += '\n#SBATCH --time='
           + limitsPartition[document.getElementById('partition').value]['DefaultTime'];
@@ -678,22 +765,15 @@ project at
           + document.getElementById('mem').value
           + document.getElementById('byte').value;
         }
-        if (document.getElementById('account').value !== '') {
-          outputText.innerText += '\n#SBATCH --account=\"'
-          + document.getElementById('account').value + '\"';
+        if (document.getElementById('reservation').value !== '') {
+          outputText.innerText += '\n#SBATCH --reservation='
+          + document.getElementById('reservation').value;
         }
-        if (document.getElementById('mail').value !== '') {
-          outputText.innerText += '\n#SBATCH --mail-user='
-          + document.getElementById('mail').value;
-          if (document.getElementById('begin').checked === true) {
-            outputText.innerText += '\n#SBATCH --mail-type=BEGIN';
-          }
-          if (document.getElementById('end').checked === true) {
-            outputText.innerText += '\n#SBATCH --mail-type=END';
-          }
-          if (document.getElementById('fail').checked === true) {
-            outputText.innerText += '\n#SBATCH --mail-type=FAIL';
-          }
+        if (document.getElementById('exclusive').checked === true) {
+          outputText.innerText += '\n#SBATCH --exclusive';
+        }
+        if (document.getElementById('nomultithread').checked === true) {
+          outputText.innerText += '\n#SBATCH --hint=nomultithread';
         }
         if (document.getElementById('output-file').value !== '') {
           outputText.innerText += '\n#SBATCH --output='
@@ -703,17 +783,15 @@ project at
           outputText.innerText += '\n#SBATCH --error='
           + document.getElementById('error-file').value;
         }
-        if (document.getElementById('exclusive').checked === true) {
-          outputText.innerText += '\n#SBATCH --exclusive';
-        }
-        if (document.getElementById('nomultithread').checked === true) {
-          outputText.innerText += '\n#SBATCH --hint=nomultithread';
+        if (document.getElementById('array').value !== '') {
+          outputText.innerText += '\n#SBATCH --array='
+          + document.getElementById('array').value;
         }
         if (document.getElementById('type-depend').value !== 'none') {
           outputText.innerText += '\n#SBATCH --dependency='
-          + document.getElementById('type-depend').value
+          + document.getElementById('type-depend').value;
           if (document.getElementById('type-depend').value !== 'singleton') {
-            outputText.innerText += ':' + document.getElementById('jobid').value
+            outputText.innerText += ':' + document.getElementById('jobid').value;
           }
         }
 
@@ -725,80 +803,207 @@ project at
         if (document.getElementById('check-workspace').checked) {
           outputText.innerText += '\n# Allocate workspace as working directory';
           outputText.innerText += '\nWSNAME='
-          + document.getElementById('name').value + '_$SLURM_JOB_ID';
+          + document.getElementById('ws-name').value.trim() + '_${SLURM_JOB_ID}';
           outputText.innerText += '\nexport WSDIR=$(ws_allocate -F '
           + document.getElementById('workspace-filesystem').value
-          + ' -n $WSNAME -d '
-          + document.getElementById('duration').value
-          + ')';
-          outputText.innerText += '\necho "Workspace: $WSDIR"';
+          + ' -n ${WSNAME}';
+          if (document.getElementById('duration').value) {
+            outputText.innerText += ' -d ' + document.getElementById('duration').value
+          }
+          outputText.innerText += ')';
+          outputText.innerText += '\necho "Workspace: ${WSDIR}"';
 
           outputText.innerText += '\n# Check allocation';
-          outputText.innerText += '\n[ -z "$WSDIR" ] && echo "Error: Cannot allocate workspace $WSNAME" && exit 1';
+          outputText.innerText += '\n[ -z "${WSDIR}" ] && echo "Error: Cannot allocate workspace {$WSNAME}" && exit 1';
 
-          outputText.innerText += '\n\n# Change to workspace';
-          outputText.innerText += '\ncd $WSDIR';
+          outputText.innerText += '\n\n# Change to workspace directory';
+          outputText.innerText += '\ncd ${WSDIR}';
         }
 
         if (document.getElementById('executable').value !== '') {
-          outputText.innerText += '\n\n# Execute parallel application '
+          outputText.innerText += '\n\n# Execute parallel application ';
           outputText.innerText += '\nsrun '
           + document.getElementById('executable').value;
         } else {
-          outputText.innerText += '\n\n# Execute parallel application '
-          outputText.innerText += '\n# srun <file to execute>'
+          outputText.innerText += '\n\n# Execute parallel application ';
+          outputText.innerText += '\n# srun <application>';
         }
 
         if (document.getElementById('check-workspace').checked && document.getElementById('check-delete').checked) {
-          outputText.innerText += '\n\n# Save your results!'
-          outputText.innerText += '\n# cp <results> <dest>'
-          outputText.innerText += '\n\n# Clean up workspace'
-          outputText.innerText += '\nif [ -d $WORK_SCRDIR ] && rm -rf $WSDIR/*';
-          outputText.innerText += '\nws_release -F '
-          + document.getElementById('workspace-filesystem').value
-          + ' $WSDIR';
+          outputText.innerText += '\n\n# Save your results, e.g. in your home directory';
+          outputText.innerText += '\n# Compress results with bzip2 (which includes CRC32 checksums)';
+          outputText.innerText += '\nbzip2 --compress --stdout -4 "${WSDIR}" > ${HOME}/${SLURM_JOB_ID}.bz2';
+          outputText.innerText += '\nRETURN_CODE=$?';
+          outputText.innerText += '\nCOMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo'
+                                  +' \'TRUE\'; else echo \'FALSE\'; fi)"';
+
+          outputText.innerText += '\n\n# Clean up workspace';
+          outputText.innerText += '\nif [ "TRUE" = ${COMPRESSION_SUCCESS} ]; then';
+          outputText.innerText += '\n    if [ -d ${WSDIR} ] && rm -rf ${WSDIR}/*';
+          outputText.innerText += '\n    # Reduce grace period to 1 day';
+          outputText.innerText += '\n    ws_release -F '
+                                  + document.getElementById('workspace-filesystem').value
+                                  + ' ${WSNAME}';
+          outputText.innerText += '\nelse'
+          outputText.innerText += '\n    echo "Error with compression and writing of results"'
+          outputText.innerText += '\n    echo "Please check the folder \"${WSDIR}\" for any'
+                                  + ' partial(?) results.n';
+          outputText.innerText += '\n    exit 1';
+          outputText.innerText += '\nfi';
+        }
+      }
+
+      function validateTimelimit() {
+        // walltime: Check if value is set
+        let elem = document.getElementById('timelimit')
+        elem.style.backgroundColor = '';
+        let walltime = elem.value.trim()
+        if (walltime) {
+          // minutes, minutes:seconds, hours:minutes:seconds
+          let re_minutes = /^([0-9]+:)?[0-9]+(:[0-9]+)?$/;
+          // days-hours, days-hours:minutes and days-hours:minutes:seconds
+          let re_days = /^[0-9]+-[0-9]+(:[0-9]+){0,2}$/;
+          if (!re_minutes.test(walltime) &&
+              !re_days.test(walltime)) {
+            elem.style.backgroundColor = 'rgb(255, 121, 121)';
+            return false;
+          }
+        }
+        return true;
+      }
+
+      const validateEmailString = (email) => {
+        return String(email)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+      };
+
+      function validateEmail() {
+        let elem = document.getElementById('mail')
+        elem.style.backgroundColor = '';
+        let email = elem.value.trim()
+        if (document.getElementById('mail-all').checked === true
+            || document.getElementById('mail-begin').checked === true
+            || document.getElementById('mail-end').checked === true
+            || document.getElementById('mail-fail').checked === true) {
+          // if checked type but empty email or invalid email
+          if (! email || !validateEmailString(email)) {
+            elem.style.backgroundColor = 'rgb(255, 121, 121)';
+            return false;
+          }
+        } else {
+          // If email is given but no Type is selected
+          if (email) {
+            elem.style.backgroundColor = 'rgb(255, 121, 121)';
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function validateArray() {
+        // walltime: Check if value is set
+        let elem = document.getElementById('array')
+        elem.style.backgroundColor = '';
+        let array = elem.value.trim()
+        let reArray = /^[0-9]+(-[0-9]+)?(,[0-9]+(-[0-9]+)?)*(:[0-9]+)?(%[0-9]+)?$/;
+        // If array is filled, check validity
+        if (array) {
+          if (!reArray.test(array)) {
+            elem.style.backgroundColor = 'rgb(255, 121, 121)';
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function validateWorkspace() {
+        // Workspace name can consist of alphanumeric characters, -, ., and _.
+        // Has to start with alphanumerical character.
+        let elem = document.getElementById('ws-name')
+        elem.style.backgroundColor = '';
+        let ws_name = elem.value.trim()
+        let re_allowed = /^[a-zA-Z0-9][a-zA-Z0-9\-\.\_]*$/;
+        if (!re_allowed.test(ws_name)) {
+          elem.style.backgroundColor = 'rgb(255, 121, 121)';
+          return false;
+        }
+        return true;
+      }
+
+      function validateNumericField(field) {
+        // remove all leading zeros
+        let elem = document.getElementById(field);
+        let elem_label = document.getElementById(field + '-text');
+        elem.style.backgroundColor = '';
+        elem_label.style.display = 'none';
+        let val_str = elem.value.trim();
+        if (val_str) {
+          // Check if value is not a number
+          if (isNaN(val_str)) {
+            elem.style.backgroundColor = 'rgb(255, 121, 121)'
+            return false;
+          }
+          // Ensure it is an integer
+          let val_num = Number(val_str);
+          if (!Number.isInteger(val_num)) {
+            elem.style.backgroundColor = 'rgb(255, 121, 121)'
+            return false;
+          }
+          let min = minValues[field];
+          let max = maxValues[field];
+          if (val_num < min || val_num > max) {
+            elem.style.backgroundColor = 'rgb(255, 121, 121)';
+            elem_label.style.display = 'inline';
+            return false;
+          }
+        }
+        // If value is empty or only spaces, its ok
+        return true;
+      }
+
+      function validateNumericFieldFactory(field) {
+        return function() {
+          validateNumericField(field);
         }
       }
 
       /**
        * Proof if all values are correct, if yes it prints the output, else it highlights incorrect values
        */
-      var proofValues = function() {
-        let boolValues = true;
-        // proof values and set/unset warnings
-        // walltime
-        let reArray = /^(([0-9]{1,3})-)?([0-9]{2}):[0-9]{2}:[0-9]{2}$/;
-        if (!reArray.test(document.getElementById('time').value) && document.getElementById('time').value) {
-          document.getElementById('time').style.backgroundColor = 'rgb(255, 121, 121)';
-          boolValues = false;
-        } else {
-          document.getElementById('time').style.backgroundColor = '';
+      var validateAllFields = function() {
+        let allFieldsValid = true;
+        if (!validateTimelimit()) {
+          allFieldsValid = false;
         }
-        // proof multiple fields
-        const fields = ['nodes', 'tasks', 'tasks/node', 'cpus', 'gpus', 'gpus/task', 'mem'];
-        if (document.getElementById('check-workspace').checked === true) {
-          fields.push('duration');
+        if (!validateEmail()) {
+          allFieldsValid = false;
         }
-        [].forEach.call(fields, function(field) {
-          // remove all leading zeros
-          document.getElementById(field).value = document.getElementById(field).value.replace(/^0+/, '');
+        if (!validateArray()) {
+          allFieldsValid = false;
+        }
 
-          let element = document.getElementById(field);
-          let elementText = document.getElementById(field + '-text');
-          let value = Number(document.getElementById(field).value);
-          let min = Number(minValues[field]);
-          let max = Number(maxValues[field]);
-          if (value >= min && value <= max || document.getElementById(field).value === '') {
-            element.style.backgroundColor = '';
-            elementText.style.display = 'none';
-          } else {
-            boolValues = false;
-            element.style.backgroundColor = 'rgb(255, 121, 121)';
-            elementText.style.display = 'inline';
+        // Build list of numerical fields
+        let fields = ['nodes', 'tasks', 'tasks/node', 'cpus', 'gpus', 'gpus/task', 'mem'];
+        for (let index = 0; index < fields.length; index++) {
+          if (!validateNumericField(fields[index])) {
+            allFieldsValid = false;
           }
-        })
+        }
+        //fields.forEach(field => validateNumericField(field))
 
-        if (boolValues === true) {
+        if (document.getElementById('check-workspace').checked === true) {
+          if (!validateNumericField('duration')) {
+            allFieldsValid = false;
+          }
+          if (!validateWorkspace()) {
+            allFieldsValid = false;
+          }
+        }
+
+        if (allFieldsValid === true) {
           document.getElementById('output-text').style.display = 'none';
           generateOutput();
         } else {
@@ -832,7 +1037,12 @@ project at
         var url = URL.createObjectURL(file);
         var a = document.createElement('a');
         a.href = url;
-        a.download = 'sbatchfile.sh';
+        if (document.getElementById('job-name').value !== '') {
+          a.download = document.getElementById('job-name').value + ".sh"
+        }
+        else {
+          a.download = 'sbatchfile.sh';
+        }
         document.body.appendChild(a);
         // activate the link
         a.click();
@@ -865,40 +1075,35 @@ project at
         })
       });
 
-      // input mask for array
-      document.getElementById('array').addEventListener('change', function () {
-        let reArray = /^[0-9]+(-[0-9]+)?(,[0-9]+(-[0-9]+)?)*(:[0-9]+)?(%[0-9]+)?$/;
-        if (!reArray.test(document.getElementById('array').value) && document.getElementById('array').value) {
-          document.getElementById('array').style.backgroundColor = 'rgb(255, 121, 121)';
-        } else {
-          document.getElementById('array').style.backgroundColor = '';
+      /**
+       * Function to fill the information panel about the currently selected partition
+       */
+      var fillPartitionInfo = function() {
+        let panelText = document.getElementById('info-panel-partition');
+        let partitionLimits = limitsPartition[document.getElementById('partition').value];
+
+        panelText.innerText = "Partition " + document.getElementById('partition').value;
+        if (partitionLimits['Description']) {
+          panelText.innerText += ": " + partitionLimits['Description'];
         }
-      });
-      // input mask for walltime
-      document.getElementById('time').addEventListener('change', function () {
-        let reArray = /^([0-9]{1,3}-)?[0-9]{2}:[0-9]{2}:[0-9]{2}$/;
-        if (!reArray.test(document.getElementById('time').value) && document.getElementById('time').value) {
-          document.getElementById('time').style.backgroundColor = 'rgb(255, 121, 121)';
-        } else {
-          document.getElementById('time').style.backgroundColor = '';
-          setLimitDuration()
-        }
-      });
+        panelText.innerText += '\nNodes: ' + partitionLimits['nodes'];
+        panelText.innerText += '\nCores per node: ' + partitionLimits['Cores'];
+        panelText.innerText += '\nHyper threading: ' + partitionLimits['HTCores'];
+        panelText.innerText += '\nRAM per core: ' + partitionLimits['MemoryPerCore'] + ' MB';
+        panelText.innerText += '\nRAM per node: ' + partitionLimits['MemoryPerNode'] + ' MB';
+        panelText.innerText += '\nGPUs per node: ' + partitionLimits['GPU'];
+      }
 
       /**
        * Function to fill the information panel about the currently selected partition
        */
-      var fillInfo = function() {
-        let panelText = document.getElementById('info-panel');
-        let partitionLimits = limitsPartition[document.getElementById('partition').value];
+      var fillWorkspaceInfo = function() {
+        let panelText = document.getElementById('info-panel-ws');
+        let workspaceLimits = limitsWorkspace[document.getElementById('workspace-filesystem').value];
 
-        panelText.innerText = partitionLimits['info'];
-        panelText.innerText += '\nNodes: ' + partitionLimits['nodes'];
-        panelText.innerText += '\nCores per node: ' + partitionLimits['cores/node'];
-        panelText.innerText += '\nHyper threading: ' + partitionLimits['ht_cores/node'];
-        panelText.innerText += '\nRAM per core: ' + partitionLimits['mem/core'] + 'MB';
-        panelText.innerText += '\nRAM per node: ' + partitionLimits['mem/node'] + 'MB';
-        panelText.innerText += '\nGPUs per node: ' + partitionLimits['gpu/node'];
+        panelText.innerText = workspaceLimits['info'];
+        panelText.innerText += '\nDuration: ' + workspaceLimits['duration'];
+        panelText.innerText += '\nExtensions: ' + workspaceLimits['extensions'];
       }
 
       /**
@@ -909,13 +1114,13 @@ project at
           let panelText = document.getElementById(key);
           let partitionLimits = limitsPartition[key];
 
-          panelText.title = partitionLimits['info'];
+          panelText.title = partitionLimits['Description'];
           panelText.title += '\nNodes: ' + partitionLimits['nodes'];
-          panelText.title += '\nCores per node: ' + partitionLimits['cores/node'];
-          panelText.title += '\nHyper threading: ' + partitionLimits['ht_cores/node'];
-          panelText.title += '\nRAM per core: ' + partitionLimits['mem/core'] + 'MB';
-          panelText.title += '\nRAM per node: ' + partitionLimits['mem/node'] + 'MB';
-          panelText.title += '\nGPUs per node: ' + partitionLimits['gpu/node'];
+          panelText.title += '\nCores per node: ' + partitionLimits['Cores'];
+          panelText.title += '\nHyper threading: ' + partitionLimits['HTCores'];
+          panelText.title += '\nRAM per core: ' + partitionLimits['MemoryPerCore'] + ' MB';
+          panelText.title += '\nRAM per node: ' + partitionLimits['MemoryPerNode'] + ' MB';
+          panelText.title += '\nGPUs per node: ' + partitionLimits['GPU'];
         }
       }
 
@@ -944,7 +1149,7 @@ project at
         panelText.title = 'Limits by current setting:';
         panelText.title += '\nmin: ' + minValues[field];
         panelText.title += '\nmax: ' + maxValues[field];
-        panelText.title += '\nEmpty the field if unneeded'
+        panelText.title += '\nEmpty the field if unneeded';
 
         // set limit labels
         let limitText = document.getElementById(field + '-text');
@@ -1009,7 +1214,7 @@ project at
         let nodes = getValue('nodes', 'max');
         let taskPerNode = getValue('tasks/node', 'max');
         // multithreading
-        let limit = document.getElementById('nomultithread').checked === true ? 'cores/node' : 'ht_cores/node';
+        let limit = document.getElementById('nomultithread').checked === true ? 'Cores' : 'HTCores';
         maxValues['tasks'] = nodes * partitionLimits[limit];
         // limit if nodes and tasks/node
         if (
@@ -1039,7 +1244,7 @@ project at
         let tasks = getValue('tasks', 'max');
 
         // multithreading
-        let limit = document.getElementById('nomultithread').checked === true ? 'cores/node' : 'ht_cores/node';
+        let limit = document.getElementById('nomultithread').checked === true ? 'Cores' : 'HTCores';
         maxValues['tasks/node'] = partitionLimits[limit];
         //set min
         nodes = getValue('nodes', 'min');
@@ -1077,7 +1282,7 @@ project at
 
         // set max
         // multithreading
-        let limit = document.getElementById('nomultithread').checked === true ? 'cores/node' : 'ht_cores/node';
+        let limit = document.getElementById('nomultithread').checked === true ? 'Cores' : 'HTCores';
         let nodes = getValue('nodes', 'max');
         let tasks = getValue('tasks', 'max');
         let tasksPerNode = getValue('tasks/node', 'max');
@@ -1092,7 +1297,7 @@ project at
           && document.getElementById('exclusive').checked !== true
         ) {
           let gpus = getValue('gpus', 'max');
-          maxValues[field] = Math.floor(gpus / partitionLimits['gpu/node'] * partitionLimits[limit]);
+          maxValues[field] = Math.floor(gpus / partitionLimits['GPU'] * partitionLimits[limit]);
         }
         //set min
         minValues['cpus'] = 1;
@@ -1108,7 +1313,7 @@ project at
         let partitionLimits = limitsPartition[document.getElementById('partition').value];
 
         // set max for gpus
-        maxValues['gpus'] = partitionLimits['gpu/node'];
+        maxValues['gpus'] = partitionLimits['GPU'];
         setTooltips('gpus');
         //set min
         if (document.getElementById('gpus/task').value !== '') {
@@ -1136,12 +1341,12 @@ project at
         let nodes = getValue('nodes', 'max');
 
         // set new max
-        let maxValue = [partitionLimits['gpu/node']];
+        let maxValue = [partitionLimits['GPU']];
         if (tasks !== '') {
-          maxValue.push(Math.floor(partitionLimits['gpu/node'] / Math.ceil(Number(tasks) / Number(nodes))));
+          maxValue.push(Math.floor(partitionLimits['GPU'] / Math.ceil(Number(tasks) / Number(nodes))));
         }
         if (tasksNode !== '') {
-          maxValue.push(Math.floor(partitionLimits['gpu/node'] / Number(document.getElementById('tasks/node').value)));
+          maxValue.push(Math.floor(partitionLimits['GPU'] / Number(document.getElementById('tasks/node').value)));
         }
         maxValues['gpus/task'] = Math.min.apply(null, maxValue);
         // set tooltips for new limits
@@ -1154,12 +1359,12 @@ project at
       var setLimitMem = function() {
         // get partition limits from dictionary
         let partitionLimits = limitsPartition[document.getElementById('partition').value];
-        maxValues['mem'] = partitionLimits['mem/core'];
+        maxValues['mem'] = partitionLimits['MemoryPerCore'];
         if (document.getElementById('nomultithread').checked === true) {
-          maxValues['mem'] *= partitionLimits['threads'];
+          maxValues['mem'] *= partitionLimits['ThreadsPerCore'];
         }
         if (document.getElementById('byte').value === 'G') {
-        maxValues['mem'] = Math.floor(maxValues['mem'] / 1024);
+          maxValues['mem'] = Math.floor(maxValues['mem'] / 1024);
         }
         setTooltips('mem');
       }
@@ -1176,7 +1381,7 @@ project at
         //set min
         // get days and hours from walltime
         let reArray = /^(([0-9]{1,3})-)?([0-9]{2}):([0-9]{2}):([0-9]{2})$/;
-        let match = reArray.exec(document.getElementById('time').value);
+        let match = reArray.exec(document.getElementById('timelimit').value);
         if (match === null) {
           setTooltips('duration');
           return;
@@ -1216,7 +1421,7 @@ project at
         // get partition limits from dictionary
         let partitionLimits = limitsPartition[document.getElementById('partition').value];
         // hide the GPU field, if partition do not have GPUs
-        if (partitionLimits['gpu/node'] === 0) {
+        if (partitionLimits['GPU'] === 0) {
           document.getElementById('div-gpu').style.display = 'none';
           document.getElementById('div-gpu/task').style.display = 'none';
           document.getElementById('gpus').value = '';
@@ -1226,7 +1431,7 @@ project at
           document.getElementById('div-gpu/task').style.display = '';
         }
         // hide the multithreading field if it isnt supported
-        if (partitionLimits['threads'] === 1) {
+        if (partitionLimits['ThreadsPerCore'] === 1) {
           document.getElementById('div-thread').style.display = 'none';
           document.getElementById('nomultithread').checked = false;
         } else {
@@ -1238,7 +1443,7 @@ project at
 
       // set up event listeners, if field change
       document.getElementById('partition').addEventListener('change', partitionLimitChange);
-      document.getElementById('partition').addEventListener('change', fillInfo);
+      document.getElementById('partition').addEventListener('change', fillPartitionInfo);
       document.getElementById('nodes').addEventListener('change', LimitChange);
       document.getElementById('tasks').addEventListener('change', LimitChange);
       document.getElementById('tasks/node').addEventListener('change', LimitChange);
@@ -1250,18 +1455,35 @@ project at
       document.getElementById('exclusive').addEventListener('change', LimitChange);
       document.getElementById('nomultithread').addEventListener('change', LimitChange);
       document.getElementById('workspace-filesystem').addEventListener('change', setLimitDuration);
+      document.getElementById('workspace-filesystem').addEventListener('change', fillWorkspaceInfo);
+      // Set up field validator events
+      document.getElementById('nodes').addEventListener('change', validateNumericFieldFactory('nodes'));
+      document.getElementById('tasks').addEventListener('change', validateNumericFieldFactory('tasks'));
+      document.getElementById('tasks/node').addEventListener('change', validateNumericFieldFactory('tasks/node'));
+      document.getElementById('cpus').addEventListener('change', validateNumericFieldFactory('cpus'));
+      document.getElementById('gpus').addEventListener('change', validateNumericFieldFactory('gpus'));
+      document.getElementById('gpus/task').addEventListener('change', validateNumericFieldFactory('gpus/task'));
+      document.getElementById('mem').addEventListener('change', validateNumericFieldFactory('mem'));
+      document.getElementById('array').addEventListener('change', validateArray);
+      document.getElementById('ws-name').addEventListener('change', validateWorkspace);
+      document.getElementById('timelimit').addEventListener('change', validateTimelimit);
+      // We do not validate Email on change since the validateEmail checks if mail is correct + a box is selected.
+      // In the user workflow, this would trigger a red field when they enter a correct Email, but have not selected a checkbox
+      // To avoid confusion, we only check on generate.
 
       // hide jobid field if unneeded
       document.getElementById('type-depend').addEventListener('change', function() {
-        if (document.getElementById('type-depend').value === 'none' ||
-          document.getElementById('type-depend').value === 'singleton') {
+        if (
+          document.getElementById('type-depend').value === 'none' ||
+          document.getElementById('type-depend').value === 'singleton'
+        ) {
           document.getElementById('jobid').style.cssText = 'display:none !important';
         } else {
           document.getElementById('jobid').style.cssText = 'display:inline !important';
         }
       });
 
-      document.getElementById('generate-button').addEventListener('click', proofValues);
+      document.getElementById('generate-button').addEventListener('click', validateAllFields);
 
       // initialize webpage
 
@@ -1320,7 +1542,8 @@ project at
 
       // initialize UI
       partitionLimitChange();
-      fillInfo();
+      fillPartitionInfo();
+		  fillWorkspaceInfo();
       fillTooltips();
       fillTooltipsWorkspace();
     </script>
