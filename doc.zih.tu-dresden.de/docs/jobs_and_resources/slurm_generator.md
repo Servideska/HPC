@@ -1543,7 +1543,7 @@ along with sgen.  If not, see <http://www.gnu.org/licenses/>.
       // initialize UI
       partitionLimitChange();
       fillPartitionInfo();
-		  fillWorkspaceInfo();
+      fillWorkspaceInfo();
       fillTooltips();
       fillTooltipsWorkspace();
     </script>
