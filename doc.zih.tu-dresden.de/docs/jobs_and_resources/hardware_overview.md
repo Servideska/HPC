@@ -28,7 +28,7 @@ users and the ZIH.
     - 8 x NVIDIA A100-SXM4 Tensor Core-GPUs
     - 2 x AMD EPYC CPU 7352 (24 cores) @ 2.3 GHz, Multithreading disabled
     - 1 TB RAM
-    - 3.5 TB local memory at NVMe device at `/tmp`
+    - 3.5 TB local memory on NVMe device at `/tmp`
 - Hostnames: `taurusi[8001-8034]`
 - Slurm partition: `alpha`
 - Further information on the usage is documented on the site [AMD Rome Nodes](rome_nodes.md)
