@@ -10,7 +10,7 @@ users and the ZIH.
 
 ## Login and Export Nodes
 
-- 3 Login-Nodes `tauruslogin[3-6].hrsk.tu-dresden.de`
+- 4 Login-Nodes `tauruslogin[3-6].hrsk.tu-dresden.de`
     - Each login node is equipped with 2x Intel(R) Xeon(R) CPU E5-2680 v3 with 24 cores in total @
       2.50 GHz, Multithreading disabled, 64 GB RAM, 128 GB SSD local disk
     - IPs: 141.30.73.\[102-105\]
