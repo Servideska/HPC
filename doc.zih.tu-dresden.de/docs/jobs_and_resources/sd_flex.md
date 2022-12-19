@@ -4,16 +4,10 @@ The HPE Superdome Flex is a large shared memory node. It is especially well suit
 intensive application scenarios, for example to process extremely large data sets completely in main
 memory or in very fast NVMe memory.
 
-## Configuration Details
+The hardware specification is documented on the page
+[HPC Resources](hardware_overview.md#large-smp-system-hpe-superdome-flex).
 
-- Hostname: `taurussmp8`
-- Access to all shared filesystems
-- Slurm partition `julia`
-- 32 x Intel(R) Xeon(R) Platinum 8276M CPU @ 2.20GHz (28 cores)
-- 48 TB RAM (usable: 47 TB - one TB is used for cache coherence protocols)
-- 370 TB of fast NVME storage available at `/nvme/<projectname>`
-
-## Local Temporary NVMe Storage
+## Local Temporary on NVMe Storage
 
 There are 370 TB of NVMe devices installed. For immediate access for all projects, a volume of 87 TB
 of fast NVMe storage is available at `/nvme/1/<projectname>`. A quota of
@@ -28,7 +22,13 @@ project's quota can be increased or dedicated volumes of up to the full capacity
 - Granularity should be a socket (28 cores)
 - Can be used for OpenMP applications with large memory demands
 - To use OpenMPI it is necessary to export the following environment
-  variables, so that OpenMPI uses shared memory instead of Infiniband
-  for message transport. `export OMPI_MCA_pml=ob1;   export  OMPI_MCA_mtl=^mxm`
+  variables, so that OpenMPI uses shared-memory instead of Infiniband
+  for message transport:
+
+  ```
+  export OMPI_MCA_pml=ob1
+  export OMPI_MCA_mtl=^mxm
+  ```
+
 - Use `I_MPI_FABRICS=shm` so that Intel MPI doesn't even consider
   using Infiniband devices itself, but only shared-memory instead
