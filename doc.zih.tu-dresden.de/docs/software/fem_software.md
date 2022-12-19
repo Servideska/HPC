@@ -188,13 +188,102 @@ that you can simply change to something like 16 or 24. For now, you should stay 
 boundaries, because multi-node calculations require additional parameters. The number you choose
 should match your used `--cpus-per-task` parameter in your job file.
 
-### Running MAPDL in Interactive Mode
+### Running MAPDL
 
-ANSYS Mechanical APDL (sometimes called ANSYS Classic, the older MAPDL scripted environment).
+*Ansys Parametric Design Language* (APDL) is a powerful structured scripting language used to
+interact with the Ansys Mechanical solver. Mechanical APDL (MAPDL), a finite element analysis
+program, is driven by APDL. APDL and MAPDL can be used for many tasks, ranging from creating
+geometries for analysis to setting up sophisticated solver settings for highly complex analyses
+
+#### Shared-Memory Mode
+
+MAPDL can be invoked in so-called shared-memory mode to make use of threads in order to speedup
+computation. The multi-threading approach is restricted to one node. In contrast, MAPDL offers a
+MPI-parallel mode to distribute the computation across  multiple nodes. This mode is described
+below.
+
+##### Interactive mode
 
 ```console
-marie@login$ srun --partition=haswell --ntasks=1 --cpus-per-task=4 --time=1:00:00 --mem-per-cpu=1700 --pty bash
-marie@node$ mapdl -smp
+marie@login$ srun --partition=haswell --nodes 1 --ntasks-per-node=4 --time=0:20:00 --mem-per-cpu=1700 --pty bash -l
+```
+
+```console
+marie@node$ module load ANSYS/2021R2
+marie@node$ mapdl -smp -np $SLURM_NTASKS
+```
+
+##### Batch mode
+
+```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem=2000
+#SBATCH --job-name=ansys_mapdl
+#SBATCH --output=output_ansys_mapdl
+#SBATCH --time=01:00:00
+
+module load ANSYS/2021R2
+
+# -smp use shared memory parallel version
+# -b (batch mode)
+# -np specify number of cpu's to use
+# -j jobname
+
+mapdl -smp -b -np $SLURM_NTASKS -j solution -i <input-file>
+```
+
+```console
+marie@login$ sbatch mapdl_job.sh
+```
+
+#### Distributed-Memory Mode
+
+MAPDL can be run in distributed-memory mode using multiple compute nodes in either interactive as
+well as batch mode as shown in the following.
+
+In both cases, it is necessary to create a nodelist and provide it to MAPDL via `-machines` command
+line option.
+
+##### Interactive Mode
+
+```console
+marie@login$ srun --partition=haswell --nodes 4 --ntasks-per-node=4 --time=0:20:00 --mem-per-cpu=1700 --pty bash -l
+
+# generate node list
+marie@node$ NODELIST=$(for node in $( scontrol show hostnames $SLURM_JOB_NODELIST | uniq ); do echo -n "${node}:${SLURM_NTASKS_PER_NODE}:"; done | sed 's/:$//')
+
+marie@node$ KMP_AFFINITY=none mapdl -machines $NODELIST
+```
+
+##### Batch Mode
+
+```bash
+#!/bin/bash
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem=2000
+#SBATCH --job-name=ansys_mapdl
+#SBATCH --output=output_ansys_mapdl
+#SBATCH --time=01:00:00
+
+module purge
+module load ANSYS/2021R2
+
+# generate node list
+NODELIST=$(for node in $( scontrol show hostnames $SLURM_JOB_NODELIST | uniq ); do echo -n "${node}:${SLURM_NTASKS_PER_NODE}:"; done | sed 's/:$//')
+
+# -b (batch mode)
+# -machines xxx   specify machines list for distributed Ansys
+# -j jobname
+setenv KMP_AFFINITY none
+
+mapdl -b -machines $NODELIST -j solution -i <input-file>
+```
+
+```console
+marie@login$ sbatch mapdl_job.sh
 ```
 
 ## COMSOL Multiphysics
