@@ -256,13 +256,20 @@ There are three typical options for the use of workspaces:
 
 ### Per-Job Storage
 
-A batch job needs a directory for temporary data. This can be deleted afterwards.
-To help you to write your own [(Slurm) job file](../jobs_and_resources/slurm.md#job-files),
-suited to your own needs, we came up with
+The idea of a "workspace per-job storage" adresses the need of a batch job for a directory for
+temporary data which can be deleted afterwards. To help you to write your own
+[(Slurm) job file](../jobs_and_resources/slurm.md#job-files), suited to your needs, we came up with
 the following example (which works [for the program g16](../software/nanoscale_simulations.md)).
-You will probably want to adjust it in a few places (e.g. what software you want to
-[load](../software/modules.md), inserting the path to your input file and actually
-calling the actual software to do your computation).
+
+!!! hint
+
+    Please do not blind copy the example, but rather take the essential idea and concept and adjust
+    it to your needs and workflow, e.g.
+
+    * adopt Slurm options for ressource specification,
+    * inserting the path to your input file,
+    * what software you want to [load](../software/modules.md),
+    * and calling the actual software to do your computation.
 
 !!! example "Using temporary workspaces for I/O intensive tasks"
 
@@ -283,12 +290,15 @@ calling the actual software to do your computation).
     module purge
     module load <modules>
 
-    # Adjust the path to where your input file is located
+    # The path to where your input file is located
     INPUTFILE="/path/to/my/inputfile.data"
-
     test ! -f "${INPUTFILE}" && echo "Error: Could not find the input file ${INPUTFILE}" && exit 1
 
-    # Allocate workspace. Adjust time span to time limit of the job (-d <N>).
+    # The workspace where results from multiple expirements will be saved for later analysis
+    RESULT_WSDIR="/path/to/workspace-experiments-results"
+    test -z "${RESULT_WSDIR}" && echo "Error: Cannot find workspace ${RESULT_WSDIR}" && exit 1
+
+    # Allocate workspace for this job. Adjust time span to time limit of the job (-d <N>).
     WSNAME=computation_$SLURM_JOB_ID
     export WSDDIR=$(ws_allocate -F ssd -n ${WSNAME} -d 2)
     echo ${WSDIR}
@@ -302,9 +312,16 @@ calling the actual software to do your computation).
     # Adjust the following line to invoke the program you want to run
     srun <application> < "${INPUTFILE}" > logfile.log
 
-    # Save result files, e.g. into your user home
-    # Compress results with bzip2 (which includes CRC32 Checksums)
-    bzip2 --compress --stdout -4 "${WSDIR}" > $HOME/gaussian_job-$SLURM_JOB_ID.bz2
+    # Move result and log files of interest to directory named 'results'. This directory and its
+    # content will be saved in another storage location for later analysis. All files and
+    # directories will be deleted right away at the end of this job file.
+    mkdir results
+    cp <results and log files> results/
+
+    # Save result files in a general workspace (RESULT_WSDIR, s.a.) holding results from several
+    # experiments.
+    # Compress results with bzip2 (which includes CRC32 Checksums).
+    bzip2 --compress --stdout -4 "${WSDIR}/results" > ${RESULT_WSDIR}/gaussian_job-${SLURM_JOB_ID}.bz2
     RETURN_CODE=$?
     COMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo 'TRUE'; else echo 'FALSE'; fi)"
 
