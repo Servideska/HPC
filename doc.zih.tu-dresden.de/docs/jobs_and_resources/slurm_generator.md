@@ -60,7 +60,8 @@ along with sgen.  If not, see <http://www.gnu.org/licenses/>.
       <div class="row">
         <label class="cell-name">Project (<tt>-A, --account</tt>)</label>
         <div class="cell-tooltip">
-          <img id="account-info" class="info-img" src="../misc/info.png" title="help" alt="Information sign">
+          <img id="account-info" class="info-img" src="../misc/info.png" title="help"
+               alt="Information sign">
         </div>
         <input id="account" class="cell-input" type="text">
       </div>
