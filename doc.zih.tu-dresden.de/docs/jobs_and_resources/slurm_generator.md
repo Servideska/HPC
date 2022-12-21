@@ -531,12 +531,17 @@ along with sgen.  If not, see <http://www.gnu.org/licenses/>.
           'duration' : 100,
           'extensions' : 10
         },
-        'archive' : archive = {
+        'warm_archive' : warm_archive = {
           'info' : '',
           'duration' : 365,
           'extensions' : 2
         },
         'ssd' : ssd = {
+          'info' : '',
+          'duration' : 30,
+          'extensions' : 2
+        },
+        'beegfs' : beegfs = {
           'info' : '',
           'duration' : 30,
           'extensions' : 2
