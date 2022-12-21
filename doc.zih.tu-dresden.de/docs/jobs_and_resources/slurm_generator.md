@@ -826,6 +826,13 @@ along with sgen.  If not, see <http://www.gnu.org/licenses/>.
           outputText.innerText += '\ncd ${WSDIR}';
         }
 
+        if (document.getElementById('check-workspace').checked && document.getElementById('check-delete').checked) {
+          outputText.innerText += '\n\n# The workspace where results from multiple experiments will be saved for later analysis.';
+          outputText.innerText += '\n# Remark: Make sure RESULT_WSDIR exists!';
+          outputText.innerText += '\nRESULT_WSDIR="/path/to/workspace-experiments-results"'
+          outputText.innerText += '\ntest -z "${RESULT_WSDIR}" && echo "Error: Cannot find workspace ${RESULT_WSDIR}" && exit 1';
+        }
+
         if (document.getElementById('executable').value !== '') {
           outputText.innerText += '\n\n# Execute parallel application ';
           outputText.innerText += '\nsrun '
@@ -836,9 +843,10 @@ along with sgen.  If not, see <http://www.gnu.org/licenses/>.
         }
 
         if (document.getElementById('check-workspace').checked && document.getElementById('check-delete').checked) {
-          outputText.innerText += '\n\n# Save your results, e.g. in your home directory';
+          outputText.innerText += '\n\n# Save your results to the general workspace RESULT_WSDIR (s.a.).';
           outputText.innerText += '\n# Compress results with bzip2 (which includes CRC32 checksums)';
-          outputText.innerText += '\nbzip2 --compress --stdout -4 "${WSDIR}" > ${HOME}/${SLURM_JOB_ID}.bz2';
+          outputText.innerText += '\n# Remark: Assume all result and log files of interest are in the directory `results`.';
+          outputText.innerText += '\nbzip2 --compress --stdout -4 "${WSDIR}/results" > ${RESULT_WSDIR}/${SLURM_JOB_ID}.bz2';
           outputText.innerText += '\nRETURN_CODE=$?';
           outputText.innerText += '\nCOMPRESSION_SUCCESS="$(if test ${RETURN_CODE} -eq 0; then echo'
                                   +' \'TRUE\'; else echo \'FALSE\'; fi)"';
