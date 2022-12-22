@@ -106,4 +106,3 @@ should not be used directly.
 | alpha | taurusi[8003-8034] | 32 | 48 | 2 | 990,000 | 10,312 | 8 |
 | alpha-interactive | taurusi[8001-8002] | 2 | 48 | 2 | 990,000 | 10,312 | 8 |
 {: summary="Partitions and limits table" align="bottom"}
-
