@@ -98,11 +98,12 @@ should not be used directly.
 | interactive | taurusi[6605-6612] | 8 | 24 | 1 | 61,000 | 2,541 |    |
 | smp2 | taurussmp[3-7] | 5 | 56 | 1 | 2,044,000 | 36,500 |    |
 | hpdlf | taurusa[3-16] | 14 | 12 | 1 | 95,000 | 7,916 | 3 |
-| ml | taurusml[3-32] | 30 | 176 | 4 | 254,000 | 1,443 | 6 |
-| ml-interactive | taurusml[1-2] | 2 | 176 | 4 | 254,000 | 1,443 | 6 |
-| romeo | taurusi[7003-7192] | 190 | 256 | 2 | 505,000 | 1,972 |    |
-| romeo-interactive | taurusi[7001-7002] | 2 | 256 | 2 | 505,000 | 1,972 |    |
+| ml | taurusml[3-32] | 30 | 44 | 4 | 254,000 | 1,443 | 6 |
+| ml-interactive | taurusml[1-2] | 2 | 44 | 4 | 254,000 | 1,443 | 6 |
+| romeo | taurusi[7003-7192] | 190 | 128 | 2 | 505,000 | 1,972 |    |
+| romeo-interactive | taurusi[7001-7002] | 2 | 128 | 2 | 505,000 | 1,972 |    |
 | julia | taurussmp8 | 1 | 896 | 1 | 48,390,000 | 54,006 |    |
-| alpha | taurusi[8003-8034] | 32 | 96 | 2 | 990,000 | 10,312 | 8 |
-| alpha-interactive | taurusi[8001-8002] | 2 | 96 | 2 | 990,000 | 10,312 | 8 |
+| alpha | taurusi[8003-8034] | 32 | 48 | 2 | 990,000 | 10,312 | 8 |
+| alpha-interactive | taurusi[8001-8002] | 2 | 48 | 2 | 990,000 | 10,312 | 8 |
 {: summary="Partitions and limits table" align="bottom"}
+
