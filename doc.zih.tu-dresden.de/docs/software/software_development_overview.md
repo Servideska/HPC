@@ -15,7 +15,6 @@ It will tell you:
     - [Using debuggers](debuggers.md)
 - [How to investigate the performance and efficiency of your code](performance_engineering_overview.md)
 
-
 !!! hint "Some general, helpful hints"
 
     - Stick to standards wherever possible, e.g. use the `-std` flag
