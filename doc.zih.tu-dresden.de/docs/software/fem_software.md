@@ -288,7 +288,7 @@ marie@login$ sbatch mapdl_job.sh
 
 ## COMSOL Multiphysics
 
-[COMSOL Multiphysics](http://www.comsol.com) (formerly FEMLAB) is a finite element analysis, solver
+[COMSOL Multiphysics](https://www.comsol.com) (formerly FEMLAB) is a finite element analysis, solver
 and Simulation software package for various physics and engineering applications, especially coupled
 phenomena, or multiphysics.
 
