@@ -70,7 +70,7 @@ At ZIH, TU Dresden for applying for HPC resources on NHR:
         * Further information can be found in [https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center](https://tu-dresden.de/zih/hochleistungsrechnen/nhr-center).
         If your research topic fits the above focus topics, the application kind 'NHR' is recommended.
     * for all research projects not related to our focus topics but from universities in Saxony
-    * for other focuses other NHR centers are available [https://www.nhr-gs.de/ueber-uns/nhr-verein](https://www.nhr-gs.de/ueber-uns/nhr-verein)
+    * for other focuses other NHR centers are available [https://www.nhr-verein.de/unsere-mitglieder](https://www.nhr-verein.de/unsere-mitglieder)
 
     Application Login:
 
