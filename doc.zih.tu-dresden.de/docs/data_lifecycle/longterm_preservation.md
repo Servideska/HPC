@@ -43,7 +43,7 @@ Meta-data means data about data. Meta-data are information about the stored file
 administrative meta-data, descriptive meta-data, technical meta-data and so on. Often meta-data are
 stored in XML-format but free text is also possible. There are some meta-data standards like
 [Dublin Core](http://dublincore.org/) or
-[LMER](https://www.dnb.de/DE/Professionell/Standardisierung/Standards/_content/lmer_uof_akk.html)
+[LMER](https://www.dnb.de/DE/Professionell/Standardisierung/Standards/_content/lmer_uof.html)
 Below are some examples:
 
 - possible meta-data for a book would be:

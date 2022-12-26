@@ -123,7 +123,7 @@ marie@compute$ source /scratch/ws/1/marie-python_virtual_environment/env/bin/act
 
 **Prerequisite:** Before working with conda, your shell needs to be configured
 initially. Therefore login to the ZIH system, load the Anaconda module and run
-`sh $EBROOTANACONDA3/etc/profile.d/conda.sh`. Note that changes take effect after closing and
+`source $EBROOTANACONDA3/etc/profile.d/conda.sh`. Note that changes take effect after closing and
 re-opening your shell.
 
 !!! warning
