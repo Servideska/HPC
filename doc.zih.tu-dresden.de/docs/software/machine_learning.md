@@ -96,13 +96,8 @@ Some machine learning tasks require using containers. In the HPC domain, the
 containers can also be used by Singularity. You can find further information on working with
 containers on ZIH systems in our [containers documentation](containers.md).
 
-There are two sources for containers for Power9 architecture with TensorFlow and PyTorch on the
-board:
-
-* [TensorFlow-ppc64le](https://hub.docker.com/r/ibmcom/tensorflow-ppc64le):
-  Community-supported `ppc64le` docker container for TensorFlow.
-* [PowerAI container](https://hub.docker.com/r/ibmcom/powerai/):
-  Official Docker container with TensorFlow, PyTorch and many other packages.
+The official source for Docker containers with TensorFlow, PyTorch and many other packages is
+the [PowerAI container](https://hub.docker.com/r/ibmcom/powerai/) DockerHub repository of IBM.
 
 !!! note
 
@@ -113,7 +108,7 @@ In the following example, we build a Singularity container with TensorFlow from 
 start it:
 
 ```console
-marie@ml$ singularity build my-ML-container.sif docker://ibmcom/tensorflow-ppc64le    #create a container from the DockerHub with the last TensorFlow version
+marie@ml$ singularity build my-ML-container.sif docker://ibmcom/powerai:1.6.2-tensorflow-ubuntu18.04-py37-ppc64le    #create a container from the DockerHub with TensorFlow version 1.6.2
 [...]
 marie@ml$ singularity run --nv my-ML-container.sif    #run my-ML-container.sif container supporting the Nvidia's GPU. You can also work with your container by: singularity shell, singularity exec
 [...]
