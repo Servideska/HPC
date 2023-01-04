@@ -23,7 +23,8 @@ Please also find out the other ways you could contribute in our [guidelines how 
 
 ## News
 
-**2022-01-13** [Supercomputing extension for TU Dresden](https://tu-dresden.de/zih/die-einrichtung/news/supercomputing-cluster-2022)
+* **2023-01-04** [New hardware: NVIDIA Arm HPC Developer Kit](jobs_and_resources/arm_hpc_devkit.md)
+* **2022-01-13** [Supercomputing extension for TU Dresden](https://tu-dresden.de/zih/die-einrichtung/news/supercomputing-cluster-2022)
 
 ## Training and Courses
 
