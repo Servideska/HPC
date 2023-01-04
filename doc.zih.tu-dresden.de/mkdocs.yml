@@ -103,6 +103,7 @@ nav:
       - NVMe Storage: jobs_and_resources/nvme_storage.md
       - Alpha Centauri: jobs_and_resources/alpha_centauri.md
       - HPE Superdome Flex: jobs_and_resources/sd_flex.md
+      - NVIDIA Arm HPC Developer Kit: jobs_and_resources/arm_hpc_devkit.md
     - Running Jobs:
       - Batch System Slurm: jobs_and_resources/slurm.md
       - Job Examples: jobs_and_resources/slurm_examples.md
