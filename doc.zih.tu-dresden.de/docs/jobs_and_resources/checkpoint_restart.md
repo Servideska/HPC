@@ -135,9 +135,8 @@ This script can be found here and can be used as shown below (using the RAM disk
 
 <details>
  <summary> Script for asynchronous copy </summary>
- ???+ example
  
-    ```#!/bin/sh
+    #!/bin/sh
 
     # Needs $DMTCP_CHECKPOINT_DIR and as first positional argument the directory to copy to
     cd "$DMTCP_CHECKPOINT_DIR" || return
@@ -162,12 +161,12 @@ This script can be found here and can be used as shown below (using the RAM disk
 		    scp -r $DMTCP_CHECKPOINT_DIR $FINAL_DIR
 	    fi
     done
-    ```
 </details>
-<details>
-    ???+ example
 
-        ```bash
+<details>
+    <summary> Example on how to use Script </summary>
+
+        bash
         #/bin/bash
         #SBATCH --time=00:01:00
         #SBATCH --cpus-per-task=8
@@ -177,5 +176,4 @@ This script can be found here and can be used as shown below (using the RAM disk
         source $SCRIPT_ROOT/copy_async.sh <MY/DIRECTORY>
 
         dmtcp_launch --no-gzip -i 40 <MY/APPLICATION>
-        ```
 </details>
