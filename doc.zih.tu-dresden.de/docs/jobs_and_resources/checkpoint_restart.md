@@ -52,11 +52,13 @@ checkpoint your job manually for three different use cases:
 This is the easiest way to use DMTCP.
 * Load the DMTCP module: `module load dmtcp`
 * DMTCP usually runs an additional process that
-manages the creation of checkpoints and such, the so-called `coordinator`. 
-It starts automatically when calling the `dmtcp_launch` wrapper script or can be started explicitly with `dmtcp_coordinator`. 
-For each application that should be checkpointed one coordinator is needed. DMTCP assumes that every process running under the same coordinator belongs to a single, distributed computation. The coordinator and `dmtcp_launch` can take a handful of parameters, see `man
-dmtcp_coordinator` or `man dmtcp_launch`. 
-Via `-i` you can specify an interval (in seconds) in which checkpoint files are to be created automatically and with `-p` a port for the coordinator can be specified, which is useful when running multiple different coordinators for multiple computations, which should be checkpointed independently on the same host.
+manages the creation of checkpoints and such, the so-called `coordinator`.
+It starts automatically when calling the `dmtcp_launch` wrapper script or can be started explicitly with `dmtcp_coordinator`.
+For each application that should be checkpointed one coordinator is needed.
+DMTCP assumes that every process running under the same coordinator belongs to a single, distributed computation.
+The coordinator and `dmtcp_launch` can take a handful of parameters, see `man dmtcp_coordinator` or `man dmtcp_launch`.
+Via `-i` you can specify an interval (in seconds) in which checkpoint files are to be created automatically and with `-p` a port for the coordinator can be specified.
+This is useful when running multiple different coordinators for multiple computations, which should be checkpointed independently on the same host.
 * In front of your program call, you have to add the wrapper script `dmtcp_launch`.
 This will create a checkpoint automatically after 40 seconds and then terminate your application and with it the job.
 If the job runs into its time limit (here: 60 seconds), the time to write out the checkpoint was probably not long enough.
@@ -80,7 +82,8 @@ For further information on checkpointing MPI programs with DMTCP please refer to
 
 ### Checkpointing on demand
 
-Checkpointing on demand can be done in two ways. Either the user is requesting checkpoints at any given point or the program itself was modified to request checkpoints by calling the C-function `dmtcp_checkpoint()`.
+Checkpointing on demand can be done in two ways.
+Either the user is requesting checkpoints at any given point or the program itself was modified to request checkpoints by calling the C-function `dmtcp_checkpoint()`.
 
 #### User requested checkpoints
 
