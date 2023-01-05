@@ -114,7 +114,7 @@ Since the restart script does not work due to limited support for `Slurm` under 
 DMTCP enables the possibility to migrate applications even between different architectures. This means that checkpoints which were created on one architecture can be restarted on another architecture in the same manner than explained above.
 
 However it is possible to encounter an `illegal instruction` error, especially when migrating from newer architectures to older ones or between different manufacturers. This comes from an incompatible instruction set and can not be avoided.
-    
+ 
 ## Multithreading and MPI under DMTCP
 
 DMTCP does support checkpointing of MPI applications, however since DMTCP has no official support for UCX, checkpointing MPI computations over several nodes is not possible. MPI computations can only be checkpointed when running on a single node and only when using the intel toolchain. The newest version which is proven to run on one node is `intel/2019b`.
@@ -169,7 +169,7 @@ This script can be found here and can be used as shown below (using the RAM disk
     #SBATCH --time=00:01:00
     #SBATCH --cpus-per-task=8
     #SBATCH --mem-per-cpu=1500
-        
+   
     export DMTCP_CHECKPOINT_DIR=/dev/shm
     source $SCRIPT_ROOT/copy_async.sh <MY/DIRECTORY>
 
