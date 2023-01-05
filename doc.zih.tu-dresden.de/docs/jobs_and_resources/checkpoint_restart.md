@@ -67,6 +67,7 @@ should find checkpoint files ending on `.dmtcp` in your checkpoint directory (wo
 
 <details>
     <summary> Example on how to launch with checkpoints in fixed intervals </summary>
+    
     bash
     #/bin/bash
     #SBATCH --time=00:01:00
