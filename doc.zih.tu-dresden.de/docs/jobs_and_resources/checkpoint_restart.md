@@ -65,9 +65,9 @@ seconds), the time to write out the checkpoint was probably not long enough. If 
 should find checkpoint files ending on `.dmtcp` in your checkpoint directory (working directory if not specified differently) together with a script called
 `./dmtcp_restart_script.sh`. However due to limited support of `SLURM` in DMTCP the restart script does not work. For an explanation on how to restart from an checkpoint image please refer to chapter `Restarting from checkpoint image`. For further information on checkpointing MPI programs with DMTCP please refer to chapter `Multithreading and MPI under DMTCP`.
 
-???+ example
-
-    ```bash
+<details>
+    <summary> Example on how to launch with checkpoints in fixed intervals </summary>
+    bash
     #/bin/bash
     #SBATCH --time=00:01:00
     #SBATCH --cpus-per-task=8
@@ -76,8 +76,7 @@ should find checkpoint files ending on `.dmtcp` in your checkpoint directory (wo
     dmtcp_launch -i 40 ./my-application #for sequential/multithreaded applications
     #or: dmtcp_launch -i 40 --ib --rm mpiexec ./my-mpi-application #for MPI
     applications
-    ```
-
+</details>
 
 ### Checkpointing on demand
 
