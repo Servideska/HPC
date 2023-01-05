@@ -64,8 +64,7 @@ should find checkpoint files ending on `.dmtcp` in your checkpoint directory (wo
 
 <details open>
     <summary> Example: How to checkpoint in fixed intervals </summary>
- 
-    bash
+
     #/bin/bash
     #SBATCH --time=00:01:00
     #SBATCH --cpus-per-task=8
@@ -102,7 +101,6 @@ Since the restart script does not work due to limited support for `Slurm` under 
 <details open>
     <summary> Example: How to restart from checkpoint </summary>
 
-    bash
     #/bin/bash
     #SBATCH --time=00:01:00
     #SBATCH --cpus-per-task=8
@@ -120,9 +118,9 @@ However it is possible to encounter an `illegal instruction` error, especially w
 ## Multithreading and MPI under DMTCP
 
 DMTCP does support checkpointing of MPI applications, however since DMTCP has no official support for UCX, checkpointing MPI computations over several nodes is not possible. MPI computations can only be checkpointed when running on a single node and only when using the intel toolchain. The newest version which is proven to run on one node is `intel/2019b`.
-It is also possible to run it under the OpenSource FOSS toolchain and create checkpoints, however restarting from those checkpoints is currently not possible, since OpenMPI is not officially supported by DMTCP. 
+It is also possible to run it under the OpenSource FOSS toolchain and create checkpoints, however restarting from those checkpoints is currently not possible, since OpenMPI is not officially supported by DMTCP.
 
-The performance of restarted multithreaded applications can differ heavily depending on the number of processes and architecture used. The more processes or threads the application has and the more NUMA nodes the used architecture has, the higher the performance loss on restarted applications. This holds true for all kinds of multithreaded tasks and is not limited to MPI. 
+The performance of restarted multithreaded applications can differ heavily depending on the number of processes and architecture used. The more processes or threads the application has and the more NUMA nodes the used architecture has, the higher the performance loss on restarted applications. This holds true for all kinds of multithreaded tasks and is not limited to MPI.
 However when restarting an MPI application the speed of the filesystem restarted from has a large influence on the performance of the application, even after the whole checkpoint image is mapped into memory. So it is advised to restart from fast filesystems when using MPI whenever possible.
 
 ## Speeding up checkpoints
@@ -167,7 +165,6 @@ This script can be found here and can be used as shown below (using the RAM disk
 <details open>
     <summary> Example: How to use Script </summary>
 
-    bash
     #/bin/bash
     #SBATCH --time=00:01:00
     #SBATCH --cpus-per-task=8
