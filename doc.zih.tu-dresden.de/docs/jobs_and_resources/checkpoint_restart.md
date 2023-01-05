@@ -166,14 +166,14 @@ This script can be found here and can be used as shown below (using the RAM disk
 <details>
     <summary> Example on how to use Script </summary>
 
-        bash
-        #/bin/bash
-        #SBATCH --time=00:01:00
-        #SBATCH --cpus-per-task=8
-        #SBATCH --mem-per-cpu=1500
+    bash
+    #/bin/bash
+    #SBATCH --time=00:01:00
+    #SBATCH --cpus-per-task=8
+    #SBATCH --mem-per-cpu=1500
         
-        export DMTCP_CHECKPOINT_DIR=/dev/shm
-        source $SCRIPT_ROOT/copy_async.sh <MY/DIRECTORY>
+    export DMTCP_CHECKPOINT_DIR=/dev/shm
+    source $SCRIPT_ROOT/copy_async.sh <MY/DIRECTORY>
 
-        dmtcp_launch --no-gzip -i 40 <MY/APPLICATION>
+    dmtcp_launch --no-gzip -i 40 <MY/APPLICATION>
 </details>
