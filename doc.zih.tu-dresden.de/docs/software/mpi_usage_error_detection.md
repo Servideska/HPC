@@ -41,7 +41,7 @@ Besides loading a MUST module, no further changes are needed during compilation 
 
 ### Running your Application with MUST
 
-In order to launch your application with MUST you need to replace the `srun` command with 
+In order to launch your application with MUST you need to replace the `srun` command with
 `mustrun --must:mpiexec srun --must:np -n`:
 
 ```console
