@@ -11,9 +11,10 @@ exist (see last section).
 
 ## MUST
 
-[MUST](https://www.i12.rwth-aachen.de/go/id/nrbe) checks if your application conforms to the MPI standard and will 
-issue warnings if there are errors or non-portable constructs. You can apply MUST without modifying your source code,
-though we suggest to add the debugging flag "-g" during compilation.
+[MUST](https://www.i12.rwth-aachen.de/go/id/nrbe) checks if your application conforms to the MPI
+standard and will issue warnings if there are errors or non-portable constructs. You can apply MUST
+without modifying your source code, though we suggest to add the debugging flag "-g" during
+compilation.
 
 See also [MUST Introduction Slides](misc/parallel_debugging_must.pdf).
 
@@ -46,9 +47,11 @@ In order to launch your application with MUST you need to replace the `srun` com
 ```console
 marie@login$ mustrun --must:mpiexec srun --must:np -n -n <number of MPI processes> ./<your binary>
 ```
+
 Besides replacing the `srun` command you need to be aware that **MUST always allocates an extra
-process**, i.e. if you issue a `mustrun --must:mpiexec srun --must:np -n -n 4 ./<your binary>` then MUST 
-will start **5 processes** instead. This is usually not critical, however in interactive/batch jobs **make sure
+process**, i.e. if you issue a `mustrun --must:mpiexec srun --must:np -n -n 4 ./<your binary>` then
+MUST will start **5 processes** instead. This is usually not critical, however in interactive/batch
+jobs **make sure
 to allocate an extra CPU for this task**.
 
 Suppose your application is called `fancy-program` and is normally run with 4 processes.
@@ -77,14 +80,15 @@ marie@login$ mustrun --must:mpiexec srun --must:np -n --must:stacktrace backward
 {...}
 [MUST] Execution finished, inspect "/home/marie/MUST_Output.html"!
 ```
-With the additional flag `--must:stacktrace backward` you can produce an additional stacktrace 
+
+With the additional flag `--must:stacktrace backward` you can produce an additional stacktrace
 with line number of the error location which allows to pinpoint the error location in your code.
 This might slow down code execution slightly.
 
 Finally, MUST assumes that your application may crash at any time. To still gather correctness
 results under this assumption is extremely expensive in terms of performance overheads. Thus, if
 your application does not crash, you should add `--must:nocrash` to the `mustrun` command to make
-MUST aware of this knowledge. Overhead is drastically reduced with this switch. 
+MUST aware of this knowledge. Overhead is drastically reduced with this switch.
 Further details on alternative launch modes are described in the MUST documentation.
 
 ### Result Files
