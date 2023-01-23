@@ -270,3 +270,11 @@ node and the second node while filling the sockets linearly.
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun --ntasks 8 --cpus-per-task $OMP_NUM_THREADS --cpu_bind=cores --distribution=cyclic:block ./application
     ```
+
+## GPU
+
+Currently with the Slurm version (20.11.9) used at Taurus isn't possible to bind tasks to GPUs.
+
+"Beginning in version 21.08, Slurm now supports NVIDIA Multi-Instance GPU (MIG) devices. This feature allows some newer NVIDIA GPUs (like the A100) to split up a GPU into up to seven separate, isolated GPU instances. Slurm can treat these MIG instances as individual GPUs, complete with cgroup isolation and task binding."
+
+source: https://slurm.schedmd.com/gres.html#MIG_Management
