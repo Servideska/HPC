@@ -6,14 +6,14 @@ applications with this interface is error prone and often time consuming. Some u
 may only manifest on some platforms or some application runs, which further complicates the
 detection of these errors. Thus, special debugging tools for MPI applications exist that
 automatically check whether an application conforms to the MPI standard and whether its MPI calls
-are safe. At ZIH, we maintain and support MUST for this task, though different types of these tools
-exist (see last section).
+are safe. At ZIH, we maintain and support **MUST** for this task, though different types of these
+tools exist (see last section).
 
 ## MUST
 
 [MUST](https://itc.rwth-aachen.de/must/) checks if your application conforms to the MPI
 standard and will issue warnings if there are errors or non-portable constructs. You can apply MUST
-without modifying your source code, though we suggest to add the debugging flag "-g" during
+without modifying your source code, though we suggest to add the debugging flag `-g` during
 compilation.
 
 See also [MUST Introduction Slides](misc/parallel_debugging_must.pdf).
@@ -50,8 +50,8 @@ marie@login$ mustrun --must:mpiexec srun --must:np -n -n <number of MPI processe
 
 Besides replacing the `srun` command you need to be aware that **MUST always allocates an extra
 process**, i.e. if you issue a `mustrun --must:mpiexec srun --must:np -n -n 4 ./<your binary>` then
-MUST will start **5 processes** instead. This is usually not critical. However, in interactive and batch
-jobs **make sure to allocate an extra CPU for this task**.
+MUST will start **5 processes** instead. This is usually not critical. However, in interactive and
+batch jobs **make sure to allocate an extra CPU for this task**.
 
 Suppose your application is called `fancy-program` and is normally run with 4 processes.
 The MUST workflow should then be
