@@ -50,7 +50,7 @@ marie@login$ mustrun --must:mpiexec srun --must:np -n -n <number of MPI processe
 
 Besides replacing the `srun` command you need to be aware that **MUST always allocates an extra
 process**, i.e. if you issue a `mustrun --must:mpiexec srun --must:np -n -n 4 ./<your binary>` then
-MUST will start **5 processes** instead. This is usually not critical, however in interactive/batch
+MUST will start **5 processes** instead. This is usually not critical. However, in interactive and batch
 jobs **make sure
 to allocate an extra CPU for this task**.
 
