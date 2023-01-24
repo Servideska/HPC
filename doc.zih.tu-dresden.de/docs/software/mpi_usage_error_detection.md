@@ -11,7 +11,7 @@ exist (see last section).
 
 ## MUST
 
-[MUST](https://www.i12.rwth-aachen.de/go/id/nrbe) checks if your application conforms to the MPI
+[MUST](https://itc.rwth-aachen.de/must/) checks if your application conforms to the MPI
 standard and will issue warnings if there are errors or non-portable constructs. You can apply MUST
 without modifying your source code, though we suggest to add the debugging flag "-g" during
 compilation.
