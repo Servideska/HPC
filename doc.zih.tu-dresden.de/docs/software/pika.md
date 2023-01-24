@@ -37,27 +37,35 @@ they are also suitable for the live assessment of performance during the job’s
 unexpected performance behavior, users can cancel the job, thus avoiding long execution with subpar
 performance.
 
+The following timeline visualization shows a job with 840 cores, spread over 35 (dual-socket Haswell) nodes that have been allocated for exclusive use. 
+
+![Timeline Visualization](misc/pika_timelines.png)
+{: align="center"}
+
+
 PIKA provides the following runtime metrics:
 
-|Metric| Hardware Unit|
-|---|---|
-|CPU Usage|CPU core|
-|IPC (instructions per cycle)|CPU core|
-|FLOPS (normalized to single precision) |CPU core|
-|Main Memory Bandwidth|CPU socket|
-|CPU Power|CPU socket|
-|Main Memory Utilization|node|
-|I/O Bandwidth (local, Lustre) |node|
-|I/O Metadata (local, Lustre) |node|
-|GPU Usage|GPU device|
-|GPU Memory Utilization|GPU device|
-|GPU Power Consumption|GPU device|
-|GPU Temperature|GPU device|
+|Metric| Hardware Unit| Sampling Frequency| 
+|---|---|---|
+|CPU Usage|CPU core|30s|
+|IPC (instructions per cycle)|CPU core|60s|
+|FLOPS (normalized to single precision) |CPU core|60s|
+|Main Memory Bandwidth|CPU socket|60s|
+|CPU Power|CPU socket|60s|
+|Main Memory Utilization|node|30s|
+|I/O Bandwidth (local, Lustre) |node|30s|
+|I/O Metadata (local, Lustre) |node|30s|
+|GPU Usage|GPU device|30s|
+|GPU Memory Utilization|GPU device|30s|
+|GPU Power Consumption|GPU device|30s|
+|GPU Temperature|GPU device|30s|
 
 Each monitored metric is represented by a timeline, whereby metrics with the same unit and data
 source are displayed in a common chart, e.g., different Lustre metadata operations.  Each metric is
 measured with a certain granularity concerning the hardware, e.g. per hardware thread, per CPU
 socket or per node.
+Most metrics are recorded every 30 seconds except IPC, FLOPS, Main Memory Bandwidth and Power Consumption.
+The latter are determined every 60 seconds, as they are a combination of different hardware counters, which leads to a higher measurement overhead. Depending on the architecture, metrics such as FLOPS can require multiplexing, since single and double precision FLOPS cannot be measured simultaneously.
 
 !!! hint
 
@@ -65,6 +73,13 @@ socket or per node.
     same CPU socket or node. This can result e.g., in cache perturbation and thus a sub-optimal
     performance.  To get valid performance data for those metrics, it is recommended to submit an
     exclusive job!
+
+
+If the current partition supports simultaneous multithreading (SMT) the maximum number of hardware threads per physical core is displayed in the SMT column. The SLURM configuration on Taurus disables SMT by default. Therefore, in the example below, only a maximum CPU usage of 0.5 can be achieved, since PIKA combines two hardware threads per physical core. If you want to use SMT, you must set the SLURM environment variable **SLURM_HINT**=multithread. In this case, *srun* distributes the tasks to all available hardware threads, thus a CPU usage of 1 can be reached. However, the SMT configuration only refers to the *srun* command. For single node jobs without *srun* command the tasks are automatically distributed to all available hardware threads.
+
+![SMT Mode](misc/pika_smt_2.png)
+{: align="center"}
+
 
 !!! note
 
@@ -108,6 +123,10 @@ usually contains an unlimited number of values.  A scatter plot enables the comb
 footprint metrics (except for job states and job tags), which is particularly useful for
 investigating their correlation.
 
+![Footprint](misc/pika_footprint.png)
+{: align="center"}
+
+
 ## Hints
 
 If users wish to perform their own measurement of performance counters using performance tools other
@@ -127,3 +146,14 @@ The PIKA metric FLOPS is not supported by the Intel Haswell cpu architecture.
 However, PIKA provides this metric to show the computational intensity.
 **Do not rely on FLOPS on Haswell!** We use the event `AVX_INSTS_CALC` which counts the `insertf128`
 instruction.
+
+## Case Studies
+
+![CPU Idle](misc/pika_cpu_idle.png)
+{: align="center"}
+
+![IO Blocking](misc/pika_io_block.png)
+{: align="center"}
+
+![Memory Leaking](misc/pika_mem_leak.png)
+{: align="center"}
