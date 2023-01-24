@@ -22,7 +22,7 @@ See also [MUST Introduction Slides](misc/parallel_debugging_must.pdf).
 
 You need to load a module file in order to use MUST. Each MUST installation uses a specific
 combination of a compiler and an MPI library, make sure to use a combination that fits your needs.
-Right now we provide two combinations, contact us if you need further
+Right now we provide two combinations, [contact us](../support/support.md) if you need further
 combinations. You can query for the available modules with:
 
 ```console
