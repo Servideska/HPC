@@ -158,11 +158,17 @@ instruction.
 
 ## Case Studies
 
+### Idle CPUs
+
 ![CPU Idle](misc/pika_cpu_idle.png)
 {: align="center"}
 
+### Blocking I/O Operations
+
 ![I/O Blocking](misc/pika_io_block.png)
 {: align="center"}
+
+### Memory Leaks
 
 ![Memory Leaking](misc/pika_mem_leak.png)
 {: align="center"}
