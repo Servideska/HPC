@@ -21,11 +21,11 @@ for the visualization and analysis of job performance data.
 ## Table View and Job Search
 
 The analysis of HPC jobs in PIKA is designed as a top-down approach. Starting from the table view,
-users can either analyze running or completed jobs. They can navigate from groups of jobs with the
+you can either analyze running or completed jobs. You can navigate from groups of jobs with the
 same name to the metadata of an individual job and finally investigate the job’s runtime metrics in
 a timeline view.
 
-To find jobs with specific properties, the table can be sorted by any column, e.g., by consumed CPU
+To find jobs with specific properties, you can sort the table by any column, e.g., by consumed CPU
 hours to find jobs where an optimization has a large impact on the system utilization. Additionally,
 there is a filter mask to find jobs that match several properties. When a job has been selected, the
 timeline view opens.
@@ -33,10 +33,10 @@ timeline view opens.
 ## Timeline Visualization
 
 PIKA provides timeline charts to visualize the resource utilization of a job over time. After a job
-is completed, timeline charts can help to identify periods of inefficient resource usage. However,
-they are also suitable for the live assessment of performance during the job’s runtime. In case of
-unexpected performance behavior, users can cancel the job, thus avoiding long execution with subpar
-performance.
+is completed, timeline charts can help you to identify periods of inefficient resource usage.
+However, they are also suitable for the live assessment of performance during the job’s runtime. In
+case of unexpected performance behavior, you can cancel the job, thus avoiding long execution with
+subpar performance.
 
 The following timeline visualization shows a job with 840 cores, spread over 35 (dual-socket
 Haswell) nodes that have been allocated for exclusive use.
@@ -62,11 +62,11 @@ PIKA provides the following runtime metrics:
 |GPU Temperature|GPU device|30s|
 
 Each monitored metric is represented by a timeline, whereby metrics with the same unit and data
-source are displayed in a common chart, e.g., different Lustre metadata operations.  Each metric is
+source are displayed in a common chart, e.g., different Lustre metadata operations. Each metric is
 measured with a certain granularity concerning the hardware, e.g. per hardware thread, per CPU
 socket or per node.
 Most metrics are recorded every 30 seconds except IPC, FLOPS, Main Memory Bandwidth and Power
-Consumption.  The latter are determined every 60 seconds, as they are a combination of different
+Consumption. The latter are determined every 60 seconds, as they are a combination of different
 hardware counters, which leads to a higher measurement overhead. Depending on the architecture,
 metrics such as FLOPS can require multiplexing, since single and double precision FLOPS cannot be
 measured simultaneously.
@@ -75,8 +75,8 @@ measured simultaneously.
 
     Be aware that CPU socket or node metrics can share the resources of other jobs running on the
     same CPU socket or node. This can result e.g., in cache perturbation and thus a sub-optimal
-    performance.  To get valid performance data for those metrics, it is recommended to submit an
-    exclusive job!
+    performance. To get valid performance data for those metrics, it is recommended to submit an
+    exclusive job (`--exclusive`)!
 
 If the current partition supports simultaneous multithreading (SMT) the maximum number of hardware
 threads per physical core is displayed in the SMT column. The Slurm configuration on ZIH systems
@@ -138,7 +138,7 @@ investigating their correlation.
 
 ## Hints
 
-If users wish to perform their own measurement of performance counters using performance tools other
+If you wish to perform your own measurement of performance counters using performance tools other
 than PIKA, it is recommended to disable PIKA monitoring. This can be done using the following Slurm
 flags in the job script:
 
@@ -151,7 +151,7 @@ flags in the job script:
 
 ## Known Issues
 
-The PIKA metric FLOPS is not supported by the Intel Haswell cpu architecture.
+The PIKA metric FLOPS is not supported by the Intel Haswell CPU architecture.
 However, PIKA provides this metric to show the computational intensity.
 **Do not rely on FLOPS on Haswell!** We use the event `AVX_INSTS_CALC` which counts the `insertf128`
 instruction.
