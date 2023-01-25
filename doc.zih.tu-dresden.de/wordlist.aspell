@@ -172,6 +172,7 @@ ifort
 ImageNet
 img
 Infiniband
+InfluxDB
 init
 inode
 Instrumenter
@@ -248,6 +249,7 @@ multicore
 multiphysics
 Multiphysics
 multithreaded
+multithreading
 Multithreading
 NAMD
 Nationales

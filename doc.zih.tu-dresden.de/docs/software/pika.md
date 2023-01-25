@@ -78,13 +78,13 @@ measured simultaneously.
     exclusive job!
 
 If the current partition supports simultaneous multithreading (SMT) the maximum number of hardware
-threads per physical core is displayed in the SMT column. The SLURM configuration on Taurus disables
-SMT by default. Therefore, in the example below, only a maximum CPU usage of 0.5 can be achieved,
-since PIKA combines two hardware threads per physical core. If you want to use SMT, you must set the
-SLURM environment variable **SLURM_HINT**=multithread. In this case, *srun* distributes the tasks to
-all available hardware threads, thus a CPU usage of 1 can be reached. However, the SMT configuration
-only refers to the *srun* command. For single node jobs without *srun* command the tasks are
-automatically distributed to all available hardware threads.
+threads per physical core is displayed in the SMT column. The Slurm configuration on ZIH systems
+disables SMT by default. Therefore, in the example below, only a maximum CPU usage of 0.5 can be
+achieved, since PIKA combines two hardware threads per physical core. If you want to use SMT, you
+must set the Slurm environment variable `SLURM_HINT=multithread`. In this case, `srun` distributes
+the tasks to all available hardware threads, thus a CPU usage of 1 can be reached. However, the SMT
+configuration only refers to the `srun` command. For single node jobs without `srun` command the
+tasks are automatically distributed to all available hardware threads.
 
 ![SMT Mode](misc/pika_smt_2.png)
 {: align="center"}
@@ -160,7 +160,7 @@ instruction.
 ![CPU Idle](misc/pika_cpu_idle.png)
 {: align="center"}
 
-![IO Blocking](misc/pika_io_block.png)
+![I/O Blocking](misc/pika_io_block.png)
 {: align="center"}
 
 ![Memory Leaking](misc/pika_mem_leak.png)
