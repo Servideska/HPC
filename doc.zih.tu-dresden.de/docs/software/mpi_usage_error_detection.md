@@ -16,7 +16,7 @@ standard and will issue warnings if there are errors or non-portable constructs.
 without modifying your source code, though we suggest to add the debugging flag `-g` during
 compilation.
 
-See also [MUST Introduction Slides](misc/parallel_debugging_must.pdf).
+See also [MUST Introduction Slides](misc/parallel_debugging_must.pdf) for a starting point.
 
 ### Setup and Modules
 
