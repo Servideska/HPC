@@ -6,9 +6,10 @@ systems have the possibility to visualize and analyze the efficiency of their jo
 
 !!! hint
 
-    To understand this small guide, it is recommended to open the
+    To understand this guide, it is recommended that you open the
     [web interface](https://selfservice.zih.tu-dresden.de/l/index.php/hpcportal/jobmonitoring/zih/jobs)
-    in a separate window. Furthermore, at least one real HPC job should have been submitted.
+    in a separate window. Furthermore, you should have submitted at least one real HPC job at ZIH
+    systems.
 
 ## Overview
 
