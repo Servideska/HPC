@@ -37,15 +37,15 @@ they are also suitable for the live assessment of performance during the job’s
 unexpected performance behavior, users can cancel the job, thus avoiding long execution with subpar
 performance.
 
-The following timeline visualization shows a job with 840 cores, spread over 35 (dual-socket Haswell) nodes that have been allocated for exclusive use. 
+The following timeline visualization shows a job with 840 cores, spread over 35 (dual-socket
+Haswell) nodes that have been allocated for exclusive use.
 
 ![Timeline Visualization](misc/pika_timelines.png)
 {: align="center"}
 
-
 PIKA provides the following runtime metrics:
 
-|Metric| Hardware Unit| Sampling Frequency| 
+|Metric| Hardware Unit| Sampling Frequency|
 |---|---|---|
 |CPU Usage|CPU core|30s|
 |IPC (instructions per cycle)|CPU core|60s|
@@ -64,8 +64,11 @@ Each monitored metric is represented by a timeline, whereby metrics with the sam
 source are displayed in a common chart, e.g., different Lustre metadata operations.  Each metric is
 measured with a certain granularity concerning the hardware, e.g. per hardware thread, per CPU
 socket or per node.
-Most metrics are recorded every 30 seconds except IPC, FLOPS, Main Memory Bandwidth and Power Consumption.
-The latter are determined every 60 seconds, as they are a combination of different hardware counters, which leads to a higher measurement overhead. Depending on the architecture, metrics such as FLOPS can require multiplexing, since single and double precision FLOPS cannot be measured simultaneously.
+Most metrics are recorded every 30 seconds except IPC, FLOPS, Main Memory Bandwidth and Power
+Consumption.  The latter are determined every 60 seconds, as they are a combination of different
+hardware counters, which leads to a higher measurement overhead. Depending on the architecture,
+metrics such as FLOPS can require multiplexing, since single and double precision FLOPS cannot be
+measured simultaneously.
 
 !!! hint
 
@@ -74,12 +77,17 @@ The latter are determined every 60 seconds, as they are a combination of differe
     performance.  To get valid performance data for those metrics, it is recommended to submit an
     exclusive job!
 
-
-If the current partition supports simultaneous multithreading (SMT) the maximum number of hardware threads per physical core is displayed in the SMT column. The SLURM configuration on Taurus disables SMT by default. Therefore, in the example below, only a maximum CPU usage of 0.5 can be achieved, since PIKA combines two hardware threads per physical core. If you want to use SMT, you must set the SLURM environment variable **SLURM_HINT**=multithread. In this case, *srun* distributes the tasks to all available hardware threads, thus a CPU usage of 1 can be reached. However, the SMT configuration only refers to the *srun* command. For single node jobs without *srun* command the tasks are automatically distributed to all available hardware threads.
+If the current partition supports simultaneous multithreading (SMT) the maximum number of hardware
+threads per physical core is displayed in the SMT column. The SLURM configuration on Taurus disables
+SMT by default. Therefore, in the example below, only a maximum CPU usage of 0.5 can be achieved,
+since PIKA combines two hardware threads per physical core. If you want to use SMT, you must set the
+SLURM environment variable **SLURM_HINT**=multithread. In this case, *srun* distributes the tasks to
+all available hardware threads, thus a CPU usage of 1 can be reached. However, the SMT configuration
+only refers to the *srun* command. For single node jobs without *srun* command the tasks are
+automatically distributed to all available hardware threads.
 
 ![SMT Mode](misc/pika_smt_2.png)
 {: align="center"}
-
 
 !!! note
 
@@ -88,7 +96,8 @@ If the current partition supports simultaneous multithreading (SMT) the maximum 
     performance data per physical core.
 
 The following table explains different timeline visualization modes.
-By default, each timeline shows the average value over all hardware units (HUs) per measured interval.
+By default, each timeline shows the average value over all hardware units (HUs) per measured
+interval.
 
 |Visualization Mode| Description|
 |---|---|
@@ -125,7 +134,6 @@ investigating their correlation.
 
 ![Footprint](misc/pika_footprint.png)
 {: align="center"}
-
 
 ## Hints
 
