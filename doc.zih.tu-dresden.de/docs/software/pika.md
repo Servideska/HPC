@@ -47,7 +47,7 @@ Haswell) nodes that have been allocated for exclusive use.
 PIKA provides the following runtime metrics:
 
 |Metric| Hardware Unit| Sampling Frequency|
-|---|---|---|
+|---|---|---:|
 |CPU Usage|CPU core|30s|
 |IPC (instructions per cycle)|CPU core|60s|
 |FLOPS (normalized to single precision) |CPU core|60s|
