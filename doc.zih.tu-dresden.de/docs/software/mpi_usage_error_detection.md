@@ -42,14 +42,15 @@ Besides loading a MUST module, no further changes are needed during compilation 
 ### Running your Application with MUST
 
 In order to launch your application with MUST you need to replace the `srun` command with
-`mustrun --must:mpiexec srun --must:np -n`:
+`mustrun --must:mpiexec srun --must:np --ntasks`:
 
 ```console
-marie@login$ mustrun --must:mpiexec srun --must:np -n -n <number of MPI processes> ./<your binary>
+marie@login$ mustrun --must:mpiexec srun --must:np --ntasks --ntasks <number of MPI processes> ./<your binary>
 ```
 
 Besides replacing the `srun` command you need to be aware that **MUST always allocates an extra
-process**, i.e. if you issue a `mustrun --must:mpiexec srun --must:np -n -n 4 ./<your binary>` then
+process**, i.e. if you issue a
+`mustrun --must:mpiexec srun --must:np --ntasks --ntasks 4 ./<your binary>` then
 MUST will start **5 processes** instead. This is usually not critical. However, in interactive and
 batch jobs **make sure to allocate an extra CPU for this task**.
 
@@ -60,12 +61,12 @@ The MUST workflow should then be
 marie@login$ module load MUST
 
 # Compile your application with the debugging flag "-g" on the correct architecture, e.g.:
-marie@login$ srun -n 1 -p <partition> mpicc -g -o fancy-program fancy-program.c
+marie@login$ srun --ntasks 1 --partition <partition> mpicc -g -o fancy-program fancy-program.c
 
 # Allocate interactive session with 1 extra process for MUST
-marie@login$ salloc -n 5 -p <partition>
+marie@login$ salloc --ntasks 5 --partition <partition>
 
-marie@login$ mustrun --must:mpiexec srun --must:np -n --must:stacktrace backward -n 4 ./fancy-program
+marie@login$ mustrun --must:mpiexec srun --must:np --ntasks --ntasks 4 --must:stacktrace backward ./fancy-program
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
 [MUST] Weaver ... success
 [MUST] Code generation ... success
@@ -79,6 +80,14 @@ marie@login$ mustrun --must:mpiexec srun --must:np -n --must:stacktrace backward
 {...}
 [MUST] Execution finished, inspect "/home/marie/MUST_Output.html"!
 ```
+
+??? hint "Twice `--ntasks`"
+
+    You might wonder about the two `--ntasks` arguments in the above outlined `mustrun` comannd.
+    Mustrun is able to use invoke another command instead of mpiexec. For ZIH systems, this will be
+    `srun` (`--must-mpiexec: srun`). Now, you need to specify what argument of the MPI run arguments
+    holds the number of application processes. For Slurm, it is `--ntasks <N>`. Thus, you need to
+    specify `--must:np --ntasks --ntasks <N>`.
 
 With the additional flag `--must:stacktrace backward` you can produce an additional stacktrace
 with line number of the error location which allows to pinpoint the error location in your code.
@@ -177,7 +186,7 @@ from the [MUST documentation v1.7.2](https://hpc.rwth-aachen.de/must/files/Docum
     command line will submit a job to the batch system.
 
     ```
-    marie@login $ mustrun --must:mpiexec srun --must:np -n -n 4 --time 00:10:00 example
+    marie@login $ mustrun --must:mpiexec srun --must:np --ntasks --ntasks 4 --time 00:10:00 example
     [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
     [MUST] Information: overwritting old intermediate data in directory "/scratch/ws/0/marie-must/must_temp"!
     [MUST] Using prebuilt infrastructure at /sw/installed/MUST/1.7.2-intel-2020a/modules/mode1-layer2
