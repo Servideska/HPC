@@ -68,7 +68,7 @@ socket or per node.
 Most metrics are recorded every 30 seconds except IPC, FLOPS, Main Memory Bandwidth and Power
 Consumption. The latter are determined every 60 seconds, as they are a combination of different
 hardware counters, which leads to a higher measurement overhead. Depending on the architecture,
-metrics such as FLOPS can require multiplexing, since single and double precision FLOPS cannot be
+metrics such as normalized FLOPS (2 x double-precision + 1 x single-precision) can require multiplexing, since single and double precision FLOPS cannot be
 measured simultaneously.
 
 !!! hint
