@@ -70,6 +70,7 @@ Consumption. The latter are determined every 60 seconds, as they are a combinati
 hardware counters, which leads to a higher measurement overhead. Depending on the architecture,
 metrics such as normalized FLOPS (2 x double-precision + 1 x single-precision) can require
 multiplexing, since single and double precision FLOPS cannot be measured simultaneously.
+The sampling frequency cannot be changed by the user.
 
 !!! hint
 
