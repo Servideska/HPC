@@ -512,16 +512,10 @@ constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com
 
       A feature is checked only for scheduling. Running jobs are not affected by changing features.
 
-### Available Features
-
-| Feature | Description                                                              |
-|:--------|:-------------------------------------------------------------------------|
-| DA      | Subset of Haswell nodes with a high bandwidth to NVMe storage (island 6) |
-
-#### Filesystem Features
+### Filesystem Features
 
 A feature `fs_*` is active if a certain filesystem is mounted and available on a node. Access to
-these filesystems are tested every few minutes on each node and the Slurm features set accordingly.
+these filesystems are tested every few minutes on each node and the Slurm features are set accordingly.
 
 | Feature              | Description                                                        | [Workspace Name](../data_lifecycle/workspaces.md#extension-of-a-workspace) |
 |:---------------------|:-------------------------------------------------------------------|:---------------------------------------------------------------------------|
