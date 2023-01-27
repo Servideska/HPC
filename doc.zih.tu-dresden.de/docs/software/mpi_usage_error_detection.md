@@ -216,7 +216,7 @@ from the [MUST documentation v1.7.2](https://hpc.rwth-aachen.de/must/files/Docum
 
     and open the file `MUST_Output.html` using a webbrowser. Alternativly, you can open the html file with a
     `firefox` instance on the HPC sytems. This requires to [forward the X11 support via SSH](../access/ssh_login.md#x11-forwarding).
-    
+
     MUST detects all three MPI usage errors within this example:
 
     * A type mismatch
