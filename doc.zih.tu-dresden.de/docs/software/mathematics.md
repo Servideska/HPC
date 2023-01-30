@@ -562,3 +562,8 @@ To learn more about the MATLAB Parallel Computing Toolbox, check out these resou
     Tutorials](http://www.mathworks.com/products/parallel-computing/tutorials.html)
 * [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 * [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
+* [MATLAB NHR Tutorial Slides: Parallel Computing with MATLAB](https://event.zih.tu-dresden.de/nhr/matlab/module1/materials)
+* [MATLAB NHR Tutorial Slides: Machine Learning with MATLAB](https://event.zih.tu-dresden.de/nhr/matlab/module2/materials)
+* [MATLAB NHR Tutorial Slides: Deep Learning with MATLAB](https://event.zih.tu-dresden.de/nhr/matlab/module3/materials)
+* [MATLAB NHR Tutorial Slides: Interoperability of MATLAB and Python](https://event.zih.tu-dresden.de/nhr/matlab/module4/materials)
+
