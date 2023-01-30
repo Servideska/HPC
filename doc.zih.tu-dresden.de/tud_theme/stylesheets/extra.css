@@ -271,23 +271,33 @@ body {
   }
   .header {
     background-color: #002557;
+    cursor: pointer;
   }
   label.header {
     color: white;
     font-size: 40px;
     margin: 15px;
+    width: 100%;
+  }
+  table {
+    table-layout: fixed;
+    width: 100%;
   }
   .hidden {
     display: none !important;
   }
-  .info-img {
-    height: 20px;
-    width: 20px;
-  }
   .info-pre {
-    display: flex;
     padding: 5px;
-    width: 275px;
+    height: 200px;
+    font-size: .7rem;
+  }
+  .ws-info-pre {
+    padding: 5px;
+    height: 110px;
+    width: auto;
+    font-size: .7rem;
+  }
+  .table-pre {
     font-size: .7rem;
   }
   .limits {
@@ -318,11 +328,32 @@ body {
     display: flex;
     width: 100%;
   }
+  .cell-shortopt {
+    align-items: center;
+    display: flex;
+    height: 25px;
+    width: 45px;
+    font-size: .7rem;
+  }
+  .cell-longopt {
+    align-items: center;
+    display: flex;
+    height: 25px;
+    width: 220px;
+    font-size: .7rem;
+  }
+  .cell-description {
+    display: flex;
+    height: 25px;
+    align-items: center;
+    width: 200px;
+    font-size: .7rem;
+  }
   .cell-name {
     display: flex;
     height: 25px;
     align-items: center;
-    width: 300px;
+    width: 465px;
     font-size: .7rem;
   }
   .cell-tooltip {
@@ -337,7 +368,7 @@ body {
     vertical-align: middle;
   }
   .executable {
-    width: 650px;
+    width: 45%;
   }
   .mail {
     width: 350px;
@@ -351,13 +382,29 @@ body {
     float: right;
     width: calc(27.5%);
   }
+  .info-box {
+    display: flex;
+    width: 95%;
+    margin-left: 2%;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: .6rem;
+    background-color: #fdeda0;
+    border: 1px solid grey;
+    border-radius: 0.4rem;
+  }
 
   /* collapsible */
   .active {
     background-color: #5a7094 !important;
   }
   .active:after {
-    content: "-" !important;
+    content: "v" !important;
+  }
+  .active-header {
+  }
+  .active-header:after {
+    content: "v" !important;
   }
   .collapsible {
     background-color: #274275;
@@ -366,6 +413,7 @@ body {
     cursor: pointer;
     font-size: 20px;
     outline: none;
+    line-height: 100%;
     padding: 10px 18px;
     text-align: left;
     width: 100%;
@@ -375,7 +423,7 @@ body {
   }
   .collapsible:after {
     color: #fff;
-    content: '+';
+    content: '>';
     float: right;
     font-size: 20px;
     font-weight:900;
@@ -387,4 +435,3 @@ body {
     overflow: hidden;
     padding: 0 18px;
   }
-
