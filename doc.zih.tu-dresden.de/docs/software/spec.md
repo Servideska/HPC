@@ -1109,7 +1109,7 @@ a notification on job start
 
     This is just a warning which cannot be suppressed, but can be ignored.
 
-### Out of memory
+### Out of Memory
 
 !!! failure "Out of memory"
 
