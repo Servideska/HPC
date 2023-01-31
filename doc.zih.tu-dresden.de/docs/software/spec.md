@@ -24,7 +24,7 @@ it is straight-forward and easy to use.
     on the target architecture. You can stay on the login nodes as long as you set the
     flag `-tp=zen` (as done in the configuration file for the openACC model, see below).
 
-If you face errors during the installation process, check the [resolved](#resolved-issues) and
+If you face errors during the installation process, check the [solved](#solved-issues) and
 [unresolved issues](#unresolved-issues) sections. The problem might already be listed there.
 
 ## Configuration
