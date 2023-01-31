@@ -1055,7 +1055,7 @@ a notification on job start
 
 !!! failure "PMIX ERROR"
 
-    It looks like pmix_init failed for some reason; your parallel process is
+    It looks like the function `pmix_init` failed for some reason; your parallel process is
     likely to abort. There are many reasons that a parallel process can
     fail during pmix_init; some of which are due to configuration or
     environment problems. This failure appears to be an internal failure;
