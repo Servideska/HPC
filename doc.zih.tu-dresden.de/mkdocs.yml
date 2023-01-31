@@ -5,13 +5,13 @@ nav:
     - Overview: application/overview.md
     - Terms of Use: application/terms_of_use.md
     - Request for Resources: application/request_for_resources.md
-    - Project Request Form: application/project_request_form.md
+    - Project Request Form Jards: application/project_request_form.md
     - Project Management: application/project_management.md
     - Acknowledgement: application/acknowledgement.md
   - Access to ZIH Systems:
     - Overview: access/overview.md
     - Connecting with SSH: 
-      - Connecting via terminal (Linux, Mac, Windows): access/ssh_login.md
+      - Connecting via Terminal (Linux, Mac, Windows): access/ssh_login.md
       - Connecting via MobaXterm (Windows): access/ssh_mobaxterm.md
       - Connecting via Putty (Windows): access/ssh_putty.md
     - Desktop Cloud Visualization (DCV): access/desktop_cloud_visualization.md
@@ -50,7 +50,7 @@ nav:
     - Containers:
       - Singularity: software/containers.md
       - Singularity Recipes and Hints: software/singularity_recipe_hints.md
-      - Singularity for Power9: software/singularity_power9.md
+      - Singularity for Power9 Architecture: software/singularity_power9.md
       - Virtual Machines: software/virtual_machines.md
       - GPU-accelerated Containers for Deep Learning (NGC Containers): software/ngc_containers.md
     - External Licenses: software/licenses.md
@@ -118,14 +118,14 @@ nav:
     - Bio Informatics: archive/bioinformatics.md
     - CXFS End of Support: archive/cxfs_end_of_support.md
     - Load Leveler: archive/load_leveler.md
-    - No IB Jobs: archive/no_ib_jobs.md
-    - Phase2 Migration: archive/phase2_migration.md
+    - Jobs without InfiniBand: archive/no_ib_jobs.md
+    - Migration towards Phase 2: archive/phase2_migration.md
     - Platform LSF: archive/platform_lsf.md
-    - BeeGFS on Demand: archive/beegfs_on_demand.md
-    - Install JupyterHub: archive/install_jupyter.md
+    - BeeGFS Filesystem on Demand: archive/beegfs_on_demand.md
+    - Jupyter Installation: archive/install_jupyter.md
     - Switched-Off Systems:
       - Overview: archive/systems_switched_off.md
-      - From Deimos to Atlas: archive/migrate_to_atlas.md
+      - Migration From Deimos to Atlas: archive/migrate_to_atlas.md
       - System Altix: archive/system_altix.md
       - System Atlas: archive/system_atlas.md
       - System Deimos: archive/system_deimos.md

@@ -1,4 +1,4 @@
-# Vampir
+# Study Course of Events with Vampir
 
 ## Introduction
 
