@@ -1,12 +1,14 @@
 # SPEChpc2021
 
 SPEChpc2021 is a benchmark suite developed by the Standard Performance Evaluation Corporation
-(SPEC) for the evaluation of HPC systems. Documentation and benchmark results can be found on their
-[web page](https://www.spec.org/hpc2021/). TU Dresden is a member of the SPEC consortium (contact:
-[Holger Brunst](https://tu-dresden.de/zih/die-einrichtung/struktur/holger-brunst) and furthermore,
-our system Taurus (partition `haswell`) is the reference system denoting a score of 1.
+(SPEC) for the evaluation of HPC systems. Documentation and released benchmark results can be found
+on their [web page](https://www.spec.org/hpc2021/). TU Dresden is a member of the SPEC consortium,
+therefore, the HPC benchmarks can be requested by anyone interested (contact:
+[Holger Brunst](https://tu-dresden.de/zih/die-einrichtung/struktur/holger-brunst)). Furthermore,
+our system 'Taurus' (partition `haswell`) is the reference system denoting a score of 1.
 The benchmark comes with different workload sizes - tiny, small, medium, large - and different
-parallelization models including MPI only, MPI+OMP, MPI+openACC, MPI+target offloading.
+parallelization models including MPI only, MPI+OMP, MPI+openACC, MPI+target offloading that can be
+used to evaluate parallel strategies for applications on a target HPC system.
 
 ## Installation
 
@@ -892,49 +894,31 @@ a notification on job start
         #SBATCH --mail-user=<firstname.lastname>@tu-dresden.de
 
         module purge
-
-        #module load Score-P/6.0-gompi-2020a
         module load Score-P/6.0-gompi-2019a
-
-        # scorep loads OpenMPI and GCC
-        #module load OpenMPI/3.1.1-GCC-7.3.0-2.30
-        #module load OpenMPI/4.0.4-GCC-9.3.0
 
         ulimit -s unlimited
         ulimit -n 4096
-
-        #./install.sh -f
 
         source shrc
 
         BENCH_SMALL_LIST="505.lbm_t 510.picongpu_t 511.palm_t 513.soma_t 518.tealeaf_t 519.clvleaf_t 521.miniswp_t 528.pot3d_t 532.sph_exa_t 534.hpgmgfv_t 535.weather_t"
 
-        #
         # Use tealeaf scorep run to check the benchmark performance
-        #
         BENCH="518.tealeaf_t"
 
         # Score-P parameters are set in config/gnu-taurus.cfg
-        #export SCOREP_TOTAL_MEMORY=64MB
-        #export SCOREP_ENABLE_PROFILING=true
-        #export SCOREP_ENABLE_TRACING=true
-        #export SCOREP_METRIC_PAPI=PAPI_TOT_CYC
 
         #ACTION="--action=build --rebuild"
         #ACTION="--rebuild"
         #runhpc $ACTION -I -c gnu-taurus --iterations=1 --size=ref --ranks=24 --define model=mpi --define tudprof=scorep
         runhpc $ACTION -I -c gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 --define tudprof=scorep $BENCH
 
-        #
         # To the actual reportable runs with all benchmarks 
-        #
         BENCH="tiny"
 
         #ACTION="--action=build --rebuild"
         #ACTION="--rebuild"
         #ACTION="--action=report"
-        #ACTION="--fakereportable"
-        cp config/sut-taurus-24.inc config/sut-taurus.inc
         runhpc $ACTION -c gnu-taurus --reportable -T base --flagsurl=$SPEC/config/flags/gcc_flags.xml --define model=mpi --ranks=24 $BENCH
 
         specperl bin/tools/port_progress result/*.log
@@ -1055,18 +1039,20 @@ a notification on job start
 
 !!! failure "PMIX ERROR"
 
+    ```bash
     It looks like the function `pmix_init` failed for some reason; your parallel process is
     likely to abort. There are many reasons that a parallel process can
     fail during pmix_init; some of which are due to configuration or
     environment problems. This failure appears to be an internal failure;
 
-    mix_progress_thread_start failed\
+    mix_progress_thread_start failed
     --> Returned value -1 instead of PMIX_SUCCESS
 
-    *** An error occurred in MPI_Init_thread\
-    *** on a NULL communicator\
-    *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,\
+    *** An error occurred in MPI_Init_thread
+    *** on a NULL communicator
+    *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
     ***    and potentially your MPI job)
+    ```
 
 !!! note "Explanation"
 
@@ -1095,7 +1081,7 @@ a notification on job start
     there, but only `runhpc [...]`. The submit command in the [configuration](#configuration) file
     already contains `srun`. When `srun` is in both places, too many parallel processes are spawned.
 
-### Error with openFabrics device
+### Error with openFabrics Device
 
 !!! warning "There was an error initializing an OpenFabrics device"
 
