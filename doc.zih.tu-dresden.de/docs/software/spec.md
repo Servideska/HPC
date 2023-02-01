@@ -13,7 +13,8 @@ used to evaluate parallel strategies for applications on a target HPC system.
 ## Installation
 
 The target partition determines which of the parallelization models can be used, and vice versa.
-For example, if you want to run a model including acceleration, you would have to use a partition with GPUs.
+For example, if you want to run a model including acceleration, you would have to use a partition
+with GPUs.
 
 Once the target partition is determined, follow the
 [Installation Guide](https://www.spec.org/hpg/hpc2021/Docs/install-guide-linux.html),
@@ -913,7 +914,7 @@ a notification on job start
         #runhpc $ACTION -I -c gnu-taurus --iterations=1 --size=ref --ranks=24 --define model=mpi --define tudprof=scorep
         runhpc $ACTION -I -c gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 --define tudprof=scorep $BENCH
 
-        # To the actual reportable runs with all benchmarks 
+        # To the actual reportable runs with all benchmarks
         BENCH="tiny"
 
         #ACTION="--action=build --rebuild"
@@ -1162,7 +1163,6 @@ a notification on job start
     `mpirun -np <ranks> perl <bind.pl> <command>`) as seen on the bottom of the configurations
     [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210908-00012.cfg) and
     [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210917-00056.cfg)
-
 
 ### Benchmark hangs forever
 
