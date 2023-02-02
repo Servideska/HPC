@@ -46,8 +46,9 @@ instructions from the official documentation to install Singularity.
 1. Check if `go` is installed by executing `go version`.  If it is **not**:
 
     ```console
-    marie@local$ wget 'https://storage.googleapis.com/golang/getgo/installer_linux' && chmod +x
-    installer_linux && ./installer_linux && source $HOME/.bash_profile
+    marie@local$ wget 'https://storage.googleapis.com/golang/getgo/installer_linux' 
+    && chmod +x installer_linux
+    && ./installer_linux && source $HOME/.bash_profile
     ```
 
 1. Instructions to
