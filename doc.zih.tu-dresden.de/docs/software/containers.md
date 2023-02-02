@@ -47,8 +47,8 @@ instructions from the official documentation to install Singularity.
 
     ```console
     marie@local$ wget 'https://storage.googleapis.com/golang/getgo/installer_linux' 
-    && chmod +x installer_linux
-    && ./installer_linux && source $HOME/.bash_profile
+    marie@local$ chmod +x installer_linux
+    marie@local$ ./installer_linux && source $HOME/.bash_profile
     ```
 
 1. Instructions to
@@ -75,7 +75,13 @@ instructions from the official documentation to install Singularity.
 
     ```console
     marie@local$ cd ${GOPATH}/src/github.com/sylabs/singularity
-    marie@local$ ./mconfig && cd ./builddir && make
+    marie@local$ ./mconfig 
+    ```
+
+    Install any missing dependencies.
+
+    ```console
+    marie@local$ cd ./builddir && make
     marie@local$ sudo make install
     ```
 
