@@ -58,6 +58,7 @@ nav:
     - Mathematics Applications: software/mathematics.md
     - Nanoscale Simulations: software/nanoscale_simulations.md
     - FEM Software: software/fem_software.md
+    - PALM Simulation Tool: software/palm.md
     - Visualization: software/visualization.md
     - Data Analytics:
       - Overview: software/data_analytics.md
