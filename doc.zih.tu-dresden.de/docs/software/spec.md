@@ -51,7 +51,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 <!--??? tip "SPEC Configuration files for partitions `haswell`, `ml` and `alpha`"-->
 
 === "gnu-taurus.cfg"
-     ```bash linenums="1"
+     ```bash
      #######################################################################
      # Example configuration file for the GNU Compilers
      #
@@ -253,9 +253,13 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
      ```
 
 === "nvhpc_ppc.cfg"
-     ```bash linenums="1"
-     # Invocation command line:
-     # /lustre/scratch2/ws/0/notr584d-spec_nt/bin/runhpc --config nvhpc_ppc --define pmodel=acc --action run --nobuild --ranks=6 --reportable tiny
+     Invocation command line:
+     ```
+     /lustre/scratch2/ws/0/notr584d-spec_nt/bin/runhpc --config nvhpc_ppc --define pmodel=acc \
+            --action run --nobuild --ranks=6 --reportable tiny
+     ```
+
+     ```bash
      #######################################################################
      # Example configuration file for the GNU Compilers
      #
@@ -578,9 +582,13 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
      ```
 
 === "nvhpc_alpha.cfg"
-    ```bash linenums="1"
-    # Invocation command line:
-    # runhpc -c nvhpc_alpha.cfg -ranks 8 --rebuild --define pmodel=acc --noreportable --tune=base --iterations=1 small
+    Invocation command line:
+    ```
+    runhpc -c nvhpc_alpha.cfg -ranks 8 --rebuild --define pmodel=acc --noreportable \
+           --tune=base --iterations=1 small
+    ```
+
+    ```bash
     ######################################################################
     # Example configuration file for the GNU Compilers
     #
@@ -983,7 +991,7 @@ a notification on job start
         #SBATCH --gpus-per-task=1             # use 1 gpu thread per task
         #SBATCH --gres=gpu:8                  # generic consumable resources allocation per node: 8 GPUs
         #SBATCH --mem-per-cpu=20624M          # RAM per CPU
-        #SBATCH --time=00:45:00        	      # run for hh:mm:ss hrs
+        #SBATCH --time=00:45:00               # run for hh:mm:ss hrs
         #SBATCH --job-name=spec_acc
         #SBATCH --export=ALL
         #SBATCH --hint=nomultithread
