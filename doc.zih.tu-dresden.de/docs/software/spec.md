@@ -86,20 +86,19 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         makeflags=-j 24
 
         # Tester Information
-        license_num     = 37A
-        tester          = Technische Universitaet Dresden
-        test_sponsor    = Technische Universitaet Dresden
-        prepared_by     = Holger Brunst
+        license_num = 37A
+        tester = Technische Universitaet Dresden
+        test_sponsor = Technische Universitaet Dresden
+        prepared_by = Holger Brunst
 
         #######################################################################
         # SUT Section
         #######################################################################
-        #include: Example_SUT.inc
         include: sut-taurus.inc
 
         #[Software]
-        sw_compiler000   = C/C++/Fortran: Version 8.2.0 of
-        sw_compiler001   = GNU Compilers
+        sw_compiler000 = C/C++/Fortran: Version 8.2.0 of
+        sw_compiler001 = GNU Compilers
         sw_mpi_library = OpenMPI Version 3.1.3
         sw_mpi_other = None
         sw_other = None
@@ -119,34 +118,31 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # ext = how the binaries you generated will be identified
         # tune = specify "base" or "peak" or "all"
         %ifndef %{tudprof}
-        label         = %{label}_%{model}
+        label = %{label}_%{model}
         %else
-        label         = %{label}_%{model}_%{tudprof}
+        label = %{label}_%{model}_%{tudprof}
         %endif
 
-        tune          = base
+        tune = base
         output_format = text
         use_submit_for_speed = 1
 
         # Compiler Settings
         default:
-        CC           = mpicc
-        CXX          = mpicxx
-        FC           = mpif90
+        CC = mpicc
+        CXX = mpicxx
+        FC = mpif90
         %if %{tudprof} eq 'scorep'
-        CC           = scorep --mpp=mpi --instrument-filter=${SPEC}/scorep.filter mpicc
-        CXX          = scorep --mpp=mpi --instrument-filter=${SPEC}/scorep.filter mpicxx
-        FC           = scorep --mpp=mpi --instrument-filter=${SPEC}/scorep.filter mpif90
+        CC = scorep --mpp=mpi --instrument-filter=${SPEC}/scorep.filter mpicc
+        CXX = scorep --mpp=mpi --instrument-filter=${SPEC}/scorep.filter mpicxx
+        FC = scorep --mpp=mpi --instrument-filter=${SPEC}/scorep.filter mpif90
         %endif
 
 
         # Compiler Version Flags
-        CC_VERSION_OPTION  = --version
+        CC_VERSION_OPTION = --version
         CXX_VERSION_OPTION = --version
-        FC_VERSION_OPTION  = --version
-
-        # enable non-official patches to this kit
-        #strict_rundir_verify = 0
+        FC_VERSION_OPTION = --version
 
         # MPI options and binding environment, dependent upon Model being run
         # Adjust to match your system
@@ -163,9 +159,8 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39
         %endif
 
-        #MPIRUN_OPTS = --bind-to none -q
-        MPIRUN_OPTS=
-        submit = timeout 2h srun ${MPIRUN_OPTS} -n $ranks -c $threads $command
+        SRUN_OPTS =
+        submit = timeout 2h srun ${SRUN_OPTS} -n $ranks -c $threads $command
 
 
         # Score-P performance profiling
@@ -201,9 +196,9 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # for more details
         #      http://www.spec.org/hpc2021/Docs/runrules.html
         #
-        # OPTIMIZE    = flags applicable to all compilers
-        # FOPTIMIZE   = flags appliable to the Fortran compiler
-        # COPTIMIZE   = flags appliable to the C compiler
+        # OPTIMIZE = flags applicable to all compilers
+        # FOPTIMIZE = flags appliable to the Fortran compiler
+        # COPTIMIZE = flags appliable to the C compiler
         # CXXOPTIMIZE = flags appliable to the C++ compiler
         #
         # See your compiler manual for information on the flags available
@@ -211,10 +206,10 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 
         # Compiler flags applied to all models
         default=base=default:
-        COPTIMIZE     = -Ofast -march=native -lm        # use -mcpu=native for ARM
-        CXXOPTIMIZE   = -Ofast -march=native -std=c++14
-        FOPTIMIZE     = -Ofast -march=native -fno-stack-protector
-        FPORTABILITY  = -ffree-line-length-none
+        COPTIMIZE = -Ofast -march=native -lm        # use -mcpu=native for ARM
+        CXXOPTIMIZE = -Ofast -march=native -std=c++14
+        FOPTIMIZE = -Ofast -march=native -fno-stack-protector
+        FPORTABILITY = -ffree-line-length-none
 
         %if %{model} eq 'mpi'
         pmodel=MPI
@@ -292,20 +287,17 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         makeflags=-j 40
 
         # Tester Information
-        license_num     = 37A
-        test_sponsor    = TU Dresden
-        tester          = TU Dresden
-        prepared_by     = Noah Trumpik (Noah.Trumpik@tu-dresden.de)
+        license_num = 37A
+        test_sponsor = TU Dresden
+        tester = TU Dresden
+        prepared_by = Noah Trumpik (Noah.Trumpik@tu-dresden.de)
 
         #######################################################################
         # SUT Section
         #######################################################################
-        #include: Example_SUT.inc
-        #  ----- Begin inclusion of 'Example_SUT.inc'
-        #######################################################################
         # General SUT info
-        system_vendor      = IBM
-        system_name        = Taurus: IBM Power System AC922 (IBM Power9, Tesla V100-SXM2-32GB)
+        system_vendor = IBM
+        system_name = Taurus: IBM Power System AC922 (IBM Power9, Tesla V100-SXM2-32GB)
         node_compute_sw_accel_driver = NVIDIA CUDA 440.64.00
         node_compute_hw_adapter_ib_slot_type = None
         node_compute_hw_adapter_ib_ports_used = 2
@@ -324,8 +316,8 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #interconnect_ib_hw_switch_ib_data_rate = 100 Gb/s
         #interconnect_ib_hw_switch_ib_count = 1
         #interconnect_ib_hw_model = Mellanox Switch IB-2
-        hw_avail           = Nov-2018
-        sw_avail           = Nov-2021
+        hw_avail = Nov-2018
+        sw_avail = Nov-2021
 
         #[Node_Description: Hardware]
         node_compute_syslbl = IBM Power System AC922
@@ -355,10 +347,10 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         node_compute_hw_accel_model = Tesla V100-SXM2-32GB
         node_compute_hw_accel_count = 6
         node_compute_hw_accel_vendor= NVIDIA Corporation
-        node_compute_hw_accel_type  = GPU
+        node_compute_hw_accel_type = GPU
         node_compute_hw_accel_connect = NVLINK
-        node_compute_hw_accel_ecc    = Yes
-        node_compute_hw_accel_desc   = See Notes
+        node_compute_hw_accel_ecc = Yes
+        node_compute_hw_accel_desc = See Notes
 
         #[Node_Description: Software]
         node_compute_sw_os000 = Red Hat Enterprise Linux
@@ -382,46 +374,46 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 
         #[General notes]
         notes_000 = MPI startup command:
-        notes_005 =   srun command was used to launch job using 1 GPU/rank.
-        notes_010 =Detailed information from nvaccelinfo
+        notes_005 = srun command was used to launch job using 1 GPU/rank.
+        notes_010 = Detailed information from nvaccelinfo
         notes_015 =
-        notes_020 =CUDA Driver Version:           11000
-        notes_025 =NVRM version:                  NVIDIA UNIX ppc64le Kernel Module
-        notes_030 =                               440.64.00  Wed Feb 26 16:01:28 UTC 2020
-        notes_035 =Device Number:                 0
-        notes_040 =Device Name:                   Tesla V100-SXM2-32GB
-        notes_045 =Device Revision Number:        7.0
-        notes_050 =Global Memory Size:            33822867456
-        notes_055 =Number of Multiprocessors:     80
-        notes_060 =Concurrent Copy and Execution: Yes
-        notes_065 =Total Constant Memory:         65536
-        notes_070 =Total Shared Memory per Block: 49152
-        notes_075 =Registers per Block:           65536
-        notes_080 =Warp Size:                     32
-        notes_085 =Maximum Threads per Block:     1024
-        notes_090 =Maximum Block Dimensions:      1024, 1024, 64
-        notes_095 =Maximum Grid Dimensions:       2147483647 x 65535 x 65535
-        notes_100 =Maximum Memory Pitch:          2147483647B
-        notes_105 =Texture Alignment:             512B
-        notes_110 =Max Clock Rate:                1530 MHz
-        notes_115 =Execution Timeout:             No
-        notes_120 =Integrated Device:             No
-        notes_125 =Can Map Host Memory:           Yes
-        notes_130 =Compute Mode:                  default
-        notes_135 =Concurrent Kernels:            Yes
-        notes_140 =ECC Enabled:                   Yes
-        notes_145 =Memory Clock Rate:             877 MHz
-        notes_150 =Memory Bus Width:              4096 bits
-        notes_155 =L2 Cache Size:                 6291456 bytes
-        notes_160 =Max Threads Per SMP:           2048
-        notes_165 =Async Engines:                 4
-        notes_170 =Unified Addressing:            Yes
-        notes_175 =Managed Memory:                Yes
-        notes_180 =Concurrent Managed Memory:     Yes
-        notes_185 =Preemption Supported:          Yes
-        notes_190 =Cooperative Launch:            Yes
-        notes_195 =  Multi-Device:                Yes
-        notes_200 =Default Target:                cc70
+        notes_020 = CUDA Driver Version:           11000
+        notes_025 = NVRM version:                  NVIDIA UNIX ppc64le Kernel Module
+        notes_030 =                                440.64.00  Wed Feb 26 16:01:28 UTC 2020
+        notes_035 = Device Number:                 0
+        notes_040 = Device Name:                   Tesla V100-SXM2-32GB
+        notes_045 = Device Revision Number:        7.0
+        notes_050 = Global Memory Size:            33822867456
+        notes_055 = Number of Multiprocessors:     80
+        notes_060 = Concurrent Copy and Execution: Yes
+        notes_065 = Total Constant Memory:         65536
+        notes_070 = Total Shared Memory per Block: 49152
+        notes_075 = Registers per Block:           65536
+        notes_080 = Warp Size:                     32
+        notes_085 = Maximum Threads per Block:     1024
+        notes_090 = Maximum Block Dimensions:      1024, 1024, 64
+        notes_095 = Maximum Grid Dimensions:       2147483647 x 65535 x 65535
+        notes_100 = Maximum Memory Pitch:          2147483647B
+        notes_105 = Texture Alignment:             512B
+        notes_110 = Max Clock Rate:                1530 MHz
+        notes_115 = Execution Timeout:             No
+        notes_120 = Integrated Device:             No
+        notes_125 = Can Map Host Memory:           Yes
+        notes_130 = Compute Mode:                  default
+        notes_135 = Concurrent Kernels:            Yes
+        notes_140 = ECC Enabled:                   Yes
+        notes_145 = Memory Clock Rate:             877 MHz
+        notes_150 = Memory Bus Width:              4096 bits
+        notes_155 = L2 Cache Size:                 6291456 bytes
+        notes_160 = Max Threads Per SMP:           2048
+        notes_165 = Async Engines:                 4
+        notes_170 = Unified Addressing:            Yes
+        notes_175 = Managed Memory:                Yes
+        notes_180 = Concurrent Managed Memory:     Yes
+        notes_185 = Preemption Supported:          Yes
+        notes_190 = Cooperative Launch:            Yes
+        notes_195 = Multi-Device:                  Yes
+        notes_200 = Default Target:                cc70
         notes_205 =
 
         ######################################################################
@@ -434,20 +426,20 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #
         # ext = how the binaries you generated will be identified
         # tune = specify "base" or "peak" or "all"
-        label         = %{label}_%{pmodel}
-        tune          = base
+        label = %{label}_%{pmodel}
+        tune = base
         output_format = text
         use_submit_for_speed = 1
 
         # Compiler Settings
         default:
-        CC           = mpicc
-        CXX          = mpic++
-        FC           = mpif90
+        CC = mpicc
+        CXX = mpic++
+        FC = mpif90
         # Compiler Version Flags
-        CC_VERSION_OPTION  = --version
+        CC_VERSION_OPTION = --version
         CXX_VERSION_OPTION = --version
-        FC_VERSION_OPTION  = --version
+        FC_VERSION_OPTION = --version
 
         # MPI options and binding environment, dependent upon Model being run
         # Adjust to match your system
@@ -456,9 +448,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         %if %{pmodel} eq 'omp'
         preENV_OMP_PLACES=cores
         #preENV_OMP_PROC_BIND=true
-        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,226,27,28,29,30,31,32,33,34,35,36,37,38,39
-        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,2\
-        #3,24
+        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
         %endif
 
         #OpenMP Targeting Host Settings
@@ -468,7 +458,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         preEnv_MPICH_GPU_SUPPORT_ENABLED=1
         preEnv_MPICH_SMP_SINGLE_COPY_MODE=CMA
         preEnv_MPICH_GPU_EAGER_DEVICE_MEM=0
-        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,226,27,28,29,30,31,32,33,34,35,36,37,38,39
         #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
         %endif
 
@@ -479,9 +468,9 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         preENV_UCX_TLS=self,shm,cuda_copy
         %endif
 
-        #MPIRUN_OPTS = --bind-to none -q
         # 1 GPU per rs, 7 cores per RS, 1 MPI task per RS, 6 RS per host
-        submit = srun ${MPIRUN_OPTS} $command
+        SRUN_OPTS =
+        submit = srun ${SRUN_OPTS} $command
 
         #######################################################################
         # Optimization
@@ -491,9 +480,9 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # for more details
         #      http://www.spec.org/hpc2021/Docs/runrules.html
         #
-        # OPTIMIZE    = flags applicable to all compilers
-        # FOPTIMIZE   = flags appliable to the Fortran compiler
-        # COPTIMIZE   = flags appliable to the C compiler
+        # OPTIMIZE = flags applicable to all compilers
+        # FOPTIMIZE = flags appliable to the Fortran compiler
+        # COPTIMIZE = flags appliable to the C compiler
         # CXXOPTIMIZE = flags appliable to the C++ compiler
         #
         # See your compiler manual for information on the flags available
@@ -501,11 +490,11 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 
         # Compiler flags applied to all models
         default=base=default:
-        OPTIMIZE     = -O3
-        COPTIMIZE     = -lm       # use -mcpu=native for ARM
-        CXXOPTIMIZE   = -std=c++11
-        #FOPTIMIZE     = -ffree-line-length-none -fno-stack-protector
-        FOPTIMIZE     =
+        OPTIMIZE = -O3
+        COPTIMIZE = -lm       # use -mcpu=native for ARM
+        CXXOPTIMIZE = -std=c++11
+        #FOPTIMIZE = -ffree-line-length-none -fno-stack-protector
+        FOPTIMIZE =
 
         %if %{model} eq 'mpi'
         pmodel=MPI
@@ -516,9 +505,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # Use with PGI compiler only
         # https://docs.nvidia.com/hpc-sdk/archive/21.5/
         pmodel=ACC
-        #OPTIMIZE += -acc=gpu
-        OPTIMIZE += -acc -ta=tesla
-        OPTIMIZE += -acc -ta=tesla -DSPEC_ACCEL_AWARE_MPI #-Minfo=accel
+        OPTIMIZE += -acc -ta=tesla #-Minfo=accel
         %endif
 
         # Note that NVHPC is in the process of adding OpenMP array
@@ -534,7 +521,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         pmodel=OMP
         #OPTIMIZE += -qsmp=omp
         OPTIMIZE += -fopenmp
-        #FOPTIMIZE +=
         %endif
 
         # OpenMP Targeting host flags
@@ -542,13 +528,10 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         pmodel=TGT
         # PGI
         OPTIMIZE += -mp -acc=multicore
-        # Intel??
+        # Intel
         # OPTIMIZE += -qsmp=omp -qoffload
-        # -fopen-simd
         # GCC (doesn't recognize its own flags)
-        #OPTIMIZE += -fopenmp
-        #OPTIMIZE += -fopenmp -mgomp
-        #OPTIMIZE += -fopenmp -msoft-stack -muniform-simt
+        #OPTIMIZE += -fopenmp -mgomp -msoft-stack -muniform-simt
         #FOPTIMIZE += -homp
         %endif
 
@@ -567,8 +550,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #######################################################################
         # Portability
         #######################################################################
-
-
 
         # The following section was added automatically, and contains settings that
         # did not appear in the original configuration file, but were added to the
@@ -621,10 +602,10 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         makeflags=-j 40
 
         # Tester Information
-        license_num     = 37A
-        test_sponsor    = TU Dresden
-        tester          = TU Dresden
-        prepared_by     = Noah Trumpik (Noah.Trumpik@tu-dresden.de)
+        license_num = 37A
+        test_sponsor = TU Dresden
+        tester = TU Dresden
+        prepared_by = Noah Trumpik (Noah.Trumpik@tu-dresden.de)
 
 
         ######################################################################
@@ -632,10 +613,10 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         ######################################################################
 
         # General SUT info
-        system_vendor      = AMD
-        system_name        = Alpha Centauri: AMD EPYC 7352 (AMD x86_64, NVIDIA A100-SXM4-40GB)
-        hw_avail           = Jan-2019
-        sw_avail           = Aug-2022
+        system_vendor = AMD
+        system_name = Alpha Centauri: AMD EPYC 7352 (AMD x86_64, NVIDIA A100-SXM4-40GB)
+        hw_avail = Jan-2019
+        sw_avail = Aug-2022
 
         #[Node_Description: Hardware]
         node_compute_syslbl = AMD Rome
@@ -674,10 +655,10 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         node_compute_hw_accel_count = 8
         node_compute_hw_accel_vendor = NVIDIA Corporation
         node_compute_sw_accel_driver = NVIDIA CUDA 470.57.02
-        node_compute_hw_accel_type   = GPU
+        node_compute_hw_accel_type = GPU
         node_compute_hw_accel_connect = ASPEED Technology, Inc. (rev 04)
-        node_compute_hw_accel_ecc    = Yes
-        node_compute_hw_accel_desc   = none
+        node_compute_hw_accel_ecc = Yes
+        node_compute_hw_accel_desc = none
 
         #[Node_Description: Software]
         node_compute_sw_os000 = CentOS Linux
@@ -720,20 +701,20 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #
         # ext = how the binaries you generated will be identified
         # tune = specify "base" or "peak" or "all"
-        label         = %{label}_%{pmodel}
-        tune          = base
+        label = %{label}_%{pmodel}
+        tune = base
         output_format = text
         use_submit_for_speed = 1
 
         # Compiler Settings
         default:
-        CC           = mpicc
-        CXX          = mpicxx
-        FC           = mpif90
+        CC = mpicc
+        CXX = mpicxx
+        FC = mpif90
         # Compiler Version Flags
-        CC_VERSION_OPTION  = --version
+        CC_VERSION_OPTION = --version
         CXX_VERSION_OPTION = --version
-        FC_VERSION_OPTION  = --version
+        FC_VERSION_OPTION = --version
 
         # MPI options and binding environment, dependent upon Model being run
         # Adjust to match your system
@@ -742,9 +723,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         %if %{pmodel} eq 'omp'
         preENV_OMP_PLACES=cores
         #preENV_OMP_PROC_BIND=true
-        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,226,27,28,29,30,31,32,33,34,35,36,37,38,39
-        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,2\
-        #3,24
+        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
         %endif
 
         #OpenMP Targeting Host Settings
@@ -754,7 +733,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         preEnv_MPICH_GPU_SUPPORT_ENABLED=1
         preEnv_MPICH_SMP_SINGLE_COPY_MODE=CMA
         preEnv_MPICH_GPU_EAGER_DEVICE_MEM=0
-        #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,226,27,28,29,30,31,32,33,34,35,36,37,38,39
         #preENV_OMP_PLACES=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
         %endif
 
@@ -765,8 +743,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         preENV_UCX_TLS=self,shm,cuda_copy
         %endif
 
-        #MPIRUN_OPTS = --bind-to none -q
-        #submit = mpirun ${MPIRUN_OPTS} -n $ranks $command
+        # submission command and resource options
         submit = srun $command
 
         ######################################################################
@@ -777,9 +754,9 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # for more details
         #      http://www.spec.org/hpc2021/Docs/runrules.html
         #
-        # OPTIMIZE    = flags applicable to all compilers
-        # FOPTIMIZE   = flags appliable to the Fortran compiler
-        # COPTIMIZE   = flags appliable to the C compiler
+        # OPTIMIZE = flags applicable to all compilers
+        # FOPTIMIZE = flags appliable to the Fortran compiler
+        # COPTIMIZE = flags appliable to the C compiler
         # CXXOPTIMIZE = flags appliable to the C++ compiler
         #
         # See your compiler manual for information on the flags available
@@ -787,10 +764,10 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 
         # Compiler flags applied to all models
         default=base=default:
-        #OPTIMIZE     = -w -Mfprelaxed -Mnouniform -Mstack_arrays -fast
-        OPTIMIZE     = -w -O3 -Mfprelaxed -Mnouniform -Mstack_arrays
-        COPTIMIZE     = -lm       # use -mcpu=native for ARM
-        CXXOPTIMIZE   = -std=c++11
+        #OPTIMIZE = -w -Mfprelaxed -Mnouniform -Mstack_arrays -fast
+        OPTIMIZE = -w -O3 -Mfprelaxed -Mnouniform -Mstack_arrays
+        COPTIMIZE = -lm       # use -mcpu=native for ARM
+        CXXOPTIMIZE = -std=c++11
         CXXPORTABILITY = --c++17
 
         #ARM
@@ -815,15 +792,11 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # https://docs.nvidia.com/hpc-sdk/archive/21.7/
         #OPTIMIZE += -acc=gpu
         OPTIMIZE += -acc -ta=tesla -tp=zen #-Minfo=accel #-DSPEC_ACCEL_AWARE_MPI->hangs it forever
-
-        #  513.soma_t:
-        #  PORTABILITY+=-DSPEC_NO_VAR_ARRAY_REDUCE
         %endif
 
         # OpenMP (CPU) flags
         %if %{pmodel} eq 'omp'
         pmodel=OMP
-        #OPTIMIZE += -qsmp=omp
         OPTIMIZE += -fopenmp
         #FOPTIMIZE +=
         %endif
@@ -831,22 +804,13 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # OpenMP Targeting host flags
         %if %{pmodel} eq 'tgt'
         pmodel=TGT
-        # PGI
         OPTIMIZE += -mp -acc=multicore
-        # Intel??
-        # OPTIMIZE += -qsmp=omp -qoffload
-        # -fopen-simd
-        # GCC (doesn't recognize its own flags)
-        #OPTIMIZE += -fopenmp
-        #OPTIMIZE += -fopenmp -mgomp
-        #OPTIMIZE += -fopenmp -msoft-stack -muniform-simt
         #FOPTIMIZE += -homp
         %endif
 
         # OpenMP Targeting host flags
         %if %{pmodel} eq 'tgtnv'
         pmodel=TGT
-        # PGI
         OPTIMIZE += -mp=gpu -acc
         #FOPTIMIZE += -homp
 
@@ -882,7 +846,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
 - Replace `<p_number_crunch>` (line 2) with your project name
 - Replace `<firstname.lastname>@tu-dresden.de` (line 15) with your valid email address to receive
 a notification on job start
-- Replace `ws=/scratch/ws/0/<user>-spec` (line 27) with your SPEC installation path
+- Replace `ws=</scratch/ws/spec/installation>` (line 27) with your SPEC installation path
 
 ### Submit SPEChpc 2021 with a Job File
 
@@ -963,7 +927,7 @@ a notification on job start
     export OMPI_CXX=nvc++
     export OMPI_FC=nvfortran
 
-    ws=/scratch/ws/0/<user>-spec
+    ws=</scratch/ws/spec/installation>
     cd $ws
     . shrc
 
@@ -1005,7 +969,7 @@ a notification on job start
     # - can be ignored
 
 
-    ws=/scratch/ws/0/<user>-spec
+    ws=</scratch/ws/spec/installation>
     cd $ws
     source shrc
 
