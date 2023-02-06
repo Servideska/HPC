@@ -92,7 +92,7 @@ The first one assumes that the `coordinator` is started in a separate terminal b
 To request a checkpoint simply type `c` into the terminal of the coordinator.
 The second possibility is by issuing `dmtcp_command c` in any terminal running on the same host, for that the `dmtcp_coordinator` does not need to be explicitly started, but can also be implicitly started with a call to `dmtcp_launch`.
 
-#### Application requested checkpoints
+#### Application Requested Checkpoints
 
 Sometimes it might be useful to create a checkpoint at a certain point during the execution of an application.
 
