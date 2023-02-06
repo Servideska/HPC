@@ -167,8 +167,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         MPIRUN_OPTS=
         submit = timeout 2h srun ${MPIRUN_OPTS} -n $ranks -c $threads $command
 
-        # MPI Workaround for mca issues in sph_exa
-        #preOMPI_MCA_topo=basic
 
         # Score-P performance profiling
         %if %{tudprof} eq 'scorep'
