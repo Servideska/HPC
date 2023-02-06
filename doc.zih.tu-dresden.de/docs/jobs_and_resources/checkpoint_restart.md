@@ -47,7 +47,7 @@ documentation as soon as it becomes available.
 In the following we will give you step-by-step instructions on how to
 checkpoint your job manually for three different use cases:
 
-### Checkpointing in fixed intervals
+### Checkpointing in Fixed Intervals
 
 This is the easiest way to use DMTCP.
 * Load the DMTCP module: `module load dmtcp`
