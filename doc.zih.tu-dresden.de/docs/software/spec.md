@@ -48,6 +48,7 @@ explanation.
 To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the benchmark run.
 
 ??? tip "SPEC Configuration files for partitions `haswell`, `ml` and `alpha`"
+
     === "gnu-taurus.cfg"
         ```bash
         #######################################################################
