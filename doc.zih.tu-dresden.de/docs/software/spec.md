@@ -1174,7 +1174,7 @@ a notification on job start
     [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210908-00012.cfg) and
     [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210917-00056.cfg)
 
-### Benchmark hangs forever
+### Benchmark Hangs Forever
 
 !!! warning "The benchmark runs forever and produces a timeout."
 
