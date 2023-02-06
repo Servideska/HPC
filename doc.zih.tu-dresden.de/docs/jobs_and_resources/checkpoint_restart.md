@@ -142,7 +142,7 @@ This holds true for all kinds of multithreaded tasks and is not limited to MPI.
 However when restarting an MPI application the speed of the filesystem restarted from has a large influence on the performance of the application, even after the whole checkpoint image is mapped into memory.
 So it is advised to restart from fast filesystems when using MPI whenever possible.
 
-## Speeding up checkpoints
+## Speeding up Checkpoints
 
 The checkpoint and restart times depend heavily on the bandwidth of the used filesystem and if gzip compression is enabled or not.
 
