@@ -80,7 +80,7 @@ For further information on checkpointing MPI programs with DMTCP please refer to
     applications
 </details>
 
-### Checkpointing on demand
+### Checkpointing on Demand
 
 Checkpointing on demand can be done in two ways.
 Either the user is requesting checkpoints at any given point or the program itself was modified to request checkpoints by calling the C-function `dmtcp_checkpoint()`.
