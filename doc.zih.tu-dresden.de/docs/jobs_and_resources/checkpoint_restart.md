@@ -85,7 +85,7 @@ For further information on checkpointing MPI programs with DMTCP please refer to
 Checkpointing on demand can be done in two ways.
 Either the user is requesting checkpoints at any given point or the program itself was modified to request checkpoints by calling the C-function `dmtcp_checkpoint()`.
 
-#### User requested checkpoints
+#### User Requested Checkpoints
 
 There are two main ways to request checkpoints.
 The first one assumes that the `coordinator` is started in a separate terminal by a call to `dmtcp_coordinator`.
