@@ -884,7 +884,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
 a notification on job start
 - Replace `ws=/scratch/ws/0/<user>-spec` (line 27) with your SPEC installation path
 
-### Submit SPEChpc 2021 with a batch script
+### Submit SPEChpc 2021 with a Job File
 
 === "run-taurus-mpi-tiny-p24.sh"
     ```bash linenums="1"
