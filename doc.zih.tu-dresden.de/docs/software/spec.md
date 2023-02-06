@@ -1186,7 +1186,7 @@ a notification on job start
 
     Remove the flag `-DSPEC_ACCEL_AWARE_MPI` from the compiler options in your configuration file
 
-### Other Problems
+### Other Issues
 
 For any further issues you can consult SPEC's
 [FAQ page](https://www.spec.org/hpc2021/Docs/faq.html), search through their
