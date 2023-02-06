@@ -4,8 +4,10 @@ At some point, every HPC system fails, e.g., a compute node or the network might
 running jobs to crash, too. In order to prevent starting your crashed experiments and simulations
 from the very beginning, you should be familiar with the great **concept of checkpoint/restart**.
 
->Checkpointing saves the state of a running process to a checkpointing image file. Using this
-file, the process can later be continued (restarted) from where it left off.
+!!! note
+
+    Checkpointing saves the state of a running process to a checkpointing image file. Using this
+    image file, the process can later be continued (restarted) from where it left off.
 
 Another motivation is to use checkpoint/restart to split long running jobs into several shorter
 ones. This might improve the overall job throughput, since shorter jobs can "fill holes" in the job
