@@ -101,7 +101,7 @@ This function is made accessible over the header file `dmtcp.h` which needs to b
 The program needs to be recompiled and during compile time the `-fPIC` flag needs to be passed to the compiler.
 Further the program still needs to run under DMTCP, so it has to be started with `dmtcp_launch <APPLICATION>`.
 
-### Restarting from checkpoint image
+### Restarting from Checkpoint Image
 
 Restarting works in a similar way than starting a normal execution.
 The requested resources should match those of your original job.
