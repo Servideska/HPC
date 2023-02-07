@@ -50,6 +50,11 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 ??? tip "SPEC Configuration files for partitions `haswell`, `ml` and `alpha`"
 
     === "gnu-taurus.cfg"
+        Invocation command line:
+        ```
+        runhpc -c gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 tiny
+        ```
+
         ```bash
         #######################################################################
         # Example configuration file for the GNU Compilers
@@ -247,8 +252,8 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
     === "nvhpc_ppc.cfg"
         Invocation command line:
         ```
-        /lustre/scratch2/ws/0/notr584d-spec_nt/bin/runhpc --config nvhpc_ppc --define pmodel=acc \
-                --action run --nobuild --ranks=6 --reportable tiny
+        runhpc --config nvhpc_ppc --ranks=6 --nobuild --define pmodel=acc \
+            --action run --reportable tiny
         ```
 
         ```bash
@@ -562,8 +567,8 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
     === "nvhpc_alpha.cfg"
         Invocation command line:
         ```
-        runhpc -c nvhpc_alpha.cfg -ranks 8 --rebuild --define pmodel=acc --noreportable \
-            --tune=base --iterations=1 small
+        runhpc -c nvhpc_alpha.cfg --ranks=8 --rebuild --define pmodel=acc \
+            --tune=base --iterations=1 --noreportable small
         ```
 
         ```bash
