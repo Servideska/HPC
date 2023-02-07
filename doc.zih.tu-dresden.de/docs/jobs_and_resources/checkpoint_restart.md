@@ -4,7 +4,7 @@ At some point, every HPC system fails, e.g., a compute node or the network might
 running jobs to crash, too. In order to prevent starting your crashed experiments and simulations
 from the very beginning, you should be familiar with the great **concept of checkpoint/restart**.
 
-!!! note
+!!! note "Checpoint/Restart"
 
     Checkpointing saves the state of a running process to a checkpointing image file. Using this
     image file, the process can later be continued (restarted) from where it left off.
@@ -22,22 +22,19 @@ checkpoints:
     million years later, and five minutes before the program had run to completion, the Earth was
     destroyed by Vogons.
 
-If you wish to do checkpoint/restart, your first step should always be to check if your application
-already has such capabilities built-in, as that is the most stable and safe way of doing it.
-Applications that are known to have some sort of **native checkpoint/restart** include:
+## Tools for Checkpoint/Restart
 
-Abaqus, Amber, Gaussian, GROMACS, LAMMPS, NAMD, NWChem, Quantum Espresso, STAR-CCM+, VASP
+If you wish to do checkpoint/restart, your **first step** should always be to check if your
+application already has such capabilities built-in, as that is the most stable and safe way of doing
+it. Applications that are known to have some sort of **native checkpoint/restart** include:
+
+* Abaqus, Amber, Gaussian, GROMACS, LAMMPS, NAMD, NWChem, Quantum Espresso, STAR-CCM+, VASP
 
 In case your program does not natively support checkpoint/restart, there are attempts at creating
 **generic checkpoint/restart solutions** that should work application-agnostic. One such project
 which we recommend is [Distributed Multi-Threaded Check-Pointing](http://dmtcp.sourceforge.net)
-(DMTCP).
-
-DMTCP is available on ZIH systems after having loaded the `DMTCP` module
-
-```console
-marie@login$ module load DMTCP
-```
+(DMTCP). DMTCP is available on ZIH systems and in the follwing we provide detailed information on
+how to use it.
 
 While our batch system [Slurm](slurm.md) also provides a checkpointing interface to the user,
 unfortunately, it does not yet support DMTCP at this time. However, there are ongoing efforts of
@@ -46,8 +43,15 @@ documentation as soon as it becomes available.
 
 ## Using DMTCP
 
+DMTCP is available via the [module system](../software/modules.md). The default version can be
+loaded as
+
+```console
+marie@login$ module load DMTCP
+```
+
 In the following we will give you step-by-step instructions on how to
-checkpoint your job manually for three different use cases:
+checkpoint your job manually. The instructions cover three different use cases:
 
 * [Checkpointing in fixed intervals](#checkpointing-in-fixed-intervals)
 * [Checkpointing on demand](#checkpointing-on-demand)
@@ -65,21 +69,24 @@ application that should be checkpointed. DMTCP assumes that every process runnin
 coordinator belongs to a single, distributed computation. The coordinator and `dmtcp_launch` can
 take a handful of parameters, see `man dmtcp_coordinator` or `man dmtcp_launch` for details. Some
 convenient options are:
-    * Via `-i` you can specify an interval (in seconds) in which checkpoint files are to be created
+    * Via `-i` you can specify an interval (in seconds) in which checkpoint files are created
       automatically.
     * With `-p` a port for the coordinator can be specified. This is useful when running multiple
       different coordinators for multiple computations, which should be checkpointed independently
       on the same host.
-* In front of your program call, you have to add the wrapper script `dmtcp_launch`. This will create
-a checkpoint automatically after 40 seconds and then terminate your application and with it the
-job. If the job runs into its time limit, the time to write out the checkpoint
+* You have to prefix your program call with the wrapper script `dmtcp_launch`. This will create
+a checkpoint automatically after a certain time interval and then terminate your application and
+with it the job. If the job runs into its time limit, the time to write out the checkpoint
 was probably not long enough. If all went well, you should find checkpoint files ending on
 `.dmtcp` in your checkpoint directory (working directory if not specified differently) together
-with a script called `./dmtcp_restart_script.sh`. However due to limited support of `Slurm` in
+with a script called `./dmtcp_restart_script.sh`.
+
+However due to limited support of `Slurm` in
 DMTCP the restart script does not work. For an explanation on how to restart from an checkpoint
-image please refer to chapter `Restarting from checkpoint image`. For further information on
-checkpointing MPI programs with DMTCP please refer to chapter `Multithreading and MPI under
-DMTCP`.
+image please refer to section
+[Restarting from Checkpoint Image](#restarting-from-checkpoint-image).
+For further information on checkpointing MPI programs with DMTCP please refer to subsection
+[Multithreading and MPI under DMTCP](#multithreading-and-mpi-under-dmtcp).
 
 ???+ example "How to checkpoint in fixed intervals"
 
@@ -121,16 +128,16 @@ DMTCP`.
 
 ### Checkpointing on Demand
 
-Checkpointing on demand can be done in two ways. Either the user is requesting checkpoints at any
+Checkpointing on demand can be done in two ways: Either you are requesting checkpoints at any
 given point or the program itself was modified to request checkpoints by calling the C-function
 `dmtcp_checkpoint()`.
 
 #### User Requested Checkpoints
 
-There are two main ways to request checkpoints.  The first one assumes that the `coordinator` is
+There are two main ways to request checkpoints. The first one assumes that the `coordinator` is
 started in a separate terminal by a call to `dmtcp_coordinator`. To request a checkpoint simply
-type `c` into the terminal of the coordinator.  The second possibility is by issuing `dmtcp_command
-c` in any terminal running on the same host, for that the `dmtcp_coordinator` does not need to be
+type `c` into the terminal of the coordinator. The second possibility is by issuing `dmtcp_command
+c` in a terminal running on the same host. For that the `dmtcp_coordinator` does not need to be
 explicitly started, but can also be implicitly started with a call to `dmtcp_launch`.
 
 #### Application Requested Checkpoints
@@ -138,7 +145,7 @@ explicitly started, but can also be implicitly started with a call to `dmtcp_lau
 Sometimes it might be useful to create a checkpoint at a certain point during the execution of an
 application.
 
-This is possible by calling the `dmtcp_checkpoint()` function which is provided by DMTCP.  This
+This is possible by calling the `dmtcp_checkpoint()` function which is provided by DMTCP. This
 function is made accessible over the header file `dmtcp.h` which needs to be included in the
 program's source code before calling the function. The program needs to be recompiled and the
 flag `-fPIC` needs to be passed to the compiler. Furthermore, the program still
@@ -146,14 +153,14 @@ needs to run under DMTCP, so it has to be started with `dmtcp_launch <APPLICATIO
 
 ### Restarting from Checkpoint Image
 
-Restarting works in a similar way than starting a normal execution. The requested resources should
-match those of your original job. If you do not wish to create another checkpoint in your restarted
-run, the `-i` parameter can be omitted this time and the `-p` parameter can again be used to specify
-a port if multiple computations are running on the same host.
+Restarting works in a similar way as starting a normal execution of your application: The requested
+resources should match those of your original job. If you do not wish to create another checkpoint
+in your restarted application, the `-i` parameter can be omitted this time. The option `-p`
+can again be used to specify a port if multiple computations are running on the same host.
 
 Since the restart script does not work due to limited support for `Slurm` under DMTCP, you need to
 use `dmtcp_restart <FILENAMES>`. Navigate to the checkpoint directory and call the `dmtcp_restart`
-command and give the filenames as arguments, if the checkpoint image consists of multiple files and
+command and give the filenames as argument. If the checkpoint image consists of multiple files and
 there is only a single checkpoint in the current directory it is possible to restart by running
 `dmtcp_restart ckpt_*`.
 
@@ -224,7 +231,7 @@ the RAM disk as checkpoint directory).
 
 ??? example "Asynchronous copy"
 
-    ```console
+    ```bash
     #!/bin/bash
 
     # Needs $DMTCP_CHECKPOINT_DIR and as first positional argument the directory to copy to
@@ -254,7 +261,7 @@ the RAM disk as checkpoint directory).
 
 ??? example "How to use script"
 
-    ```console
+    ```bash
     #/bin/bash
     #SBATCH --time=01:00:00
     #SBATCH --cpus-per-task=8
@@ -264,4 +271,4 @@ the RAM disk as checkpoint directory).
     source $SCRIPT_ROOT/copy_async.sh <MY/DIRECTORY>
 
     dmtcp_launch --no-gzip -i 40 <MY/APPLICATION>
-```
+    ```
