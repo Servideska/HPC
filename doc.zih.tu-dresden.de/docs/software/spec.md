@@ -51,8 +51,8 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 
     === "gnu-taurus.cfg"
         Invocation command line:
-        ```
-        runhpc --config gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 tiny
+        ```console
+        marie@haswell$ runhpc --config gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 tiny
         ```
 
         ```bash
@@ -143,7 +143,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         FC = scorep --mpp=mpi --instrument-filter=${SPEC}/scorep.filter mpif90
         %endif
 
-
         # Compiler Version Flags
         CC_VERSION_OPTION = --version
         CXX_VERSION_OPTION = --version
@@ -167,7 +166,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         SRUN_OPTS =
         submit = timeout 2h srun ${SRUN_OPTS} -n $ranks -c $threads $command
 
-
         # Score-P performance profiling
         %if %{tudprof} eq 'scorep'
 
@@ -181,13 +179,13 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         ## enable profile recording
         preENV_SCOREP_ENABLE_PROFILING=true
 
-        ## set to 'true' to enable detailed trace file recording
+        ## enable trace recording (detailed)
         preENV_SCOREP_ENABLE_TRACING=false
 
         ## collect memory consumption per node
         preENV_SCOREP_METRIC_RUSAGE=ru_maxrss
 
-        ## uncomment to record cycle counter for scheduling analysis
+        ## record cycle counter for scheduling analysis
         preENV_SCOREP_METRIC_PAPI=PAPI_TOT_CYC
 
         %endif
@@ -251,8 +249,8 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
 
     === "nvhpc_ppc.cfg"
         Invocation command line:
-        ```
-        runhpc --config nvhpc_ppc --ranks=6 --nobuild --define pmodel=acc \
+        ```console
+        marie@ml$ runhpc --config nvhpc_ppc --ranks=6 --nobuild --define pmodel=acc \
             --action run --reportable tiny
         ```
 
@@ -320,7 +318,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #interconnect_ib_hw_switch_ib_ports = 36
         #interconnect_ib_hw_switch_ib_data_rate = 100 Gb/s
         #interconnect_ib_hw_switch_ib_count = 1
-        #interconnect_ib_hw_model = Mellanox Switch IB-2
+        interconnect_ib_hw_switch_ib_model = Mellanox Switch IB-2
         hw_avail = Nov-2018
         sw_avail = Nov-2021
 
@@ -364,10 +362,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         node_compute_sw_sharedfile = 4 PB Lustre parallel filesystem
         node_compute_sw_state = Multi-user
         node_compute_sw_other = None
-
-        #[Fileserver]
-
-        #[Interconnect]
 
         #[Software]
         sw_compiler000 = C/C++/Fortran: Version 21.5 of the
@@ -473,7 +467,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         preENV_UCX_TLS=self,shm,cuda_copy
         %endif
 
-        # 1 GPU per rs, 7 cores per RS, 1 MPI task per RS, 6 RS per host
+        #  execution command
         SRUN_OPTS =
         submit = srun ${SRUN_OPTS} $command
 
@@ -524,7 +518,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # OpenMP (CPU) flags
         %if %{pmodel} eq 'omp'
         pmodel=OMP
-        #OPTIMIZE += -qsmp=omp
         OPTIMIZE += -fopenmp
         %endif
 
@@ -533,8 +526,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         pmodel=TGT
         # PGI
         OPTIMIZE += -mp -acc=multicore
-        # Intel
-        # OPTIMIZE += -qsmp=omp -qoffload
         # GCC (doesn't recognize its own flags)
         #OPTIMIZE += -fopenmp -mgomp -msoft-stack -muniform-simt
         #FOPTIMIZE += -homp
@@ -561,13 +552,12 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # raw file after the run.
         default:
         flagsurl000 = http://www.spec.org/hpc2021/flags/nv2021_flags.xml
-        interconnect_ib_hw_switch_ib_model000 = Mellanox IB EDR Switch IB-2
         ```
 
     === "nvhpc_alpha.cfg"
         Invocation command line:
-        ```
-        runhpc --config nvhpc_alpha.cfg --ranks=8 --rebuild --define pmodel=acc \
+        ```console
+        marie@alpha$ runhpc --config nvhpc_alpha.cfg --ranks=8 --rebuild --define pmodel=acc \
             --tune=base --iterations=1 --noreportable small
         ```
 
@@ -685,7 +675,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         #interconnect_ib_hw_switch_ib_count = 2
         #interconnect_ib_hw_switch_ib_ports = 2
         #interconnect_ib_hw_switch_ib_data_rate = 100 Gb/s
-        #interconnect_ib_hw_switch_ib_model = Mellanox Switch IB-2
+        interconnect_ib_hw_switch_ib_model = Mellanox Switch IB-2
 
         #[Software]
         sw_compiler000 = C/C++/Fortran: Version 21.7 of the
@@ -838,7 +828,6 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
         # raw file after the run.
         default:
         flagsurl000 = http://www.spec.org/hpc2021/flags/nv2021_flags.xml
-        interconnect_ib_hw_switch_ib_model000 = Mellanox IB EDR Switch IB-2
         ```
 
 ## Execution
@@ -849,9 +838,7 @@ You can now use the following batch scripts to submit a job, carrying out the co
 suite or parts of it as specified. The workload is also set here (tiny, small, medium or large).
 
 - Replace `<p_number_crunch>` (line 2) with your project name
-- Replace `<firstname.lastname>@tu-dresden.de` (line 15) with your valid email address to receive
-a notification on job start
-- Replace `ws=</scratch/ws/spec/installation>` (line 27) with your SPEC installation path
+- Replace `ws=</scratch/ws/spec/installation>` (line 20) with your SPEC installation path
 
 ### Submit SPEChpc 2021 with a Job File
 
@@ -866,40 +853,27 @@ a notification on job start
     #SBATCH --ntasks-per-node=24
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=2541
-    #SBATCH --output=batch-out/spec-%j.out
-    #SBATCH --error=batch-out/spec-%j.err
     #SBATCH --partition=haswell64
     #SBATCH --constraint=DA
-    #SBATCH --mail-type=BEGIN
-    #SBATCH --mail-user=<firstname.lastname>@tu-dresden.de
 
     module purge
     module load Score-P/6.0-gompi-2019a
+    # Score-P parameters are set in config/gnu-taurus.cfg
 
     ulimit -s unlimited
     ulimit -n 4096
 
     source shrc
 
-    BENCH_SMALL_LIST="505.lbm_t 510.picongpu_t 511.palm_t 513.soma_t 518.tealeaf_t 519.clvleaf_t 521.miniswp_t 528.pot3d_t 532.sph_exa_t 534.hpgmgfv_t 535.weather_t"
-
     # Use tealeaf scorep run to check the benchmark performance
     BENCH="518.tealeaf_t"
 
-    # Score-P parameters are set in config/gnu-taurus.cfg
-
-    #ACTION="--action=build --rebuild"
-    #ACTION="--rebuild"
-    #runhpc $ACTION -I -c gnu-taurus --iterations=1 --size=ref --ranks=24 --define model=mpi --define tudprof=scorep
-    runhpc $ACTION -I -c gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 --define tudprof=scorep $BENCH
+    runhpc -I -c gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 --define tudprof=scorep $BENCH
 
     # To the actual reportable runs with all benchmarks
     BENCH="tiny"
 
-    #ACTION="--action=build --rebuild"
-    #ACTION="--rebuild"
-    #ACTION="--action=report"
-    runhpc $ACTION -c gnu-taurus --reportable -T base --flagsurl=$SPEC/config/flags/gcc_flags.xml --define model=mpi --ranks=24 $BENCH
+    runhpc -c gnu-taurus --reportable -T base --flagsurl=$SPEC/config/flags/gcc_flags.xml --define model=mpi --ranks=24 $BENCH
 
     specperl bin/tools/port_progress result/*.log
     ```
@@ -908,42 +882,39 @@ a notification on job start
     ```bash linenums="1"
     #!/bin/bash
     #SBATCH --account=<p_number_crunch>   # account CPU time to Project
+    #SBATCH --partition=ml
+    #SBATCH --exclusive
     #SBATCH --ntasks=6                    # number of tasks (MPI processes)
     #SBATCH --cpus-per-task=7             # use 7 threads per task
     #SBATCH --gpus-per-task=1             # use 1 gpu thread per task
     #SBATCH --gres=gpu:6                  # generic consumable resources allocation per node: 6 GPUs
-    #SBATCH --partition=ml
-    #SBATCH --exclusive
     #SBATCH --mem-per-cpu=5772M
-    #SBATCH --time=01:00:00               # run for 1 hour
+    #SBATCH --time=00:45:00               # run for hh:mm:ss hrs
     #SBATCH --job-name=spec_oacc
     #SBATCH --export=ALL
     #SBATCH --hint=nomultithread
-    #SBATCH --mail-type=BEGIN
-    #SBATCH --mail-user=<firstname.lastname>@tu-dresden.de
 
     # ml: 44 cores + 6 GPUs per node
 
     module switch modenv/ml
-    module load NVHPC
-    module load OpenMPI/4.0.5-NVHPC-21.2-CUDA-11.2.1
+    module load NVHPC OpenMPI/4.0.5-NVHPC-21.2-CUDA-11.2.1
+
+    ws=</scratch/ws/spec/installation>
+    cd $ws
+    source shrc
 
     export OMPI_CC=nvc
     export OMPI_CXX=nvc++
     export OMPI_FC=nvfortran
 
-    ws=</scratch/ws/spec/installation>
-    cd $ws
-    . shrc
-
-    suite='tiny'
+    suite='tiny ^pot3d_t'
     cfg=nvhpc_ppc.cfg
 
     # test run
-    #runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
+    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
 
-    # reference workload
-    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --rebuild --noreportable --tune=base --iterations=1 $suite
+    # reference run
+    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --rebuild --tune=base --iterations=3 $suite
     ```
 
 === "submit_spec_alpha_openacc.sh"
@@ -961,33 +932,24 @@ a notification on job start
     #SBATCH --job-name=spec_acc
     #SBATCH --export=ALL
     #SBATCH --hint=nomultithread
-    #SBATCH --mail-type=BEGIN
-    #SBATCH --mail-user=<firstname.lastname>@tu-dresden.de
 
     # alpha: 48(96) cores(ht) + 8 GPUs per node
 
     module switch modenv/hiera
-    module load NVHPC
-    module load OpenMPI
-
-    # all LBM produce "error" initializing openFabrics device:
-    # - can be ignored
-
+    module load NVHPC OpenMPI
 
     ws=</scratch/ws/spec/installation>
     cd $ws
     source shrc
 
     suite='tiny'
-    #suite='small ^lbm_s ^soma_s ^tealeaf_s ^clvleaf_s'
     cfg=nvhpc_alpha.cfg
 
-    # test size
-    #runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 lbm_s
+    # test run
+    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
 
     # reference workload
-    # --rebuiuld
-    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --noreportable --tune=base --iterations=1 $suite
+    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --tune=base --iterations=3 $suite
     ```
 
 ## Solved Issues
