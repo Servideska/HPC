@@ -567,7 +567,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
     === "nvhpc_alpha.cfg"
         Invocation command line:
         ```
-        runhpc -c nvhpc_alpha.cfg --ranks=8 --rebuild --define pmodel=acc \
+        runhpc --config nvhpc_alpha.cfg --ranks=8 --rebuild --define pmodel=acc \
             --tune=base --iterations=1 --noreportable small
         ```
 
