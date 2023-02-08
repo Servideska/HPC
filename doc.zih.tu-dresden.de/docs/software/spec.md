@@ -52,7 +52,7 @@ To apply your configuration use `runhpc -c <configfile.cfg> [...]` for the bench
     === "gnu-taurus.cfg"
         Invocation command line:
         ```
-        runhpc -c gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 tiny
+        runhpc --config gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 tiny
         ```
 
         ```bash
