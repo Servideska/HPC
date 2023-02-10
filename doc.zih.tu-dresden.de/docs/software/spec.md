@@ -868,7 +868,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
     # Use tealeaf scorep run to check the benchmark performance
     BENCH="518.tealeaf_t"
 
-    runhpc -I -c gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 --define tudprof=scorep $BENCH
+    runhpc -I --config gnu-taurus --iterations=1 -T base --define model=mpi --ranks=24 --define tudprof=scorep $BENCH
 
     # To the actual reportable runs with all benchmarks
     BENCH="tiny"
