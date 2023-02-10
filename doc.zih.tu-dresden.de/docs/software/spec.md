@@ -1111,7 +1111,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
 
 !!! note "Explanation"
 
-    The reason for this is not known, however, it is caused by the flag `-DSPEC_ACCEL_AWARE_MPI`
+    The reason for this is not known, however, it is caused by the flag `-DSPEC_ACCEL_AWARE_MPI`.
 
 !!! note "Workaround"
 
