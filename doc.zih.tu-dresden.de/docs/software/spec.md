@@ -1115,7 +1115,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
 
 !!! note "Workaround"
 
-    Remove the flag `-DSPEC_ACCEL_AWARE_MPI` from the compiler options in your configuration file
+    Remove the flag `-DSPEC_ACCEL_AWARE_MPI` from the compiler options in your configuration file.
 
 ### Other Issues
 
