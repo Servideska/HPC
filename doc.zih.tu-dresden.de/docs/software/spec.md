@@ -970,7 +970,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
         - The MPI module in use must be compiled with the same compiler that was used to build the
         benchmark binaries. Check with `module avail` and choose a suitable module.
     - Rebuild the binaries
-        - Rebuild the binaries using the same compiler as for the compilation of the MPI module of
+        - Rebuild the binaries using the same compiler as for the compilation of the MPI module of.
         choice
     - Build your own MPI module
         - Download and build a private MPI module using the same compiler as for building the
