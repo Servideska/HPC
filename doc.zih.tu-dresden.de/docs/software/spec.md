@@ -974,7 +974,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
         choice
     - Build your own MPI module
         - Download and build a private MPI module using the same compiler as for building the
-        benchmark binaries
+        benchmark binaries.
 
 ### pmix Error
 
