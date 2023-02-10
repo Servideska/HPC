@@ -911,7 +911,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
     cfg=nvhpc_ppc.cfg
 
     # test run
-    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
+    runhpc --config $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
 
     # reference run
     runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --rebuild --tune=base --iterations=3 $suite
