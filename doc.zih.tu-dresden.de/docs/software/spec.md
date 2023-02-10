@@ -914,7 +914,7 @@ suite or parts of it as specified. The workload is also set here (tiny, small, m
     runhpc --config $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
 
     # reference run
-    runhpc -c $cfg -ranks $SLURM_NTASKS --define pmodel=acc --rebuild --tune=base --iterations=3 $suite
+    runhpc --config $cfg -ranks $SLURM_NTASKS --define pmodel=acc --rebuild --tune=base --iterations=3 $suite
     ```
 
 === "submit_spec_alpha_openacc.sh"
