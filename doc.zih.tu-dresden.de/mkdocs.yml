@@ -18,7 +18,7 @@ nav:
     - Graphical Applications with WebVNC: access/graphical_applications_with_webvnc.md
     - JupyterHub:
       - JupyterHub: access/jupyterhub.md
-      - JupyterHub Custom Environments: access/jupyterhub_custom_environments.md
+      - Custom Environments for JupyterHub: access/jupyterhub_custom_environments.md
       - JupyterHub for Teaching: access/jupyterhub_for_teaching.md
       - JupyterHub Teaching Example: access/jupyterhub_teaching_example.md
     - Key Fingerprints: access/key_fingerprints.md  

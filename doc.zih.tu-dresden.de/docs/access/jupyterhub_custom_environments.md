@@ -1,4 +1,4 @@
-# Creating and Using a Custom Environment for JupyterHub
+# Custom Environments for JupyterHub
 
 !!! info
 
