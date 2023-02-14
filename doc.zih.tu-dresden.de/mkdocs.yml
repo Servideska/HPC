@@ -12,8 +12,8 @@ nav:
     - Overview: access/overview.md
     - Connecting with SSH: 
       - Connecting via Terminal (Linux, Mac, Windows): access/ssh_login.md
-      - Connecting via MobaXterm (Windows): access/ssh_mobaxterm.md
-      - Connecting via Putty (Windows): access/ssh_putty.md
+      - Connecting with MobaXterm (Windows): access/ssh_mobaxterm.md
+      - Connecting with PuTTY (Windows): access/ssh_putty.md
     - Desktop Cloud Visualization (DCV): access/desktop_cloud_visualization.md
     - Graphical Applications with WebVNC: access/graphical_applications_with_webvnc.md
     - JupyterHub:
