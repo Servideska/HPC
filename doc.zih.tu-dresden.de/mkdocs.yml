@@ -81,7 +81,7 @@ nav:
       - Compilers and Flags: software/compilers.md
       - GPU Programming: software/gpu_programming.md
       - Mathematics Libraries: software/math_libraries.md
-      - MPI Usage Issues: jobs_and_resources/mpi_issues.md
+      - Known Issues when Using MPI: jobs_and_resources/mpi_issues.md
       - Debugging: software/debuggers.md
     - Performance Engineering Tools:
       - Overview: software/performance_engineering_overview.md
