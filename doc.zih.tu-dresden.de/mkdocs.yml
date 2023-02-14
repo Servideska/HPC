@@ -26,7 +26,7 @@ nav:
   - Data Transfer:
     - Overview: data_transfer/overview.md
     - Datamover - Data Transfer Inside ZIH Systems: data_transfer/datamover.md
-    - Export Nodes: data_transfer/export_nodes.md
+    - Export Nodes - Data Transfer to/from ZIH Systems: data_transfer/export_nodes.md
   - Data Life Cycle Management:
     - Overview: data_lifecycle/overview.md
     - Filesystems:
