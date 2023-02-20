@@ -378,3 +378,17 @@ You need a job file (aka. batch script) to run the MPI version.
 
     Please refer to the section [Slurm](../jobs_and_resources/slurm.md) for further details and
     options on the batch system as well as monitoring commands.
+
+### Graphical Interface
+
+[LS-OPT](https://www.lsoptsupport.com/) is a graphical interface for LS-DYNA [pdf manual](https://www.lsoptsupport.com/documents/manuals/ls-opt/lsopt_60_manual.pdf)
+    ```console
+    marie@login$ module load LS-Opt/6.0.0
+    marie@login$ lsoptui
+    ```
+
+Set up the Stage:
+
+Package Name: User-Defined
+
+Command: srun [srun options] ls-dyna
