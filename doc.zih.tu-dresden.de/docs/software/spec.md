@@ -49,7 +49,7 @@ If you are facing errors during the installation process, check the [solved](#so
 The behavior in terms of how to build, run and report the benchmark in a particular environment is
 controlled by a configuration file. There are a few examples included in the source code.
 Here you can apply compiler tuning and porting, specify the runtime environment and describe the
-system under test (SUT). SPEChpc2021 has beed deployed on the partitions `haswell`, `ml` and
+system under test (SUT). SPEChpc2021 has been deployed on the partitions `haswell`, `ml` and
 `alpha`, configurations are available. No matter which one you choose as a starting point,
 double-check the line that defines the submit command and make sure it says `srun [...]`, e.g.
 
