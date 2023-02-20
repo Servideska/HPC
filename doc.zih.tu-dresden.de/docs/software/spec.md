@@ -7,7 +7,7 @@ system 'Taurus' (partition `haswell`) is the benchmark's reference system denoti
 
 The tool includes nine real-world scientific applications (see
 [benchmark table](https://www.spec.org/hpc2021/docs/result-fields.html#benchmarks))
-with different workload sizes - tiny, small, medium, large - and different parallelization models
+with different workload sizes ranging from tiny, small, medium to large, and different parallelization models
 including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With the
 benchmark you can not only compare the performance of different systems, it can also be used to
 evaluate parallel strategies for applications on a target HPC system (target partition).
