@@ -263,7 +263,7 @@ medium or large, test or reference).
     already contains `srun`. When `srun` is called in both places, too many parallel processes are
     spawned.
 
-### Error with openFabrics Device
+### Error with OpenFabrics Device
 
 !!! warning "There was an error initializing an OpenFabrics device"
 
