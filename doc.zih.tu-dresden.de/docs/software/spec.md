@@ -202,7 +202,7 @@ medium or large, test or reference).
 
     If this error arises during runtime, it means that the benchmark binaries and the MPI module
     do not fit together. This happens when you have built the benchmarks written in Fortran with a
-    different compiler than which was used to build the MPI module that whas loaded during the run.
+    different compiler than which was used to build the MPI module that was loaded for the run.
 
 !!! success "Solution"
 
