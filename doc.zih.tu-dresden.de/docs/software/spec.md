@@ -8,8 +8,8 @@ system 'Taurus' (partition `haswell`) is the benchmark's reference system denoti
 The tool includes nine real-world scientific applications (see
 [benchmark table](https://www.spec.org/hpc2021/docs/result-fields.html#benchmarks))
 with different workload sizes ranging from tiny, small, medium to large, and different parallelization models
-including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With the
-benchmark you can not only compare the performance of different systems, it can also be used to
+including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With this
+benchmark suite you can compare the performance of different HPC systems. Furthermore, it can also be used to
 evaluate parallel strategies for applications on a target HPC system.
 When you e.g. want to implement an algorithm, port an application to another platform or integrate acceleration into
 your code, you can determine from which target system and parallelization model your application
@@ -90,14 +90,13 @@ medium or large, test or reference).
     ```bash linenums="1"
     #!/bin/bash
     #SBATCH --account=<p_number_crunch>
-    #SBATCH --time=16:00:00
+    #SBATCH --partition=haswell64
     #SBATCH --exclusive
     #SBATCH --nodes=1
     #SBATCH --ntasks=24
-    #SBATCH --ntasks-per-node=24
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=2541
-    #SBATCH --partition=haswell64
+    #SBATCH --time=16:00:00
     #SBATCH --constraint=DA
 
     module purge
@@ -248,9 +247,7 @@ medium or large, test or reference).
 
 !!! failure "Error: system limit exceeded on number of processes that can be started"
 
-    ORTE_ERROR_LOG: The system limit on number of children a process can have was reached. This can
-    be resolved by either asking the system administrator for that node to increase the system
-    limit, or by rearranging your processes to place fewer of them on that node.
+    ORTE_ERROR_LOG: The system limit on number of children a process can have was reached.
 
 !!! note "Explanation"
 
