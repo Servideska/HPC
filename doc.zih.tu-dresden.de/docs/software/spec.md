@@ -5,7 +5,7 @@ SPEChpc2021 is a benchmark suite developed by the Standard Performance Evaluatio
 benchmark results can be found on their [web page](https://www.spec.org/hpc2021/). In fact, our
 system 'Taurus' (partition `haswell`) is the benchmark's reference system denoting a score of 1.
 
-The tool includes 9 real-world scientific applications (see
+The tool includes nine real-world scientific applications (see
 [benchmark table](https://www.spec.org/hpc2021/docs/result-fields.html#benchmarks))
 with different workload sizes - tiny, small, medium, large - and different parallelization models
 including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With the
