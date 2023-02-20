@@ -10,7 +10,7 @@ The tool includes nine real-world scientific applications (see
 with different workload sizes ranging from tiny, small, medium to large, and different parallelization models
 including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With the
 benchmark you can not only compare the performance of different systems, it can also be used to
-evaluate parallel strategies for applications on a target HPC system (target partition).
+evaluate parallel strategies for applications on a target HPC system.
 When you e.g. want to implement an algorithm, port an application to another platform or integrate acceleration into
 your code, you can determine from which target system and parallelization model your application
 performance could benefit most, or if deployment and acceleration schemes are even possible on a
