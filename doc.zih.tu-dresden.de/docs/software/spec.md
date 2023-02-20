@@ -321,7 +321,7 @@ medium or large, test or reference).
     as no driver update will be done beforehand. As a workaround, you can do one of the following:
 
     - Exclude the `pot3d` benchmark
-    - Switch the partition (e.g. to `alpha`)
+    - Switch the partition (e.g. to partition `alpha`)
 
 ### Slurm Bug
 
