@@ -37,7 +37,7 @@ it is straight-forward and easy to use.
 
 ???+ tip "Building with NVHPC for partition `alpha`"
 
-    To build the benchmark for `alpha`, you don't need an interactive session
+    To build the benchmark for partition `alpha`, you don't need an interactive session
     on the target architecture. You can stay on the login nodes as long as you set the
     flag `-tp=zen`. You can add this compiler flag to the configuration file.
 
