@@ -133,7 +133,6 @@ medium or large, test or reference).
     #SBATCH --gres=gpu:6                  # generic consumable resources allocation per node: 6 GPUs
     #SBATCH --mem-per-cpu=5772M
     #SBATCH --time=00:45:00               # run for hh:mm:ss hrs
-    #SBATCH --job-name=spec_oacc
     #SBATCH --export=ALL
     #SBATCH --hint=nomultithread
 
