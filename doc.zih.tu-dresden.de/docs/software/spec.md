@@ -169,7 +169,6 @@ medium or large, test or reference).
     #SBATCH --gres=gpu:8                  # generic consumable resources allocation per node: 8 GPUs
     #SBATCH --mem-per-cpu=20624M          # RAM per CPU
     #SBATCH --time=00:45:00               # run for hh:mm:ss hrs
-    #SBATCH --job-name=spec_acc
     #SBATCH --export=ALL
     #SBATCH --hint=nomultithread
 
