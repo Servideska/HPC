@@ -7,14 +7,15 @@ system 'Taurus' (partition `haswell`) is the benchmark's reference system denoti
 
 The tool includes nine real-world scientific applications (see
 [benchmark table](https://www.spec.org/hpc2021/docs/result-fields.html#benchmarks))
-with different workload sizes ranging from tiny, small, medium to large, and different parallelization models
-including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With this
-benchmark suite you can compare the performance of different HPC systems. Furthermore, it can also be used to
-evaluate parallel strategies for applications on a target HPC system.
-When you e.g. want to implement an algorithm, port an application to another platform or integrate acceleration into
-your code, you can determine from which target system and parallelization model your application
-performance could benefit most, or if deployment and acceleration schemes are even possible on a
-given system.
+with different workload sizes ranging from tiny, small, medium to large, and different parallelization
+models including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With this
+benchmark suite you can compare the performance of different HPC systems and furthermore, evaluate
+parallel strategies for applications on a target HPC system. When you e.g. want to implement an
+algorithm, port an application to another platform or integrate acceleration into your code,
+you can determine from which target system and parallelization model your application
+performance could benefit most. Or this way you can check whether an acceleration scheme can be
+deployed and run on a given system, since there could be software issues restricting a capable
+hardware (see this [cuda issue](#cuda-reduction-operation-error)).
 
 Since TU Dresden is a member of the SPEC consortium, the HPC benchmarks can be requested by anyone
 interested. Please contact
@@ -203,13 +204,15 @@ medium or large, test or reference).
 
 !!! success "Solution"
 
-    - Use the correct MPI module
+    1. Use the correct MPI module
         - The MPI module in use must be compiled with the same compiler that was used to build the
-        benchmark binaries. Check with `module avail` and choose a suitable module.
-    - Rebuild the binaries
+        benchmark binaries. Check the results of `module avail` and choose a corresponding module.
+    1. Rebuild the binaries
         - Rebuild the binaries using the same compiler as for the compilation of the MPI module of
         choice.
-    - Build your own MPI module
+    1. Request a new module
+        - Ask the HPC support to install a compatible MPI module.
+    1. Build your own MPI module (as a last step)
         - Download and build a private MPI module using the same compiler as for building the
         benchmark binaries.
 
