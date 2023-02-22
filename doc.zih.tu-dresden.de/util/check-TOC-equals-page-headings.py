@@ -1,4 +1,4 @@
-""" 
+""" #!/usr/bin/env python
 Check for consistency between TOC and page headings.
 Provide as an command line argument the path to the mkdocs.yml file.
 
