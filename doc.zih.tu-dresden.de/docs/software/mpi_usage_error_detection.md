@@ -66,7 +66,7 @@ marie@login$ srun --ntasks 1 --partition <partition> mpicc -g -o fancy-program f
 # Allocate interactive session with 1 extra process for MUST
 marie@login$ salloc --ntasks 5 --partition <partition>
 
-marie@login$ mustrun --must:mpiexec srun --must:np --ntasks --ntasks 4 --must:stacktrace backward ./fancy-program
+marie@login$ mustrun --must:mpiexec srun --must:np --ntasks --must:stacktrace backward --ntasks 4 ./fancy-program
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
 [MUST] Weaver ... success
 [MUST] Code generation ... success
