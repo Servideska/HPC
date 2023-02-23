@@ -4,7 +4,7 @@ At some point, every HPC system fails, e.g., a compute node or the network might
 running jobs to crash, too. In order to prevent starting your crashed experiments and simulations
 from the very beginning, you should be familiar with the great **concept of checkpoint/restart**.
 
-!!! note "Checpoint/Restart"
+!!! note "Checkpoint/Restart"
 
     Checkpointing saves the state of a running process to a checkpointing image file. Using this
     image file, the process can later be continued (restarted) from where it left off.
@@ -33,7 +33,7 @@ it. Applications that are known to have some sort of **native checkpoint/restart
 In case your program does not natively support checkpoint/restart, there are attempts at creating
 **generic checkpoint/restart solutions** that should work application-agnostic. One such project
 which we recommend is [Distributed Multi-Threaded Check-Pointing](http://dmtcp.sourceforge.net)
-(DMTCP). DMTCP is available on ZIH systems and in the follwing we provide detailed information on
+(DMTCP). DMTCP is available on ZIH systems and in the following we provide detailed information on
 how to use it.
 
 While our batch system [Slurm](slurm.md) also provides a checkpointing interface to the user,
