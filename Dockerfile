@@ -14,7 +14,7 @@ RUN pip install mkdocs>=1.1.2 mkdocs-material>=7.1.0 mkdocs-htmlproofer-plugin==
 
 RUN apt-get update && apt-get install -y nodejs npm aspell git git-lfs
 
-RUN npm install -g markdownlint-cli markdown-link-check
+RUN npm install -g markdownlint-cli@0.32.2 markdown-link-check
 
 ###########################################
 # prepare git for automatic merging in CI #
@@ -37,6 +37,9 @@ RUN echo '#!/bin/bash' > /entrypoint.sh
 RUN echo 'test \! -e /docs/tud_theme/javascripts/mermaid.min.js && test -x /docs/util/download-newest-mermaid.js.sh && /docs/util/download-newest-mermaid.js.sh' >> /entrypoint.sh
 RUN echo 'exec "$@"' >> /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
+
+# Workaround https://gitlab.com/gitlab-org/gitlab-runner/-/issues/29022
+RUN git config --global --add safe.directory /docs
 
 WORKDIR /docs
 

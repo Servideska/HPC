@@ -31,6 +31,7 @@ Using modules is quite straightforward and the following table lists the basic c
 | `module load <modname>`       | Load module `modname` in the user environment                    |
 | `module unload <modname>`     | Remove module `modname` from the user environment                |
 | `module switch <mod1> <mod2>` | Replace module `mod1` with module `mod2`                         |
+| `module show <modname>`       | Show the commands in the module file                             |
 
 Module files are ordered by their topic on ZIH systems. By default, with `module avail` you will
 see all topics and their available module files. If you just wish to see the installed versions of a
@@ -80,6 +81,35 @@ certain module, you can use `module avail softwarename` and it will display the 
 
       1) modenv/scs5
     Module Python/3.8.6-GCCcore-10.2.0 and 11 dependencies unloaded.
+    ```
+
+???+ example "Show the command in module file"
+
+    The option `show <modname>` will output the commands in the module file. Using this command,
+    you can find out what paths are prepended and what environment variables are set.
+
+    ```console
+    marie@login$ module show GCCcore
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------
+   /sw/modules/scs5/compiler/GCCcore/11.2.0.lua:
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------
+    help([[
+    Description
+    ===========
+    The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Java, and Ada,
+    as well as libraries for these languages (libstdc++, libgcj,...).
+
+    [...]
+    conflict("GCCcore")
+    prepend_path("CMAKE_LIBRARY_PATH","/sw/installed/GCCcore/11.2.0/lib64")
+    prepend_path("CMAKE_PREFIX_PATH","/sw/installed/GCCcore/11.2.0")
+    prepend_path("LD_LIBRARY_PATH","/sw/installed/GCCcore/11.2.0/lib64")
+    prepend_path("MANPATH","/sw/installed/GCCcore/11.2.0/share/man")
+    prepend_path("PATH","/sw/installed/GCCcore/11.2.0/bin")
+    prepend_path("XDG_DATA_DIRS","/sw/installed/GCCcore/11.2.0/share")
+    setenv("EBROOTGCCCORE","/sw/installed/GCCcore/11.2.0")
+    setenv("EBVERSIONGCCCORE","11.2.0")
+    setenv("EBDEVELGCCCORE","/sw/installed/GCCcore/11.2.0/easybuild/GCCcore-11.2.0-easybuild-devel")
     ```
 
 ### Front-End ml
