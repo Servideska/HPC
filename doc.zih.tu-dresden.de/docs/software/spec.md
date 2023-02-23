@@ -163,6 +163,7 @@ medium or large, test or reference).
     #!/bin/bash
     #SBATCH --account=<p_number_crunch>   # account CPU time to Project
     #SBATCH --partition=alpha             # alpha: 48(96) cores(ht) + 8 GPUs per node
+    #SBATCH --exclusive
     #SBATCH --nodes=1                     # number of compute nodes
     #SBATCH --ntasks-per-node=8           # number of tasks (MPI processes)
     #SBATCH --cpus-per-task=6             # use 6 threads per task
