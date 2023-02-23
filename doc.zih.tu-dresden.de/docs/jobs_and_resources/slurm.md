@@ -474,7 +474,7 @@ at no extra cost.
     ??? example "Show all jobs since the beginning of year 2021"
 
         ```console
-        marie@login$ sacct --starttime 2021-01-01 [-endtime now]
+        marie@login$ sacct --starttime 2021-01-01 [--endtime now]
         ```
 
 ## Jobs at Reservations
