@@ -76,7 +76,7 @@ For more details about configuration settings check out the following links:
 ## Execution
 
 The SPEChpc2021 benchmark suite is executed with the command `runhpc`. To make it available in the
-search path, execute `source shrc` in your installation folder, first.
+search path, execute `source shrc` in your installation directory, first.
 To submit a job to the Slurm scheduler carrying out the complete benchmark
 suite or parts of it as specified, you can use the following job scripts as a template for the
 partitions `haswell`, `ml` and `alpha`, respectively. The workload is also set here (tiny, small,
