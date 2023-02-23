@@ -107,6 +107,8 @@ medium or large, test or reference).
     ulimit -s unlimited
     ulimit -n 4096
 
+    ws=</scratch/ws/spec/installation>
+    cd $ws
     source shrc
 
     # Use tealeaf scorep run to check the benchmark performance
