@@ -328,8 +328,8 @@ specifications for each component of the heterogeneous job should be separated w
 Running a job step on a specific component is supported by the option `--het-group`.
 
 ```console
-marie@login$ salloc --ntasks 1 --cpus-per-task 4 --partition <partition> --mem=200G : \
-                    --ntasks 8 --cpus-per-task 1 --gres=gpu:8 --mem=80G --partition <partition>
+marie@login$ salloc --ntasks=1 --cpus-per-task=4 --partition <partition> --mem=200G : \
+                    --ntasks=8 --cpus-per-task=1 --gres=gpu:8 --mem=80G --partition <partition>
 [...]
 marie@login$ srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 ```
@@ -340,16 +340,16 @@ components by a line containing the directive `#SBATCH hetjob`.
 ```bash
 #!/bin/bash
 
-#SBATCH --ntasks 1
-#SBATCH --cpus-per-task 4
-#SBATCH --partition <partition>
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --partition=<partition>
 #SBATCH --mem=200G
 #SBATCH hetjob # required to separate groups
-#SBATCH --ntasks 8
-#SBATCH --cpus-per-task 1
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=1
 #SBATCH --gres=gpu:8
 #SBATCH --mem=80G
-#SBATCH --partition <partition>
+#SBATCH --partition=<partition>
 
 srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 
@@ -474,7 +474,7 @@ at no extra cost.
     ??? example "Show all jobs since the beginning of year 2021"
 
         ```console
-        marie@login$ sacct -S 2021-01-01 [-E now]
+        marie@login$ sacct --starttime 2021-01-01 [--endtime now]
         ```
 
 ## Jobs at Reservations
