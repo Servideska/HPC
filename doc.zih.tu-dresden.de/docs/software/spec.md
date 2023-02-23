@@ -15,7 +15,7 @@ algorithm, port an application to another platform or integrate acceleration int
 you can determine from which target system and parallelization model your application
 performance could benefit most. Or this way you can check whether an acceleration scheme can be
 deployed and run on a given system, since there could be software issues restricting a capable
-hardware (see this [cuda issue](#cuda-reduction-operation-error)).
+hardware (see this [CUDA issue](#cuda-reduction-operation-error)).
 
 Since TU Dresden is a member of the SPEC consortium, the HPC benchmarks can be requested by anyone
 interested. Please contact
