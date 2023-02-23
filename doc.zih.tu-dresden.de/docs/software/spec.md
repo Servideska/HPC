@@ -298,8 +298,8 @@ medium or large, test or reference).
 
 !!! success "Solution"
 
-    - Expand your job from single node to multiple nodes
-    - Reduce the workload (e.g. form small to tiny)
+    - Expand your job from single node to multiple nodes.
+    - Reduce the workload (e.g. form small to tiny).
     - Make sure to use `srun` instead of `mpirun` as the submit command in your
     [configuration](#configuration) file.
 
@@ -318,11 +318,11 @@ medium or large, test or reference).
 
 !!! note "Workaround"
 
-    As for the partition `ml`, you can only wait until the OS update to centOS 8 is carried out,
+    As for the partition `ml`, you can only wait until the OS update to CentOS 8 is carried out,
     as no driver update will be done beforehand. As a workaround, you can do one of the following:
 
-    - Exclude the `pot3d` benchmark
-    - Switch the partition (e.g. to partition `alpha`)
+    - Exclude the `pot3d` benchmark.
+    - Switch the partition (e.g. to partition `alpha`).
 
 ### Slurm Bug
 
@@ -341,7 +341,7 @@ medium or large, test or reference).
 
 !!! note "Workaround"
 
-    - Use `srun` instead
+    - Use `srun` instead of `mpirun`.
     - Use `mpirun` along with a rank-binding perl script (like
     `mpirun -np <ranks> perl <bind.pl> <command>`) as seen on the bottom of the configurations
     [here](https://www.spec.org/hpc2021/results/res2021q4/hpc2021-20210908-00012.cfg) and
