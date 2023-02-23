@@ -38,6 +38,9 @@ RUN echo 'test \! -e /docs/tud_theme/javascripts/mermaid.min.js && test -x /docs
 RUN echo 'exec "$@"' >> /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
 
+# Workaround https://gitlab.com/gitlab-org/gitlab-runner/-/issues/29022
+RUN git config --global --add safe.directory /docs
+
 WORKDIR /docs
 
 CMD ["mkdocs", "build", "--verbose", "--strict"]
