@@ -73,10 +73,11 @@ Launching VampirServer...
 Submitting slurm 30 minutes job (this might take a while)...
 ```
 
-This way, a job with a timelimit of 30 minutes and default resources is submitted. This might fit your needs. If not, please feel free to request a customized job running VampirServer, e.g.
+This way, a job with a timelimit of 30 minutes and default resources is submitted. This might fit
+your needs. If not, please feel free to request a customized job running VampirServer, e.g.
 
 ```console
-marie@login$ vampirserver start --ntasks 8 -- --time=01:00:00 -- --mem-per-cpu=3000M --partition=romeo
+marie@login$ vampirserver start --ntasks=8 --time=01:00:00 --mem-per-cpu=3000M --partition=romeo
 Launching VampirServer...
 Submitting slurm 01:00:00 minutes job (this might take a while)...
 ```
