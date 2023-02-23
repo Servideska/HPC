@@ -58,7 +58,7 @@ double-check the line that defines the submit command and make sure it says `sru
 submit = srun $command
 ```
 
-Otherwise this can cause trouble (see [Slurm Bug](#slurm-bug)).
+Otherwise this can cause trouble (see [Slurm bug](#slurm-bug)).
 You can also put Slurm options in the configuration but it is recommended to do this in a job
 script (see chapter [Execution](#execution)). Use the following to apply your configuration to the
 benchmark run:
