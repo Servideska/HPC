@@ -1666,6 +1666,8 @@ in order to contribute or deploy this tool for your HPC system.
        * Set the limits for the duration field
        */
       var setLimitDuration = function() {
+        // first update the ws info panel according to selection
+        fillWsInfo();
         // get partition limits from dictionary
         let workspaceLimits = limitsWorkspace[document.getElementById('filesystem').value];
         // set new max
@@ -1686,8 +1688,6 @@ in order to contribute or deploy this tool for your HPC system.
         }
         // set tooltips for new limits
         setTooltips('duration');
-        // update ws info panel
-        fillWsInfo();
       }
 
       /**
