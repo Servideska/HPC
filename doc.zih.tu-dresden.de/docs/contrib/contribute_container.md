@@ -92,7 +92,7 @@ docker build -t hpc-compendium .
 To avoid a lot of retyping, use the following in your shell:
 
 ```bash
-alias wikiscript="docker run --name=hpc-compendium --rm -w /docs --mount src=$PWD//doc.zih.tu-dresden.de,target=/docs,type=bind hpc-compendium"
+alias wikiscript="docker run --name=hpc-compendium --rm -w /docs --mount src=$PWD/doc.zih.tu-dresden.de,target=/docs,type=bind hpc-compendium"
 alias wiki="docker run --name=hpc-compendium -p 8000:8000 --rm -w /docs --mount src=$PWD/doc.zih.tu-dresden.de,target=/docs,type=bind hpc-compendium"
 ```
 
