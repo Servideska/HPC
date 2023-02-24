@@ -1,13 +1,11 @@
-# Connecting from Windows with MobaXterm
+# Connecting with MobaXterm (Windows)
 
-MobaXterm is an enhanced terminal for Windows with an X11 server, a tabbed SSH client, network
-tools and more.
-
-Visit its homepage for more information (https://mobaxterm.mobatek.net).
+[MobaXterm](https://mobaxterm.mobatek.net) is an enhanced terminal for Windows with an X11 server,
+a tabbed SSH client, network tools and more.
 
 ## Download and install
 
-To download go to [MobaXterm homepage](https://mobaxterm.mobatek.net/download-home-edition.html)
+To download go to [MobaXterm download page](https://mobaxterm.mobatek.net/download-home-edition.html)
 and download a free home edition.
 
 ![Downloading MobaXterm](misc/mobaxterm1_download.png)

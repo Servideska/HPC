@@ -1,4 +1,4 @@
-# Singularity for Power 9 Architecture
+# Singularity for Power9 Architecture
 
 !!! note "Root privileges"
 

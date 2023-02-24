@@ -1,4 +1,4 @@
-# How to Ask for Support
+# User Support
 
 ## Create a Ticket
 
