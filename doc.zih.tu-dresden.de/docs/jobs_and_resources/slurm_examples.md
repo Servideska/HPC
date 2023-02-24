@@ -186,7 +186,7 @@ When `srun` is used within a submission script, it inherits parameters from `sba
 `--ntasks=1`, `--cpus-per-task=4`, etc. So we actually implicitly run the following
 
 ```bash
-srun --ntasks=1 --cpus-per-task=4 ... --partition=ml some-gpu-application
+srun --ntasks=1 --cpus-per-task=4 [...] --partition=ml <some-gpu-application>
 ```
 
 Now, our goal is to run four instances of this program concurrently in a single batch script. Of
@@ -237,7 +237,7 @@ inherited from the surrounding `sbatch` context. The following line would be suf
 job in this example:
 
 ```bash
-srun --exclusive --gres=gpu:1 --ntasks=1 some-gpu-application &
+srun --exclusive --gres=gpu:1 --ntasks=1 <some-gpu-application> &
 ```
 
 Yet, it adds some extra safety to leave them in, enabling the Slurm batch system to complain if not
@@ -278,7 +278,8 @@ use up all resources in the nodes:
     #SBATCH --exclusive    # ensure that nobody spoils my measurement on 2 x 2 x 8 cores
     #SBATCH --time=00:10:00
     #SBATCH --job-name=Benchmark
-    #SBATCH --mail-user=your.name@tu-dresden.de
+    #SBATCH --mail-type=end
+    #SBATCH --mail-user=<your.email>@tu-dresden.de
 
     srun ./my_benchmark
     ```
@@ -313,14 +314,14 @@ name specific to the job:
 
     ```Bash
     #!/bin/bash
-    #SBATCH --array 0-9
+    #SBATCH --array=0-9
     #SBATCH --output=arraytest-%A_%a.out
     #SBATCH --error=arraytest-%A_%a.err
     #SBATCH --ntasks=864
     #SBATCH --time=08:00:00
     #SBATCH --job-name=Science1
     #SBATCH --mail-type=end
-    #SBATCH --mail-user=your.name@tu-dresden.de
+    #SBATCH --mail-user=<your.email>@tu-dresden.de
 
     echo "Hi, I am step $SLURM_ARRAY_TASK_ID in this array job $SLURM_ARRAY_JOB_ID"
     ```
