@@ -367,9 +367,9 @@ In the following we provide two examples for scripts that submit chain jobs.
         fi
         job_cmd="${job_cmd} ${job_file}"
         echo -n "Running command: ${job_cmd}  "
-        out=`${job_cmd}`
+        out="$(${job_cmd})"
         echo "Result: ${out}"
-        dependency=`echo ${out} | awk '{print $4}'`
+        dependency=$(echo "${out}" | awk '{print $4}')
     done
     ```
 
