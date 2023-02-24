@@ -200,6 +200,13 @@ detail in [nvcc documentation](https://docs.nvidia.com/cuda/cuda-compiler-driver
 This compiler is available via several `CUDA` packages, a default version can be loaded via
 `module load CUDA`. Additionally, the `NVHPC` modules provide CUDA tools as well.
 
+For using CUDA with OpenMPI at multiple nodes, the OpenMPI module loaded shall have be compiled with CUDA 
+support. If you aren't sure if the module you are using has support for it you can check it as following:
+
+```console
+ompi_info --parsable --all | grep mpi_built_with_cuda_support:value | awk -F":" '{print "OpenMPI supports CUDA:",$7}'
+```
+
 #### Usage of the CUDA compiler
 
 The simple invocation `nvcc <code.cu>` will compile a valid CUDA program. `nvcc` differentiates
