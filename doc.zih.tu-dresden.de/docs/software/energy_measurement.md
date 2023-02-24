@@ -1,4 +1,4 @@
-# Energy Measurement Infrastructure
+# Measure Energy Consumption
 
 The Intel Haswell nodes of ZIH system are equipped with power instrumentation that allow the
 recording and accounting of power dissipation and energy consumption data. The data is made
@@ -58,7 +58,7 @@ the node under test to start, stop, and query the measurement device.
 
 !!! note
 
-    Please always execute `clearHdeem` before `startHdeem`. 
+    Please always execute `clearHdeem` before `startHdeem`.
 
 ## Integration in Application Performance Traces
 

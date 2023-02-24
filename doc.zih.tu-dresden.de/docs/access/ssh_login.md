@@ -1,4 +1,4 @@
-# Connecting via terminal
+# Connecting via Terminal (Linux, Mac, Windows)
 
 Connecting via terminal works on every operating system. For Linux and Mac operating systems
 no additional software is required. For users of a Windows OS a recent version of Windows is

@@ -1,4 +1,4 @@
-# Terms Of Use / Nutzungsbedingungen
+# Terms of Use
 
 !!! attention
 

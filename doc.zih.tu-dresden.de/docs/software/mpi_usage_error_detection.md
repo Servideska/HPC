@@ -1,4 +1,4 @@
-# MPI Error Detection
+# Check MPI Correctness with MUST
 
 MPI as the de-facto standard for parallel applications of the message passing paradigm offers
 more than one hundred different API calls with complex restrictions. As a result, developing

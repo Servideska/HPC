@@ -1,4 +1,4 @@
-# Connecting from Windows with PuTTY
+# Connecting with PuTTY (Windows)
 
 PuTTY is a free and open-source terminal emulator, serial console and network file transfer
 application, supports several network protocols, including SCP, SSH. Visit the
