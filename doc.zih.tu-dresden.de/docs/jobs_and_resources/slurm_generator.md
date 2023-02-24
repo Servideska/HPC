@@ -975,7 +975,7 @@ in order to contribute or deploy this tool for your HPC system.
         if (document.getElementById('exclusive').checked === true) {
           outputText.innerText += '\n#SBATCH --exclusive';
         }
-        if (document.getElementById('nomultithread').checked === true) {
+        if (hasValue('nomultithread') && !isHidden('nomultithread-info')) {
           outputText.innerText += '\n#SBATCH --hint=nomultithread';
         }
         if (hasValue('nomonitoring') && !isHidden('nomonitoring-info')) {
@@ -1028,9 +1028,11 @@ in order to contribute or deploy this tool for your HPC system.
           + document.getElementById('ws-name').value.trim() + '_${SLURM_JOB_ID}';
           outputText.innerText += '\nexport WSDIR=$(ws_allocate -F '
           + document.getElementById('filesystem').value
-          + ' -n ${WSNAME} -d '
-          + document.getElementById('duration').value
-          + ')';
+          + ' -n ${WSNAME}';
+          if (hasValue('duration')){
+            outputText.innerText += ' -d ' + document.getElementById('duration').value
+          }          
+          outputText.innerText += ')';
 
           outputText.innerText += '\n# Check allocation and change directory';
           outputText.innerText += '\nif [ -z "${WSDIR}" ] ; then';
