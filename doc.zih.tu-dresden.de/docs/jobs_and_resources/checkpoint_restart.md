@@ -61,7 +61,7 @@ checkpoint your job manually. The instructions cover three different use cases:
 
 This is the easiest way to use DMTCP.
 
-* Load the DMTCP module: `module load dmtcp`
+* Load the DMTCP module: `module load DMTCP`
 * DMTCP usually runs an additional coordinator process that manages the creation of checkpoints and
 such. It starts automatically when calling the `dmtcp_launch` wrapper script or
 can be started explicitly with `dmtcp_coordinator`. One coordinator process is needed for each
@@ -102,10 +102,10 @@ For further information on checkpointing MPI programs with DMTCP please refer to
         #SBATCH --account=<account>
 
         module purge
-        module load <modules>
+        module load <modules> DMTCP
 
         export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-        dmtcp_launch -i 600 ./path/to/openmp_application
+        dmtcp_launch --interval 600 ./path/to/openmp_application
         ```
 
     === "MPI parallel application"
@@ -118,9 +118,9 @@ For further information on checkpointing MPI programs with DMTCP please refer to
         #SBATCH --account=<account>
 
         module purge
-        module load <modules>
+        module load <modules> DMTCP
 
-        dmtcp_launch -i 600 --ib --rm mpiexec ./path/to/mpi_application
+        dmtcp_launch --interval 600 --infiniband --batch-queue mpiexec ./path/to/mpi_application
         ```
 
     TODO: Describe the example
@@ -172,7 +172,7 @@ there is only a single checkpoint in the current directory it is possible to res
     #SBATCH --cpus-per-task=8
     #SBATCH --mem-per-cpu=1500
 
-    dmtcp_restart -i 40 ckpt_*
+    dmtcp_restart --interval 40 ckpt_*
     ```
 
 ## Migration of Applications
@@ -270,5 +270,5 @@ the RAM disk as checkpoint directory).
     export DMTCP_CHECKPOINT_DIR=/dev/shm
     source $SCRIPT_ROOT/copy_async.sh <MY/DIRECTORY>
 
-    dmtcp_launch --no-gzip -i 40 <MY/APPLICATION>
+    dmtcp_launch --no-gzip --interval 40 <MY/APPLICATION>
     ```
