@@ -1,4 +1,4 @@
-# PAPI Library
+# Read CPU Performance Counters with PAPI
 
 ## Introduction
 

@@ -1,4 +1,4 @@
-# Acknowledgment
+# Acknowledgement
 
 To provide you with modern and powerful HPC systems in future as well, we have to show that these
 systems help to advance research. For that purpose we rely on your help. In most cases, the results
