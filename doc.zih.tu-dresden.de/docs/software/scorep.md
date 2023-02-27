@@ -1,4 +1,4 @@
-# Score-P
+# Record Course of Events with Score-P
 
 The Score-P measurement infrastructure is a highly scalable and easy-to-use tool suite for
 profiling, event tracing, and online analysis of HPC applications. Currently, it works with the

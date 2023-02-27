@@ -1,4 +1,4 @@
-# Known MPI-Usage Issues
+# Known Issues when Using MPI
 
 This pages holds known issues observed with MPI and concrete MPI implementations.
 
