@@ -394,16 +394,16 @@ In the following we provide two examples for scripts that submit chain jobs.
     dependency=""
     arraylength=${#job_names[@]}
 
-    for (( i=0; i<${arraylength}; i++ )) ; do
-      job_nr=`expr $i + 1`
+    for (( i=0; i<arraylength; i++ )) ; do
+      job_nr=$((i + 1))
       echo "Job ${job_nr}/${arraylength}: ${job_names[$i]}"
-        if [ -n "${dependency}" ] ; then
+      if [ -n "${dependency}" ] ; then
           echo "Dependency: after job ${dependency}"
           dependency="--dependency=afterany:${dependency}"
-        fi
+      fi
       job="sbatch ${dependency} ${job_names[$i]}"
-      out=`${job}`
-      dependency=`echo ${out} | awk '{print $4}'`
+      out=$(${job})
+      dependency=$(echo "${out}" | awk '{print $4}')
     done
     ```
 
