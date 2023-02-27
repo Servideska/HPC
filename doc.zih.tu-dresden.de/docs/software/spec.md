@@ -50,7 +50,7 @@ If you are facing errors during the installation process, check the [solved](#so
 The behavior in terms of how to build, run and report the benchmark in a particular environment is
 controlled by a configuration file. There are a few examples included in the source code.
 Here you can apply compiler tuning and porting, specify the runtime environment and describe the
-system under test (SUT). SPEChpc2021 has been deployed on the partitions `haswell`, `ml` and
+system under test. SPEChpc2021 has been deployed on the partitions `haswell`, `ml` and
 `alpha`, configurations are available. No matter which one you choose as a starting point,
 double-check the line that defines the submit command and make sure it says `srun [...]`, e.g.
 
@@ -75,19 +75,20 @@ For more details about configuration settings check out the following links:
 
 ## Execution
 
-The SPEChpc2021 benchmark suite is executed with the command `runhpc`. To make it available in the
-search path, execute `source shrc` in your installation directory, first.
-To submit a job to the Slurm scheduler carrying out the complete benchmark
+The SPEChpc2021 benchmark suite is executed with the `runhpc` command, which also sets it's
+configuration and controls it's runtime behavior. For all options, see SPEC's documentation about
+[`runhpc` options](https://www.spec.org/hpc2021/Docs/runhpc.html).
+To make it available in the search path, execute `source shrc` in your SPEC installation directory,
+first. To submit a job to the Slurm scheduler carrying out the complete benchmark
 suite or parts of it as specified, you can use the following job scripts as a template for the
-partitions `haswell`, `ml` and `alpha`, respectively. The workload is also set here (tiny, small,
-medium or large, test or reference).
+partitions `haswell`, `ml` and `alpha`, respectively. 
 
 - Replace `<p_number_crunch>` (line 2) with your project name
-- Replace `ws=</scratch/ws/spec/installation>` (line 20) with your SPEC installation path
+- Replace `ws=</scratch/ws/spec/installation>` (line 16/18) with your SPEC installation path
 
-### Submit SPEChpc 2021 with a Job File
+### Submit SPEChpc Benchmarks with a Job File
 
-=== "run-taurus-mpi-tiny-p24.sh"
+=== "submit_spec_haswell_mpi.sh"
     ```bash linenums="1"
     #!/bin/bash
     #SBATCH --account=<p_number_crunch>
@@ -104,9 +105,6 @@ medium or large, test or reference).
     module load Score-P/6.0-gompi-2019a
     # Score-P parameters are set in config/gnu-taurus.cfg
 
-    ulimit -s unlimited
-    ulimit -n 4096
-
     ws=</scratch/ws/spec/installation>
     cd $ws
     source shrc
@@ -114,12 +112,12 @@ medium or large, test or reference).
     # Use tealeaf scorep run to check the benchmark performance
     BENCH="518.tealeaf_t"
 
-    runhpc -I --config gnu-taurus --iterations=1 --tune=base --define model=mpi --ranks=24 --define tudprof=scorep $BENCH
+    runhpc -I --config gnu-taurus --define model=mpi --ranks=24 --iterations=1 --tune=base --define tudprof=scorep $BENCH
 
     # To the actual reportable runs with all benchmarks
     BENCH="tiny"
 
-    runhpc --config gnu-taurus --reportable --tune=base --flagsurl=$SPEC/config/flags/gcc_flags.xml --define model=mpi --ranks=24 $BENCH
+    runhpc --config gnu-taurus --define model=mpi --ranks=24 --reportable --tune=base --flagsurl=$SPEC/config/flags/gcc_flags.xml $BENCH
 
     specperl bin/tools/port_progress result/*.log
     ```
@@ -130,6 +128,7 @@ medium or large, test or reference).
     #SBATCH --account=<p_number_crunch>   # account CPU time to Project
     #SBATCH --partition=ml                # ml: 44(176) cores(ht) + 6 GPUs per node
     #SBATCH --exclusive
+    #SBATCH --nodes=1
     #SBATCH --ntasks=6                    # number of tasks (MPI processes)
     #SBATCH --cpus-per-task=7             # use 7 threads per task
     #SBATCH --gpus-per-task=1             # use 1 gpu thread per task
@@ -154,10 +153,10 @@ medium or large, test or reference).
     cfg=nvhpc_ppc.cfg
 
     # test run
-    runhpc --config $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
+    runhpc -I --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
 
     # reference run
-    runhpc --config $cfg -ranks $SLURM_NTASKS --define pmodel=acc --rebuild --tune=base --iterations=3 $suite
+    runhpc --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --rebuild --tune=base --iterations=3 $suite
     ```
 
 === "submit_spec_alpha_openacc.sh"
@@ -187,10 +186,10 @@ medium or large, test or reference).
     cfg=nvhpc_alpha.cfg
 
     # test run
-    runhpc --config $cfg -ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
+    runhpc -I --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
 
     # reference workload
-    runhpc --config $cfg -ranks $SLURM_NTASKS --define pmodel=acc --tune=base --iterations=3 $suite
+    runhpc --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --tune=base --iterations=3 $suite
     ```
 
 ## Solved Issues
