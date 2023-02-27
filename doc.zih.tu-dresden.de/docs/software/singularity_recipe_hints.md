@@ -58,6 +58,71 @@ EOF
     ./hello
 ```
 
+### Distributed memory
+
+#### MPICH
+
+Ubuntu+MPICH definition file:
+
+```bash
+Bootstrap: docker
+From: ubuntu:20.04
+
+%files
+    mpitest.c /opt
+
+%environment
+    export MPICH_DIR=/opt/mpich
+    export SINGULARITY_MPICH_DIR=$MPICH_DIR
+    export SINGULARITYENV_APPEND_PATH=$MPICH_DIR/bin
+    export SINGULAIRTYENV_APPEND_LD_LIBRARY_PATH=$MPICH_DIR/lib
+
+%post
+    echo "Installing required packages..."
+    apt-get update && apt-get install -y wget git bash gcc gfortran g++ make file
+
+    # required for F90 bindings
+    apt-get install -y python3
+
+    echo "Installing MPICH"
+    export MPICH_DIR=/opt/mpich
+    export MPICH_VERSION=4.1
+    export MPICH_URL="https://www.mpich.org/static/downloads/$MPICH_VERSION/mpich-$MPICH_VERSION.tar.gz"
+    mkdir -p /tmp/mpich
+    mkdir -p /opt
+    # Download
+    cd /tmp/mpich && wget -O mpich-$MPICH_VERSION.tar.gz $MPICH_URL && tar -xf mpich-$MPICH_VERSION.tar.gz
+    
+    # Configure and compile/install
+    cd /tmp/mpich/mpich-$MPICH_VERSION
+    ./configure --prefix=$MPICH_DIR && make install
+    cd ..    
+    
+    
+    # Set env variables so we can compile our application
+    export PATH=$MPICH_DIR/bin:$PATH
+    export LD_LIBRARY_PATH=$MPICH_DIR/lib:$LD_LIBRARY_PATH
+    export MANPATH=$MPICH_DIR/share/man:$MANPATH
+    
+    
+    echo "Compiling the MPI application..."
+    cd /opt && mpicc -o mpitest mpitest.c
+```
+
+At your local machine:
+
+```console
+whoami@localhost# sudo singularity build ubuntu_mpich.sif ubuntu_mpich.def
+```
+
+This will create the `ubuntu_mpich.sif` file that you have to copy to HPC system.
+
+At the HPC system run as following:
+
+```console
+marie@login$ srun -n 4 --ntasks-per-node 2 --time=00:10:00 singularity exec ubuntu_mpich.sif /opt/mpitest
+```
+
 ### CUDA + CuDNN + OpenMPI
 
 * Chosen CUDA version depends on installed driver of host
