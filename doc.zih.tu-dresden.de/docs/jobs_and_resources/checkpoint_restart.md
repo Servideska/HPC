@@ -69,7 +69,7 @@ application that should be checkpointed. DMTCP assumes that every process runnin
 coordinator belongs to a single, distributed computation. The coordinator and `dmtcp_launch` can
 take a handful of parameters, see `man dmtcp_coordinator` or `man dmtcp_launch` for details. Some
 convenient options are:
-    * Via `-i` you can specify an interval (in seconds) in which checkpoint files are created
+    * Via `-i`, `--interval` you can specify an interval (in seconds) in which checkpoint files are created
       automatically.
     * With `-p` a port for the coordinator can be specified. This is useful when running multiple
       different coordinators for multiple computations, which should be checkpointed independently
@@ -102,7 +102,8 @@ For further information on checkpointing MPI programs with DMTCP please refer to
         #SBATCH --account=<account>
 
         module purge
-        module load <modules> DMTCP
+        module load <modules> 
+        module load DMTCP
 
         export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
         dmtcp_launch --interval 600 ./path/to/openmp_application
@@ -118,7 +119,8 @@ For further information on checkpointing MPI programs with DMTCP please refer to
         #SBATCH --account=<account>
 
         module purge
-        module load <modules> DMTCP
+        module load <modules> 
+        module load DMTCP
 
         dmtcp_launch --interval 600 --infiniband --batch-queue mpiexec ./path/to/mpi_application
         ```
@@ -167,10 +169,13 @@ there is only a single checkpoint in the current directory it is possible to res
 ??? example "How to restart from checkpoint"
 
     ```console
-    #/bin/bash
+    #!/bin/bash
     #SBATCH --time=00:01:00
     #SBATCH --cpus-per-task=8
     #SBATCH --mem-per-cpu=1500
+
+    module load <modules>
+    module load DMTCP
 
     dmtcp_restart --interval 40 ckpt_*
     ```
@@ -185,7 +190,7 @@ However, it is possible to encounter an `illegal instruction` error, especially 
 newer architectures to older ones or between different manufacturers. This comes from an
 incompatible instruction set and cannot be avoided.
 
-## Multithreading and MPI under DMTCP
+## DMTCP for Parallel Applications
 
 DMTCP does support checkpointing of MPI applications, however since DMTCP has no official support
 for UCX, checkpointing MPI computations over several nodes is not possible. MPI parallel
