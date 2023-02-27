@@ -28,8 +28,8 @@ For example, if you want to run a model including acceleration, you would have t
 with GPUs.
 
 Once the target partition is determined, follow SPEC's
-[Installation Guide](https://www.spec.org/hpg/hpc2021/Docs/install-guide-linux.html),
-it is straight-forward and easy to use.
+[Installation Guide](https://www.spec.org/hpg/hpc2021/Docs/install-guide-linux.html).
+It is straight-forward and easy to use.
 
 ???+ tip "Building for partition `ml`"
 
