@@ -123,8 +123,8 @@ For further information on checkpointing MPI programs with DMTCP please refer to
         dmtcp_launch --interval 600 --infiniband --batch-queue mpiexec ./path/to/mpi_application
         ```
 
-    TODO: Describe the example
-    TODO: do we use mpirun here?
+<!-- TODO: Describe the example -->
+<!-- TODO: do we use mpirun here? -->
 
 ### Checkpointing on Demand
 
