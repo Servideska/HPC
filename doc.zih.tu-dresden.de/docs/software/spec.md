@@ -8,15 +8,15 @@ the baseline score.
 
 The tool includes nine real-world scientific applications (see
 [benchmark table](https://www.spec.org/hpc2021/docs/result-fields.html#benchmarks))
-with different workload sizes ranging from tiny, small, medium to large, and different parallelization
-models including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target offloading. With this
-benchmark suite you can compare the performance of different HPC systems and furthermore, evaluate
-parallel strategies for applications on a target HPC system. When you e.g. want to implement an
-algorithm, port an application to another platform or integrate acceleration into your code,
-you can determine from which target system and parallelization model your application
-performance could benefit most. Or this way you can check whether an acceleration scheme can be
-deployed and run on a given system, since there could be software issues restricting a capable
-hardware (see this [CUDA issue](#cuda-reduction-operation-error)).
+with different workload sizes ranging from tiny, small, medium to large, and different
+parallelization models including MPI only, MPI+OpenACC, MPI+OpenMP and MPI+OpenMP with target
+offloading. With this benchmark suite you can compare the performance of different HPC systems and
+furthermore, evaluate parallel strategies for applications on a target HPC system. When you e.g.
+want to implement an algorithm, port an application to another platform or integrate acceleration
+into your code, you can determine from which target system and parallelization model your
+application performance could benefit most. Or this way you can check whether an acceleration scheme
+can be deployed and run on a given system, since there could be software issues restricting a
+capable hardware (see this [CUDA issue](#cuda-reduction-operation-error)).
 
 Since TU Dresden is a member of the SPEC consortium, the HPC benchmarks can be requested by anyone
 interested. Please contact
