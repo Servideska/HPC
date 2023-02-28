@@ -53,7 +53,13 @@ The behavior in terms of how to build, run and report the benchmark in a particu
 controlled by a configuration file. There are a few examples included in the source code.
 Here you can apply compiler tuning and porting, specify the runtime environment and describe the
 system under test. SPEChpc2021 has been deployed on the partitions `haswell`, `ml` and
-`alpha`, configurations are available. No matter which one you choose as a starting point,
+`alpha`. Configurations are available, respectively:
+
+- [gnu-taurus.cfg](misc/spec_gnu-taurus.cfg)
+- [nvhpc-ppc.cfg](misc/spec_nvhpc-ppc.cfg)
+- [nvhpc-alpha.cfg](misc/spec_nvhpc-alpha.cfg)
+
+No matter which one you choose as a starting point,
 double-check the line that defines the submit command and make sure it says `srun [...]`, e.g.
 
 ``` bash
