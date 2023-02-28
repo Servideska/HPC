@@ -94,7 +94,7 @@ nav:
       - Profile Jobs with Slurm: jobs_and_resources/slurm_profiling.md
       - Study Course of Events with Vampir: software/vampir.md
       - Measure Energy Consumption: software/energy_measurement.md
-      - Compare System Performance with SPEC: software/spec.md
+      - Compare System Performance with SPEChpc: software/spec.md
     - Utilities: software/utilities.md
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md

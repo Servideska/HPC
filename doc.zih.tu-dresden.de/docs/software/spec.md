@@ -1,6 +1,6 @@
-# SPEChpc2021
+# Compare System Performance with SPEChpc
 
-SPEChpc2021 is a benchmark suite developed by the Standard Performance Evaluation Corporation
+SPEChpc 2021 is a benchmark suite developed by the Standard Performance Evaluation Corporation
 (SPEC) for the evaluation of various, heterogeneous HPC systems. Documentation and released
 benchmark results can be found on their [web page](https://www.spec.org/hpc2021/). In fact, our
 system *Taurus* (partition `haswell`) is the benchmark's reference system and thus represents
@@ -52,7 +52,7 @@ listed there.
 The behavior in terms of how to build, run and report the benchmark in a particular environment is
 controlled by a configuration file. There are a few examples included in the source code.
 Here you can apply compiler tuning and porting, specify the runtime environment and describe the
-system under test. SPEChpc2021 has been deployed on the partitions `haswell`, `ml` and
+system under test. SPEChpc 2021 has been deployed on the partitions `haswell`, `ml` and
 `alpha`. Configurations are available, respectively:
 
 - [gnu-taurus.cfg](misc/spec_gnu-taurus.cfg)
@@ -83,7 +83,7 @@ For more details about configuration settings check out the following links:
 
 ## Execution
 
-The SPEChpc2021 benchmark suite is executed with the `runhpc` command, which also sets it's
+The SPEChpc 2021 benchmark suite is executed with the `runhpc` command, which also sets it's
 configuration and controls it's runtime behavior. For all options, see SPEC's documentation about
 [`runhpc` options](https://www.spec.org/hpc2021/Docs/runhpc.html).
 First, execute `source shrc` in your SPEC installation directory. Then use a job script to submit a
