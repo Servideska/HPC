@@ -116,18 +116,18 @@ execution to a different partition.
     # Score-P parameters are set in config/gnu-taurus.cfg
 
     ws=</scratch/ws/spec/installation>
-    cd $ws
+    cd ${ws}
     source shrc
 
     # Use tealeaf scorep run to check the benchmark performance
     BENCH="518.tealeaf_t"
 
-    runhpc -I --config gnu-taurus --define model=mpi --ranks=24 --iterations=1 --tune=base --define tudprof=scorep $BENCH
+    runhpc -I --config gnu-taurus --define model=mpi --ranks=24 --iterations=1 --tune=base --define tudprof=scorep ${BENCH}
 
     # To the actual reportable runs with all benchmarks
     BENCH="tiny"
 
-    runhpc --config gnu-taurus --define model=mpi --ranks=24 --reportable --tune=base --flagsurl=$SPEC/config/flags/gcc_flags.xml $BENCH
+    runhpc --config gnu-taurus --define model=mpi --ranks=24 --reportable --tune=base --flagsurl=$SPEC/config/flags/gcc_flags.xml ${BENCH}
 
     specperl bin/tools/port_progress result/*.log
     ```
@@ -142,7 +142,8 @@ execution to a different partition.
     #SBATCH --ntasks=6                    # number of tasks (MPI processes)
     #SBATCH --cpus-per-task=7             # use 7 threads per task
     #SBATCH --gpus-per-task=1             # use 1 gpu thread per task
-    #SBATCH --gres=gpu:6                  # generic consumable resources allocation per node: 6 GPUs
+    #SBATCH --gres=gpu:6
+    # generic consumable resources allocation per node: 6 GPUs
     #SBATCH --mem-per-cpu=5772M
     #SBATCH --time=00:45:00               # run for hh:mm:ss hrs
     #SBATCH --export=ALL
@@ -152,7 +153,7 @@ execution to a different partition.
     module load modenv/ml NVHPC OpenMPI/4.0.5-NVHPC-21.2-CUDA-11.2.1
 
     ws=</scratch/ws/spec/installation>
-    cd $ws
+    cd ${ws}
     source shrc
 
     export OMPI_CC=nvc
@@ -163,10 +164,10 @@ execution to a different partition.
     cfg=nvhpc_ppc.cfg
 
     # test run
-    runhpc -I --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
+    runhpc -I --config ${cfg} --ranks ${SLURM_NTASKS} --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 ${suite}
 
     # reference run
-    runhpc --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --rebuild --tune=base --iterations=3 $suite
+    runhpc --config ${cfg} --ranks ${SLURM_NTASKS} --define pmodel=acc --rebuild --tune=base --iterations=3 ${suite}
     ```
 
 === "submit_spec_alpha_openacc.sh"
@@ -189,17 +190,17 @@ execution to a different partition.
     module load modenv/hiera NVHPC OpenMPI
 
     ws=</scratch/ws/spec/installation>
-    cd $ws
+    cd ${ws}
     source shrc
 
     suite='tiny'
     cfg=nvhpc_alpha.cfg
 
     # test run
-    runhpc -I --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 $suite
+    runhpc -I --config ${cfg} --ranks ${SLURM_NTASKS} --define pmodel=acc --size=test --noreportable --tune=base --iterations=1 ${suite}
 
     # reference workload
-    runhpc --config $cfg --ranks $SLURM_NTASKS --define pmodel=acc --tune=base --iterations=3 $suite
+    runhpc --config ${cfg} --ranks ${SLURM_NTASKS} --define pmodel=acc --tune=base --iterations=3 ${suite}
     ```
 
 ## Solved Issues
