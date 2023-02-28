@@ -107,7 +107,7 @@ execution to a different partition.
     #SBATCH --nodes=1
     #SBATCH --ntasks=24
     #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=2541
+    #SBATCH --mem-per-cpu=2541M
     #SBATCH --time=16:00:00
     #SBATCH --constraint=DA
 
@@ -135,17 +135,16 @@ execution to a different partition.
 === "submit_spec_ml_openacc.sh"
     ```bash linenums="1"
     #!/bin/bash
-    #SBATCH --account=<p_number_crunch>   # account CPU time to Project
-    #SBATCH --partition=ml                # ml: 44(176) cores(ht) + 6 GPUs per node
+    #SBATCH --account=<p_number_crunch>
+    #SBATCH --partition=ml
     #SBATCH --exclusive
     #SBATCH --nodes=1
-    #SBATCH --ntasks=6                    # number of tasks (MPI processes)
-    #SBATCH --cpus-per-task=7             # use 7 threads per task
-    #SBATCH --gpus-per-task=1             # use 1 gpu thread per task
+    #SBATCH --ntasks=6
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-task=1
     #SBATCH --gres=gpu:6
-    # generic consumable resources allocation per node: 6 GPUs
     #SBATCH --mem-per-cpu=5772M
-    #SBATCH --time=00:45:00               # run for hh:mm:ss hrs
+    #SBATCH --time=00:45:00
     #SBATCH --export=ALL
     #SBATCH --hint=nomultithread
 
@@ -173,16 +172,16 @@ execution to a different partition.
 === "submit_spec_alpha_openacc.sh"
     ```bash linenums="1"
     #!/bin/bash
-    #SBATCH --account=<p_number_crunch>   # account CPU time to Project
-    #SBATCH --partition=alpha             # alpha: 48(96) cores(ht) + 8 GPUs per node
+    #SBATCH --account=<p_number_crunch>
+    #SBATCH --partition=alpha
     #SBATCH --exclusive
-    #SBATCH --nodes=1                     # number of compute nodes
-    #SBATCH --ntasks-per-node=8           # number of tasks (MPI processes)
-    #SBATCH --cpus-per-task=6             # use 6 threads per task
-    #SBATCH --gpus-per-task=1             # use 1 gpu thread per task
-    #SBATCH --gres=gpu:8                  # generic consumable resources allocation per node: 8 GPUs
-    #SBATCH --mem-per-cpu=20624M          # RAM per CPU
-    #SBATCH --time=00:45:00               # run for hh:mm:ss hrs
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=6
+    #SBATCH --gpus-per-task=1
+    #SBATCH --gres=gpu:8
+    #SBATCH --mem-per-cpu=20624M
+    #SBATCH --time=00:45:00
     #SBATCH --export=ALL
     #SBATCH --hint=nomultithread
 
