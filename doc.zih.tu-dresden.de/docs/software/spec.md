@@ -3,7 +3,8 @@
 SPEChpc2021 is a benchmark suite developed by the Standard Performance Evaluation Corporation
 (SPEC) for the evaluation of various, heterogeneous HPC systems. Documentation and released
 benchmark results can be found on their [web page](https://www.spec.org/hpc2021/). In fact, our
-system 'Taurus' (partition `haswell`) is the benchmark's reference system denoting a score of 1.
+system *Taurus* (partition `haswell`) is the benchmark's reference system and thus represents
+the baseline score.
 
 The tool includes nine real-world scientific applications (see
 [benchmark table](https://www.spec.org/hpc2021/docs/result-fields.html#benchmarks))
@@ -43,7 +44,8 @@ It is straight-forward and easy to use.
     flag `-tp=zen`. You can add this compiler flag to the configuration file.
 
 If you are facing errors during the installation process, check the [solved](#solved-issues) and
-[unresolved issues](#unresolved-issues) sections. The problem might already be listed there.
+[unresolved issues](#unresolved-issues) sections for our systems. The problem might already be
+listed there.
 
 ## Configuration
 
@@ -58,7 +60,7 @@ double-check the line that defines the submit command and make sure it says `sru
 submit = srun $command
 ```
 
-Otherwise this can cause trouble (see [Slurm bug](#slurm-bug)).
+Otherwise this can cause trouble (see [Slurm Bug](#slurm-bug)).
 You can also put Slurm options in the configuration but it is recommended to do this in a job
 script (see chapter [Execution](#execution)). Use the following to apply your configuration to the
 benchmark run:
@@ -78,10 +80,12 @@ For more details about configuration settings check out the following links:
 The SPEChpc2021 benchmark suite is executed with the `runhpc` command, which also sets it's
 configuration and controls it's runtime behavior. For all options, see SPEC's documentation about
 [`runhpc` options](https://www.spec.org/hpc2021/Docs/runhpc.html).
-To make it available in the search path, execute `source shrc` in your SPEC installation directory,
-first. To submit a job to the Slurm scheduler carrying out the complete benchmark
-suite or parts of it as specified, you can use the following job scripts as a template for the
-partitions `haswell`, `ml` and `alpha`, respectively. 
+First, execute `source shrc` in your SPEC installation directory. Then use a job script to submit a
+job with the benchmark or parts of it.
+
+In the following there are job scripts shown for partitions `haswell`, `ml` and `alpha`,
+respectively. You can use them as a template in order to reproduce results or to transfer the
+execution to a different partition.
 
 - Replace `<p_number_crunch>` (line 2) with your project name
 - Replace `ws=</scratch/ws/spec/installation>` (line 16/18) with your SPEC installation path
@@ -214,7 +218,7 @@ partitions `haswell`, `ml` and `alpha`, respectively.
         choice.
     1. Request a new module
         - Ask the HPC support to install a compatible MPI module.
-    1. Build your own MPI module (as a last step)
+    1. Build your own MPI module (as a last resort)
         - Download and build a private MPI module using the same compiler as for building the
         benchmark binaries.
 
