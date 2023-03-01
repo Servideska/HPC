@@ -151,6 +151,7 @@ More information about the installation process can be found on the
 
 The configurations for the target partition `haswell` for both Intel and GNU versions are included
 in the source code since PALM release 22.10. Copy the configuration, e.g. with
+
 ```bash
 marie@lonin$ cd </palm_installation/>
 marie@lonin$ cp palm_model_system/packages/palm/model/share/config/.palm.config.taurus_[gnu|intel] .
@@ -175,6 +176,7 @@ determined from the default configuration `.palm.config.default`
 
 However, the most important part is to check the execute command in the configuration. For ZIH
 systems you have to replace `mpirun` with `srun` so that it should say like this:
+
 ```
 %execute_command     srun ./palm
 ```
@@ -242,7 +244,7 @@ to submit your PALM job script to the Slurm scheduler and run the simulation.
 !!! note "Explanation"
 
     In the workflow with Intel, `mpirun` causes the use of an alternate underlying MPI library.
-    This means tremendeous slowdowns of MPI communication calls resulting in a performance loss of
+    This means tremendous slowdowns of MPI communication calls resulting in a performance loss of
     at least factor 8 for a test simulation with 4 processes on one node.
 
 !!! success "Solution"

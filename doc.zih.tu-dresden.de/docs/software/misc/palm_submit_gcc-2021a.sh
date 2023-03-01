@@ -41,7 +41,8 @@ echo
 case=urban_environment
 # and create link if expected folder is not existing
 testdir=${wm}/gpalm/JOBS/${case}
-[ -d ${testdir} ] || (mkdir -pv ${testdir}; cd ${testdir}; ln -s ../../palm_model_system/packages/palm/model/tests/cases/${case} ${case})
+[ -d ${testdir} ] || (mkdir -pv ${testdir}; cd ${testdir}; \
+ln -s ../../palm_model_system/packages/palm/model/tests/cases/${case} ${case})
 
 # -O    threads per openMP task     ${OMP_NUM_THREADS}
 # -T    tasks per node              ${SLURM_NTASKS_PER_NODE}
