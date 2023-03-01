@@ -94,7 +94,7 @@ respectively. You can use them as a template in order to reproduce results or to
 execution to a different partition.
 
 - Replace `<p_number_crunch>` (line 2) with your project name
-- Replace `ws=</scratch/ws/spec/installation>` (line 16/18) with your SPEC installation path
+- Replace `ws=</scratch/ws/spec/installation>` (line 15/18) with your SPEC installation path
 
 ### Submit SPEChpc Benchmarks with a Job File
 
@@ -112,24 +112,16 @@ execution to a different partition.
     #SBATCH --constraint=DA
 
     module purge
-    module load Score-P/6.0-gompi-2019a
-    # Score-P parameters are set in config/gnu-taurus.cfg
+    module load gompi/2019a
 
     ws=</scratch/ws/spec/installation>
     cd ${ws}
     source shrc
 
-    # Use tealeaf scorep run to check the benchmark performance
-    BENCH="518.tealeaf_t"
-
-    runhpc -I --config gnu-taurus --define model=mpi --ranks=24 --iterations=1 --tune=base --define tudprof=scorep ${BENCH}
-
-    # To the actual reportable runs with all benchmarks
+    # reportable run with all benchmarks
     BENCH="tiny"
 
     runhpc --config gnu-taurus --define model=mpi --ranks=24 --reportable --tune=base --flagsurl=$SPEC/config/flags/gcc_flags.xml ${BENCH}
-
-    specperl bin/tools/port_progress result/*.log
     ```
 
 === "submit_spec_ml_openacc.sh"
