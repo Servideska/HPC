@@ -327,7 +327,8 @@ highlighting. There is a complete list of supported
 
 Where possible, replace login, project name, and other private data with clearly recognizable
 placeholders. In particular, use the generic login `marie` and the project title `p_number_crunch`
-as placeholders.
+as placeholders at first. If you need a second login and a second project stick to `martin` and
+`p_long_computations`.
 
 ```console
 marie@login$ ls -l
@@ -343,6 +344,8 @@ drwxr-xr-x   3 marie p_number_crunch      4096 Feb 12  2020 data
     physicist and chemist [Marie Curie](https://en.wikipedia.org/wiki/Marie_Curie),
     and [Marianne](https://en.wikipedia.org/wiki/Marianne), symbol of France standing for liberty,
     equality and fraternity.
+
+    The very same holds for the generic login *martin*.
 
 #### Placeholders
 
