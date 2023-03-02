@@ -61,7 +61,7 @@ id: test-workspace
      available extensions : 10
 ```
 
-The output of `ws_list` can be customised via several options. The following switch tab provides a
+The output of `ws_list` can be customized via several options. The following switch tab provides a
 overview of some of these options. All available options can be queried by `ws_list --help`.
 
 === "Certain filesystem"
@@ -331,7 +331,7 @@ There are three typical options for the use of workspaces:
 
 ### Per-Job Storage
 
-The idea of a "workspace per-job storage" adresses the need of a batch job for a directory for
+The idea of a "workspace per-job storage" addresses the need of a batch job for a directory for
 temporary data which can be deleted afterwards. To help you to write your own
 [(Slurm) job file](../jobs_and_resources/slurm.md#job-files), suited to your needs, we came up with
 the following example (which works [for the program g16](../software/nanoscale_simulations.md)).
