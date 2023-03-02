@@ -29,6 +29,7 @@ checkpoints:
 
 ## Tools for Checkpoint/Restart
 
+Even though checkpoint/restart is a much needed capability, using it is unfortunately not that easy. 
 If you wish to use checkpoint/restart, your **first step** should always be to check if your
 application already has such capabilities built-in, as that is the most stable and safe way of doing
 it. Applications that are known to have some sort of **native checkpoint/restart** include:
@@ -42,7 +43,7 @@ application-agnostic. One such project which we recommend is
 [Distributed Multi-Threaded Check-Pointing](http://dmtcp.sourceforge.net) (DMTCP). 
 
 Checkpointing distributed memory applications with dmtcp can be tedious. A newer, promising tool for
-this use case is [MANA](https://github.com/mpickpt/mana). We have however not tested this yet.
+this use case is [MANA](https://github.com/mpickpt/mana). We have however not tested this as of yet.
 
 ## Using DMTCP
 
