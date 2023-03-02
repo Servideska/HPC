@@ -28,7 +28,8 @@ times.
 
 ### List Available Filesystems
 
-To list all available filesystems for using workspaces, use:
+To list all available filesystems for using workspaces, you can either invoke `ws_list -l` or
+`ws_find -l`, e.g.,
 
 ```console
 marie@login$ ws_find -l
