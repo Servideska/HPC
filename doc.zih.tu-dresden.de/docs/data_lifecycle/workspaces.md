@@ -43,8 +43,8 @@ beegfs
 
 !!! note "Default is `scratch`"
 
-    The default filesystem is `scratch`. If you prefer another filesystem, provide the option `-F
-    <fs>` to the workspace commands.
+    The default filesystem is `scratch`. If you prefer another filesystem, you have to explictly
+    provide the option `-F <fs>` to the workspace commands.
 
 ### List Current Workspaces
 
