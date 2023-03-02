@@ -9,9 +9,14 @@ from the very beginning, you should be familiar with the great **concept of chec
     Checkpointing saves the state of a running process to a checkpointing image file. Using this
     image file, the process can later be continued (restarted) from where it left off.
 
-Another motivation is to use checkpoint/restart to split long running jobs into several shorter
-ones. This might improve the overall job throughput, since shorter jobs can "fill holes" in the job
-queue.
+Other motivations to use checkpoint/restart are:
+
+* enable your jobs to run longer than walltime limit
+* improve your jobs’ throughput by exploiting the holes in the Slurm schedule
+* extend interactive sessions by saving & restarting where you left off
+* debug long-running jobs by pausing just before the error & restarting from that point multiple
+times  
+
 Here is an extreme example from literature for the waste of large computing resources due to missing
 checkpoints:
 
