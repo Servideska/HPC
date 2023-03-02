@@ -48,7 +48,7 @@ beegfs
 
 ### List Current Workspaces
 
-To list all workspaces you currently own, use:
+The command `ws_list` lists all your currently active (,i.e, not expired) workspaces, e.g.
 
 ```console
 marie@login$ ws_list
@@ -61,13 +61,84 @@ id: test-workspace
      available extensions : 10
 ```
 
+The output of `ws_list` can be customised via several options. The following switch tab provides a
+overview of some of these options. All available options can be queried by `ws_list --help`.
+
+=== "Certain filesystem"
+
+    ```
+    marie@login$ ws_list --filesystem scratch_fast
+    id: foo
+         workspace directory  : /lustre/ssd/ws/marie-numbercrunch
+         remaining time       : 2 days 23 hours
+         creation time        : Thu Mar  2 14:15:33 2023
+         expiration date      : Sun Mar  5 14:15:33 2023
+         filesystem name      : ssd
+         available extensions : 2
+    ```
+
+=== "Verbose output"
+
+    ```
+    marie@login$ ws_list -v
+    id: test-workspace
+         workspace directory  : /scratch/ws/0/marie-test-workspace
+         remaining time       : 89 days 23 hours
+         creation time        : Thu Jul 29 10:30:04 2021
+         expiration date      : Wed Oct 27 10:30:04 2021
+         filesystem name      : scratch
+         available extensions : 10
+         acctcode             : p_numbercrunch
+         reminder             : Sat Oct 20 10:30:04 2021
+         mailaddress          : marie@tu-dresden.de
+    ```
+
+=== "Terse output"
+
+    ```
+    marie@login$ ws_list -t
+    id: test-workspace
+         workspace directory  : /scratch/ws/0/marie-test-workspace
+         remaining time       : 89 days 23 hours
+         available extensions : 10
+    id: foo
+         workspace directory  : /scratch/ws/0/marie-foo
+         remaining time       : 3 days 22 hours
+         available extensions : 10
+    ```
+
+=== "Show only names"
+
+    ```
+    marie@login$ ws_list -s
+    test-workspace
+    foo
+    ```
+
+=== "Sort by remaining time"
+
+    You can list your currently allocated workspace by remaining time. This is especially useful
+    for housekeeping tasks, such as extending soon expiring workspaces if necessary.
+
+    ```
+    marie@login$ ws_list -R -t
+    id: test-workspace
+         workspace directory  : /scratch/ws/0/marie-test-workspace
+         remaining time       : 89 days 23 hours
+         available extensions : 10
+    id: foo
+         workspace directory  : /scratch/ws/0/marie-foof
+         remaining time       : 3 days 22 hours
+         available extensions : 10
+    ```
+
 ### Allocate a Workspace
 
 To create a workspace in one of the listed filesystems, use `ws_allocate`. It is necessary to
 specify a unique name and the duration of the workspace.
 
 ```console
-marie@login$ ws_allocate: [options] workspace_name duration
+ws_allocate: [options] workspace_name duration
 
 Options:
   -h [ --help]               produce help message
