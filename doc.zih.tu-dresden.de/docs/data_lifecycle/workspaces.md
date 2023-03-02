@@ -102,9 +102,9 @@ days with an email reminder for 7 days before the expiration.
 
 !!! Note "Name of a workspace"
 
-   The workspace should help you to remember the experiment and data stored here. It has to be
-   unique on a certain filesystem. On the other hand it is possible to use the very same name for
-   workspaces on different filesystems. 
+   The workspace name should help you to remember the experiment and data stored here. It has to
+   be unique on a certain filesystem. On the other hand it is possible to use the very same name
+   for workspaces on different filesystems. 
 
 ### Extension of a Workspace
 
