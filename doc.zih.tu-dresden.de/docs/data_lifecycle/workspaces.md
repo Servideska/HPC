@@ -68,7 +68,7 @@ overview of some of these options. All available options can be queried by `ws_l
 
     ```
     marie@login$ ws_list --filesystem scratch_fast
-    id: foo
+    id: numbercrunch
          workspace directory  : /lustre/ssd/ws/marie-numbercrunch
          remaining time       : 2 days 23 hours
          creation time        : Thu Mar  2 14:15:33 2023
@@ -134,7 +134,7 @@ overview of some of these options. All available options can be queried by `ws_l
 
 ### Allocate a Workspace
 
-To create a workspace in one of the listed filesystems, use `ws_allocate`. It is necessary to
+To allocate a workspace in one of the listed filesystems, use `ws_allocate`. It is necessary to
 specify a unique name and the duration of the workspace.
 
 ```console
@@ -171,6 +171,9 @@ days with an email reminder for 7 days before the expiration.
 
     Setting the reminder to `7` means you will get a reminder email on every day starting `7` days
     prior to expiration date.
+
+Please refer to the section [section Cooperative Usage](#cooperative-usage-group-workspaces) for
+group workspaces.
 
 ### Extension of a Workspace
 
@@ -463,6 +466,45 @@ marie@login$ qinfo quota /warm_archive/ws/
 
 Note that the workspaces reside under the mountpoint `/warm_archive/ws/` and not `/warm_archive`
 anymore.
+
+## Cooperative Usage (Group Workspaces)
+
+When a workspace is created with the option `-g, --group`, it gets a group workspace that is visible
+to others (if in the same group) via `ws_list -g`.
+
+The [page on Sharing Data](data_sharing.md) provides
+information on how to grant access to certain colleagues and whole project groups.
+
+!!! Example "Allocate and list group workspaces"
+
+    If Marie wants to share results and scripts in a workspace with all of her colleagues
+    in the project `p_number_crunch`, she can allocate a so-called group workspace.
+
+    ```console
+    marie@login$ ws_allocate --group --name numbercrunch --duration 30
+    Info: creating workspace.
+    /scratch/ws/0/marie-numbercrunch
+    remaining extensions  : 10
+    remaining time in days: 30
+    ```
+
+    This workspace directory is readable for the group, e.g.,
+
+    ```console
+    marie@login$ ls -ld /scratch/ws/0/marie-numbercrunch
+    drwxr-x--- 2 marie p_number_crunch 4096 Mar  2 15:24 /scratch/ws/0/marie-numbercrunch
+    ```
+
+    All members of the project group `p_number_crunch` can now list this workspace using
+    `ws_list -g` and access the data (read-only).
+
+    ```console
+    martin@login$ ws_list -g -t
+    id: numbercrunch
+         workspace directory  : /scratch/ws/0/marie-numbercrunch
+         remaining time       : 29 days 23 hours
+         available extensions : 10
+    ```
 
 ## FAQ and Troubleshooting
 
