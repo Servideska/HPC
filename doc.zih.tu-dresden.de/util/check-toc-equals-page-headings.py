@@ -32,7 +32,6 @@ def main():
     if Path.exists(mkdocsyaml):
 
         docs_path = Path.joinpath(scriptpath, "../", "docs")
-        # print(docs_path)
         with open(mkdocsyaml, "r") as file:
             c = file.readlines()
 
