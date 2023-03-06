@@ -16,7 +16,6 @@ whitelist = ["index.md"]  # ["archive"]
 
 
 def get_heading_in_file(filename, docs_path):
-    # TODO join path filename
     # Read until first level one heading is found
     f = Path.joinpath(docs_path, filename)
     with open(f, "r") as file:
