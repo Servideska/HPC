@@ -5,55 +5,61 @@ Provide as an command line argument the path to the mkdocs.yml file.
 Author: Michael Bommhardt-Richter
 """
 
-
 import os
 import sys
-files = []
-firstline = []
-nav_section = dict()
+from pathlib import Path
 
-TOCFiles=dict()
-TOCData=dict()
+# {path/filename.md: [toc_heading, file_heading], ... }
+TOCData = dict()
 
-def list_and_read_files(path):
-    "List files in a directory recursively and read the first line of each file"
+whitelist = ["index.md"]  # ["archive"]
 
-    for root, _, filenames in os.walk(path):
-        for filename in filenames:
-            if filename.endswith('.md'):
-                TOCFiles[os.path.join(root.split('/')[-1], filename)]=open(os.path.join(root, filename)).readline().strip().replace('# ','')
-    return 0
+
+def get_heading_in_file(filename, docs_path):
+    # TODO join path filename
+    # Read until first level one heading is found
+    f = os.path.join(docs_path, "docs", filename)
+    with open(f, "r") as file:
+        for line in file:
+            if line.startswith("#"):
+                # TODO Make sure it is really a level one heading!
+                # Will be empty if there is more than one "#".
+                return line.split("#")[1].strip()
+
 
 def main():
-    "Main function"
-    path = os.getcwd()
+    with open(sys.argv[1], "r") as file:
+        c = file.readlines()
 
-    nav_section = dict()
-    with open(sys.argv[1], 'r') as file:
-        for line in file:
-            line = line.rstrip()
-            
-            if line.endswith('.md'):
-                line=line.split("  - ")[1]
-                line=line.split(": ")
-                TOCData[line[1]]=line[0]
+    docs_path = Path(sys.argv[1]).resolve().parent
+    print(docs_path)
 
-    set1 = set(TOCFiles.items())
-    set2 = set(TOCData.items())
-    output=str(sorted(set1 ^ set2))
-    output=output.replace("{('","'").replace(")}","").replace("[(","").replace(")]","").split("), (")
-    print("|                          Filename                          |                              Diff                          |")
-    print("|------------------------------------------------------------|------------------------------------------------------------|")
-    
-    for x in output:
-        if not "overview.md" in x and not "Overview" in x:
-            #if not "(Outdated)" in x and not "index.md" in x:
-                #print(x)
-                y=x.split("', '")
-                print("|{0:>60}|{1:>60}".format(y[0]+"'", "'"+y[1]))
-     
+    for line in c:
+        line = line.rstrip()
 
-if __name__ == '__main__':
+        # "headline: path/file.md" -> "Headline" = "path/file.md"
+        if line.endswith(".md"):
+            line = line.split("  - ")[1]
+            line = line.split(": ")
+
+            key = line[1]
+            file_heading = get_heading_in_file(line[1], docs_path)
+            TOCData[line[1]] = [line[0], file_heading]
+
+    # Check TOC vs heading in corresponding md-file
+    cnt = 0
+    for key, value in TOCData.items():
+        if key in whitelist:
+            continue
+        if value[0] == "Overview":
+            continue
+        if value[0] != value[1]:
+            cnt += 1
+            print(f"{key:<40}{value[0]:<30} != {value[1]}")
+    sys.exit(cnt)
+
+
+if __name__ == "__main__":
     if len(sys.argv) > 1:
         main()
     else:
