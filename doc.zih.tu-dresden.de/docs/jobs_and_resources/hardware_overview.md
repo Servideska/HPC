@@ -31,7 +31,7 @@ users and the ZIH.
     - 3.5 TB local memory on NVMe device at `/tmp`
 - Hostnames: `taurusi[8001-8034]`
 - Slurm partition: `alpha`
-- Further information on the usage is documented on the site [AMD Rome Nodes](rome_nodes.md)
+- Further information on the usage is documented on the site [Alpha Centauri Nodes](alpha_centauri.md)
 
 ## Island 7 - AMD Rome CPUs
 
