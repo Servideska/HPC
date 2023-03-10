@@ -473,8 +473,20 @@ anymore.
 When a workspace is created with the option `-g, --group`, it gets a group workspace that is visible
 to others (if in the same group) via `ws_list -g`.
 
-The [page on Sharing Data](data_sharing.md) provides
-information on how to grant access to certain colleagues and whole project groups.
+!!! hint "Chose group"
+
+    If you are member of multiple groups, than the group workspace is visible for your primary
+    group. You can list all groups you belong to via `groups`, and the first entry is your
+    primary group.
+
+    Nevertheless, you can create a group workspace for any of your groups following these two
+    steps:
+
+    1. Change to the desired group using `newgrp <other-group>`.
+    1. Create the group workspace as usual, i.e., `ws_allocate --group [...]`
+
+    The [page on Sharing Data](data_sharing.md) provides
+    information on how to grant access to certain colleagues and whole project groups.
 
 !!! Example "Allocate and list group workspaces"
 
