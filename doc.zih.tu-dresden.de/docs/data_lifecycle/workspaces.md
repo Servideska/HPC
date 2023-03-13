@@ -284,7 +284,7 @@ It performs the following steps once per day and filesystem:
 ### Restoring Expired Workspaces
 
 At expiration time your workspace will be moved to a special, hidden directory. For a month (in
-warm_archive: 2 months), you can still restore your data into an existing workspace.
+warm_archive: 2 months), you can still restore your data **into an existing workspace**.
 
 !!! warning
 
