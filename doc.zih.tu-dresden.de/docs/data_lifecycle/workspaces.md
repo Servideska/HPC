@@ -27,7 +27,8 @@ times.
 
 ### List Available Filesystems
 
-To list all available filesystems for using workspaces, use:
+To list all available filesystems for using workspaces, you can either invoke `ws_list -l` or
+`ws_find -l`, e.g.,
 
 ```console
 marie@login$ ws_find -l
@@ -41,12 +42,13 @@ beegfs
 
 !!! note "Default is `scratch`"
 
-    The default filesystem is `scratch`. If you prefer another filesystem, provide the option `-F
-    <fs>` to the workspace commands.
+    The default filesystem is `scratch`. If you prefer another filesystem (cf. section
+    [List Available Filesystems](#list-available-filesystems)), you have to explictly
+    provide the option `-F <fs>` to the workspace commands.
 
 ### List Current Workspaces
 
-To list all workspaces you currently own, use:
+The command `ws_list` lists all your currently active (,i.e, not expired) workspaces, e.g.
 
 ```console
 marie@login$ ws_list
@@ -59,13 +61,84 @@ id: test-workspace
      available extensions : 10
 ```
 
+The output of `ws_list` can be customized via several options. The following switch tab provides a
+overview of some of these options. All available options can be queried by `ws_list --help`.
+
+=== "Certain filesystem"
+
+    ```
+    marie@login$ ws_list --filesystem scratch_fast
+    id: numbercrunch
+         workspace directory  : /lustre/ssd/ws/marie-numbercrunch
+         remaining time       : 2 days 23 hours
+         creation time        : Thu Mar  2 14:15:33 2023
+         expiration date      : Sun Mar  5 14:15:33 2023
+         filesystem name      : ssd
+         available extensions : 2
+    ```
+
+=== "Verbose output"
+
+    ```
+    marie@login$ ws_list -v
+    id: test-workspace
+         workspace directory  : /scratch/ws/0/marie-test-workspace
+         remaining time       : 89 days 23 hours
+         creation time        : Thu Jul 29 10:30:04 2021
+         expiration date      : Wed Oct 27 10:30:04 2021
+         filesystem name      : scratch
+         available extensions : 10
+         acctcode             : p_numbercrunch
+         reminder             : Sat Oct 20 10:30:04 2021
+         mailaddress          : marie@tu-dresden.de
+    ```
+
+=== "Terse output"
+
+    ```
+    marie@login$ ws_list -t
+    id: test-workspace
+         workspace directory  : /scratch/ws/0/marie-test-workspace
+         remaining time       : 89 days 23 hours
+         available extensions : 10
+    id: foo
+         workspace directory  : /scratch/ws/0/marie-foo
+         remaining time       : 3 days 22 hours
+         available extensions : 10
+    ```
+
+=== "Show only names"
+
+    ```
+    marie@login$ ws_list -s
+    test-workspace
+    foo
+    ```
+
+=== "Sort by remaining time"
+
+    You can list your currently allocated workspace by remaining time. This is especially useful
+    for housekeeping tasks, such as extending soon expiring workspaces if necessary.
+
+    ```
+    marie@login$ ws_list -R -t
+    id: test-workspace
+         workspace directory  : /scratch/ws/0/marie-test-workspace
+         remaining time       : 89 days 23 hours
+         available extensions : 10
+    id: foo
+         workspace directory  : /scratch/ws/0/marie-foof
+         remaining time       : 3 days 22 hours
+         available extensions : 10
+    ```
+
 ### Allocate a Workspace
 
-To create a workspace in one of the listed filesystems, use `ws_allocate`. It is necessary to
+To allocate a workspace in one of the listed filesystems, use `ws_allocate`. It is necessary to
 specify a unique name and the duration of the workspace.
 
 ```console
-marie@login$ ws_allocate: [options] workspace_name duration
+ws_allocate: [options] workspace_name duration
 
 Options:
   -h [ --help]               produce help message
@@ -94,10 +167,19 @@ Options:
 This will create a workspace with the name `test-workspace` on the `/scratch` filesystem for 90
 days with an email reminder for 7 days before the expiration.
 
-!!! Note
+!!! Note "Email reminder"
 
     Setting the reminder to `7` means you will get a reminder email on every day starting `7` days
-    prior to expiration date.
+    prior to expiration date. We strongly recommend to set this email reminder.
+
+!!! Note "Name of a workspace"
+
+   The workspace name should help you to remember the experiment and data stored here. It has to
+   be unique on a certain filesystem. On the other hand it is possible to use the very same name
+   for workspaces on different filesystems.
+
+Please refer to the section [section Cooperative Usage](#cooperative-usage-group-workspaces) for
+group workspaces.
 
 ### Extension of a Workspace
 
@@ -255,7 +337,7 @@ There are three typical options for the use of workspaces:
 
 ### Per-Job Storage
 
-The idea of a "workspace per-job storage" adresses the need of a batch job for a directory for
+The idea of a "workspace per-job storage" addresses the need of a batch job for a directory for
 temporary data which can be deleted afterwards. To help you to write your own
 [(Slurm) job file](../jobs_and_resources/slurm.md#job-files), suited to your needs, we came up with
 the following example (which works [for the program g16](../software/nanoscale_simulations.md)).
@@ -390,6 +472,57 @@ marie@login$ qinfo quota /warm_archive/ws/
 
 Note that the workspaces reside under the mountpoint `/warm_archive/ws/` and not `/warm_archive`
 anymore.
+
+## Cooperative Usage (Group Workspaces)
+
+When a workspace is created with the option `-g, --group`, it gets a group workspace that is visible
+to others (if in the same group) via `ws_list -g`.
+
+!!! hint "Chose group"
+
+    If you are member of multiple groups, than the group workspace is visible for your primary
+    group. You can list all groups you belong to via `groups`, and the first entry is your
+    primary group.
+
+    Nevertheless, you can create a group workspace for any of your groups following these two
+    steps:
+
+    1. Change to the desired group using `newgrp <other-group>`.
+    1. Create the group workspace as usual, i.e., `ws_allocate --group [...]`
+
+    The [page on Sharing Data](data_sharing.md) provides
+    information on how to grant access to certain colleagues and whole project groups.
+
+!!! Example "Allocate and list group workspaces"
+
+    If Marie wants to share results and scripts in a workspace with all of her colleagues
+    in the project `p_number_crunch`, she can allocate a so-called group workspace.
+
+    ```console
+    marie@login$ ws_allocate --group --name numbercrunch --duration 30
+    Info: creating workspace.
+    /scratch/ws/0/marie-numbercrunch
+    remaining extensions  : 10
+    remaining time in days: 30
+    ```
+
+    This workspace directory is readable for the group, e.g.,
+
+    ```console
+    marie@login$ ls -ld /scratch/ws/0/marie-numbercrunch
+    drwxr-x--- 2 marie p_number_crunch 4096 Mar  2 15:24 /scratch/ws/0/marie-numbercrunch
+    ```
+
+    All members of the project group `p_number_crunch` can now list this workspace using
+    `ws_list -g` and access the data (read-only).
+
+    ```console
+    martin@login$ ws_list -g -t
+    id: numbercrunch
+         workspace directory  : /scratch/ws/0/marie-numbercrunch
+         remaining time       : 29 days 23 hours
+         available extensions : 10
+    ```
 
 ## FAQ and Troubleshooting
 
