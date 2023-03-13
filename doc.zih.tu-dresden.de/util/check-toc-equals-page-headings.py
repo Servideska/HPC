@@ -12,7 +12,7 @@ from pathlib import Path
 # {path/filename.md: [toc_heading, file_heading], ... }
 TOCData = dict()
 
-whitelist = ["index.md","archive/"]  # ["archive"]
+whitelist = ["index.md","archive/"]
 
 
 def get_heading_in_file(filename, docs_path):
