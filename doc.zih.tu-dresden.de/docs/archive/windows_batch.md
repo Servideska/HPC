@@ -42,7 +42,7 @@ reasons during the job monitoring phase.
 ### Working Directories
 
 - `C:\htitan\<LoginName>`
-- `C:	itan\HOME_(TITAN)\<LoginName>`
+- `C:\titan\HOME_(TITAN)\<LoginName>`
 - `\titan\hpcms-files\HOME_(TITAN)\<LoginName>`
 - `\hpcms\hpcms-files\HOME_(TITAN)\<LoginName>`
 - `Z:\HOME_(TITAN)\<LoginName>` (only available at login node)
