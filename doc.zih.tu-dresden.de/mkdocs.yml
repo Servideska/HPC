@@ -2,7 +2,7 @@ nav:
   - Home: index.md
   - Quick Start: quickstart/getting_started.md
   - Application for Login and Resources:
-    - Overview: application/overview.md
+    - application/index.md
     - Terms of Use: application/terms_of_use.md
     - Request for Resources: application/request_for_resources.md
     - Project Request Form Jards: application/project_request_form.md
@@ -40,6 +40,7 @@ nav:
     - Long-Term Preservation of Research Data: data_lifecycle/longterm_preservation.md
     - Sharing Data: data_lifecycle/data_sharing.md
   - User Environment:
+    - software/index.md
     - Overview: software/overview.md
     - Environment Modules: software/modules.md
     - Private Modules: software/private_modules.md
@@ -185,6 +186,7 @@ theme:
   second_logo: assets/images/zih_weiss.png
   features:
     - navigation.instant
+    - navigation.indexes
     
 # extends base css/js
 extra_css:
