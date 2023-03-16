@@ -84,8 +84,7 @@ Submitting slurm 01:00:00 minutes job (this might take a while)...
 
 The above `vampirserver` command automatically allocates its resources via the respective batch system
 (, i.e. [Slurm](../jobs_and_resources/slurm.md) on ZIH systems).
-Please note that custom arguments which should be passed to the batch system, need to be prefixed
-with `--`.
+As shown, you can customize the resources requirements and time limit. This is especially useful, if you run into performance issues handling very large trace files. Please refer to `vampirserver --help` for further options and usage.
 
 If you want to start
 
