@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # Windows HPC Server 2008 Cluster Titan (Outdated)
 
 !!! warning

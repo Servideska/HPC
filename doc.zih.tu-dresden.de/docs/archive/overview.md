@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # Archive (Outdated)
 
 A warm welcome to the **archive**. You probably got here by following a link from within the compendium

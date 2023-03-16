@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # MEGWARE PC-Farm Atlas (Outdated)
 
 !!! warning
