@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2.0
+---
+
 # Performance Engineering Overview
 
 !!! cite "Walter J. Doherty, 1970 [^1]"
