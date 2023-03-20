@@ -1,4 +1,4 @@
-# Vampir
+# Study Course of Events with Vampir
 
 ## Introduction
 
@@ -73,7 +73,23 @@ Launching VampirServer...
 Submitting slurm 30 minutes job (this might take a while)...
 ```
 
-Above automatically allocates its resources via the respective batch system. If you want to start
+This way, a job with a timelimit of 30 minutes and default resources is submitted. This might fit
+your needs. If not, please feel free to request a **customized job** running VampirServer, e.g.
+
+```console
+marie@login$ vampirserver start --ntasks=8 -- --time=01:00:00 -- --mem-per-cpu=3000M --partition=romeo
+Launching VampirServer...
+Submitting slurm 01:00:00 minutes job (this might take a while)...
+```
+
+The above `vampirserver` command automatically allocates its resources via the respective batch
+system (, i.e. [Slurm](../jobs_and_resources/slurm.md) on ZIH systems). As shown, you can customize
+the resources requirements and time limit. This is especially useful, if you run into performance
+issues handling very large trace files. Please refer to `vampirserver --help` for further options
+and usage.
+
+If you want to start
+
 VampirServer without a batch allocation or from inside an interactive allocation, use
 
 ```console

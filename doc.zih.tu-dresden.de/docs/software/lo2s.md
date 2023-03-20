@@ -1,7 +1,7 @@
-# lo2s - Lightweight Node-Level Performance Monitoring
+# Record Course of Events with lo2s
 
-`lo2s` creates parallel OTF2 traces with a focus on both application and system view.
-The traces can contain any of the following information:
+Lightweight node-level performance monitoring tool `lo2s` creates parallel OTF2 traces with a focus
+on both application and system view. The traces can contain any of the following information:
 
 * From running threads
     * Calling context samples based on instruction overflows

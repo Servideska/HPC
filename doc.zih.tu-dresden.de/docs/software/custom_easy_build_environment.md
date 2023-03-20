@@ -1,4 +1,4 @@
-# Software Install with EasyBuild
+# Software Installation with EasyBuild
 
 Sometimes the [modules](modules.md) installed in the cluster are not enough for your purposes and
 you need some other software or a different version of a software.

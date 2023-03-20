@@ -328,8 +328,8 @@ specifications for each component of the heterogeneous job should be separated w
 Running a job step on a specific component is supported by the option `--het-group`.
 
 ```console
-marie@login$ salloc --ntasks 1 --cpus-per-task 4 --partition <partition> --mem=200G : \
-                    --ntasks 8 --cpus-per-task 1 --gres=gpu:8 --mem=80G --partition <partition>
+marie@login$ salloc --ntasks=1 --cpus-per-task=4 --partition <partition> --mem=200G : \
+                    --ntasks=8 --cpus-per-task=1 --gres=gpu:8 --mem=80G --partition <partition>
 [...]
 marie@login$ srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 ```
@@ -340,16 +340,16 @@ components by a line containing the directive `#SBATCH hetjob`.
 ```bash
 #!/bin/bash
 
-#SBATCH --ntasks 1
-#SBATCH --cpus-per-task 4
-#SBATCH --partition <partition>
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --partition=<partition>
 #SBATCH --mem=200G
 #SBATCH hetjob # required to separate groups
-#SBATCH --ntasks 8
-#SBATCH --cpus-per-task 1
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=1
 #SBATCH --gres=gpu:8
 #SBATCH --mem=80G
-#SBATCH --partition <partition>
+#SBATCH --partition=<partition>
 
 srun ./my_application <args for master tasks> : ./my_application <args for worker tasks>
 
@@ -474,7 +474,7 @@ at no extra cost.
     ??? example "Show all jobs since the beginning of year 2021"
 
         ```console
-        marie@login$ sacct -S 2021-01-01 [-E now]
+        marie@login$ sacct --starttime 2021-01-01 [--endtime now]
         ```
 
 ## Jobs at Reservations
@@ -501,24 +501,21 @@ as user to specify the requirements. These features should be thought of as chan
 (e.g., a filesystem get stuck on a certain node).
 
 A feature can be used with the Slurm option `-C, --constraint=<ARG>` like
-`srun --constraint=fs_lustre_scratch2 ...` with `srun` or `sbatch`. Combinations like
-`--constraint="fs_beegfs_global0`are allowed. For a detailed description of the possible
-constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com/srun.html).
+`srun --constraint="fs_lustre_scratch2" [...]` with `srun` or `sbatch`.
+
+Multiple features can also be combined using AND, OR, matching OR, resource count etc.
+E.g., `--constraint="fs_beegfs|fs_lustre_ssd"` requests for nodes with at least one of the
+features `fs_beegfs` and `fs_lustre_ssd`. For a detailed description of the possible
+constraints, please refer to the [Slurm documentation](https://slurm.schedmd.com/srun.html#OPT_constraint).
 
 !!! hint
 
       A feature is checked only for scheduling. Running jobs are not affected by changing features.
 
-### Available Features
-
-| Feature | Description                                                              |
-|:--------|:-------------------------------------------------------------------------|
-| DA      | Subset of Haswell nodes with a high bandwidth to NVMe storage (island 6) |
-
-#### Filesystem Features
+### Filesystem Features
 
 A feature `fs_*` is active if a certain filesystem is mounted and available on a node. Access to
-these filesystems are tested every few minutes on each node and the Slurm features set accordingly.
+these filesystems are tested every few minutes on each node and the Slurm features are set accordingly.
 
 | Feature              | Description                                                        | [Workspace Name](../data_lifecycle/workspaces.md#extension-of-a-workspace) |
 |:---------------------|:-------------------------------------------------------------------|:---------------------------------------------------------------------------|

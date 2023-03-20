@@ -186,7 +186,7 @@ When `srun` is used within a submission script, it inherits parameters from `sba
 `--ntasks=1`, `--cpus-per-task=4`, etc. So we actually implicitly run the following
 
 ```bash
-srun --ntasks=1 --cpus-per-task=4 ... --partition=ml some-gpu-application
+srun --ntasks=1 --cpus-per-task=4 [...] --partition=ml <some-gpu-application>
 ```
 
 Now, our goal is to run four instances of this program concurrently in a single batch script. Of
@@ -237,7 +237,7 @@ inherited from the surrounding `sbatch` context. The following line would be suf
 job in this example:
 
 ```bash
-srun --exclusive --gres=gpu:1 --ntasks=1 some-gpu-application &
+srun --exclusive --gres=gpu:1 --ntasks=1 <some-gpu-application> &
 ```
 
 Yet, it adds some extra safety to leave them in, enabling the Slurm batch system to complain if not
@@ -278,7 +278,8 @@ use up all resources in the nodes:
     #SBATCH --exclusive    # ensure that nobody spoils my measurement on 2 x 2 x 8 cores
     #SBATCH --time=00:10:00
     #SBATCH --job-name=Benchmark
-    #SBATCH --mail-user=your.name@tu-dresden.de
+    #SBATCH --mail-type=end
+    #SBATCH --mail-user=<your.email>@tu-dresden.de
 
     srun ./my_benchmark
     ```
@@ -313,14 +314,14 @@ name specific to the job:
 
     ```Bash
     #!/bin/bash
-    #SBATCH --array 0-9
+    #SBATCH --array=0-9
     #SBATCH --output=arraytest-%A_%a.out
     #SBATCH --error=arraytest-%A_%a.err
     #SBATCH --ntasks=864
     #SBATCH --time=08:00:00
     #SBATCH --job-name=Science1
     #SBATCH --mail-type=end
-    #SBATCH --mail-user=your.name@tu-dresden.de
+    #SBATCH --mail-user=<your.email>@tu-dresden.de
 
     echo "Hi, I am step $SLURM_ARRAY_TASK_ID in this array job $SLURM_ARRAY_JOB_ID"
     ```
@@ -338,34 +339,82 @@ Please read the Slurm documentation at https://slurm.schedmd.com/sbatch.html for
 
 ## Chain Jobs
 
-You can use chain jobs to create dependencies between jobs. This is often the case if a job relies
-on the result of one or more preceding jobs. Chain jobs can also be used if the runtime limit of the
-batch queues is not sufficient for your job. Slurm has an option
+You can use chain jobs to **create dependencies between jobs**. This is often useful if a job
+relies on the result of one or more preceding jobs. Chain jobs can also be used to split a long
+runnning job exceeding the batch queues limits into parts and chain these parts. Slurm has an option
 `-d, --dependency=<dependency_list>` that allows to specify that a job is only allowed to start if
 another job finished.
 
-Here is an example of how a chain job can look like, the example submits 4 jobs (described in a job
-file) that will be executed one after each other with different CPU numbers:
+In the following we provide two examples for scripts that submit chain jobs.
 
-!!! example "Script to submit jobs with dependencies"
+??? example "Scaling experiment using chain jobs"
 
-    ```Bash
+    This scripts submits the very same job file `myjob.sh` four times, which will be executed one
+    after each other. The number of tasks is increased from job to job making this submit script a
+    good starting point for (strong) scaling experiments.
+
+    ```Bash title="submit_scaling.sh"
     #!/bin/bash
-    TASK_NUMBERS="1 2 4 8"
-    DEPENDENCY=""
-    JOB_FILE="myjob.slurm"
 
-    for TASKS in $TASK_NUMBERS ; do
-        JOB_CMD="sbatch --ntasks=$TASKS"
-        if [ -n "$DEPENDENCY" ] ; then
-            JOB_CMD="$JOB_CMD --dependency afterany:$DEPENDENCY"
+    task_numbers="1 2 4 8"
+    dependency=""
+    job_file="myjob.sh"
+
+    for tasks in ${task_numbers} ; do
+        job_cmd="sbatch --ntasks=${tasks}"
+        if [ -n "${dependency}" ] ; then
+            job_cmd="${job_cmd} --dependency=afterany:${dependency}"
         fi
-        JOB_CMD="$JOB_CMD $JOB_FILE"
-        echo -n "Running command: $JOB_CMD  "
-        OUT=`$JOB_CMD`
-        echo "Result: $OUT"
-        DEPENDENCY=`echo $OUT | awk '{print $4}'`
+        job_cmd="${job_cmd} ${job_file}"
+        echo -n "Running command: ${job_cmd}  "
+        out="$(${job_cmd})"
+        echo "Result: ${out}"
+        dependency=$(echo "${out}" | awk '{print $4}')
     done
+    ```
+
+    The output looks like:
+    ```console
+    marie@login$ sh submit_scaling.sh
+    Running command: sbatch --ntasks=1 myjob.sh  Result: Submitted batch job 2963822
+    Running command: sbatch --ntasks=2 --dependency afterany:32963822 myjob.sh  Result: Submitted batch job 2963823
+    Running command: sbatch --ntasks=4 --dependency afterany:32963823 myjob.sh  Result: Submitted batch job 2963824
+    Running command: sbatch --ntasks=8 --dependency afterany:32963824 myjob.sh  Result: Submitted batch job 2963825
+    ```
+
+??? example "Example to submit job chain via script"
+
+    This script submits three different job files, which will be executed one after each other. Of
+    course, the dependency reasons can be adopted.
+
+    ```bash title="submit_job_chain.sh"
+    #!/bin/bash
+
+    declare -a job_names=("jobfile_a.sh" "jobfile_b.sh" "jobfile_c.sh")
+    dependency=""
+    arraylength=${#job_names[@]}
+
+    for (( i=0; i<arraylength; i++ )) ; do
+      job_nr=$((i + 1))
+      echo "Job ${job_nr}/${arraylength}: ${job_names[$i]}"
+      if [ -n "${dependency}" ] ; then
+          echo "Dependency: after job ${dependency}"
+          dependency="--dependency=afterany:${dependency}"
+      fi
+      job="sbatch ${dependency} ${job_names[$i]}"
+      out=$(${job})
+      dependency=$(echo "${out}" | awk '{print $4}')
+    done
+    ```
+
+    The output looks like:
+    ```console
+    marie@login$ sh submit_job_chains.sh
+    Job 1/3: jobfile_a.sh
+    Job 2/3: jobfile_b.sh
+    Dependency: after job 2963708
+    Job 3/3: jobfile_c.sh
+    Dependency: after job 2963709
     ```
 
 ## Array-Job with Afterok-Dependency and Datamover Usage

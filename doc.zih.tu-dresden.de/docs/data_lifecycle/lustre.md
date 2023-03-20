@@ -108,7 +108,7 @@ line mode within this documentation.
 !!! hint "Filesystem vs. Path"
 
     If you provide a path to the lfs commands instead of a filesystem, the lfs option is applied to
-    the filesystem this path is in. Thus, the provied information refers to the whole filesystem,
+    the filesystem this path is in. Thus, the passed information refers to the whole filesystem,
     not the path.
 
 You can retrieve a complete list of available options:
