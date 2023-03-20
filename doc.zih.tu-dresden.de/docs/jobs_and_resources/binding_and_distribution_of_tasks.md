@@ -273,7 +273,7 @@ node and the second node while filling the sockets linearly.
 
 ## GPU
 
-Currently with the Slurm version (20.11.9) used at Taurus
+Currently with the Slurm version (20.11.9) used ZIH systems
 it **is not possible** to bind tasks to GPUs.
 
 "Beginning in version 21.08, Slurm now supports NVIDIA
