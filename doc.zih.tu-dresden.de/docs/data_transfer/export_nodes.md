@@ -1,4 +1,4 @@
-# Export Nodes - Data Transfer to/from ZIH Systems
+# Transfer Data to/from ZIH Systems via Export Nodes
 
 To copy large data to/from ZIH systems, the so-called **export nodes** should be used. While it is
 possible to transfer small files directly via the login nodes, they are not intended to be used that

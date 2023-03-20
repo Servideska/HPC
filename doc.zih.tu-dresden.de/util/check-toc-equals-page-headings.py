@@ -1,6 +1,6 @@
-""" #!/usr/bin/env python
+#!/usr/bin/env python
+"""
 Check for consistency between TOC and page headings.
-Provide as an command line argument the path to the mkdocs.yml file.
 
 Author: Michael Bommhardt-Richter
 """
@@ -12,7 +12,7 @@ from pathlib import Path
 # {path/filename.md: [toc_heading, file_heading], ... }
 TOCData = dict()
 
-whitelist = ["index.md"]  # ["archive"]
+whitelist = ["index.md","archive/"]
 
 
 def get_heading_in_file(filename, docs_path):
@@ -52,11 +52,13 @@ def main():
         for key, value in TOCData.items():
             if key in whitelist:
                 continue
+            if whitelist[1] in key:
+                continue
             if value[0] == "Overview":
                 continue
             if value[0] != value[1]:
                 cnt += 1
-                print(f"{key:<40}{value[0]:<30} != {value[1]}")
+                print(f"{key:<40}{value[0]:<50} != {value[1]}")
         sys.exit(cnt)
     else:
         print("Error: Could not find mkdocs.yml file.")
