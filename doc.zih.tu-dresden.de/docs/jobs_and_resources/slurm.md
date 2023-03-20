@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2.0
+---
+
 # Batch System Slurm
 
 ZIH uses the batch system Slurm for resource management and job scheduling. Compute nodes are not
