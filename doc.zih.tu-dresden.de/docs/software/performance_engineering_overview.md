@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 2.0
+  boost: 450.0
 ---
 
 # Performance Engineering Overview
