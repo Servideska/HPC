@@ -131,7 +131,7 @@ about how to setup and use your local clone of the repository.
 ## CI/CD Pipeline
 
 All contributions need to pass the CI pipeline which consists of various checks to ensure, that the
-[contentent rules](content_rules.md) are meet.
+[content rules](content_rules.md) are meet.
 
 The stages of the CI/CD pipeline are defined in a `.gitlab.yaml` file. For security reasons, this
 file is managed in a second, private repository.
