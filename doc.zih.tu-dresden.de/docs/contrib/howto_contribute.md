@@ -25,7 +25,7 @@ how to contribute to this documentation. These ways are outlined below.
 
 !!! tip "Before you start"
 
-    Before you start your very first commit, please make sure, that you are familiar with our
+    Before you start your very first commit, please make sure that you are familiar with our
     [Git workflow](#git-workflow) and that you have at least skimmed the
     [Content Rules](content_rules.md).
 
