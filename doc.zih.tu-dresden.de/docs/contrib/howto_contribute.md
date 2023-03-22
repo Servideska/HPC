@@ -27,7 +27,7 @@ how to contribute to this documentation. These ways are outlined below.
 
     Before you start your very first commit, please make sure, that you are familiar with our
     [Git workflow](#git-workflow) and that you have at least skimmed the
-    [Content Guide Lines](content_rules.md).
+    [Content Rules](content_rules.md).
 
 ## Git Workflow
 
