@@ -42,7 +42,8 @@ pipeline consisting of several checks to ensure compliance with the content rule
 worry too much about the checks. ZIH staff will help you with that. You will find more information
 on the [CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
 
-The changes on `preview` branch are either automatically merged into the `main` branch on every
+In order to publish the updates and make them visible in the compendium,
+the changes on `preview` branch are either automatically merged into the `main` branch on every
 Monday via a pipeline schedule, or manually by admin staff. Moreover, the `main` branch is deployed
 to [https://compendium.hpc.tu-dresden.de](https://compendium.hpc.tu-dresden.de) and always reflects
 a production-ready state. Manual interventions are only necessary in case of merge conflicts. The
