@@ -20,7 +20,8 @@ structure as well as specification of the theme and extensions.
 
 We manage all essential files (markdown pages, graphics, configuration, theme, etc.) within a
 [public Git repository](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium), which
-makes it quite easy to contribute to this documentation. In principle, there are three possible ways
+makes it quite easy to keep track of issues and ensure the review process for contributions.
+In principle, there are three possible ways
 how to contribute to this documentation. These ways are outlined below.
 
 !!! tip "Before you start"
