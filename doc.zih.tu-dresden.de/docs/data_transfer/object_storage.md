@@ -14,7 +14,7 @@ marie@login$ module load rclone
 
 ## Initial Configuration
 
-Before you use `rclone` for the first time, you need to configure it. This is done interactively as
+Before you use `rclone` for the first time, you have to configure it. This is done interactively as
 shown below. Replace `REPLACE_ME_WITH_ACCESS_KEY` and `REPLACE_ME_WITH_SECRET_KEY` with the values
 from the self service portal:
 
