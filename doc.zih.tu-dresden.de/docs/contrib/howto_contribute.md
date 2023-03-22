@@ -39,7 +39,7 @@ feature branches which base on `preview`. If the contribution is ready, you will
 merge request back to the `preview` branch. A member of ZIH team will review the changes (four-eyes
 principle) and finally merge your changes to `preview`. All contributions need to pass the CI
 pipeline consisting of several checks to ensure compliance with the content rules. Please, don't
-worry to much about the checks. ZIH staff will help you with that. You will find more information
+worry too much about the checks. ZIH staff will help you with that. You will find more information
 on the [CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
 
 The changes on `preview` branch are either automatically merged into the `main` branch on every
