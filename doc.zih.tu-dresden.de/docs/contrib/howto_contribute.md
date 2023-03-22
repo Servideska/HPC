@@ -38,9 +38,9 @@ All contributions, e.g., new content, improved wording, fixed typos, etc, are ad
 feature branches which base on `preview`. If the contribution is ready, you will have to create a
 merge request back to the `preview` branch. A member of ZIH team will review the changes (four-eyes
 principle) and finally merge your changes to `preview`. All contributions need to pass the CI
-pipeline consisting of several checks to comply the content rules. Please, don't worry to much about
-this checks. ZIH staff will help you with that. You will find more information on the
-[CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
+pipeline consisting of several checks to ensure compliance with the content rules. Please, don't
+worry to much about the checks. ZIH staff will help you with that. You will find more information
+on the [CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
 
 The changes on `preview` branch are either automatically merged into the `main` branch on every
 Monday via a pipeline schedule, or manually by admin staff. Moreover, the `main` branch is deployed
@@ -131,7 +131,7 @@ about how to setup and use your local clone of the repository.
 ## CI/CD Pipeline
 
 All contributions need to pass the CI pipeline which consists of various checks to ensure, that the
-[content rules](content_rules.md) are meet.
+[content rules](content_rules.md) are met.
 
 The stages of the CI/CD pipeline are defined in a `.gitlab.yaml` file. For security reasons, this
 file is managed in a second, private repository.
