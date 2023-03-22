@@ -128,8 +128,6 @@ due to automatic checking.
 The page on [Contributing via local clone](contribute_container.md) provides you with the details
 about how to setup and use your local clone of the repository.
 
-
-
 ## CI/CD Pipeline
 
 All contributions need to pass the CI pipeline which consists of various checks to ensure, that the
@@ -137,6 +135,3 @@ All contributions need to pass the CI pipeline which consists of various checks 
 
 The stages of the CI/CD pipeline are defined in a `.gitlab.yaml` file. For security reasons, this
 file is managed in a second, private repository.
-
-
-
