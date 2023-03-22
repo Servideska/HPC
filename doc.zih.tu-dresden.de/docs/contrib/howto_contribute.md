@@ -5,11 +5,11 @@
     Ink is better than the best memory.
 
 In this section you will find information on the technical setup of this documentation, the applied
-content rules, Git workflow and certain ways for contribution.
+content rules, Git workflow and certain ways to contribute.
 
-Your contributions are highly welcome. This can range from adding new content, fixing typos,
-improving the phrasing and wording, adopting examples and command lines, etc. Our goal is to
-provide a consistent and up to date documentation. Thus, it is by no means a static documentation.
+Your contributions are highly welcome. This can range from fixing typos, improving the phrasing
+and wording to adopting examples, command lines and adding new content. Our goal is to
+provide a general, consistent and up to date documentation. Thus, it is by no means a static documentation.
 Moreover, is is constantly reviewed and updated.
 
 ## Technical Setup
