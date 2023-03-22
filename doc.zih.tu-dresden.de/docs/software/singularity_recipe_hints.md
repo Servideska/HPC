@@ -96,7 +96,6 @@ From: ubuntu:20.04
     # Configure and compile/install
     cd /tmp/mpich/mpich-$MPICH_VERSION
     ./configure --prefix=$MPICH_DIR && make install
-    cd ..    
     
     
     # Set env variables so we can compile our application
@@ -112,7 +111,7 @@ From: ubuntu:20.04
 At your local machine:
 
 ```console
-whoami@localhost# sudo singularity build ubuntu_mpich.sif ubuntu_mpich.def
+marie@local$ sudo singularity build ubuntu_mpich.sif ubuntu_mpich.def
 ```
 
 This will create the `ubuntu_mpich.sif` file that you have to copy to HPC system.
