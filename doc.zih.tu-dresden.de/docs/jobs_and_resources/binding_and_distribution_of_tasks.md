@@ -270,3 +270,9 @@ node and the second node while filling the sockets linearly.
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun --ntasks 8 --cpus-per-task $OMP_NUM_THREADS --cpu_bind=cores --distribution=cyclic:block ./application
     ```
+
+## GPU
+
+Currently with the Slurm version (20.11.9) used ZIH systems
+it **is not possible** to bind tasks to GPUs. Is will be possible as soon as Slurm is updated at
+least to version 21.08.0 (see [GRES/MIG documentation in Slurm 21.08.0](https://slurm.schedmd.com/archive/slurm-21.08.0/gres.html#MIG_Management)).
