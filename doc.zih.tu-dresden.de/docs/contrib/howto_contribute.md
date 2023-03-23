@@ -4,8 +4,7 @@
 
     Ink is better than the best memory.
 
-In this section you will find information on the technical setup of this documentation, the applied
-content rules, Git workflow and certain ways to contribute.
+In this section you will find information about the technical setup of this documentation, the content rules that apply, the Git workflow, and specific ways to contribute.
 
 Your contributions are highly welcome. This can range from fixing typos, improving the phrasing and
 wording to adopting examples, command lines and adding new content. Our goal is to provide a
