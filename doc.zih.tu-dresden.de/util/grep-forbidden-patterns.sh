@@ -38,7 +38,7 @@ Do not use \"up-to-date\", because this should be an inherent property of this g
 
 i	\(\<up-to-date\>\|up to date\)
 Replace \"todo\" with real content.
-doc.zih.tu-dresden.de/docs/archive/system_triton.md doc.zih.tu-dresden.de/docs/contrib/howto_contribute.md
+doc.zih.tu-dresden.de/docs/archive/system_triton.md	doc.zih.tu-dresden.de/docs/contrib/howto_contribute.md
 i	\<todo\>	<!--.*todo.*-->
 Replace variations of \"Coming soon\" with real content.
 
