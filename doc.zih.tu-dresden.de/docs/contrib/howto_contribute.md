@@ -19,10 +19,11 @@ This documentation is written in markdown and translated into static html pages 
 structure as well as specification of the theme and extensions.
 
 We manage all essential files (markdown pages, graphics, configuration, theme, etc.) within a
-[public Git repository](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium), which
-makes it quite easy to keep track of issues and ensure the review process for contributions.
-In principle, there are three possible ways
-how to contribute to this documentation. These ways are outlined below.
+[public Git repository](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium),
+allowing for collaborative working and revision control. Gitlab features offer different
+possibilities of contribution and ensure up-to-date and consistent content by including a review
+process. In principle, there are three possible ways how you can contribute to this documentation.
+These are outlined below.
 
 !!! tip "Before you start"
 
