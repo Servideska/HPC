@@ -21,13 +21,13 @@ We manage all essential files (markdown pages, graphics, configuration, theme, e
 [public Git repository](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium),
 allowing for collaborative working and revision control. GitLab's features offer different
 possibilities of contribution and ensure up-to-date and consistent content by including a review
-process. In principle, there are three possible ways how you can contribute to this documentation.
-These are outlined below.
+process. There are three possible ways how you can contribute to this documentation.
+These are described below.
 
 !!! tip "Before you start"
 
     Before you start your very first commit, please make sure that you are familiar with our
-    [Git workflow](#git-workflow) and that you have at least skimmed the
+    [Git workflow](#git-workflow) and that you have at least skimmed through the
     [Content Rules](content_rules.md).
 
 ## Git Workflow
