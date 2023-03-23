@@ -87,15 +87,15 @@ This process is handled by the admins.
 
 ## Content Rules
 
-To ensure a high-quality and consistent documentation and to make it easier for readers to
-understand all content, we set some [Content rules](content_rules.md). Please follow
+To ensure a high-quality and consistent documentation, and to make it easier for readers to
+understand all content, we have established [Content rules](content_rules.md). Please follow
 these rules regarding markdown syntax and writing style when contributing! Furthermore, reviewing
 your changes takes less time and your improvements appear faster on the official documentation.
 
 !!! note
 
     If you contribute, you are fully and solely responsible for the content you create and have to
-    ensure that you have the right to create it under the laws which apply.
+    ensure that you have the right to create it under applicable laws.
 
 ## Contribute via Issue
 
