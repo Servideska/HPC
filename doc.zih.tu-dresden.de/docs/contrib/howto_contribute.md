@@ -32,23 +32,23 @@ These are described below.
 
 ## Git Workflow
 
-We employ a so-called Git feature workflow with development branch. In our case, the working branch
+We employ a so-called Git feature workflow with a development branch. In our case, the working branch
 is called `preview` and is kept in parallel to the `main` branch.
 
-All contributions, e.g., new content, improved wording, fixed typos, etc, are added to separate
+All contributions, e.g., new content, improved wording, fixed typos, etc., are added to separate
 feature branches which base on `preview`. If the contribution is ready, you will have to create a
-merge request back to the `preview` branch. A member of ZIH team will review the changes (four-eyes
-principle) and finally merge your changes to `preview`. All contributions need to pass the CI
+merge request back to the `preview` branch. A member of the ZIH team will review the changes (four-eyes
+principle) and finally merge your changes to `preview`. All contributions need to pass through the CI
 pipeline consisting of several checks to ensure compliance with the content rules. Please, don't
-worry too much about the checks. ZIH staff will help you with that. You will find more information
-on the [CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
+worry too much about the checks. The ZIH staff will help you with that. You can find more information
+about the [CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
 
 In order to publish the updates and make them visible in the compendium,
 the changes on `preview` branch are either automatically merged into the `main` branch on every
 Monday via a pipeline schedule, or manually by admin staff. Moreover, the `main` branch is deployed
 to [https://compendium.hpc.tu-dresden.de](https://compendium.hpc.tu-dresden.de) and always reflects
-a production-ready state. Manual interventions are only necessary in case of merge conflicts. The
-admin staff will take care on this process.
+a production-ready state. Manual interventions are only necessary in case of merge conflicts. 
+This process is handled by the admins.
 
 ???+ note "Graphic on Git workflow"
 
