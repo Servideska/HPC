@@ -20,7 +20,7 @@ structure as well as specification of the theme and extensions.
 
 We manage all essential files (markdown pages, graphics, configuration, theme, etc.) within a
 [public Git repository](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium),
-allowing for collaborative working and revision control. Gitlab features offer different
+allowing for collaborative working and revision control. GitLab features offer different
 possibilities of contribution and ensure up-to-date and consistent content by including a review
 process. In principle, there are three possible ways how you can contribute to this documentation.
 These are outlined below.
