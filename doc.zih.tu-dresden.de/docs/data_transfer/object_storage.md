@@ -275,13 +275,18 @@ y/n> n
 
 ## Copying Data from/to Object Storage
 
-The following commands show how to create a bucket `mystorage` in your part of the object store and
-copy a file `largedata.tar.gz` to it.
+The following commands show how to create a bucket `mystorage` in your part of the object store:
 
 ```console
 marie@login$ module load rclone
 marie@login$ rclone mkdir s3store:mystorage
-marie@login$ rclone copy --s3-acl "public-read" largedata.tar.gz s3store:mystorage
+```
+
+After these commands, you can copy a file `largedata.tar.gz` to it in a separate job with the help
+of the [Datamover](datamover.md). Adjust the parameters `time` and `account` as required:
+
+```console
+marie@login$ dtrclone --time=0:10:00 --account=p_number_crunch copy --s3-acl "public-read" largedata.tar.gz s3store:mystorage
 ```
 
 !!! warning "Restricted access"
@@ -289,10 +294,17 @@ marie@login$ rclone copy --s3-acl "public-read" largedata.tar.gz s3store:mystora
     If you want to restrict access to your data, replace the last command with:
 
     ```console
-    marie@login$ rclone copy largedata.tar.gz s3store:mystorage
+    marie@login$ dtrclone --time=0:10:00 --account=p_number_crunch copy largedata.tar.gz s3store:mystorage
     ```
 
     Then, it is not possible to access your data without providing your credentials.
+
+For small files, you can also directly copy data:
+
+```console
+marie@login$ module load rclone
+marie@login$ rclone copy --s3-acl "public-read" largedata.tar.gz s3store:mystorage
+```
 
 ## Accessing the Object Storage
 
@@ -301,8 +313,7 @@ The following commands show different possibilities to access a file from object
 ### Copying a File from Object Storage to ZIH systems
 
 ```console
-marie@login$ module load rclone
-marie@login$ rclone copy s3store:mystorage/largedata.tar.gz .
+marie@login$ dtrclone --time=0:10:00 --account=p_number_crunch copy s3store:mystorage/largedata.tar.gz .
 ```
 
 ### Copying a File from Object Storage to Your Workstation
