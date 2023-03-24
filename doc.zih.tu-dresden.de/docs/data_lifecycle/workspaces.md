@@ -89,7 +89,7 @@ overview of some of these options. All available options can be queried by `ws_l
          expiration date      : Wed Oct 27 10:30:04 2021
          filesystem name      : scratch
          available extensions : 10
-         acctcode             : p_numbercrunch
+         acctcode             : p_number_crunch
          reminder             : Sat Oct 20 10:30:04 2021
          mailaddress          : marie@tu-dresden.de
     ```
