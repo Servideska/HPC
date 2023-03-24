@@ -4,7 +4,8 @@
 
     Ink is better than the best memory.
 
-In this section you will find information about the technical setup of this documentation, the content rules that apply, the Git workflow, and specific ways to contribute.
+In this section you will find information about the technical setup of this documentation, the
+content rules that apply, the Git workflow, and specific ways to contribute.
 
 Your contributions are highly welcome. This can range from fixing typos, improving the phrasing and
 wording to adopting examples, command lines and adding new content. Our goal is to provide a
@@ -37,17 +38,17 @@ is called `preview` and is kept in parallel to the `main` branch.
 
 All contributions, e.g., new content, improved wording, fixed typos, etc., are added to separate
 feature branches which base on `preview`. If the contribution is ready, you will have to create a
-merge request back to the `preview` branch. A member of the ZIH team will review the changes (four-eyes
-principle) and finally merge your changes to `preview`. All contributions need to pass through the CI
-pipeline consisting of several checks to ensure compliance with the content rules. Please, don't
-worry too much about the checks. The ZIH staff will help you with that. You can find more information
-about the [CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
+merge request back to the `preview` branch. A member of the ZIH team will review the changes
+(four-eyes principle) and finally merge your changes to `preview`. All contributions need to pass
+through the CI pipeline consisting of several checks to ensure compliance with the content rules.
+Please, don't worry too much about the checks. The ZIH staff will help you with that. You can find
+more information about the [CI/CD pipeline](cicd-pipeline) in the eponymous subsection.
 
 In order to publish the updates and make them visible in the compendium,
 the changes on `preview` branch are either automatically merged into the `main` branch on every
 Monday via a pipeline schedule, or manually by admin staff. Moreover, the `main` branch is deployed
 to [https://compendium.hpc.tu-dresden.de](https://compendium.hpc.tu-dresden.de) and always reflects
-a production-ready state. Manual interventions are only necessary in case of merge conflicts. 
+a production-ready state. Manual interventions are only necessary in case of merge conflicts.
 This process is handled by the admins.
 
 ???+ note "Graphic on Git workflow"
@@ -118,22 +119,21 @@ documentation.
 ## Contribute via Web IDE
 
 If you have a web browser (most probably you are using it to read this page) and want to contribute
-to the documentation, you are good to go. GitLab offers a rich and versatile web interface for working
-with repositories. To start fixing typos and edit source files, you can find more information on the
-page [Contributing via web browser](contribute_browser.md).
+to the documentation, you are good to go. GitLab offers a rich and versatile web interface for
+working with repositories. To start fixing typos and edit source files, you can find more
+information on the page [Contributing via web browser](contribute_browser.md).
 
 ## Contribute via Local Clone
 
-For experienced Git users, we provide a Docker container that includes all the checks of the CI engine
-used in the backend. Using them should ensure that merge requests are not blocked
-due to automatic checks.
-The page [Contributing via local clone](contribute_container.md) provides you with the details
-about how to set up and use your local clone of the repository.
+For experienced Git users, we provide a Docker container that includes all the checks of the CI
+engine used in the backend. Using them should ensure that merge requests are not blocked due to
+automatic checks.  The page [Contributing via local clone](contribute_container.md) provides you
+with the details about how to set up and use your local clone of the repository.
 
 ## CI/CD Pipeline
 
-All contributions need to pass through the CI pipeline which consists of various checks to ensure, that the
-[content rules](content_rules.md) are have been followed.
+All contributions need to pass through the CI pipeline which consists of various checks to ensure,
+that the [content rules](content_rules.md) are have been followed.
 
 The stages of the CI/CD pipeline are defined in a `.gitlab.yaml` file. For security reasons, this
 file is maintained in a second, private repository.
