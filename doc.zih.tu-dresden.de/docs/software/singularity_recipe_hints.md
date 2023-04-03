@@ -32,8 +32,9 @@ From: alpine
   cd ..
   rm -r fmt-5.3.0*
 
-  cat hello.cpp
-#include &lt;fmt/format.h&gt;
+  cat <<'EOF' >>  hello.cpp
+
+#include <fmt/format.h>  // literal
 
 int main(int argc, char** argv){
   if(argc == 1) fmt::print("No arguments passed!\n");
