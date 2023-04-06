@@ -4,7 +4,8 @@ To copy large data to/from ZIH systems, the so-called **export nodes** should be
 possible to transfer small files directly via the login nodes, they are not intended to be used that
 way. Furthermore, longer transfers will hit the CPU time limit on the login nodes, i.e. the process
 get killed. The **export nodes** have a better uplink (10 GBit/s) allowing for higher bandwidth. Note
-that you cannot log in via SSH to the export nodes, but only use `scp`, `rsync` or `sftp` on them.
+that you cannot log in via SSH to the export nodes, but only use `scp`, `rsync` or `sftp`
+(incl. FTP-clients like e.g. [FileZilla](https://filezilla-project.org/)) on them.
 
 The export nodes are reachable under the hostname `taurusexport.hrsk.tu-dresden.de` (or
 `taurusexport3.hrsk.tu-dresden.de` and `taurusexport4.hrsk.tu-dresden.de`).
