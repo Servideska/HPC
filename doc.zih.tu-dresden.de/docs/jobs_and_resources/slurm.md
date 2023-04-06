@@ -319,7 +319,7 @@ provide a comprehensive collection of job examples.
 ## Using Simultaneous Multithreading (SMT)
 
 Most modern architectures offer simultaneous multithreading (SMT), where physical cores of a CPU are
-splittet into virtual cores (aka. threads). This technique allows to run two instruction streams per
+split into virtual cores (aka. threads). This technique allows to run two instruction streams per
 physical core in parallel.
 
 At ZIH systems, SMT is available at the partitions `rome` and `alpha`. It is deactivated by
@@ -328,9 +328,9 @@ If you wish to make use of the SMT cores, you need to explicitly activate it.
 In principle, there are two different ways:
 
 1. Change the value of the environment variable via `export SLURM_HINT=multithread` in your current
-   shell and submit your jobfile, or invoke your `srun` or `salloc` command line.
+   shell and submit your job file, or invoke your `srun` or `salloc` command line.
 
-1. Clear the evironment variable via `unset SLURM_HINT` and provide the option `--hint=multithread`
+1. Clear the environment variable via `unset SLURM_HINT` and provide the option `--hint=multithread`
    to `sbatch`, `srun` or `salloc` command line.
 
 ??? warning
