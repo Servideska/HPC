@@ -316,6 +316,32 @@ provide a comprehensive collection of job examples.
     * Submisson: `marie@login$ sbatch batch_script.sh`
     * Run with fewer MPI tasks: `marie@login$ sbatch --ntasks=14 batch_script.sh`
 
+## Using Simultaneous Multithreading (SMT)
+
+Most modern architectures offer simultaneous multithreading (SMT), where physical cores of a CPU are
+splittet into virtual cores (aka. threads). This technique allows to run two instruction streams per
+physical core in parallel.
+
+At ZIH systems, SMT is available at the partitions `rome` and `alpha`. It is deactivated by
+default, because the environment variable `SLURM_HINT` is set to `nomultithread`.
+If you wish to make use of the SMT cores, you need to explicitly activate it.
+In principle, there are two different ways:
+
+1. Change the value of the environment variable via `export SLURM_HINT=multithread` in your current
+   shell and submit your jobfile, or invoke your `srun` or `salloc` command line.
+
+1. Clear the evironment variable via `unset SLURM_HINT` and provide the option `--hint=multithread`
+   to `sbatch`, `srun` or `salloc` command line.
+
+??? warning
+
+     If you like to activate SMT via the directive
+     ```
+     #SBATCH --hint=multithread
+     ```
+     within your job file, you also have to clear the environment variable `SLURM_HINT` before
+     submitting the job file. Otherwise, the environment varibale `SLURM_HINT` takes precedence.
+
 ## Heterogeneous Jobs
 
 A heterogeneous job consists of several job components, all of which can have individual job
