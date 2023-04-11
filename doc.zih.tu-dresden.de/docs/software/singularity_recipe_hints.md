@@ -143,8 +143,11 @@ From: nvidia/cuda-ppc64le:10.1-cudnn7-devel-ubuntu18.04
 
 %post
     . /.singularity.d/env/10-docker*.sh
-
-    apt-get update
+# new key you need in container start, to get cuda-compat-10.1
+    set  driver.imagePullPolicy=Always
+    apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/ppc64el/3bf863cc.pub
+# end of the instructions
+    apt-get update -y
     apt-get install -y cuda-compat-10.1
     apt-get install -y libibverbs-dev ibverbs-utils
     # Install basic development tools
