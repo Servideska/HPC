@@ -1,4 +1,4 @@
-# Datamover - Data Transfer Inside ZIH Systems
+# Transfer Data Inside ZIH Systems with Datamover
 
 With the **Datamover**, we provide a special data transfer machine for transferring data with best
 transfer speed between the filesystems of ZIH systems. The Datamover machine is not accessible
@@ -70,7 +70,7 @@ To identify the mount points of the different filesystems on the data transfer m
 
 ## Transferring Files Between ZIH Systems and Group Drive
 
-1. Copy your private SSH key from ZIH system to `login1.zih.tu-dresden.de`.
+1. Copy your public SSH key from ZIH system to `login1.zih.tu-dresden.de`.
 
    ``` console
    marie@login$ ssh-copy-id -i ~/.ssh/id_rsa.pub login1.zih.tu-dresden.de

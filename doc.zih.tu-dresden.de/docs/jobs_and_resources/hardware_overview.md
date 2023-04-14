@@ -26,7 +26,7 @@ users and the ZIH.
 
 - 34 nodes, each with
     - 8 x NVIDIA A100-SXM4 Tensor Core-GPUs
-    - 2 x AMD EPYC CPU 7352 (24 cores) @ 2.3 GHz, Multithreading disabled
+    - 2 x AMD EPYC CPU 7352 (24 cores) @ 2.3 GHz, Multithreading available
     - 1 TB RAM
     - 3.5 TB local memory on NVMe device at `/tmp`
 - Hostnames: `taurusi[8001-8034]`
@@ -36,7 +36,7 @@ users and the ZIH.
 ## Island 7 - AMD Rome CPUs
 
 - 192 nodes, each with
-    - 2 x AMD EPYC CPU 7702 (64 cores) @ 2.0 GHz, Multithreading enabled,
+    - 2 x AMD EPYC CPU 7702 (64 cores) @ 2.0 GHz, Multithreading available
     - 512 GB RAM
     - 200 GB local memory on SSD at `/tmp`
 - Hostnames: `taurusi[7001-7192]`
