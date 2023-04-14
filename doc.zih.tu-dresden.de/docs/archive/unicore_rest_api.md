@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # UNICORE access via REST API (Outdated)
 
 !!! warning

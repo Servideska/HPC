@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # Linux Networx PC-Cluster Phobos (Outdated)
 
 !!! warning

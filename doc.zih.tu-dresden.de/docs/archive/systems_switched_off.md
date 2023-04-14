@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # Switched-Off Systems (Outdated)
 
 HPC at ZIH has a quite long history and several systems have been installed and operated.

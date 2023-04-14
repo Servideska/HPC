@@ -424,3 +424,31 @@ understanding. This holds especially for Slurm options, but also other commands.
     |----|-------|
     | `srun --nodes=2 --ntasks-per-node=4 [...]`| `srun -N 2 -n 4 [...]` |
     | `module load [...]` | `ml [...]` |
+
+### Customize Search
+
+The
+[documentation for the search plugin](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/)
+of the material theme is quite comprehensive. The search is realized as client-side search using the
+open-source tool on [lunr](https://lunrjs.com/). The ranking of pages in search results bases on
+so-called scoring. Please refer to
+[lunrjs documentation](https://lunrjs.com/guides/searching.html#scoring) for details.
+
+From time to time it might be necessary to **tweak the search priority of certain pages**.
+For example, pages from the archive section should be ranked very low in search results. This can be
+achieved by adding the front matter `search.boost` property added to the top of the Markdown file of
+interest:
+
+```Markdown
+---
+search:
+  boost: 2
+---
+
+# Document Title
+
+[...]
+```
+
+The documentation of this plugin gives no range for the boost values. We recommend to use this
+feature carefully starting with low values.

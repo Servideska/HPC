@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # Migration towards Phase 2 (Outdated)
 
 ## How to copy your data from an old scratch (Atlas, Venus, Taurus I) to our new scratch (Taurus II)

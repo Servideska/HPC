@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # Migration from Deimos to Atlas (Outdated)
 
 !!! warning

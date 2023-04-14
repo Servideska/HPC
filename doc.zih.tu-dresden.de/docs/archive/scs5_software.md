@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # SCS5 Migration Hints (Outdated)
 
 !!! warning
