@@ -12,6 +12,14 @@ The hardware specification is documented on the page
     The NVIDIA A100 GPUs may only be used with **CUDA 11** or later. Earlier versions do not
     recognize the new hardware properly. Make sure the software you are using is built with CUDA11.
 
+There is a total of 48 physical cores in each node. SMT is also active, so in total, 96 logical
+cores are available per node.
+
+!!! note
+
+        Multithreading is disabled per default in a job.
+        See the [Slurm page](slurm.md) on how to enable it.
+
 ### Modules
 
 The easiest way is using the [module system](../software/modules.md).
