@@ -432,7 +432,7 @@ The
 of the material theme is quite comprehensive. The search is realized as client-side search using the
 open-source tool on [lunr](https://lunrjs.com/). The ranking of pages in search results bases on
 so-called scoring. Please refer to
-[lunrjs documenation](https://lunrjs.com/guides/searching.html#scoring) for details.
+[lunrjs documentation](https://lunrjs.com/guides/searching.html#scoring) for details.
 
 From time to time it might be necessary to **tweak the search priority of certain pages**.
 For example, pages from the archive section should be ranked very low in search results. This can be
