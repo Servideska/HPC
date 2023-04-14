@@ -17,9 +17,8 @@ cores are available per node.
 
 !!! note
 
-    Multithreading is disabled per default in a job. To make use of it include the Slurm parameter
-    `--hint=multithread` in your job script or command line, or set the environment variable
-    `SLURM_HINT=multithread` before job submission.
+        Multithreading is disabled per default in a job.
+        See the [Slurm page](slurm.md) on how to enable it.
 
 ### Modules
 
