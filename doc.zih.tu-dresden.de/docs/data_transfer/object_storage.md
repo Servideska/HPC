@@ -1,7 +1,8 @@
 # Transfer Data between ZIH Systems and Object Storage (S3)
 
-Object Storage is an alternative to normal filesystem storage. It can be accessed via HTTPS.
-Access is provided on request via the corresponding
+Object Storage is an alternative to normal filesystem storage. It can be accessed via HTTPS and can
+therefor be used where direct `scp` connections are prohibited, e.g. when one wants to copy data to
+another NHR center. Access is provided on request via the corresponding
 [self service page on object storage](https://selfservice.tu-dresden.de/services/objectstorage/).
 The access key (`Zugriffsschlüssel`) and the secret key (`Geheimer Schlüssel`) are required later
 when copying data to it.
@@ -282,8 +283,8 @@ marie@login$ module load rclone
 marie@login$ rclone mkdir s3store:mystorage
 ```
 
-After these commands, you can copy a file `largedata.tar.gz` to it in a separate job with the help
-of the [Datamover](datamover.md). Adjust the parameters `time` and `account` as required:
+After these commands, you can copy a file, e. g. `largedata.tar.gz`, to it in a separate job with
+the help of the [Datamover](datamover.md). Adjust the parameters `time` and `account` as required:
 
 ```console
 marie@login$ dtrclone --time=0:10:00 --account=p_number_crunch copy --s3-acl "public-read" largedata.tar.gz s3store:mystorage
