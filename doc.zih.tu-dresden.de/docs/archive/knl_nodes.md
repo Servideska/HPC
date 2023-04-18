@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # Intel Xeon Phi (Knights Landing) (Outdated)
 
 !!! warning

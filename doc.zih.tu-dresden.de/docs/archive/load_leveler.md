@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # LoadLeveler - IBM Tivoli Workload Scheduler (Outdated)
 
 !!! warning

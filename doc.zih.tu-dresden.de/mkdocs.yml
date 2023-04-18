@@ -186,6 +186,7 @@ theme:
   second_logo: assets/images/zih_weiss.png
   features:
     - navigation.instant
+    - search.highlight
     
 # extends base css/js
 extra_css:
