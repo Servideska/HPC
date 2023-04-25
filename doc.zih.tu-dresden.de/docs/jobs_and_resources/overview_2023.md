@@ -5,18 +5,20 @@ analytics, and artificial intelligence methods with extensive capabilities for p
 
 ## Overview
 
-From the users' pespective, there are seperate clusters:
+From the users' pespective, there are seperate clusters, all of them with their respective subdomains:
 
-- **Barnard** - CPU cluster (2023)
-- **Romeo** - CPU cluster (2020)
-- **Alpha Centauri** - GPU cluster (2021)
-- **Julia** - single SMP system (2021)
-- **ML** - IBM Power/GPU system (2018)
+| Name | Description | Year| DNS | 
+| --- | --- | --- | --- |
+| **Barnard** | CPU cluster |2023| *.barnard.hpc.tu-dresden.de |
+| **Romeo** | CPU cluster |2020|*.romeo.hpc.tu-dresden.de |
+| **Alpha Centauri** | GPU cluster |2021|*.alpha.hpc.tu-dresden.de |
+| **Julia** | single SMP system |2021|julia.hpc.tu-dresden.de |
+| **Power** | IBM Power/GPU system |2018|*.power.hpc.tu-dresden.de |
 
 
+They run with their own Slurm batch system. Job submission is possible only from their login nodes.
 
 
-They run with their own Slurm batch system. 
 
 
 All clusters have access to these shared parallel file systems:
