@@ -5,7 +5,7 @@ analytics, and artificial intelligence methods with extensive capabilities for p
 
 ## Overview
 
-From the users' pespective, there are seperate clusters, all of them with their respective subdomains:
+From the users' pespective, there are seperate clusters, all of them with their subdomains:
 
 | Name | Description | Year| DNS | 
 | --- | --- | --- | --- |
@@ -18,14 +18,12 @@ From the users' pespective, there are seperate clusters, all of them with their 
 
 They run with their own Slurm batch system. Job submission is possible only from their login nodes.
 
-
-
-
 All clusters have access to these shared parallel file systems:
 
 | File system | Usable directory | Capacity | Purpose |
 | --- | --- | --- | --- |
-| `Lustre` | `/lustre/bulk` | 4 PB |
-| `Lustre` | `/lustre/fast` | 40 TB | 
+| `Lustre` | `/lustre/bulk` | 20 PB |
+| `Lustre` | `/lustre/fast` | 2 PB | 
 | `Weka` | `/weka` | 232 TB | 
-| `Home` | `/home` | 95 GB |
+| `Home` | `/home` | 40 TB |
+
