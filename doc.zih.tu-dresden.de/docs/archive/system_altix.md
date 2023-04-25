@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.00001
+---
+
 # SGI Altix (Outdated)
 
 !!! warning
