@@ -29,20 +29,11 @@ All clusters have access to these shared parallel file systems:
 
 ## Barnard - Intel Sapphire Rapids CPUs
 
-- 630 nodes, each with
-    - 2 x Intel(R) Xeon(R) CPU E5-2680 v3 (12 cores) @ 2.50 GHz, Multithreading disabled
-    - 128 GB local memory on SSD
-- Varying amounts of main memory (selected automatically by the batch system for you according to
-  your job requirements)
-  * 594 nodes with 2.67 GB RAM per core (64 GB in total): `taurusi[6001-6540,6559-6612]`
-    - 18 nodes with 10.67 GB RAM per core (256 GB in total): `taurusi[6541-6558]`
-- Hostnames: `taurusi[6001-6612]`
-- Slurm Partition: `haswell`
-
-??? hint "Node topology"
-
-    ![Node topology](misc/i4000.png)
-    {: align=center}
+- 630 diskless nodes, each with
+    - 2 x Intel(R) Xeon(R) CPU E5-2680 v3 (52 cores) @ 2.50 GHz, Multithreading enabled
+    - 512 GB RAM
+- Hostnames: `n1[001-630].barnard.hpc.tu-dresden.de`
+- Login nodes: `login[1-4].barnard.hpc.tu-dresden.de`
 
 
 ## AMD Rome CPUs + NVIDIA A100
@@ -52,8 +43,8 @@ All clusters have access to these shared parallel file systems:
     - 2 x AMD EPYC CPU 7352 (24 cores) @ 2.3 GHz, Multithreading available
     - 1 TB RAM
     - 3.5 TB local memory on NVMe device at `/tmp`
-- Hostnames: `taurusi[8001-8034]`
-- Slurm partition: `alpha`
+- Hostnames: `taurusi[8001-8034]`  -> `n[1-37].alpha.hpc.tu-dresden.de`
+- Login nodes: `login[1-2].alpha.hpc.tu-dresden.de`
 - Further information on the usage is documented on the site [Alpha Centauri Nodes](alpha_centauri.md)
 
 ## Island 7 - AMD Rome CPUs
@@ -62,8 +53,8 @@ All clusters have access to these shared parallel file systems:
     - 2 x AMD EPYC CPU 7702 (64 cores) @ 2.0 GHz, Multithreading available
     - 512 GB RAM
     - 200 GB local memory on SSD at `/tmp`
-- Hostnames: `taurusi[7001-7192]`
-- Slurm partition: `romeo`
+- Hostnames: `taurusi[7001-7192]` -> `n[1-190].romeo.hpc.tu-dresden.de`
+- Login nodes: `login[1-2].romeo.hpc.tu-dresden.de`
 - Further information on the usage is documented on the site [AMD Rome Nodes](rome_nodes.md)
 
 ## Large SMP System HPE Superdome Flex
