@@ -2,7 +2,7 @@
 
 Object Storage is an alternative to normal filesystem storage. It can be accessed via HTTPS and can
 therefor be used where direct `scp` connections are prohibited, e.g. when one wants to copy data to
-another NHR center. Access is provided on request via the corresponding
+another data center. Access is provided on request via the corresponding
 [self service page on object storage](https://selfservice.tu-dresden.de/services/objectstorage/).
 The access key (`Zugriffsschlüssel`) and the secret key (`Geheimer Schlüssel`) are required later
 when copying data to it.
