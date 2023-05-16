@@ -341,7 +341,7 @@ Please read the Slurm documentation at https://slurm.schedmd.com/sbatch.html for
 
 You can use chain jobs to **create dependencies between jobs**. This is often useful if a job
 relies on the result of one or more preceding jobs. Chain jobs can also be used to split a long
-runnning job exceeding the batch queues limits into parts and chain these parts. Slurm has an option
+running job exceeding the batch queues limits into parts and chain these parts. Slurm has an option
 `-d, --dependency=<dependency_list>` that allows to specify that a job is only allowed to start if
 another job finished.
 

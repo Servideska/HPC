@@ -74,8 +74,8 @@ The available compute nodes are grouped into logical (possibly overlapping) sets
 
 Some partitions/nodes have Simultaneous Multithreading (SMT) enabled. You request for this
 additional threads using the Slurm option `--hint=multithread` or by setting the environment
-varibale `SLURM_HINT=multithread`. Besides the usage of the threads to speed up the computations,
-the memory of the other threads is allocated implicitly, too, and you will allways get
+variable `SLURM_HINT=multithread`. Besides the usage of the threads to speed up the computations,
+the memory of the other threads is allocated implicitly, too, and you will always get
 `Memory per Core`*`number of threads` as memory pledge.
 
 Some partitions have a *interactive* counterpart for interactive jobs. The corresponding partitions
