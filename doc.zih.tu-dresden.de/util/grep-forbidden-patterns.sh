@@ -3,16 +3,21 @@
 set -euo pipefail
 
 scriptpath=${BASH_SOURCE[0]}
-basedir=`dirname "$scriptpath"`
-basedir=`dirname "$basedir"`
+basedir=`dirname "${scriptpath}"`
+basedir=`dirname "${basedir}"`
 
-#This is the ruleset. Each rule consists of a message (first line), a tab-separated list of files to skip (second line) and a pattern specification (third line).
+#This is the ruleset. Each rule consists of a message (first line), a tab-
+# separated list of files to skip (second line) and a pattern specification
+# (third line).
 #A pattern specification is a tab-separated list of fields:
-#The first field represents whether the match should be case-sensitive (s) or insensitive (i).
-#The second field represents the pattern that should not be contained in any file that is checked.
+#The first field represents whether the match should be case-sensitive (s) or
+# insensitive (i).
+#The second field represents the pattern that should not be contained in any
+# file that is checked.
 #Further fields represent patterns with exceptions.
 #For example, the first rule says:
-# The pattern \<io\> should not be present in any file (case-insensitive match), except when it appears as ".io".
+# The pattern \<io\> should not be present in any file (case-insensitive
+# match), except when it appears as ".io".
 ruleset="The word \"IO\" should not be used, use \"I/O\" instead.
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md
 i	\<io\>	\.io
@@ -21,7 +26,7 @@ doc.zih.tu-dresden.de/docs/contrib/content_rules.md
 s	\<SLURM\>
 \"File system\" should be written as \"filesystem\", except when used as part of a proper name.
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md
-i	file \+system	HDFS
+i	file \+system	HDFS	Hadoop distributed file system
 Use \"ZIH systems\" or \"ZIH system\" instead of \"Taurus\". \"taurus\" is only allowed when used in ssh commands and other very specific situations.
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md	doc.zih.tu-dresden.de/docs/archive/phase2_migration.md
 i	\<taurus\>	taurus\.hrsk	/taurus	/TAURUS	ssh	^[0-9]\+:Host taurus$
@@ -48,7 +53,7 @@ Add table column headers.
 i	^[ |]*|$
 Avoid spaces at end of lines.
 doc.zih.tu-dresden.de/docs/accessibility.md
-i	[[:space:]]$
+i	[[:space:]]$	[[:alnum:]]\+> $
 When referencing projects, please use p_number_crunch for consistency.
 
 i	\<p_	p_number_crunch	p_long_computations
@@ -68,49 +73,54 @@ Use \"workspace\" instead of \"work space\" or \"work-space\".
 doc.zih.tu-dresden.de/docs/contrib/content_rules.md
 i	work[ -]\+space"
 
-function grepExceptions () {
+function grep_exceptions () {
   if [ $# -gt 0 ]; then
     firstPattern=$1
     shift
-    grep -v "$firstPattern" | grepExceptions "$@"
+    grep -v "${firstPattern}" | grep_exceptions "$@"
   else
     cat -
   fi
 }
 
-function checkFile(){
+function check_file(){
   f=$1
-  echo "Check wording in file $f"
+  echo "Check wording in file ${f}"
   while read message; do
     IFS=$'\t' read -r -a files_to_skip
     skipping=""
-    if (printf '%s\n' "${files_to_skip[@]}" | grep -xq $f); then
+    if (printf '%s\n' "${files_to_skip[@]}" | grep -xq ${f}); then
       skipping=" -- skipping"
     fi
     IFS=$'\t' read -r flags pattern exceptionPatterns
     while IFS=$'\t' read -r -a exceptionPatternsArray; do
-      #Prevent patterns from being printed when the script is invoked with default arguments.
-      if [ $verbose = true ]; then
-        echo "  Pattern: $pattern$skipping"
+      # Prevent patterns from being printed when the script is invoked with
+      # default arguments.
+      if [ ${verbose} = true ]; then
+        echo "  Pattern: ${pattern}${skipping}"
       fi
-      if [ -z "$skipping" ]; then
+      if [ -z "${skipping}" ]; then
         grepflag=
-        case "$flags" in
+        case "${flags}" in
           "i")
             grepflag=-i
           ;;
         esac
-        if grep -n $grepflag $color "$pattern" "$f" | grepExceptions "${exceptionPatternsArray[@]}" ; then
-          number_of_matches=`grep -n $grepflag $color "$pattern" "$f" | grepExceptions "${exceptionPatternsArray[@]}" | wc -l`
+        if grep -n ${grepflag} ${color} "${pattern}" "${f}" \
+         | grep_exceptions "${exceptionPatternsArray[@]}" ; then
+          number_of_matches=`grep -n ${grepflag} ${color} "${pattern}" "${f}" \
+                           | grep_exceptions "${exceptionPatternsArray[@]}" \
+                           | wc -l`
           ((cnt=cnt+$number_of_matches))
-          #prevent messages when silent=true, only files, pattern matches and the summary are printed
-          if [ $silent = false ]; then
-            echo "    $message"
+          # prevent messages when silent=true,
+          # only files, pattern matches and the summary are printed
+          if [ ${silent} = false ]; then
+            echo "    ${message}"
           fi
         fi
       fi
-    done <<< $exceptionPatterns
-  done <<< $ruleset
+    done <<< ${exceptionPatterns}
+  done <<< ${ruleset}
 }
 
 function usage () {
@@ -137,7 +147,7 @@ verbose=false
 file=""
 color=""
 while getopts ":ahsf:cv" option; do
- case $option in
+ case ${option} in
    a)
      all_files=true
      ;;
@@ -166,40 +176,41 @@ done
 
 branch="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-preview}"
 
-if [ $all_files = true ]; then
+if [ ${all_files} = true ]; then
   echo "Search in all markdown files."
-  files=$(git ls-tree --full-tree -r --name-only HEAD $basedir/ | grep .md)
-elif [[ ! -z $file ]]; then
-  files=$file
+  files=$(git ls-tree --full-tree -r --name-only HEAD ${basedir}/ | grep .md)
+elif [[ ! -z ${file} ]]; then
+  files=${file}
 else
   echo "Search in git-changed files."
-  files=`git diff --name-only "$(git merge-base HEAD "$branch")"`
+  files=`git diff --name-only "$(git merge-base HEAD "${branch}")"`
 fi
 
-#Prevent files from being printed when the script is invoked with default arguments.
-if [ $verbose = true ]; then
-echo "... $files ..."
+#Prevent files from being printed when the script is invoked with default
+# arguments.
+if [ ${verbose} = true ]; then
+echo "... ${files} ..."
 fi
 cnt=0
-if [[ ! -z $file ]]; then
-  checkFile $file
+if [[ ! -z ${file} ]]; then
+  check_file ${file}
 else
-  for f in $files; do
-    if [ "${f: -3}" == ".md" -a -f "$f" ]; then
-      checkFile $f
+  for f in ${files}; do
+    if [ "${f: -3}" == ".md" -a -f "${f}" ]; then
+      check_file ${f}
     fi
   done
 fi
 
 echo "" 
-case $cnt in
+case ${cnt} in
   1)
     echo "Forbidden Patterns: 1 match found"
   ;;
   *)
-    echo "Forbidden Patterns: $cnt matches found"
+    echo "Forbidden Patterns: ${cnt} matches found"
   ;;
 esac
-if [ $cnt -gt 0 ]; then
+if [ ${cnt} -gt 0 ]; then
   exit 1
 fi
