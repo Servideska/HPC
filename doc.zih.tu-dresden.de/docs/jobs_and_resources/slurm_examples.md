@@ -9,10 +9,10 @@ depend on the type of parallelization and architecture.
 
 An SMP-parallel job can only run within a node, so it is necessary to include the options `--node=1`
 and `--ntasks=1`. The maximum number of processors for an SMP-parallel program is 896 and 56 on
-partition `taurussmp8` and  `smp2`, respectively.  Please refer to the
-[partitions section](partitions_and_limits.md#memory-limits) for up-to-date information. Using the
-option `--cpus-per-task=<N>` Slurm will start one task and you will have `N` CPUs available for your
-job. An example job file would look like:
+partition `taurussmp8` and  `smp2`, respectively, as described in the
+[section on memory limits](partitions_and_limits.md#memory-limits). Using the option
+`--cpus-per-task=<N>` Slurm will start one task and you will have `N` CPUs available for your job.
+An example job file would look like:
 
 !!! example "Job file for OpenMP application"
 
