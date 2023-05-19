@@ -54,6 +54,30 @@ while read -r; do
   fi
 done <<< "$files"
 
+echo "Checking floating pages"
+if ! runInDocker ./doc.zih.tu-dresden.de/util/check-no-floating.sh; then
+  echo -e "\tFailed"
+  exit_ok=no
+fi
+
+echo "Checking that every page is not included more than once"
+if ! runInDocker ./doc.zih.tu-dresden.de/util/check-every-page-not-included-more-than-once.sh; then
+  echo -e "\tFailed"
+  exit_ok=no
+fi
+
+echo "Checking that contains necessary links"
+if ! runInDocker ./doc.zih.tu-dresden.de/util/check-footer.sh; then
+  echo -e "\tFailed"
+  exit_ok=no
+fi
+
+echo "Checking max depth"
+if ! runInDocker ./doc.zih.tu-dresden.de/util/check-max-depth.sh; then
+  echo -e "\tFailed"
+  exit_ok=no
+fi
+
 echo "Testing syntax of bash files..."
 if ! runInDocker ./doc.zih.tu-dresden.de/util/check-bash-syntax.sh; then
   echo -e "\tFailed"
