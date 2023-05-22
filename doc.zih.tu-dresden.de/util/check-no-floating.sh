@@ -3,7 +3,10 @@ scriptpath=${BASH_SOURCE[0]}
 basedir=$(dirname "${scriptpath}")
 basedir=$(dirname "${basedir}")
 DOCUMENT_ROOT=${basedir}/docs
-expectedFooter="legal_notice.md accessibility.md data_protection_declaration.md"
+expectedFooter="\
+legal_notice.md \
+accessibility.md \
+data_protection_declaration.md"
 
 MSG=$(find ${DOCUMENT_ROOT} -name "*.md" | while IFS=' ' read string
   do
@@ -11,7 +14,8 @@ MSG=$(find ${DOCUMENT_ROOT} -name "*.md" | while IFS=' ' read string
 
     # md included in nav 
     if [[ ! "${expectedFooter}" =~ ${md} ]]; then
-      numberOfReferences=$(sed -n '/nav:/,/^$/p' ${basedir}/mkdocs.yml | grep -c ${md})
+      numberOfReferences=$(sed -n '/nav:/,/^$/p' ${basedir}/mkdocs.yml \
+        | grep -c ${md})
       if [[ ${numberOfReferences} -eq 0 ]]; then
         echo "${md} is not included in nav"
       fi

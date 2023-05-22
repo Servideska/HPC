@@ -7,7 +7,8 @@ DOCUMENT_ROOT=${basedir}/docs
 maxDepth=1
 DOCUMENT_SLASH_COUNT=$(echo "${DOCUMENT_ROOT}/" | awk -F'/' '{print NF}')
 
-MSG=$(find ${DOCUMENT_ROOT} -name "*.md" | awk -F'/' '{print $0,NF}' | while IFS=' ' read string slash_count
+MSG=$(find ${DOCUMENT_ROOT} -name "*.md" | awk -F'/' '{print $0,NF}' \
+  | while IFS=' ' read string slash_count
   do
     depth=$((slash_count - DOCUMENT_SLASH_COUNT))
     if [[ "${depth}" -gt ${maxDepth} ]]; then
