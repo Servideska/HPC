@@ -33,7 +33,7 @@ In this sense, you should minimize the usage of system calls querying or modifyi
 and directory attributes, e.g. `stat()`, `statx()`, `open()`, `openat()` etc.
 
 Please, also avoid commands basing on the above mentioned system calls such as `ls -l` and
-`ls --color`. Instead, you should invoke `ls` or `ls -l <filename` to reduce metadata operations.
+`ls --color`. Instead, you should invoke `ls` or `ls -l <filename>` to reduce metadata operations.
 This also holds for commands walking the filesystems recursively performing massive metadata
 operations such as `ls -R`, `find`, `locate`, `du` and `df`.
 
