@@ -91,7 +91,7 @@ This process is handled by the admins.
 To ensure a high-quality and consistent documentation, and to make it easier for readers to
 understand all content, we have established [writing rules](content_rules.md). Please follow
 these rules and conventions regarding markdown syntax, styling and wording when writing
-contributons! As a benefit, reviewing
+contributions! As a benefit, reviewing
 your changes takes less time and your improvements appear faster on the official documentation.
 
 !!! note "Legal Notice"
@@ -128,7 +128,7 @@ Find more information on the page [Contributing via web browser](contribute_brow
 
 For experienced Git users, we provide a Docker container that includes all the checks of the CI
 engine used in the backend. Using them should ensure that merge requests are not blocked due to
-automatic checks. All changes are made visible throught the `mkdocs` building process as they would
+automatic checks. All changes are made visible through the `mkdocs` building process as they would
 look in the final appearance.
 The page [Contributing via local clone](contribute_container.md) provides you
 with the details about how to set up and use your local clone of the repository.

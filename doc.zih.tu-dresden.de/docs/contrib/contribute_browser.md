@@ -96,7 +96,8 @@ into the `preview` branch of the repository.
 ## Revision of Articles
 
 As stated earlier, all changes undergo a review process.
-This covers automated checks contained in the [CI/CD pipeline](howto_contribute.md#git-workflow) and the review by a maintainer.
+This covers automated checks contained in the [CI/CD pipeline](howto_contribute.md#git-workflow)
+and the review by a maintainer.
 This is to ensure the quality of all contributions, e. g. by checking our
 [writing rules](content_rules.md).
 You can follow this process under
