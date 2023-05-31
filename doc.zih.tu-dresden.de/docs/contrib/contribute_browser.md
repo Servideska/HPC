@@ -52,7 +52,8 @@ depicted here:
 
 ## Editing Existing Articles
 
-Navigate the depicted document hierarchy under `doc.zih.tu-dresden.de/docs` until you find the
+Navigate through the depicted document hierarchy under `doc.zih.tu-dresden.de/docs` until you find
+the
 article to be edited. A click on the article's name opens a textual representation of the article.
 In the top right corner of it, you find the button "Edit" to be clicked in order to make changes.
 Once you completed your changes, click on "Commit changes". Please add meaningful comment about the
@@ -61,9 +62,9 @@ your branch of the repository.
 
 ## Adding New Article
 
-Navigate the depicted document hierarchy under `doc.zih.tu-dresden.de/docs` to find a topic that
-fits best to your article. To start a completely new article, click on "+ New file" as depicted
-here:
+Navigate through the depicted document hierarchy under `doc.zih.tu-dresden.de/docs` until you find
+a topic that fits best to your article. To start a completely new article, click on "+ New file" as
+depicted here:
 
 ![create new file](misc/cb_create_new_file.png)
 
@@ -95,9 +96,9 @@ into the `preview` branch of the repository.
 ## Revision of Articles
 
 As stated earlier, all changes undergo a review process.
-This covers automated checks contained in the CI/CD pipeline and the review by a maintainer.
+This covers automated checks contained in the [CI/CD pipeline](howto_contribute.md#git-workflow) and the review by a maintainer.
 This is to ensure the quality of all contributions, e. g. by checking our
-[content rules](content_rules.md).
+[writing rules](content_rules.md).
 You can follow this process under
 [Merge requests](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/merge_requests)
 (where you initiated your merge request).

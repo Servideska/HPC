@@ -2,7 +2,7 @@
 
 In the following, it is outlined how to contribute to the
 [HPC documentation](https://doc.zih.tu-dresden.de/) of
-[TU Dresden/ZIH](https://tu-dresden.de/zih/) via a local clone of the Git repository. Although, this
+[TU Dresden/ZIH](https://tu-dresden.de/zih/) via a local clone of the Git repository. Although this
 document might seem very long describing complex steps, contributing is quite easy - trust us.
 
 ## Initial Setup of your Local Clone
@@ -35,6 +35,14 @@ modify or the issue you want to work on, e.g.:
 `git checkout -b 174-check-contribution-documentation` for issue 174 with title "Check contribution
 documentation". (If you are uncertain about the name of a file, please look into `mkdocs.yaml`.)
 1. Improve the documentation with your preferred editor, i.e. add new files and correct mistakes.
+
+    !!! tip
+
+        When you contribute, please follow our [writing rules](content_rules.md) to make incorporating
+        your changes easy. We also check these rules via continuous integration checks and/or reviews.
+        You can find the details and commands to [preview your changes](#start-the-local-web-server) and
+        [apply checks](#run-the-proposed-checks-inside-container).
+
 1. Use `git add <FILE>` to select your improvements for the next commit.
 1. Commit the changes with `git commit -m "<DESCRIPTION>"`. The description should be a meaningful
 description of your changes. If you work on an issue, please also add "Closes 174" (for issue 174).
@@ -44,13 +52,6 @@ description of your changes. If you work on an issue, please also add "Closes 17
 1. When the merge request is created, a continuous integration (CI) pipeline automatically checks
 your contributions. If you forked the repository, these automatic checks are not available, but you
 can [run checks locally](#run-the-proposed-checks-inside-container).
-
-!!! tip
-
-    When you contribute, please follow our [content rules](content_rules.md) to make incorporating
-    your changes easy. We also check these rules via continuous integration checks and/or reviews.
-    You can find the details and commands to [preview your changes](#start-the-local-web-server) and
-    [apply checks](#run-the-proposed-checks-inside-container).
 
 ## Merging of Forked Repositories
 
@@ -70,7 +71,7 @@ problems, such as changes in the Dockerfile or any script could.
 1. The developer needs to fix things that were found by CI.
 1. The developer informs you about the MR or asks for your support while fixing the CI.
 
-When you follow our [content rules](content_rules.md) and
+When you follow our [writing rules](content_rules.md) and
 [run checks locally](#run-the-proposed-checks-inside-container), you are making this process
 faster.
 
@@ -122,7 +123,7 @@ You can view the documentation via `http://localhost:8000` in your browser, now.
     echo http://$(docker inspect -f "{{.NetworkSettings.IPAddress}}" $(docker ps -qf "name=hpc-compendium")):8000
     ```
 
-You can now update the contents in you preferred editor. The running container automatically takes
+You can now update the contents in your preferred editor. The running container automatically takes
 care of file changes and rebuilds the documentation whenever you save a file.
 
 With the details described below, it will then be easy to follow the guidelines for local
@@ -137,7 +138,7 @@ In our continuous integration (CI) pipeline, a merge request triggers the automa
 * correct text format.
 
 These checks ensure a high quality and consistency of the content and follow our
-[content rules](content_rules.md). If one of them fails, the merge request will not be accepted. To
+[writing rules](content_rules.md). If one of them fails, the merge request will not be accepted. To
 prevent this, you can run these checks locally and adapt your files accordingly.
 
 You are now ready to use the different checks, however we suggest to try the pre-commit hook.
@@ -219,7 +220,7 @@ your commit passes the CI/CD pipeline:
 wikiscript doc.zih.tu-dresden.de/util/check-links.sh
 ```
 
-To check all markdown file, which may take a while and give a lot of output, use:
+To check all markdown files, which may take a while and give a lot of output, use:
 
 ```bash
 wikiscript doc.zih.tu-dresden.de/util/check-links.sh -a

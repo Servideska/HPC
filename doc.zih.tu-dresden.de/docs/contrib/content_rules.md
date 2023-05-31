@@ -1,23 +1,42 @@
-# Content Rules
+# Writing Rules
 
-!!! cite "George Bernard Shaw"
+The goal of setting writing rules is to provide a comprehensive, consistent, up-to-date and
+well-written documentation that is easy to read, use and maintain. It shall help to find answers
+and provide knowledge instead of being the bottleneck and a great annoyance. Therefore, we set up
+and explain some rules here that cover two aspects: Backend and frontend matters. Rules that apply
+to the backend (markdown files), e.g. concerning syntax are meant to ensure an easy and quick
+maintenance when working together, while rules concerning the layout of the compendium itself, e.g.
+writing conventions and style are meant to grant a consistent experience to the readers and users.
+Both types of rules are outlined in the following. Sticking to these rules yields the benefit of
+speeding up the review process and publication of your contribution.
 
-    The golden rule is that there are no golden rules.
+## Quick Overview
 
-## Motivation and Rationale
+* Be aware that [Responsibility and Licenses](#responsibility-and-license) apply to your contribution.
+* Backend and Markdown Syntax
+    * All documentation is written in [Markdown](#markdown).
+    * Use spaces (not tabs) both in Markdown files and in `mkdocs.yml`.
+    * Respect the line length limit of 100 characters (exception: links).
+    * Do not add large binary files or high-resolution images to the repository (cf.
+      [adding images and attachments](#graphics-and-attachments)).
+* Content Strategy
+    * Describe the general idea with basic command examples and options instead of a special case.
+    * Adding your specific workflow as an experience report or work result should be avoided.
+      The compendium is not meant to be a wiki like a knowledge pool where everybody throws in
+      his/her thoughts and individual solutions.
+* Writing Style
+    * Respect the [writing style](#writing-style) and the rules for
+      [spelling and technical wording](#spelling-and-technical-wording).
+    * [Admonitions](#special-feature-admonitions) may be actively used for longer code examples,
+       warnings, tips, important information, etc.
+    * For code blocks:
+        * Use [language syntax highlighting](#code-blocks-and-command-prompts) and [appropriate prompts](#list-of-prompts).
+        * Respect [data privacy](#data-privacy-and-generic-names).
+        * Stick to the [rules on optional and required arguments](#code-styling-rules).
 
-This page holds rules regarding the layout, content, and writing of this
-documentation. The goals are to provide a comprehensive, consistent, up-to-date and well-written
-documentation that is pure joy to read and use. It shall help to find answers and provide knowledge
-instead of being the bottleneck and a great annoyance. Therefore, we set up some rules which
-are outlined in the following.
+## Detailed Overview
 
-!!! tip
-
-    Following these rules when contributing speeds up the review process. Furthermore, your
-    changes will not be blocked by the automatic checks implemented in the CI pipeline.
-
-## Responsibility and License
+### Responsibility and License
 
 This documentation and the repository have two licenses (cf. [Legal Notice](../legal_notice.md)):
 
@@ -26,7 +45,7 @@ This documentation and the repository have two licenses (cf. [Legal Notice](../l
 
 These licenses also apply to your contributions.
 
-!!! note
+!!! note "Legal Notice"
 
     If you contribute, you are fully and solely responsible for the content you create and have to
     ensure that you have the right to create it under the laws which apply.
@@ -34,83 +53,6 @@ These licenses also apply to your contributions.
 If you are in doubt, please contact us either via
 [GitLab Issue](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/issues)
 or via [Email](mailto:hpcsupport@zih.tu-dresden.de).
-
-## Quick Overview
-
-* All documentation is written in [Markdown](#markdown).
-* Use spaces (not tabs) both in Markdown files and in `mkdocs.yml`.
-* Respect the line length limit of 100 characters (exception: links).
-* Do not add large binary files or high-resolution images to the repository (cf.
-   [adding images and attachments](#graphics-and-attachments)).
-* [Admonitions](#special-feature-admonitions) may be actively used for longer code examples,
-   warnings, tips, important information, etc.
-* Respect the [writing style](#writing-style) and the rules for
-  [spelling and technical wording](#spelling-and-technical-wording).
-* For code blocks:
-    * Use [syntax highlighting and appropriate prompts](#code-blocks-and-command-prompts).
-    * Respect [data privacy](#data-privacy-and-generic-names).
-    * Stick to the [rules on optional and required arguments](#code-styling-rules).
-
-## Detailed Overview
-
-### Writing Style
-
-* Assume that a future reader is eager to start typing commands. Thus, encourage the reader by
-  addressing him/her directly:
-    * Example: Use "You can/should ..." instead of "Users can/should ..."
-    * Example: Use "Your contribution is highly welcome" instead of "Contributions from user-side
-      are highly welcome"
-* Be brief! Provide the main idea/commands first, and special cases later. If it is not necessary to
-  know how a special piece of software works, don't explain it.
-* Provide the often-used commands first.
-* Use active over passive voice
-    * Write with confidence. This confidence should be reflected in the documentation so that
-      the readers trust and follow it.
-    * Example: "We recommend something" instead of "Something is recommended."
-* Capitalize headings, e.g. *Exclusive Reservation of Hardware*
-* Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
-  descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
-* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
-
-### Pages Structure and New Page
-
-The documentation and pages structure is defined in the configuration file
-[`mkdocs.yml`](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/blob/main/doc.zih.tu-dresden.de/mkdocs.yml):
-
-```Markdown
-nav:
-  - Home: index.md
-  - Application for Login and Resources:
-    - Overview: application/overview.md
-    - Terms of Use: application/terms_of_use.md
-    - Request for Resources: application/request_for_resources.md
-    - Project Request Form: application/project_request_form.md
-    - Project Management: application/project_management.md
-    - Acknowledgement: application/acknowledgement.md
-  - Access to ZIH Systems:
-    - Overview: access/overview.md
-  [...]
-```
-
-Follow these two steps to **add a new page** to the documentation:
-
-1. Create a new Markdown file under `docs/subdir/file_name.md` and put the documentation inside.
-The sub-directory structure represents different topics of the documentation. Try to fit the
-contribution into the existing structure. The file name should reflect the title of the
-documentation page, i. e. `shortened_page_heading.md`.
-1. Add `subdir/file_name.md` to the configuration file `mkdocs.yml` by updating the navigation
-   section. Yes, the order of files is crucial and defines the structure of the content. Thus,
-   carefully consider the right spot and section for the new page.
-
-Make sure that the new page **is not floating**, i.e., it can be reached directly from
-the documentation structure.
-
-#### Preserve URLs
-
-For several reasons it is important to preserve URLs within this documentation, e.g., pages with
-description of specific hardware might be used as references in papers. Therefore, existing pages
-shall not be renamed or moved on directory level. Outdated pages are marked with "Outdated" tag
-and moved to the archive by changing the page's navigation entry in the `mkdocs.yaml` file.
 
 ### Markdown
 
@@ -127,6 +69,7 @@ Markdown dialects.
 | External link | `[website of TU Dresden](https://tu-dresden.de)` | [website of TU Dresden](https://tu-dresden.de) |
 | Internal link | `[Slurm page](../jobs_and_resources/slurm.md)` | [Slurm page](../jobs_and_resources/slurm.md)|
 | Internal link to section | `[section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs)` | [section on batch jobs](../jobs_and_resources/slurm.md#batch-jobs) |
+| Command | `` `command line` `` | `command` |
 
 Further tips can be found on this
 [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
@@ -179,8 +122,8 @@ for a comprehensive overview.
 
 !!! example "Syntax"
 
-    All admonitions blocks start with `!!! <type>` and the following content block is indented by
-    (exactly) four spaces.
+    All admonition blocks start with `!!! <type> "Title"` and the following content block is
+    indented by (exactly) four spaces.
     If no title is provided, the title corresponds to the admonition type.
 
     ```markdown
@@ -197,6 +140,65 @@ for a comprehensive overview.
     side is displayed. The block is open by default if `???+` is used. Long code examples should be
     folded by default.
 
+### Pages Structure and New Page
+
+The documentation and pages structure is defined in the configuration file
+[`mkdocs.yml`](https://gitlab.hrz.tu-chemnitz.de/zih/hpcsupport/hpc-compendium/-/blob/main/doc.zih.tu-dresden.de/mkdocs.yml):
+
+```Markdown
+nav:
+  - Home: index.md
+  - Application for Login and Resources:
+    - Overview: application/overview.md
+    - Terms of Use: application/terms_of_use.md
+    - Request for Resources: application/request_for_resources.md
+    - Project Request Form: application/project_request_form.md
+    - Project Management: application/project_management.md
+    - Acknowledgement: application/acknowledgement.md
+  - Access to ZIH Systems:
+    - Overview: access/overview.md
+  [...]
+```
+
+Follow these two steps to **add a new page** to the documentation:
+
+1. Create a new Markdown file under `docs/subdir/file_name.md` and put the documentation inside.
+The sub-directory structure represents different topics of the documentation. Try to fit the
+contribution into the existing structure. The file name should reflect the title of the
+documentation page, i. e. `shortened_page_heading.md`.
+1. Add `subdir/file_name.md` to the configuration file `mkdocs.yml` by updating the navigation
+   section. Yes, the order of files is crucial and defines the structure of the content. Thus,
+   carefully consider the right spot and section for the new page.
+
+Make sure that the new page **is not floating**, i.e., it can be reached directly from
+the documentation structure.
+
+#### Preserve URLs
+
+For several reasons it is important to preserve URLs within this documentation, e.g., pages with
+description of specific hardware might be used as references in papers. Therefore, existing pages
+shall not be renamed or moved on directory level. Outdated pages are marked with "Outdated" tag
+and moved to the archive by changing the page's navigation entry in the `mkdocs.yaml` file.
+
+### Writing Style
+
+* Assume that a future reader is eager to start typing commands. Thus, encourage the reader by
+  addressing him/her directly:
+    * Example: Use "You can/should ..." instead of "Users can/should ..."
+    * Example: Use "Your contribution is highly welcome" instead of "Contributions
+      are highly welcome"
+* Use active over passive voice
+    * Write with confidence. This confidence should be reflected in the documentation so that
+      the readers trust and follow it.
+    * Example: "We recommend something" instead of "Something is recommended."
+* Be brief! Provide the main idea/commands first, and special cases later. If it is not necessary to
+  know how a special piece of software works, don't explain it.
+* Provide the often-used commands first.
+* Capitalize headings, e.g. *Exclusive Reservation of Hardware*
+* Give keywords in link texts, e.g. [Code Blocks](#code-blocks-and-syntax-highlighting) is more
+  descriptive than [this subsection](#code-blocks-and-syntax-highlighting)
+* Avoid using tabs both in markdown files and in `mkdocs.yaml`. Type spaces instead.
+
 ### Spelling and Technical Wording
 
 To provide consistent and high-quality documentation, and help users to find the right pages,
@@ -207,7 +209,7 @@ there is a list of conventions w.r.t. spelling and technical wording.
 | Do | Don't |
 |----|-------|
 | I/O | IO |
-| Slurm | SLURM |
+| Slurm | SLURM, slurm |
 | filesystem(s) | file system(s) |
 | ZIH system(s) | Taurus, HRSK II, our HPC systems, etc. |
 | workspace | work space |
@@ -220,7 +222,7 @@ there is a list of conventions w.r.t. spelling and technical wording.
 * Specify language for code blocks ([see below](#code-blocks-and-syntax-highlighting)).
 * All code blocks and commands should be runnable from a login node or a node within a specific
   partition (e.g., `ml`).
-* It should be clear from the [prompt](#list-of-prompts), where the command is run (e.g., local
+* It should be clear from the [prompt](#list-of-prompts) where the command is run (e.g., local
   machine, login node, or specific partition).
 
 #### Code Blocks and Syntax Highlighting
@@ -287,7 +289,7 @@ highlighting. There is a complete list of supported
 
 ??? note "Line numbers"
 
-    More sugar can be applied by adding line numbers.
+    If you refer to line numbers, add them in the code block.
 
     ````markdown
     ```bash linenums="1"
@@ -394,7 +396,7 @@ This should help to avoid errors.
 
 | Host/Partition         | Prompt           |
 |------------------------|------------------|
-| Localhost              | `marie@local$`   |
+| Local workstation      | `marie@local$`   |
 | Login nodes            | `marie@login$`   |
 | Arbitrary compute node | `marie@compute$` |
 | Partition `haswell`    | `marie@haswell$` |
