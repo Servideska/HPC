@@ -91,7 +91,6 @@ nav:
       - Produce Performance Overview with Perf: software/perf_tools.md
       - Track Slurm Jobs with PIKA: software/pika.md
       - Record Course of Events with Score-P: software/scorep.md
-      - Profile Jobs with Slurm: jobs_and_resources/slurm_profiling.md
       - Study Course of Events with Vampir: software/vampir.md
       - Measure Energy Consumption: software/energy_measurement.md
       - Compare System Performance with SPEChpc: software/spec.md
@@ -99,6 +98,8 @@ nav:
   - HPC Resources and Jobs:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
+      - Overview: jobs_and_resources/hardware_overview.md
+      - Architecture 2023: jobs_and_resources/architecture_2023.md
       - AMD Rome Nodes: jobs_and_resources/rome_nodes.md
       - NVMe Storage: jobs_and_resources/nvme_storage.md
       - Alpha Centauri: jobs_and_resources/alpha_centauri.md
@@ -122,7 +123,7 @@ nav:
     - Platform LSF: archive/platform_lsf.md
     - BeeGFS Filesystem on Demand: archive/beegfs_on_demand.md
     - Jupyter Installation: archive/install_jupyter.md
-    - Job Profiling: jobs_and_resources/slurm_profiling.md
+    - Job Profiling: archive/slurm_profiling.md
     - Switched-Off Systems:
       - Overview 2022: archive/hardware_overview_2022.md
       - Overview: archive/systems_switched_off.md

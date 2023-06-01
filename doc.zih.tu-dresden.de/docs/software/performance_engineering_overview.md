@@ -44,7 +44,6 @@ software performance engineering or application performance engineering within s
 | [Perf](#perf-tools)  | Produce and visualize [profile](#profile)    | easy        | medium   | low       | (no)[^2]       |
 | [PIKA](#pika)        | Show performance [profile](#profile) and [trace](#trace) | very easy | low | very low | no         |
 | [Score-P](#score-p)  | Create performance [trace](#trace)           | complex     | high     | variable  | yes            |
-| [Slurm](#slurm-profiler) | Produce and visualize simple [trace](#trace)| easy     | low      | low       | no             |
 | [Vampir](#vampir)    | Visualize performance [trace](#trace)        | complex     | high     | n.a.      | n.a.           |
 
 [^2]: Re-compilation is not required. Yet, to obtain more details it is recommended to re-compile with the `-g` compiler option, which adds debugging information to the executable of an application.
@@ -248,18 +247,6 @@ Many raw data sources are supported by Score-P.
 It requires some time, training, and practice to fully benefit from the tool's features.
 See [Score-P](scorep.md) for further details.
 
-### Slurm Profiler
-
-!!! hint "Easy to use performance visualization of entire batch jobs"
-
-The [Slurm Profiler](../jobs_and_resources/slurm_profiling.md) gathers performance data from every
-task/node of a given [batch job](../jobs_and_resources/slurm.md).
-It records a coarse-grained [trace](#trace) for subsequent analysis.
-[Instrumentation](#instrumentation) of the applications under test is not needed.
-The data analysis of the given set of system metrics needs to be initiated by the user with a
-command line interface.
-The resulting performance metrics are accessible in a simple graphical front-end that provides
-time/performance graphs.
 
 ### Vampir
 

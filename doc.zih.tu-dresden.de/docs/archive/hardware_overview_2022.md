@@ -31,7 +31,7 @@ users and the ZIH.
     - 3.5 TB local memory on NVMe device at `/tmp`
 - Hostnames: `taurusi[8001-8034]`
 - Slurm partition: `alpha`
-- Further information on the usage is documented on the site [Alpha Centauri Nodes](alpha_centauri.md)
+- Further information on the usage is documented on the site [Alpha Centauri Nodes](../jobs_and_resources/alpha_centauri.md)
 
 ## Island 7 - AMD Rome CPUs
 
@@ -41,7 +41,7 @@ users and the ZIH.
     - 200 GB local memory on SSD at `/tmp`
 - Hostnames: `taurusi[7001-7192]`
 - Slurm partition: `romeo`
-- Further information on the usage is documented on the site [AMD Rome Nodes](rome_nodes.md)
+- Further information on the usage is documented on the site [AMD Rome Nodes](../jobs_and_resources/rome_nodes.md)
 
 ## Large SMP System HPE Superdome Flex
 
@@ -53,7 +53,7 @@ users and the ZIH.
 - 370 TB of fast NVME storage available at `/nvme/<projectname>`
 - Hostname: `taurussmp8`
 - Slurm partition: `julia`
-- Further information on the usage is documented on the site [HPE Superdome Flex](sd_flex.md)
+- Further information on the usage is documented on the site [HPE Superdome Flex](../jobs_and_resources/sd_flex.md)
 
 ## IBM Power9 Nodes for Machine Learning
 
