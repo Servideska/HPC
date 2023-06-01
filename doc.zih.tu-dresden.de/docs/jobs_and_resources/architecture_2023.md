@@ -5,5 +5,5 @@ the rest of the installed hardware needed to be re-connected, both with
 Infiniband and with Ethernet.
 
 
-![Architecture overview 2023](misc/architecture_2023.svg)
+![Architecture overview 2023](../jobs_and_resources/misc/architecture_2023.svg)
 {: align=center}
