@@ -532,8 +532,18 @@ to others (if in the same group) via `ws_list -g`.
 set values that are not valid on our ZIH systems. You should overwrite `LC_CTYPE` and set it to a
 valid locale value like `export LC_CTYPE=de_DE.UTF-8`.
 
-A list of valid locales can be retrieved via `locale -a`. Please only use `UTF-8` (or plain) settings.
-Avoid "iso" codepages!
+A list of valid locales can be retrieved via `locale -a`.
+
+Please use `language_CountryCode.UTF-8` (or plain) settings. Avoid "iso" codepages!
+
+Examples:
+
+| Language | Code |
+| -------- | ---- |
+| Chinese - Simplified | zh_CN.UTF-8 |
+| English | en_US.UTF-8 |
+| French | fr_FR.UTF-8 |
+| German | de_DE.UTF-8 |
 
 ----
 
