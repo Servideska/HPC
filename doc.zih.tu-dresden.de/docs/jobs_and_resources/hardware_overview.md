@@ -12,10 +12,10 @@ From the users' pespective, there are seperate clusters, all of them with their 
 | Name | Description | Year| DNS |
 | --- | --- | --- | --- |
 | **Barnard** | CPU cluster |2023| n[1001-1630].barnard.hpc.tu-dresden.de |
-| **Romeo** | CPU cluster |2020|r[001-192].romeo.hpc.tu-dresden.de |
-| **Alpha Centauri** | GPU cluster |2021|a[001-039].alpha.hpc.tu-dresden.de |
-| **Julia** | single SMP system |2021|julia.hpc.tu-dresden.de |
-| **Power** | IBM Power/GPU system |2018|m[001-032].power.hpc.tu-dresden.de |
+| **Romeo** | CPU cluster |2020|i[8001-8190].romeo.hpc.tu-dresden.de |
+| **Alpha Centauri** | GPU cluster |2021|i[8001-8037].alpha.hpc.tu-dresden.de |
+| **Julia** | single SMP system |2021|smp8.julia.hpc.tu-dresden.de |
+| **Power** | IBM Power/GPU system |2018|ml[1-29].power9.hpc.tu-dresden.de |
 
 They run with their own Slurm batch system. Job submission is possible only from
 their respective login nodes.
@@ -24,12 +24,13 @@ All clusters have access to these shared parallel file systems:
 
 | File system | Usable directory | Type | Capacity | Purpose |
 | --- | --- | --- | --- | --- |
-| `Home` | `/home` | Lustre | 40 TB |
-| `Project` | `/projects` | NFS | 40 TB |
-| `Scratch for large data / streams` | `/data/horse` | Lustre | 20 PB |
-| `Scratch for random access` | `/data/rabbit` | Lustre | 2 PB |
-| `Scratch for random access` | `/data/weasel` | WEKA | 232 TB |
-| `Scratch for random access` | `/data/weasel` | WEKA | 232 TB |
+| Home | `/home` | Lustre | 40 TB |
+| Project | `/projects` | NFS | 40 TB |
+| Scratch for large data / streaming | `/data/horse` | Lustre | 20 PB |
+| Scratch for random access | `/data/rabbit` | Lustre | 2 PB |
+| coming soon | --- | --- | --- | --- |
+| Scratch for random access | `/data/weasel` | WEKA | 232 TB |
+| Scratch for random access | `/data/squirrel` | BeeGFS | xxx TB |
 
 ## Barnard - Intel Sapphire Rapids CPUs
 
@@ -46,7 +47,7 @@ All clusters have access to these shared parallel file systems:
     - 2 x AMD EPYC CPU 7352 (24 cores) @ 2.3 GHz, Multithreading available
     - 1 TB RAM
     - 3.5 TB local memory on NVMe device at `/tmp`
-- Hostnames: `taurusi[8001-8034]`  -> `a[1-37].alpha.hpc.tu-dresden.de`
+- Hostnames: `taurusi[8001-8034]`  -> `i[8001-8037].alpha.hpc.tu-dresden.de`
 - Login nodes: `login[1-2].alpha.hpc.tu-dresden.de`
 - Further information on the usage is documented on the site [Alpha Centauri Nodes](alpha_centauri.md)
 
@@ -56,7 +57,7 @@ All clusters have access to these shared parallel file systems:
     - 2 x AMD EPYC CPU 7702 (64 cores) @ 2.0 GHz, Multithreading available
     - 512 GB RAM
     - 200 GB local memory on SSD at `/tmp`
-- Hostnames: `taurusi[7001-7192]` -> `r[1-190].romeo.hpc.tu-dresden.de`
+- Hostnames: `taurusi[7001-7192]` -> `i[7001-7190].romeo.hpc.tu-dresden.de`
 - Login nodes: `login[1-2].romeo.hpc.tu-dresden.de`
 - Further information on the usage is documented on the site [AMD Rome Nodes](rome_nodes.md)
 
@@ -68,7 +69,7 @@ All clusters have access to these shared parallel file systems:
 - Configured as one single node
 - 48 TB RAM (usable: 47 TB - one TB is used for cache coherence protocols)
 - 370 TB of fast NVME storage available at `/nvme/<projectname>`
-- Hostname: `taurussmp8` -> `julia.hpc.tu-dresden.de`
+- Hostname: `taurussmp8` -> `smp8.julia.hpc.tu-dresden.de`
 - Further information on the usage is documented on the site [HPE Superdome Flex](sd_flex.md)
 
 ## IBM Power9 Nodes for Machine Learning
@@ -80,5 +81,5 @@ For machine learning, we have IBM AC922 nodes installed with this configuration:
     - 256 GB RAM DDR4 2666 MHz
     - 6 x NVIDIA VOLTA V100 with 32 GB HBM2
     - NVLINK bandwidth 150 GB/s between GPUs and host
-- Hostnames: `taurusml[1-32]` -> `p[1-29].ml.hpc.tu-dresden.de`
-- Login nodes: `login[1-2].ml.hpc.tu-dresden.de``
+- Hostnames: `taurusml[1-32]` -> `ml[1-29].power9.hpc.tu-dresden.de`
+- Login nodes: `login[1-2].power9.hpc.tu-dresden.de``
