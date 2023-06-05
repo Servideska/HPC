@@ -28,7 +28,8 @@ All clusters have access to these shared parallel file systems:
 | Project | `/projects` | NFS | 40 TB |
 | Scratch for large data / streaming | `/data/horse` | Lustre | 20 PB |
 | Scratch for random access | `/data/rabbit` | Lustre | 2 PB |
-| coming soon | --- | --- | --- | --- |
+
+These mount points are planned (September 2023):
 | Scratch for random access | `/data/weasel` | WEKA | 232 TB |
 | Scratch for random access | `/data/squirrel` | BeeGFS | xxx TB |
 
