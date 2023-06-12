@@ -247,7 +247,6 @@ Many raw data sources are supported by Score-P.
 It requires some time, training, and practice to fully benefit from the tool's features.
 See [Score-P](scorep.md) for further details.
 
-
 ### Vampir
 
 !!! hint "Complex and powerful performance data visualization of parallel applications"
