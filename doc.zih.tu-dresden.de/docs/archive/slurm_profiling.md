@@ -70,7 +70,8 @@ More information about profiling with Slurm:
 ## Memory Consumption of a Job
 
 If you are only interested in the maximal memory consumption of your job, you don't need profiling
-at all. This information can be retrieved from within [job files](../jobs_and_resources/slurm.md#batch-jobs) as follows:
+at all. This information can be retrieved from within [job
+files](../jobs_and_resources/slurm.md#batch-jobs) as follows:
 
 ```bash
 #!/bin/bash
