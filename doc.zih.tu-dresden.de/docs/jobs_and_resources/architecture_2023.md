@@ -45,8 +45,7 @@ with the names of animals:
 
 A large number of changing files is a challange for any backup system. To protect
 our snapshots and backup from work data,
-`/projects` cannot be used for temporary data on the compute nodes - it is mounted
-read-only. 
+`/projects` cannot be used for temporary data on the compute nodes - it is mounted read-only.
 
 Please use our data movers to transfer worthy data to permanent
 storages.
