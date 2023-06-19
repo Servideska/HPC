@@ -20,13 +20,33 @@ computations, please use interactive jobs.
 
 ## Storage Systems
 
-The `/project` is mounted via NFS, without change (incl. snapshots). We now have `/home`
-as a Lustre filesystem on NVMe disks. This comes now without snapshots, and without backup
-to tape. For convenience, we will make the old home available as `/home_old` on the
-datamover nodes for the data migration period.
+### Permananent Filesystems
+
+We now have `/home`, `/projects` and `/software` in a Lustre filesystem. Snapshots
+and tape backup are configured. For convenience, we will make the old home available
+read-only as `/home_old` on the datamover nodes for the data migration period.
 
 `/warm_archive` is mounted on the data movers, only.
 
-### Scratch Filesystems
+### Work Filesystems
 
-With emerging technologies and new players in the file system market,
+With new players with new software in the file system market it getting more and more
+complicated to identify the best suited file system for temporary data. In many cases,
+only tests can provide the right answer, for a short time.
+
+For an easier grasp on the major categories (size, speed), the work filesystems now come
+with the names of animals:
+
+* `/data/horse` - 20 PB - high bandwidth (Lustre)
+* `/data/octopus` - 0.5 PB - for interactive usage (Lustre)
+* `/data/weasel` - 1 PB - für high IOPS (WEKA)  - coming soon
+
+### Difference Between "Work" And "Permananent"
+
+A large number of changing files is a challange for any backup system. To protect
+our snapshots and backup from work data,
+`/projects` cannot be used for temporary data on the compute nodes - it is mounted
+read-only. 
+
+Please use our data movers to transfer worthy data to permanent
+storages.
