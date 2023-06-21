@@ -49,3 +49,11 @@ our snapshots and backup from work data,
 
 Please use our data movers to transfer worthy data to permanent
 storages.
+
+## Migration Phase
+
+For about one month, the new cluster Barnard, and the old cluster Taurus
+will run side-by-side - both with their respective file systems. 
+
+ 
+
