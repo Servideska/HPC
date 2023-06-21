@@ -24,9 +24,9 @@ All clusters have access to these shared parallel file systems:
 
 | File system | Usable directory | Type | Capacity | Purpose |
 | --- | --- | --- | --- | --- |
-| Home | `/home` | Lustre | 40 TB |
-| Project | `/projects` | NFS | 40 TB |
-| Scratch for large data / streaming | `/data/horse` | Lustre | 20 PB |
+| Home | `/home` | Lustre | quota per user: 20 GB | permanant user data |
+| Project | `/projects` | Lustre | quota per project | permanant project data |
+| Scratch for large data / streaming | `/data/horse` | Lustre | 20 PB | h
 | Scratch for random access | `/data/rabbit` | Lustre | 2 PB |
 
 These mount points are planned (September 2023):
