@@ -53,7 +53,4 @@ storages.
 ## Migration Phase
 
 For about one month, the new cluster Barnard, and the old cluster Taurus
-will run side-by-side - both with their respective file systems. 
-
- 
-
+will run side-by-side - both with their respective file systems.
