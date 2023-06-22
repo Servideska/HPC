@@ -30,8 +30,8 @@ read-only as `/home_old` on the datamover nodes for the data migration period.
 
 ### Work Filesystems
 
-With new players with new software in the file system market it getting more and more
-complicated to identify the best suited file system for temporary data. In many cases,
+With new players with new software in the filesystem market it getting more and more
+complicated to identify the best suited filesystem for temporary data. In many cases,
 only tests can provide the right answer, for a short time.
 
 For an easier grasp on the major categories (size, speed), the work filesystems now come
@@ -53,4 +53,4 @@ storages.
 ## Migration Phase
 
 For about one month, the new cluster Barnard, and the old cluster Taurus
-will run side-by-side - both with their respective file systems.
+will run side-by-side - both with their respective filesystems.
