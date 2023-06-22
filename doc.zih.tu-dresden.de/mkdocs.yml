@@ -100,6 +100,7 @@ nav:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
       - Overview: jobs_and_resources/hardware_overview.md
+      - Overview 2023: jobs_and_resources/hardware_overview_2023.md
       - Architecture 2023: jobs_and_resources/architecture_2023.md
       - AMD Rome Nodes: jobs_and_resources/rome_nodes.md
       - NVMe Storage: jobs_and_resources/nvme_storage.md
