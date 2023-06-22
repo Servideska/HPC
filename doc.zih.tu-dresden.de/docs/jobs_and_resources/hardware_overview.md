@@ -81,7 +81,7 @@ For machine learning, we have IBM AC922 nodes installed with this configuration:
 
 ??? hint "Node topology"
 
-    ![Node topology](misc/i4000.png)
+    ![Node topology](../archive/misc/i4000.png)
     {: align=center}
 
 ## Island 2 Phase 2 - Intel Haswell CPUs + NVIDIA K80 GPUs
@@ -105,5 +105,5 @@ For machine learning, we have IBM AC922 nodes installed with this configuration:
 
 ??? hint "Node topology"
 
-    ![Node topology](misc/smp2.png)
+    ![Node topology](../archive/misc/smp2.png)
     {: align=center}
