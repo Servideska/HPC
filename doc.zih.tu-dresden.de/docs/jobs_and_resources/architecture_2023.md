@@ -24,7 +24,7 @@ computations, please use interactive jobs.
 
 We now have `/home`, `/projects` and `/software` in a Lustre filesystem. Snapshots
 and tape backup are configured. For convenience, we will make the old home available
-read-only as `/home_old` on the datamover nodes for the data migration period.
+read-only as `/home_old` on the data mover nodes for the data migration period.
 
 `/warm_archive` is mounted on the data movers, only.
 
@@ -39,11 +39,11 @@ with the names of animals:
 
 * `/data/horse` - 20 PB - high bandwidth (Lustre)
 * `/data/octopus` - 0.5 PB - for interactive usage (Lustre)
-* `/data/weasel` - 1 PB - für high IOPS (WEKA)  - coming soon
+* `/data/weasel` - 1 PB - for high IOPS (WEKA)  - coming soon
 
-### Difference Between "Work" And "Permananent"
+### Difference Between "Work" And "Permanent"
 
-A large number of changing files is a challange for any backup system. To protect
+A large number of changing files is a challenge for any backup system. To protect
 our snapshots and backup from work data,
 `/projects` cannot be used for temporary data on the compute nodes - it is mounted read-only.
 

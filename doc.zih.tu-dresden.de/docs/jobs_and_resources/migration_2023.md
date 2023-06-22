@@ -11,7 +11,8 @@ The new HPC system "Barnard" from Bull comes with these main properties:
 * 630 compute nodes based on Intel Sapphire Rapids
 * new Lustre-based storage systems
 * HDR Infiniband network large enough to integrate existing and near-future non-Bull hardware
-* To help our users to find the best location for their data we now use the name of animals (size, speed) as mnemonics.  
+* To help our users to find the best location for their data we now use the name of
+animals (size, speed) as mnemonics.
 
 More details can be found in the [overview](/jobs_and_resources/hardware_overview_2023).
 
@@ -36,7 +37,7 @@ With this all application software was re-built consequently using GIT and CI fo
 the multitude of versions.
 
 We start with `release/23.04` which is based on software reqeusts from user feedbacks of our
-HPC users. Most major software versions exist on all hardware platforms. 
+HPC users. Most major software versions exist on all hardware platforms.
 
 ## Migration Path
 
@@ -61,13 +62,12 @@ Why do users need to copy their data? Why only some? How to do it best?
 
 * The sync of hundreds of terabytes can only be done planned and carefully.
 (/scratch, /warm_archive, /projects). The HPC team will use multiple syncs
-to not forget the last bytes. During the downtime, /projects will be migrated. 
-* User homes are relatively small and can be copied by the scientists. 
+to not forget the last bytes. During the downtime, /projects will be migrated.
+* User homes are relatively small and can be copied by the scientists.
 Keeping in mind that maybe deleting and archiving is a better choice.
 * Datamover nodes...
 
-
-### A Graphical Overview 
+### A Graphical Overview
 
 (red: user action required):
 
