@@ -46,4 +46,4 @@ for a detailed overview of the courses and the respective dates at ZIH.
 Furthermore, Center for Scalable Data Analytics and Artificial Intelligence
 [ScaDS.AI](https://scads.ai) Dresden/Leipzig offers various trainings with HPC focus.
 Current schedule and registration is available at the
-[trainings](https://scads.ai/transfer-2/teaching-and-training/) page.
+[ScaDS.AI trainings page](https://scads.ai/transfer-2/teaching-and-training/).
