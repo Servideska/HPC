@@ -180,7 +180,7 @@ Useful options:
 To list your personal filesystem usage and limits (quota), invoke
 
 ```console
-marie@login$ lfs quota -h -u $LOGIN <filesystem>
+marie@login$ lfs quota -h -u $USER <filesystem>
 ```
 
 Useful options:
