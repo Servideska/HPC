@@ -128,6 +128,8 @@ However hereafter we have an example on how that might look like for Gaussian:
     #SBATCH --ntasks=1
     #SBATCH --constraint=fs_lustre_ssd
     #SBATCH --cpus-per-task=24
+    #SBATCH --mem-per-cpu 2050
+    # only 2050 MB RAM for haswell, as Gaussian somehow crashes if we try using the full 2541 of it
 
     # Load the software you need here
     module purge
