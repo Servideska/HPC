@@ -8,7 +8,24 @@ that you can continuously build, test, and benchmark your HPC software in the ta
 - You (and ideally every involved developer) need an [HPC-Login](../application/overview.md).
 - You manage your source code in a repository at the [TU Chemnitz GitLab instance](https://gitlab.hrz.tu-chemnitz.de)
 
-## Setup process
+## Setup process with Authentication tokens
+
+1. Open your repository in the browser.
+
+2. Click left on *Settings* and then click on *CI/CD*
+
+3. *Expand* the *Runners* section
+
+4. Click on *New Project Runner*
+
+5. Type in some *Tags* like *normal*
+
+6. Click on *create runner*
+
+7.  then follow the steps
+
+
+## Setup process with Registration token (deprecated)
 
 1. Open your repository in the browser.
 
