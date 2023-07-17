@@ -42,3 +42,8 @@ We offer a rich and colorful bouquet of courses from classical *HPC introduction
 for a detailed overview of the courses and the respective dates at ZIH.
 
 * [HPC introduction slides](misc/HPC-Introduction.pdf) (Nov. 2022)
+
+Furthermore, Center for Scalable Data Analytics and Artificial Intelligence
+[ScaDS.AI](https://scads.ai) Dresden/Leipzig offers various trainings with HPC focus.
+Current schedule and registration is available at the
+[ScaDS.AI trainings page](https://scads.ai/transfer-2/teaching-and-training/).
