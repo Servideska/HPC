@@ -22,7 +22,7 @@ that you can continuously build, test, and benchmark your HPC software in the ta
 
 6. Click on *create runner*
 
-7.  then follow the steps
+7. Then follow the steps
 
 
 ## Setup process with Registration token (deprecated)
