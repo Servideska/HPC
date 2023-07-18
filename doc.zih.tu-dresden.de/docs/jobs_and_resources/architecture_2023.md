@@ -30,7 +30,7 @@ read-only as `/home_old` on the data mover nodes for the data migration period.
 
 ### Work Filesystems
 
-With new players with new software in the filesystem market it getting more and more
+With new players with new software in the filesystem market it is getting more and more
 complicated to identify the best suited filesystem for temporary data. In many cases,
 only tests can provide the right answer, for a short time.
 
