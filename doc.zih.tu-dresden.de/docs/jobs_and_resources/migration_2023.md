@@ -49,13 +49,17 @@ of the action items.
 
 |When?|TODO ZIH |TODO users |Remark |
 |---|---|---|---|
-| done (May 2023) |first sync /scratch to /data/horse/old_scratch2| |copied 4 PB in about 3 week.|
+| done (May 2023) |first sync /scratch to /data/horse/old_scratch2| |copied 4 PB in about 3 weeks|
 | done (June 2023) |enable access to Barnard| |initialized LDAP tree with Taurus users|
 | done (July 2023) | |install new software stack|tedious work |
-| ASAP | |test new software stack|new versions sometimes require different prerequisites|
 | ASAP | |adapt scripts|new Slurm version, new resources, no partitions|
+| August 2023 | |test new software stack on Barnard|new versions sometimes require different prerequisites|
+| August 2023| |test new software stack on other clusters|a few nodes will be made available with the new sw stack, but with the old file systems|
 | ASAP | |prepare data migration|The small filesystems `/beegfs` and `/lustre/ssd`, and `/home` are mounted on the old systems "until the end". They will *not* be migrated to the new system.|
-| July 2022 | sync `/warm_archive` to new hardware| | |
+| July 2023 | sync `/warm_archive` to new hardware| |using datamover nodes with Slurm jobs |
+| September 2023 |prepare recabling of older hardware (Bull)| |integrate other clusters in the IB infrastructure |
+| Autumn 2023 |finalize integration of other clusters (Bull)| |**~2 days downtime**|
+
 
 ### Data Migration
 
