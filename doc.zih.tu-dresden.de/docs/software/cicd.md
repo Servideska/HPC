@@ -8,7 +8,7 @@ that you can continuously build, test, and benchmark your HPC software in the ta
 - You (and ideally every involved developer) need an [HPC-Login](../application/overview.md).
 - You manage your source code in a repository at the [TU Chemnitz GitLab instance](https://gitlab.hrz.tu-chemnitz.de)
 
-## Setup process with Authentication tokens
+## Setup Process with Authentication Tokens
 
 1. Open your repository in the browser.
 
@@ -25,7 +25,7 @@ that you can continuously build, test, and benchmark your HPC software in the ta
 7. Then follow the steps
 
 
-## Setup process with Registration token (deprecated)
+## Setup Process with Registration Token (deprecated)
 
 1. Open your repository in the browser.
 
@@ -52,7 +52,7 @@ that you can continuously build, test, and benchmark your HPC software in the ta
 
     At the moment, only repositories hosted at the TU Chemnitz GitLab are supported.
 
-## GitLab pipelines
+## GitLab Pipelines
 
 As the ZIH provides the CI/CD as an GitLab runner, you can run any pipeline already working on other
 runners with the CI/CD at the ZIH systems. This also means, to configure the actual steps performed
@@ -69,7 +69,7 @@ Slurm parameters. While scheduling jobs allows to run code directly on the targe
 means that a single pipeline has to wait for resource allocation. Hence, you want to restrict,
 which commits will run the complete pipeline, or which commits only run a part of the pipeline.
 
-### Passing Slurm parameters
+### Passing Slurm Parameters
 
 You can pass Slurm parameters via the [`variables`
 keyword](https://gitlab.hrz.tu-chemnitz.de/help/ci/yaml/index#variables), either globally for the
@@ -107,7 +107,7 @@ Use the variable `SCHEDULER_PARAMETERS` and define the same parameters you would
         - pwd
         - hostname
     after_script:
-        - date
+        - date pi
         - pwd
         - hostname
 
@@ -123,7 +123,7 @@ Use the variable `SCHEDULER_PARAMETERS` and define the same parameters you would
         SCHEDULER_PARAMETERS: -p ml
     ```
 
-## Current limitations
+## Current Limitations
 
 - Every runner job is currently limited to **one hour**. Once this time limit passes, the runner job
   gets canceled regardless of the requested runtime from Slurm. This time *includes* the waiting
