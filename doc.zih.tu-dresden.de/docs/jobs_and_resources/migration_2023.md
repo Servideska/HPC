@@ -51,10 +51,11 @@ of the action items.
 |---|---|---|---|
 | done (May 2023) |first sync /scratch to /data/horse/old_scratch2| |copied 4 PB in about 3 week.|
 | done (June 2023) |enable access to Barnard| |initialized LDAP tree with Taurus users|
+| done (July 2023) | |install new software stack|tedious work |
 | ASAP | |test new software stack|new versions sometimes require different prerequisites|
 | ASAP | |adapt scripts|new Slurm version, new resources, no partitions|
 | ASAP | |prepare data migration|The small filesystems `/beegfs` and `/lustre/ssd`, and `/home` are mounted on the old systems "until the end". They will *not* be migrated to the new system.|
-| when available | sync `/warm_archive` to new hardware| | |
+| July 2022 | sync `/warm_archive` to new hardware| | |
 
 ### Data Migration
 
@@ -65,7 +66,7 @@ Why do users need to copy their data? Why only some? How to do it best?
 to not forget the last bytes. During the downtime, /projects will be migrated.
 * User homes are relatively small and can be copied by the scientists.
 Keeping in mind that maybe deleting and archiving is a better choice.
-* Datamover nodes...
+* For this, datamover nodes are available to run transfer jobs under Slurm.
 
 ### A Graphical Overview
 
