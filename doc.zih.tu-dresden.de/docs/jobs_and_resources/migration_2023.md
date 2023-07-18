@@ -54,12 +54,12 @@ of the action items.
 | done (July 2023) | |install new software stack|tedious work |
 | ASAP | |adapt scripts|new Slurm version, new resources, no partitions|
 | August 2023 | |test new software stack on Barnard|new versions sometimes require different prerequisites|
-| August 2023| |test new software stack on other clusters|a few nodes will be made available with the new sw stack, but with the old file systems|
+| August 2023| |test new software stack on other clusters|a few nodes will be made available with the new sw stack, but with the old filesystems|
 | ASAP | |prepare data migration|The small filesystems `/beegfs` and `/lustre/ssd`, and `/home` are mounted on the old systems "until the end". They will *not* be migrated to the new system.|
 | July 2023 | sync `/warm_archive` to new hardware| |using datamover nodes with Slurm jobs |
 | September 2023 |prepare recabling of older hardware (Bull)| |integrate other clusters in the IB infrastructure |
 | Autumn 2023 |finalize integration of other clusters (Bull)| |**~2 days downtime**, final rsync and migration of `/projects`, `/warm_archive`|
-| Autumn 2023 ||transfer last data from old file systems | `/beegfs`, `/lustre/scratch`, `/lustre/ssd` are no longer available on the new systems|
+| Autumn 2023 ||transfer last data from old filesystems | `/beegfs`, `/lustre/scratch`, `/lustre/ssd` are no longer available on the new systems|
 
 
 ### Data Migration
