@@ -20,9 +20,9 @@ From the users' pespective, there are seperate clusters, all of them with their 
 They run with their own Slurm batch system. Job submission is possible only from
 their respective login nodes.
 
-All clusters have access to these shared parallel file systems:
+All clusters have access to these shared parallel filesystems:
 
-| File system | Usable directory | Type | Capacity | Purpose |
+| Filesystem | Usable directory | Type | Capacity | Purpose |
 | --- | --- | --- | --- | --- |
 | Home | `/home` | Lustre | quota per user: 20 GB | permanant user data |
 | Project | `/projects` | Lustre | quota per project | permanant project data |
