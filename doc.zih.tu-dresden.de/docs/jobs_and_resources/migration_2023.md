@@ -61,7 +61,6 @@ of the action items.
 | Autumn 2023 |finalize integration of other clusters (Bull)| |**~2 days downtime**, final rsync and migration of `/projects`, `/warm_archive`|
 | Autumn 2023 ||transfer last data from old filesystems | `/beegfs`, `/lustre/scratch`, `/lustre/ssd` are no longer available on the new systems|
 
-
 ### Data Migration
 
 Why do users need to copy their data? Why only some? How to do it best?
