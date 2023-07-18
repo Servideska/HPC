@@ -58,7 +58,8 @@ of the action items.
 | ASAP | |prepare data migration|The small filesystems `/beegfs` and `/lustre/ssd`, and `/home` are mounted on the old systems "until the end". They will *not* be migrated to the new system.|
 | July 2023 | sync `/warm_archive` to new hardware| |using datamover nodes with Slurm jobs |
 | September 2023 |prepare recabling of older hardware (Bull)| |integrate other clusters in the IB infrastructure |
-| Autumn 2023 |finalize integration of other clusters (Bull)| |**~2 days downtime**|
+| Autumn 2023 |finalize integration of other clusters (Bull)| |**~2 days downtime**, final rsync and migration of /projects, /warm_archive|
+| Autumn 2023 ||transfer last data from old file systems | /beegfs, /lustre/scratch /lustre/ssd are no longer available on the new systems|
 
 
 ### Data Migration
