@@ -86,4 +86,4 @@ For machine learning, we have IBM AC922 nodes installed with this configuration:
     - 6 x NVIDIA VOLTA V100 with 32 GB HBM2
     - NVLINK bandwidth 150 GB/s between GPUs and host
 - Hostnames: `taurusml[1-32]` -> `ml[1-29].power9.hpc.tu-dresden.de`
-- Login nodes: `login[1-2].power9.hpc.tu-dresden.de``
+- Login nodes: `login[1-2].power9.hpc.tu-dresden.de`
