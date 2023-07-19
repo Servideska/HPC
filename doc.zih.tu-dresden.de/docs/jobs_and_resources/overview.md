@@ -1,6 +1,6 @@
 # HPC Resources and Jobs
 
-ZIH operates a high performance computing (HPC) system with more than 90.000 cores, 500 GPUs, and
+ZIH operates high performance computing (HPC) systems with more than 90.000 cores, 500 GPUs, and
 a flexible storage hierarchy with about 20 PB total capacity. The HPC system provides an optimal
 research environment especially in the area of data analytics and machine learning as well as for
 processing extremely large data sets. Moreover it is also a perfect platform for highly scalable,
