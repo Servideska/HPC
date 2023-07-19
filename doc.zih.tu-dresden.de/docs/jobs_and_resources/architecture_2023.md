@@ -49,7 +49,7 @@ A large number of changing files is a challenge for any backup system. To protec
 our snapshots and backup from work data,
 `/projects` cannot be used for temporary data on the compute nodes - it is mounted read-only.
 
-Please use our data movers to transfer worthy data to permanent
+Please use our data mover mechanisms to transfer worthy data to permanent
 storages.
 
 ## Migration Phase
