@@ -127,7 +127,7 @@ nav:
     - Platform LSF: archive/platform_lsf.md
     - BeeGFS Filesystem on Demand: archive/beegfs_on_demand.md
     - Jupyter Installation: archive/install_jupyter.md
-    - Job Profiling: archive/slurm_profiling.md
+    - Profile Jobs with Slurm: archive/slurm_profiling.md
     - Switched-Off Systems:
       - Overview 2022: archive/hardware_overview_2022.md
       - Overview: archive/systems_switched_off.md
