@@ -9,10 +9,12 @@ Infiniband and with Ethernet.
 
 ## Compute Systems
 
-For the users, all compute clusters now act as seperate entities. They have their own
-login nodes of the same hardware and their own Slurm batch systems. It is now no longer up
-to the batch system to decide if a job runs on AMD or Intel hardware. The users now chose
-the hardware by the choice of the correct login node.
+All compute clusters now act as separate entities having their own
+login nodes of the same hardware and their very own Slurm batch systems. The different hardware,
+e.g. Romeo and Alpha Centauri, is no longer managed via a single Slurm instance with
+corresponding partitions. Instead, you as user now chose the hardware by the choice of the
+correct login node.
+
 
 The login nodes can be used for smaller interactive jobs on the clusters. There are
 restrictions in place, though, wrt. usable resources and time per user. For larger
