@@ -31,6 +31,8 @@ All clusters have access to these shared parallel filesystems:
 
 These mount points are planned (September 2023):
 
+| Filesystem | Mount Point | Type | Capacity |
+| --- | --- | --- | --- |
 | Scratch for random access | `/data/weasel` | WEKA | 232 TB |
 | Scratch for random access | `/data/squirrel` | BeeGFS | xxx TB |
 
