@@ -15,7 +15,6 @@ e.g. Romeo and Alpha Centauri, is no longer managed via a single Slurm instance 
 corresponding partitions. Instead, you as user now chose the hardware by the choice of the
 correct login node.
 
-
 The login nodes can be used for smaller interactive jobs on the clusters. There are
 restrictions in place, though, wrt. usable resources and time per user. For larger
 computations, please use interactive jobs.
