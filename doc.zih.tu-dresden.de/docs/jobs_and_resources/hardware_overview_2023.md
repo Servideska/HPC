@@ -39,7 +39,7 @@ These mount points are planned (September 2023):
 ## Barnard - Intel Sapphire Rapids CPUs
 
 - 630 diskless nodes, each with
-    - 2 x Intel(R) Xeon(R) CPU E5-2680 v3 (52 cores) @ 2.50 GHz, Multithreading enabled
+    - 2 x Intel Xeon CPU E5-2680 v3 (52 cores) @ 2.50 GHz, Multithreading enabled
     - 512 GB RAM
 - Hostnames: `n1[001-630].barnard.hpc.tu-dresden.de`
 - Login nodes: `login[1-4].barnard.hpc.tu-dresden.de`
@@ -68,7 +68,7 @@ These mount points are planned (September 2023):
 ## Large SMP System HPE Superdome Flex
 
 - 1 node, with
-    - 32 x Intel(R) Xeon(R) Platinum 8276M CPU @ 2.20 GHz (28 cores)
+    - 32 x Intel Xeon Platinum 8276M CPU @ 2.20 GHz (28 cores)
     - 47 TB RAM
 - Configured as one single node
 - 48 TB RAM (usable: 47 TB - one TB is used for cache coherence protocols)
