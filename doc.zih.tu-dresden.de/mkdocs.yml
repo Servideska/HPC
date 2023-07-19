@@ -101,7 +101,7 @@ nav:
     - HPC Resources:
       - Overview: jobs_and_resources/hardware_overview.md
       - New Systems 2023:
-        - Architectural Re-Desgin 2023: jobs_and_resources/architecture_2023.md
+        - Architectural Re-Design 2023: jobs_and_resources/architecture_2023.md
         - Overview 2023: jobs_and_resources/hardware_overview_2023.md
         - Migration 2023: jobs_and_resources/migration_2023.md
       - AMD Rome Nodes: jobs_and_resources/rome_nodes.md
