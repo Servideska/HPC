@@ -100,7 +100,7 @@ nav:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
       - Overview: jobs_and_resources/hardware_overview.md
-      - New systems 2023:
+      - New Systems 2023:
         - Architecture 2023: jobs_and_resources/architecture_2023.md
         - Overview 2023: jobs_and_resources/hardware_overview_2023.md
         - Migration 2023: jobs_and_resources/migration_2023.md
