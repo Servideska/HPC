@@ -7,7 +7,7 @@ research goals of the users and the ZIH.
 
 ## Overview
 
-From the users' pespective, there are seperate clusters, all of them with their subdomains:
+From the users' perspective, there are separate clusters, all of them with their subdomains:
 
 | Name | Description | Year| DNS |
 | --- | --- | --- | --- |
@@ -24,8 +24,8 @@ All clusters have access to these shared parallel filesystems:
 
 | Filesystem | Usable directory | Type | Capacity | Purpose |
 | --- | --- | --- | --- | --- |
-| Home | `/home` | Lustre | quota per user: 20 GB | permanant user data |
-| Project | `/projects` | Lustre | quota per project | permanant project data |
+| Home | `/home` | Lustre | quota per user: 20 GB | permanent user data |
+| Project | `/projects` | Lustre | quota per project | permanent project data |
 | Scratch for large data / streaming | `/data/horse` | Lustre | 20 PB |  |
 | Scratch for random access | `/data/rabbit` | Lustre | 2 PB | |
 
