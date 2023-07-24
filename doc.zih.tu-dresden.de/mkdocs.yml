@@ -93,7 +93,6 @@ nav:
       - Produce Performance Overview with Perf: software/perf_tools.md
       - Track Slurm Jobs with PIKA: software/pika.md
       - Record Course of Events with Score-P: software/scorep.md
-      - Profile Jobs with Slurm: jobs_and_resources/slurm_profiling.md
       - Study Course of Events with Vampir: software/vampir.md
       - Measure Energy Consumption: software/energy_measurement.md
       - Compare System Performance with SPEChpc: software/spec.md
@@ -102,6 +101,10 @@ nav:
     - Overview: jobs_and_resources/overview.md
     - HPC Resources:
       - Overview: jobs_and_resources/hardware_overview.md
+      - New Systems 2023:
+        - Architectural Re-Design 2023: jobs_and_resources/architecture_2023.md
+        - Overview 2023: jobs_and_resources/hardware_overview_2023.md
+        - Migration 2023: jobs_and_resources/migration_2023.md
       - AMD Rome Nodes: jobs_and_resources/rome_nodes.md
       - NVMe Storage: jobs_and_resources/nvme_storage.md
       - Alpha Centauri: jobs_and_resources/alpha_centauri.md
@@ -113,7 +116,6 @@ nav:
       - Partitions and Limits: jobs_and_resources/partitions_and_limits.md
       - Slurm Job File Generator: jobs_and_resources/slurm_generator.md
       - Checkpoint/Restart: jobs_and_resources/checkpoint_restart.md
-      - Job Profiling: jobs_and_resources/slurm_profiling.md
       - Binding and Distribution of Tasks: jobs_and_resources/binding_and_distribution_of_tasks.md
   - User Support: support/support.md
   - Archive:
@@ -126,7 +128,9 @@ nav:
     - Platform LSF: archive/platform_lsf.md
     - BeeGFS Filesystem on Demand: archive/beegfs_on_demand.md
     - Jupyter Installation: archive/install_jupyter.md
+    - Profile Jobs with Slurm: archive/slurm_profiling.md
     - Switched-Off Systems:
+      - Overview 2022: archive/hardware_overview_2022.md
       - Overview: archive/systems_switched_off.md
       - Migration From Deimos to Atlas: archive/migrate_to_atlas.md
       - System Altix: archive/system_altix.md
